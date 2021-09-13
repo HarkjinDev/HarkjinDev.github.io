@@ -30,6 +30,16 @@ about_content: |
   보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
+# Skills
+  - title: Skills
+    layout: text
+    content: |
+      IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch) <br />
+      Penetration Test(MetaSploit) <br />
+      Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog) <br />
+      Programming(Python, Bash, Powershell, C++) <br />
+      AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)
+
 # Personal Projects
   - title: Personal Projects 
     layout: list 
@@ -58,7 +68,7 @@ content:
     layout: list
     content:
       - layout: left
-        title: 모의해킹 침해대응 정보보안전문가
+        title: 모의해킹 침해대응 <br /> 정보보안전문가
         sub_title: 솔데스크
         caption: 2020-03 ~ 2020-09 (6month)
         description: | 
