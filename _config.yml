@@ -18,7 +18,7 @@ github_username: HarkjinDev
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: images/profile.jpg
+about_profile_image: images/profile2.jpg
 about_content: | 
   안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 보안 신입 문학진입니다.
   
@@ -35,6 +35,21 @@ content:
     content:
       - layout: left
         title: Project name
+        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        link_text: Link Text
+        additional_links:
+          - title:  Github page for project (eg. sproogen/modern-resume-theme)
+            icon: fab fa-github
+            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+          - title:  Github page for project (eg. sproogen/modern-resume-theme)
+            icon: fab fa-github
+            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        quote: >
+          Short overview of the project (optional)
+        description: | # this will include new lines to allow paragraphs
+          Description about the work on/with the project
+      - layout: left
+        title: Project name2
         link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
         link_text: Link Text
         additional_links:
