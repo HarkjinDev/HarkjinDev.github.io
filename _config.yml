@@ -1,64 +1,33 @@
 # Site
-repository: Git repository where your resume will be hosted, only required if you are hosting on GitHub (eg. sproogen/modern-resume-theme)
+repository: HarkjinDev/HarkjinDev.github.io
 # favicon: Directory of your favicon (eg. images/favicon.ico)(optional)
 
 # Content configuration version
 version: 2
 
 # Personal info
-name: Your Name
-title: Your job title
-email: Your email (optional)
-# email_title: Email (Email title override)
-phone: Your phone number (optional)
-# phone_title: Phone (Phone title override)
-website: Your website (eg. https://google.com)(optional)
-# website_title: Web (Website title override)
+name: 문학진
+title: Information Security
+email: m.harkjin@gmail.com
 
 # Dark Mode (true/false/never)
 darkmode: false
 
 # Social links
-twitter_username: jekyllrb
-github_username:  jekyll
-stackoverflow_username: "00000001"
-dribbble_username: jekyll
-facebook_username: jekyll
-flickr_username: jekyll
-instagram_username: jekyll
-linkedin_username: jekyll
-xing_username: jekyll
-pinterest_username: jekyll
-youtube_username: jekyll
-googleplus_username: +jekyll
-orcid_username: 0000-0000-0000-0000
-
-# Additional icon links
-additional_links:
-- title: Link name
-  icon: Font Awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
-  url: Link url (eg. https://google.com)
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
-#   url: Link url (eg. https://google.com)
-
-# Google Analytics and Tag Manager
-# Using more than one of these may cause issues with reporting
-# gtm: "GTM-0000000"
-# gtag: "UA-00000000-0"
-# google_analytics: "UA-00000000-0"
+github_username: HarkjinDev
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: Directory of profile image (eg. images/profile.jpg)
-about_content: | # this will include new lines to allow paragraphs
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
-
-  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-    - Lists
-    - Tables
-    - <a href="google.com">Links</a>
-    - Images ![alt text](/images/landscape-trees.jpg "Trees")
+about_profile_image: images/profile.jpg
+about_content: | 
+  안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 보안 신입 문학진입니다.
+  
+  업무를 할 때는 제 업무뿐만 아니라, 회사가 원하는 방향이 무엇인지 전체를 생각하는 주인의식을 가지고 일을 하는 스타일입니다.
+  
+  4년의 전기정비 일을 하면서 책임감을 가지고 일을 하는 것을 배웠습니다. 
+  사소한 거 하나라도 보안의 위험을 놓치지 않는다는 책임감을 항상 가지고 일을 하는 사람이 되고자 노력합니다.
+  
+  보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.
 
 content:
   - title: Projects # Title for the section
