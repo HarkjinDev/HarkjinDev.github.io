@@ -30,6 +30,17 @@ about_content: |
   보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
+# Personal Projects
+  - title: Personal Projects 
+    layout: list 
+    content:
+      - layout: left
+        title: FishingSpot
+        caption: 2021-03 ~ 진행중
+        description: | 
+          설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
+          담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리
+
 # About more me
   - title: A Little More About Me
     layout: text
