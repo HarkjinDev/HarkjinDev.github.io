@@ -31,7 +31,6 @@ about_content: |
   보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
-# Skills
   - title: Skills
     layout: text
     content: |
@@ -40,8 +39,6 @@ content:
     - Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog) <br />
     - Programming(Python, Bash, Powershell, C++) <br />
     - AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail) <br />
-
-# Study Projects    
   - title: Study Projects 
     layout: list 
     content:
@@ -52,65 +49,6 @@ content:
         description: | 
           Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
           <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
-
-# Personal Projects
-  - title: Personal Projects 
-    layout: list 
-    content:
-      - layout: left
-        title: FishingSpot
-        caption: 2021-03 ~ 진행중
-        description: | 
-          설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
-          담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리
-
-# Experience
-  - title: Experience
-    layout: list
-    content:
-      - layout: left
-        title: 포스코
-        sub_title: 전기 정비
-        caption: 2013-07 ~ 2017-01 (3.7yrs)
-        link: https://www.posco.co.kr/
-        description: | 
-          전기, 계측 설비 및 시스템의 제어 운영 및 정비
-
-# Education
-  - title: Education
-    layout: list
-    content:
-      - layout: left
-        title: 모의해킹 침해대응 정보보안전문가
-        sub_title: 솔데스크
-        caption: 2020-03 ~ 2020-09 (6month)
-        description: | 
-          Description of qualification
-      - layout: left
-        title: 포항제철공업고등학교
-        sub_title: 컴퓨터네트워크과
-        caption: 2006 ~ 2009 (3yrs)
-        description: | 
-          Description of qualification
-
-# Certificate
-  - title: Certificate
-    layout: text
-    content: |
-      정보보안기사 - 2016.06.24 <br />
-      정보처리산업기사 - 2012.09.25 <br />
-      CCNP - 2008.03.08 ~ 2011.03.08 <br />
-
-# Award-Winning
-  - title: Award-Winning
-    layout: text
-    content: |
-      2008년 전국기능경기대회(정보통신) - 동상 <br />
-      2008년 경북지방기능경기대회(정보통신) - 금상 <br />
-      2007년 전국기능경기대회(정보통신) - 우수상 <br />
-      2007년 경북지방기능경기대회(정보통신) - 동상
-
-# More About Me
   - title: A Little More About Me
     layout: text
     content: | 
