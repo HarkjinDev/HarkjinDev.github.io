@@ -88,11 +88,7 @@ content:
           <mark>Mareware Analysis</mark> <mark>Vulnerability Analysis</mark> <mark>Penetration Testing</mark>
       - layout: left
         title: Wargame Challenge
-        additional_links:
-          - title: FTZ
-            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
-          - title: LOB(The lord of BOF)
-            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
+        link: <a href='https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe' target='_blank' style='font-size:14px; text-decoration:none;'>FTZ</a> <a href='https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB' target='_blank' style='font-size:14px; text-decoration:none;'>LOB(The lord of BOF)</a> 
         description: | 
           <mark>System Hacking</mark> <mark>Reverse Engineering</mark> <mark>BOF</mark>
 
