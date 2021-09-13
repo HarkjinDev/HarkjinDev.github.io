@@ -41,6 +41,18 @@ content:
           설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
           담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리
 
+# Experience
+  - title: Experience
+    layout: list
+    content:
+      - layout: left
+        title: 포스코
+        sub_title: 전기 정비
+        caption: 2013-07 ~ 2017-01 (3.7yrs)
+        link: https://www.posco.co.kr/
+        description: | 
+          전기, 계측 설비 및 시스템의 제어 운영 및 정비
+
 # About more me
   - title: A Little More About Me
     layout: text
