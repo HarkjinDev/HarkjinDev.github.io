@@ -41,7 +41,7 @@ content:
       AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)
 
 # Study Projects
-- title: Study Projects 
+  - title: Study Projects 
     layout: list 
     content:
       - layout: left
