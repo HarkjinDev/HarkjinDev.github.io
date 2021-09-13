@@ -53,6 +53,23 @@ content:
         description: | 
           전기, 계측 설비 및 시스템의 제어 운영 및 정비
 
+# Education
+  - title: Education
+    layout: list
+    content:
+      - layout: left
+        title: 모의해킹 침해대응 정보보안전문가
+        sub_title: 솔데스크
+        caption: 2020-03 ~ 2020-09 (6month)
+        description: | 
+          Description of qualification
+      - layout: left
+        title: 포항제철공업고등학교
+        sub_title: 컴퓨터네트워크과
+        caption: 2006 ~ 2009 (3yrs)
+        description: | 
+          Description of qualification
+
 # About more me
   - title: A Little More About Me
     layout: text
