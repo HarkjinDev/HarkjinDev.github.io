@@ -84,7 +84,7 @@ content:
         link: https://github.com/HarkjinDev/Security/tree/main/Suricata
         link_text: Link Github
         description: | 
-          Suricata NIDS를 활용한 DOS 및 Web 공격 Snort 탐지 연구 <br />
+          Suricata IDS/IPS를 활용한 DOS 및 Web 공격 Snort 탐지 연구 <br />
           <mark>IDS</mark> <mark>IPS</mark> <mark>Snort</mark> <mark>Dos/Web Attacking</mark>
       - layout: left
         title: RDP 취약점 분석 연구
