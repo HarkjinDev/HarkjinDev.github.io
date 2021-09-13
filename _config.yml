@@ -30,6 +30,7 @@ about_content: |
   보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
+# About more me
   - title: A Little More About Me
     layout: text
     content: | 
