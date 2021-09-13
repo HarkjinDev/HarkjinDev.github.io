@@ -20,75 +20,99 @@ github_username: HarkjinDev
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile2.jpg
 about_content: | 
-  안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 보안 신입 문학진입니다.
+  안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 보안 신입 문학진입니다. <br />
   
-  업무를 할 때는 제 업무뿐만 아니라, 회사가 원하는 방향이 무엇인지 전체를 생각하는 주인의식을 가지고 일을 하는 스타일입니다.
+  업무를 할 때는 제 업무뿐만 아니라, 회사가 원하는 방향이 무엇인지 전체를 생각하는 주인의식을 가지고 일을 하는 스타일입니다. <br />
   
-  4년의 전기정비 일을 하면서 책임감을 가지고 일을 하는 것을 배웠습니다. 
-  사소한 거 하나라도 보안의 위험을 놓치지 않는다는 책임감을 항상 가지고 일을 하는 사람이 되고자 노력합니다.
+  4년의 전기정비 일을 하면서 책임감을 가지고 일을 하는 것을 배웠습니다.<br />
+  사소한 거 하나라도 보안의 위험을 놓치지 않는다는 책임감을 항상 가지고 일을 하는 사람이 되고자 노력합니다.<br />
   
-  보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.
+  보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
-  - title: Projects # Title for the section
-    layout: list # Type of content section (list/text)
+# Skills
+  - title: Skills
+    layout: text
+    content: |
+    - IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch) <br />
+    - Penetration Test(MetaSploit) <br />
+    - Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog) <br />
+    - Programming(Python, Bash, Powershell, C++) <br />
+    - AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail) <br />
+
+# Study Projects    
+  - title: Study Projects 
+    layout: list 
     content:
       - layout: left
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        quote: >
-          Short overview of the project (optional)
-        description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+        title: 통합관제시스템 구축
+        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
+        link_text: Link Github
+        description: | 
+          Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
+          <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
+
+# Personal Projects
+  - title: Personal Projects 
+    layout: list 
+    content:
       - layout: left
-        title: Project name2
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        quote: >
-          Short overview of the project (optional)
-        description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+        title: FishingSpot
+        caption: 2021-03 ~ 진행중
+        description: | 
+          설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
+          담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리
+
+# Experience
   - title: Experience
     layout: list
     content:
-      - layout: right
-        title: Company name
-        sub_title: Job title
-        caption: Date Range (eg. November 2016 - present)
-        link: Link to company (optional)
-        quote: >
-          Short description of the company (optional)
+      - layout: left
+        title: 포스코
+        sub_title: 전기 정비
+        caption: 2013-07 ~ 2017-01 (3.7yrs)
+        link: https://www.posco.co.kr/
         description: | # this will include new lines to allow paragraphs
-          Description of role
+          전기, 계측 설비 및 시스템의 제어 운영 및 정비
+
+# Education
   - title: Education
     layout: list
     content:
-      - layout: top-right
-        title: Institution name
-        sub_title: Qualifications (eg. BA Performing Arts)
-        caption: Date Range (eg. 2016 - 2019)
-        quote: >
-          Short institution or course description (optional)
+      - layout: left
+        title: 모의해킹 침해대응 정보보안전문가
+        sub_title: 솔데스크
+        caption: 2020-03 ~ 2020-09 (6month)
         description: | # this will include new lines to allow paragraphs
           Description of qualification
+      - layout: left
+        title: 포항제철공업고등학교
+        sub_title: 컴퓨터네트워크과
+        caption: 2006 ~ 2009 (3yrs)
+        description: | # this will include new lines to allow paragraphs
+          Description of qualification
+
+# Certificate
+  - title: Certificate
+    layout: text
+    content: |
+      정보보안기사 - 2016.06.24 <br />
+      정보처리산업기사 - 2012.09.25 <br />
+      CCNP - 2008.03.08 ~ 2011.03.08 <br />
+
+# Award-Winning
+  - title: Award-Winning
+    layout: text
+    content: |
+      2008년 전국기능경기대회(정보통신) - 동상 <br />
+      2008년 경북지방기능경기대회(정보통신) - 금상 <br />
+      2007년 전국기능경기대회(정보통신) - 우수상 <br />
+      2007년 경북지방기능경기대회(정보통신) - 동상
+
+# More About Me
   - title: A Little More About Me
     layout: text
-    content: | # this will include new lines to allow paragraphs
+    content: | 
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
