@@ -28,6 +28,11 @@ about_content: |
   사소한 거 하나라도 보안의 위험을 놓치지 않는다는 <mark>책임감</mark>을 항상 가지고 일을 하는 사람이 되고자 노력합니다.<br />
   
   보안은 다양한 직군의 동료들과 끊임없는 <mark>소통</mark>을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
+  
+  이런 업무를 하고 싶습니다.
+  • 보안 관제 운영(보안 이벤트 로그 분석 활동 및 대응)
+  • 취약점 진단 및 침해사고 대응(취약점 진단 침투 테스트 및 대응)
+  • 각종 보안 시스템 구축 및 운영 관리(SIEM 및 보안솔루션 등)
 
 content:
 # Skills
@@ -140,9 +145,9 @@ content:
     layout: text
     content: |
       <ul>
-      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
-      <li>정보처리산업기사&nbsp;&nbsp;<i>2012.09.25</i> </li>
-      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08 ~ 2011.03.08</i> </li>
+      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
+      <li>정보처리산업기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2012.09.25</i> </li>
+      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08 ~ 2011.03.08</i> </li>
       </ul>
 
 # Award-Winning
@@ -152,7 +157,7 @@ content:
       <ul>
       <li>2008년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.09.30</i> </li>
       <li>2008년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>금상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.04.16</i> </li>
-      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;<i>2007.09.15</i> </li>
+      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>2007.09.15</i> </li>
       <li>2007년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2007.04.16</i> </li>
       </ul>
 
