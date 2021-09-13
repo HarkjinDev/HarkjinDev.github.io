@@ -88,15 +88,12 @@ content:
           <mark>Mareware Analysis</mark> <mark>Vulnerability Analysis</mark> <mark>Penetration Testing</mark>
       - layout: left
         title: Wargame Challenge
-        additional_links:
-          - title: FTZ
-            icon: fab fa-github
-            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
-          - title: LOB(The lord of BOF)
-            icon: fab fa-github
-            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
+        link: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
+        link_text: FTZ
+        link: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
+        link_text: LOB(The lord of BOF)
         description: | # this will include new lines to allow paragraphs
-          <mark>System Hacking</mark>, <mark>Reverse Engineering</mark>, <mark>BOF</mark>
+          <mark>System Hacking</mark> <mark>Reverse Engineering</mark> <mark>BOF</mark>
 
 # Personal Projects
   - title: Personal Projects 
