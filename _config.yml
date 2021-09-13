@@ -46,8 +46,10 @@ content:
     content:
       - layout: left
         title: 통합관제시스템 구축
-        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
-        link_text: Link Github
+        additional_links:
+          - title: Github page for project
+            icon: fab fa-github
+            url: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
         description: | 
           Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
           <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
