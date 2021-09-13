@@ -34,11 +34,13 @@ content:
   - title: Skills
     layout: text
     content: |
-      IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch) <br />
-      Penetration Test(MetaSploit) <br />
-      Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog) <br />
-      Programming(Python, Bash, Powershell, C++) <br />
-      AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)
+      <ul>
+      <li>IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch)</li>
+      <li>Penetration Test(MetaSploit)</li>
+      <li>Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog)</li>
+      <li>Programming(Python, Bash, Powershell, C++)</li>
+      <li>AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)</li>
+      </ul>
 
 # Study Projects
   - title: Study Projects 
