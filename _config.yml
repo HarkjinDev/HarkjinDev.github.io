@@ -30,24 +30,6 @@ about_content: |
   보안은 다양한 직군의 동료들과 끊임없는 소통을 해야, 보다 더 안전한 환경을 만들 수 있다고 생각합니다.<br />
 
 content:
-  - title: Skills
-    layout: text
-    content: |
-    - IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch) <br />
-    - Penetration Test(MetaSploit) <br />
-    - Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog) <br />
-    - Programming(Python, Bash, Powershell, C++) <br />
-    - AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail) <br />
-  - title: Study Projects 
-    layout: list 
-    content:
-      - layout: left
-        title: 통합관제시스템 구축
-        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
-        link_text: Link Github
-        description: | 
-          Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
-          <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
   - title: A Little More About Me
     layout: text
     content: | 
