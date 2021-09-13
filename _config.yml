@@ -40,6 +40,64 @@ content:
       Programming(Python, Bash, Powershell, C++) <br />
       AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)
 
+# Study Projects
+- title: Study Projects 
+    layout: list 
+    content:
+      - layout: left
+        title: 통합관제시스템 구축
+        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
+        link_text: Link Github
+        description: | 
+          Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구
+          <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
+      - layout: left
+        title: 랜섬웨어 분석 및 차단 연구
+        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/Ransomware
+        link_text: Link Github
+        description: | 
+          Cuckoo Sandbox를 이용한 랜섬웨어(Wannacry) 분석 및 차단 연구
+          <mark>Sophos UTM</mark> <mark>ClamAV(Antivirus)</mark> <mark>Cuckoo Sandbox</mark> <mark>Mareware Analysis</mark> <mark>Mail Filtering</mark>
+      - layout: left
+        title: 주요통신기반시설 기술적 취약점 분석/평가 스크립트 제작
+        link: https://github.com/HarkjinDev/Security/tree/main/VulnerabilityAnalysis
+        link_text: Link Github
+        description: | 
+          CentOS7의 주요통신기반시설 기술적 취약점 분석 및 평가 Bash Script 제작
+          <mark>Server/System Management</mark> <mark>Vulnerability Analysis</mark> <mark>Bash script</mark>
+      - layout: left
+        title: ModSecurity WAF 구축
+        link: https://github.com/HarkjinDev/Security/tree/main/ModSecurity
+        link_text: Link Github
+        description: | 
+          ModSecurity WAF를 활용한 Web 공격 탐지 연구
+          <mark>WAF</mark> <mark>Apache</mark> <mark>Web Hacking</mark>
+      - layout: left
+        title: Suricata IDS/IPS 구축
+        link: https://github.com/HarkjinDev/Security/tree/main/Suricata
+        link_text: Link Github
+        description: | 
+          Suricata NIDS를 활용한 DOS 및 Web 공격 Snort 탐지 연구
+          <mark>IDS</mark> <mark>IPS</mark> <mark>Snort</mark> <mark>Dos/Web Attacking</mark>
+      - layout: left
+        title: RDP 취약점 분석 연구
+        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/RDP
+        link_text: Link Github
+        description: | 
+          CVE-2019-0708 Bluekeep RDP 취약점에 대한 분석 및 모의해킹
+          <mark>Mareware Analysis</mark> <mark>Vulnerability Analysis</mark> <mark>Penetration Testing</mark>
+      - layout: left
+        title: Wargame Challenge
+        additional_links:
+          - title: FTZ
+            icon: fab fa-github
+            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
+          - title: LOB(The lord of BOF)
+            icon: fab fa-github
+            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
+        description: | 
+          <mark>System Hacking</mark>, <mark>Reverse Engineering</mark>, <mark>BOF</mark>
+
 # Personal Projects
   - title: Personal Projects 
     layout: list 
