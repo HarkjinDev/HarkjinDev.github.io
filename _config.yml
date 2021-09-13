@@ -55,44 +55,45 @@ content:
         title: 랜섬웨어 분석 및 차단 연구
         link: https://github.com/HarkjinDev/Security/tree/main/Write-up/Ransomware
         link_text: Link Github
-        description: | # this will include new lines to allow paragraphs
+        description: | 
           Cuckoo Sandbox를 이용한 랜섬웨어(Wannacry) 분석 및 차단 연구 <br />
           <mark>Sophos UTM</mark> <mark>ClamAV(Antivirus)</mark> <mark>Cuckoo Sandbox</mark> <mark>Mareware Analysis</mark> <mark>Mail Filtering</mark>
       - layout: left
         title: 주요통신기반시설 기술적 취약점 분석/평가 스크립트 제작
         link: https://github.com/HarkjinDev/Security/tree/main/VulnerabilityAnalysis
         link_text: Link Github
-        description: | # this will include new lines to allow paragraphs
+        description: |
           CentOS7의 주요통신기반시설 기술적 취약점 분석 및 평가 Bash Script 제작 <br />
           <mark>Server/System Management</mark> <mark>Vulnerability Analysis</mark> <mark>Bash script</mark>
       - layout: left
         title: ModSecurity WAF 구축
         link: https://github.com/HarkjinDev/Security/tree/main/ModSecurity
         link_text: Link Github
-        description: | # this will include new lines to allow paragraphs
+        description: | 
           ModSecurity WAF를 활용한 Web 공격 탐지 연구 <br />
           <mark>WAF</mark> <mark>Apache</mark> <mark>Web Hacking</mark>
       - layout: left
         title: Suricata IDS/IPS 구축
         link: https://github.com/HarkjinDev/Security/tree/main/Suricata
         link_text: Link Github
-        description: | # this will include new lines to allow paragraphs
+        description: | 
           Suricata NIDS를 활용한 DOS 및 Web 공격 Snort 탐지 연구 <br />
           <mark>IDS</mark> <mark>IPS</mark> <mark>Snort</mark> <mark>Dos/Web Attacking</mark>
       - layout: left
         title: RDP 취약점 분석 연구
         link: https://github.com/HarkjinDev/Security/tree/main/Write-up/RDP
         link_text: Link Github
-        description: | # this will include new lines to allow paragraphs
+        description: | 
           CVE-2019-0708 Bluekeep RDP 취약점에 대한 분석 및 모의해킹 <br />
           <mark>Mareware Analysis</mark> <mark>Vulnerability Analysis</mark> <mark>Penetration Testing</mark>
       - layout: left
         title: Wargame Challenge
-        link: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
-        link_text: FTZ
-        link: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
-        link_text: LOB(The lord of BOF)
-        description: | # this will include new lines to allow paragraphs
+        additional_links:
+          - title: FTZ
+            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/HackMe
+          - title: LOB(The lord of BOF)
+            url: https://github.com/HarkjinDev/Security/tree/main/Reverse/LOB
+        description: | 
           <mark>System Hacking</mark> <mark>Reverse Engineering</mark> <mark>BOF</mark>
 
 # Personal Projects
