@@ -140,9 +140,9 @@ content:
     layout: text
     content: |
       <ul>
-      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
+      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
       <li>정보처리산업기사&nbsp;&nbsp;<i>2012.09.25</i> </li>
-      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08 ~ 2011.03.08</i> </li>
+      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08 ~ 2011.03.08</i> </li>
       </ul>
 
 # Award-Winning
@@ -150,9 +150,9 @@ content:
     layout: text
     content: |
       <ul>
-      <li>2008년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;<i>2008.09.30</i> </li>
+      <li>2008년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;<i>2008.09.30</i> </li>
       <li>2008년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>금상</b>&nbsp;&nbsp;&nbsp;<i>2008.04.16</i> </li>
-      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;<i>2007.09.15</i> </li>
+      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;<i>2007.09.15</i> </li>
       <li>2007년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;<i>2007.04.16</i> </li>
       </ul>
 
