@@ -46,10 +46,8 @@ content:
     content:
       - layout: left
         title: 통합관제시스템 구축
-        additional_links:
-          - title: Github page for project
-            icon: fab fa-github
-            url: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
+        link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
+        link_text: Link Github
         description: | 
           Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
           <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
@@ -109,7 +107,8 @@ content:
         caption: 2021-03 ~ 진행중
         description: | 
           설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
-          담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리
+          담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리 <br />
+          <mark>Unreal Engine</mark> <mark>C++</mark> <mark>Flask</mark> <mark>AWS</mark> <mark>AWS DynamoDB</mark> <mark>Google Play</mark>
 
 # Experience
   - title: Experience
