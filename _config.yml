@@ -99,8 +99,8 @@ content:
         description: | 
           <mark>System Hacking</mark> <mark>Reverse Engineering</mark> <mark>BOF</mark>
 
-# Personal Projects
-  - title: Personal Projects 
+# Side Projects
+  - title: Side Projects 
     layout: list 
     content:
       - layout: left
