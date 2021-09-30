@@ -56,35 +56,35 @@ content:
         link: https://github.com/HarkjinDev/Security/tree/main/Write-up/SIEM
         link_text: Link Github
         description: | 
-          Security Onion v2 / ELK / Splunk를 사용한 보안이벤트 분석 및 시각화 연구 <br />
+          오픈소스 Security Onion을 사용하여 관제시스템을 구성하였고, 취약한 윈도우 및 리눅스 서버에 시스템 및 웹 취약점 테스트를 진행하고, ELK 및 Splunk를 활용하여 다양한 보안 이벤트를 분석 및 시각화를 하여 보안 관제 운영에 필요한 지식을 습득하고 경험해 보았습니다. <br />
           <mark>ELK</mark> <mark>Splunk</mark> <mark>Saltstack</mark> <mark>Suricata</mark> <mark>Zeek</mark> <mark>Grafana</mark> <mark>Strelka</mark> <mark>Wazuh</mark>
       - layout: left
         title: 랜섬웨어 분석 및 차단 연구
         link: https://github.com/HarkjinDev/Security/tree/main/Write-up/Ransomware
         link_text: Link Github
         description: | 
-          Cuckoo Sandbox를 이용한 랜섬웨어(Wannacry) 분석 및 차단 연구 <br />
+          Sophos UTM을 구축하여 스팸메일 APT 공격을 메일 필터링으로 차단하고, 차단한 랜섬웨어 악성 프로그램을 ClamAV 및 Cuckoo Sandbox를 활용하여 분석하는 자동화 시스템을 파이썬과 Bash Script로 개발해 보았습니다. <br />
           <mark>Sophos UTM</mark> <mark>ClamAV(Antivirus)</mark> <mark>Cuckoo Sandbox</mark> <mark>Mareware Analysis</mark> <mark>Mail Filtering</mark>
       - layout: left
         title: 주요통신기반시설 기술적 취약점 분석/평가 스크립트 제작
         link: https://github.com/HarkjinDev/Security/tree/main/VulnerabilityAnalysis
         link_text: Link Github
         description: |
-          CentOS7의 주요통신기반시설 기술적 취약점 분석 및 평가 Bash Script 제작 <br />
+          주요통신기반시설 기술적 취약점 분석과 대응 방안 가이드를 토대로 Bash Script로 제작하여 취약점 점검에 대한 지식을 습득하고 경험 해보았습니다. <br />
           <mark>Server/System Management</mark> <mark>Vulnerability Analysis</mark> <mark>Bash script</mark>
       - layout: left
         title: ModSecurity WAF 구축
         link: https://github.com/HarkjinDev/Security/tree/main/ModSecurity
         link_text: Link Github
         description: | 
-          ModSecurity WAF를 활용한 Web 공격 탐지 연구 <br />
+          ModSecurity WAF와 취약한 웹 서버를 구성하여 OWASP 취약점에 대해 공격을 진행하여 로그를 분석하고 룰 개발을 하면서, 웹 공격에 대한 지식을 습득하고 경험해 보았습니다. <br />
           <mark>WAF</mark> <mark>Apache</mark> <mark>Web Hacking</mark>
       - layout: left
         title: Suricata IDS/IPS 구축
         link: https://github.com/HarkjinDev/Security/tree/main/Suricata
         link_text: Link Github
         description: | 
-          Suricata IDS/IPS를 활용한 DOS 및 Web 공격 Snort 탐지 연구 <br />
+          Suricata와 취약한 서버들을 구성하여 DOS 및 Web 공격을 진행하여 로그를 분석하고 Snort 룰을 개발하여 차단하면서, 네트워크 및 웹 공격에 대한 지식을 습득하고 경험해 보았습니다. <br />
           <mark>IDS</mark> <mark>IPS</mark> <mark>Snort</mark> <mark>Dos/Web Attacking</mark>
       - layout: left
         title: RDP 취약점 분석 연구
