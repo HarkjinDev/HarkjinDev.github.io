@@ -132,13 +132,13 @@ content:
         sub_title: 솔데스크
         caption: 2021-03 ~ 2021-09 (6mths)
         description: | 
-          Description of qualification
+          
       - layout: left
         title: 포항제철공업고등학교
         sub_title: 컴퓨터네트워크과
         caption: 2006 ~ 2009 (3yrs)
         description: | 
-          Description of qualification
+          
 
 # Certificate
   - title: Certificate
