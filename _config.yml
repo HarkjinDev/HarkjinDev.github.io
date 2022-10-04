@@ -38,6 +38,7 @@ about_content: |
   <em>미래를 위한 계획</em> <br/>
   • AWS Speciality Security(~2022) <br />
   • CPPG 개인정보관리사(~2022) <br />
+  • DAP 데이터아키텍처전문가(~2023) <br />
   • ISMS-P 인증심사원(~2023) <br />
 
 content:
@@ -46,9 +47,9 @@ content:
     layout: text
     content: |
       <ul>
-      <li>IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, Cisco Router/Switch)</li>
-      <li>Penetration Test(MetaSploit)</li>
-      <li>Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog)</li>
+      <li>IT Infrastructure Implementation/Management (Windows/Linux Server, IPS, IDS, VPN, Firewall, WAF, NAC, Cisco Router/Switch)</li>
+      <li>Penetration Test(MetaSploit, SolidStep, Application, DDoS, Web, Network)</li>
+      <li>Network Security Traffic Analysis(Wireshark, Snort, ELK, Splunk, Graylog, SOAR, TMS)</li>
       <li>Programming(Python, Bash, Powershell, C++)</li>
       <li>AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)</li>
       </ul>
@@ -149,8 +150,8 @@ content:
     layout: text
     content: |
       <ul>
-      <li>모의해킹 침해대응 정보보안전문가<br /><i>솔데스크</i>&nbsp;&nbsp;&nbsp;&nbsp;2021-03 ~ 2021-09 (6mths)</li>
-      <li>포항제철공업고등학교<br /><i>컴퓨터네트워크과</i>&nbsp;&nbsp;&nbsp;&nbsp;<i>2006 ~ 2009 (3yrs)</i></li>
+      <li><b>모의해킹 침해대응 정보보안전문가</b><br /><i>솔데스크</i>&nbsp;&nbsp;&nbsp;&nbsp;2021-03 ~ 2021-09 (6mths)</li>
+      <li><b>포항제철공업고등학교</b><br /><i>컴퓨터네트워크과</i>&nbsp;&nbsp;&nbsp;&nbsp;<i>2006 ~ 2009 (3yrs)</i></li>
       </ul>
 
 # Certificate
