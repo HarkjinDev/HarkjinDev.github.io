@@ -47,6 +47,32 @@ content:
       <li>Programming(Python, Bash, Powershell, C++)</li>
       <li>AWS(Gamelift, DynamoDB, API Gateway, EC2, LightSail)</li>
       </ul>
+      
+# Experience
+  - title: Experience
+    layout: list
+    content:
+     - layout: left
+       title: 한국재정정보원
+       sub_title: 기획재정사이버안전센터
+       caption: 2022-05 ~ Present
+       link: https://www.fis.kr/ko
+       description: | 
+          보안 관제 및 컨설팅
+     - layout: left
+       title: NH농협은행
+       sub_title: 개인정보보호부 (계약직)
+       caption: 2021-10 ~ 21-05 (0.7yrs)
+       link: https://www.nhbank.com/
+       description: | 
+          영업점 원격점검, 정보보호 인증 관련 내/외부 점검 및 지도 지원 업무
+      - layout: left
+        title: 포스코
+        sub_title: 전기 정비
+        caption: 2013-07 ~ 2017-01 (3.7yrs)
+        link: https://www.posco.co.kr/
+        description: | 
+          전기, 계측 설비 및 시스템의 제어 운영 및 정비
 
 # Study Projects
   - title: Study Projects 
@@ -107,29 +133,11 @@ content:
       - layout: left
         title: FishingSpot
         caption: 2021-03 ~ 진행중
+        link: <a href='https://play.google.com/store/apps/details?id=com.OPCStudio.FishingSpot' target='_blank' style='font-size:14px; text-decoration:none;'>피싱보트</a> 
         description: | 
           설명 : 상용화를 목표로 3d 모바일 인디게임 2인 개발 <br />
           담당 : 마이크로 서비스 기반 API 서버(Flask), 언리얼 클라이언트 서브 메뉴 인터페이스 개발, AWS DynamoDB 구축 및 관리, Google Play 관리 <br />
           <mark>Unreal Engine</mark> <mark>C++</mark> <mark>Flask</mark> <mark>AWS</mark> <mark>AWS DynamoDB</mark> <mark>Google Play</mark>
-
-# Experience
-  - title: Experience
-    layout: list
-    content:
-     - layout: left
-        title: NH농협은행
-        sub_title: 개인정보보호부 (계약직)
-        caption: 2021-10 ~ 21-05
-        link: https://www.nhbank.com/
-        description: | 
-          영업점 원격점검, 정보보호 인증 관련 내/외부 점검 및 지도 지원 업무
-      - layout: left
-        title: 포스코
-        sub_title: 전기 정비
-        caption: 2013-07 ~ 2017-01 (3.7yrs)
-        link: https://www.posco.co.kr/
-        description: | 
-          전기, 계측 설비 및 시스템의 제어 운영 및 정비
 
 # Education
   - title: Education
@@ -140,7 +148,6 @@ content:
         sub_title: 솔데스크
         caption: 2021-03 ~ 2021-09 (6mths)
         description: | 
-          
       - layout: left
         title: 포항제철공업고등학교
         sub_title: 컴퓨터네트워크과
