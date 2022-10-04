@@ -34,6 +34,11 @@ about_content: |
   • 취약점 진단 및 침해사고 대응(취약점 진단 침투 테스트 및 대응)<br />
   • 각종 보안 시스템 구축 및 운영 관리(인프라 및 보안솔루션 등)<br />
   • 정보보호 계획 및 운영, 정보보호 인증 관련 업무(ISMS-P, ISO27001, 국정원 관리실태평가 등)<br />
+  <br />
+  <em>미래를 위한 계획</em> <br/>
+  • AWS Speciality Security(~2022) <br />
+  • CPPG 개인정보관리사(~2022) <br />
+  • ISMS-P 인증심사원(~2023) <br />
 
 content:
 # Skills
@@ -153,10 +158,10 @@ content:
     layout: text
     content: |
       <ul>
-      <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.06.17</i> </li>
-      <li>SQLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.04.08</i> </li>
-      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
-      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08(Expired)</i> </li>
+      <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022-06-17</i> </li>
+      <li>SQLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022-04-08</i> </li>
+      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016-06-24</i> </li>
+      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008-03-08(Expired)</i> </li>
       </ul>
 
 # Award-Winning
@@ -164,10 +169,10 @@ content:
     layout: text
     content: |
       <ul>
-      <li>2008년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.09.30</i> </li>
-      <li>2008년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>금상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.04.16</i> </li>
-      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>2007.09.15</i> </li>
-      <li>2007년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2007.04.16</i> </li>
+      <li>2008년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008-09-30</i> </li>
+      <li>2008년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>금상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008-04-16</i> </li>
+      <li>2007년 전국기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>우수상</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>2007-09-15</i> </li>
+      <li>2007년 경북지방기능경기대회(정보통신)&nbsp;&nbsp;&nbsp;&nbsp;<b>동상</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2007-04-16</i> </li>
       </ul>
 
 # About more me
@@ -180,7 +185,7 @@ content:
       <li>취미로 모바일게임을 만들고 있습니다.</li>
       <li>축구를 좋아하고, 맨체스터시티 팬입니다.</li>
       <li>책은 주로 일본 문학을 많이 읽습니다. (좋아하는 작가는 히가시노 게이고)</li>
-      <li>운동은 가리지 않고 좋아하며, 요즘은 크로스핏에 빠져 있습니다.</li>
+      <li>운동은 가리지 않고 좋아하며, 요즘은 크로스핏 및 테니스에 빠져 있습니다.</li>
       </ul>
 
 # Footer
