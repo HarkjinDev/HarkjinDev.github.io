@@ -20,7 +20,7 @@ github_username: HarkjinDev
 # about_title: About Me
 about_profile_image: images/profile2.jpg
 about_content: | 
-  안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 정보보안 신입 문학진입니다. <br />
+  안녕하세요. 저는 <mark>주인의식</mark> <mark>책임감</mark> <mark>소통</mark>을 가장 중요하게 여기는 정보보안 전문가를 꿈꾸는 문학진입니다. <br />
   
   업무를 할 때는 제 업무뿐만 아니라, 회사가 원하는 방향이 무엇인지 전체를 생각하는 <mark>주인의식</mark>을 가지고 일을 하는 스타일입니다. <br />
   
@@ -33,7 +33,7 @@ about_content: |
   • 보안 관제 운영(보안 이벤트 로그 분석 활동 및 대응)<br />
   • 취약점 진단 및 침해사고 대응(취약점 진단 침투 테스트 및 대응)<br />
   • 각종 보안 시스템 구축 및 운영 관리(인프라 및 보안솔루션 등)<br />
-  • 정보보호 계획 및 운영, 정보보호 인증 관련 업무<br />
+  • 정보보호 계획 및 운영, 정보보호 인증 관련 업무(ISMS-P, ISO27001, 국정원 관리실태평가 등)<br />
 
 content:
 # Skills
@@ -131,7 +131,7 @@ content:
     layout: list 
     content:
       - layout: left
-        title: FishingSpot
+        title: FishingBoat
         caption: 2021-03 ~ 진행중
         link: <a href='https://play.google.com/store/apps/details?id=com.OPCStudio.FishingSpot' target='_blank' style='font-size:14px; text-decoration:none;'>피싱보트</a> 
         description: | 
@@ -144,8 +144,8 @@ content:
     layout: text
     content: |
       <ul>
-      <li>모의해킹 침해대응 정보보안전문가<br /><i>솔데스크</i>&nbsp;&nbsp;2021-03 ~ 2021-09 (6mths)</li>
-      <li>포항제철공업고등학교<br /><i>컴퓨터네트워크과</i>&nbsp;&nbsp;<i>2006 ~ 2009 (3yrs)</i></li>
+      <li>모의해킹 침해대응 정보보안전문가<br /><i>솔데스크</i>&nbsp;&nbsp;&nbsp;&nbsp;2021-03 ~ 2021-09 (6mths)</li>
+      <li>포항제철공업고등학교<br /><i>컴퓨터네트워크과</i>&nbsp;&nbsp;&nbsp;&nbsp;<i>2006 ~ 2009 (3yrs)</i></li>
       </ul>
 
 # Certificate
@@ -153,9 +153,9 @@ content:
     layout: text
     content: |
       <ul>
-      <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.06.17</i> </li>
+      <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.06.17</i> </li>
       <li>SQLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.04.08</i> </li>
-      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
+      <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
       <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08(Expired)</i> </li>
       </ul>
 
