@@ -50,7 +50,7 @@ content:
       
 # Experience
   - title: Experience
-    layout: list
+    layout: list 
     content:
       - layout: left
         title: 한국재정정보원
