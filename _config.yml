@@ -141,28 +141,22 @@ content:
 
 # Education
   - title: Education
-    layout: list
-    content:
-      - layout: left
-        title: 모의해킹 침해대응 정보보안전문가
-        sub_title: 솔데스크
-        caption: 2021-03 ~ 2021-09 (6mths)
-        description: | 
-      - layout: left
-        title: 포항제철공업고등학교
-        sub_title: 컴퓨터네트워크과
-        caption: 2006 ~ 2009 (3yrs)
-        description: | 
-          
+    layout: text
+    content: |
+      <ul>
+      <li>모의해킹 침해대응 정보보안전문가<br /><i>솔데스크</i>&nbsp;&nbsp;2021-03 ~ 2021-09 (6mths)</li>
+      <li>포항제철공업고등학교<br /><i>컴퓨터네트워크과</i>&nbsp;&nbsp;<i>2006 ~ 2009 (3yrs)</i></li>
+      </ul>
 
 # Certificate
   - title: Certificate
     layout: text
     content: |
       <ul>
+      <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.06.17</i> </li>
+      <li>SQLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022.04.08</i> </li>
       <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016.06.24</i> </li>
-      <li>정보처리산업기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2012.09.25</i> </li>
-      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08 ~ 2011.03.08</i> </li>
+      <li>CCNP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2008.03.08(Expired)</i> </li>
       </ul>
 
 # Award-Winning
