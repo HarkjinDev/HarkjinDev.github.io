@@ -36,8 +36,7 @@ about_content: |
   • 정보보호 계획 및 운영, 정보보호 인증 관련 업무(ISMS-P, ISO27001, 국정원 관리실태평가 등)<br />
   <br />
   <em>미래를 위한 계획</em> <br/>
-  • AWS Speciality Security(~2022) <br />
-  • CPPG 개인정보관리사(~2022) <br />
+  • AWS Speciality Security(~2023) <br />
   • DAP 데이터아키텍처전문가(~2023) <br />
   • ISMS-P 인증심사원(~2023) <br />
 
@@ -159,6 +158,7 @@ content:
     layout: text
     content: |
       <ul>
+      <li>CPPG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022-12-21</i> </li>
       <li>정보처리기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022-06-17</i> </li>
       <li>SQLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2022-04-08</i> </li>
       <li>정보보안기사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>2016-06-24</i> </li>
