@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>정보관리기술사 기출 토픽 마인드맵</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FAF6F0;font-family:'Noto Sans KR',sans-serif;overflow:hidden;height:100vh;width:100vw}
+svg{display:block;width:100%;height:100%}
+#bar{position:absolute;top:0;left:0;right:0;z-index:40;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(250,246,240,.97) 60%,transparent 100%);pointer-events:none}
+#bar h1{font-size:14px;font-weight:700;color:#5B4A3F;letter-spacing:.04em}
+#bar span{font-size:9.5px;color:rgba(91,74,63,.38)}
+#sbar{position:absolute;top:44px;left:50%;transform:translateX(-50%);z-index:40;display:flex}
+#si{padding:7px 15px;font-size:11.5px;width:240px;border-radius:16px 0 0 16px;border:1px solid rgba(91,74,63,.15);border-right:none;background:rgba(255,252,248,.97);color:#3D2E22;font-family:'Noto Sans KR',sans-serif;outline:none}
+#si:focus{border-color:rgba(91,74,63,.35)}
+#si::placeholder{color:rgba(91,74,63,.28)}
+#sx{padding:7px 11px;border-radius:0 16px 16px 0;border:1px solid rgba(91,74,63,.15);background:rgba(255,252,248,.97);color:#8B7A6B;cursor:pointer;font-size:11px;font-family:'Noto Sans KR',sans-serif}
+#ctrl{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:8px}
+.btn{padding:6px 14px;font-size:10.5px;border-radius:14px;border:1px solid rgba(91,74,63,.13);background:rgba(255,252,248,.94);color:#6B5D52;cursor:pointer;font-family:'Noto Sans KR',sans-serif;white-space:nowrap;transition:all .18s;backdrop-filter:blur(4px)}
+.btn:hover{background:rgba(91,74,63,.08);border-color:rgba(91,74,63,.22)}
+#ctr{position:absolute;top:44px;right:16px;z-index:40;font-size:9.5px;color:rgba(91,74,63,.38);text-align:right;line-height:1.7}
+#legend{position:absolute;bottom:56px;left:14px;z-index:40;background:rgba(255,252,248,.92);border:1px solid rgba(91,74,63,.1);border-radius:10px;padding:9px 14px;backdrop-filter:blur(4px);display:grid;grid-template-columns:repeat(2,auto);gap:5px 16px}
+.lg{display:flex;align-items:center;gap:6px;font-size:9px;color:rgba(91,74,63,.55);white-space:nowrap}
+.lgd{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+#tt{position:absolute;z-index:60;max-width:280px;background:rgba(255,252,248,.98);border:1px solid rgba(91,74,63,.12);border-radius:10px;padding:12px 16px;pointer-events:none;opacity:0;transition:opacity .18s;box-shadow:0 4px 20px rgba(91,74,63,.1)}
+#tt.show{opacity:1}
+#tt h4{font-size:12px;font-weight:700;color:#3D2E22;margin-bottom:4px}
+#tt-path{font-size:9px;color:rgba(91,74,63,.4);margin-bottom:5px;font-style:italic;line-height:1.5}
+#tt-desc{font-size:10px;color:rgba(91,74,63,.6);line-height:1.72}
+#tt-cat{display:inline-block;padding:2px 9px;border-radius:4px;font-size:9px;font-weight:600;margin-bottom:5px}
+.nd-g{cursor:pointer}.nd-g .nc{transition:all .18s}.nd-g:hover .nc{filter:brightness(1.15)}
+.nd-g.sh .nc{stroke:#3D2E22!important;stroke-width:2.5!important;filter:drop-shadow(0 0 6px rgba(91,74,63,.35))}
+.nd-g.dm .nc{opacity:.08}.nd-g.dm .nl{opacity:.04}
+.nl{pointer-events:none;font-family:'Noto Sans KR',sans-serif}
+@keyframes pulse{0%,100%{stroke-opacity:.18}50%{stroke-opacity:.5}}
+.pulse-ring{animation:pulse 2.2s ease-in-out infinite}
+#hint{position:absolute;bottom:56px;right:14px;z-index:40;font-size:9px;color:rgba(91,74,63,.35);text-align:right;line-height:1.8;background:rgba(255,252,248,.85);border-radius:8px;padding:6px 10px;border:1px solid rgba(91,74,63,.08)}
+#loading{position:fixed;inset:0;background:#FAF6F0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s}
+#loading.hide{opacity:0;pointer-events:none}
+#loading p{color:#8B7A6B;font-size:13px;margin-top:14px}
+.spinner{width:36px;height:36px;border:3px solid rgba(91,74,63,.12);border-top-color:#B4783C;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="loading"><div class="spinner"></div><p>마인드맵 생성 중…</p></div>
+<div id="bar"><h1>📋 정보관리기술사 기출 토픽 마인드맵</h1><span>스크롤: 확대축소 | 드래그: 이동 | 도메인→분류→토픽 클릭 확장</span></div>
+<div id="sbar"><input id="si" type="text" placeholder="🔍  토픽 검색 (예: 트랜스포머, 블록체인…)" oninput="doSearch(this.value)"><button id="sx" onclick="clearSearch()">✕</button></div>
+<div id="ctr">전체 <b id="cnt">0</b>개 토픽 · <b>10</b>개 도메인</div>
+<svg id="svg">
+  <defs>
+    <filter id="gf" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="gf2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g id="gall"><g id="glinks"></g><g id="gnodes"></g></g>
+</svg>
+<div id="ctrl">
+  <button class="btn" onclick="expandAll()">⊕ 전체 펼치기</button>
+  <button class="btn" onclick="collapseAll()">⊖ 전체 접기</button>
+  <button class="btn" onclick="fitView()">⌂ 전체 보기</button>
+  <button class="btn" onclick="svgZoom(1.4)">＋</button>
+  <button class="btn" onclick="svgZoom(0.7)">－</button>
+</div>
+<div id="legend"></div>
+<div id="hint">💡 도메인 → 분류 → 토픽<br>순서로 클릭하여 확장</div>
+<div id="tt"><h4 id="tt-h"></h4><div id="tt-cat"></div><div id="tt-path"></div><div id="tt-desc"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const CAT={
+  root:{c:'#B4783C',label:'기출 토픽'},ai:{c:'#D4652F',label:'인공지능 (AI)'},
+  al:{c:'#2E8B6E',label:'알고리즘 (AL)'},st:{c:'#6B71B8',label:'통계·데이터분석 (ST)'},
+  caos:{c:'#C07830',label:'컴퓨터구조·OS'},db:{c:'#3E8BAE',label:'데이터베이스 (DB)'},
+  ds:{c:'#8C5DB0',label:'디지털 서비스 (DS)'},nw:{c:'#2C8888',label:'네트워크 (NW)'},
+  sec:{c:'#C04848',label:'보안 (SEC)'},sw:{c:'#4E8B3E',label:'소프트웨어공학 (SW)'},
+  bizpm:{c:'#A06830',label:'비즈니스·PM'}
+};
+const NODE_R=[34,18,10,4.5];
+const L=(lb)=>({lb,desc:'',ch:[]});
+const B=(lb,cat,desc,ch)=>({lb,cat,desc,ch});
+
+const TREE=B('기출 토픽','root','정보관리기술사 기출 기반 933개 토픽',[
+B('인공지능 (AI)','ai','',[B('AI 개론','ai','',[L('머신러닝(Machine Learning)'),L('딥러닝(Deep Learning)'),L('귀납적 사고(Inductive Reasoning)'),L('ANI(Artificial Narrow Intelligence)'),L('AGI(Artificial General Intelligence)'),L('인공지능(Artificial Intelligence)')]),
+B('AI 운영/배포','ai','',[L('ModelOps(Model Operations)'),L('MLOps(Machine Learning Operations)'),L('DSML(Data Science & Machine Learning)'),L('연합학습(Federated Learning)'),L('온디바이스 AI(On-Device AI)')]),
+B('AI 윤리/거버넌스','ai','',[L('AI 윤리(AI Ethics)'),L('AI 법적 이슈'),L('AI 거버넌스(AI Governance)'),L('AI 신뢰성(AI Trustworthiness)'),L('AI RMF(Risk Management Framework)'),L('AI 신뢰성 검인증(Certification for AI Trustworthiness)'),L('범용 AI 위험관리(General-Purpose AI Risk Management)'),L('ISO/IEC 42001(AI 관리체계)'),L('생성형 AI 역기능'),L('에이전틱 AI(Agentic AI)'),L('인공지능 법제도')]),
+B('AI 응용','ai','',[L('딥페이크(Deepfake)'),L('설비 예지정비(Predictive Maintenance)'),L('딥뷰(DeepView)'),L('소셜 로봇(Social Robot)'),L('MCP(Model Context Protocol)'),L('인공지능 콜센터')]),
+B('AI 테스트','ai','',[L('메타모픽 테스트(Metamorphic Test)'),L('뉴런 커버리지 테스트(Neuron Coverage Test)'),L('안전 변경 최대화 테스트(Safety Change Maximization Test)')]),
+B('딥러닝 프레임워크/모델','ai','',[L('EfficientNet'),L('텐서플로(TensorFlow)'),L('EfficientDet'),L('Q-러닝(Q-Learning)'),L('베이지안 최적화(Bayesian Optimization)'),L('XAI(eXplainable AI)')]),
+B('비지도학습','ai','',[L('K-Means Clustering'),L('DBSCAN(Density-Based Spatial Clustering of Applications with Noise)'),L('차원 축소(Dimensionality Reduction)'),L('신경망 분석(Neural Network Analysis)')]),
+B('생성모델/LLM','ai','',[L('VAE(Variational AutoEncoder)'),L('트랜스포머(Transformer)'),L('PLM(Pre-trained Language Model)'),L('MoE(Mixture of Experts)'),L('LLM(Large Language Model)'),L('멀티모달 LLM(Multimodal Large Language Model)'),L('LLM(Large Language Model) 아키텍처'),L('GPT(Generative Pre-trained Transformer)'),L('BERT(Bidirectional Encoder Representations from Transformers)'),L('파운데이션 모델(Foundation Model)'),L('RAG(Retrieval-Augmented Generation)'),L('초거대 AI(Hyper-Scale AI)'),L('프롬프트 엔지니어링(Prompt Engineering)'),L('TEXT2SQL(Text-to-SQL)'),L('LangChain 프레임워크'),L('GNN(Graph Neural Network)')]),
+B('성능평가','ai','',[L('머신러닝 성능지표(Performance Metrics)'),L('혼동행렬(Confusion Matrix)'),L('정확도(Accuracy)'),L('정밀도(Precision)'),L('재현율(Recall)'),L('F1-score'),L('PR 곡선(Precision-Recall Curve)'),L('ROC 곡선(Receiver Operating Characteristic Curve)'),L('실루엣 계수(Silhouette Coefficient)')]),
+B('신경망','ai','',[L('인공신경망(Artificial Neural Network)'),L('피드포워드 신경망(Feedforward Neural Network)'),L('역전파(Backpropagation)'),L('활성화 함수(Activation Function)'),L('SNN(Spiking Neural Network)'),L('CNN(Convolutional Neural Network)'),L('은닉 마르코프 모델(HMM, Hidden Markov Model)'),L('퍼셉트론(Perceptron)')]),
+B('자연어 처리(NLP)','ai','',[L('자연어 처리 임베딩(NLP Embedding)'),L('Word Embedding(단어 임베딩)'),L('NER(Named Entity Recognition)'),L('TF-IDF(Term Frequency-Inverse Document Frequency)'),L('챗봇(Chatbot)'),L('MCTS(Monte Carlo Tree Search)')]),
+B('지도학습','ai','',[L('SVM(Support Vector Machine)'),L('마진 분류(Margin Classification)'),L('의사결정나무(Decision Tree)'),L('지니지수(Gini Index)'),L('엔트로피(Entropy)'),L('Bagging(Bootstrap Aggregating)'),L('앙상블(Ensemble)'),L('Boosting'),L('랜덤 포레스트(Random Forest)'),L('SOM(Self-Organizing Map)'),L('로지스틱 회귀분석(Logistic Regression)')]),
+B('학습 데이터','ai','',[L('데이터 어노테이션(Data Annotation)'),L('AI 학습용 데이터 품질관리'),L('AI 학습용 데이터')]),
+B('학습/최적화','ai','',[L('머신러닝 모델링(Machine Learning Modeling)'),L('머신러닝 파이프라인(Machine Learning Pipeline)'),L('딥러닝 파라미터(Parameter)'),L('하이퍼파라미터 튜닝(Hyperparameter Tuning)'),L('과적합(Overfitting)'),L('머신러닝 최적화 알고리즘(Optimization Algorithm)'),L('경사하강법(Gradient Descent)'),L('교차 검증(Cross Validation)')])]),
+B('알고리즘 (AL)','al','',[B('그래프 탐색','al','',[L('최단경로 알고리즘(Shortest Path Algorithm)')]),
+B('비선형 자료구조','al','',[L('Heap(Max-heap/Min-heap)'),L('비선형 자료구조(Non-Linear Data Structure)'),L('방향성 비순환 그래프(Directed Acyclic Graph)'),L('위상정렬(Topological Sort)'),L('이진 탐색 트리(Binary Search Tree)'),L('B-트리(B-Tree)'),L('R-트리(R-Tree)'),L('최소신장트리(MST, Minimum Spanning Tree)')]),
+B('선형 자료구조','al','',[L('선형 자료구조(Linear Data Structure)'),L('큐(Queue)'),L('스택(Stack)'),L('원형큐(Circular Queue)'),L('리스트(List)'),L('다중연결리스트(Multi-Linked List)'),L('대기행렬시스템(Queue System)'),L('우선순위 큐(Priority Queue)'),L('연결 리스트(Linked List)')]),
+B('알고리즘 기초','al','',[L('알고리즘 복잡도(Algorithm Complexity)'),L('O-Notation(빅오 표기법)')]),
+B('정렬 알고리즘','al','',[L('버블 정렬(Bubble Sort)'),L('퀵 정렬(Quick Sort)'),L('삽입 정렬(Insertion Sort)'),L('트리정렬(Tree Sort)'),L('인덱싱(Indexing)')]),
+B('최적화 알고리즘','al','',[L('메타휴리스틱스(Metaheuristics)'),L('유전 알고리즘(Genetic Algorithm)')]),
+B('형식언어/오토마타','al','',[L('정규 표현식(Regular Expression)'),L('유한 오토마타(Finite Automata)'),L('술어 논리(Predicate Logic)')])]),
+B('통계·데이터분석 (ST)','st','',[B('가설검정','st','',[L('가설검정(Statistical Hypothesis Test)'),L('t-검정(t-test)'),L("베이즈 정리(Bayes' Theorem)"),L('z-검정(z-test)'),L('대응표본 t-검정(Paired t-test)'),L('독립표본 t-검정(Independent t-test)'),L('A/B 테스팅(A/B Testing)'),L('F1 Score'),L('가설검정 실습(공장 제품 무게 비교)')]),
+B('다변량/차원축소','st','',[L('주성분분석(PCA, Principal Component Analysis)'),L('다차원척도법(Multidimensional Scaling)'),L('CRISP-DM(Cross Industry Standard Process for Data Mining)')]),
+B('데이터 마이닝','st','',[L('데이터 마이닝(Data Mining)'),L('군집분석(Cluster Analysis)'),L('연관 규칙 분석(Association Rule Analysis)'),L('텍스트 마이닝(Text Mining)'),L('아웃라이어(Outlier)'),L('오피니언 마이닝(Opinion Mining)'),L('음성 데이터 마이닝(Voice Data Mining)'),L('네트워크 중심성(Network Centrality)'),L('PPDM(Privacy Preserving Data Mining)'),L('사회연결망 분석(Social Network Analysis)')]),
+B('시각화/빅데이터','st','',[L('데이터 시각화(Data Visualization)'),L('빅데이터 분석도구'),L('빅데이터 플랫폼 아키텍처'),L('데이터 사이언스(Data Science)'),L('빅데이터 분석 방법론'),L('빅데이터 프로세싱 아키텍처')]),
+B('시계열 분석','st','',[L('자기회귀모형(Autoregressive Model)'),L('이동평균모형(Moving Average Model)')]),
+B('추정','st','',[L('점추정(Point Estimation)'),L('구간 추정(Interval Estimation)'),L('불편추정량(Unbiased Estimator)'),L('추정이론(Estimation Theory)')]),
+B('통계 기초','st','',[L('기술통계(Descriptive Statistics)'),L('타당도(Validity)'),L('추론통계(Inferential Statistics)'),L('결측치(Missing Value)'),L('신뢰도(Reliability)')]),
+B('확률분포','st','',[L('정규분포(Normal Distribution)'),L('베르누이 분포(Bernoulli Distribution)'),L('포아송 분포(Poisson Distribution)'),L('이항 분포(Binomial Distribution)'),L('중심극한정리(Central Limit Theorem)'),L('기하 분포(Geometric Distribution)')]),
+B('회귀분석','st','',[L('상관관계(Correlation)'),L('인과관계(Causation)'),L('다중회귀분석(Multiple Regression Analysis)'),L('로지스틱회귀분석(Logistic Regression Analysis)'),L('등분산성(Homoscedasticity)'),L('다변량회귀분석(Multivariate Regression Analysis)'),L('선형회귀모형 추론 가정'),L('다중공선성(Multicollinearity)')])]),
+B('컴퓨터구조·OS (CA/OS)','caos','',[B('AI 연산 하드웨어','caos','',[L('GPU(Graphics Processing Unit)'),L('TPU(Tensor Processing Unit)'),L('뉴로모픽 칩(Neuromorphic Chip)'),L('멀티 GPU(Multi-GPU Training)'),L('큐비트(Qubit)'),L('CXL(Compute Express Link)')]),
+B('메모리 관리','caos','',[L('동적 메모리 할당(Dynamic Memory Allocation)'),L('페이징(Paging)'),L('메모리 누수(Memory Leak)'),L('세그멘테이션(Segmentation)'),L('스레싱(Thrashing)'),L('세그먼테이션 오류(Segmentation Fault)'),L('UNIX i-node'),L('UNIX 파일 시스템'),L('가상 메모리(Virtual Memory)'),L('페이지 교체 알고리즘(Page Replacement Algorithm)')]),
+B('스토리지','caos','',[L('DAS(Direct Attached Storage)'),L('SAN(Storage Area Network)'),L('NAS(Network Attached Storage)'),L('블록 스토리지(Block Storage)'),L('파일 스토리지(File Storage)'),L('오브젝트 스토리지(Object Storage)'),L('RAID(Redundant Array of Independent Disks)'),L('스토리지 가상화(Storage Virtualization)')]),
+B('컴퓨터 구조','caos','',[L('CPU(Central Processing Unit)'),L('GPGPU(General-Purpose computing on GPU)'),L('메모리 인터리빙(Memory Interleaving)'),L('메모리 영역(코드/데이터/힙/스택)'),L('캐시 메모리(Cache Memory)'),L('캐시 일관성(Cache Coherence)'),L('빅 엔디언(Big Endian)'),L('리틀 엔디언(Little Endian)'),L('HBM(High Bandwidth Memory)'),L('파이프라인(Pipeline)'),L('CPU 보안 취약점(Spectre/Meltdown)')]),
+B('프로세스 관리','caos','',[L('교착 상태'),L("은행가 알고리즘(Banker's Algorithm)"),L('세마포어(Semaphore)'),L('모니터(Monitor)'),L('Race Condition(경쟁 상태)'),L('IPC(Inter-Process Communication)'),L('CPU 스케줄링(CPU Scheduling)'),L('디스크 스케줄링(Disk Scheduling)'),L('실시간 스케줄링(Real-Time Scheduling)'),L('우선순위 역전(Priority Inversion)'),L('SJF(Shortest Job First)'),L('SRT(Shortest Remaining Time)'),L('SSTF(Shortest Seek Time First)'),L('SLTF(Shortest Latency Time First)'),L('교착상태(Deadlock)'),L('스레드(Thread)'),L('스핀 락(Spin Lock)'),L('인터럽트(Interrupt)'),L('프로세스 상태 전이')])]),
+B('데이터베이스 (DB)','db','',[B('DB 기초','db','',[L('데이터베이스(Database)'),L('파일(File)'),L('블록체인 저장(Blockchain Storage)'),L('데이터베이스 Key')]),
+B('NoSQL','db','',[L('NoSQL(Not Only SQL)'),L('NoSQL 모델링'),L('MongoDB'),L('Column Family DB(열 기반 데이터베이스)')]),
+B('SQL','db','',[L('SQL(Structured Query Language)'),L('DDL(Data Definition Language)'),L('동적 SQL(Dynamic SQL)'),L('정적 SQL(Static SQL)'),L('SQL JOIN')]),
+B('데이터 거버넌스/품질','db','',[L('DBA(Database Administrator)'),L('DA(Data Architect)'),L('데이터 표준화(Data Standardization)'),L('데이터베이스 표준화'),L('마스터 데이터 관리(MDM, Master Data Management)'),L('데이터 품질관리(Data Quality Management)'),L('공공데이터 품질관리'),L('데이터 관측가능성(Data Observability)'),L('데이터 프로파일링(Data Profiling)'),L('데이터 늪(Data Swamp)'),L('데이터 거버넌스(Data Governance)'),L('데이터 분석 거버넌스')]),
+B('데이터 모델링','db','',[L('데이터 모델링(Data Modeling)'),L('ERD(Entity Relationship Diagram)'),L('관계형 데이터 모델(Relational Data Model)'),L('CRUD 매트릭스(CRUD Matrix)'),L('카디널리티(Cardinality)'),L('현실세계 모델링(Modeling)')]),
+B('마이그레이션','db','',[L('데이터 마이그레이션(Data Migration)'),L('오픈소스 DBMS 전환'),L('데이터 웨어하우스(Data Warehouse)')]),
+B('무결성','db','',[L('참조 무결성(Referential Integrity)'),L('데이터 무결성(Data Integrity)'),L('릴레이션 무결성(Relation Integrity Constraint)'),L('데이터 정합성(Data Consistency)')]),
+B('분산DB/파티셔닝','db','',[L('분산 데이터베이스 투명성(Distributed DB Transparency)'),L('데이터베이스 분할(Database Partitioning)'),L('수평분할(Horizontal Partitioning)'),L('파티셔닝(Partitioning)'),L('수직분할(Vertical Partitioning)'),L('샤딩(Sharding)'),L('데이터 복제(Data Replication)'),L('PACELC(Partition/Availability/Consistency/Else/Latency/Consistency)'),L('CAP 이론(CAP Theorem)'),L('병렬/분산 데이터베이스 비교'),L('분산 데이터베이스(Distributed Database)')]),
+B('인덱스/튜닝','db','',[L('인덱스(Index)'),L('논클러스터드 인덱스(Non-Clustered Index)'),L('클러스터드 인덱스(Clustered Index)'),L('다차원 색인구조(Multidimensional Index Structure)'),L('확장성 해싱(Extendible Hashing)'),L('RBO(Rule Based Optimizer)'),L('옵티마이저(Optimizer)'),L('CBO(Cost Based Optimizer)'),L('데이터베이스 튜닝(Database Tuning)'),L('힌트(Hint)'),L('충돌회피 기법(Collision Avoidance)'),L('정적 해싱(Static Hashing)'),L('통계 데이터베이스(Statistical Database)')]),
+B('정규화','db','',[L('정규화(Normalization)'),L('이상현상(Anomaly)'),L('제4정규형(4NF, Fourth Normal Form)'),L('제5정규형(5NF, Fifth Normal Form)'),L('역정규화/반정규화(Denormalization)')]),
+B('트랜잭션/병행제어','db','',[L('트랜잭션(Transaction)'),L('트랜잭션 격리 수준(Transaction Isolation Level)'),L('팬텀 충돌(Phantom Conflict)'),L('병행제어(Concurrency Control)')]),
+B('특수 DB','db','',[L('공간 DB(Spatial Database)'),L('공간 연산자(Spatial Operator)'),L('스타 스키마(Star Schema)'),L('벡터 데이터베이스(Vector Database)'),L('로지컬 데이터웨어하우스(LDW, Logical Data Warehouse)'),L('HNSW(Hierarchical Navigable Small World)'),L('Data Lake(데이터 레이크)'),L('IVF(Inverted File Index)'),L('IMC(In-Memory Computing)'),L('OLAP(On-Line Analytical Processing)'),L('그래프 데이터베이스(Graph Database)'),L('인메모리 데이터베이스(In-Memory Database)')])]),
+B('디지털 서비스 (DS)','ds','',[B('XR/메타버스','ds','',[L('가상현실(VR, Virtual Reality)'),L('가상융합기술(XR, eXtended Reality)'),L('증강현실(AR, Augmented Reality)'),L('메타버스(Metaverse)'),L('메타버스 윤리원칙'),L('디지털 트윈(Digital Twin)')]),
+B('가상화/컨테이너','ds','',[L('가상화(Virtualization)'),L('하이퍼바이저(Hypervisor)'),L('가상머신(Virtual Machine)'),L('도커 스웜(Docker Swarm)'),L('컨테이너(Container)'),L('쿠버네티스(Kubernetes)'),L('HPA(Horizontal Pod Autoscaler)'),L('오토 스케일링(Auto Scaling)'),L('VDI(Virtual Desktop Infrastructure)'),L('도커(Docker)')]),
+B('데이터 경제','ds','',[L('데이터 커머스(Data Commerce)'),L('데이터 가치평가(Data Valuation)'),L('마이데이터(MyData)'),L('데이터 거래소(Data Exchange)')]),
+B('디지털 사회/정책','ds','',[L('전문성의 민주화(Democratization of Expertise)'),L('모바일 신분증'),L('전자문서증명서'),L('행동인터넷(IoB, Internet of Behavior)'),L('디지털 휴먼증강(Digital Human Augmentation)'),L('디지털 역기능'),L('다크패턴(Dark Pattern)'),L('4차 산업혁명'),L('IT 생산성 패러독스(Productivity Paradox)'),L('EIP(Enterprise Integration Patterns)'),L('기능성 게임(Serious Game)'),L('디지털 윤리(Digital Ethics)'),L('디지털 큐레이션(Digital Curation)'),L('스마트 그리드(Smart Grid)'),L('스마트시티(Smart City)'),L('패스트 데이터(Fast Data)'),L('전자정부 평가(EGDI)')]),
+B('디지털 서비스 기초','ds','',[L('바코드(Barcode)'),L('QR코드(Quick Response Code)'),L('오픈 플랫폼(Open Platform)'),L('QR코드 결제'),L('Open API(개방형 API)'),L('NFC(Near Field Communication)'),L('웹크롤링(Web Crawling)'),L('LOD(Linked Open Data)'),L('LPWA(Low Power Wide Area)'),L('HTML5'),L('M2M(Machine to Machine)'),L('SPA(Single Page Application)'),L('V2V(Vehicle to Vehicle)'),L('드론(Drone)'),L('디바이스 리디렉션(Device Redirection)'),L('렌더링 파이프라인(Rendering Pipeline)'),L('스마트 더스트(Smart Dust)'),L('사물인터넷(IoT, Internet of Things)'),L('웹 API(Web API)'),L('오픈 데이터(Open Data)'),L('커넥티드카(Connected Car)'),L('웹 신디케이션(Web Syndication)')]),
+B('산업/교육','ds','',[L('반도체 산업'),L('AI 디지털교과서'),L('소프트웨어 교육과 CT(Computational Thinking)')]),
+B('스마트 제조/산업','ds','',[L('ISA-88(배치 제어 표준)'),L('스마트팩토리(Smart Factory)'),L('가상물리시스템(CPS, Cyber Physical System)'),L('ISA-95(기업-제어 통합 표준)'),L('POP(Point of Production)'),L('IMDF(Indoor Mapping Data Format)'),L('OGC(Open Geospatial Consortium)'),L('가상계측(Virtual Metrology)')]),
+B('앱/서비스 트렌드','ds','',[L('슈퍼앱(Super App)'),L('미니앱(Mini App)'),L('앰비언트 컴퓨팅(Ambient Computing)'),L('웹3.0(Web 3.0)'),L('NFT(Non-Fungible Token)'),L('앰비언트 커머스(Ambient Commerce)'),L('3D 프린팅'),L('멀티앱(Multi App)'),L('웨어러블 컴퓨팅(Wearable Computing)'),L('모바일 앱 개발'),L('아두이노(Arduino)')]),
+B('클라우드 컴퓨팅','ds','',[L('클라우드 서비스 모델(Cloud Service Model)'),L('IaaS(Infrastructure as a Service)'),L('배포 모델(Deployment Model)'),L('SaaS(Software as a Service)'),L('PaaS(Platform as a Service)'),L('BaaS(Backend as a Service)'),L('DaaS(Desktop as a Service)'),L('FaaS(Function as a Service)'),L('SaaS 이용 가이드라인'),L('클라우드 서비스(Cloud Service)'),L('서버리스 컴퓨팅(Serverless Computing)'),L('클라우드 관리 플랫폼(CMP, Cloud Management Platform)'),L('CSAP(Cloud Security Assurance Program)'),L('멀티클라우드(MultiCloud)'),L('클라우드 네이티브(Cloud Native)'),L('클라우드 리스크 관리'),L('클라우드 인프라 아키텍처'),L('HCI(Hyper Converged Infrastructure)'),L('코드형 인프라(IaC, Infrastructure as Code)'),L('클라우드 보안(Cloud Security)'),L('클라우드 전환(Cloud Migration)'),L('클라우드 컴퓨팅(Cloud Computing)')]),
+B('핀테크/금융','ds','',[L('오픈뱅킹(Open Banking)'),L('KYC(Know Your Customer)'),L('SWIFT(국제은행간통신협회) Pay Later API'),L('인슈어테크(InsurTech)'),L('레그테크(RegTech, Regulatory Technology)'),L('안면인식 결제(Face Recognition Payment)'),L('디파이(DeFi, Decentralized Finance)'),L('바이오 보안 토큰(Bio Security Token)'),L('FDS(Fraud Detection System)'),L('핀테크 비대면 보안')])]),
+B('네트워크 (NW)','nw','',[B('QoS','nw','',[L('DiffServ(Differentiated Services)'),L('QoS(Quality of Service)'),L('WFQ(Weighted Fair Queuing)'),L('IntServ(Integrated Services)')]),
+B('VPN','nw','',[L('VPN(Virtual Private Network)'),L('IPSec VPN(IP Security VPN)'),L('SSL VPN(Secure Socket Layer VPN)'),L('IPSec VPN'),L('Tor(The Onion Router)')]),
+B('WAN/전송매체','nw','',[L('모바일 FSO 통신(Free Space Optics)'),L('프레임릴레이(Frame Relay)'),L('해저케이블(Submarine Cable)')]),
+B('네트워크 가상화/SDN','nw','',[L('NFV(Network Function Virtualization)'),L('IBN(Intent-Based Networking)'),L('SDN(Software Defined Networking)'),L('오픈플로우(OpenFlow)'),L('SDDC(Software-Defined Data Center)')]),
+B('네트워크 기초','nw','',[L('정보이론(Information Theory)'),L("샤논의 정리(Shannon's Theorem)"),L('OSI 7 Layer(Open Systems Interconnection 7 Layer)'),L('OSI 7 Layer'),L('ASN.1(Abstract Syntax Notation One)')]),
+B('네트워크 정책','nw','',[L('망중립성(Network Neutrality)'),L('제로 레이팅(Zero Rating)')]),
+B('데이터링크/LAN','nw','',[L('VXLAN(Virtual eXtensible LAN)'),L('VLAN(Virtual LAN)'),L('HDLC(High-level Data Link Control)')]),
+B('라우팅/주소체계','nw','',[L('IGP(Interior Gateway Protocol)'),L('EGP(Exterior Gateway Protocol)'),L('OSPF(Open Shortest Path First)'),L('거리벡터 라우팅(Distance Vector Routing)'),L('RIP(Routing Information Protocol)'),L('슈퍼네팅(Supernetting)'),L('3단계 주소체계'),L('서브네팅(Subnetting)')]),
+B('이동통신/무선','nw','',[L('5G 특화망(Private 5G Network)'),L('SDR(Software Defined Radio)'),L('NOMA(Non-Orthogonal Multiple Access)'),L('C-V2X(Cellular Vehicle to Everything)'),L('WebRTC(Web Real-Time Communication)'),L('MODBUS(산업제어 통신 프로토콜)'),L('IEEE 802.11bn(Wi-Fi 8)'),L('5G 네트워크 슬라이싱(Network Slicing)'),L('5G 이동통신'),L('Ad-hoc 네트워크'),L('IoT 프로토콜(XMPP/CoAP/MQTT)'),L('IPS(Indoor Positioning System)'),L('Itinerary Routing'),L('WLAN 실내 측위(Indoor Positioning)')]),
+B('전송 프로토콜','nw','',[L('소켓 통신(Socket Communication)'),L('TCP 소켓(TCP Socket)'),L('웹소켓(WebSocket)'),L('TCP 3-way Handshake'),L('4-way Handshake'),L('오류 제어(Error Control)'),L('슬라이딩 윈도우(Sliding Window)'),L('혼잡 제어(Congestion Control)'),L('ARQ(Automatic Repeat reQuest)'),L('SCTP(Stream Control Transmission Protocol)'),L('TCP 혼잡제어(TCP Congestion Control)'),L('CRC(Cyclic Redundancy Check)'),L('FTP/FTPS/SFTP'),L('HTTP/HTTPS')]),
+B('차세대 네트워크','nw','',[L('6G 이동통신'),L('SATIN(Satellite-Aerial-Terrestrial Integrated Network)'),L('AI-Native Network(AI 네이티브 네트워크)'),L('AI-RAN(AI-based Radio Access Network)')])]),
+B('보안 (SEC)','sec','',[B('AI 보안','sec','',[L('적대적 공격(Adversarial Attack)'),L('프롬프트 인젝션(Prompt Injection)'),L('머신러닝 보안 취약점'),L('모델 전도 공격(Model Inversion Attack)'),L('AI 보안 위협'),L('생성형 AI 보안'),L('생성형 AI 보안 가이드라인'),L('생성형 AI 이용자 보호 가이드라인'),L('LLM 보안(LLM Security)'),L('MCP 보안(Model Context Protocol Security)'),L('OWASP LLM Top 10'),L('ML 편향(Bias) 문제')]),
+B('개인정보보호','sec','',[L('개인정보 비식별조치(De-identification)'),L('익명처리(Anonymization)'),L('가명처리(Pseudonymization)'),L('PET(Privacy Enhancing Technology)'),L('개인정보 안전성 확보조치'),L('PbD(Privacy by Design)'),L('내부관리계획'),L('개인정보보호법 개정'),L('데이터 3법'),L('마이데이터 전송 보안'),L('개인정보 안심구역'),L('데이터 안심구역'),L('APEC 프라이버시 9원칙'),L('CBPR(Cross Border Privacy Rules)'),L('AI 개인정보보호 자율점검표'),L('바이오정보 분산처리'),L('다자간 계산(MPC, Multi-Party Computation)'),L('개인정보 전송요구권'),L('CCTV 개인영상정보 보호'),L('자동화 의사결정 대응권'),L('k-익명성(k-anonymity)'),L('개인정보 보호 법률')]),
+B('네트워크 보안','sec','',[L('NAC(Network Access Control)'),L('IDS(Intrusion Detection System)'),L('네트워크 스캐닝(Network Scanning)'),L('DDoS 사이버대피소'),L('IPS(Intrusion Prevention System)'),L('APT(Advanced Persistent Threat)'),L('DDoS(Distributed Denial of Service)'),L('TLS(Transport Layer Security)'),L('IPS/IDS')]),
+B('디지털 포렌식','sec','',[L('디지털 포렌식 아트팩트(Artifact)'),L('디지털 포렌식(Digital Forensics)'),L('파일 슬랙(File Slack)'),L('파일 카빙(File Carving)'),L('안티포렌식(Anti-Forensic)'),L('클라우드 포렌식(Cloud Forensic)'),L('스마트폰 포렌식(Smartphone Forensic)')]),
+B('보안관리체계','sec','',[L('ISMS(Information Security Management System)'),L('ISO/IEC 27017(클라우드 보안 통제)'),L('ISMS-P(개인정보보호 관리체계 인증)'),L('정보보호 제품 신속 확인 제도'),L('CISO(Chief Information Security Officer)'),L('ISA/IEC 62443(산업제어시스템 보안)'),L('제로 트러스트(Zero Trust)'),L('N2SF(National Network Security Framework)'),L('SECaaS(Security as a Service)'),L('제로 트러스트 성숙도모델(Zero Trust Maturity Model)'),L('망분리'),L('경계 기반 보안(Perimeter Security)'),L('ISO 27001'),L('정보보호 거버넌스')]),
+B('보안관제/대응','sec','',[L('SIEM(Security Information & Event Management)'),L('재해복구시스템(DRS, Disaster Recovery System)'),L('Multi-Region Active-Active(다중지역 동시가동)'),L('SOAR(Security Orchestration, Automation and Response)')]),
+B('시스템/SW 보안','sec','',[L('Secure SDLC(보안 소프트웨어 개발 생명주기)'),L('시큐어 코딩(Secure Coding)'),L('TOCTOU(Time Of Check Time Of Use)'),L('OWASP(Open Web Application Security Project)'),L('인젝션(Injection)'),L('공급망 보안(Supply Chain Security)'),L('CC(Common Criteria)'),L('SBOM(Software Bill of Materials)'),L('FIPS 140-2(Federal Information Processing Standard)'),L('Blind SQL Injection'),L('소프트웨어 보안약점'),L('포맷 스트링 공격(Format String Attack)')]),
+B('암호학','sec','',[L('대칭 암호화(Symmetric Encryption)'),L('비대칭 암호화(Asymmetric Encryption)'),L('블록 암호 모드(Block Cipher Mode)'),L('ECB(Electronic CodeBook)'),L('CFB(Cipher FeedBack)'),L('CBC(Cipher Block Chaining)'),L('RSA(Rivest-Shamir-Adleman)'),L('OFB(Output FeedBack)'),L('DSA(Digital Signature Algorithm)'),L('타원곡선 암호(ECC, Elliptic Curve Cryptography)'),L('해시 함수(Hash Function)'),L('해시 알고리즘(Hash Algorithm)'),L('키 스트레칭(Key Stretching)'),L('Rainbow Table(레인보우 테이블)'),L('해시 솔트(Hash Salt)'),L('메시지 인증 코드(MAC, Message Authentication Code)'),L('전자봉투(Digital Envelope)'),L('차분 프라이버시(Differential Privacy)'),L('동형암호(Homomorphic Encryption)'),L('합성데이터(Synthetic Data)'),L('HMAC(Hash-based Message Authentication Code)'),L('암호 알고리즘 보안강도'),L('양자 암호(Quantum Cryptography)'),L('엘가말(ElGamal)'),L('전자서명(Digital Signature)'),L('해시값(Hash Value)')]),
+B('양자 보안','sec','',[L('양자암호통신(Quantum Cryptography Communication)'),L('양자키분배(QKD, Quantum Key Distribution)'),L('양자내성암호(PQC, Post-Quantum Cryptography)')]),
+B('위협/공격','sec','',[L('TTPs(Tactics, Techniques and Procedures)'),L('공격 표면(Attack Surface)'),L('공격 벡터(Attack Vector)'),L('변조(Modification)'),L('측면 이동(Lateral Movement)'),L('암호문 공격(Ciphertext Attack)'),L('위조(Fabrication)'),L('랜섬웨어(Ransomware)'),L('크리덴셜 스터핑(Credential Stuffing)'),L('RaaS(Ransomware as a Service)'),L('인포스틸러(InfoStealer)'),L('큐싱(Qshing)'),L('미라이 봇넷(Mirai Botnet)'),L('BPFdoor(Berkeley Packet Filter door)'),L('EMP 공격(ElectroMagnetic Pulse Attack)'),L('내부자 보안위협'),L('사이버전(Cyber Warfare)'),L('사이버 킬 체인(Cyber Kill Chain)'),L('사회공학(Social Engineering)'),L('스피어 피싱(Spear Phishing)'),L('스턱스넷(Stuxnet)'),L('액티브 피싱(Active Phishing)'),L('크라임웨어(Crimeware)')]),
+B('인증/신원관리','sec','',[L('LDAP(Lightweight Directory Access Protocol)'),L('JWT(JSON Web Token)'),L('전자서명법'),L('사설인증서'),L('GADI(Global Architecture for Digital Identity)'),L('무자각 지속 인증(Implicit Continuous Authentication)'),L('분산 ID(DID, Decentralized Identity)'),L('TPM(Trusted Platform Module)'),L('Challenge-Response 인증'),L('FIDO(Fast Identity Online)')]),
+B('접근제어','sec','',[L('정보보안 정책(Information Security Policy)'),L('식별(Identification)'),L('인증(Authentication)'),L('사용자 인증(User Authentication)'),L('접근제어 모델(Access Control Model)'),L('접근제어(Access Control)'),L('비바(BIBA) 모델'),L('벨 라파듈라(BLP, Bell-LaPadula) 모델'),L('비밀번호 관리시스템'),L('Clark-Wilson 모델')]),
+B('특수 보안','sec','',[L('블록체인 보안'),L('블록체인 합의 알고리즘(Consensus Algorithm)'),L('블록체인(Blockchain)'),L('NFT 보안'),L('IoT 보안(IoT Security)'),L('메타버스 보안'),L('드론 보안(Drone Security)'),L('산업제어시스템(ICS, Industrial Control System)'),L('퍼듀 모델(Purdue Model)'),L('클라우드 보안인증(CSAP)'),L('클라우드 보안(Cloud Security)'),L('지능형 CCTV 스마트관제'),L('CDR(Content Disarm & Reconstruction)'),L('블록체인 스마트 컨트랙트 보안'),L('하이브리드 블록체인(Hybrid Blockchain)'),L('IEC 61508(기능안전 표준)')])]),
+B('소프트웨어공학 (SW)','sw','',[B('API/웹 기술','sw','',[L('개방형 API(Open API)'),L('API(Application Programming Interface)'),L('OAS(OpenAPI Specification)'),L('REST(Representational State Transfer)'),L('SOAP(Simple Object Access Protocol)'),L('REST API(REpresentational State Transfer API)'),L('API Gateway'),L('서비스 워커(Service Worker)'),L('스크래핑(Scraping)'),L('반응형 웹 디자인(RWD, Responsive Web Design)'),L('웹 성능 최적화(Web Performance Optimization)'),L('디지털 정부서비스 UI/UX 가이드라인'),L('전자정부 UI/UX'),L('웹접근성(Web Accessibility)'),L('스프라이트(Sprite)'),L('버전관리 시스템(Version Control System)')]),
+B('SW공학 개론','sw','',[L('소프트웨어 공학(Software Engineering)'),L('소프트웨어 품질 특성(Software Quality Characteristics)'),L('소프트웨어 품질보증(SQA, Software Quality Assurance)'),L('소프트웨어 품질인증'),L('소프트웨어 기술 부채(Technical Debt)'),L("Lehman의 SW 변화원리"),L('CMMI(Capability Maturity Model Integration)'),L('소프트웨어 유지보수')]),
+B('개발 방법론','sw','',[L('구조적 방법론(Structured Methodology)'),L('폭포수 모델(Waterfall Model)'),L('애자일(Agile)'),L('스크럼(SCRUM)'),L('개발방법론 테일러링(Tailoring)'),L('칸반(Kanban)'),L('제품계열 방법론(Product Line Engineering)'),L('로우코드(Low-Code)'),L('노코드(No-Code)'),L('PaaS 기반 SW 개발 방법론')]),
+B('고가용성/인프라','sw','',[L('FTS(Fault Tolerant System)'),L('상호연결망(Interconnection Network)'),L('고가용성(HA, High Availability)'),L('토러스(Torus)'),L('AI 데이터센터'),L('DCI(Data Center Interconnect)'),L('인터미턴트 컴퓨팅(Intermittent Computing)'),L('엣지 컴퓨팅(Edge Computing)'),L('재해복구(Disaster Recovery)')]),
+B('미들웨어/아키텍처','sw','',[L('ELK 스택(Elasticsearch/Logstash/Kibana)'),L('메시지큐잉(Message Queuing)'),L('EDA(Event Driven Architecture)')]),
+B('설계 원리/패턴','sw','',[L('소프트웨어 모듈(Software Module)'),L('응집도(Cohesion)'),L('디자인 패턴(Design Pattern)'),L('프록시 디자인 패턴(Proxy Design Pattern)'),L('결합도(Coupling)'),L('소프트웨어 아키텍처 분석'),L('아키텍처 스타일(Architecture Style)'),L('소프트웨어 아키텍처 모델'),L('CBAM(Cost Benefit Analysis Method)'),L('ATAM(Architecture Trade-off Analysis Method)'),L('리팩토링(Refactoring)'),L('코드스멜(Code Smell)'),L('소프트웨어 3R(Reverse/Re-engineering/Reuse)'),L('재공학(Re-engineering)'),L('fan-in/fan-out'),L('역공학(Reverse Engineering)'),L('소프트웨어 아키텍처 정방향/역방향 분석'),L('SW Visualization'),L('소프트웨어 아키텍처 드라이버'),L('소프트웨어 설계 원리')]),
+B('설계/UML','sw','',[L('유즈케이스 다이어그램(Use Case Diagram)'),L('유스케이스(Use Case)'),L('순차 다이어그램(Sequence Diagram)'),L('클래스 다이어그램(Class Diagram)'),L('협력 다이어그램(Collaboration Diagram)'),L('MVC 패턴(Model View Controller)'),L('UML 행위 다이어그램(Behavior Diagram)'),L('아키텍처 모델')]),
+B('소프트웨어 아키텍처','sw','',[L('모놀리스 아키텍처(Monolith Architecture)'),L('마이크로서비스 아키텍처(Microservice Architecture)'),L('MSA(Micro Service Architecture)'),L('TA(Technical Architect)'),L('서비스 메쉬(Service Mesh)'),L('AA(Application Architect)'),L('린 스타트업(Lean Startup)'),L('바이모달 IT(Bimodal IT)')]),
+B('안전성 분석','sw','',[L('소프트웨어 안전성 진단'),L('FTA(Fault Tree Analysis)'),L('소프트웨어 보안 품질'),L('HAZOP(Hazard and Operability Analysis)'),L('FMEA(Failure Mode and Effects Analysis)'),L('STPA(System Theoretic Process Analysis)')]),
+B('오픈소스','sw','',[L('오픈소스 라이선스(Open Source License)'),L('오픈소스(Open Source)'),L('오픈소스 라이선스 변화'),L('오픈소스 프로젝트관리 소프트웨어')]),
+B('요구공학','sw','',[L('요구공학(Requirements Engineering)'),L('요구사항명세서(SRS, Software Requirements Specification)'),L('요구사항 도출(Requirements Elicitation)'),L('요구사항 추적표(RTM, Requirements Traceability Matrix)'),L('사용자 경험(UX, User Experience)'),L('사용성 평가(Usability Evaluation)'),L('성능 요구사항(Performance Requirements)')]),
+B('테스트','sw','',[L('블랙박스 테스트(Black Box Test)'),L('소프트웨어 테스트 자동화'),L('소프트웨어 테스트 원리'),L('동등 분할(Equivalence Partitioning)'),L('동적 테스트(Dynamic Test)'),L('화이트박스 테스트(White Box Test)'),L('분류 트리(Classification Tree)'),L('통합테스트(Integration Test)'),L('테스트 스텁(Test Stub)'),L('테스트 드라이버(Test Driver)'),L('테스트 커버리지(Test Coverage)'),L('코드 커버리지(Code Coverage)'),L('뮤테이션 테스트(Mutation Test)'),L('회귀 테스트(Regression Test)'),L('몽키 테스트(Monkey Test)'),L('신뢰성 테스트(Reliability Test)'),L('카오스 테스트(Chaos Test)'),L('이식성 테스트(Portability Test)'),L('임베디드 소프트웨어 테스트(Embedded SW Test)'),L('소프트웨어 신뢰성 성장 모델(SRGM, Software Reliability Growth Model)'),L('인스펙션(Inspection)'),L('명세기반/구조기반/경험기반 테스트'),L('소프트웨어 성능테스트'),L('패키지 소프트웨어 테스트'),L('화이트박스/블랙박스 테스트')]),
+B('프로그래밍','sw','',[L('절차지향 프로그래밍(Procedure Oriented Programming)'),L('객체지향 프로그래밍(OOP, Object Oriented Programming)'),L('캡슐화(Encapsulation)'),L('정보은닉(Information Hiding)'),L('객체지향 설계 5대 원칙(SOLID)'),L('의존성 주입(DI, Dependency Injection)'),L('의존성 역전 원칙(DIP, Dependency Inversion Principle)'),L('AOP(Aspect Oriented Programming)'),L('파이썬(Python)'),L('Java AWT(Abstract Window Toolkit)'),L('스프링 부트(Spring Boot)'),L('SWING(Java Swing)'),L('오버라이딩/오버로딩(Overriding/Overloading)'),L('UML 스테레오 타입(Stereotype)'),L('추상클래스/인터페이스(Abstract Class/Interface)')]),
+B('형상관리/배포','sw','',[L('형상관리(Configuration Management)'),L('ALM(Application Lifecycle Management)'),L('기준선(Baseline)'),L('DevOps(Development and Operations)'),L('CI/CD(Continuous Integration/Continuous Deployment)'),L('데이터옵스(DataOps)'),L('DevSecOps(Development, Security and Operations)'),L('배포 전략(Deployment Strategy)'),L('무중단 배포(Zero Downtime Deployment)'),L('리버스 프록시(Reverse Proxy)'),L('백필(Backfill)'),L('워크플로우 관리(Workflow Management)'),L('로드밸런싱(Load Balancing)')])]),
+B('비즈니스·PM (BIZ/PM)','bizpm','',[B('ESG/윤리/정책','bizpm','',[L('ESG 경영(Environment, Social, Governance)'),L('데이터 주권(Data Sovereignty)'),L('데이터산업법'),L('정보윤리(Information Ethics)'),L('인공지능기본법'),L('전자정부 평가'),L('지능정보화 기본법'),L('디지털세(Digital Tax)'),L('스마트팩토리 성과측정'),L('전자정부 평가(EGDI)'),L('정보시스템 운영 이전'),L('서비스 이전 관리')]),
+B('IT 거버넌스/투자','bizpm','',[L('IT 거버넌스(IT Governance)'),L('IT 투자관리(IT Investment Management)'),L('IT-ROI(IT Return on Investment)'),L('AHP(Analytic Hierarchy Process)'),L('의사결정나무 분석(Decision Tree Analysis)'),L('몬테카를로 시뮬레이션(Monte Carlo Simulation)'),L('정량적 위협분석(Quantitative Risk Analysis)'),L('민감도 분석(Sensitivity Analysis)'),L('금전적 기대값 분석(EMV, Expected Monetary Value)'),L('IT 컴플라이언스(IT Compliance)'),L('IT 생산성 패러독스'),L('IT 투자성과 평가'),L('예비타당성 조사'),L('정량적 위험분석'),L('특허 기술가치평가')]),
+B('IT 전략/기획','bizpm','',[L('ISP(Information Strategy Planning)'),L('ISMP(Information System Master Plan)'),L('BPR(Business Process Reengineering)'),L('디지털 트랜스포메이션(DX, Digital Transformation)'),L('AX(AI Transformation)'),L('디지털 플랫폼 정부'),L('디지털 혁신(Digital Innovation)')]),
+B('SW 사업관리','bizpm','',[L('소프트웨어 비용 산정(Software Cost Estimation)'),L('소프트웨어 규모산정(Software Sizing)'),L('소프트웨어 대가산정'),L('하드웨어 규모산정'),L('협상에 의한 계약체결'),L('RFP(Request for Proposal)'),L('제안서평가 세부기준'),L('단계별 발주제도'),L('하도급 구조'),L('소프트웨어 진흥법'),L('소프트웨어 기술자 직무제'),L('요구사항 관리(Requirements Management)'),L('IT서비스 산업'),L('BMT(BenchMark Test)'),L('SW 사업 분할 발주'),L('COCOMO II(Post-Architecture Model)'),L('SW진흥법 개정'),L('공공SW사업 영향평가제'),L('기능점수(Function Point)')]),
+B('감리/PMO','bizpm','',[L('정보시스템 감리'),L('PMO(Project Management Office)'),L('상주감리'),L('운영 감리'),L('유지보수 감리'),L('빅데이터 감리'),L('클라우드 전환 감리')]),
+B('경영전략 분석','bizpm','',[L('가치사슬(Value Chain)'),L('SWOT(Strengths, Weaknesses, Opportunities, Threats)'),L('3C(Customer, Competitor, Company)'),L('MECE(Mutually Exclusive Collectively Exhaustive)'),L('PEST(Political, Economical, Social, Technological)'),L('TAM-SAM-SOM(Total/Serviceable/Obtainable Addressable Market)'),L('BSC(Balanced Score Card)'),L('전략적 기업경영(SEM, Strategic Enterprise Management)'),L('기술수용모델(TAM, Technology Acceptance Model)'),L('디자인 싱킹(Design Thinking)'),L('BABOK(Business Analysis Body of Knowledge)'),L('BI/BA(Business Intelligence/Analytics)')]),
+B('마케팅/트렌드','bizpm','',[L('화이트 레이블 마케팅(White Label Marketing)'),L('그로스 해킹(Growth Hacking)')]),
+B('서비스 관리','bizpm','',[L('ITSM(IT Service Management)'),L('ISO/IEC 20000(IT 서비스 관리)'),L('IT아웃소싱(IT Outsourcing)'),L('OLA(Operational Level Agreement)'),L('SLA(Service Level Agreement)'),L('CoE(Center of Excellence)'),L('프로세스 마이닝(Process Mining)'),L('SLM(Service Level Management)')]),
+B('성과관리','bizpm','',[L('정보시스템 운영 성과측정'),L('정보시스템 운영환경 변환'),L('차세대 시스템 오픈 문제점'),L('사업 적정성 평가')]),
+B('엔터프라이즈 시스템','bizpm','',[L('ERP(Enterprise Resource Planning)'),L('SCM(Supply Chain Management)'),L('CRM(Customer Relationship Management)'),L('수요 예측(Demand Forecasting)'),L('MES(Manufacturing Execution System)'),L('ECM(Enterprise Content Management)'),L('안전재고/적정재고 산정')]),
+B('연속성/표준','bizpm','',[L('BCP(Business Continuity Planning)'),L('ISO 31000(리스크관리)'),L('DRS(Disaster Recovery System)'),L('ISO 21500(프로젝트관리 지침)'),L('ISO 14000(환경경영체제)')]),
+B('프로젝트 관리','bizpm','',[L('IT 프로젝트 관리'),L('프로그램 관리(Program Management)'),L('포트폴리오 관리(Portfolio Management)'),L('WBS(Work Breakdown Structure)'),L('터크만 모델(Tuckman Ladder Model)'),L('갈등관리(Conflict Management)'),L('프로젝트 위험관리(Project Risk Management)'),L('리스크 대응(Risk Response)'),L('획득가치관리(EVM, Earned Value Management)'),L('품질비용(Cost of Quality)'),L('CCPM(Critical Chain Project Management)'),L('CPM/PERT'),L('프로젝트 이해관계자 관리')])])
+]);/* END TREE */
+
+/* ══════════════ FLATTEN ══════════════ */
+const ALL=[];
+function flatten(node,pid,depth,pcat){
+  const cat=node.cat||pcat||'root';
+  const id=ALL.length;
+  ALL.push({id,lb:node.lb,desc:node.desc||'',cat,depth,pid,x:0,y:0,fx:null,fy:null,childIds:[],_hidden:depth>=2});
+  if(pid!==null) ALL[pid].childIds.push(id);
+  if(node.ch) node.ch.forEach(c=>flatten(c,id,depth+1,cat));
+}
+flatten(TREE,null,0,'root');
+document.getElementById('cnt').textContent=ALL.filter(n=>n.depth===3).length;
+
+/* ══════════════ STATE ════════════════ */
+const expandedDomains=new Set();
+const expandedClasses=new Set();
+
+function isVisible(n){
+  if(n.depth<=1) return true;
+  if(n.depth===2) return expandedDomains.has(n.pid);
+  if(n.depth===3) return expandedDomains.has(ALL[n.pid].pid) && expandedClasses.has(n.pid);
+  return false;
+}
+function refreshHidden(){ ALL.forEach(n=>n._hidden=!isVisible(n)); }
+
+/* ══════════════ LAYOUT ══════════════ */
+const RD=220; // root→domain
+
+function layoutDomains(){
+  ALL[0].x=0; ALL[0].y=0;
+  const doms=ALL[0].childIds, n=doms.length;
+  doms.forEach((did,i)=>{
+    const a=-Math.PI/2+(2*Math.PI*i/n);
+    ALL[did].x=RD*Math.cos(a); ALL[did].y=RD*Math.sin(a); ALL[did]._ba=a;
+  });
+}
+
+function layoutClasses(domId){
+  const dn=ALL[domId], ch=dn.childIds, nc=ch.length;
+  const ba=dn._ba||Math.atan2(dn.y,dn.x);
+  const spread=Math.min(Math.PI*.75, nc*.22);
+  const dist=165;
+  ch.forEach((cid,i)=>{
+    const t=nc===1?0:(i/(nc-1)-.5);
+    const a=ba+t*spread;
+    ALL[cid].x=dn.x+dist*Math.cos(a); ALL[cid].y=dn.y+dist*Math.sin(a); ALL[cid]._ba=a;
+  });
+}
+
+function layoutTopics360(clsId){
+  const cn=ALL[clsId], ch=cn.childIds, nt=ch.length;
+  const ba=cn._ba||Math.atan2(cn.y-ALL[cn.pid].y, cn.x-ALL[cn.pid].x);
+  const spread=Math.min(Math.PI*.8, nt*.09);
+  const dist=80+Math.max(0,(nt-6)*3);
+  ch.forEach((tid,i)=>{
+    const t=nt===1?0:(i/(nt-1)-.5);
+    const a=ba+t*spread;
+    ALL[tid].x=cn.x+dist*Math.cos(a); ALL[tid].y=cn.y+dist*Math.sin(a);
+  });
+}
+
+function layoutFullRadial(){
+  layoutDomains();
+  ALL.filter(n=>n.depth===1).forEach(dn=>{
+    const ch=dn.childIds, nc=ch.length;
+    const ba=dn._ba||0;
+    const spread=Math.min(Math.PI*.65, nc*.17);
+    ch.forEach((cid,i)=>{
+      const t=nc===1?0:(i/(nc-1)-.5);
+      const a=ba+t*spread;
+      ALL[cid].x=dn.x+160*Math.cos(a); ALL[cid].y=dn.y+160*Math.sin(a); ALL[cid]._ba=a;
+      const tops=ALL[cid].childIds, nt=tops.length;
+      const ts=Math.min(.45, nt*.035);
+      tops.forEach((tid,j)=>{
+        const tt=nt===1?0:(j/(nt-1)-.5);
+        const ta=a+tt*ts;
+        ALL[tid].x=ALL[cid].x+75*Math.cos(ta); ALL[tid].y=ALL[cid].y+75*Math.sin(ta);
+      });
+    });
+  });
+}
+
+layoutDomains();
+
+/* ══════════════ D3 ══════════════ */
+const W=window.innerWidth, H=window.innerHeight;
+const svg=d3.select('#svg').attr('width',W).attr('height',H);
+const gAll=d3.select('#gall'), gLinks=d3.select('#glinks'), gNodes=d3.select('#gnodes');
+let ndSel;
+
+function countDesc(id){let c=0;ALL[id].childIds.forEach(cid=>{c++;c+=countDesc(cid);});return c;}
+
+function buildVis(){
+  refreshHidden();
+  const vis=ALL.filter(n=>!n._hidden);
+  const links=[];
+  vis.forEach(n=>{ if(n.pid!==null&&!ALL[n.pid]._hidden) links.push({s:n.pid,t:n.id}); });
+
+  /* Links */
+  let lk=gLinks.selectAll('.hl').data(links,d=>d.s+'-'+d.t);
+  lk.exit().transition().duration(300).attr('stroke-opacity',0).remove();
+  lk=lk.enter().append('line').attr('class','hl').attr('stroke-opacity',0).merge(lk);
+  lk.attr('stroke',d=>(CAT[ALL[d.t].cat]||CAT.root).c)
+    .attr('stroke-width',d=>[0,2.2,1.2,.7][ALL[d.t].depth]||.5)
+    .transition().duration(500)
+    .attr('x1',d=>ALL[d.s].x).attr('y1',d=>ALL[d.s].y)
+    .attr('x2',d=>ALL[d.t].x).attr('y2',d=>ALL[d.t].y)
+    .attr('stroke-opacity',d=>[0,.5,.3,.18][ALL[d.t].depth]||.1);
+
+  /* Nodes */
+  ndSel=gNodes.selectAll('.ng').data(vis,d=>d.id);
+  ndSel.exit().transition().duration(300).attr('opacity',0).remove();
+  const ne=ndSel.enter().append('g').attr('class','nd-g ng').attr('opacity',0)
+    .attr('transform',d=>{
+      const p=d.pid!==null&&!ALL[d.pid]._hidden?ALL[d.pid]:d;
+      return 'translate('+p.x+','+p.y+')';
+    });
+
+  // Root glow
+  ne.filter(d=>d.depth===0).append('circle').attr('r',55).attr('fill','rgba(180,120,60,.06)').attr('stroke','rgba(180,120,60,.15)').attr('stroke-width',1);
+  // Pulse rings
+  ne.filter(d=>d.depth===1).append('circle').attr('class','pulse-ring').attr('r',24).attr('fill','none').attr('stroke',d=>(CAT[d.cat]||CAT.root).c).attr('stroke-width',1.5);
+  ne.filter(d=>d.depth===2).append('circle').attr('class','pulse-ring').attr('r',15).attr('fill','none').attr('stroke',d=>(CAT[d.cat]||CAT.root).c).attr('stroke-width',1);
+  // Main circle
+  ne.append('circle').attr('class','nc')
+    .attr('r',d=>NODE_R[Math.min(d.depth,3)])
+    .attr('fill',d=>{const c=(CAT[d.cat]||CAT.root).c;return d.depth<=1?c:d.depth===2?c+'35':c+'20';})
+    .attr('stroke',d=>(CAT[d.cat]||CAT.root).c)
+    .attr('stroke-width',d=>[1.6,1.6,1.1,.5][d.depth]||.5)
+    .attr('stroke-opacity',d=>[.95,.9,.6,.5][d.depth]||.4)
+    .attr('filter',d=>d.depth===0?'url(#gf)':d.depth===1?'url(#gf2)':'none');
+  // Badge
+  ne.filter(d=>d.depth===1||d.depth===2).append('text').attr('class','nbadge').attr('text-anchor','middle')
+    .attr('font-size',d=>d.depth===1?8:7).attr('font-weight',500)
+    .attr('fill',d=>(CAT[d.cat]||CAT.root).c).attr('opacity',.5);
+  // Label placeholder
+  ne.append('text').attr('class','nl');
+
+  ndSel=ne.merge(ndSel);
+
+  // Update badges
+  ndSel.select('.nbadge').attr('y',d=>d.depth===1?30:18).text(d=>{
+    if(d.depth===1) return (expandedDomains.has(d.id)?'▾ ':'▸ ')+d.childIds.length+'개 분류';
+    if(d.depth===2) return (expandedClasses.has(d.id)?'▾ ':'▸ ')+d.childIds.length+'개';
+    return '';
+  });
+  // Update pulse
+  ndSel.select('.pulse-ring').style('display',d=>{
+    if(d.depth===1&&expandedDomains.has(d.id)) return 'none';
+    if(d.depth===2&&expandedClasses.has(d.id)) return 'none';
+    if(d.depth===1||d.depth===2) return null;
+    return 'none';
+  });
+
+  // Events
+  ndSel.on('click',(ev,d)=>{
+    ev.stopPropagation();
+    if(d.depth===1) toggleDomain(d.id);
+    else if(d.depth===2) toggleClass(d.id);
+    else showTT(ev,d);
+  });
+  ndSel.call(d3.drag()
+    .on('start',(ev,d)=>{d.fx=d.x;d.fy=d.y;})
+    .on('drag',(ev,d)=>{d.x=d.fx=ev.x;d.y=d.fy=ev.y;
+      ndSel.attr('transform',n=>'translate('+n.x+','+n.y+')');
+      updLinks();
+    })
+    .on('end',(ev,d)=>{d.fx=null;d.fy=null;}));
+
+  // Animate
+  ndSel.transition().duration(500).attr('opacity',1).attr('transform',d=>'translate('+d.x+','+d.y+')');
+  setTimeout(renderLabels,120);
+}
+
+function updLinks(){
+  gLinks.selectAll('.hl').attr('x1',function(){return ALL[d3.select(this).datum().s].x;})
+    .attr('y1',function(){return ALL[d3.select(this).datum().s].y;})
+    .attr('x2',function(){return ALL[d3.select(this).datum().t].x;})
+    .attr('y2',function(){return ALL[d3.select(this).datum().t].y;});
+}
+
+/* ══════════════ TOGGLE ══════════════ */
+function toggleDomain(did){
+  if(expandedDomains.has(did)){
+    expandedDomains.delete(did);
+    ALL[did].childIds.forEach(c=>expandedClasses.delete(c));
+  } else {
+    expandedDomains.add(did);
+    layoutClasses(did);
+  }
+  buildVis();
+}
+function toggleClass(cid){
+  if(expandedClasses.has(cid)){
+    expandedClasses.delete(cid);
+  } else {
+    // Collapse siblings
+    ALL[ALL[cid].pid].childIds.forEach(s=>{if(s!==cid)expandedClasses.delete(s);});
+    expandedClasses.add(cid);
+    layoutTopics360(cid);
+  }
+  buildVis();
+}
+function expandAll(){
+  ALL.filter(n=>n.depth===1).forEach(n=>expandedDomains.add(n.id));
+  ALL.filter(n=>n.depth===2).forEach(n=>expandedClasses.add(n.id));
+  layoutFullRadial();
+  buildVis();
+  setTimeout(fitView,300);
+}
+function collapseAll(){
+  expandedDomains.clear(); expandedClasses.clear();
+  layoutDomains(); buildVis(); setTimeout(fitView,300);
+}
+
+/* ══════════════ LABELS ══════════════ */
+function renderLabels(){
+  if(!ndSel) return;
+  ndSel.select('.nl').each(function(d){
+    const el=d3.select(this); el.selectAll('*').remove();
+    let lx,ly,anchor;
+    if(d.depth===0){lx=0;ly=0;anchor='middle';}
+    else{
+      const px=d.pid!==null?ALL[d.pid].x:0, py=d.pid!==null?ALL[d.pid].y:0;
+      const a=Math.atan2(d.y-py,d.x-px);
+      const base=NODE_R[Math.min(d.depth,3)]+(d.depth===3?5:8);
+      lx=Math.cos(a)*base; ly=Math.sin(a)*base;
+      anchor=Math.abs(a)>Math.PI/2?'end':'start';
+    }
+    const fs=[14,10.5,8.5,6.2][d.depth]||6;
+    const fw=[700,700,600,400][d.depth]||400;
+    const col=d.depth===0?'#3D2E22':d.depth===3?((CAT[d.cat]||CAT.root).c+'cc'):((CAT[d.cat]||CAT.root).c);
+    el.attr('x',lx).attr('y',ly).attr('text-anchor',anchor).attr('dominant-baseline','central')
+      .attr('font-size',fs).attr('font-weight',fw).attr('fill',col);
+    const maxCh=[22,20,16,13][d.depth]||12;
+    const words=d.lb.split(/\s+/); let lines=[],cur='';
+    words.forEach(w=>{const t=cur?cur+' '+w:w;if(t.length>maxCh&&cur){lines.push(cur);cur=w;}else cur=t;});
+    if(cur)lines.push(cur);
+    if(lines.length===1)el.text(d.lb);
+    else{el.text('');lines.forEach((ln,i)=>el.append('tspan').attr('x',lx).attr('dy',i===0?-(lines.length-1)*.5+'em':'1.08em').text(ln));}
+  });
+}
+
+/* ══════════════ ZOOM ══════════════ */
+const zb=d3.zoom().scaleExtent([.04,6]).on('zoom',ev=>gAll.attr('transform',ev.transform));
+svg.call(zb);
+function fitView(){
+  const vis=ALL.filter(n=>!n._hidden);if(!vis.length)return;
+  let x0=Infinity,x1=-Infinity,y0=Infinity,y1=-Infinity;
+  vis.forEach(n=>{if(n.x<x0)x0=n.x;if(n.x>x1)x1=n.x;if(n.y<y0)y0=n.y;if(n.y>y1)y1=n.y;});
+  const p=130,bw=x1-x0+p*2,bh=y1-y0+p*2,cx=(x0+x1)/2,cy=(y0+y1)/2;
+  const s=Math.min(W/bw,H/bh)*.9;
+  svg.transition().duration(700).call(zb.transform,d3.zoomIdentity.translate(W/2-cx*s,H/2-cy*s).scale(s));
+}
+function svgZoom(f){svg.transition().duration(300).call(zb.scaleBy,f);}
+
+/* ══════════════ SEARCH ══════════════ */
+function doSearch(q){
+  const lq=(q||'').trim().toLowerCase();
+  if(!lq){if(ndSel)ndSel.classed('sh',false).classed('dm',false);return;}
+  let nb=false;
+  ALL.filter(n=>n.depth===1).forEach(n=>{if(!expandedDomains.has(n.id)){expandedDomains.add(n.id);layoutClasses(n.id);nb=true;}});
+  ALL.filter(n=>n.depth===2).forEach(n=>{if(!expandedClasses.has(n.id)){expandedClasses.add(n.id);layoutTopics360(n.id);nb=true;}});
+  if(nb){layoutFullRadial();buildVis();}
+  setTimeout(()=>{if(ndSel){ndSel.classed('sh',d=>d.lb.toLowerCase().includes(lq)).classed('dm',d=>!d.lb.toLowerCase().includes(lq));}},nb?500:0);
+}
+function clearSearch(){document.getElementById('si').value='';if(ndSel)ndSel.classed('sh',false).classed('dm',false);}
+
+/* ══════════════ TOOLTIP ══════════════ */
+function showTT(ev,d){
+  const tt=document.getElementById('tt');
+  document.getElementById('tt-h').textContent=d.lb;
+  const cat=CAT[d.cat]||CAT.root;
+  const tc=document.getElementById('tt-cat');
+  tc.textContent=cat.label;tc.style.cssText='background:'+cat.c+'15;color:'+cat.c+';border:1px solid '+cat.c+'30';
+  const path=[];let pid=d.pid;while(pid!==null&&pid!==undefined){path.unshift(ALL[pid].lb);pid=ALL[pid].pid;}
+  document.getElementById('tt-path').textContent=path.join(' › ');
+  document.getElementById('tt-desc').textContent=d.desc||(d.childIds.length?'하위 '+d.childIds.length+'개':'기출 토픽');
+  tt.classList.add('show');
+  tt.style.left=Math.min(ev.clientX+18,W-290)+'px';tt.style.top=Math.min(ev.clientY-8,H-120)+'px';
+}
+svg.on('click',()=>document.getElementById('tt').classList.remove('show'));
+
+/* ══════════════ LEGEND ══════════════ */
+const leg=document.getElementById('legend');
+Object.entries(CAT).filter(([k])=>k!=='root').forEach(([,v])=>{
+  const d=document.createElement('div');d.className='lg';
+  d.innerHTML='<div class="lgd" style="background:'+v.c+'"></div>'+v.label;leg.appendChild(d);
+});
+
+/* ══════════════ INIT ══════════════ */
+buildVis();
+setTimeout(()=>{document.getElementById('loading').classList.add('hide');setTimeout(fitView,250);},600);
+window.addEventListener('resize',()=>{svg.attr('width',window.innerWidth).attr('height',window.innerHeight);});
+</script>
+</body>
+</html>
