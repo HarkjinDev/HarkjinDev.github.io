@@ -1,0 +1,208 @@
+name: Sync Notion Subnotes
+
+on:
+  workflow_dispatch:        # 수동 트리거 (테스트용)
+  schedule:
+    - cron: '0 15 * * *'   # 매일 KST 00:00 (UTC 15:00)
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ────────────────────────────────────────
+      # 1. 리포 체크아웃
+      # ────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ────────────────────────────────────────
+      # 2. Python 설치
+      # ────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ────────────────────────────────────────
+      # 3. Playwright + Chromium 설치
+      # ────────────────────────────────────────
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install chromium
+          playwright install-deps chromium
+
+      # ────────────────────────────────────────
+      # 4. MHTML 캡처 (DB 전용 - PHASE 1)
+      # ────────────────────────────────────────
+      - name: Capture MHTML from Notion
+        run: |
+          python3 << 'EOF'
+          import asyncio
+          from playwright.async_api import async_playwright
+
+          PAGES = [
+              ("db", "https://salt-stetson-a0e.notion.site/DB-3336968f52c480d4be00c83639a5ee64"),
+          ]
+
+          async def capture(name, url):
+              print(f"[캡처 시작] {name}: {url}")
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch(
+                      headless=True,
+                      args=["--no-sandbox", "--disable-dev-shm-usage"]
+                  )
+                  context = await browser.new_context(
+                      user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                 "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                 "Chrome/124.0.0.0 Safari/537.36"
+                  )
+                  page = await context.new_page()
+
+                  # 페이지 로드
+                  await page.goto(url, wait_until="networkidle", timeout=60000)
+                  await asyncio.sleep(3)
+
+                  # lazy-load 유발: 끝까지 스크롤
+                  await page.evaluate("""
+                      async () => {
+                          await new Promise(resolve => {
+                              let totalHeight = 0;
+                              const distance = 800;
+                              const timer = setInterval(() => {
+                                  window.scrollBy(0, distance);
+                                  totalHeight += distance;
+                                  if (totalHeight >= document.body.scrollHeight) {
+                                      clearInterval(timer);
+                                      resolve();
+                                  }
+                              }, 150);
+                          });
+                      }
+                  """)
+                  await asyncio.sleep(2)
+
+                  # 맨 위로 다시 스크롤
+                  await page.evaluate("window.scrollTo(0, 0)")
+                  await asyncio.sleep(1)
+
+                  # CDP로 MHTML 캡처
+                  cdp = await context.new_cdp_session(page)
+                  result = await cdp.send("Page.captureSnapshot", {"format": "mhtml"})
+                  mhtml_data = result["data"]
+
+                  output_path = f"/tmp/{name}.mhtml"
+                  with open(output_path, "w", encoding="utf-8") as f:
+                      f.write(mhtml_data)
+
+                  size_kb = len(mhtml_data.encode("utf-8")) / 1024
+                  print(f"[완료] {output_path} ({size_kb:.1f} KB)")
+
+                  await browser.close()
+
+          async def main():
+              for name, url in PAGES:
+                  try:
+                      await capture(name, url)
+                  except Exception as e:
+                      print(f"[ERROR] {name} 캡처 실패: {e}")
+                  await asyncio.sleep(2)  # 페이지 간 딜레이
+
+          asyncio.run(main())
+          EOF
+
+      # ────────────────────────────────────────
+      # 5. MHTML → HTML 변환 (CSS 인라인화)
+      # ────────────────────────────────────────
+      - name: Convert MHTML to HTML
+        run: |
+          mkdir -p subnote
+
+          for name in db; do
+            mhtml="/tmp/${name}.mhtml"
+            html="subnote/${name}.html"
+            if [ -f "$mhtml" ]; then
+              python3 scripts/mhtml_to_html.py "$mhtml" "$html"
+            else
+              echo "[SKIP] ${mhtml} 파일 없음"
+            fi
+          done
+
+      # ────────────────────────────────────────
+      # 6. index.html 생성
+      # ────────────────────────────────────────
+      - name: Generate index.html
+        run: |
+          python3 << 'EOF'
+          from datetime import datetime, timezone, timedelta
+
+          KST = timezone(timedelta(hours=9))
+          now = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
+
+          # PHASE 1: DB만 포함 (이후 단계에서 확장 예정)
+          pages = [
+              ("db", "DB", "데이터베이스"),
+          ]
+
+          items_html = ""
+          for fname, label, desc in pages:
+              items_html += f"""
+                <li>
+                  <a href="{fname}.html">
+                    <span class="label">{label}</span>
+                    <span class="desc">{desc}</span>
+                  </a>
+                </li>"""
+
+          html = f"""<!DOCTYPE html>
+          <html lang="ko">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>서브노트 목록</title>
+            <style>
+              body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                     max-width: 640px; margin: 60px auto; padding: 0 20px; color: #333; }}
+              h1 {{ font-size: 1.6rem; margin-bottom: 8px; }}
+              .updated {{ color: #999; font-size: 0.85rem; margin-bottom: 32px; }}
+              ul {{ list-style: none; padding: 0; }}
+              li {{ margin-bottom: 12px; }}
+              a {{ display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+                   border: 1px solid #e5e5e5; border-radius: 8px; text-decoration: none;
+                   color: inherit; transition: background 0.15s; }}
+              a:hover {{ background: #f7f7f7; }}
+              .label {{ font-weight: 600; font-size: 1rem; min-width: 64px; }}
+              .desc {{ color: #666; font-size: 0.9rem; }}
+            </style>
+          </head>
+          <body>
+            <h1>📚 서브노트</h1>
+            <p class="updated">마지막 업데이트: {now}</p>
+            <ul>{items_html}
+            </ul>
+          </body>
+          </html>"""
+
+          with open("subnote/index.html", "w", encoding="utf-8") as f:
+              f.write(html)
+
+          print("[완료] subnote/index.html 생성")
+          EOF
+
+      # ────────────────────────────────────────
+      # 7. Git commit & push
+      # ────────────────────────────────────────
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add subnote/
+          if git diff --cached --quiet; then
+            echo "[INFO] 변경사항 없음 - 커밋 스킵"
+          else
+            git commit -m "chore: sync notion subnotes [$(date +'%Y-%m-%d %H:%M KST' -d '+9 hours')]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
