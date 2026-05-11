@@ -43,7 +43,17 @@ jobs:
           from playwright.async_api import async_playwright
 
           PAGES = [
-              ("db", "https://salt-stetson-a0e.notion.site/DB-3336968f52c480d4be00c83639a5ee64"),
+              ("db",    "https://salt-stetson-a0e.notion.site/DB-3336968f52c480d4be00c83639a5ee64"),
+              ("ai",    "https://salt-stetson-a0e.notion.site/AI-32d6968f52c480649b2ef0be961c3a7c"),
+              ("sec",   "https://salt-stetson-a0e.notion.site/SEC-3396968f52c4817e8ecbdac791ad2d56"),
+              ("nw",    "https://salt-stetson-a0e.notion.site/NW-3466968f52c480619afeecdbcf66c206"),
+              ("sw",    "https://salt-stetson-a0e.notion.site/SW-3466968f52c480fc9adaf62344b29fa8"),
+              ("al",    "https://salt-stetson-a0e.notion.site/AL-3466968f52c480b0a414c596c619b340"),
+              ("st",    "https://salt-stetson-a0e.notion.site/ST-3436968f52c481af8f10f58df4f3a7c5"),
+              ("caos",  "https://salt-stetson-a0e.notion.site/CA-OS-3416968f52c480189650ed73a0c41e7d"),
+              ("bizpm", "https://salt-stetson-a0e.notion.site/BIZ-PM-3466968f52c48024a060e2173bd72c24"),
+              ("ds",    "https://salt-stetson-a0e.notion.site/DS-3466968f52c48061a7cdfaafe8009fba"),
+              ("gr",    "https://salt-stetson-a0e.notion.site/3536968f52c480b79401dcaefe521c71"),
           ]
 
           async def capture(name, url):
@@ -119,7 +129,7 @@ jobs:
         run: |
           mkdir -p subnote
 
-          for name in db; do
+          for name in db ai sec nw sw al st caos bizpm ds gr; do
             mhtml="/tmp/${name}.mhtml"
             html="subnote/${name}.html"
             if [ -f "$mhtml" ]; then
@@ -140,9 +150,19 @@ jobs:
           KST = timezone(timedelta(hours=9))
           now = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
 
-          # PHASE 1: DB만 포함 (이후 단계에서 확장 예정)
+          # PHASE 2: 전체 11개
           pages = [
-              ("db", "DB", "데이터베이스"),
+              ("db",    "DB",     "데이터베이스"),
+              ("ai",    "AI",     "인공지능"),
+              ("sec",   "SEC",    "정보보안"),
+              ("nw",    "NW",     "네트워크"),
+              ("sw",    "SW",     "소프트웨어공학"),
+              ("al",    "AL",     "알고리즘"),
+              ("st",    "ST",     "통계/수학"),
+              ("caos",  "CA/OS",  "컴퓨터구조/운영체제"),
+              ("bizpm", "BIZ/PM", "경영/프로젝트관리"),
+              ("ds",    "DS",     "디지털서비스"),
+              ("gr",    "GR",     "가이드/법제도/표준"),
           ]
 
           items_html = ""
