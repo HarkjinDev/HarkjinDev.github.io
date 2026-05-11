@@ -90,6 +90,101 @@ def convert(mhtml_path: str, output_path: str) -> bool:
 
     print(f"[INFO] CSS 인라인화 완료: {replaced}개")
 
+    # ── 모바일 반응형 CSS 주입 ──────────────────────────────────────
+    MOBILE_CSS = """
+<style id="mobile-responsive-override">
+/* ── 모바일 반응형 오버라이드 ── */
+
+/* viewport 기본 설정 */
+:root { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* 페이지 컨테이너 최대폭 제거 및 패딩 조정 */
+@media screen and (max-width: 768px) {
+
+  /* Notion 페이지 전체 컨테이너 */
+  .notion-page,
+  .notion-page-content,
+  [class*="notion-page"],
+  .page-body,
+  body > div {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 테이블: 가로 스크롤 허용 */
+  table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100% !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* 테이블 셀 최소폭 제한 */
+  td, th {
+    min-width: 60px;
+    white-space: nowrap;
+  }
+
+  /* 이미지 반응형 */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 코드 블록 가로 스크롤 */
+  pre, code {
+    overflow-x: auto !important;
+    white-space: pre !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* 폰트 크기 조정 */
+  body {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+  h3 { font-size: 1.1rem !important; }
+
+  /* 콜아웃, 토글 블록 */
+  [class*="callout"],
+  [class*="toggle"] {
+    padding: 10px 12px !important;
+  }
+
+  /* 좌우 여백이 큰 컬럼 레이아웃 해제 */
+  [class*="column"] {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* 상단 헤더/타이틀 영역 */
+  [class*="page-title"],
+  [class*="notion-title"] {
+    font-size: 1.4rem !important;
+    word-break: keep-all !important;
+  }
+}
+</style>
+"""
+
+    # </head> 직전에 모바일 CSS 삽입
+    if "</head>" in html_content:
+        html_content = html_content.replace("</head>", MOBILE_CSS + "\n</head>", 1)
+    else:
+        # </head> 없으면 <body> 앞에 삽입
+        html_content = MOBILE_CSS + html_content
+
+    print("[INFO] 모바일 반응형 CSS 주입 완료")
+
     # 출력 디렉토리 생성
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
 
