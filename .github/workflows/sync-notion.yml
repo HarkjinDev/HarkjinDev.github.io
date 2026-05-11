@@ -60,9 +60,9 @@ jobs:
                   )
                   page = await context.new_page()
 
-                  # 페이지 로드
-                  await page.goto(url, wait_until="networkidle", timeout=60000)
-                  await asyncio.sleep(3)
+                  # 페이지 로드 (networkidle 사용 금지 - Notion은 백그라운드 요청이 계속 발생)
+                  await page.goto(url, wait_until="load", timeout=60000)
+                  await asyncio.sleep(5)  # JS 렌더링 완료 대기
 
                   # lazy-load 유발: 끝까지 스크롤
                   await page.evaluate("""
