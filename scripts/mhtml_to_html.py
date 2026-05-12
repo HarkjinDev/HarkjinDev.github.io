@@ -1,15 +1,47 @@
 """
 MHTML → HTML 변환 스크립트
 - cid: CSS 참조를 <style> 태그로 인라인 삽입
-- 이미지는 base64 그대로 유지
+- cid: 이미지 참조를 data: URL로 변환 (base64 인라인)
+- 외부 URL 이미지(S3, Notion CDN)를 다운로드 후 base64 인라인화
+- 모바일 반응형 CSS 주입
 - 사용법: python mhtml_to_html.py <input.mhtml> <output.html>
 """
 
+import base64
 import email
 import re
 import sys
 import os
+import urllib.request
+import urllib.error
 from pathlib import Path
+
+
+# 다운로드 대상 외부 이미지 도메인
+EXTERNAL_IMG_DOMAINS = (
+    "prod-files-secure.s3",
+    "s3.us-west-2.amazonaws.com",
+    "s3.amazonaws.com",
+    "notion.so/image",
+    "notion-static.com",
+)
+
+
+def fetch_image_as_base64(url: str) -> tuple | None:
+    """외부 이미지 URL을 다운로드해서 (mime_type, base64_str) 반환. 실패 시 None."""
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; bot)"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            content_type = resp.headers.get_content_type() or "image/png"
+            data = resp.read()
+            b64 = base64.b64encode(data).decode("ascii")
+            return content_type, b64
+    except Exception as e:
+        print(f"[WARN] 이미지 다운로드 실패: {url[:80]}... → {e}")
+        return None
 
 
 def convert(mhtml_path: str, output_path: str) -> bool:
@@ -23,10 +55,11 @@ def convert(mhtml_path: str, output_path: str) -> bool:
 
     msg = email.message_from_bytes(raw)
 
-    css_parts: dict[str, str] = {}
-    html_content: str | None = None
+    css_parts = {}
+    img_parts = {}  # key → (mime_type, raw_bytes)
+    html_content = None
 
-    # 모든 파트 수집
+    # ── STEP 1: 모든 파트 수집 ──────────────────────────────────────
     for part in msg.walk():
         ctype = part.get_content_type()
         cid = part.get("Content-ID", "").strip("<>")
@@ -50,32 +83,34 @@ def convert(mhtml_path: str, output_path: str) -> bool:
                 css_text = payload_bytes.decode(charset, errors="replace")
             except Exception:
                 css_text = payload_bytes.decode("utf-8", errors="replace")
-
             if cid:
                 css_parts[cid] = css_text
             if content_location:
                 css_parts[content_location] = css_text
 
+        elif ctype.startswith("image/"):
+            if cid:
+                img_parts[cid] = (ctype, payload_bytes)
+            if content_location:
+                img_parts[content_location] = (ctype, payload_bytes)
+
     if not html_content:
         print(f"[ERROR] HTML 파트를 찾지 못했습니다: {mhtml_path}")
         return False
 
-    print(f"[INFO] CSS 파트 {len(css_parts)}개 발견")
+    print(f"[INFO] CSS {len(css_parts)}개 / 이미지 {len(img_parts)}개 파트 발견")
 
-    # cid: CSS 링크를 <style> 태그로 교체
-    replaced = 0
+    # ── STEP 2: CSS cid: → <style> 인라인화 ─────────────────────────
+    css_replaced = 0
 
     def replace_css_link(match):
-        nonlocal replaced
+        nonlocal css_replaced
         full_tag = match.group(0)
         href_val = match.group(1)
-
-        # cid: 참조 처리
         clean_cid = href_val.replace("cid:", "").strip()
         css_text = css_parts.get(clean_cid) or css_parts.get(href_val)
-
         if css_text:
-            replaced += 1
+            css_replaced += 1
             return f"<style>\n{css_text}\n</style>"
         else:
             print(f"[WARN] CSS 파트 미발견: {href_val}")
@@ -87,22 +122,77 @@ def convert(mhtml_path: str, output_path: str) -> bool:
         html_content,
         flags=re.IGNORECASE
     )
+    print(f"[INFO] CSS 인라인화 완료: {css_replaced}개")
 
-    print(f"[INFO] CSS 인라인화 완료: {replaced}개")
+    # ── STEP 3: 이미지 cid: → data: URL 인라인화 ────────────────────
+    img_cid_replaced = 0
 
-    # ── 모바일 반응형 CSS 주입 ──────────────────────────────────────
+    def replace_img_cid(match):
+        nonlocal img_cid_replaced
+        full_attr = match.group(0)
+        src_val = match.group(1)
+
+        if not src_val.startswith("cid:"):
+            return full_attr
+
+        clean_cid = src_val[4:].strip()
+        result = img_parts.get(clean_cid)
+        if result:
+            mime_type, img_bytes = result
+            b64 = base64.b64encode(img_bytes).decode("ascii")
+            img_cid_replaced += 1
+            return f'src="data:{mime_type};base64,{b64}"'
+        else:
+            print(f"[WARN] 이미지 cid 파트 미발견: {clean_cid}")
+            return full_attr
+
+    html_content = re.sub(
+        r'src=["\']([^"\']+)["\']',
+        replace_img_cid,
+        html_content,
+        flags=re.IGNORECASE
+    )
+    print(f"[INFO] 이미지 cid 인라인화 완료: {img_cid_replaced}개")
+
+    # ── STEP 4: 외부 URL 이미지 → 다운로드 후 data: URL 인라인화 ────
+    ext_replaced = 0
+    ext_failed = 0
+
+    def replace_external_img(match):
+        nonlocal ext_replaced, ext_failed
+        full_attr = match.group(0)
+        src_val = match.group(1)
+
+        if src_val.startswith("data:") or src_val.startswith("cid:"):
+            return full_attr
+
+        if not any(domain in src_val for domain in EXTERNAL_IMG_DOMAINS):
+            return full_attr
+
+        result = fetch_image_as_base64(src_val)
+        if result:
+            mime_type, b64 = result
+            ext_replaced += 1
+            return f'src="data:{mime_type};base64,{b64}"'
+        else:
+            ext_failed += 1
+            return 'src=""'
+
+    html_content = re.sub(
+        r'src=["\']([^"\']+)["\']',
+        replace_external_img,
+        html_content,
+        flags=re.IGNORECASE
+    )
+    print(f"[INFO] 외부 이미지 인라인화: 성공 {ext_replaced}개 / 실패 {ext_failed}개")
+
+    # ── STEP 5: 모바일 반응형 CSS 주입 ──────────────────────────────
     MOBILE_CSS = """
 <style id="mobile-responsive-override">
-/* ── 모바일 반응형 오버라이드 ── */
-
-/* viewport 기본 설정 */
 :root { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 
-/* 페이지 컨테이너 최대폭 제거 및 패딩 조정 */
 @media screen and (max-width: 768px) {
-
-  /* Notion 페이지 전체 컨테이너 */
   .notion-page,
   .notion-page-content,
   [class*="notion-page"],
@@ -116,7 +206,6 @@ def convert(mhtml_path: str, output_path: str) -> bool:
     margin-right: 0 !important;
   }
 
-  /* 테이블: 가로 스크롤 허용 */
   table {
     display: block !important;
     overflow-x: auto !important;
@@ -125,48 +214,26 @@ def convert(mhtml_path: str, output_path: str) -> bool:
     font-size: 0.78rem !important;
   }
 
-  /* 테이블 셀 최소폭 제한 */
-  td, th {
-    min-width: 60px;
-    white-space: nowrap;
-  }
+  td, th { min-width: 60px; white-space: nowrap; }
 
-  /* 이미지 반응형 */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
+  img { max-width: 100% !important; height: auto !important; }
 
-  /* 코드 블록 가로 스크롤 */
   pre, code {
     overflow-x: auto !important;
     white-space: pre !important;
     font-size: 0.8rem !important;
   }
 
-  /* 폰트 크기 조정 */
-  body {
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-  }
-
+  body { font-size: 15px !important; line-height: 1.6 !important; }
   h1 { font-size: 1.5rem !important; }
   h2 { font-size: 1.25rem !important; }
   h3 { font-size: 1.1rem !important; }
 
-  /* 콜아웃, 토글 블록 */
   [class*="callout"],
-  [class*="toggle"] {
-    padding: 10px 12px !important;
-  }
+  [class*="toggle"] { padding: 10px 12px !important; }
 
-  /* 좌우 여백이 큰 컬럼 레이아웃 해제 */
-  [class*="column"] {
-    display: block !important;
-    width: 100% !important;
-  }
+  [class*="column"] { display: block !important; width: 100% !important; }
 
-  /* 상단 헤더/타이틀 영역 */
   [class*="page-title"],
   [class*="notion-title"] {
     font-size: 1.4rem !important;
@@ -176,18 +243,15 @@ def convert(mhtml_path: str, output_path: str) -> bool:
 </style>
 """
 
-    # </head> 직전에 모바일 CSS 삽입
     if "</head>" in html_content:
         html_content = html_content.replace("</head>", MOBILE_CSS + "\n</head>", 1)
     else:
-        # </head> 없으면 <body> 앞에 삽입
         html_content = MOBILE_CSS + html_content
 
     print("[INFO] 모바일 반응형 CSS 주입 완료")
 
-    # 출력 디렉토리 생성
+    # ── STEP 6: 출력 ─────────────────────────────────────────────────
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
-
     Path(output_path).write_text(html_content, encoding="utf-8")
     size_kb = Path(output_path).stat().st_size / 1024
     print(f"[완료] {output_path} ({size_kb:.1f} KB)")
