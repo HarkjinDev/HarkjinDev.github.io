@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두음 모음 (mem)</title>
+  <style>
+    /* ── 기본 ── */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+      background: #fafafa;
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 4px; }
+    .meta { color: #999; font-size: 0.85rem; margin-bottom: 32px; }
+    .meta a { color: #999; text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
+
+    /* ── 도메인 섹션 ── */
+    .domain { margin-bottom: 8px; }
+    .domain-title {
+      font-size: 1.3rem;
+      margin: 24px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .domain-label {
+      background: #2d3748;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+    .domain-desc { color: #666; font-size: 0.95rem; font-weight: normal; }
+
+    /* ── 토픽명 ── */
+    h3.topic {
+      font-size: 1rem;
+      color: #444;
+      margin: 20px 0 6px;
+      padding-left: 8px;
+      border-left: 3px solid #93c7e7;
+    }
+
+    /* ── 두음 ── */
+    p.mnemonic {
+      display: inline-block;
+      background-color: #93c7e7;
+      color: #d44c47;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 4px 14px;
+      border-radius: 4px;
+      margin: 4px 0 10px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── 테이블 ── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 12px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.88rem;
+      background: #fff;
+    }
+    th {
+      background: #f0f4f8;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+      white-space: nowrap;
+    }
+    td {
+      padding: 7px 12px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    tr:hover td { background: #f9f9f9; }
+
+    /* ── 모바일 ── */
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      h1 { font-size: 1.3rem; }
+      .domain-title { font-size: 1.1rem; }
+      p.mnemonic { font-size: 1rem; }
+      th, td { font-size: 0.8rem; padding: 6px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>📝 두음 모음</h1>
+  <p class="meta">
+    총 89개 항목 &nbsp;|&nbsp; 마지막 업데이트: 2026-05-12 22:59 KST
+    &nbsp;|&nbsp; <a href="index.html">← 목록으로</a>
+  </p>
+
+  
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">DB</span>
+    <span class="domain-desc">데이터베이스</span>
+  </h2>
+  <h3 class="topic">DB</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">2. 데이터베이스 Key</h3>
+<p class="mnemonic"><유최대></p>
+<p class="mnemonic"><슈후기대외></p>
+<h3 class="topic">1. 데이터 모델링 (Data Modeling)</h3>
+<p class="mnemonic"><요개논물, 주후핵관, 속엔이, 물논반></p>
+<h3 class="topic">4. CRUD 매트릭스 (CRUD Matrix)</h3>
+<p class="mnemonic"><엔단></p>
+<h3 class="topic">6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling) [출제예상]</h3>
+<p class="mnemonic"><단서타></p>
+<h3 class="topic">7. 암스트롱 공리 (Armstrong's Axioms)</h3>
+<p class="mnemonic"><폐정완></p>
+<p class="mnemonic"><분합의></p>
+<h3 class="topic">8. 연결 함정 (Connection Trap) [출제예상]</h3>
+<p class="mnemonic"><부모균미></p>
+<h3 class="topic">1. SQL (Structured Query Language)</h3>
+<p class="mnemonic"><구실인></p>
+<h3 class="topic">1. 정규화 (Normalization)</h3>
+<p class="mnemonic"><무중분></p>
+<p class="mnemonic"><삽삭갱></p>
+<p class="mnemonic"><도부이결다조></p>
+<h3 class="topic">[하위] 2-2. 릴레이션 무결성 제약 (Relation Integrity Constraint)</h3>
+<p class="mnemonic"><상과집튜즉지></p>
+<h3 class="topic">1. 트랜잭션 (Transaction)</h3>
+<p class="mnemonic"><활부완실철></p>
+<h3 class="topic">3. 병행제어 (Concurrency Control)</h3>
+<p class="mnemonic"><갱현모연></p>
+<h3 class="topic">[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)</h3>
+<p class="mnemonic"><판검기></p>
+<h3 class="topic">1. 인덱스 (Index)</h3>
+<p class="mnemonic"><렌풀유스디패></p>
+<h3 class="topic">[하위] 2-1. CBO (Cost Based Optimizer)</h3>
+<p class="mnemonic"><질비실></p>
+<p class="mnemonic"><파최행실></p>
+<p class="mnemonic"><테인컬시></p>
+<h3 class="topic">3. 분산 데이터베이스 (Distributed Database)</h3>
+<p class="mnemonic"><위복병분장></p>
+<h3 class="topic">[하위] 1-1. NoSQL 모델링</h3>
+<p class="mnemonic"><비집프원인></p>
+<h3 class="topic">1. OLAP (On-Line Analytical Processing)</h3>
+<p class="mnemonic"><슬다드롤피></p>
+<h3 class="topic">1. 데이터 거버넌스 (Data Governance)</h3>
+<p class="mnemonic"><원조프></p>
+<h3 class="topic">5. 데이터 표준화 (Data Standardization)</h3>
+<p class="mnemonic"><명정형규></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">AI</span>
+    <span class="domain-desc">인공지능</span>
+  </h2>
+  <h3 class="topic">AI</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">1. SOM (Self-Organizing Map)</h3>
+<p class="mnemonic"><초경이가반></p>
+<h3 class="topic">2. 군집화 (Clustering) 알고리즘</h3>
+<p class="mnemonic"><거절수신></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">SEC</span>
+    <span class="domain-desc">정보보안</span>
+  </h2>
+  <h3 class="topic">SEC</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">1. 정보보안 정책 (Information Security Policy)</h3>
+<p class="mnemonic"><정표절지></p>
+<p class="mnemonic"><지소존행></p>
+<h3 class="topic">2. 접근제어/통제 (Access Control)</h3>
+<p class="mnemonic"><정모메></p>
+<h3 class="topic">11. 전자봉투 (Digital Envelope)</h3>
+<p class="mnemonic"><봉수공암></p>
+<h3 class="topic">12. 전자서명 (Digital Signature)</h3>
+<p class="mnemonic"><서송개암></p>
+<h3 class="topic">10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)</h3>
+<p class="mnemonic"><수탐조대복></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">NW</span>
+    <span class="domain-desc">네트워크</span>
+  </h2>
+  <h3 class="topic">NW</h3>
+<p class="mnemonic"><color></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">SW</span>
+    <span class="domain-desc">소프트웨어공학</span>
+  </h2>
+  <h3 class="topic">SW</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">5. 소프트웨어 기술 부채 (Technical Debt)</h3>
+<p class="mnemonic"><설코테문></p>
+<h3 class="topic">7. 소프트웨어 유지보수 (Software Maintenance)</h3>
+<p class="mnemonic"><수적예완></p>
+<h3 class="topic">2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)</h3>
+<p class="mnemonic"><캡추다정상></p>
+<h3 class="topic">0. 개발 방법론(SW Development Methodology)</h3>
+<p class="mnemonic"><절방산관기도></p>
+<h3 class="topic">4. 폭포수 모델 (Waterfall Model)</h3>
+<p class="mnemonic"><요설구테유></p>
+<h3 class="topic">5. 애자일 (Agile)</h3>
+<p class="mnemonic"><개동고변></p>
+<h3 class="topic">[하위] 5-3. XP(eXtreme Programming)</h3>
+<p class="mnemonic"><용단커피존></p>
+<h3 class="topic">1. 요구공학 (Requirements Engineering)</h3>
+<p class="mnemonic"><추분명검></p>
+<p class="mnemonic"><협기변확></p>
+<h3 class="topic">[하위] 2-1. 응집도 (Cohesion)</h3>
+<p class="mnemonic"><기순교절시논우></p>
+<h3 class="topic">[하위] 2-2. 결합도 (Coupling)</h3>
+<p class="mnemonic"><자료구조제어는외부공통내용이다></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">AL</span>
+    <span class="domain-desc">알고리즘</span>
+  </h2>
+  <h3 class="topic">AL</h3>
+<p class="mnemonic"><color></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">ST</span>
+    <span class="domain-desc">통계/수학</span>
+  </h2>
+  <h3 class="topic">ST</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">3. 추론통계 (Inferential Statistics)</h3>
+<p class="mnemonic"><점구가차관></p>
+<h3 class="topic">3. 선형회귀분석 (Linear Regression Analysis)</h3>
+<p class="mnemonic"><선독정등></p>
+<h3 class="topic">1. 시계열 분석 (Time Series Analysis)</h3>
+<p class="mnemonic"><추분계불></p>
+<h3 class="topic">[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)</h3>
+<p class="mnemonic"><수시패인></p>
+<h3 class="topic">[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)</h3>
+<p class="mnemonic"><가수통증></p>
+<h3 class="topic">3. 연관 규칙 분석 (Association Rule Analysis)</h3>
+<p class="mnemonic"><지신향></p>
+<p class="mnemonic"><빈최후반연></p>
+<h3 class="topic">2. 데이터 시각화 (Data Visualization)</h3>
+<p class="mnemonic"><구시표></p>
+<p class="mnemonic"><시분관비공></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">CA/OS</span>
+    <span class="domain-desc">컴퓨터구조/운영체제</span>
+  </h2>
+  <h3 class="topic">CA/OS</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">[하위] 1-3. 파이프라인 (Pipeline)</h3>
+<p class="mnemonic"><구데제></p>
+<h3 class="topic">3. 캐시 메모리 (Cache Memory)</h3>
+<p class="mnemonic"><공시순></p>
+<p class="mnemonic"><직연집></p>
+<h3 class="topic">1. 프로세스 (Process)</h3>
+<p class="mnemonic"><인블동칩></p>
+<h3 class="topic">3. 교착상태(Mutual Exclusion)</h3>
+<p class="mnemonic"><상진한></p>
+<h3 class="topic">4. 교착 상태 (Deadlock)</h3>
+<p class="mnemonic"><상점비환></p>
+<p class="mnemonic"><예회발복></p>
+<h3 class="topic">6. 인터럽트 (Interrupt)</h3>
+<p class="mnemonic"><직병풀></p>
+<h3 class="topic">1. 가상 메모리 (Virtual Memory)</h3>
+<p class="mnemonic"><할배인교></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">BIZ/PM</span>
+    <span class="domain-desc">경영/프로젝트관리</span>
+  </h2>
+  <h3 class="topic">BIZ/PM</h3>
+<p class="mnemonic"><color></p>
+<h3 class="topic">[하위] 2-7. BCG Matrix</h3>
+<p class="mnemonic"><물별개현></p>
+<h3 class="topic">5. BSC (Balanced Score Card)</h3>
+<p class="mnemonic"><재고내학></p>
+<h3 class="topic">7. 디자인 싱킹 (Design Thinking)</h3>
+<p class="mnemonic"><공정아프테></p>
+<h3 class="topic">2. SCM (Supply Chain Management)</h3>
+<p class="mnemonic"><계조생배회></p>
+<h3 class="topic">1. IT 거버넌스 (IT Governance)</h3>
+<p class="mnemonic"><전가위자성></p>
+<h3 class="topic">2. IT 투자관리 (IT Investment Management)</h3>
+<p class="mnemonic"><사중후></p>
+<h3 class="topic">4. AHP (Analytic Hierarchy Process)</h3>
+<p class="mnemonic"><계우일></p>
+<p class="mnemonic"><계쌍가일></p>
+<h3 class="topic">5. 정량적 위험분석 (Quantitative Risk Analysis)</h3>
+<p class="mnemonic"><의금몬민></p>
+<h3 class="topic">[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)</h3>
+<p class="mnemonic"><변무시결></p>
+<h3 class="topic">10. 기술 가치 평가</h3>
+<p class="mnemonic"><기권시사></p>
+<p class="mnemonic"><수시비></p>
+<h3 class="topic">[하위] 1-1. ISO 21500 (프로젝트관리 지침)</h3>
+<p class="mnemonic"><착계실통종></p>
+<h3 class="topic">3. 프로젝트 범위관리(Scope Management)</h3>
+<p class="mnemonic"><계요정W확통></p>
+<h3 class="topic">[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</h3>
+<p class="mnemonic"><프피자></p>
+<h3 class="topic">[하위] 4-3. PERT (Program Evaluation and Review Technique)</h3>
+<p class="mnemonic"><낙최비></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">DS</span>
+    <span class="domain-desc">디지털서비스</span>
+  </h2>
+  <h3 class="topic">DS</h3>
+<p class="mnemonic"><color></p>
+
+</section>
+<hr>
+
+<section class="domain">
+  <h2 class="domain-title">
+    <span class="domain-label">GR</span>
+    <span class="domain-desc">가이드/법제도/표준</span>
+  </h2>
+  <h3 class="topic">GR</h3>
+<p class="mnemonic"><color></p>
+
+</section>
+<hr>
+
+</body>
+</html>
