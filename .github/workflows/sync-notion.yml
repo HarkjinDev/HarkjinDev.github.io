@@ -29,7 +29,7 @@ jobs:
       # ────────────────────────────────────────
       - name: Install Playwright
         run: |
-          pip install playwright
+          pip install playwright beautifulsoup4
           playwright install chromium
           playwright install-deps chromium
 
@@ -175,6 +175,16 @@ jobs:
                   </a>
                 </li>"""
 
+          # mem.html 별도 카드 추가
+          mem_card = """
+                <li class="mem-item">
+                  <a href="mem.html">
+                    <span class="label" style="background:#d44c47;color:#fff;padding:2px 8px;border-radius:4px;">📝 두음</span>
+                    <span class="desc">전 도메인 두음 모음</span>
+                  </a>
+                </li>"""
+          items_html = mem_card + items_html
+
           html = f"""<!DOCTYPE html>
           <html lang="ko">
           <head>
@@ -209,6 +219,15 @@ jobs:
 
           print("[완료] subnote/index.html 생성")
           EOF
+
+
+      # ────────────────────────────────────────
+      # 6-b. mem.html 생성 (두음 모음)
+      # ────────────────────────────────────────
+      - name: Generate mem.html
+        run: |
+          pip install beautifulsoup4 -q
+          python3 scripts/gen_mem.py
 
       # ────────────────────────────────────────
       # 7. Git commit & push
