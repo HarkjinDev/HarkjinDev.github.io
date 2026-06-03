@@ -2,7 +2,10 @@
 """
 mem.html 생성기
 각 도메인 HTML에서 두음(<xxx> 형식)을 추출하여 mem.html로 정리
-콘텐츠: 표(table) 또는 리스트(ul/ol) 모두 지원
+
+콘텐츠 탐색 전략:
+  케이스 1 (리스트): 두음이 들어있는 <li> 안에 중첩 <ul>/<ol> 있으면 사용
+  케이스 2 (표):    없으면 같은 섹션(heading 범위) 안의 <table> 탐색
 """
 
 from bs4 import BeautifulSoup
@@ -12,7 +15,6 @@ from datetime import datetime, timezone, timedelta
 
 MNEMONIC_RE  = re.compile(r'[<＜〈]([가-힣A-Za-z·,\s]{1,20})[>＞〉]')
 HEADING_TAGS = ["h1", "h2", "h3", "h4"]
-CONTENT_TAGS = HEADING_TAGS + ["table", "ul", "ol"]
 
 DOMAINS = [
     ("db",    "DB",     "데이터베이스"),
@@ -30,7 +32,6 @@ DOMAINS = [
 
 
 def table_to_html(table_tag) -> str:
-    """table → HTML (스타일 제거)"""
     rows = table_tag.find_all("tr")
     if not rows:
         return ""
@@ -46,64 +47,72 @@ def table_to_html(table_tag) -> str:
 
 
 def list_to_html(list_tag) -> str:
-    """ul/ol → HTML (직접 자식 li만, 중첩 리스트 텍스트는 병합)"""
     items = []
-
     # 직접 자식 li 우선
     direct_lis = list_tag.find_all("li", recursive=False)
     target_lis = direct_lis if direct_lis else list_tag.find_all("li")
-
     for li in target_lis:
-        # 중첩 ul/ol을 제외한 텍스트만 추출
         parts = []
         for child in li.children:
             if getattr(child, "name", None) in ["ul", "ol"]:
-                continue  # 중첩 리스트 제외 (별도 li로 처리됨)
+                continue  # 중첩 리스트 텍스트 중복 제외
             text = child.get_text(strip=True) if hasattr(child, "get_text") else str(child).strip()
             if text:
                 parts.append(text)
         text = " ".join(parts).strip()
         if text:
             items.append(f"<li>{text}</li>")
-
     return f"<ul>{''.join(items)}</ul>" if items else ""
+
+
+def find_ancestor_li(element):
+    """element의 가장 가까운 조상 <li> 반환"""
+    el = element.parent
+    while el and el.name not in ["body", "html", None]:
+        if el.name == "li":
+            return el
+        el = el.parent
+    return None
 
 
 def extract_content(parent) -> str:
     """
-    두음 parent 이후 첫 번째 콘텐츠 추출 (heading 이전까지)
-    table 우선, 없으면 ul/ol
-    반환: HTML 문자열 (없으면 "")
+    두음 parent 이후 콘텐츠(표 또는 리스트) 추출
+
+    전략:
+      1. 두음이 <li> 안에 있으면 → 같은 <li>의 중첩 리스트 확인 (서브 불릿)
+      2. 없으면 → 같은 섹션(heading 기준) 안의 <table> 탐색
+         (다른 불릿의 서브 ul에 속지 않도록 table만 탐색)
     """
-    table_candidate = None
-    list_candidate  = None
 
-    for el in parent.find_all_next(CONTENT_TAGS):
+    # ── 케이스 1: 같은 <li> 안의 중첩 리스트 ────────────────────────
+    mnemonic_li = find_ancestor_li(parent)
+    if mnemonic_li:
+        nested = mnemonic_li.find(["ul", "ol"])
+        if nested:
+            result = list_to_html(nested)
+            if result:
+                return result
+
+    # ── 케이스 2: 섹션 내 table 탐색 ────────────────────────────────
+    # 현재 섹션 heading 레벨 파악 (같은/높은 레벨 heading 만나면 중단)
+    prev_h = parent.find_previous(HEADING_TAGS)
+    prev_level = int(prev_h.name[1]) if prev_h else 6
+
+    for el in parent.find_all_next(HEADING_TAGS + ["table"]):
         if el.name in HEADING_TAGS:
-            break  # heading 먼저 → 탐색 종료
+            if int(el.name[1]) <= prev_level:
+                break   # 같은/높은 레벨 heading → 섹션 종료
+            continue    # 더 낮은 레벨 heading → 계속 탐색
+        if el.name == "table":
+            result = table_to_html(el)
+            if result:
+                return result
 
-        if el.name == "table" and table_candidate is None:
-            table_candidate = el
-            break  # table 발견 시 즉시 사용
-
-        if el.name in ["ul", "ol"] and list_candidate is None:
-            list_candidate = el
-            # table이 없으면 list 사용 → heading 나올 때까지 계속 탐색 (table 우선)
-            # 단, heading이 이미 지나갔으므로 break
-            break
-
-    if table_candidate:
-        return table_to_html(table_candidate)
-    if list_candidate:
-        return list_to_html(list_candidate)
     return ""
 
 
 def extract_mnemonics(html_path: str, domain_label: str):
-    """
-    HTML에서 두음 항목 추출
-    반환: [(topic_name, mnemonic_text, content_html), ...]
-    """
     try:
         content = Path(html_path).read_text(encoding="utf-8")
     except FileNotFoundError:
@@ -122,7 +131,7 @@ def extract_mnemonics(html_path: str, domain_label: str):
         mnemonic = f"<{match.group(1).strip()}>"
         parent   = text_node.parent
 
-        # ── 직전 heading 찾기 ─────────────────────────────────────
+        # 직전 heading → 토픽명
         topic  = domain_label
         prev_h = parent.find_previous(HEADING_TAGS)
         if prev_h:
@@ -134,7 +143,6 @@ def extract_mnemonics(html_path: str, domain_label: str):
             if prev_h:
                 topic = prev_h.get_text(strip=True)
 
-        # ── 직후 콘텐츠 추출 (table 또는 ul/ol) ──────────────────
         content_html = extract_content(parent)
 
         key = (topic, mnemonic)
@@ -146,7 +154,6 @@ def extract_mnemonics(html_path: str, domain_label: str):
 
 
 def generate_mem_html(subnote_dir: str = "subnote"):
-    """전체 도메인을 순회하며 mem.html 생성"""
     KST = timezone(timedelta(hours=9))
     now = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
 
@@ -161,10 +168,12 @@ def generate_mem_html(subnote_dir: str = "subnote"):
             print(f"[{label}] 두음 없음 또는 파일 없음")
             continue
 
-        print(f"[{label}] 두음 {len(items)}개 추출")
+        # 표/리스트 있는 항목 / 없는 항목 집계
+        with_content    = sum(1 for _, _, c in items if c)
+        without_content = len(items) - with_content
+        print(f"[{label}] 두음 {len(items)}개 (콘텐츠 있음: {with_content}, 없음: {without_content})")
         total_count += len(items)
 
-        # 토픽별 그룹핑
         topic_map: dict = {}
         for topic, mnemonic, content_html in items:
             topic_map.setdefault(topic, []).append((mnemonic, content_html))
@@ -175,8 +184,9 @@ def generate_mem_html(subnote_dir: str = "subnote"):
             for mnemonic, content_html in mnemonics:
                 items_html += f'<p class="mnemonic">{mnemonic}</p>\n'
                 if content_html:
-                    wrap_class = "table-wrap" if content_html.startswith("<table") else "list-wrap"
-                    items_html += f'<div class="{wrap_class}">{content_html}</div>\n'
+                    is_table = content_html.startswith("<table")
+                    wrap_cls = "table-wrap" if is_table else "list-wrap"
+                    items_html += f'<div class="{wrap_cls}">{content_html}</div>\n'
 
         sections_html += f"""
 <section class="domain">
@@ -206,7 +216,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     .meta a {{ color: #999; text-decoration: none; }}
     .meta a:hover {{ text-decoration: underline; }}
     hr {{ border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }}
-
     .domain {{ margin-bottom: 8px; }}
     .domain-title {{
       font-size: 1.3rem; margin: 24px 0 16px;
@@ -217,12 +226,10 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       padding: 3px 10px; border-radius: 4px; font-size: 0.95rem;
     }}
     .domain-desc {{ color: #666; font-size: 0.95rem; font-weight: normal; }}
-
     h3.topic {{
       font-size: 1rem; color: #444; margin: 20px 0 6px;
       padding-left: 8px; border-left: 3px solid #93c7e7;
     }}
-
     p.mnemonic {{
       display: inline-block;
       background-color: #93c7e7; color: #d44c47;
@@ -230,39 +237,35 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       padding: 4px 14px; border-radius: 4px;
       margin: 4px 0 10px; letter-spacing: 0.05em;
     }}
-
-    /* ── 표 ── */
     .table-wrap {{
-      overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 12px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      margin-bottom: 12px;
     }}
-    table {{ border-collapse: collapse; width: 100%; font-size: 0.88rem; background: #fff; }}
+    table {{
+      border-collapse: collapse; width: 100%;
+      font-size: 0.88rem; background: #fff;
+    }}
     th {{
       background: #f0f4f8; padding: 8px 12px;
       border: 1px solid #ddd; text-align: left; white-space: nowrap;
     }}
     td {{ padding: 7px 12px; border: 1px solid #ddd; vertical-align: top; }}
     tr:hover td {{ background: #f9f9f9; }}
-
-    /* ── 리스트 ── */
     .list-wrap {{
       background: #fff; border: 1px solid #e5e5e5;
-      border-radius: 6px; padding: 10px 16px;
-      margin-bottom: 12px;
+      border-radius: 6px; padding: 10px 16px; margin-bottom: 12px;
     }}
     .list-wrap ul {{
       margin: 0; padding-left: 20px;
       font-size: 0.9rem; line-height: 1.8;
     }}
     .list-wrap li {{ color: #444; }}
-
-    /* ── 모바일 ── */
     @media (max-width: 640px) {{
       body {{ padding: 12px; }}
       h1 {{ font-size: 1.3rem; }}
       .domain-title {{ font-size: 1.1rem; }}
       p.mnemonic {{ font-size: 1rem; }}
       th, td {{ font-size: 0.8rem; padding: 6px 8px; }}
-      .list-wrap ul {{ font-size: 0.85rem; }}
     }}
   </style>
 </head>
