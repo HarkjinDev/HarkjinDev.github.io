@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>두음 모음 (mem)</title>
   <style>
-    /* ── 기본 ── */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       max-width: 860px;
@@ -20,7 +19,6 @@
     .meta a:hover { text-decoration: underline; }
     hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
 
-    /* ── 도메인 섹션 ── */
     .domain { margin-bottom: 8px; }
     .domain-title {
       font-size: 1.3rem;
@@ -38,7 +36,6 @@
     }
     .domain-desc { color: #666; font-size: 0.95rem; font-weight: normal; }
 
-    /* ── 토픽명 ── */
     h3.topic {
       font-size: 1rem;
       color: #444;
@@ -47,7 +44,6 @@
       border-left: 3px solid #93c7e7;
     }
 
-    /* ── 두음 ── */
     p.mnemonic {
       display: inline-block;
       background-color: #93c7e7;
@@ -60,7 +56,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── 테이블 ── */
     .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -86,7 +81,6 @@
     }
     tr:hover td { background: #f9f9f9; }
 
-    /* ── 모바일 ── */
     @media (max-width: 640px) {
       body { padding: 12px; }
       h1 { font-size: 1.3rem; }
@@ -99,7 +93,7 @@
 <body>
   <h1>📝 두음 모음</h1>
   <p class="meta">
-    총 120개 항목 &nbsp;|&nbsp; 마지막 업데이트: 2026-06-04 03:43 KST
+    총 116개 항목 &nbsp;|&nbsp; 마지막 업데이트: 2026-06-04 06:43 KST
     &nbsp;|&nbsp; <a href="index.html">← 목록으로</a>
   </p>
 
@@ -113,18 +107,25 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">2. 데이터베이스 Key</h3>
 <p class="mnemonic"><유최대></p>
+<div class="table-wrap"><table><tr><th>순서</th><th>절차</th><th>내용</th></tr><tr><td>1</td><td>유일성 검증</td><td>함수적 종속성 확인을 통해서 유일성 검증 → 슈퍼키 선정</td></tr><tr><td>2</td><td>최소성 검증</td><td>최소성 확인 후 키 선정 (후보키가 선정되는 것임)</td></tr><tr><td>3</td><td>엔티티 대표성</td><td>후보키 중에서 엔티티 대표성을 기준으로 기본 키 확정</td></tr></table></div>
 <p class="mnemonic"><슈후기대외></p>
+<div class="table-wrap"><table><tr><th>순서</th><th>절차</th><th>내용</th></tr><tr><td>1</td><td>유일성 검증</td><td>함수적 종속성 확인을 통해서 유일성 검증 → 슈퍼키 선정</td></tr><tr><td>2</td><td>최소성 검증</td><td>최소성 확인 후 키 선정 (후보키가 선정되는 것임)</td></tr><tr><td>3</td><td>엔티티 대표성</td><td>후보키 중에서 엔티티 대표성을 기준으로 기본 키 확정</td></tr></table></div>
 <h3 class="topic">1. 데이터 모델링 (Data Modeling)</h3>
 <p class="mnemonic"><요개논물, 주후핵관, 속엔이, 물논반></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>세부 단계</th><th>설명</th><th>주요 고려사항</th></tr><tr><td>1. 요구분석</td><td>요구사항 도출</td><td>사용자 요구 도출</td><td>목적 및 요구 명확화</td></tr><tr><td>2. 개념모델링</td><td>1. 주제 영역 정의</td><td>최상위 집합 구분</td><td>중복 최소화·확장성</td></tr><tr><td></td><td>2. 후보 엔티티 선정</td><td>후보 개체 수집</td><td>제외 금지·현업 참여</td></tr><tr><td></td><td>3. 핵심 엔티티 정의</td><td>핵심 엔티티 선별</td><td>관리 및 동질성 판단</td></tr><tr><td></td><td>4. 관계 정의</td><td>엔티티 간 관계 설정</td><td>양방향 관점 고려</td></tr><tr><td>3. 논리모델링</td><td>1. 속성 정의</td><td>세부 속성 정의</td><td>최소 단위 분할</td></tr><tr><td></td><td>2. 엔티티 상세화</td><td>식별자 지정·정규화</td><td>단일값·무결성 유지</td></tr><tr><td></td><td>3. 이력 관리 정의</td><td>이력 관리 방식 설계</td><td>선분 이력 및 성능</td></tr><tr><td>4. 물리모델링</td><td>1. 물리 환경 조사</td><td>시스템 환경 분석</td><td>관리·백업·보안 고려</td></tr><tr><td></td><td>2. 논리모델 변환</td><td>물리 요소로 전환</td><td>PK 최적화 및 통합</td></tr><tr><td></td><td>3. 반정규화</td><td>성능 및 운영 효율화</td><td>최소화·SQL 최적화</td></tr></table></div>
 <h3 class="topic">4. CRUD 매트릭스 (CRUD Matrix)</h3>
 <p class="mnemonic"><엔단></p>
-<h3 class="topic">6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling) [출제예상]</h3>
+<h3 class="topic">6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling)</h3>
 <p class="mnemonic"><단서타></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>단일 테이블 (Single)</th><th>서브타입별 테이블 (Individual)</th><th>타입별 분리 (Super+Sub)</th></tr><tr><td>테이블 수</td><td>1개</td><td>서브타입 수</td><td>수퍼+서브타입 수</td></tr><tr><td>NULL 발생</td><td>많음</td><td>없음</td><td>없음</td></tr><tr><td>JOIN 비용</td><td>없음</td><td>낮음</td><td>높음</td></tr><tr><td>적합한 상황</td><td>조회 빈번 시</td><td>속성 차이 클 때</td><td>정규화 중요 시</td></tr></table></div>
 <h3 class="topic">7. 암스트롱 공리 (Armstrong's Axioms)</h3>
 <p class="mnemonic"><폐정완></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>원리</th><th>내용</th></tr><tr><td>반사공리</td><td>재귀성규칙 (Subset Property): 부분집합의 성질</td><td>Y ⊆ X이면, X → Y이다.</td></tr><tr><td>확장공리</td><td>부가성규칙 (Augmentation): 확대성질</td><td>X → Y이면, XZ → YZ이다.</td></tr><tr><td>이행공리</td><td>이행성규칙 (Transitivity): 이행성 성질</td><td>X → Y이고 Y → Z이면, X → Z이다.</td></tr></table></div>
 <p class="mnemonic"><분합의></p>
-<h3 class="topic">8. 연결 함정 (Connection Trap) [출제예상]</h3>
+<div class="table-wrap"><table><tr><th>구분</th><th>내용</th></tr><tr><td>분해규칙 (Decomposition)</td><td>X → YZ이면, X → Y이고 X → Z이다.</td></tr><tr><td>합집합규칙 (Union)</td><td>만일 X → Y이고 X → Z이면, X → YZ이다.</td></tr><tr><td>의사이행성규칙 (Pseudotransitivity)</td><td>만일 X → Y이고 WY → Z이면, WX → Z이다. (=유사이행적 성질)</td></tr></table></div>
+<h3 class="topic">8. 연결 함정 (Connection Trap)</h3>
 <p class="mnemonic"><부모균미></p>
+<div class="table-wrap"><table><tr><th>종류</th><th>특징</th><th>설명</th></tr><tr><td>부채꼴 함정 (Fan Trap)</td><td>관계성 모호</td><td>개체 집합(Entity Set) 사이에 관계성 집합(Relation Set)이 정의되어 있기는 하지만 관계성이 모호한 경우</td></tr><tr><td>균열 함정 (Chasm Trap)</td><td>관계성 미존재</td><td>개체 집합(Entity Set) 사이에 관계성 집합(Relation Set)이 정의되어 있기는 하지만 일부 개체집합과 개체집합 사이에 관계성이 존재하지 않는 경우</td></tr></table></div>
 <h3 class="topic">1. SQL (Structured Query Language)</h3>
 <p class="mnemonic"><구실인></p>
 <h3 class="topic">1. 정규화 (Normalization)</h3>
@@ -133,8 +134,10 @@
 <p class="mnemonic"><도부이결다조></p>
 <h3 class="topic">[하위] 2-2. 릴레이션 무결성 제약 (Relation Integrity Constraint)</h3>
 <p class="mnemonic"><상과집튜즉지></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>유형</th><th>설명</th><th>예시</th></tr><tr><td>상태변환</td><td>상태제약 (state constraint)</td><td>데이터 정적 일관성 유지</td><td>특정 시점에 만족</td></tr><tr><td></td><td>과도제약 (transition constraint)</td><td>상태 변환 전후 동적 비교</td><td>변환 직전/후 비교</td></tr><tr><td>집합여부</td><td>집합제약 (set constraint)</td><td>튜플 집합 전체 대상 제약</td><td>CHECK 절 전체 명시</td></tr><tr><td></td><td>튜플제약 (tuple constraint)</td><td>개별 튜플 단위 적용 제약</td><td>CHECK 절 단일 명시</td></tr><tr><td>시간관계</td><td>즉시제약 (immediate constraint)</td><td>연산 수행 즉시 적용 제약</td><td>AFTER 사용</td></tr><tr><td></td><td>지연제약 (deferred constraint)</td><td>트랜잭션 종료 후 적용</td><td>WHEN COMMIT 사용</td></tr></table></div>
 <h3 class="topic">1. 트랜잭션 (Transaction)</h3>
 <p class="mnemonic"><활부완실철></p>
+<div class="table-wrap"><table><tr><th>작업 구분</th><th>상태</th><th>설명</th></tr><tr><td>시작</td><td>활동 상태 (Active)</td><td>실행 중인 초기 동작 상태</td></tr><tr><td>성공</td><td>부분 완료 (Partial Committed)</td><td>마지막 명령 수행 완료 상태</td></tr><tr><td>성공</td><td>완료 상태 (Committed)</td><td>성공적 완료 및 영구 반영</td></tr><tr><td>실패</td><td>실패 상태 (Failed)</td><td>오류 발생으로 실행 중단됨</td></tr><tr><td>실패</td><td>철회 상태 (Aborted)</td><td>작업 취소 및 시작 전 복구</td></tr></table></div>
 <h3 class="topic">3. 병행제어 (Concurrency Control)</h3>
 <p class="mnemonic"><갱현모연></p>
 <h3 class="topic">[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)</h3>
@@ -143,12 +146,16 @@
 <p class="mnemonic"><렌풀유스디패></p>
 <h3 class="topic">[하위] 2-1. CBO (Cost Based Optimizer)</h3>
 <p class="mnemonic"><질비실></p>
+<div class="table-wrap"><table><tr><th>구성요소</th><th>역할</th><th>사례</th></tr><tr><td>질의 변환기 (Query Transformer)</td><td>효율적 형태로 SQL 모양 변환</td><td>뷰 병합, 서브쿼리 비내포화</td></tr><tr><td>비용 산정기 (Estimator)</td><td>최적 실행계획 탐색 알고리즘</td><td>선택도, 카디널리티, 비용</td></tr><tr><td>실행 계획 생성기 (Plan Generator)</td><td>최소 비용 실행계획 최종 선택</td><td>적응적·경험적 탐색</td></tr></table></div>
 <p class="mnemonic"><파최행실></p>
+<div class="table-wrap"><table><tr><th>수행 과정</th><th>구성요소</th><th>수행 역할</th></tr><tr><td>1. SQL 파싱</td><td>SQL Parser</td><td>구문 분석 및 오류 확인</td></tr><tr><td>2. 최적화 (Optimization)</td><td>Query Transformer</td><td>쿼리 표준 형태 변환</td></tr><tr><td></td><td>Estimator</td><td>비용 산출 및 통계 계산</td></tr><tr><td></td><td>Plan Generator</td><td>최적 실행 계획 선정</td></tr><tr><td>3. 행 소스 생성</td><td>Row-Source Generator</td><td>실행 가능 코드로 변환</td></tr><tr><td>4. 실행 (Execution)</td><td>SQL Engine</td><td>계획 실행 및 결과 제공</td></tr></table></div>
 <p class="mnemonic"><테인컬시></p>
+<div class="table-wrap"><table><tr><th>통계정보 유형</th><th>세부 통계 항목</th><th>설명</th></tr><tr><td>테이블 통계</td><td>전체 레코드 수</td><td>테이블의 전체 행의 수</td></tr><tr><td></td><td>총 블록 수</td><td>테이블이 차지하고 있는 전체 블록의 수</td></tr><tr><td></td><td>평균 행 크기</td><td>테이블의 행들이 갖는 평균 길이</td></tr><tr><td>인덱스 통계</td><td>리프 블록 수</td><td>데이터를 보관하는 Leaf Block의 수</td></tr><tr><td></td><td>인덱스 Level</td><td>인덱스 트리의 높이 정보</td></tr><tr><td></td><td>클러스터링 팩터</td><td>접근하고자 하는 데이터가 모여 있는 밀집도</td></tr><tr><td>컬럼 통계</td><td>값의 수</td><td>컬럼 내 값의 종류 수</td></tr><tr><td></td><td>최저/최고 값</td><td>컬럼 값의 범위</td></tr><tr><td></td><td>컬럼 히스토그램</td><td>컬럼 내 데이터의 분포 추정치</td></tr><tr><td>시스템 통계</td><td>CPU 속도</td><td>CPU 성능 및 사용률</td></tr><tr><td></td><td>평균 I/O 속도</td><td>I/O 수행 성능</td></tr><tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr></table></div>
 <h3 class="topic">3. 분산 데이터베이스 (Distributed Database)</h3>
 <p class="mnemonic"><위복병분장></p>
 <h3 class="topic">[하위] 1-1. NoSQL 모델링</h3>
 <p class="mnemonic"><비집프원인></p>
+<div class="table-wrap"><table><tr><th>절자</th><th>절자 별 상세 설명</th></tr><tr><td>도메인 모델 파악</td><td>데이터 개체 및 관계 분석 후 ERD 도식화</td></tr><tr><td>쿼리결과 디자인</td><td>도메인 모델 기반으로 쿼리 결과값 정하여 출력 내용 기반 디자인</td></tr><tr><td>패턴을 이용한 데이터 모델링</td><td>RDBMS 기능 배제, Put/Get 형태로 NoSQL 테이블 재정의</td></tr><tr><td>기능 최적화</td><td>Secondary Index를 이용하여 기능 최적화</td></tr><tr><td>후보 NoSQL을 선정 및 테스트</td><td>부하·안정성·확정성 테스트 후 최적 솔루션 선택</td></tr><tr><td>데이터 모델 최적화 및 하드웨어 디자인</td><td>데이터 모델 최적화 + 애플리케이션 인터페이스 설계 + 하드웨어 디자인 실시</td></tr></table></div>
 <h3 class="topic">1. OLAP (On-Line Analytical Processing)</h3>
 <p class="mnemonic"><슬다드롤피></p>
 <h3 class="topic">1. 데이터 거버넌스 (Data Governance)</h3>
@@ -168,10 +175,13 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">2. 과적합 (Overfitting)</h3>
 <p class="mnemonic"><드규교조></p>
+<div class="table-wrap"><table><tr><th>방법</th><th>설명</th><th>핵심</th></tr><tr><td>드롭아웃 (Dropout)</td><td>학습 시 임의의 노드를 비활성화함</td><td>노드 의존도 감소</td></tr><tr><td>L1/L2 규제화(Regularization)</td><td>가중치에 페널티를 부여해 복잡도 제한</td><td>가중치 크기 제어</td></tr><tr><td>교차 검증</td><td>데이터를 여러 개로 나누어 반복 검증</td><td>일반화 성능 확인</td></tr><tr><td>조기 종료(Early Stopping)</td><td>성능 개선이 멈추면 학습을 조기 중단</td><td>최적 학습 지점 포착</td></tr></table></div>
 <h3 class="topic">1. SOM (Self-Organizing Map)</h3>
 <p class="mnemonic"><초경이가반></p>
+<div class="table-wrap"><table><tr><th>절차</th><th>설명</th><th>핵심</th></tr><tr><td>초기화</td><td>가중치를 무작위로 설정</td><td>학습 시작 상태 정의</td></tr><tr><td>경쟁</td><td>거리 기반 승자 뉴런 선정</td><td>유사도 측정 및 비교</td></tr><tr><td>이웃성 함수 적용</td><td>주변 뉴런 영향력 계산</td><td>영향 범위 및 강도 결정</td></tr><tr><td>가중치 업데이트</td><td>가중치를 입력값에 근접</td><td>거리 단축 및 최적화</td></tr><tr><td>반복</td><td>전체 과정을 지속 수행</td><td>클러스터링 및 맵 완성</td></tr></table></div>
 <h3 class="topic">2. 군집화 (Clustering) 알고리즘</h3>
 <p class="mnemonic"><거절수신></p>
+<div class="table-wrap"><table><tr><th>프로세스</th><th>설명</th><th>핵심</th></tr><tr><td>거리측도 선택</td><td>데이터 간 유사도 측정 기준 결정</td><td>유클리디안, 맨해튼 거리 등</td></tr><tr><td>군집화 절차 선택</td><td>분석 목적에 맞는 알고리즘 선정</td><td>계층적 vs 비계층적 방식</td></tr><tr><td>군집의 수 결정</td><td>최적의 클러스터 개수를 설정함</td><td>이론적 고찰 및 통계적 판단</td></tr><tr><td>신뢰성/타당성 평가</td><td>분석 결과의 정확성 및 안정성 검증</td><td>방식 간 비교 및 데이터 분할</td></tr></table></div>
 
 </section>
 <hr>
@@ -185,19 +195,21 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">1. 정보보안 정책 (Information Security Policy)</h3>
 <p class="mnemonic"><정표절지></p>
+<div class="table-wrap"><table><tr><th>시점</th><th>활동</th></tr><tr><td>사전</td><td>위험 평가, 정책 수립, 보안 아키텍처 설계</td></tr><tr><td>운영 중</td><td>모니터링, 접근제어, 취약점 점검</td></tr><tr><td>사후</td><td>침해사고 대응, 포렌식, 복구 및 개선</td></tr></table></div>
 <p class="mnemonic"><지소존행></p>
+<div class="table-wrap"><table><tr><th>유형</th><th>기반</th><th>예시</th><th>장점</th><th>단점</th></tr><tr><td>지식 기반</td><td>알고 있는 것</td><td>비밀번호, PIN</td><td>구현 간단</td><td>유출 위험</td></tr><tr><td>소유 기반</td><td>가지고 있는 것</td><td>OTP, 스마트카드</td><td>물리적 보안</td><td>분실 위험</td></tr><tr><td>존재 기반</td><td>사람 자체 특성</td><td>지문, 홍채, 안면</td><td>위조 어려움</td><td>프라이버시 우려</td></tr><tr><td>행위 기반</td><td>행동 특성</td><td>서명, 타이핑 패턴</td><td>무자각 인증 가능</td><td>정확도 변동</td></tr></table></div>
 <h3 class="topic">2. 접근제어/통제 (Access Control)</h3>
 <p class="mnemonic"><정모메></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>개념</th><th>특징</th></tr><tr><td>ACL (접근제어 목록)</td><td>객체(자원) 기준 권한 목록 관리</td><td>객체 중심·자원별 권한 확인 용이·사용자 증가 시 관리 복잡</td></tr><tr><td>CL (권한 목록)</td><td>주체(사용자) 기준 권한 목록 관리</td><td>주체 중심·사용자 전체 권한 확인 용이·권한 위임 관리 어려움</td></tr></table></div>
 <h3 class="topic">11. 전자봉투 (Digital Envelope)</h3>
 <p class="mnemonic"><봉수공암></p>
 <h3 class="topic">12. 전자서명 (Digital Signature)</h3>
 <p class="mnemonic"><서송개암></p>
 <h3 class="topic">10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)</h3>
 <p class="mnemonic"><수탐조대복></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>설명</th><th>핵심</th></tr><tr><td>수집</td><td>에이전트가 엔드포인트 행위 데이터 실시간 수집·전송</td><td>데이터 수집</td></tr><tr><td>탐지</td><td>ML·룰·IOC·IOA 기반으로 위협 식별 및 알림</td><td>위협 식별</td></tr><tr><td>조사</td><td>공격 경로·영향 범위·침해 타임라인 분석</td><td>원인 분석</td></tr><tr><td>대응</td><td>격리·차단·프로세스 종료 자동 또는 수동 실행</td><td>피해 차단</td></tr><tr><td>복구</td><td>롤백·파일 복원·정상화 후 재발 방지 조치</td><td>정상 복구</td></tr></table></div>
 <h3 class="topic">5. XSS (Cross-Site Scripting)</h3>
 <p class="mnemonic"><·></p>
-<h3 class="topic">10. APT (Advanced Persistent Threat)</h3>
-<p class="mnemonic"><침탐수유></p>
 
 </section>
 <hr>
@@ -209,6 +221,9 @@
   </h2>
   <h3 class="topic">NW</h3>
 <p class="mnemonic"><color></p>
+<h3 class="topic">6. 자율 네트워크 (Autonomous Network)</h3>
+<p class="mnemonic"><감최치구보></p>
+<div class="table-wrap"><table><tr><th>항목</th><th>설명</th><th>핵심</th></tr><tr><td>자가 감시 (Self-Monitoring)</td><td>네트워크 상태·트래픽·장애를 실시간 자율 감지</td><td>실시간 탐지</td></tr><tr><td>자가 최적화 (Self-Optimization)</td><td>트래픽 부하·QoS에 따라 라우팅·자원 자율 조정</td><td>성능 최적화</td></tr><tr><td>자가 치유 (Self-Healing)</td><td>장애 탐지 후 자동 복구·우회 경로 설정</td><td>자동 복구</td></tr><tr><td>자가 구성 (Self-Configuration)</td><td>신규 장비·서비스 추가 시 자동 설정·배포</td><td>자동 구성</td></tr><tr><td>자가 보호 (Self-Protection)</td><td>사이버 위협·이상 트래픽을 탐지하여 자동 차단</td><td>자율 보안</td></tr></table></div>
 
 </section>
 <hr>
@@ -222,40 +237,79 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">5. 소프트웨어 기술 부채 (Technical Debt)</h3>
 <p class="mnemonic"><설코테문></p>
+<div class="table-wrap"><table><tr><th>유형</th><th>설명</th><th>핵심</th></tr><tr><td>설계 부채</td><td>설계 악취, 임시방편 설계, 설계 규칙 위반</td><td>구조적 부채</td></tr><tr><td>코드 부채</td><td>코드 스멜, 스파게티 코드, 에일리언 코드</td><td>코드 품질 저하</td></tr><tr><td>테스트 부채</td><td>테스트 케이스 부족, 불충분한 테스트 커버리지</td><td>품질 검증 부족</td></tr><tr><td>문서 부채</td><td>문서 미작성·불일치, 신기술 미반영 문서</td><td>지식 전달 단절</td></tr></table></div>
 <h3 class="topic">7. 소프트웨어 유지보수 (Software Maintenance)</h3>
 <p class="mnemonic"><수적예완></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>유형</th><th>원인</th><th>예시</th></tr><tr><td>Reactive</td><td>수정형 (Corrective)</td><td>결함 수정</td><td>버그 픽스, 오류 수정</td></tr><tr><td></td><td>적응형 (Adaptive)</td><td>환경 변화 대응</td><td>OS 업그레이드, DB 마이그레이션</td></tr><tr><td>Proactive</td><td>예방형 (Preventive)</td><td>미래 장애 예방</td><td>리팩토링, 문서화</td></tr><tr><td></td><td>완전형 (Perfective)</td><td>기능 향상 요구</td><td>성능 개선, 새 기능 추가</td></tr></table></div>
 <h3 class="topic">2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)</h3>
 <p class="mnemonic"><캡추다정상></p>
+<div class="table-wrap"><table><tr><th>특성</th><th>설명</th><th>주요 효과 및 키워드</th></tr><tr><td>캡슐화 (Encapsulation)</td><td>데이터·기능을 하나의 단위로 묶음</td><td>응집도 향상·결합도 감소·재사용성</td></tr><tr><td>추상화 (Abstraction)</td><td>본질적 특징만 추출·세부 제거</td><td>인터페이스·추상 클래스·복잡도 관리</td></tr><tr><td>다형성 (Polymorphism)</td><td>상황에 따라 다양한 형태로 동작</td><td>동작 바인딩, 오버로딩·오버라이딩</td></tr><tr><td>정보은닉 (Information Hiding)</td><td>내부 데이터 직접 접근 차단</td><td>접근 제어자·보안성·무결성</td></tr><tr><td>상속 (Inheritance)</td><td>부모 클래스 특성을 자식이 계승</td><td>코드 재사용·계층 구조·유지보수</td></tr></table></div>
 <p class="mnemonic"><클객메인></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>핵심 설명</th><th>비고</th></tr><tr><td>클래스 (Class)</td><td>객체를 생성하기 위한설계도또는 틀</td><td>추상적 개념</td></tr><tr><td>객체 (Object)</td><td>클래스의 설계대로 만들어질구현 대상</td><td>개념적 실체</td></tr><tr><td>메소드 (Method)</td><td>객체가 수행할 수 있는기능이나 동작</td><td>객체의 행위</td></tr><tr><td>인스턴스 (Instance)</td><td>설계도(클래스)를 바탕으로메모리에 실제 할당된 실체</td><td>구체적 실체</td></tr></table></div>
 <h3 class="topic">0. 개발 방법론(SW Development Methodology)</h3>
 <p class="mnemonic"><절방산관기도></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>구조적 방법론</th><th>정보공학 방법론</th><th>객체지향 방법론</th><th>CBD 방법론</th></tr><tr><td>개념</td><td>정형화된 분석절차 적용, 프로세스 중심</td><td>CASE 도구 등 공학적 접근, 데이터 모델 중심</td><td>객체지향 개념 적용, 사용자 관점 분석설계</td><td>컴포넌트 개발/조합을 통한 재사용 중심</td></tr><tr><td>시기</td><td>1970년대</td><td>1980년대</td><td>1990년대</td><td>2000년대</td></tr><tr><td>중점</td><td>기능 중심, 
+프로세스 중심</td><td>자료구조, 
+데이터 모델 중심</td><td>객체 중심, 
+사용자 관점</td><td>컴포넌트 중심</td></tr><tr><td>특징</td><td>분할과 정복, 
+하향식 기능 분해</td><td>데이터와 프로세스 균형</td><td>(캡추다정상)White Box Reuse</td><td>반복/점진적,Black Box Reuse지향</td></tr><tr><td>장점</td><td>프로세스 중심 방식 개발 유용</td><td>자료 중심으로 비교적 안정적</td><td>자연스럽고 유연함, 재사용성 향상</td><td>생산성, 품질, 비용위험 개선</td></tr><tr><td>단점</td><td>데이터 은닉 불가, 유지보수성 낮음</td><td>기능의 유지보수 및 재사용성 낮음</td><td>실질적인 재사용성 어려움</td><td>유통 환경 및 테스트 환경 미흡</td></tr><tr><td>목표</td><td>비즈니스 프로세스 자동화</td><td>경영전략적 정보시스템 구축</td><td>재사용 시스템</td><td>컴포넌트 개발 및 활용</td></tr><tr><td>접근 방법</td><td>프로세스 중심</td><td>데이터 중심</td><td>객체 중심 (프로세스+데이터)</td><td>컴포넌트 중심</td></tr><tr><td>Life Cycle</td><td>폭포수 모델</td><td>폭포수, 프로토타이핑</td><td>반복적 개발</td><td>반복적 개발</td></tr><tr><td>모델링</td><td>기능 모델링</td><td>데이터 및 프로세스 모델링</td><td>객체 모델링</td><td>객체 및 컴포넌트 모델링</td></tr><tr><td>개발 방식</td><td>Top-down</td><td>Top-down</td><td>Bottom-up</td><td>Bottom-up</td></tr><tr><td>자동화</td><td>수작업 가능</td><td>자동화 도구 요구</td><td>자동화 도구 필요</td><td>자동화 도구 필수</td></tr><tr><td>주요 산출물</td><td>DFD, 구조도, 자료 사전</td><td>ERD, 기능차트, Event 모델</td><td>Use Case, Class, Sequence DM</td><td>Component DM, 재사용 계획서</td></tr><tr><td>지원 언어</td><td>Cobol, C, Pascal</td><td>Cobol, C, VB</td><td>C++, Java, C#, VB</td><td>무관</td></tr></table></div>
 <h3 class="topic">4. 폭포수 모델 (Waterfall Model)</h3>
 <p class="mnemonic"><요설구테유></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>주요 산출물</th></tr><tr><td>요구분석</td><td>SRS (요구사항 명세서)</td></tr><tr><td>설계</td><td>아키텍처·상세설계서</td></tr><tr><td>구현</td><td>소스코드</td></tr><tr><td>테스트</td><td>테스트 결과서</td></tr><tr><td>배포 및 유지보수</td><td>운영 문서</td></tr></table></div>
 <h3 class="topic">5. 애자일 (Agile)</h3>
 <p class="mnemonic"><개동고변></p>
+<div class="table-wrap"><table><tr><th>가치</th><th>설명</th></tr><tr><td>개인과 상호작용 > 프로세스와 도구</td><td>사람 중심의 협업 강조</td></tr><tr><td>작동하는 소프트웨어 > 포괄적인 문서</td><td>실질적 결과물 우선</td></tr><tr><td>고객과의 협력 > 계약 협상</td><td>지속적 고객 참여</td></tr><tr><td>변화에 대응 > 계획 준수</td><td>유연한 요구사항 반영</td></tr></table></div>
 <h3 class="topic">[하위] 5-3. XP(eXtreme Programming)</h3>
 <p class="mnemonic"><용단커피존></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>설명</th></tr><tr><td>유저스토리(User Story)</td><td>◦ 고객 요구사항을 기술하며 의사소통 도구로 활용
+◦ 릴리즈 계획 수립의 기본 단위</td></tr><tr><td>스파이크(Spike)</td><td>◦ 잠재적 솔루션 확인을 위한 간단한 프로그램 (핵심 기능 프로토타입)
+◦ 스토리의 신뢰성 증대 및 기술적 위험 감소 목적으로 작성</td></tr><tr><td>배포계획(Release Planning)</td><td>◦ 프로젝트 전체 배포 계획 생성
+◦ 의사결정 규칙을 포함한 프로젝트 수행 방법 정의</td></tr><tr><td>반복(Iteration)</td><td>◦ 1~3주 단위로 나누어 민첩하고 균형 있게 개발 진행
+◦ 프로세스 평가와 계획의 신뢰성을 높이는 핵심 항목</td></tr><tr><td>인수 테스트(Acceptance Test)</td><td>◦ 고객이 작동하는 시스템을 보며 진척 사항 확인
+◦ 고객이 직접 명세한 테스트의 통과 여부 파악</td></tr><tr><td>소규모 배포(Small Release)</td><td>◦ 짧은 사이클의 빈번한 배포를 통해 고객에게 조기 가치 제공
+◦ 빠른 피드백을 통한 프로그램 품질 개선 및 대응</td></tr></table></div>
 <h3 class="topic">6. 개발방법론 테일러링 (Tailoring)</h3>
 <p class="mnemonic"><정선상세문></p>
+<div class="table-wrap"><table><tr><th>절차</th><th>주요활동</th><th>산출물</th></tr><tr><td>1. 프로젝트 특성 정의</td><td>사업 목표 확인 및 요구사항 이해</td><td>프로젝트 프로파일, 프로세스 정의서</td></tr><tr><td>2. 표준 프로세스 선정 및 검증</td><td>표준 프로세스 선정 및 적합성 검증</td><td>표준 프로세스, 검증 결과서</td></tr><tr><td>3. 상위 수준의 커스터마이징</td><td>생명주기 정의 및 프로젝트 단계 조정</td><td>적용 프로세스, 테일러링 매트릭스</td></tr><tr><td>4. 세부 커스터마이징</td><td>산출물 선정 및 WBS 일정 보완</td><td>WBS, 산출물 목록, 테일러링 매트릭스</td></tr><tr><td>5. 테일러링 문서화</td><td>결과물 작성 및 PM 승인 획득</td><td>테일러링 결과서</td></tr></table></div>
 <h3 class="topic">1. 요구공학 (Requirements Engineering)</h3>
 <p class="mnemonic"><추분명검></p>
+<div class="table-wrap"><table><tr><th>프로세스</th><th>설명</th><th>적용기법</th></tr><tr><td>추출</td><td>- 요구사항 식별, 분류, 우선순위 설정, 문서화 수행</td><td>- 인터뷰, 문서분석, 프로토타이핑
+- 벤치마킹, 브레인스토밍 등</td></tr><tr><td>분석</td><td>- 요구사항을 파악하여 무엇(What)을 개발할지 도출해 내는 단계</td><td>- 객체지향 분석(Usecase Diagram)
+- 구조적 분석(자료흐름도)</td></tr><tr><td>명세</td><td>- 분석된 요구사항을 바탕으로 명세서(SRS) 작성
+- 의사소통 수단 및 검증/시험계획의 기초 자료로 활용
+- 기능적/비기능적 요구사항 식별</td><td>- ER 모델링, SRS 작성
+- FSM(Finite State Machine)
+- SADT(구조적 분석 및 디자인 기술)</td></tr><tr><td>검증</td><td>- 명세서의 정확성, 완전성, 구현 가능성 평가
+- 사용자 요구의 올바른 기술 여부 검토 및 증명
+- 문서 표준 준수 및 설계 기초 자료 적합성 확인</td><td>- 검증(Verification)
+- 확인(Validation)</td></tr></table></div>
 <p class="mnemonic"><협기변확></p>
+<div class="table-wrap"><table><tr><th>프로세스</th><th>설명</th></tr><tr><td>요구사항 협상</td><td>가용한 자원과 수용 가능한 위험 수준에서 구현 가능한 기능을 협상하기 위한 기법</td></tr><tr><td>요구사항 기준선</td><td>공식적으로 검토되고 합의된 요구사항 명세서 (향후 개발의 기본(Baseline))</td></tr><tr><td>요구사항 변경관리</td><td>요구사항 기준선을 기반으로 모든 변경을 공식적으로 통제하기 위한 기법</td></tr><tr><td>요구사항 확인 및 검증</td><td>구축된 시스템이 이해관계자가 기대한 요구사항에 부합되는지 확인하기 위한 방법 (Verification, Validation)</td></tr></table></div>
 <h3 class="topic">2. 소프트웨어 모듈 (Software Module)</h3>
 <p class="mnemonic"><응하결로></p>
+<div class="table-wrap"><table><tr><th>조건</th><th>설명</th></tr><tr><td>높은 응집도</td><td>모듈 내부 요소들이 하나의 목적으로 긴밀히 연관</td></tr><tr><td>낮은 결합도</td><td>다른 모듈에 대한 의존성 최소화</td></tr><tr><td>명확한 인터페이스</td><td>내부 구현 감추고 API만 공개</td></tr><tr><td>적정 크기</td><td>이해·테스트가 가능한 수준</td></tr></table></div>
 <h3 class="topic">[하위] 2-1. 응집도 (Cohesion)</h3>
 <p class="mnemonic"><기순교절시논우></p>
+<div class="table-wrap"><table><tr><th>수준</th><th>유형</th><th>설명</th></tr><tr><td>최고</td><td>기능적 (Functional)</td><td>단일 기능만 수행 (최이상적)</td></tr><tr><td>↑</td><td>순차적 (Sequential)</td><td>이전 출력이 다음 입력으로 연결</td></tr><tr><td>↑</td><td>통신적 (Communicational)</td><td>동일 데이터 참조·처리</td></tr><tr><td>↑</td><td>절차적 (Procedural)</td><td>순서 관련 여러 기능 포함</td></tr><tr><td>↑</td><td>시간적 (Temporal)</td><td>같은 시점에 실행되는 기능 묶음</td></tr><tr><td>↑</td><td>논리적 (Logical)</td><td>유사 범주의 기능을 선택적 실행</td></tr><tr><td>최저</td><td>우연적 (Coincidental)</td><td>아무 관계 없는 기능의 임의 집합</td></tr></table></div>
 <h3 class="topic">[하위] 2-2. 결합도 (Coupling)</h3>
 <p class="mnemonic"><자료구조제어는외부공통내용이다></p>
+<div class="table-wrap"><table><tr><th>수준</th><th>유형</th><th>설명</th></tr><tr><td>최저</td><td>자료 (Data)</td><td>단순 값(파라미터)만 전달 (최이상적)</td></tr><tr><td>↑</td><td>스탬프 (Stamp)</td><td>자료 구조(레코드) 전달</td></tr><tr><td>↑</td><td>제어 (Control)</td><td>제어 플래그 전달로 동작 제어</td></tr><tr><td>↑</td><td>외부 (External)</td><td>외부 환경·포맷에 의존</td></tr><tr><td>↑</td><td>공통 (Common)</td><td>전역 변수 공유</td></tr><tr><td>최고</td><td>내용 (Content)</td><td>다른 모듈 내부 직접 참조·수정</td></tr></table></div>
 <h3 class="topic">[하위] 2-3. fan-in / fan-out</h3>
 <p class="mnemonic"><인상아하></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>fan-in</th><th>fan-out</th></tr><tr><td>정의</td><td>해당 모듈을 호출하는 모듈 수</td><td>해당 모듈이 호출하는 모듈 수</td></tr><tr><td>높을 때</td><td>재사용성 높음</td><td>복잡도 높음, 오류 전파 위험</td></tr><tr><td>낮을 때</td><td>재사용 미흡</td><td>단순하고 독립적</td></tr><tr><td>이상적 설계</td><td>높음 (공유 모듈 활용)</td><td>낮음 (7 이하 권장)</td></tr></table></div>
 <h3 class="topic">3. 디자인 패턴 (Design Pattern)</h3>
 <p class="mnemonic"><패문해결></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>요소</th><th>설명</th></tr><tr><td>패턴 이름</td><td>패턴 이름 및 분류, 별칭</td><td>설계 의도 표현 및 소통 지원</td></tr><tr><td>문제</td><td>의도 및 목적, 적용 대상</td><td>적용 시점 및 해결 과제 설명</td></tr><tr><td>해법</td><td>구조(클래스 다이어그램), 협력 방법, 샘플 코드</td><td>구성요소 역할 및 관계 표현</td></tr><tr><td>결과</td><td>효과, 주의사항, 활용 사례, 관련 패턴</td><td>적용 결과 및 장단점 분석</td></tr></table></div>
 <p class="mnemonic"><생구행></p>
+<div class="table-wrap"><table><tr><th>분류</th><th>대표 패턴</th><th>목적</th></tr><tr><td>생성 (Creational)</td><td>Singleton, Factory Method, Abstract Factory, Builder, Prototype</td><td>객체 생성 방식 캡슐화</td></tr><tr><td>구조 (Structural)</td><td>Adapter, Decorator, Facade, Proxy, Composite, Bridge, Flyweight</td><td>클래스·객체 구조 조합</td></tr><tr><td>행위 (Behavioral)</td><td>Observer, Strategy, Command, Template Method, Iterator, State 등</td><td>객체 간 책임 분배·통신</td></tr></table></div>
 <h3 class="topic">1. 소프트웨어 아키텍처</h3>
 <p class="mnemonic"><요참모프배></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>세부 활동 및 절차</th></tr><tr><td>아키텍처 요구 파악</td><td>이해당사자 식별 → 품질 속성 식별(기능성, 사용성 등) → 품질 속성 시나리오 작성 → 아키텍처 요구사항 파악 → 아키텍처 리스크 식별 → 아키텍처 자료 검토</td></tr><tr><td>참조 아키텍처 준비</td><td>업계 모델 조사/검토 → 표준 모델 조사/검토 → 참조 아키텍처 준비 (TRM, SP 등)</td></tr><tr><td>아키텍처 모델링</td><td>뷰 정의 →패턴/스타일 설정→ 프레임워크 선정 → 설계 이슈 선정 → 아키텍처 모델링 →아키텍처 평가</td></tr><tr><td>아키텍처 프로토타이핑</td><td>유즈케이스 단위 설계 → 컴포넌트 단위 설계 → 기술 이슈 설계 → 구현 → 아키텍처 프로토타이핑 → 프로토타입 팀 구성 → 프로토타입 검토</td></tr><tr><td>아키텍처 배포</td><td>아키텍처 모델 구조화 → 프로토타입 모델 구조화 → 아키텍처 문서화 → 아키텍처 발표 자료 작성 → 아키텍처 배포 → 아키텍처 문서 검토</td></tr></table></div>
 <h3 class="topic">[하위] 1-1. 소프트웨어 아키텍처 모델</h3>
 <p class="mnemonic"><논개프물유></p>
+<div class="table-wrap"><table><tr><th>뷰</th><th>관점</th><th>주요 UML 다이어그램</th></tr><tr><td>논리 뷰 (Logical)</td><td>기능·설계 구조</td><td>클래스, 순차 다이어그램</td></tr><tr><td>개발 뷰 (Development)</td><td>코드·모듈 구조</td><td>컴포넌트, 패키지 다이어그램</td></tr><tr><td>프로세스 뷰 (Process)</td><td>런타임 동작·동시성</td><td>활동, 상태 다이어그램</td></tr><tr><td>물리 뷰 (Physical)</td><td>배포·하드웨어 구성</td><td>배치 다이어그램</td></tr><tr><td>Usecase(시나리오) (+1)</td><td>유즈케이스로 뷰 통합 검증</td><td>유즈케이스 다이어그램</td></tr></table></div>
 <p class="mnemonic"><텍테포코></p>
+<div class="table-wrap"><table><tr><th>레벨</th><th>표현 대상</th><th>대상 독자</th></tr><tr><td>Context (시스템 컨텍스트)</td><td>시스템과 사용자·외부 시스템 관계</td><td>모든 이해관계자</td></tr><tr><td>Container (컨테이너)</td><td>애플리케이션·데이터 저장소 배치</td><td>기술 책임자</td></tr><tr><td>Component (컴포넌트)</td><td>컨테이너 내부 주요 구성 요소</td><td>개발자·아키텍트</td></tr><tr><td>Code (코드)</td><td>클래스 수준 UML</td><td>개발자</td></tr></table></div>
 
 </section>
 <hr>
@@ -282,17 +336,24 @@
 <p class="mnemonic"><점구가차관></p>
 <h3 class="topic">3. 선형회귀분석 (Linear Regression Analysis)</h3>
 <p class="mnemonic"><선독정등></p>
+<div class="table-wrap"><table><tr><th>항목</th><th>설명</th><th>핵심</th></tr><tr><td>선형성</td><td>X와 Y 간의 관계가 선형임</td><td>선형 관계</td></tr><tr><td>독립성</td><td>관측값·잔차가 서로 독립</td><td>Durbin-Watson 검정</td></tr><tr><td>정규성</td><td>잔차가 정규분포를 따름</td><td>Q-Q plot</td></tr><tr><td>등분산성</td><td>X값에 관계없이 잔차의 분산이 일정</td><td>잔차 플롯, 브루쉬-페이건 검정(BP검정)</td></tr></table></div>
 <h3 class="topic">1. 시계열 분석 (Time Series Analysis)</h3>
 <p class="mnemonic"><추분계불></p>
+<div class="table-wrap"><table><tr><th>항목</th><th>설명</th><th>핵심</th></tr><tr><td>추세 (Trend)</td><td>장기적으로 증가·감소하는 방향성</td><td>장기 방향</td></tr><tr><td>순환 (Cyclical)</td><td>경기 변동 등 수년 주기의 불규칙 파동</td><td>장기 파동</td></tr><tr><td>계절 (Seasonal)</td><td>월·분기 등 고정 주기로 반복되는 패턴</td><td>고정 주기</td></tr><tr><td>불규칙 (Irregular)</td><td>위 세 요인으로 설명되지 않는 무작위 오차</td><td>잔차·노이즈</td></tr></table></div>
 <h3 class="topic">[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)</h3>
 <p class="mnemonic"><수시패인></p>
+<div class="table-wrap"><table><tr><th>절차</th><th>설명</th><th>사례</th></tr><tr><td>데이터 수집</td><td>목표별 데이터 확보</td><td>배달 주문 데이터 확보</td></tr><tr><td>시각화/탐색</td><td>시각화로 구조 파악</td><td>주문량 변화 시각화</td></tr><tr><td>패턴도출</td><td>적합 모형 패턴 설정</td><td>음식별 주문 패턴 발견</td></tr><tr><td>인사이트 발견</td><td>분석 결과 도출 정리</td><td>배달 수요 예측 활용</td></tr></table></div>
 <h3 class="topic">[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)</h3>
 <p class="mnemonic"><가수통증></p>
+<div class="table-wrap"><table><tr><th>절차</th><th>설명</th><th>사례</th></tr><tr><td>가설설정</td><td>분석 목표별 가설 수립</td><td>CCTV 범죄예방 효과</td></tr><tr><td>데이터수집</td><td>가설 관련 데이터 확보</td><td>CCTV 및 범죄 기록</td></tr><tr><td>통계분석</td><td>변수 간 상관관계 분석</td><td>설치 전후 상관 분석</td></tr><tr><td>가설검증</td><td>가설의 채택 또는 기각</td><td>범죄 감소로 가설 채택</td></tr></table></div>
 <h3 class="topic">3. 연관 규칙 분석 (Association Rule Analysis)</h3>
 <p class="mnemonic"><지신향></p>
+<div class="table-wrap"><table><tr><th>측도</th><th>공식</th><th>의미</th></tr><tr><td>지지도(Support)</td><td>P(A∩B)</td><td>A와 B 동시 발생 비율</td></tr><tr><td>신뢰도(Confidence)</td><td>P(B|A)</td><td>A 발생 시 B 발생 조건부 확률</td></tr><tr><td>향상도(Lift)</td><td>P(B|A)/P(B)</td><td>A,B의 상관관계</td></tr></table></div>
 <p class="mnemonic"><빈최후반연></p>
+<div class="table-wrap"><table><tr><th>기준</th><th>설명</th></tr><tr><td>빈도수 집합 탐색</td><td>대용량 데이터베이스 내의 단위 트랜잭션에서 빈번하게 발생하는 사건의 유형을 발견</td></tr><tr><td>최소 지지도 확인</td><td>트랜잭션을 대상으로 최소지지도 이상을 만족하는 빈발항목 집합을 발견하는 과정</td></tr><tr><td>후보 집합 생성</td><td>빈발항목으로 집합 생성</td></tr><tr><td>반복</td><td>새로운 빈발항목이 생성되지 않을 때까지 반복 수행</td></tr><tr><td>연관 규칙 생성</td><td>발견된 다량 항목 집합 내에 포함된 항목들 중에서 최소 신뢰도 이상을 만족하는 항목들 간의 연관 규칙을 생성하는 단계 (지지도, 신뢰도, 향상도 계산)</td></tr></table></div>
 <h3 class="topic">2. 데이터 시각화 (Data Visualization)</h3>
 <p class="mnemonic"><구시표></p>
+<div class="table-wrap"><table><tr><th>분류</th><th>핵심 기능</th><th>설명</th></tr><tr><td>정보 구조화</td><td>데이터 수집 및 탐색</td><td>자료 또는 논거 수집</td></tr><tr><td></td><td>데이터 분류</td><td>유사 항목 그룹핑 과정</td></tr><tr><td></td><td>데이터 배열</td><td>의미에 따른 배치와 배열</td></tr><tr><td></td><td>관계 탐색 (재배열)</td><td>인식 쉬운 패턴 생성</td></tr><tr><td>정보 시각화</td><td>시간, 분포, 관계 시각화</td><td>데이터 분포와 관계 표현</td></tr><tr><td></td><td>비교, 변수, 공간</td><td>기본 원리 활용 시각화</td></tr><tr><td>정보 시각 표현</td><td>디자인 기본원리 사용</td><td>그래픽 디자인 완성 단계</td></tr><tr><td></td><td>인터렉션 디자인</td><td>시각 자료 적용 및 확인</td></tr></table></div>
 <p class="mnemonic"><시분관비공></p>
 
 </section>
@@ -307,25 +368,45 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">[하위] 1-3. 파이프라인 (Pipeline)</h3>
 <p class="mnemonic"><구데제></p>
+<div class="table-wrap"><table><tr><th>종류</th><th>원인</th><th>해결 방법</th></tr><tr><td>구조 해저드 (Structural)</td><td>동일 하드웨어 자원 충돌</td><td>자원 분리, 스톨(Stall) 삽입</td></tr><tr><td>데이터 해저드 (Data)</td><td>RAW(Read After Write) 
+WAR(Write After Read)
+WAW(Write After Write)</td><td>포워딩(Forwarding), NOP 삽입</td></tr><tr><td>제어 해저드 (Control)</td><td>분기(Branch) 명령으로 흐름 변경</td><td>지연 슬롯, 분기 예측(Branch Prediction)</td></tr></table></div>
 <h3 class="topic">3. 캐시 메모리 (Cache Memory)</h3>
 <p class="mnemonic"><공시순></p>
+<div class="table-wrap"><table><tr><th>종류</th><th>정의</th><th>사례</th></tr><tr><td>공간 지역성(Spatial Locality)</td><td>참조된 데이터인근에 있는 데이터가 곧 참조될 가능성이 높은 특성</td><td>배열(Array) 순차 접근, 관련 데이터의 인접 배치</td></tr><tr><td>시간 지역성(Temporal Locality)</td><td>최근에 참조된 데이터가가까운 미래에 다시 참조될 가능성이 높은 특성</td><td>루프(Loop), 스택(Stack), 공통 변수(Counting)</td></tr><tr><td>순차 지역성(Sequential Locality)</td><td>데이터가 메모리에 저장된순서대로 차례차례 참조되는 특성</td><td>프로그램 코드의 실행 (분기/점프가 없는 경우)</td></tr></table></div>
 <p class="mnemonic"><직연집></p>
+<div class="table-wrap"><table><tr><th>매핑 방식</th><th>특징</th><th>장단점</th></tr><tr><td>직접 매핑 
+(Direct Mapped)</td><td>메모리 블록이 특정 캐시 라인에만 매핑</td><td>구현 간단, 충돌 미스 발생 가능</td></tr><tr><td>완전 연관 매핑 
+(Fully Associative)</td><td>어느 캐시 라인에나 매핑 가능</td><td>미스율 최소, 하드웨어 복잡·비용 높음</td></tr><tr><td>집합 연관 매핑 
+(Set Associative)</td><td>캐시를 집합으로 나누어 집합 내 연관 매핑</td><td>직접/완전 방식의 절충안, 실제 CPU 채택</td></tr></table></div>
 <h3 class="topic">2. 스레드 (Thread)</h3>
 <p class="mnemonic"><인블동칩></p>
+<div class="table-wrap"><table><tr><th>모델</th><th>스레드 설명</th></tr><tr><td>Interleaved 
+Multithreading</td><td>매 클록 사이클마다 스레드를 교체하여 실행하는 미세 단위(Fine-grain) 방식</td></tr><tr><td>Blocked 
+Multithreading</td><td>캐시 미스 등 지연 발생 시에만 스레드를 교체하는 거대 단위(Coarse-grain) 방식</td></tr><tr><td>Simultaneous Multithreading (SMT)</td><td>슈퍼스칼라 구조를 활용해 여러 스레드의 명령어를 동시에 발송(Issue)하는 방식</td></tr><tr><td>Chip Multithreading</td><td>하나의 칩 안에 여러 개의 프로세서를 집적하여 스레드를 할당하는 형태</td></tr></table></div>
 <h3 class="topic">3. 교착상태(Mutual Exclusion)</h3>
 <p class="mnemonic"><상진한></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>설명</th><th>관련사항</th></tr><tr><td>상호배제 조건</td><td>두 개 이상의 프로세스가 동시에 임계영역에 존재 불가</td><td>임계영역</td></tr><tr><td>진행 조건</td><td>임계영역 밖의 프로세스가 다른 프로세스의 진입을 방해 금지</td><td>교착상태</td></tr><tr><td>한계대기 조건</td><td>임계영역 진입이 무한정 연기되지 않도록 보장</td><td>기아상태</td></tr><tr><td>상대속도 조건</td><td>프로세스 간 상대적인 실행 속도에 대한 가정을 배제</td><td>기아상태</td></tr></table></div>
 <h3 class="topic">4. 교착 상태 (Deadlock)</h3>
 <p class="mnemonic"><상점비환></p>
+<div class="table-wrap"><table><tr><th>방법</th><th>기법</th><th>핵심</th></tr><tr><td>예방 (Prevention)</td><td>상호 배제 조건 제거 — 공유 가능 자원으로 전환</td><td>조건 원천 제거</td></tr><tr><td></td><td>점유 대기 조건 제거 — 필요 자원 한번에 모두 요청</td><td>일괄 자원 요청</td></tr><tr><td></td><td>비선점 조건 제거 — 대기 시 보유 자원 강제 반납</td><td>강제 자원 반납</td></tr><tr><td></td><td>순환 대기 조건 제거 — 자원에 순서 부여, 순서대로만 요청</td><td>자원 순서화</td></tr><tr><td>회피 (Avoidance)</td><td>은행가 알고리즘 — 안전 상태 유지 가능한 경우만 자원 할당</td><td>안전 상태 유지</td></tr><tr><td></td><td>사전 최대 자원 선언 — 프로세스 시작 전 최대 요구량 명시</td><td>최대 요구 선언</td></tr><tr><td>발견 (Detection)</td><td>자원 할당 그래프 — 사이클 탐지로 교착 상태 식별</td><td>그래프 사이클 탐지</td></tr><tr><td></td><td>탐지 알고리즘 — 주기적 실행으로 교착 상태 프로세스 식별</td><td>주기적 탐지</td></tr><tr><td>복구 (Recovery)</td><td>프로세스 종료 — 희생 프로세스 선택·강제 종료로 자원 해제</td><td>프로세스 강제 종료</td></tr><tr><td></td><td>자원 선점 — 프로세스에서 자원 강제 회수·재할당</td><td>자원 강제 선점</td></tr><tr><td></td><td>롤백 — 교착 상태 이전 안전 상태로 프로세스 복귀</td><td>체크포인트 복귀</td></tr></table></div>
 <p class="mnemonic"><예회발복></p>
+<div class="table-wrap"><table><tr><th>방법</th><th>기법</th><th>핵심</th></tr><tr><td>예방 (Prevention)</td><td>상호 배제 조건 제거 — 공유 가능 자원으로 전환</td><td>조건 원천 제거</td></tr><tr><td></td><td>점유 대기 조건 제거 — 필요 자원 한번에 모두 요청</td><td>일괄 자원 요청</td></tr><tr><td></td><td>비선점 조건 제거 — 대기 시 보유 자원 강제 반납</td><td>강제 자원 반납</td></tr><tr><td></td><td>순환 대기 조건 제거 — 자원에 순서 부여, 순서대로만 요청</td><td>자원 순서화</td></tr><tr><td>회피 (Avoidance)</td><td>은행가 알고리즘 — 안전 상태 유지 가능한 경우만 자원 할당</td><td>안전 상태 유지</td></tr><tr><td></td><td>사전 최대 자원 선언 — 프로세스 시작 전 최대 요구량 명시</td><td>최대 요구 선언</td></tr><tr><td>발견 (Detection)</td><td>자원 할당 그래프 — 사이클 탐지로 교착 상태 식별</td><td>그래프 사이클 탐지</td></tr><tr><td></td><td>탐지 알고리즘 — 주기적 실행으로 교착 상태 프로세스 식별</td><td>주기적 탐지</td></tr><tr><td>복구 (Recovery)</td><td>프로세스 종료 — 희생 프로세스 선택·강제 종료로 자원 해제</td><td>프로세스 강제 종료</td></tr><tr><td></td><td>자원 선점 — 프로세스에서 자원 강제 회수·재할당</td><td>자원 강제 선점</td></tr><tr><td></td><td>롤백 — 교착 상태 이전 안전 상태로 프로세스 복귀</td><td>체크포인트 복귀</td></tr></table></div>
 <h3 class="topic">6. 인터럽트 (Interrupt)</h3>
 <p class="mnemonic"><직병풀></p>
 <h3 class="topic">1. 가상 메모리 (Virtual Memory)</h3>
 <p class="mnemonic"><할배인교></p>
+<div class="table-wrap"><table><tr><th>유형</th><th>알고리즘</th><th>설명</th></tr><tr><td>할당 (Allocation)</td><td>고정 할당</td><td>프로세스마다 고정된 프레임 수 할당.</td></tr><tr><td></td><td>가변 할당</td><td>프로세스 크기에 따라 프레임 수 동적 할당.</td></tr><tr><td>배치 (Placement)</td><td>First Fit</td><td>첫 번째 가용 공간에 적재</td></tr><tr><td></td><td>Best Fit</td><td>가장 작은 가용 공간에 적재 (외부 단편화 최소)</td></tr><tr><td></td><td>Worst Fit</td><td>가장 큰 가용 공간에 적재 (잔여 단편 활용)</td></tr><tr><td>인출 (Fetch)</td><td>요구 인출 (Demand)</td><td>페이지 폴트 발생 시에만 스왓 영역에서 적재. 
+현대 OS 표준</td></tr><tr><td></td><td>예측 인출 (Prefetching)</td><td>미래 필요 페이지를 선제적으로 적재</td></tr><tr><td>교체 (Replacement)</td><td>LRU / FIFO / LFU / Clock</td><td>페이지 폴트 발생 시 교체할 페이지를 선택.</td></tr></table></div>
 <p class="mnemonic"><통압관풀슬버></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>해결방안</th><th>핵심</th></tr><tr><td>공간 재구성</td><td>통합 (Coalescing)</td><td>인접 단편화 공간을 하나로 통합</td></tr><tr><td></td><td>집약·압축 (Compaction)</td><td>단편화 공간 결합·큰 가용공간 생성</td></tr><tr><td>메모리 관리기법</td><td>가상메모리 관리기법</td><td>페이징(외부단편화)·세그먼트(내부단편화) 방지</td></tr><tr><td></td><td>Memory Pool</td><td>객체 크기별 분할·포인터 기반 관리</td></tr><tr><td>동적 할당기법</td><td>Slab Allocator (내부)</td><td>페이지 프레임 작은 크기 분할·동적 할당 해제</td></tr><tr><td></td><td>Buddy System (외부)</td><td>2의 거듭제곱 크기 분할·최적 크기 할당</td></tr></table></div>
 <h3 class="topic">6. UNIX 파일 시스템 (UNIX File System)</h3>
 <p class="mnemonic"><부슈아데></p>
+<div class="table-wrap"><table><tr><th>구성요소</th><th>역할</th><th>핵심</th></tr><tr><td>부트 블록 (Boot Block)</td><td>부팅 시 필요한 부트스트랩 코드 저장</td><td>부팅 코드 저장</td></tr><tr><td>슈퍼 블록 (Super Block)</td><td>파일 시스템 전체 정보 저장 
+(블록 크기·빈 블록 수·i-node 수)</td><td>파일 시스템 메타</td></tr><tr><td>i-node 블록</td><td>각 파일의 메타데이터 저장 (i-node 테이블)</td><td>파일 메타데이터</td></tr><tr><td>데이터 블록</td><td>실제 파일 내용 저장</td><td>파일 실제 내용</td></tr></table></div>
 <h3 class="topic">11. 큐비트 (Qubit) & 양자 컴퓨팅</h3>
 <p class="mnemonic"><중얽불비></p>
+<div class="table-wrap"><table><tr><th>개념</th><th>설명</th><th>핵심</th></tr><tr><td>중첩 (Superposition)</td><td>0과 1을 동시에 가지는 특성</td><td>동시 다중 상태</td></tr><tr><td>얽힘 (Entanglement)</td><td>거리 무관 두 큐비트 상태 연결</td><td>원격 상태 연동</td></tr><tr><td>불확정성 (Uncertainty)</td><td>측정 전까지 상태 미확정</td><td>측정 전 미결정</td></tr><tr><td>비가역성 (Irreversibility)</td><td>측정 시 양자 상태 즉시 붕괴</td><td>측정이 상태 파괴</td></tr></table></div>
 
 </section>
 <hr>
@@ -339,37 +420,61 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">[하위] 2-7. BCG Matrix</h3>
 <p class="mnemonic"><물별개현></p>
+<div class="table-wrap"><table><tr><th>구성</th><th>구분</th><th>핵심 요약</th></tr><tr><td>Cash Cow</td><td>개념</td><td>저성장·고점유. 낮은 유지비용으로 높은 순현금 발생 영역</td></tr><tr><td></td><td>유의점</td><td>공격적 경영 시 수익성 악화 우려, 자금 수지 관리 필요</td></tr><tr><td></td><td>대응</td><td>선도적 위치 유지 및 비용 최소화, 수익을 타 영역으로 전환</td></tr><tr><td>Dog</td><td>개념</td><td>저성장·저점유. 수익성 악화 및 현금 발생 감소 영역</td></tr><tr><td></td><td>유의점</td><td>자산 회수 저하 및 지출 정당성 문제, 포기/박탈 검토</td></tr><tr><td></td><td>대응</td><td>시장 세분화 등으로 수익성 제고 시도 또는 배후 지원 축소</td></tr><tr><td>Problem children</td><td>개념</td><td>고성장·저점유. 성장세는 높으나 시장 지위가 낮아 비용 과다</td></tr><tr><td></td><td>유의점</td><td>경쟁적 위치 향상 방법 모색, 현금 고갈 유의</td></tr><tr><td></td><td>대응</td><td>투자 확대로 점유율 제고 및 Cash cow로의 전환 유도</td></tr><tr><td>Star</td><td>개념</td><td>고성장·고점유. 매출 신장도가 높으나 지속적 자금 투입 필요</td></tr><tr><td></td><td>유의점</td><td>시장 점유율 및 상장 유지를 위한 자금 보유 유의</td></tr><tr><td></td><td>대응</td><td>가격 인하, 제품 개선, 시장 범위 확대 및 생산성 제고</td></tr></table></div>
 <h3 class="topic">4. BSC (Balanced Score Card)</h3>
 <p class="mnemonic"><재고내학></p>
+<div class="table-wrap"><table><tr><th>관점</th><th>핵심 질문</th><th>KPI 예시</th></tr><tr><td>재무</td><td>주주에게 어떤 가치를 제공하는가?</td><td>ROI, 매출 성장률</td></tr><tr><td>고객</td><td>고객에게 어떻게 보이는가?</td><td>고객만족도, 점유율</td></tr><tr><td>내부 프로세스</td><td>어떤 프로세스를 탁월하게 해야 하는가?</td><td>사이클 타임, 불량률</td></tr><tr><td>학습·성장</td><td>어떻게 변화·개선할 것인가?</td><td>직원 역량, 정보 가용성</td></tr></table></div>
 <p class="mnemonic"><비사운미></p>
+<div class="table-wrap"><table><tr><th>일반 BSC</th><th>IT-BSC</th><th>핵심</th></tr><tr><td>재무</td><td>비즈니스 기여</td><td>IT ROI·비용 절감</td></tr><tr><td>고객</td><td>사용자 지향</td><td>내부 사용자 만족</td></tr><tr><td>내부 프로세스</td><td>운영 우수성</td><td>IT 운영 효율·안정성</td></tr><tr><td>학습과 성장</td><td>미래 지향</td><td>IT 역량·혁신</td></tr></table></div>
 <h3 class="topic">6. 디자인 싱킹 (Design Thinking)</h3>
 <p class="mnemonic"><공정아프테></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>내용</th><th>기법</th></tr><tr><td>1. 공감(Empathize)</td><td>사용자 관찰·인터뷰로 니즈 파악</td><td>설문조사, 인터뷰, 관찰</td></tr><tr><td>2. 정의(Define)</td><td>문제를’POV(관점)’으로 재정의</td><td>요구사항 정의, 페르소나</td></tr><tr><td>3. 아이디어 발산(Ideate)</td><td>브레인스토밍, 발산적 사고</td><td>브레인스토밍, 아이디어 스케치</td></tr><tr><td>4. 프로토타입(Prototype)</td><td>빠른 시제품 제작</td><td>스토리보드, 3D 프린터</td></tr><tr><td>5. 테스트(Test)</td><td>사용자 피드백 수집·반복</td><td>사용성 테스트, Role play</td></tr></table></div>
 <h3 class="topic">2. SCM (Supply Chain Management)</h3>
 <p class="mnemonic"><계조생배회></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>주요 내용</th><th>핵심 활동</th></tr><tr><td>계획 (Plan)</td><td>최적의 운영 전략 수립</td><td>수요 예측, 재고 수준 설정, 생산 능력 계획</td></tr><tr><td>조달 (Source)</td><td>공급업체 선정 및 관리</td><td>구매 계약, 공급업체 평가, 원재료 검수</td></tr><tr><td>생산 (Make)</td><td>제품 제조 및 품질 관리</td><td>생산 스케줄링, 공정 관리, 품질 보증(QA)</td></tr><tr><td>배송 (Deliver)</td><td>최종 제품의 물류 과정</td><td>창고 관리, 운송 경로 최적화, 주문 처리</td></tr><tr><td>회수 (Return)</td><td>사후 처리를 위한 역물류</td><td>반품 관리, 수리, 재활용 및 폐기</td></tr></table></div>
 <h3 class="topic">1. IT 거버넌스 (IT Governance)</h3>
 <p class="mnemonic"><전가위자성></p>
+<div class="table-wrap"><table><tr><th>구성요소</th><th>내용</th><th>적용기술</th></tr><tr><td>전략적 연계</td><td>IT와 경영전략 연계</td><td>ISP, ITA/EA</td></tr><tr><td>가치 전달</td><td>IT 투자 가치 실현</td><td>ERP, CRM, SCM, BPM</td></tr><tr><td>위험 관리</td><td>IT 리스크 식별·통제</td><td>DR, BCP</td></tr><tr><td>자원 관리</td><td>IT 자원 최적 배분</td><td>ITAM, CMM, ITSM</td></tr><tr><td>성과 측정</td><td>KPI 기반 IT 성과 평가</td><td>IT-BSC, IT-ROI, PPM(프로젝트 포트폴리오 관리)</td></tr></table></div>
 <h3 class="topic">4. AHP (Analytic Hierarchy Process)</h3>
 <p class="mnemonic"><계우일></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>내용</th></tr><tr><td>1. 계층화</td><td>목표→기준→대안 계층 구성</td></tr><tr><td>2. 쌍대비교</td><td>9점 척도로 기준 간 중요도 비교</td></tr><tr><td>3. 가중치 산출</td><td>고유벡터 기반 우선순위 계산</td></tr><tr><td>4. 일관성 검증</td><td>CR ≤ 0.1 이면 일관성 인정</td></tr><tr><td>5. 최종 우선순위 도입</td><td>의사결정</td></tr></table></div>
 <p class="mnemonic"><계쌍가일우></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>내용</th></tr><tr><td>1. 계층화</td><td>목표→기준→대안 계층 구성</td></tr><tr><td>2. 쌍대비교</td><td>9점 척도로 기준 간 중요도 비교</td></tr><tr><td>3. 가중치 산출</td><td>고유벡터 기반 우선순위 계산</td></tr><tr><td>4. 일관성 검증</td><td>CR ≤ 0.1 이면 일관성 인정</td></tr><tr><td>5. 최종 우선순위 도입</td><td>의사결정</td></tr></table></div>
 <h3 class="topic">5. 정량적 위험분석 (Quantitative Risk Analysis)</h3>
 <p class="mnemonic"><의금몬민></p>
+<div class="table-wrap"><table><tr><th>방법</th><th>핵심 특징</th><th>주요 산출물</th></tr><tr><td>의사결정나무</td><td>시나리오별 최적 대안 선택</td><td>최적 의사결정 경로</td></tr><tr><td>EMV(금전적 기대값 분석)</td><td>확률×영향 합산</td><td>기대 비용/이익</td></tr><tr><td>몬테카를로</td><td>반복 시뮬레이션</td><td>결과 확률분포</td></tr><tr><td>민감도 분석</td><td>변수별 영향도 분석</td><td>토네이도 차트</td></tr></table></div>
 <h3 class="topic">[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)</h3>
 <p class="mnemonic"><변무시결></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>설명</th><th>핵심</th></tr><tr><td>1. 변수 정의</td><td>변수 식별 및 확률분포 설정</td><td>분포 할당</td></tr><tr><td>2. 무작위 샘플링</td><td>난수 기반 입력값 추출</td><td>무작위 추출</td></tr><tr><td>3. 시뮬레이션 실행</td><td>모델 적용 후 반복 계산</td><td>반복 연산</td></tr><tr><td>4. 결과 집계</td><td>통계 기반 결과 분포 분석</td><td>리스크 도출</td></tr></table></div>
 <h3 class="topic">12. 기술 가치 평가</h3>
 <p class="mnemonic"><기권시사></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>평가요소</th><th>설명</th></tr><tr><td>기술성 분석</td><td>기술 일반/환경</td><td>기술 구성, 동향 및 수명주기 분석</td></tr><tr><td></td><td>기술의 유용성</td><td>혁신성 및 실제 활용 가능성 검토</td></tr><tr><td></td><td>기술의 경쟁성</td><td>타 기술 대비 차별성 및 경쟁력 평가</td></tr><tr><td>권리성 분석</td><td>권리 안정성</td><td>권리 범위 확정 및 무효 가능성 점검</td></tr><tr><td></td><td>권리 보호 범위</td><td>보호 범위의 광협 및 회피 가능성 분석</td></tr><tr><td></td><td>기술적용여부</td><td>특허와 실제 적용 기술의 부합성 확인</td></tr><tr><td>시장성 분석</td><td>시장환경 분석</td><td>시장 규모, 성장률 및 진입 가능성 분석</td></tr><tr><td></td><td>시장 경쟁력 분석</td><td>경쟁 구조 및 시장 점유 가능성 평가</td></tr><tr><td>사업성 분석</td><td>사업화 기반 역량</td><td>주체의 인적·물적 사업화 역량 파악</td></tr><tr><td></td><td>공법 경쟁력</td><td>가격·품질 등 시장 내 비교 우위 분석</td></tr></table></div>
 <p class="mnemonic"><수시비></p>
+<div class="table-wrap"><table><tr><th>방법</th><th>내용</th></tr><tr><td>수익접근법</td><td>미래 수익을 현재가치로 환산</td></tr><tr><td>시장접근법</td><td>유사 기술 거래 사례 비교</td></tr><tr><td>비용접근법</td><td>기술 개발에 투입된 비용 기반 평가</td></tr></table></div>
 <h3 class="topic">[하위] 1-1. ISO 21500 (프로젝트관리 지침)</h3>
 <p class="mnemonic"><착계실통종></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>내용 요약</th><th>핵심 요소 요약</th></tr><tr><td>착수</td><td>프로젝트 공식 승인 및 기본 방향 정의</td><td>프로젝트 헌장 승인, PM 임명, 비즈니스 목표 정렬</td></tr><tr><td>계획</td><td>9대 지식영역 기반 통합 관리계획 수립</td><td>범위·일정·원가·품식 상세 계획, 리스크 관리 전략</td></tr><tr><td>실행</td><td>자원 투입을 통한 프로젝트 계획 수행</td><td>인력 및 자원 확보, 품질 보증(QA), 정보 배포</td></tr><tr><td>통제</td><td>계획 대비 성과 측정 및 편차 보정</td><td>진척도 모니터링, 통합 변경 통제, 리스크 대응</td></tr><tr><td>종료</td><td>프로젝트 또는 단계의 공식적 완결</td><td>인도물 인수·인계, 자원 해제, 계약 및 행정 종료</td></tr></table></div>
 <h3 class="topic">3. 프로젝트 범위관리(Scope Management)</h3>
 <p class="mnemonic"><계요정W확통></p>
+<div class="table-wrap"><table><tr><th>프로세스</th><th>세부 프로세스</th><th>내용</th><th>주요 산출물</th></tr><tr><td>계획 
+프로세스</td><td>범위 관리 계획수립(Scope Mgmt Planning)</td><td>범위 관리 절차와 방법 정의</td><td>◦ 범위관리 계획서
+◦ 요구사항관리 계획서</td></tr><tr><td></td><td>요구사항 수집(Collect Requirements)</td><td>이해관계자 요구사항 수집 및 문서화</td><td>◦ 요구사항 문서
+◦ 요구사항 추적 매트릭스(RTM)</td></tr><tr><td></td><td>범위 정의(Scope Definition)</td><td>제품/서비스 범위 기술서 개발</td><td>◦ 범위기술서
+(Project Scope Statement)</td></tr><tr><td></td><td>WBS 작성(Create WBS)</td><td>인도물 중심의 계층적 작업 정의</td><td>◦ WBS
+◦ 범위 기준선(Scope Baseline)</td></tr><tr><td>감시 및 
+통제</td><td>범위 확인(Validate Scope)</td><td>인도물에 대한 고객/스폰서의 공식 승인</td><td>◦ 승인된 인도물</td></tr><tr><td></td><td>범위 통제(Scope Control)</td><td>범위 기준선 대비 변경사항 관리</td><td>◦ 변경요청 (CR)</td></tr></table></div>
 <h3 class="topic">[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</h3>
 <p class="mnemonic"><프피자></p>
+<div class="table-wrap"><table><tr><th>버퍼 종류</th><th>위치 및 기능</th></tr><tr><td>프로젝트 버퍼 (Project)</td><td>프로젝트 가장 마지막에 위치하며, 주공정 연쇄의 지연을 흡수</td></tr><tr><td>피딩 버퍼 (Feeding)</td><td>비주공정 연쇄가 주공정 연쇄로 합류하는 지점에 위치하여 지연 전파 방지</td></tr><tr><td>자원 버퍼 (Resource)</td><td>자원 투입 시점을 알려주는 신호(Flag) 역할을 하여 대기 시간 최소화</td></tr></table></div>
 <h3 class="topic">[하위] 4-3. PERT (Program Evaluation and Review Technique)</h3>
 <p class="mnemonic"><낙최비></p>
+<div class="table-wrap"><table><tr><th>구성요소</th><th>기호</th><th>설명</th></tr><tr><td>낙관치</td><td>tot_oto​​</td><td>모든 조건이 가장 좋을 때, 최단 시간 내에 끝낼 수 있는 시간</td></tr><tr><td>최빈치</td><td>tmt_mtm​​</td><td>가장 빈번하게 발생할 것으로 예상되는 정상적인 소요 시간</td></tr><tr><td>비관치</td><td>tpt_ptp​​</td><td>예상치 못한 장애 등 최악의 상황일 때 소요되는 최장 시간</td></tr></table></div>
 <h3 class="topic">5. 갈등관리 (Conflict Management)</h3>
 <p class="mnemonic"><해타철수강></p>
+<div class="table-wrap"><table><tr><th>전략</th><th>내용</th><th>적용 상황</th></tr><tr><td>문제해결(Problem Solving)</td><td>양자 모두 만족, Win-Win</td><td>장기 관계, 핵심 이슈</td></tr><tr><td>타협(Compromise)</td><td>부분 양보, Give-Take</td><td>시간 제한, 유사 권한</td></tr><tr><td>철회(Withdrawing)</td><td>해결 보류, 갈등 무시</td><td>사소한 이슈, 냉각 필요</td></tr><tr><td>수용(Smoothing)</td><td>상대방 입장 수용</td><td>관계 유지 우선</td></tr><tr><td>강요(Forcing)</td><td>권력으로 강행</td><td>긴급 상황, 안전 이슈</td></tr></table></div>
 <h3 class="topic">[하위] 5-1. 터크만 모델 (Tuckman Ladder Model)</h3>
 <p class="mnemonic"><형격규성해></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>특징</th><th>PM 역할</th></tr><tr><td>Forming(형성)</td><td>팀 결성, 역할 불명확, 의존적</td><td>방향 제시, 지시(Direct)</td></tr><tr><td>Storming(격동)</td><td>갈등 발생, 권위 도전</td><td>갈등 조정, 코치(Coach)</td></tr><tr><td>Norming(규범화)</td><td>팀워크 형성, 규범 수립</td><td>촉진, 지원, 참여(Participate)</td></tr><tr><td>Performing(성과)</td><td>높은 성과, 자율 운영</td><td>지원, 위임(Delegate)</td></tr><tr><td>Adjourning(해산)</td><td>프로젝트 종료, 팀 해체</td><td>마무리, 축하, 평가</td></tr></table></div>
 
 </section>
 <hr>
@@ -381,13 +486,6 @@
   </h2>
   <h3 class="topic">DS</h3>
 <p class="mnemonic"><color></p>
-<h3 class="topic">4. 메타버스 (Metaverse)</h3>
-<p class="mnemonic"><증라거가></p>
-<h3 class="topic">5. 메타버스 윤리원칙</h3>
-<p class="mnemonic"><온안지></p>
-<p class="mnemonic"><진자호사 공개포책></p>
-<h3 class="topic">3. 온톨로지(Ontology)</h3>
-<p class="mnemonic"><개속관계공></p>
 
 </section>
 <hr>
@@ -401,8 +499,14 @@
 <p class="mnemonic"><color></p>
 <h3 class="topic">1. 생성형 인공지능 투명성 확보 가이드라인(26.1.)</h3>
 <p class="mnemonic"><사표딥></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>적용 범위</th><th>핵심 의무 사항 / 표시</th></tr><tr><td>제1항(사전고지)</td><td>고영향 및 생성형 AI 서비스</td><td>AI 기반 운용 사실을사전에 고지함
+  • 약관, 계약서, 화면·단말기 표시 등</td></tr><tr><td>제2항(표시의무)</td><td>생성형 AI 제품 및 서비스</td><td>결과물이 AI로 생성되었음을표시함
+  • 가시적/비가시적 방식 (안내 병행)</td></tr><tr><td>제3항
+(딥페이크물 생성물 표시 의무)</td><td>실제와 구분 어려운 가상 생성물</td><td>AI 생성 사실을고지 또는 표시함
+  • 시·청각적 확인 필수 (예술물 완화)</td></tr></table></div>
 <h3 class="topic">2. 제로트러스트(Zero Trust) 가이드라인(2.0 / 24.12.)</h3>
 <p class="mnemonic"><기초향최></p>
+<div class="table-wrap"><table><tr><th>수준</th><th>단계명</th><th>특성</th></tr><tr><td>1단계</td><td>기존 (Traditional)</td><td>정적 보안 정책, 경계 기반 보안, 수동 사고 대응</td></tr><tr><td>2단계</td><td>초기 (Initial)</td><td>일부 프로세스 자동화, 핵심 요소 연계, 기본 모니터링</td></tr><tr><td>3단계</td><td>향상 (Advanced)</td><td>자동화 확장, 중앙 집중 가시성 및 정책 시행</td></tr><tr><td>4단계</td><td>최적화 (Optimal)</td><td>완전 자동 속성 할당, 동적 트리거 정책, 상호운용성 강화</td></tr></table></div>
 <h3 class="topic">3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)</h3>
 <p class="mnemonic"><위주객></p>
 <h3 class="topic">6. 소프트웨어 대가산정 가이드(25.8.)</h3>
@@ -411,9 +515,12 @@
 <p class="mnemonic"><자구투의, 씨메디></p>
 <h3 class="topic">4. 정보보호 공시제도</h3>
 <p class="mnemonic"><아아병씨></p>
+<div class="table-wrap"><table><tr><th>분류</th><th>공시대상</th><th>근거</th></tr><tr><td>사업분야</td><td>ISP</td><td>전기통신사업법 제6조 제1항</td></tr><tr><td></td><td>IDC</td><td>정보통신망법 제46조</td></tr><tr><td></td><td>상급종합병원</td><td>의료법 제3조의 4</td></tr><tr><td></td><td>CSP</td><td>클라우드컴퓨팅법 시행령 제3조 제1호</td></tr><tr><td>매출액</td><td>3,000억 이상</td><td>CISO 지정·신고 상장법인 중</td></tr><tr><td>이용자 수</td><td>100만명 이상</td><td>정보통신서비스 일일평균 기준</td></tr></table></div>
 <p class="mnemonic"><투인평활></p>
+<div class="table-wrap"><table><tr><th>구분</th><th>공시 항목</th><th>설명</th></tr><tr><td>투자 현황</td><td>정보기술부문 투자액</td><td>정보보호부문 투자액 포함 산정</td></tr><tr><td></td><td>정보보호부문 투자액</td><td>정보기술부문 중 보호부문</td></tr><tr><td></td><td>특기 사항</td><td>세부설명 또는 참고 사항</td></tr><tr><td>인력 현황</td><td>총 임직원</td><td>공시대상 기업의 내부인력</td></tr><tr><td></td><td>정보기술부문 인력</td><td>전담인력 포함하여 산정</td></tr><tr><td></td><td>정보보호부문 전담인력</td><td>내부인력·외주인력</td></tr><tr><td></td><td>공시/준수 (D/C)</td><td>소수점 첫째 자리까지 표기</td></tr><tr><td></td><td>CISO·CPO 지정 현황</td><td>직책별 주요활동 표기</td></tr><tr><td>인증·평가·점검</td><td>정보보호 관련</td><td>공시대상연도에 유효한 사항</td></tr><tr><td>정보보호활동</td><td>정보통신 서비스 이용자</td><td>교육·보험 가입 등 현황</td></tr></table></div>
 <h3 class="topic">5. 소프트웨어 영향평가</h3>
 <p class="mnemonic"><기운침필종></p>
+<div class="table-wrap"><table><tr><th>단계</th><th>핵심</th><th>참고자료</th></tr><tr><td>1. 소프트웨어사업 기본정보 작성</td><td>기본정보·영향평가 단계 작성</td><td>사업추진계획서</td></tr><tr><td>2. 운영계획 검토</td><td>사용자 공동 사용 여부 확인</td><td>운영계획안</td></tr><tr><td>3. 민간소프트웨어 시장 침해 가능성 검토</td><td>동일·유사 민간 SW 존재 여부 확인</td><td>기능 요구사항</td></tr><tr><td>4. 사업의 필요성 및 공공성 검토</td><td>사업 추진 이유 설명</td><td>SW 규정 법령</td></tr><tr><td>5. 종합의견 작성</td><td>추진방안·재검토 여부 판단</td><td>단계별 검토 내용</td></tr></table></div>
 <h3 class="topic">2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)</h3>
 <p class="mnemonic"><수참시></p>
 <div class="table-wrap"><table><tr><th>구분</th><th>수식계산법</th><th>참조법</th><th>시뮬레이션법</th></tr><tr><td>개념</td><td>규모 요소 수식 대입 산출
