@@ -12,6 +12,8 @@ from datetime import datetime, timezone, timedelta
 # 두음 패턴: <xxx> 형식 (한글/영문/특수문자 1~20자)
 MNEMONIC_RE = re.compile(r'[<＜〈]([가-힣A-Za-z·,\s]{1,20})[>＞〉]')
 
+HEADING_TAGS = ["h1", "h2", "h3", "h4"]
+
 DOMAINS = [
     ("db",    "DB",     "데이터베이스"),
     ("ai",    "AI",     "인공지능"),
@@ -58,7 +60,6 @@ def extract_mnemonics(html_path: str, domain_label: str):
     results = []
     seen = set()
 
-    # 두음 패턴을 포함하는 텍스트 노드 탐색
     for text_node in soup.find_all(string=lambda t: t and MNEMONIC_RE.search(t)):
         match = MNEMONIC_RE.search(str(text_node))
         if not match:
@@ -69,36 +70,26 @@ def extract_mnemonics(html_path: str, domain_label: str):
 
         # ── 직전 heading 찾기 ───────────────────────────────────────
         topic = domain_label
-        # 실제 h 태그 시도
-        prev_h = parent.find_previous(["h1", "h2", "h3", "h4"])
+        prev_h = parent.find_previous(HEADING_TAGS)
         if prev_h:
             topic = prev_h.get_text(strip=True)
         else:
-            # Notion 클래스 기반 heading 시도
             prev_h = parent.find_previous(
                 class_=re.compile(r"notion-h[1-4]|notion-header|header-block")
             )
             if prev_h:
                 topic = prev_h.get_text(strip=True)
 
-        # ── 직후 table 찾기 ─────────────────────────────────────────
+        # ── 직후 table 찾기 (다음 heading 이전까지) ─────────────────
+        # find_all_next()로 문서 순서대로 heading/table 탐색
+        # → table이 heading보다 먼저 나오면 사용, heading이 먼저면 중단
         table_html = ""
-        next_table = parent.find_next("table")
-        if next_table:
-            # 다음 heading 보다 table이 먼저 나오는지 확인
-            next_heading = parent.find_next(["h1", "h2", "h3", "h4"])
-            if next_heading is None or (
-                next_table.find_previous() and
-                str(next_table) in str(next_heading.find_next())
-            ) or next_heading is None:
-                table_html = table_to_html(next_table)
-            else:
-                # table이 heading 이전에 있으면 사용
-                try:
-                    if list(next_table.parents).__len__() <= list(next_heading.parents).__len__():
-                        table_html = table_to_html(next_table)
-                except Exception:
-                    table_html = table_to_html(next_table)
+        for el in parent.find_all_next(HEADING_TAGS + ["table"]):
+            if el.name in HEADING_TAGS:
+                break  # heading 먼저 나옴 → 이 두음엔 표 없음
+            if el.name == "table":
+                table_html = table_to_html(el)
+                break  # 표 발견
 
         # 중복 제거
         key = (topic, mnemonic)
@@ -161,7 +152,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>두음 모음 (mem)</title>
   <style>
-    /* ── 기본 ── */
     body {{
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       max-width: 860px;
@@ -176,7 +166,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     .meta a:hover {{ text-decoration: underline; }}
     hr {{ border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }}
 
-    /* ── 도메인 섹션 ── */
     .domain {{ margin-bottom: 8px; }}
     .domain-title {{
       font-size: 1.3rem;
@@ -194,7 +183,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     }}
     .domain-desc {{ color: #666; font-size: 0.95rem; font-weight: normal; }}
 
-    /* ── 토픽명 ── */
     h3.topic {{
       font-size: 1rem;
       color: #444;
@@ -203,7 +191,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       border-left: 3px solid #93c7e7;
     }}
 
-    /* ── 두음 ── */
     p.mnemonic {{
       display: inline-block;
       background-color: #93c7e7;
@@ -216,7 +203,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       letter-spacing: 0.05em;
     }}
 
-    /* ── 테이블 ── */
     .table-wrap {{
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -242,7 +228,6 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     }}
     tr:hover td {{ background: #f9f9f9; }}
 
-    /* ── 모바일 ── */
     @media (max-width: 640px) {{
       body {{ padding: 12px; }}
       h1 {{ font-size: 1.3rem; }}
