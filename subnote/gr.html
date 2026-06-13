@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="notion-html" data-notion-html="web" data-notion-version="23.13.20260612.1306" lang="ko" style="--full-viewport-height: 720px; --safe-padding-top: env(safe-area-inset-top); --safe-padding-left: env(safe-area-inset-left); --safe-padding-right: env(safe-area-inset-right); --safe-padding-bottom: env(safe-area-inset-bottom); --direction: 1;"><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+<!DOCTYPE html><html class="notion-html" data-notion-html="web" data-notion-version="23.13.20260613.1307" lang="ko" style="--full-viewport-height: 720px; --safe-padding-top: env(safe-area-inset-top); --safe-padding-left: env(safe-area-inset-left); --safe-padding-right: env(safe-area-inset-right); --safe-padding-bottom: env(safe-area-inset-bottom); --direction: 1;"><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
 @charset "utf-8";
 
 body { background: rgb(255, 255, 255); }
@@ -369,6 +369,8 @@ html.notion-front-page .notion-app-inner { height: auto; }
 
 #intercom-container { z-index: 1000 !important; }
 
+.notion-dark-theme iframe#ul-frame { color-scheme: normal; }
+
 .token.operator.operator { background: 0px 0px; }
 
 #box-app-container > div { z-index: 1000; background: rgba(255, 255, 255, 0.5); justify-content: center; align-items: center; width: 100vw; height: 100vh; display: flex; position: absolute; top: 0px; }
@@ -660,6 +662,8 @@ input[type="number"].input-hide-arrows { }
 }
 
 .quickActionContainer:empty { visibility: hidden; }
+
+.notion-draggable-list-collapse-empty > :empty { display: none !important; }
 
 .popup-origin-wrapper:has(svg) > * { transform: translateZ(0px); }
 
@@ -1452,79 +1456,139 @@ html[dir="rtl"] .directional-icon { transform: scaleX(-1); }
   .x1s9lsuh { border-top-color: var(--c-borSec); }
   .x13fuv20 { border-top-style: solid; }
   .x178xt8z { border-top-width: 1px; }
-  .xqmqy1e { bottom: -1px; }
   .x1ey2m1c { bottom: 0px; }
   .x1nqzi6q { bottom: var(--x-bottom); }
   .x5yr21d { height: 100%; }
   .x1dr59a3 { height: 100vh; }
   .x6w4g8m { height: 11px; }
-  .x1kpxq89 { height: 12px; }
-  .x1v9usgg { height: 14px; }
   .xx3o462 { height: 15px; }
-  .xlup9mm { height: 16px; }
   .xmix8c7 { height: 18px; }
   .xjm9jq1 { height: 1px; }
-  .x1qx5ct2 { height: 20px; }
-  .x17rw0jw { height: 22px; }
   .xxk0z11 { height: 24px; }
-  .xd7y6wv { height: 26px; }
-  .xhmhf8t { height: 270%; }
   .x1fgtraw { height: 28px; }
-  .x36qwtl { height: 2px; }
-  .x10w6t97 { height: 32px; }
-  .xc9qbxq { height: 36px; }
   .xn3w4p2 { height: 44px; }
-  .xqvfhly { height: 45px; }
-  .xnnlda6 { height: 56px; }
-  .x1ycjhwn { height: 5px; }
-  .x1peatla { height: 64px; }
   .xols6we { height: 6px; }
   .xy75621 { height: 72px; }
   .xdk7pt { height: 8px; }
-  .xjp8j0k { height: 96px; }
   .xt7dq6l { height: auto; }
   .xn4qswa { height: var(--full-viewport-height); }
+  .xdnc2gc { margin-bottom: 1.5px; }
+  .xh58mac { margin-top: 1.5px; }
+  .xr9ek0c { margin-top: 2px; }
+  .xr1yuqi { margin-top: auto; }
+  .x114jws4 { max-height: 60vh; }
+  .x1cxeki3 { max-width: 70%; }
+  .xvv7f4i { max-width: calc(-24px + 100vw); }
+  .xeuugli { min-width: 0px; }
+  .xw2csxc { overflow-x: auto; }
+  .x6ikm8r { overflow-x: hidden; }
+  .x1plvlek { overflow-x: visible; }
+  .x1odjw0f { overflow-y: auto; }
+  .x10wlt62 { overflow-y: hidden; }
+  .xryxfnj { overflow-y: visible; }
+  .x18d9i69 { padding-bottom: 0px; }
+  .x1a8lsjc { padding-bottom: 10px; }
+  .xsag5q8 { padding-bottom: 12px; }
+  .x1l90r2v { padding-bottom: 16px; }
+  .xx6bls6 { padding-bottom: 20px; }
+  .xwxc41k { padding-bottom: 24px; }
+  .x1120s5i { padding-bottom: 2px; }
+  .xjkvuk6 { padding-bottom: 4px; }
+  .x10b6aqq { padding-bottom: 6px; }
+  .xexx8yu { padding-top: 0px; }
+  .xz9dl7a { padding-top: 12px; }
+  .xyamay9 { padding-top: 16px; }
+  .x1cnzs8 { padding-top: 20px; }
+  .x1p5oq8j { padding-top: 24px; }
+  .x1nn3v0j { padding-top: 2px; }
+  .x1iorvi4 { padding-top: 4px; }
+  .x1yrsyyn { padding-top: 6px; }
+  .x96k8nx { padding-top: 9px; }
+  .x13vifvy { top: 0px; }
+  .xfr5jun { top: 8px; }
+  .xjbys53 { top: var(--x-top); }
+  .xh8yej3 { width: 100%; }
+  .xn9wirt { width: 100vw; }
+  .x10vfzb2 { width: 11px; }
+  .x1a00udw { width: 15px; }
+  .x1xp8n7a { width: 18px; }
+  .x1i1rx1s { width: 1px; }
+  .xvy4d1p { width: 24px; }
+  .x1hfn5x7 { width: 260px; }
+  .xht4xr3 { width: 480px; }
+  .x1v4s8kt { width: 6px; }
+  .xdpfuu1 { width: 800px; }
+  .x1xc55vz { width: 8px; }
+  .x14atkfc { width: auto; }
+  @scope (.notion-dark-theme) {
+  .x1iurads.x1iurads { background: var(--ca-palTraGra200); }
+}
+  @scope (.notion-dark-theme) {
+  .x1tdbmsl.x1tdbmsl { background: var(--cl-palGra300); }
+}
+  .xqmqy1e { bottom: -1px; }
+  .x1kpxq89 { height: 12px; }
+  .x1v9usgg { height: 14px; }
+  .xlup9mm { height: 16px; }
+  .x1qx5ct2 { height: 20px; }
+  .x17rw0jw { height: 22px; }
+  .xd7y6wv { height: 26px; }
+  .x10w6t97 { height: 32px; }
+  .xc9qbxq { height: 36px; }
+  .x1ycjhwn { height: 5px; }
   .x16ye13r { height: var(--x-height); }
   .x1jyxor1 { margin-bottom: -1px; }
   .x4cne27 { margin-bottom: -6px; }
   .xat24cr { margin-bottom: 0px; }
-  .xdnc2gc { margin-bottom: 1.5px; }
-  .xiv7p99 { margin-bottom: 100px; }
-  .xod5an3 { margin-bottom: 12px; }
-  .x1hq5gj4 { margin-bottom: 24px; }
   .xjpr12u { margin-bottom: 2px; }
-  .x12nagc { margin-bottom: 4px; }
-  .x1e56ztr { margin-bottom: 8px; }
-  .xwya9rg { margin-top: -16px; }
   .x1y332i5 { margin-top: -1px; }
   .xifccgj { margin-top: -6px; }
   .xdj266r { margin-top: 0px; }
-  .xh58mac { margin-top: 1.5px; }
+  .x1gkbulp { margin-top: var(--x-marginTop); }
+  .x12yd5mj { max-height: var(--full-viewport-height); }
+  .x11gisft { max-width: 640px; }
+  .xs9asl8 { padding-bottom: 5px; }
+  .xwib8y2 { padding-bottom: 8px; }
+  .x1e826z5 { padding-bottom: inherit; }
+  .x123j3cw { padding-top: 5px; }
+  .xbfkjp0 { padding-top: inherit; }
+  .x1dquyif { top: -10000px; }
+  @scope (.notion-dark-theme) {
+  .x5avrv5.x5avrv5 { background: rgba(0, 0, 0, 0.29); }
+}
+  @scope (.notion-dark-theme) {
+  .xu2snb4.xu2snb4 { background: rgba(0, 0, 0, 0.8); }
+}
+  .xhmhf8t { height: 270%; }
+  .x36qwtl { height: 2px; }
+  .xqvfhly { height: 45px; }
+  .xnnlda6 { height: 56px; }
+  .x1peatla { height: 64px; }
+  .xjp8j0k { height: 96px; }
+  .xiv7p99 { margin-bottom: 100px; }
+  .xod5an3 { margin-bottom: 12px; }
+  .x1hq5gj4 { margin-bottom: 24px; }
+  .x12nagc { margin-bottom: 4px; }
+  .x1e56ztr { margin-bottom: 8px; }
+  .xwya9rg { margin-top: -16px; }
   .x14vqqas { margin-top: 12px; }
   .xw7yly9 { margin-top: 16px; }
   .xvijh9v { margin-top: 1px; }
   .x1sy10c2 { margin-top: 20px; }
-  .xr9ek0c { margin-top: 2px; }
   .xg87l8a { margin-top: 32px; }
   .x7r5mf7 { margin-top: 3px; }
   .x1gslohp { margin-top: 4px; }
   .x1k70j0n { margin-top: 6px; }
   .x1xmf6yo { margin-top: 8px; }
   .xzbgwbi { margin-top: 9px; }
-  .xr1yuqi { margin-top: auto; }
   .xjpfvrt { margin-top: initial; }
-  .x1gkbulp { margin-top: var(--x-marginTop); }
   .xmz0i5r { max-height: 100%; }
   .x1xiyphd { max-height: 240px; }
-  .x114jws4 { max-height: 60vh; }
-  .x12yd5mj { max-height: var(--full-viewport-height); }
   .x1jols5v { max-height: var(--x-maxHeight); }
   .x36rmqc { max-width: 1024px; }
   .x63bdn6 { max-width: 1040px; }
   .x1racy4e { max-width: 220px; }
   .x1sjtlrb { max-width: 65ch; }
-  .x1cxeki3 { max-width: 70%; }
-  .xvv7f4i { max-width: calc(-24px + 100vw); }
   .xf68679 { max-width: var(--x-maxWidth); }
   .x2lwn1j { min-height: 0px; }
   .x1db3i3o { min-height: 160px; }
@@ -1537,107 +1601,47 @@ html[dir="rtl"] .directional-icon { transform: scaleX(-1); }
   .x1wuaf5w { min-height: 65px; }
   .x1jkostt { min-height: calc(-134px + 100vh); }
   .x82snj4 { min-height: var(--x-minHeight); }
-  .xeuugli { min-width: 0px; }
   .xt4ypqs { min-width: 20px; }
   .xnei2rj { min-width: 24px; }
   .xkj4a21 { min-width: var(--x-minWidth); }
-  .xw2csxc { overflow-x: auto; }
-  .x6ikm8r { overflow-x: hidden; }
-  .x1plvlek { overflow-x: visible; }
-  .x1odjw0f { overflow-y: auto; }
-  .x10wlt62 { overflow-y: hidden; }
-  .xryxfnj { overflow-y: visible; }
-  .x18d9i69 { padding-bottom: 0px; }
-  .x1a8lsjc { padding-bottom: 10px; }
   .xxbrewl { padding-bottom: 11px; }
-  .xsag5q8 { padding-bottom: 12px; }
-  .x1l90r2v { padding-bottom: 16px; }
-  .xx6bls6 { padding-bottom: 20px; }
-  .xwxc41k { padding-bottom: 24px; }
-  .x1120s5i { padding-bottom: 2px; }
   .x1gan7if { padding-bottom: 32px; }
   .xg8j3zb { padding-bottom: 3px; }
   .x1sgudl8 { padding-bottom: 48px; }
-  .xjkvuk6 { padding-bottom: 4px; }
-  .xs9asl8 { padding-bottom: 5px; }
-  .x10b6aqq { padding-bottom: 6px; }
   .x1ej9moc { padding-bottom: 80px; }
-  .xwib8y2 { padding-bottom: 8px; }
-  .x1e826z5 { padding-bottom: inherit; }
   .x14jbevu { padding-bottom: initial; }
   .xjqpyvm { padding-bottom: var(--x-paddingBottom); }
-  .xexx8yu { padding-top: 0px; }
   .xzi3mdb { padding-top: 11px; }
-  .xz9dl7a { padding-top: 12px; }
-  .xyamay9 { padding-top: 16px; }
-  .x1cnzs8 { padding-top: 20px; }
-  .x1p5oq8j { padding-top: 24px; }
   .x7sb2j6 { padding-top: 28px; }
-  .x1nn3v0j { padding-top: 2px; }
   .x1miatn0 { padding-top: 32px; }
   .xyqdw3p { padding-top: 3px; }
   .x4i7bpe { padding-top: 48px; }
-  .x1iorvi4 { padding-top: 4px; }
-  .x123j3cw { padding-top: 5px; }
-  .x1yrsyyn { padding-top: 6px; }
   .x11408do { padding-top: 80px; }
   .x1y1aw1k { padding-top: 8px; }
-  .x96k8nx { padding-top: 9px; }
-  .xbfkjp0 { padding-top: inherit; }
   .x1jm3axb { padding-top: var(--x-paddingTop); }
-  .x1dquyif { top: -10000px; }
   .x1pdr0v7 { top: -1px; }
-  .x13vifvy { top: 0px; }
-  .xfr5jun { top: 8px; }
-  .xjbys53 { top: var(--x-top); }
-  .xh8yej3 { width: 100%; }
-  .xn9wirt { width: 100vw; }
-  .x10vfzb2 { width: 11px; }
   .xygnafs { width: 120px; }
   .xsmyaan { width: 12px; }
   .xifkd7f { width: 140px; }
   .x6jxa94 { width: 14px; }
-  .x1a00udw { width: 15px; }
   .x1kky2od { width: 16px; }
-  .x1xp8n7a { width: 18px; }
-  .x1i1rx1s { width: 1px; }
   .xw4jnvo { width: 20px; }
   .x17z2i9w { width: 22px; }
   .xafpxmx { width: 240px; }
-  .xvy4d1p { width: 24px; }
-  .x1hfn5x7 { width: 260px; }
   .x23j0i4 { width: 26px; }
   .xgd8bvy { width: 28px; }
   .xfo62xy { width: 2px; }
   .x1td3qas { width: 32px; }
   .x14qfxbe { width: 36px; }
+  .x1guw455 { width: 38px; }
+  .x187nhsf { width: 44px; }
   .xzuapc8 { width: 45px; }
-  @scope (.notion-dark-theme) {
-  .x1iurads.x1iurads { background: var(--ca-palTraGra200); }
-}
-  @scope (.notion-dark-theme) {
-  .x1tdbmsl.x1tdbmsl { background: var(--cl-palGra300); }
-}
-  .xht4xr3 { width: 480px; }
   .x15yg21f { width: 56px; }
   .x1fu8urw { width: 64px; }
-  .x1v4s8kt { width: 6px; }
-  .xdpfuu1 { width: 800px; }
-  .x1xc55vz { width: 8px; }
   .x13oubkp { width: 96px; }
-  .x14atkfc { width: auto; }
   .xeq5yr9 { width: fit-content; }
   .xp3wv6e { width: min(290px, 85vw); }
   .x5lhr3w { width: var(--x-width); }
-  @scope (.notion-dark-theme) {
-  .x5avrv5.x5avrv5 { background: rgba(0, 0, 0, 0.29); }
-}
-  @scope (.notion-dark-theme) {
-  .xu2snb4.xu2snb4 { background: rgba(0, 0, 0, 0.8); }
-}
-  .x11gisft { max-width: 640px; }
-  .x1guw455 { width: 38px; }
-  .x187nhsf { width: 44px; }
   @scope ([data-contrast="high"]) {
   .xigsv13.xigsv13:focus-visible { background: var(--x-ovxak1); }
 }
@@ -1727,9 +1731,9 @@ html[dir="rtl"] .directional-icon { transform: scaleX(-1); }
 
 @property --x-marginInlineEnd { syntax: "*"; inherits: false; }
 
-@property --x-stroke { syntax: "*"; inherits: false; }
-
 @property --x-background { syntax: "*"; inherits: false; }
+
+@property --x-stroke { syntax: "*"; inherits: false; }
 
 @property --x-color { syntax: "*"; inherits: false; }
 
@@ -2742,4 +2746,4 @@ body { counter-reset: katexEqnNo 0 mmlEqnNo 0; }
 ◦ <span style="font-weight:600" data-token-index="3" class="notion-enable-hover">참조모델2:</span> WEB/WAS(서버1)와 DB(서버2) 등으로 분할
 ◦ <span style="font-weight:600" data-token-index="5" class="notion-enable-hover">참조모델3:</span> WEB(1), WAS(2), DB(3) 등 3-계층 처리</div></div></td></tr><tr class="notion-table-row" style="isolation: auto; height: 34px;"><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 118px; max-width: 118px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1h8:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 111px; max-width: 111px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1h9:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">요소별 규모산정</div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 400px; max-width: 400px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1ha:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">◦ 업무 분석 자료 기반 보정 계수 설정
 ◦ CPU, 메모리, 디스크 구성요소별 규모 산정 수행</div></div></td></tr><tr class="notion-table-row" style="isolation: auto; height: 34px;"><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 118px; max-width: 118px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hb:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;"><span style="font-weight:600" data-token-index="0" class="notion-enable-hover">4. 가중치 적용</span></div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 111px; max-width: 111px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hc:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">참조모델1 적용</div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 400px; max-width: 400px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hd:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">◦ 2.1 (WEB: 0.4, WAS: 0.7, DB: 1)</div></div></td></tr><tr class="notion-table-row" style="isolation: auto; height: 34px;"><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 118px; max-width: 118px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1he:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 111px; max-width: 111px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hf:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">참조모델2 적용</div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 400px; max-width: 400px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hg:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">◦ WEB/WAS(서버1), DB(서버2) 계층: 1.6 (WEB: 0.6, WAS: 1)
-◦ WEB(서버1), WAS/DB(서버2) 계층: 1.0</div></div></td></tr><tr class="notion-table-row" style="isolation: auto; height: 34px;"><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 118px; max-width: 118px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hh:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 111px; max-width: 111px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hi:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">참조모델3 적용</div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 400px; max-width: 400px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hj:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">◦ WEB(서버1): 1.0, WAS(서버2): 1.0, DB(서버3): 1.0</div></div></td></tr></tbody></table></div></div></div></div></div></div></div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div></div></div><div data-block-id="3656968f-52c4-8080-8d5b-dd68325b7d7c" dir="auto" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1088px;"><div style="width: 100%; padding-inline: 6px; padding-top: 1px; padding-bottom: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;"><div style="display: flex; align-items: flex-start; width: 100%; padding-inline-start: 2px;"><div contenteditable="false" class="notion-list-item-box-left" data-content-editable-void="true" data-text-edit-side="start" style="width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: 1.5em; padding-top: 2px; padding-bottom: 2px; height: 28px;"><div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily: Arial; --pseudoBefore--content: &quot;•&quot;;"></div></div><div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;"><div class="x78zum5"><div id=":r1hk:" class="content-editable-leaf-rtl" spellcheck="true" placeholder="리스트" contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline-start: 6px;"><span style="font-weight:600" data-token-index="0" class="notion-enable-hover">인사이트</span>: 하드웨어 규모산정은 <span style="font-weight:600" data-token-index="2" class="notion-enable-hover">과소산정(성능 부족) vs 과다산정(예산 낭비)</span> 간 균형이 핵심이며, 클라우드 전환 시 온프레미스 규모산정 방식에서 <span style="font-weight:600" data-token-index="4" class="notion-enable-hover">탄력적 확장(Auto Scaling)</span> 기반 설계로 전환해야 함.</div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div><div data-block-id="3566968f-52c4-80de-baa5-dea7de813ad8" dir="auto" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1088px;"><div style="width: 100%; padding-top: 6px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;"><div style="width: 100%;"><div class="x78zum5"><div id=":r1hl:" class="content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div></div></div><span data-content-editable-root-tiny-selection-trap="true" style="height: 1px; width: 1px; caret-color: transparent;"></span></div><div class="notion-presence-container" style="position: absolute; top: 0px; inset-inline-start: 0px; z-index: 89;"><div></div></div><div class="sticky-portal-target" data-sticky-stack-name="default" style="position: sticky; z-index: 85; width: 100%; bottom: 0px; inset-inline-start: 0px; flex: 0 1 0%;"></div></div></div></main><div role="region" aria-label="사이드 보기" aria-hidden="true" class="notion-peek-renderer" style="position: absolute; top: 0px; inset-inline-end: 0px; bottom: 0px; width: 640px; z-index: 109; transform: translateX(calc(var(--direction, 1) * 640px)) translateZ(0); transition-duration: 200ms; transition-timing-function: ease; transition-property: width, transform;"></div></div></div></div><div class="xixxii4 x13vifvy x1o0tod xtijo5x x1ey2m1c x47corl x6ikm8r x10wlt62 x14g40p9 notion-overlay-container notion-default-overlay-container"><div class="x1n2onr6 x1ja2u2z"></div></div><div style="display: block; position: fixed; visibility: hidden; overflow-y: scroll; width: 20px; height: 20px;"></div><div role="status" aria-live="polite" aria-atomic="true" style="position: absolute; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; margin: -1px; padding: 0px;"></div><div role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; margin: -1px; padding: 0px;"></div></div></div></div><iframe sandbox="allow-scripts allow-same-origin" style="position: absolute; opacity: 0; width: 1px; height: 1px; top: 0; left: 0; border: none; display: block; z-index: -1;" aria-hidden="true" tabindex="-1" referrerpolicy="no-referrer" src="cid:frame-7AF074731AB925D9F9DFCBAA25753472@mhtml.blink"></iframe></body></html>
+◦ WEB(서버1), WAS/DB(서버2) 계층: 1.0</div></div></td></tr><tr class="notion-table-row" style="isolation: auto; height: 34px;"><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 118px; max-width: 118px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hh:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 111px; max-width: 111px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hi:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">참조모델3 적용</div></div></td><td dir="ltr" style="color: inherit; fill: inherit; border: 1px solid var(--c-borPri); isolation: auto; position: relative; vertical-align: top; text-align: start; min-width: 400px; max-width: 400px; min-height: 32px;"><div class="notion-table-cell" style="isolation: auto;"><div id=":r1hj:" class="notion-table-cell-text content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding: 7px 9px; background-color: transparent; font-size: 14px; line-height: 20px;">◦ WEB(서버1): 1.0, WAS(서버2): 1.0, DB(서버3): 1.0</div></div></td></tr></tbody></table></div></div></div></div></div></div></div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div></div></div><div data-block-id="3656968f-52c4-8080-8d5b-dd68325b7d7c" dir="auto" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1088px;"><div style="width: 100%; padding-inline: 6px; padding-top: 1px; padding-bottom: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;"><div style="display: flex; align-items: flex-start; width: 100%; padding-inline-start: 2px;"><div contenteditable="false" class="notion-list-item-box-left" data-content-editable-void="true" data-text-edit-side="start" style="width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: 1.5em; padding-top: 2px; padding-bottom: 2px; height: 28px;"><div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily: Arial; --pseudoBefore--content: &quot;•&quot;;"></div></div><div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;"><div class="x78zum5"><div id=":r1hk:" class="content-editable-leaf-rtl" spellcheck="true" placeholder="리스트" contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline-start: 6px;"><span style="font-weight:600" data-token-index="0" class="notion-enable-hover">인사이트</span>: 하드웨어 규모산정은 <span style="font-weight:600" data-token-index="2" class="notion-enable-hover">과소산정(성능 부족) vs 과다산정(예산 낭비)</span> 간 균형이 핵심이며, 클라우드 전환 시 온프레미스 규모산정 방식에서 <span style="font-weight:600" data-token-index="4" class="notion-enable-hover">탄력적 확장(Auto Scaling)</span> 기반 설계로 전환해야 함.</div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div><div data-block-id="3566968f-52c4-80de-baa5-dea7de813ad8" dir="auto" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1088px;"><div style="width: 100%; padding-top: 6px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;"><div style="width: 100%;"><div class="x78zum5"><div id=":r1hl:" class="content-editable-leaf-rtl" spellcheck="true" placeholder=" " contenteditable="false" data-content-editable-leaf="true" style="max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; min-height: 1em; color: var(--c-texPri); -webkit-text-fill-color: var(--c-texTer);"></div><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div></div></div></div></div><span data-content-editable-root-tiny-selection-trap="true" style="height: 1px; width: 1px; caret-color: transparent;"></span></div><div class="notion-presence-container" style="position: absolute; top: 0px; inset-inline-start: 0px; z-index: 89;"><div></div></div><div class="sticky-portal-target" data-sticky-stack-name="default" style="position: sticky; z-index: 85; width: 100%; bottom: 0px; inset-inline-start: 0px; flex: 0 1 0%;"></div></div></div></main><div role="region" aria-label="사이드 보기" aria-hidden="true" class="notion-peek-renderer" style="position: absolute; top: 0px; inset-inline-end: 0px; bottom: 0px; width: 640px; z-index: 109; transform: translateX(calc(var(--direction, 1) * 640px)) translateZ(0); transition-duration: 200ms; transition-timing-function: ease; transition-property: width, transform;"></div></div></div></div><div class="xixxii4 x13vifvy x1o0tod xtijo5x x1ey2m1c x47corl x6ikm8r x10wlt62 x14g40p9 notion-overlay-container notion-default-overlay-container"><div class="x1n2onr6 x1ja2u2z"></div></div><div style="display: block; position: fixed; visibility: hidden; overflow-y: scroll; width: 20px; height: 20px;"></div><div role="status" aria-live="polite" aria-atomic="true" style="position: absolute; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; margin: -1px; padding: 0px;"></div><div role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; margin: -1px; padding: 0px;"></div></div></div></div><iframe sandbox="allow-scripts allow-same-origin" style="position: absolute; opacity: 0; width: 1px; height: 1px; top: 0; left: 0; border: none; display: block; z-index: -1;" aria-hidden="true" tabindex="-1" referrerpolicy="no-referrer" src="cid:frame-86DECD3A8EFFE39E543695E342B854B2@mhtml.blink"></iframe></body></html>
