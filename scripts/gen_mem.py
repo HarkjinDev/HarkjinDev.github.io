@@ -178,15 +178,27 @@ def generate_mem_html(subnote_dir: str = "subnote"):
         for topic, mnemonic, content_html in items:
             topic_map.setdefault(topic, []).append((mnemonic, content_html))
 
-        items_html = ""
+        # 도메인별 요약 표 생성: 토픽명 | 두음
+        rows_html = ""
         for topic, mnemonics in topic_map.items():
-            items_html += f'<h3 class="topic">{topic}</h3>\n'
-            for mnemonic, content_html in mnemonics:
-                items_html += f'<p class="mnemonic">{mnemonic}</p>\n'
-                if content_html:
-                    is_table = content_html.startswith("<table")
-                    wrap_cls = "table-wrap" if is_table else "list-wrap"
-                    items_html += f'<div class="{wrap_cls}">{content_html}</div>\n'
+            for mnemonic, _ in mnemonics:
+                rows_html += f"""
+          <tr>
+            <td class="col-topic">{topic}</td>
+            <td class="col-mnemonic"><span class="mnemonic">{mnemonic}</span></td>
+          </tr>"""
+
+        domain_table = f"""
+<table class="domain-table">
+  <thead>
+    <tr>
+      <th>토픽명</th>
+      <th>두음</th>
+    </tr>
+  </thead>
+  <tbody>{rows_html}
+  </tbody>
+</table>"""
 
         sections_html += f"""
 <section class="domain">
@@ -194,7 +206,7 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     <span class="domain-label">{label}</span>
     <span class="domain-desc">{desc}</span>
   </h2>
-  {items_html}
+  {domain_table}
 </section>
 <hr>
 """
@@ -218,7 +230,7 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     hr {{ border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }}
     .domain {{ margin-bottom: 8px; }}
     .domain-title {{
-      font-size: 1.3rem; margin: 24px 0 16px;
+      font-size: 1.3rem; margin: 24px 0 12px;
       display: flex; align-items: center; gap: 10px;
     }}
     .domain-label {{
@@ -226,46 +238,43 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       padding: 3px 10px; border-radius: 4px; font-size: 0.95rem;
     }}
     .domain-desc {{ color: #666; font-size: 0.95rem; font-weight: normal; }}
-    h3.topic {{
-      font-size: 1rem; color: #444; margin: 20px 0 6px;
-      padding-left: 8px; border-left: 3px solid #93c7e7;
+
+    /* ── 도메인 요약 표 ── */
+    .domain-table {{
+      border-collapse: collapse; width: 100%;
+      font-size: 0.9rem; background: #fff;
+      margin-bottom: 8px;
     }}
-    p.mnemonic {{
+    .domain-table th {{
+      background: #2d3748; color: #fff;
+      padding: 9px 14px; text-align: left;
+      font-weight: 600; white-space: nowrap;
+    }}
+    .domain-table td {{
+      padding: 8px 14px; border-bottom: 1px solid #eee;
+      vertical-align: middle;
+    }}
+    .domain-table tr:last-child td {{ border-bottom: none; }}
+    .domain-table tr:hover td {{ background: #f7f9fc; }}
+    .col-topic {{ color: #444; width: 70%; }}
+    .col-mnemonic {{ width: 30%; }}
+
+    /* ── 두음 배지 ── */
+    span.mnemonic {{
       display: inline-block;
       background-color: #93c7e7; color: #d44c47;
-      font-weight: 700; font-size: 1.1rem;
-      padding: 4px 14px; border-radius: 4px;
-      margin: 4px 0 10px; letter-spacing: 0.05em;
+      font-weight: 700; font-size: 1rem;
+      padding: 3px 12px; border-radius: 4px;
+      letter-spacing: 0.05em; white-space: nowrap;
     }}
-    .table-wrap {{
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      margin-bottom: 12px;
-    }}
-    table {{
-      border-collapse: collapse; width: 100%;
-      font-size: 0.88rem; background: #fff;
-    }}
-    th {{
-      background: #f0f4f8; padding: 8px 12px;
-      border: 1px solid #ddd; text-align: left; white-space: nowrap;
-    }}
-    td {{ padding: 7px 12px; border: 1px solid #ddd; vertical-align: top; }}
-    tr:hover td {{ background: #f9f9f9; }}
-    .list-wrap {{
-      background: #fff; border: 1px solid #e5e5e5;
-      border-radius: 6px; padding: 10px 16px; margin-bottom: 12px;
-    }}
-    .list-wrap ul {{
-      margin: 0; padding-left: 20px;
-      font-size: 0.9rem; line-height: 1.8;
-    }}
-    .list-wrap li {{ color: #444; }}
+
     @media (max-width: 640px) {{
       body {{ padding: 12px; }}
       h1 {{ font-size: 1.3rem; }}
       .domain-title {{ font-size: 1.1rem; }}
-      p.mnemonic {{ font-size: 1rem; }}
-      th, td {{ font-size: 0.8rem; padding: 6px 8px; }}
+      .domain-table {{ font-size: 0.82rem; }}
+      .domain-table td, .domain-table th {{ padding: 6px 10px; }}
+      span.mnemonic {{ font-size: 0.88rem; padding: 2px 8px; }}
     }}
   </style>
 </head>
