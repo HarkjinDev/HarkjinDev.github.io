@@ -11,7 +11,8 @@ on:
 jobs:
   capture:
     strategy:
-      fail-fast: false      # 1개 실패해도 나머지 계속 실행
+      fail-fast: false          # 1개 실패해도 나머지 계속 실행
+      max-parallel: 2           # 동시 실행 2개로 제한 → Notion WAF burst 방지
       matrix:
         include:
           - {name: db,    url: "https://salt-stetson-a0e.notion.site/DB-3336968f52c480d4be00c83639a5ee64"}
@@ -29,6 +30,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Random delay
+        run: |
+          # 잡 시작 시 0~30초 랜덤 대기 → 동시 2개라도 요청 시점 분산
+          DELAY=$((RANDOM % 30))
+          echo "대기: ${DELAY}초"
+          sleep $DELAY
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
