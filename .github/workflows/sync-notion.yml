@@ -204,6 +204,25 @@ jobs:
       - name: Generate mem.html
         run: python3 scripts/gen_mem.py
 
+      # ────────────────────────────────────────
+      # 토픽 분할 — 성공 도메인만 초기화 후 재생성
+      # ────────────────────────────────────────
+      - name: Split into topics
+        run: |
+          mkdir -p subnote/topics
+          pip install beautifulsoup4 -q
+
+          # 오늘 변환에 성공한 도메인만 topics/ 초기화
+          for name in db ai sec nw sw al st caos bizpm ds gr; do
+            html="subnote/${name}.html"
+            if [ -f "$html" ] && [ $(wc -c < "$html") -gt 100000 ]; then
+              echo "[초기화] subnote/topics/${name}/"
+              rm -rf "subnote/topics/${name}/"
+            fi
+          done
+
+          python3 scripts/gen_topics.py
+
       - name: Generate index.html
         run: |
           python3 << 'EOF'
