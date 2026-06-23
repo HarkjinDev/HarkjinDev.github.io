@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서브노트 뷰어</title>
+  <style>
+    /* ── 토큰 ── */
+    :root {
+      --bg:          #f5f4f0;
+      --sidebar-bg:  #1a1f2e;
+      --sidebar-w:   260px;
+      --header-h:    52px;
+      --text:        #2c2c2c;
+      --muted:       #888;
+      --border:      #e4e2dc;
+      --accent:      #4a7dff;
+      --active-bg:   #2a3450;
+      --active-text: #7eaaff;
+      --domain-bg:   #252b3b;
+      --tag-bg:      #3a4460;
+      --tag-text:    #a8bfff;
+      --hover:       #232840;
+      --white:       #ffffff;
+      --radius:      6px;
+      --shadow:      0 1px 4px rgba(0,0,0,.08);
+      --font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── 헤더 ── */
+    header {
+      height: var(--header-h);
+      background: var(--sidebar-bg);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 12px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .logo {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #e8e5de;
+      letter-spacing: -.01em;
+    }
+    .logo span { color: var(--active-text); }
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-menu {
+      display: none;
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      padding: 4px;
+      font-size: 1.1rem;
+    }
+    .topic-breadcrumb {
+      font-size: .78rem;
+      color: #666;
+      background: var(--bg);
+      padding: 3px 10px;
+      border-radius: 20px;
+      max-width: 340px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── 메인 레이아웃 ── */
+    .layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── 사이드바 ── */
+    aside {
+      width: var(--sidebar-w);
+      background: var(--sidebar-bg);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      transition: transform .25s ease;
+    }
+    aside::-webkit-scrollbar { width: 4px; }
+    aside::-webkit-scrollbar-thumb { background: #ffffff18; border-radius: 2px; }
+
+    .nav-section { padding: 8px 0; }
+
+    .domain-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: #c8c4bc;
+      font-size: .82rem;
+      font-family: var(--font);
+      transition: background .12s;
+    }
+    .domain-btn:hover { background: var(--hover); }
+    .domain-btn.open  { background: var(--domain-bg); }
+
+    .domain-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+    .domain-name { flex: 1; font-size: .8rem; }
+    .domain-arrow {
+      font-size: .65rem;
+      color: #555;
+      transition: transform .2s;
+      flex-shrink: 0;
+    }
+    .domain-btn.open .domain-arrow { transform: rotate(90deg); }
+
+    .topic-list {
+      display: none;
+      list-style: none;
+      padding: 2px 0 6px 0;
+    }
+    .topic-list.open { display: block; }
+
+    .topic-item {
+      display: flex;
+      align-items: center;
+      padding: 6px 16px 6px 40px;
+      cursor: pointer;
+      color: #8a8680;
+      font-size: .78rem;
+      line-height: 1.4;
+      transition: background .1s, color .1s;
+      user-select: none;
+    }
+    .topic-item:hover {
+      background: var(--hover);
+      color: #c8c4bc;
+    }
+    .topic-item.active {
+      background: var(--active-bg);
+      color: var(--active-text);
+      font-weight: 500;
+    }
+
+    /* ── 콘텐츠 영역 ── */
+    main {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      gap: 10px;
+    }
+    .placeholder-icon { font-size: 2.5rem; opacity: .4; }
+    .placeholder-text { font-size: .9rem; }
+
+    iframe#viewer {
+      flex: 1;
+      width: 100%;
+      border: none;
+      display: none;
+      background: var(--white);
+    }
+    iframe#viewer.show { display: block; }
+
+    /* ── 로딩 ── */
+    .loading {
+      flex: 1;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .loading.show { display: flex; }
+    .spinner {
+      width: 22px; height: 22px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── 모바일 ── */
+    @media (max-width: 680px) {
+      :root { --sidebar-w: 240px; }
+      .btn-menu   { display: block; }
+      .topic-breadcrumb { max-width: 160px; }
+
+      aside {
+        position: fixed;
+        top: var(--header-h);
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 20px rgba(0,0,0,.3);
+      }
+      aside.open { transform: translateX(0); }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.4);
+        z-index: 99;
+        top: var(--header-h);
+      }
+      .overlay.show { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="btn-menu" id="btnMenu" title="메뉴">☰</button>
+  <div class="logo">📚 <span>서브노트</span> 뷰어</div>
+  <div class="header-right">
+    <div class="topic-breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar">
+    <div class="nav-section" id="nav">
+      <div style="padding:20px 16px;color:#555;font-size:.78rem;">로딩 중...</div>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <div class="placeholder" id="placeholder">
+      <div class="placeholder-icon">📖</div>
+      <div class="placeholder-text">좌측에서 토픽을 선택하세요</div>
+    </div>
+    <div class="loading" id="loading"><div class="spinner"></div></div>
+    <iframe id="viewer" title="토픽 뷰어"></iframe>
+  </main>
+</div>
+
+<script>
+const nav       = document.getElementById('nav');
+const viewer    = document.getElementById('viewer');
+const placeholder = document.getElementById('placeholder');
+const loading   = document.getElementById('loading');
+const breadcrumb = document.getElementById('breadcrumb');
+const sidebar   = document.getElementById('sidebar');
+const overlay   = document.getElementById('overlay');
+const btnMenu   = document.getElementById('btnMenu');
+
+let activeItem  = null;
+
+// ── 사이드바 토글 (모바일) ─────────────────────────────
+btnMenu.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+});
+overlay.addEventListener('click', closeSidebar);
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
+}
+
+// ── topics.json 로드 ──────────────────────────────────
+async function init() {
+  try {
+    const res  = await fetch('topics.json');
+    if (!res.ok) throw new Error('topics.json 없음');
+    const data = await res.json();
+    renderNav(data);
+
+    // URL 해시로 초기 토픽 복원
+    const hash = location.hash.slice(1);  // "db/001"
+    if (hash) {
+      const [domain, id] = hash.split('/');
+      if (domain && id && data[domain]) {
+        const topic = data[domain].topics.find(t => t.id === id);
+        if (topic) loadTopic(domain, id, topic.name, data[domain].label, true);
+      }
+    }
+  } catch (e) {
+    nav.innerHTML = `<div style="padding:16px;color:#f87;font-size:.78rem;">⚠ topics.json 로드 실패<br>${e.message}</div>`;
+  }
+}
+
+// ── 네비게이션 렌더링 ─────────────────────────────────
+function renderNav(data) {
+  nav.innerHTML = '';
+  Object.entries(data).forEach(([fname, info]) => {
+    const section = document.createElement('div');
+    section.className = 'nav-section';
+
+    const btn = document.createElement('button');
+    btn.className = 'domain-btn';
+    btn.innerHTML = `
+      <span class="domain-tag">${info.label}</span>
+      <span class="domain-name">${info.desc}</span>
+      <span class="domain-arrow">▶</span>`;
+
+    const ul = document.createElement('ul');
+    ul.className = 'topic-list';
+
+    info.topics.forEach(topic => {
+      const li = document.createElement('li');
+      li.className = 'topic-item';
+      li.textContent = topic.name;
+      li.dataset.domain = fname;
+      li.dataset.id     = topic.id;
+      li.dataset.label  = info.label;
+      li.addEventListener('click', () => {
+        loadTopic(fname, topic.id, topic.name, info.label, false);
+        closeSidebar();
+      });
+      ul.appendChild(li);
+    });
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.classList.contains('open');
+      // 다른 도메인 닫기
+      document.querySelectorAll('.domain-btn.open').forEach(b => {
+        b.classList.remove('open');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.classList.add('open');
+        ul.classList.add('open');
+      }
+    });
+
+    section.appendChild(btn);
+    section.appendChild(ul);
+    nav.appendChild(section);
+  });
+}
+
+// ── 토픽 로드 ─────────────────────────────────────────
+function loadTopic(domain, id, name, label, skipDomainOpen) {
+  // 이전 활성 항목 해제
+  if (activeItem) activeItem.classList.remove('active');
+
+  // 새 활성 항목 설정
+  const newItem = nav.querySelector(
+    `.topic-item[data-domain="${domain}"][data-id="${id}"]`
+  );
+  if (newItem) {
+    newItem.classList.add('active');
+    activeItem = newItem;
+
+    // 도메인 펼치기
+    if (!skipDomainOpen) {
+      const ul  = newItem.closest('.topic-list');
+      const btn = ul?.previousElementSibling;
+      if (ul && btn) {
+        document.querySelectorAll('.domain-btn.open').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+        btn.classList.add('open');
+        ul.classList.add('open');
+      }
+    }
+    // 스크롤 보이기
+    newItem.scrollIntoView({ block: 'nearest' });
+  }
+
+  // 브레드크럼 갱신
+  breadcrumb.textContent = `${label} / ${name}`;
+
+  // URL 해시 갱신
+  history.replaceState(null, '', `#${domain}/${id}`);
+
+  // iframe 로드
+  placeholder.style.display = 'none';
+  viewer.classList.remove('show');
+  loading.classList.add('show');
+
+  const src = `topics/${domain}/${id}.html`;
+  viewer.onload = () => {
+    loading.classList.remove('show');
+    viewer.classList.add('show');
+  };
+  viewer.src = src;
+}
+
+init();
+</script>
+</body>
+</html>
