@@ -56,8 +56,8 @@ jobs:
               ("gr",    "3536968f-52c4-80b7-9401-dcaefe521c71"),
           ]
 
-          def get_user_id():
-              """token_v2로 현재 유저 ID 조회"""
+          def get_user_info():
+              """token_v2로 유저 ID + 스페이스 ID 조회"""
               resp = requests.post(
                   "https://www.notion.so/api/v3/loadUserContent",
                   headers={
@@ -69,14 +69,18 @@ jobs:
                   timeout=30,
               )
               if resp.status_code != 200:
-                  print(f"  [WARN] 유저 ID 조회 실패 ({resp.status_code}): {resp.text[:200]}")
-                  return None
-              users = resp.json().get("recordMap", {}).get("notion_user", {})
-              user_id = list(users.keys())[0] if users else None
-              print(f"  유저 ID: {user_id}")
-              return user_id
+                  print(f"  [WARN] 유저 정보 조회 실패 ({resp.status_code}): {resp.text[:200]}")
+                  return None, None
+              record_map = resp.json().get("recordMap", {})
+              users  = record_map.get("notion_user", {})
+              spaces = record_map.get("space", {})
+              user_id  = list(users.keys())[0]  if users  else None
+              space_id = list(spaces.keys())[0] if spaces else None
+              print(f"  유저 ID:   {user_id}")
+              print(f"  스페이스 ID: {space_id}")
+              return user_id, space_id
 
-          USER_ID = get_user_id()
+          USER_ID, SPACE_ID = get_user_info()
 
           HEADERS = {
               "Cookie": f"token_v2={TOKEN}",
@@ -102,6 +106,10 @@ jobs:
                       }
                   }
               }
+              # ★ spaceId 추가 (없으면 500 에러)
+              if SPACE_ID:
+                  body["task"]["request"]["spaceId"] = SPACE_ID
+
               resp = requests.post(
                   "https://www.notion.so/api/v3/enqueueTask",
                   headers=HEADERS,
