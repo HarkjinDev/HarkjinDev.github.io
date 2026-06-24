@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. 머신러닝 성능 지표 (Performance Metrics)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>1. 머신러닝 성능 지표 (Performance Metrics)</h4>
+<ul>
+<li><strong>정의</strong>: 개발된 모델의 예측 성능을 정량적으로 측정하기 위한 기준</li>
+<li><strong>분류</strong>: 성능평가/테스트</li>
+<li><strong>성능평가 지표:</strong><table>
+<tr><th><strong>분류</strong></th><th>지표</th><th><strong>핵심 요약</strong></th><th><strong>수식</strong></th></tr>
+<tr><td><strong>분류</strong></td><td><strong>정밀도</strong></td><td>모델이 Positive로 예측한 것 중 실제 Positive 비율</td><td>\frac{TP}{TP + FP}</td></tr>
+<tr><td></td><td><strong>재현율</strong></td><td>실제 Positive 중 모델이 Positive로 예측한 비율</td><td>\frac{TP}{TP + FN}</td></tr>
+<tr><td></td><td><strong>F1-score</strong></td><td>정밀도와 재현율의 조화 평균 (불균형 데이터에 활용)</td><td>2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}</td></tr>
+<tr><td></td><td><strong>ROC-AUC</strong></td><td>민감도(TPR)와 특이도(FPR)의 상관관계 면적 측정</td><td>면적(Area)이 1에 가까울수록 우수</td></tr>
+<tr><td><strong>회귀</strong></td><td><strong>MAE</strong></td><td>예측값과 실제값 차이의 절대값 평균</td><td>\frac{1}{n} \sum_{i=1}^{n} \vert y_i - \hat{y}_i \vert</td></tr>
+<tr><td></td><td><strong>MSE</strong></td><td>예측값과 실제값 차이의 제곱 평균</td><td>\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2</td></tr>
+<tr><td></td><td><strong>RMSE</strong></td><td>MSE에 루트를 씌워 에러의 단위를 원본과 맞춤</td><td>\sqrt{\text{MSE}}</td></tr>
+<tr><td></td><td><strong>R² 
+(결정계수)</strong></td><td>모델이 데이터를 얼마나 잘 설명하는지(설명력) 측정</td><td>1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}</td></tr>
+<tr><td><strong>군집</strong></td><td><strong>실루엣 계수</strong></td><td>클러스터 내 응집도와 클러스터 간 분리도 측정</td><td>\frac{b(i) - a(i)}{\max(a(i), b(i))}</td></tr>
+<tr><td></td><td><strong>DBI</strong></td><td>클러스터 간 평균 거리와 응집도 측정</td><td>작을수록 군집화가 잘 됨</td></tr>
+<tr><td></td><td><strong>CH 지표</strong></td><td>클러스터 간 분산과 클러스터 내 분산의 비율 측정</td><td>높을수록 군집화가 잘 됨</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

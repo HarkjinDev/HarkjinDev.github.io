@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. 측위 기술</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>7. 측위 기술</h4>
+<ul>
+<li><strong>LDT(Location Determination Technology):</strong> 위치기반 서비스(LBS) 제공을 위해 모바일 단말의 위치를 측정하는 위치 확인 기술</li>
+<li><strong>LAS(Location Aware System):</strong> 특정 위치 또는 이동하는 사물의 물리적/논리적 위치를 파악하여 적절한 서비스를 제공하는 기술 및 시스템<table>
+<tr><th>기술</th><th>설명</th><th>위치측정방식</th></tr>
+<tr><td><strong>위성통신 기반</strong></td><td>위성 반송파 신호 위상·코드 측정·추적</td><td>삼각측량 (D-GPS·A-GPS)</td></tr>
+<tr><td><strong>이동통신 기반</strong></td><td>셀룰러 이동통신 네트워크 활용</td><td>삼각측량 (TOA·AOA·TDOA·Cell-ID)</td></tr>
+<tr><td><strong>무선통신 기반</strong></td><td>적외선·초음파 등 무선통신 기술 활용</td><td>초음파·RFID·UWB·Wi-Fi</td></tr>
+<tr><td><strong>영상인식 기반</strong></td><td>영상의 시공간적 차이점으로 위치 인식</td><td>컴퓨터 비전</td></tr>
+</table>
+</li>
+<li><strong>LBS(Location Based Service): </strong>위치확인기술(LAS)을 이용해 사용자의 위치를 파악하고, 관련된 부가정보를 결합해 다양한 서비스를 제공하는 기술<table>
+<tr><th>구성요소</th><th>설명</th><th>기술요소</th></tr>
+<tr><td><strong>위치측위기술 (LDT)</strong></td><td>모바일 기기 위치 측정 기술·Network·Handset·Wi-Fi 기반 측위</td><td>GPS·Cell-ID·Wi-Fi</td></tr>
+<tr><td><strong>위치처리플랫폼 (LEP)</strong></td><td>이동통신망·위치응용 간 기반기술·위치정보 관리·인증·보안·부하분산</td><td>MMDB·공간인덱싱·인증·접근통제</td></tr>
+<tr><td><strong>위치응용프로그램 (LAP)</strong></td><td>위치기반 서비스 컨텐츠 처리·운영·수치지도·POI·경로 제공</td><td>L-CRM·Location Trigger Marketing·Navigation·L-commerce</td></tr>
+</table>
+</li>
+<li><strong>IPS(Indoor Positioning System)</strong>: 건물 내부에 있는 사용자의 위치를 파악하고, 이를 스마트폰 등에 내장된 지도와 대조해 물건이나 장소의 위치를 쉽게 찾아주는 시스템</li>
+<li><strong>측위기술: </strong><table>
+<tr><th>측위 기술</th><th>상세 측위 방법</th><th>설명</th></tr>
+<tr><td><strong>Wi-Fi 기반</strong></td><td><strong>기준점 측위 (Cell ID)</strong></td><td>Cell ID·RSSI로 AP 위치 결정</td></tr>
+<tr><td></td><td><strong>삼각측량 측위</strong></td><td>3개 이상 AP RSSI 거리 환산</td></tr>
+<tr><td></td><td><strong>Fingerprinting 측위</strong></td><td>전파 맵 비교로 단말 위치 결정</td></tr>
+<tr><td></td><td><strong>다변 측위</strong></td><td>신호·도착시간·왕복시간 계산</td></tr>
+<tr><td><strong>UWB 기반</strong></td><td><strong>ToA·TDoA·AoA·Fingerprinting</strong></td><td>벽 투과·수 cm 정확도 측위</td></tr>
+<tr><td><strong>센서 기반</strong></td><td><strong>PDR (보행자추측항법)</strong></td><td>가속도·자이로·지자기 보행 계산</td></tr>
+<tr><td><strong>비콘 기반</strong></td><td><strong>Bluetooth 방식</strong></td><td>BLE 장치 간 거리로 측위 계산</td></tr>
+<tr><td><strong>CCTV·RFID 기반</strong></td><td><strong>CCTV 기반 측위</strong></td><td>영상 분석·사용자 식별 위치 측정</td></tr>
+<tr><td></td><td><strong>RFID 기반 측위</strong></td><td>RFID Tag·BLE·Wi-Fi망 위치 서비스</td></tr>
+</table>
+</li>
+</ul>
+<hr/>
+
+</body>
+</html>

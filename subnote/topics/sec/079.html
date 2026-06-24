@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14. 랜섬웨어 (Ransomware)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>14. 랜섬웨어 (Ransomware)</h4>
+<ul>
+<li><strong>정의</strong>: 시스템 파일을 암호화하고 복호화 대가(몸값)를 요구하는 악성 소프트웨어</li>
+<li><strong>키워드</strong>: 파일 암호화, 몸값 요구, 이중 협박, NIST SP 800-61r3</li>
+<li><strong>분류</strong>: 위협/공격</li>
+<li><strong>암호화 원리</strong>: 대칭키(AES)로 파일 암호화 → 해당 대칭키를 공격자 공개키(RSA)로 암호화 → 개인키 없이 복호화 불가</li>
+<li><strong>이중 협박(Double Extortion)</strong>: 파일 암호화 + 데이터 탈취 후 공개 위협</li>
+<li><strong>NIST SP 800-61(사고대응) r3 단계별 대응 체크리스트: </strong><table>
+<tr><th>단계</th><th><strong>단계 의미</strong></th><th><strong>랜섬웨어 대응 핵심 체크리스트</strong></th></tr>
+<tr><td><strong>GV 
+(Governance)</strong></td><td>거버넌스·
+의사결정</td><td>• 랜섬웨어 대응 정책(지불 여부·의사결정권자) 수립
+• 침해사고 대응 조직(CSIRT)·RACI 정의
+• 법·규제·개인정보 신고 기준 및 커뮤니케이션 체계 마련</td></tr>
+<tr><td><strong>ID 
+(Identify)</strong></td><td>자산·위험 식별</td><td>• 핵심 자산(AD, 백업, 파일서버, ERP 등) 식별
+• 중요 계정(Domain Admin, 백업 계정) 목록화
+• 랜섬웨어 침투 경로(VPN, RDP, 피싱) 위협 시나리오 정의</td></tr>
+<tr><td><strong>PR 
+(Protect)</strong></td><td>보호</td><td>• 3-2-1 백업 + 불변(Immutable)·오프라인 백업 구축
+• 백업 복구 리허설 및 RTO/RPO 검증
+• MFA, 관리자 계정 분리, 조건부 접근 적용
+• EDR 기반 행위 탐지·차단 정책 적용
+• 네트워크 분리 및 횡적 이동 차단</td></tr>
+<tr><td><strong>DE 
+(Detect)</strong></td><td>탐지</td><td>• 대량 파일 암호화·확장자 변경 탐지
+• 백업 실패 급증·섀도우 카피 삭제 탐지
+• 비정상 VPN/RDP 로그인 탐지
+• 신규 관리자 계정 생성 탐지</td></tr>
+<tr><td><strong>RS 
+(Respond)</strong></td><td>대응</td><td>• 감염 자산 즉시 격리(네트워크 차단)
+• AD·백업 계정 잠금 및 비밀번호 리셋
+• C2·IOC 차단 및 위협 헌팅 수행
+• 내부·외부 커뮤니케이션 단일 창구 운영
+• 랜섬 지불 검토 시 법무·제재·보험 검토</td></tr>
+<tr><td><strong>RC 
+(Recover)</strong></td><td>복구</td><td>• 핵심 서비스 우선 단계적 복구
+• 복구 전 침해 원인 제거 여부 확인
+• 재감염 방지 검증 후 운영 재개</td></tr>
+<tr><td><strong>ID.IM 
+(Improve)</strong></td><td>개선·교훈</td><td>• 사고 대응 전 과정 사후 분석
+• 재발 방지 과제 도출 및 예산·일정 반영
+• 테이블탑 훈련·복구 훈련 정례화</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 랜섬웨어 대응의 핵심은 "복호화키 없이 복구 가능한 백업"이며, 온라인 백업은 랜섬웨어에 같이 암호화될 수 있어 오프라인·격리 백업이 필수임</li>
+</ul>
+
+</body>
+</html>

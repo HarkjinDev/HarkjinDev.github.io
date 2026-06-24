@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. 디지털 포렌식 아티팩트 (Artifact)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>2. 디지털 포렌식 아티팩트 (Artifact)</h4>
+<ul>
+<li><strong>정의:</strong> 디지털 포렌식에서 분석 대상이 되는 시스템 활동 흔적 데이터</li>
+<li><strong>키워드:</strong> 레지스트리, 이벤트 로그, Prefetch, MFT, DNS 캐시, PCAP, 브라우저 기록, 메타데이터, 슬랙 공간</li>
+<li><strong>분류:</strong> 디지털 포렌식</li>
+<li><strong>주요 아티팩트 유형:</strong><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>윈도우</strong></td><td><strong>레지스트리</strong></td><td>설정·실행 흔적</td></tr>
+<tr><td></td><td><strong>이벤트 로그</strong></td><td>행위 기록</td></tr>
+<tr><td></td><td><strong>Prefetch</strong></td><td>실행 이력</td></tr>
+<tr><td></td><td><strong>LNK 파일</strong></td><td>파일 접근 이력</td></tr>
+<tr><td></td><td><strong>NTFS $MFT</strong></td><td>파일 시스템 이력</td></tr>
+<tr><td></td><td><strong>점프 리스트</strong></td><td>최근 사용 이력</td></tr>
+<tr><td><strong>네트워크</strong></td><td><strong>방화벽 로그</strong></td><td>네트워크 접근</td></tr>
+<tr><td></td><td><strong>DNS 캐시</strong></td><td>도메인 접근 이력</td></tr>
+<tr><td></td><td><strong>PCAP</strong></td><td>패킷 분석</td></tr>
+<tr><td></td><td><strong>라우터·스위치 로그</strong></td><td>내부 이동 추적</td></tr>
+<tr><td><strong>브라우저</strong></td><td><strong>방문 기록</strong></td><td>웹 접근 이력</td></tr>
+<tr><td></td><td><strong>다운로드 기록</strong></td><td>다운로드 추적</td></tr>
+<tr><td></td><td><strong>쿠키·세션</strong></td><td>인증 정보</td></tr>
+<tr><td><strong>모바일</strong></td><td><strong>통화·SMS 기록</strong></td><td>통신 이력</td></tr>
+<tr><td></td><td><strong>앱 데이터</strong></td><td>앱 사용 흔적</td></tr>
+<tr><td></td><td><strong>위치 정보</strong></td><td>위치 추적</td></tr>
+<tr><td></td><td><strong>사진·미디어 메타데이터</strong></td><td>미디어 흔적</td></tr>
+<tr><td><strong>메모리</strong></td><td><strong>프로세스 목록</strong></td><td>실행 프로세스</td></tr>
+<tr><td></td><td><strong>네트워크 연결</strong></td><td>활성 연결</td></tr>
+<tr><td></td><td><strong>암호화 키</strong></td><td>키·자격증명</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> 아티팩트는 삭제 후에도 MFT·슬랙 공간·볼륨 섀도·메모리에 잔존하므로 철저한 안티포렌식 없이는 완전 은닉이 어려우며, 공격자의 행위 재구성은 단일 아티팩트가 아닌 윈도우·네트워크·브라우저·메모리 아티팩트의 교차 분석을 통해 타임라인을 구성하는 것이 핵심임</li>
+</ul>
+
+</body>
+</html>

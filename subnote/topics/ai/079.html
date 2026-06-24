@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. XAI (eXplainable AI, 설명 가능한 인공지능)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>1. XAI (eXplainable AI, 설명 가능한 인공지능)</h4>
+<ul>
+<li><strong>정의</strong>: AI가 내린 판단 결과에 대해 '왜 그런 결과가 나왔는지' <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>인간이 이해</strong></u></span>할 수 있도록 근거를 제시하는 기술</li>
+<li><strong>키워드</strong>: 블랙박스 해소, 투명성, 신뢰성, 기여도 분석, 해석 가능성, SHAP, LIME, 대리 모델, 특징 중요도, AI 윤리, 모델 감사(Audit)</li>
+<li><strong>분류</strong>: AI 응용/트렌드</li>
+<li><strong>필요성</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AI의 블랙박스(Black-box) 특성 해결</strong></u></span>, 신뢰성 확보, 책임 소재 파악, 편향 탐지, 규제 요구</li>
+<li><strong>해석 가능성의 분류 체계:</strong><table>
+<tr><th>분류 기준</th><th>유형</th><th>설명</th></tr>
+<tr><td><strong>설명 범위</strong></td><td><strong>전역(Global)</strong></td><td>모델 전체의 동작 방식을 설명</td></tr>
+<tr><td></td><td><strong>지역(Local)</strong></td><td>개별 예측 결과 하나에 대해 설명</td></tr>
+<tr><td><strong>적용 시점</strong></td><td><strong>사전(Ante-hoc)</strong></td><td>설계 단계부터 해석 가능한 모델 사용 (화이트박스)</td></tr>
+<tr><td></td><td><strong>사후(Post-hoc)</strong></td><td>학습 완료된 모델에 외부적으로 설명 부여</td></tr>
+<tr><td><strong>모델 의존성</strong></td><td><strong>모델 특정적</strong></td><td>특정 모델 구조에 종속된 설명 기법</td></tr>
+<tr><td></td><td><strong>모델 비종속적</strong></td><td>어떤 모델에도 적용 가능한 범용 기법</td></tr>
+</table>
+</li>
+<li><strong>핵심 기법:</strong><table>
+<tr><th><strong>기법</strong></th><th><strong>설명</strong></th><th><strong>특징</strong></th></tr>
+<tr><td><strong>SHAP</strong></td><td>게임 이론 기반의 Shapley Value를 활용해 기여도 산출</td><td>이론적 견고함, 전역·지역 설명 가능</td></tr>
+<tr><td><strong>LIME</strong></td><td>특정 예측 주변에 단순 대리 모델을 만들어 국소 설명</td><td>모델 비종속적, 빠른 적용 가능</td></tr>
+<tr><td><strong>Attention Map</strong></td><td>트랜스포머의 어텐션 가중치를 시각화해 토큰 파악</td><td>NLP 모델의 문맥 파악 구조 확인</td></tr>
+<tr><td><strong>대리 모델</strong></td><td>블랙박스 모델을 결정 트리 등 해석 가능 모델로 근사</td><td>전역 설명 가능, 정확도 손실 주의</td></tr>
+<tr><td><strong>Grad-CAM</strong></td><td>CNN의 경사도(Gradient)를 이용해 기여 영역 시각화</td><td>이미지 분류 및 객체 탐지 특화</td></tr>
+<tr><td><strong>PDP</strong></td><td>특정 변수 변화에 따른 전체 예측값의 평균 변화 시각화</td><td>전역적 피처 영향력 파악 용이</td></tr>
+<tr><td><strong>ICE</strong></td><td>PDP를 개별 샘플 단위로 세분화하여 선 그래프로 표시</td><td>샘플 간 이질적 패턴 탐지 유용</td></tr>
+</table>
+</li>
+<li><strong>평가 기술:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;설희누가&gt;</strong></span><table>
+<tr><th><strong>평가 기술</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>Descriptive Accuracy
+(설명의 정확성)</strong></td><td>중요 피처 제거 시 예측 변화 관찰</td><td>피처 추출의 정확성 반영</td></tr>
+<tr><td><strong>Sparsity Accuracy
+(희소성 정확도)</strong></td><td>가중치가 0인 피처의 비중 측정</td><td>설명의 희소성 및 간결성</td></tr>
+<tr><td><strong>Cumulative DA
+(누적 설명 정확도)</strong></td><td>상위 피처 누적 제거 시 정확도 하락 측정</td><td>중요 특징의 조기 발견 능력</td></tr>
+<tr><td><strong>XAI 가중치 기반 평가</strong></td><td>피처 중요도와 정확도 하락의 상관관계 평가</td><td>기여도 점수의 신뢰성 검증</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 의료, 금융, 국방 등 중대한 결정이 필요한 분야에서 AI 도입을 위한 필수 요건(AI 윤리와 연계 가능)</li>
+</ul>
+
+</body>
+</html>

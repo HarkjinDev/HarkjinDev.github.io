@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 13-1. 소프트웨어 신뢰성 성장 모델 (SRGM, Software Reliability Growth Model)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 13-1. 소프트웨어 신뢰성 성장 모델 (SRGM, Software Reliability Growth Model)</h4>
+<ul>
+<li><strong>정의</strong>: 테스트 진행에 따른 결함 수정으로 소프트웨어 신뢰성이 성장하는 과정을 수학적으로 모델링하여 출시 시점을 예측하는 기법</li>
+<li><strong>키워드</strong>: 결함 발견율, 고장 강도 함수, Goel-Okumoto 모델, Musa-Okumoto, NHPP</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>주요 SRGM 모델</strong>:<table>
+<tr><th>모델</th><th>특징</th></tr>
+<tr><td>Jelinski-Moranda</td><td>초기 결함 수 고정, 발견 즉시 수정 가정</td></tr>
+<tr><td>Goel-Okumoto</td><td>NHPP(비동질 포아송 과정) 기반 S자 곡선</td></tr>
+<tr><td>Musa-Okumoto</td><td>로그 포아송, 실행 시간 기반</td></tr>
+<tr><td>Littlewood-Verrall</td><td>베이지안 접근, 가변 결함 크기</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: SRGM은 <strong>테스트 완료 시점 및 잔존 결함 수를 예측</strong>하여 출시 결정의 정량적 근거를 제공하며, 결함 발견율이 안정화(수렴)될 때를 출시 기준으로 활용.</li>
+</ul>
+
+</body>
+</html>

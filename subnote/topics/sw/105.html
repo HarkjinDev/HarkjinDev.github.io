@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19. 소프트웨어 테스트 자동화(Test Automation)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>19. 소프트웨어 테스트 자동화(Test Automation)</h4>
+<ul>
+<li><strong>정의</strong>: 테스트 케이스 실행·결과 검증·리포팅을 자동화 도구와 스크립트로 처리하여 반복 테스트의 효율성을 높이는 활동</li>
+<li><strong>키워드</strong>: 테스트 자동화 도구, Selenium, JUnit, CI/CD 연동, ROI, 자동화 피라미드</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>주요 테스트 자동화 도구</strong>:<table>
+<tr><th><strong>계층 (Layer)</strong></th><th><strong>분류</strong></th><th><strong>대표 도구 (Tools)</strong></th></tr>
+<tr><td>UI / E2E</td><td>Web / Mobile</td><td>Selenium, Cypress, Playwright, Puppeteer, Appium, Espresso, XCUITest</td></tr>
+<tr><td>Integration / API</td><td>API / Contract</td><td>Postman, REST Assured, SoapUI, Newman, Pact (CDC)</td></tr>
+<tr><td>Unit (단위)</td><td>Unit Framework</td><td>JUnit, TestNG, PyTest, Unittest, GoogleTest, Jest, Mocha</td></tr>
+<tr><td>성능</td><td>부하 / 스트레스</td><td>JMeter, nGrinder, LoadRunner, k6, Gatling, Locust, WebTune</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 자동화 피라미드는 <strong>단위 테스트 비중을 높이고 E2E 비중을 낮추는</strong> 구조를 지향하며, UI 테스트 과의존은 유지보수 비용 급증을 야기하는 안티패턴(아이스크림 콘).</li>
+</ul>
+
+</body>
+</html>

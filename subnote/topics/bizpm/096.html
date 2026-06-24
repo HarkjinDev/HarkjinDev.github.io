@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. 정보시스템 감리</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>1. 정보시스템 감리</h4>
+<ul>
+<li><strong>정의</strong>: 정보시스템의 구축·운영이 목적에 부합하고 적정한지 독립적·전문적으로 점검하여 개선을 권고하는 제도</li>
+<li><strong>키워드</strong>: 제3자적관점, 전자정부법, 감리원, 감리 점검, 적부 판정, PMO 비교</li>
+<li><strong>분류</strong>: 감리/PMO</li>
+<li><strong>법적 근거</strong>: 전자정부법 제57조 (일정 규모 이상 공공 정보화 사업 감리 의무)</li>
+<li><strong>감리 절차</strong>:<table>
+<tr><th>절차</th><th>세부절차</th><th>설명</th></tr>
+<tr><td><strong>A00. 예비조사</strong></td><td>예비조사 준비</td><td>일정확인·검토자료·감리원 확정</td></tr>
+<tr><td></td><td>예비조사 실시</td><td>이해관계자·산출물·범위 확인</td></tr>
+<tr><td></td><td>감리계획서 작성 및 제출</td><td>감리계획서 작성·협의·제출</td></tr>
+<tr><td><strong>B00. 현장감리</strong></td><td>감리시작</td><td>현장감리 준비</td></tr>
+<tr><td></td><td>착수회의</td><td>착수회의 실시·결과 정리</td></tr>
+<tr><td></td><td>감리수행</td><td>산출물 접수·검토·문제점 도출</td></tr>
+<tr><td></td><td>보고서(안) 작성 및 검토</td><td>보고서 초안 작성·검토</td></tr>
+<tr><td></td><td>종료회의</td><td>종료회의 준비·실시</td></tr>
+<tr><td></td><td>보고서 확정 및 통보</td><td>이견 확인·확정·통보</td></tr>
+<tr><td><strong>C00. 조치 확인</strong></td><td>시정조치 확인 준비</td><td>시정조치 결과 접수·계획 공유</td></tr>
+<tr><td></td><td>시정조치 확인</td><td>결과 확인·상호검토·면담</td></tr>
+<tr><td></td><td>확인보고서 작성 및 협의</td><td>확인보고서 작성·협의·보안</td></tr>
+<tr><td></td><td>확인보고서 확정 및 제출</td><td>확인보고서 확정·제출</td></tr>
+</table>
+</li>
+<li><strong>2단계 감리 절차 (20억 원 미만)</strong><table>
+<tr><th>감리 시점</th><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1차 중간감리</strong></td><td>설계 단계</td><td>요구사항이 설계서에 올바르게 반영됐는지 검증</td><td>설계 적정성 검증</td></tr>
+<tr><td></td><td></td><td>인프라·아키텍처·DB·프로그램 설계 검토</td><td>구현 전 브레이크</td></tr>
+<tr><td><strong>2차 종료감리</strong></td><td>종료 단계</td><td>RFP·요구사항 대비 기능 구현 완전성 검증</td><td>최종 결과물 검증</td></tr>
+<tr><td></td><td></td><td>성능·보안 취약점·테스트 결과 확인</td><td>오픈 가능 여부 확인</td></tr>
+</table>
+</li>
+<li><strong>3단계 감리 절차 (20억 원 이상)</strong><table>
+<tr><th>감리 시점</th><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1차 요구정의 감리</strong></td><td>분석 단계</td><td>발주자 요구사항의 명확성·구체성 검증</td><td>초기 리스크 방지</td></tr>
+<tr><td></td><td></td><td>'무엇을 만들 것인가' 초기 방향 확정</td><td>요구사항 완전성</td></tr>
+<tr><td><strong>2차 중간감리</strong></td><td>설계 단계</td><td>요구사항이 상세 설계서에 누락 없이 반영됐는지 검증</td><td>설계 적정성 검증</td></tr>
+<tr><td></td><td></td><td>구현 가능성·설계 품질 체크</td><td>설계 리스크 차단</td></tr>
+<tr><td><strong>3차 종료감리</strong></td><td>종료 단계</td><td>최종 구현 시스템 완성도·인수 테스트 검증</td><td>최종 승인</td></tr>
+<tr><td></td><td></td><td>데이터 이행·보안 규정 준수 여부 확인</td><td>시스템 오픈 승인</td></tr>
+</table>
+</li>
+<li><strong>2단계 vs 3단계 감리 비교</strong><table>
+<tr><th>구분</th><th>2단계 감리</th><th>3단계 감리</th></tr>
+<tr><td><strong>대상 사업비</strong></td><td>20억 원 미만</td><td>20억 원 이상 (의무)</td></tr>
+<tr><td><strong>총 감리 횟수</strong></td><td>2회</td><td>3회</td></tr>
+<tr><td><strong>요구정의 감리</strong></td><td>❌ 생략</td><td>✅ 필수</td></tr>
+<tr><td><strong>중간 감리</strong></td><td>✅ 수행</td><td>✅ 수행</td></tr>
+<tr><td><strong>종료 감리</strong></td><td>✅ 수행</td><td>✅ 수행</td></tr>
+<tr><td><strong>주요 목적</strong></td><td>핵심 시점 효율적 검증</td><td>전 주기 밀착 리스크 차단</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 정보시스템 감리는 <strong>발주자와 수행사 모두에게 이익</strong>이 되는 제3자 검증 체계이며, 단계별 감리(분석·설계·구현·종료)를 통해 문제를 조기 발견하는 것이 핵심임.</li>
+</ul>
+
+</body>
+</html>

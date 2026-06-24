@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)</h4>
+<ul>
+<li><strong>정의:</strong> Google이 창안한 소프트웨어 엔지니어링 기법을 운영에 적용하여 대규모 시스템의 신뢰성·확장성·성능을 자동화 기반으로 유지·개선하는 DevOps 실천 방법론</li>
+<li><strong>키워드:</strong> SLO·SLA·SLI, 에러 버짓, 토일(Toil), 4대 황금 지표, 사후 분석(Postmortem), CRE, 자동화, 신뢰성</li>
+<li><strong>분류</strong>: 형상관리/배포</li>
+<li><strong>핵심 개념:</strong><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>서비스 수준</strong></td><td><strong>SLI (지표)</strong></td><td>서비스 신뢰성을 측정하는 수치 지표</td><td>신뢰성 측정값</td></tr>
+<tr><td></td><td><strong>SLO (목표)</strong></td><td>SLI에 대한 목표 수준·임계값 설정</td><td>신뢰성 목표치</td></tr>
+<tr><td></td><td><strong>SLA (계약)</strong></td><td>SLO 미달 시 패널티를 포함한 고객 계약</td><td>법적 약속</td></tr>
+<tr><td><strong>에러 버짓</strong></td><td><strong>Error Budget</strong></td><td>100%에서 SLO를 뺀 허용 가능 장애 예산</td><td>배포 속도 제어</td></tr>
+<tr><td></td><td><strong>번다운</strong></td><td>에러 버짓 소진 속도 추적 지표</td><td>잔여 예산 추적</td></tr>
+<tr><td><strong>운영 부담</strong></td><td><strong>Toil (토일)</strong></td><td>자동화 없이 반복되는 수동 운영 작업</td><td>제거 대상</td></tr>
+<tr><td></td><td><strong>Toil 한계</strong></td><td>운영 업무 중 토일 50% 이하 유지 원칙</td><td>50% 원칙</td></tr>
+</table>
+</li>
+<li><strong>4대 황금 지표 (Four Golden Signals):</strong><table>
+<tr><th>지표</th><th>설명</th><th>핵심</th><th>예시</th></tr>
+<tr><td><strong>지연 시간 (Latency)</strong></td><td>요청 처리 소요 시간 측정</td><td>응답 속도 측정</td><td>API 응답 시간·DB 쿼리</td></tr>
+<tr><td><strong>트래픽 (Traffic)</strong></td><td>시스템에 가해지는 수요 수준</td><td>부하 측정</td><td>RPS·네트워크 I/O</td></tr>
+<tr><td><strong>오류 (Errors)</strong></td><td>요청 실패율·오류 발생 비율</td><td>품질 측정</td><td>HTTP 5xx 비율</td></tr>
+<tr><td><strong>포화도 (Saturation)</strong></td><td>시스템 자원 사용 포화 수준</td><td>용량 측정</td><td>CPU·메모리·디스크</td></tr>
+</table>
+</li>
+<li><strong>SRE 핵심 실천 원칙:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>자동화 우선</strong></td><td>반복 운영 작업을 코드·자동화로 대체</td><td>Toil 제거</td></tr>
+<tr><td><strong>에러 버짓 기반 배포</strong></td><td>버짓 잔여 시 빠른 배포·소진 시 배포 중단</td><td>신뢰성·속도 균형</td></tr>
+<tr><td><strong>사후 분석 (Postmortem)</strong></td><td>장애 발생 후 원인·개선책 블라메리스 분석</td><td>비난 없는 학습</td></tr>
+<tr><td><strong>점진적 배포</strong></td><td>카나리·블루그린으로 장애 영향 최소화</td><td>위험 분산 배포</td></tr>
+<tr><td><strong>용량 계획</strong></td><td>트래픽 예측 기반 인프라 사전 확보</td><td>포화 사전 방지</td></tr>
+<tr><td><strong>명시적 SLO 설정</strong></td><td>측정 가능한 신뢰성 목표 명확히 정의</td><td>신뢰성 수치화</td></tr>
+</table>
+</li>
+<li><strong>주요 도구·기술:</strong><table>
+<tr><th>구분</th><th>도구</th><th>핵심</th></tr>
+<tr><td><strong>모니터링</strong></td><td>Prometheus·Grafana·Datadog</td><td>메트릭·대시보드</td></tr>
+<tr><td><strong>로깅</strong></td><td>ELK Stack·Loki·CloudWatch</td><td>로그 수집·분석</td></tr>
+<tr><td><strong>추적</strong></td><td>Jaeger·Zipkin·OpenTelemetry</td><td>분산 추적</td></tr>
+<tr><td><strong>알람</strong></td><td>PagerDuty·OpsGenie</td><td>온콜·알람 관리</td></tr>
+<tr><td><strong>자동화</strong></td><td>Ansible·Terraform·RunBook</td><td>인프라 자동화</td></tr>
+<tr><td><strong>배포</strong></td><td>ArgoCD·Spinnaker·Flux</td><td>GitOps·점진 배포</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> SRE는 신뢰성과 배포 속도 사이의 긴장 관계를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에러 버짓이라는 수치로 객관화하여 해소</strong></u></span>하는 것이 핵심으로, 에러 버짓이 남아있으면 빠르게 배포하고 소진되면 신뢰성 개선에 집중하는 데이터 기반 의사결정 체계임. <strong>Toil 50% 원칙과 블라메리스 Postmortem은 SRE 문화의 양대 축</strong>으로, 자동화 투자와 심리적 안전감 확보가 SRE 조직의 지속 가능한 운영 역량을 결정하는 핵심 요소임</li>
+</ul>
+
+</body>
+</html>

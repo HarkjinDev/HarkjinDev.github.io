@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4><strong>[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 입력의 특정 변형(메타모픽 관계)에 따른 출력의 변화 관련성을 검증하는 기법</li>
+<li><strong>용도:</strong> 테스트 오라클(정답지)이 없는 경우 유용하게 활용</li>
+<li><strong>구성요소:</strong><table>
+<tr><th><strong>구분</strong></th><th><strong>요소 및 유형</strong></th><th><strong>설명 (15자 이내)</strong></th></tr>
+<tr><td><strong>구성 요소</strong></td><td><strong>관계 정의</strong></td><td>수식 및 입출력 함수 정의</td></tr>
+<tr><td><strong>관계 유형</strong></td><td><strong>가법성 (Additivity)</strong></td><td>입력값 합산 시 출력값 변화</td></tr>
+<tr><td></td><td><strong>승법성 (Multiplicativity)</strong></td><td>입력값 배수 시 출력값 변화</td></tr>
+<tr><td></td><td><strong>순서 보존 (Order)</strong></td><td>입력 순서에 따른 결과 유지</td></tr>
+<tr><td></td><td><strong>균등성 (Invariance)</strong></td><td>변형 후에도 출력 결과 동일</td></tr>
+<tr><td></td><td><strong>부분집합 (Subset)</strong></td><td>부분 입력 시 결과 포함 관계</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

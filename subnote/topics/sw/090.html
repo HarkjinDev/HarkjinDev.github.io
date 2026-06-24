@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. 테스트 오라클(Test Oracle)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>7. 테스트 오라클(Test Oracle)</h4>
+<ul>
+<li><strong>정의</strong>: 테스트의 결과가 참인지 거짓인지를 판단하기 위해 사전에 정의된 <strong>기대 결과와 실제 결과를 비교</strong>하는 매커니즘</li>
+<li><strong>키워드</strong>: 참값, 판단 매커니즘, 참 오라클, 샘플링 오라클, 휴리스틱 오라클, 일관성 오라클</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>주요 특징: </strong><ul>
+<li><strong>제한된 검증</strong>: 모든 오라클을 생성하는 것은 현실적으로 불가능하므로 전략적 선택이 필요</li>
+<li><strong>수학적/논리적 기반</strong>: 수학적 명세나 논리적 판단 근거를 바탕으로 결과의 정당성을 확인</li>
+<li><strong>독립적 수행</strong>: 테스트 대상 시스템(SUT)과 독립적으로 결과값이 산출되어야 함</li>
+</ul>
+</li>
+<li><strong>유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;참샘휴일&gt;</strong></span><table>
+<tr><th>유형</th><th>핵심 내용</th><th>설명</th></tr>
+<tr><td><strong>참 오라클 (True)</strong></td><td>모든 입력값에 대한 기대 결과</td><td>미션 크리티컬 시스템에 적용</td></tr>
+<tr><td><strong>샘플링 오라클 (Sampling)</strong></td><td>특정 입력값에 대한 기대 결과</td><td>선별 입력값만 결과 제공</td></tr>
+<tr><td><strong>휴리스틱 오라클 (Heuristic)</strong></td><td>추정 및 샘플링 병행</td><td>일부 참값·나머지 경험적 추정</td></tr>
+<tr><td><strong>일관성 오라클 (Consistent)</strong></td><td>수행 전후 결과 비교</td><td>변경 전후 결과 동일 여부 확인</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> 전수 검증의 비용 한계를 극복하기 위해 시스템 중요도에 따른 <strong>리스크 기반 오라클(Risk-based Oracle)</strong> 차등 적용 전략이 필수적, AI 및 복잡 로직 검증을 위해 <strong>메타모픽 테스팅(Metamorphic Testing)</strong>과 AI 자동 생성 기술을 도입하여 기존의 수동 검증 한계를 탈피</li>
+</ul>
+
+</body>
+</html>

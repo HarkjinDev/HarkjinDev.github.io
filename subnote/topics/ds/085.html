@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. 공간 컴퓨팅 (Spatial Computing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>5. 공간 컴퓨팅 (Spatial Computing)</h4>
+<ul>
+<li><strong>정의:</strong> 디지털 정보와 물리적 공간을 융합하여 사용자가 3D 공간에서 자연스럽게 컴퓨터와 상호작용할 수 있도록 하는 컴퓨팅 패러다임</li>
+<li><strong>키워드:</strong> AR·VR·MR·XR, 공간 인식, SLAM, 디지털 트윈, 제스처 인식, 시선 추적, Apple Vision Pro, 메타버스</li>
+<li><strong>분류</strong>: XR/메타버스/공간</li>
+<li><strong>공간 컴퓨팅 핵심 개념:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>공간 인식</strong></td><td>주변 환경의 3D 구조·객체·거리를 실시간 인식</td><td>환경 이해</td></tr>
+<tr><td><strong>공간 앵커링</strong></td><td>디지털 콘텐츠를 물리 공간의 특정 위치에 고정</td><td>위치 기반 배치</td></tr>
+<tr><td><strong>자연 인터랙션</strong></td><td>제스처·음성·시선·손동작으로 자연스러운 조작</td><td>직관적 입력</td></tr>
+<tr><td><strong>공간 매핑</strong></td><td>물리 환경을 실시간 3D 디지털 지도로 변환</td><td>3D 환경 복제</td></tr>
+<tr><td><strong>혼합 현실</strong></td><td>물리·디지털 객체가 실시간 상호작용하는 환경</td><td>현실-디지털 융합</td></tr>
+</table>
+</li>
+<li><strong>XR 기술 비교:</strong><table>
+<tr><th>기술</th><th>설명</th><th>몰입도</th><th>활용</th></tr>
+<tr><td><strong>AR (증강현실)</strong></td><td>현실 위에 디지털 정보 오버레이</td><td>낮음</td><td>산업·내비게이션</td></tr>
+<tr><td><strong>VR (가상현실)</strong></td><td>완전한 가상 환경 몰입</td><td>최고</td><td>게임·훈련·시뮬레이션</td></tr>
+<tr><td><strong>MR (혼합현실)</strong></td><td>현실·가상 객체 실시간 상호작용</td><td>중간~높음</td><td>협업·설계·교육</td></tr>
+<tr><td><strong>XR (확장현실)</strong></td><td>AR·VR·MR 통합 포괄 개념</td><td>가변</td><td>전 분야</td></tr>
+<tr><td><strong>공간 컴퓨팅</strong></td><td>XR + AI + 공간 인식 통합 패러다임</td><td>완전 몰입</td><td>차세대 플랫폼</td></tr>
+</table>
+</li>
+<li><strong>핵심 기술요소:</strong><table>
+<tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>공간 인식</strong></td><td><strong>SLAM</strong></td><td>동시 지도 작성·자기 위치 추정</td><td>공간 자가 인식</td></tr>
+<tr><td></td><td><strong>Depth Sensor</strong></td><td>LiDAR·ToF 기반 깊이·거리 측정</td><td>3D 공간 감지</td></tr>
+<tr><td></td><td><strong>포인트 클라우드</strong></td><td>3D 공간을 점 집합으로 디지털 표현</td><td>3D 환경 재구성</td></tr>
+<tr><td></td><td><strong>평면 감지</strong></td><td>바닥·벽·테이블 등 평면 자동 인식</td><td>앵커 기반 배치</td></tr>
+<tr><td><strong>렌더링</strong></td><td><strong>실시간 3D 렌더링</strong></td><td>물리 공간에 맞는 실시간 3D 그래픽</td><td>사실적 시각화</td></tr>
+<tr><td></td><td><strong>오클루전 처리</strong></td><td>가상 객체가 실물에 가려지는 효과</td><td>현실감 극대화</td></tr>
+<tr><td></td><td><strong>공간 음향</strong></td><td>3D 위치 기반 입체 사운드 구현</td><td>몰입감 강화</td></tr>
+<tr><td><strong>입력·인터랙션</strong></td><td><strong>제스처 인식</strong></td><td>손동작·몸동작 실시간 추적·인식</td><td>자연스러운 조작</td></tr>
+<tr><td></td><td><strong>Eye Tracking</strong></td><td>시선 방향·포커스 포인트 실시간 추적</td><td>시선 기반 입력</td></tr>
+<tr><td></td><td><strong>음성 인식</strong></td><td>자연어 음성 명령 실시간 처리</td><td>음성 인터페이스</td></tr>
+<tr><td></td><td><strong>햅틱 피드백</strong></td><td>가상 객체 조작 시 촉각 피드백 제공</td><td>촉각 인터랙션</td></tr>
+<tr><td><strong>AI·인지</strong></td><td><strong>객체 인식</strong></td><td>현실 객체 실시간 식별·분류·추적</td><td>환경 이해</td></tr>
+<tr><td></td><td><strong>공간 AI</strong></td><td>공간 맥락 이해·사용자 의도 추론</td><td>지능형 공간 서비스</td></tr>
+<tr><td></td><td><strong>멀티모달 AI</strong></td><td>음성·시선·제스처 통합 인지·응답</td><td>통합 인터랙션</td></tr>
+<tr><td><strong>하드웨어</strong></td><td><strong>HMD</strong></td><td>눈에 착용하는 디스플레이 디바이스</td><td>공간 컴퓨팅 단말</td></tr>
+<tr><td></td><td><strong>공간 컴퓨팅 칩</strong></td><td>공간 인식·AI 추론 전용 온디바이스 SoC</td><td>저전력 고성능 처리</td></tr>
+<tr><td></td><td><strong>광학 시스루 디스플레이</strong></td><td>현실을 보면서 디지털 오버레이 표시</td><td>투명 디스플레이</td></tr>
+</table>
+</li>
+<li><strong>공간 컴퓨팅 적용 분야:</strong><table>
+<tr><th>분야</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>제조·산업</strong></td><td>3D 작업 가이드·원격 협업·AR 유지보수</td><td>산업 생산성 향상</td></tr>
+<tr><td><strong>의료·수술</strong></td><td>AR 수술 가이드·3D 해부 교육·원격 진료</td><td>정밀 의료 지원</td></tr>
+<tr><td><strong>교육·훈련</strong></td><td>3D 몰입형 교육·위험 환경 가상 훈련</td><td>실감형 학습</td></tr>
+<tr><td><strong>건축·설계</strong></td><td>BIM·3D 공간 설계·가상 시뮬레이션</td><td>설계 가시화</td></tr>
+<tr><td><strong>리테일</strong></td><td>가상 피팅·AR 상품 시연·공간 쇼핑</td><td>구매 경험 혁신</td></tr>
+<tr><td><strong>엔터테인먼트</strong></td><td>공간 게임·몰입형 콘텐츠·가상 공연</td><td>몰입형 엔터</td></tr>
+<tr><td><strong>원격 협업</strong></td><td>3D 아바타 기반 가상 회의·공간 협업</td><td>비대면 협업 혁신</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> 공간 컴퓨팅은 Apple Vision Pro의 등장으로 PC·스마트폰 이후 차세대 컴퓨팅 플랫폼으로 주목받고 있으며, 키보드·마우스에서 제스처·음성·시선으로의 인터페이스 혁신이 핵심임. SLAM·Depth Sensor·AI의 융합으로 공간 인식 정확도가 급격히 향상되고 있으며, 산업·의료·교육 분야에서 생산성 혁신 도구로 먼저 자리잡은 후 일상 소비자 시장으로 확산되는 B2B→B2C 순서로 대중화가 진행될 것으로 전망됨</li>
+</ul>
+
+</body>
+</html>

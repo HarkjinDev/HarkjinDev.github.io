@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. CSRF (Cross-Site Request Forgery)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>6. CSRF (Cross-Site Request Forgery)</h4>
+<ul>
+<li><strong>정의:</strong> 인증된 사용자의 브라우저를 이용해 사용자 모르게 의도하지 않은 요청을 서버에 전송하여 권한 있는 행위를 강제 실행시키는 웹 공격</li>
+<li><strong>키워드:</strong> 위조 요청, CSRF 토큰, SameSite, Referer 검증, 세션 인증, 이중 쿠키</li>
+<li><strong>분류:</strong> 시스템 / SW 보안 / 웹 보안</li>
+<li><strong>공격 동작 원리:</strong><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 인증</strong></td><td>피해자가 정상 사이트에 로그인하여 세션 쿠키 보유</td><td>인증 상태 유지</td></tr>
+<tr><td><strong>2. 유도</strong></td><td>공격자가 악성 페이지·이메일로 피해자를 위조 요청 페이지로 유도</td><td>사회공학적 유도</td></tr>
+<tr><td><strong>3. 요청 전송</strong></td><td>피해자 브라우저가 세션 쿠키를 포함한 위조 요청 자동 전송</td><td>자동 쿠키 포함</td></tr>
+<tr><td><strong>4. 서버 처리</strong></td><td>서버가 정상 요청으로 인식하여 송금·정보 변경 등 처리</td><td>권한 행위 실행</td></tr>
+</table>
+</li>
+<li><strong>대응방안:</strong><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>토큰 기반</strong></td><td><strong>CSRF 토큰</strong></td><td>요청마다 서버 발급 토큰 검증으로 위조 요청 차단</td></tr>
+<tr><td></td><td><strong>이중 쿠키 제출</strong></td><td>쿠키값과 요청 파라미터 일치 여부 검증</td></tr>
+<tr><td><strong>쿠키 보안</strong></td><td><strong>SameSite 쿠키</strong></td><td>타 사이트 요청에 쿠키 전송 제한 (Strict·Lax)</td></tr>
+<tr><td><strong>요청 검증</strong></td><td><strong>Referer·Origin 검증</strong></td><td>요청 출처 헤더 검증으로 타 사이트 요청 차단</td></tr>
+<tr><td></td><td><strong>재인증 요구</strong></td><td>중요 작업(송금·비번 변경) 시 추가 인증 요구</td></tr>
+</table>
+</li>
+<li><strong>XSS vs CSRF 비교:</strong><table>
+<tr><th>항목</th><th>XSS</th><th>CSRF</th></tr>
+<tr><td><strong>공격 대상</strong></td><td>피해자 브라우저</td><td>피해자 인증 세션</td></tr>
+<tr><td><strong>실행 위치</strong></td><td>클라이언트 브라우저</td><td>서버</td></tr>
+<tr><td><strong>필요 조건</strong></td><td>스크립트 삽입 가능</td><td>피해자 인증 상태</td></tr>
+<tr><td><strong>주요 피해</strong></td><td>세션 탈취·악성코드</td><td>권한 행위 강제 실행</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> CSRF는 서버가 요청의 출처를 검증하지 않는 구조적 허점을 악용하므로 CSRF 토큰·SameSite 쿠키·Referer 검증의 다층 적용이 표준 방어 전략이며, SameSite=Strict 설정만으로도 대부분의 CSRF 공격을 차단할 수 있음</li>
+</ul>
+
+</body>
+</html>

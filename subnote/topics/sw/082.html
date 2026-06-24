@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반</h4>
+<ul>
+<li><strong>정의</strong>: 내부 구현을 모른 채 입력과 기대 출력만으로 소프트웨어의 기능을 검증하는 테스트 기법</li>
+<li><strong>키워드</strong>: 명세 기반, 동등 분할, 경계값 분석, 원인-결과 그래프, 상태 전이, 유즈케이스 테스트</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>명세기반 테스트(ISO/IEEE 29119-4): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동분경구랜/모페이베/결원상시&gt;</strong></span><table>
+<tr><th>구분</th><th>기법</th><th>핵심</th><th>특징</th></tr>
+<tr><td><strong>입력</strong></td><td><strong>동등 분할</strong></td><td>영역별 대표값</td><td>입력 도메인을 등가 영역으로 테스트 케이스 최적화</td></tr>
+<tr><td></td><td><strong>분류 트리 기법</strong></td><td>계층적 트리 구조</td><td>입력 항목을 트리 구조로 시각화하여 테스트 케이스 설계</td></tr>
+<tr><td></td><td><strong>경계값 분석</strong></td><td>경계 지점 값</td><td>결함 발생 가능성이 높은 경계값 집중 검증</td></tr>
+<tr><td></td><td><strong>구문 규칙 테스팅</strong></td><td>입력 문법 규칙</td><td>입력 데이터 형식·프로토콜 문법 규칙 검증</td></tr>
+<tr><td></td><td><strong>랜덤 테스팅</strong></td><td>무작위 데이터 입력</td><td>무작위 입력으로 예기치 못한 결함 탐색</td></tr>
+<tr><td><strong>조합</strong></td><td><strong>모든 조합 기법</strong></td><td>전체 경우의 수</td><td>모든 입력 파라미터의 가능한 전체 조합 테스트</td></tr>
+<tr><td></td><td><strong>페어와이즈 테스팅</strong></td><td>2개 요소 간 조합</td><td>파라미터 간 모든 쌍을 최소 1회 조합하여 효율 극대화</td></tr>
+<tr><td></td><td><strong>이치 초이스 테스팅</strong></td><td>각 값의 1회 노출</td><td>각 파라미터 값이 최소 1회 테스트에 포함되도록 구성</td></tr>
+<tr><td></td><td><strong>베이스 초이스 테스팅</strong></td><td>기준 값 중심 변경</td><td>기준 조합 정하고 파라미터 값만 하나씩 변경 테스트</td></tr>
+<tr><td><strong>명세</strong></td><td><strong>결정 테이블 테스팅</strong></td><td>논리적 조합 표</td><td>복잡한 조건·행위를 표로 명세화하여 검증</td></tr>
+<tr><td></td><td><strong>원인-결과 그래프</strong></td><td>인과 관계 도식화</td><td>입력·출력의 논리적 관계를 그래프로 분석</td></tr>
+<tr><td></td><td><strong>상태 전이 테스팅</strong></td><td>시스템 상태 변화</td><td>이벤트에 따른 상태 전이 경로·유효 동작 확인</td></tr>
+<tr><td></td><td><strong>시나리오 테스팅</strong></td><td>업무 프로세스 흐름</td><td>유스케이스·비즈니스 흐름 기반 실사용자 환경 검증</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 블랙박스는 <strong>기능 명세서가 기준</strong>이므로 명세 오류 발견에 한계가 있으며, 화이트박스와 조합하여 기능·구조 양면 검증이 완전한 테스트 전략.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. 파일 슬랙 (File Slack)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>3. 파일 슬랙 (File Slack)</h4>
+<ul>
+<li><strong>정의:</strong> 파일 할당 후 클러스터 내 남는 미사용 영역에 잔존하는 데이터</li>
+<li><strong>키워드:</strong> 램 슬랙, 드라이브 슬랙, 클러스터, 미사용 영역, 증거 잔존, TRIM, 안티포렌식</li>
+<li><strong>분류:</strong> 디지털 포렌식</li>
+<li><strong>발생 원리:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>클러스터</strong></td><td>OS가 파일을 저장하는 최소 할당 단위</td><td>저장 단위</td></tr>
+<tr><td><strong>슬랙 발생</strong></td><td>파일 크기가 클러스터 크기보다 작을 때 남는 미사용 공간 발생</td><td>공간 낭비·잔존</td></tr>
+<tr><td><strong>잔존 데이터</strong></td><td>이전 파일·메모리 데이터가 슬랙 영역에 남아 포렌식 증거로 활용</td><td>증거 잔존</td></tr>
+</table>
+</li>
+<li><strong>유형:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>램 슬랙 (RAM Slack)</strong></td><td>파일 종료 섹터~섹터 끝까지 메모리 잔존 데이터로 채워지는 영역</td><td>메모리 잔존</td></tr>
+<tr><td><strong>드라이브 슬랙 (Drive Slack)</strong></td><td>마지막 섹터 다음~클러스터 끝까지 이전 데이터가 잔존하는 영역</td><td>이전 데이터 잔존</td></tr>
+</table>
+</li>
+<li><strong>포렌식 활용 및 한계: </strong>증거 활용, 안티포렌식, SSD 복원 한계</li>
+<li><strong>인사이트:</strong> 파일 슬랙은 삭제·덮어쓰기 후에도 이전 데이터가 잔존하는 핵심 포렌식 증거 영역이나, SSD의 TRIM 자동 실행으로 인해 HDD 대비 슬랙 증거 복원 가능성이 크게 낮아지므로 SSD 환경에서는 메모리·로그 기반 분석과 병행이 필수임</li>
+</ul>
+
+</body>
+</html>

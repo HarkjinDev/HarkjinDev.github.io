@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11. 몽키 테스트 (Monkey Test)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>11. 몽키 테스트 (Monkey Test)</h4>
+<ul>
+<li><strong>정의</strong>: 랜덤하고 예측 불가능한 입력을 시스템에 무작위로 제공하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>크래시·예외를 발견하는 탐색적 테스트</strong></u></span> 기법</li>
+<li><strong>키워드</strong>: 무작위 입력, 스마트 몽키, 덤 몽키, 퍼지 테스트(Fuzzing), 안정성·견고성 테스트</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>몽키 테스트 유형</strong>:<table>
+<tr><th><strong>유형</strong></th><th>설명</th></tr>
+<tr><td><strong>덤 몽키 (Dumb Monkey)</strong></td><td>완전 무작위 입력, 시스템 최소 지식</td></tr>
+<tr><td><strong>스마트 몽키 (Smart Monkey)</strong></td><td>시스템 상태 인식, 유효 입력 범위 내 무작위</td></tr>
+<tr><td><strong>브릴리언트 몽키</strong></td><td>시스템 완전 이해, 경계 케이스 집중 무작위</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 몽키 테스트는 <strong>예측하지 못한 사용자 행동 패턴에 의한 크래시를 발견</strong>하는 데 효과적이며, Android의 UI/Application Exerciser Monkey가 대표적 자동화 도구.</li>
+</ul>
+
+</body>
+</html>

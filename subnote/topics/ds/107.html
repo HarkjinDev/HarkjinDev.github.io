@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. ELK 스택 (Elasticsearch / Logstash / Kibana)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>3. ELK 스택 (Elasticsearch / Logstash / Kibana)</h4>
+<ul>
+<li><strong>정의</strong>: 로그 수집(Logstash)·저장·검색(Elasticsearch)·시각화(Kibana)를 통합한 오픈소스 로그 분석 플랫폼</li>
+<li><strong>키워드</strong>: 로그 수집, 분산 검색, 시각화 대시보드, Beats, 역색인(Inverted Index), ELK, Elastic Stack, 관찰가능성</li>
+<li><strong>분류</strong>: 미들웨어/아키텍처</li>
+<li><strong>ELK 스택 구성 요소</strong>:<table>
+<tr><th>구성 요소</th><th>역할</th><th>특징</th></tr>
+<tr><td>Elasticsearch</td><td>분산 검색·저장 엔진</td><td>역색인 기반 빠른 전문 검색, RESTful API</td></tr>
+<tr><td>Logstash</td><td>데이터 수집·변환·파이프라인</td><td>다양한 소스 입력, 필터·출력 플러그인</td></tr>
+<tr><td>Kibana</td><td>데이터 시각화·대시보드</td><td>실시간 차트·지도·대시보드</td></tr>
+<tr><td>Beats</td><td>경량 데이터 수집 에이전트</td><td>Filebeat(로그)·Metricbeat(메트릭)</td></tr>
+</table>
+</li>
+<li><strong>ELK 데이터 흐름</strong>:<ul>
+<li>서버/앱 로그 → Beats(에이전트) → Logstash(수집·변환) → Elasticsearch(저장·색인) → Kibana(시각화)</li>
+</ul>
+</li>
+<li><strong>Elasticsearch 역색인 원리</strong>:<ul>
+<li>일반 색인: 문서 → 단어 목록</li>
+<li>역색인: 단어 → 해당 단어가 포함된 문서 목록 → <strong>전문 검색 고속화</strong></li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: ELK는 DevOps·MSA 환경의 <strong>중앙화 로그 관리(Centralized Logging)</strong> 표준 스택으로, 최근 Elastic사의 라이선스 변경(SSPL)으로 AWS의 <strong>OpenSearch</strong>가 대안으로 부상.</li>
+</ul>
+<hr/>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-5. ATAM (Architecture Trade-off Analysis Method)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-5. ATAM (Architecture Trade-off Analysis Method)</h4>
+<ul>
+<li><strong>정의</strong>: 품질 속성 시나리오를 기반으로 아키텍처 결정이 여러 품질 속성에 미치는 트레이드오프를 분석하는 아키텍처 평가 방법</li>
+<li><strong>키워드</strong>: 트레이드오프 포인트, 민감점(Sensitivity Point), Phase0~3, 유틸리티 트리, 위험 결정(Risk), 비위험 결정, 품질 속성 유틸리티 트리</li>
+<li><strong>분류</strong>: 소프트웨어 아키텍처</li>
+<li><strong>ATATM 프로세스 단계: </strong><table>
+<tr><th>과정</th><th>참여자</th><th>설명</th></tr>
+<tr><td><strong>Phase 0 (협력과 준비)</strong></td><td>평가팀 리더·프로젝트 주요 결정권자</td><td>킥오프·평가 가이드라인·역할 공유</td></tr>
+<tr><td><strong>Phase 1 (기본 평가)</strong></td><td>평가팀·프로젝트 결정권자</td><td>Top-Down 아키텍처 소개·분석</td></tr>
+<tr><td><strong>Phase 2 (상세 평가)</strong></td><td>평가팀·결정권자·이해관계자</td><td>Bottom-Up 분석·결과 검증</td></tr>
+<tr><td><strong>Phase 3 (후속조치)</strong></td><td>평가팀·평가 의뢰인</td><td>최종 보고서·Postmortem 피드백</td></tr>
+</table>
+</li>
+<li><strong>ATAM 평가 단계</strong>:<table>
+<tr><th><strong>단계</strong></th><th><strong>세부단계</strong></th><th><strong>활동</strong></th></tr>
+<tr><td>소개</td><td>1. ATAM 소개</td><td>방법·평가팀·목적 설명</td></tr>
+<tr><td></td><td>2. 비즈니스 드라이버 제시</td><td>기능·제약·품질 목표 설명</td></tr>
+<tr><td></td><td>3. 아키텍처 제시</td><td>아키텍처 설명</td></tr>
+<tr><td>조사/분석</td><td>4. 아키텍처 접근법 식별</td><td>사용된 아키텍처 패턴·전술 분석</td></tr>
+<tr><td></td><td>5. <strong>유틸리티 트리</strong> 생성</td><td>품질 속성 시나리오 우선순위화</td></tr>
+<tr><td></td><td>6. 아키텍처 접근법 분석</td><td>민감점·트레이드오프 식별</td></tr>
+<tr><td>테스트</td><td>7. 브레인스토밍·우선순위 결정</td><td>시나리오 확장</td></tr>
+<tr><td></td><td>8. 아키텍처 접근법 재분석</td><td>추가 시나리오 반영</td></tr>
+<tr><td>보고</td><td>9. 결과 발표</td><td>위험·비위험·민감점·트레이드오프 보고</td></tr>
+</table>
+</li>
+<li><strong>ATAM 산출물</strong>:<ul>
+<li>위험 결정 (Risk) / 비위험 결정 (Non-risk) / 민감점 (Sensitivity Point) / 트레이드오프 포인트</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: ATAM에서 <strong>민감점은 단일 품질 속성에 영향</strong>, <strong>트레이드오프 포인트는 복수 품질 속성에 동시 영향</strong>을 미치는 아키텍처 결정으로, 이 두 개념의 차이가 핵심 출제 포인트.</li>
+</ul>
+
+</body>
+</html>

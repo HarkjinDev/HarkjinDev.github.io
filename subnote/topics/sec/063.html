@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. 포맷 스트링 공격 (Format String Attack)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>2. 포맷 스트링 공격 (Format String Attack)</h4>
+<ul>
+<li><strong>정의</strong>: printf 계열 함수에서 포맷 문자열을 사용자 입력으로 받을 때 발생하는 메모리 조작 공격</li>
+<li><strong>키워드</strong>: printf, %x, %n, 메모리 읽기/쓰기</li>
+<li><strong>분류</strong>: 위협/공격</li>
+<li><strong>공격 원리</strong>: <code>printf(user_input)</code> 형태에서 <code>%x</code>로 스택 메모리 읽기, <code>%n</code>으로 임의 메모리 쓰기 가능</li>
+<li><strong>대응 방안</strong>: <code>printf("%s", user_input)</code> 형태로 포맷 문자열 하드코딩</li>
+<li><strong>인사이트</strong>: 포맷 스트링 취약점은 C/C++ 코드에서 발생하며, 현대 컴파일러(GCC -Wformat)는 경고를 발생시키므로 컴파일러 경고 무시 금지가 중요함</li>
+</ul>
+
+</body>
+</html>

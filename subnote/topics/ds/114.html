@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. 인터미턴트 컴퓨팅 (Intermittent Computing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>6. 인터미턴트 컴퓨팅 (Intermittent Computing)</h4>
+<ul>
+<li><strong>정의:</strong> Energy Harvesting 시스템이 전력 손실로 인한 잦은 중단 환경에서도 연산을 지속적으로 진행할 수 있도록 하는 컴퓨팅 패러다임</li>
+<li><strong>키워드:</strong> 에너지 하베스팅, 체크포인트, 비휘발성 메모리(NVM), 태스크 기반 실행, 배터리리스, 멱등성, 전력 중단 복구</li>
+<li><strong>분류:</strong> 신기술/동향</li>
+<li><strong>등장 배경:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>배터리 교체 한계</strong></td><td>오지·극한 환경 배치 IoT 기기 배터리 교체 불가</td><td>유지보수 불가 환경</td></tr>
+<tr><td><strong>에너지 하베스팅 발전</strong></td><td>태양광·RF·진동 에너지 수확 기술 성숙</td><td>대체 전원 가능</td></tr>
+<tr><td><strong>IoT 기기 폭발적 증가</strong></td><td>수십억 개 IoT 기기의 지속 운용 문제</td><td>배터리리스 수요</td></tr>
+<tr><td><strong>NVM 기술 발전</strong></td><td>FRAM·PCM·MRAM 비휘발성 메모리 상용화</td><td>상태 보존 가능</td></tr>
+</table>
+</li>
+<li><strong>핵심 기술요소:</strong><table>
+<tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>에너지</strong></td><td><strong>에너지 하베스팅</strong></td><td>태양광·RF·압전·열전 등 주변 에너지 수확</td><td>배터리리스 전원</td></tr>
+<tr><td></td><td><strong>에너지 버퍼</strong></td><td>수확 에너지 임시 저장 커패시터·슈퍼캡</td><td>에너지 임시 저장</td></tr>
+<tr><td></td><td><strong>전력 관리 IC</strong></td><td>수확 에너지 안정화·임계 전압 제어</td><td>전력 안정화</td></tr>
+<tr><td><strong>메모리</strong></td><td><strong>NVM (비휘발성 메모리)</strong></td><td>FRAM·PCM·MRAM 전력 끊겨도 데이터 보존</td><td>상태 영구 보존</td></tr>
+<tr><td></td><td><strong>하이브리드 메모리</strong></td><td>SRAM(속도)+NVM(비휘발성) 혼합 구조</td><td>성능·보존 균형</td></tr>
+<tr><td><strong>실행 모델</strong></td><td><strong>체크포인트 </strong></td><td>실행 중 상태를 NVM에 주기적 저장·복원</td><td>중단 후 재개</td></tr>
+<tr><td></td><td><strong>태스크 기반 실행</strong></td><td>원자적 태스크 단위로 분할·멱등성 보장</td><td>원자적 실행</td></tr>
+<tr><td></td><td><strong>멱등성 (Idempotency)</strong></td><td>동일 태스크 반복 실행 시 동일 결과 보장</td><td>중복 실행 안전</td></tr>
+<tr><td><strong>소프트웨어</strong></td><td><strong>런타임 체크포인트</strong></td><td>잔여 에너지 기반 자동 체크포인트 결정</td><td>에너지 인식 저장</td></tr>
+<tr><td></td><td><strong>컴파일러 자동 삽입</strong></td><td>컴파일 단계에서 체크포인트 코드 자동 생성</td><td>자동화</td></tr>
+</table>
+</li>
+<li><strong>에너지 하베스팅 소스: </strong>태양광 (Solar), RF (Radio Frequency), 압전 (Piezoelectric), 열전 (Thermoelectric), 운동 에너지 (Kinetic)</li>
+<li><strong>활용 분야:</strong><table>
+<tr><th>분야</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>배터리리스 IoT</strong></td><td>교체 불가 환경 장기 운용 센서 노드</td><td>배터리리스 센서</td></tr>
+<tr><td><strong>헬스케어 웨어러블</strong></td><td>인체 열·운동 에너지 기반 의료 모니터링</td><td>무전원 의료 기기</td></tr>
+<tr><td><strong>스마트 농업</strong></td><td>태양광 기반 토양·기상 센싱</td><td>오지 환경 모니터링</td></tr>
+<tr><td><strong>구조물 모니터링</strong></td><td>교량·터널 진동 에너지 기반 상태 감지</td><td>인프라 모니터링</td></tr>
+<tr><td><strong>RFID·NFC 태그</strong></td><td>RF 에너지 기반 배터리리스 식별·센싱</td><td>수동형 태그</td></tr>
+<tr><td><strong>우주·극한 환경</strong></td><td>배터리 교체 불가 극한 환경 운용</td><td>극한 환경 센싱</td></tr>
+</table>
+</li>
+<li><strong>핵심 설계 과제: </strong>데이터 일관성, 체크포인트 오버헤드, 멱등성 보장, 에너지 예측, NVM 수명</li>
+<li><strong>인사이트:</strong> 인터미턴트 컴퓨팅은 배터리 교체가 불가능한 원격·오지·극한 환경에서 지속가능하고 유지보수 불필요한 기기를 실현하는 핵심 패러다임으로, IoT 기기의 폭발적 증가와 에너지 하베스팅 기술 성숙으로 실용화가 가속되고 있음. 체크포인트·태스크 기반 실행·멱등성 설계의 3축이 인터미턴트 컴퓨팅 안정성의 핵심이며, NVM 기술 고도화와 에너지 인식 컴파일러 자동화가 개발 부담을 낮추는 핵심 방향임</li>
+</ul>
+<br/>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 8-1. 블록체인 합의 알고리즘</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 8-1. 블록체인 합의 알고리즘</h4>
+<ul>
+<li><strong>정의: </strong>블록의 무결성 검증 및 생성을 위한 노드간 미리 정의된 절차 기반 의사결정 알고리즘</li>
+<li><strong>문제점: </strong><table>
+<tr><th>문제점</th><th>핵심</th></tr>
+<tr><td><strong>Double Spending (이중 지불)</strong></td><td>동일 자산 이중 지불</td></tr>
+<tr><td><strong>Byzantine General Problem (비잔틴 장군 문제)</strong></td><td>악의적 노드 오류 발생</td></tr>
+</table>
+</li>
+<li><strong>목적: </strong><table>
+<tr><th>목적</th><th>핵심 내용</th><th>해결하는 문제</th></tr>
+<tr><td><strong>안전성</strong></td><td>잘못된 트랜잭션 미포함·동일 블록 신뢰 보장</td><td>Double Spending 방지</td></tr>
+<tr><td><strong>탈중앙화</strong></td><td>중앙 기관 없이 다수 참여자 합의로 신뢰 형성</td><td>단일 장애점 제거</td></tr>
+<tr><td><strong>확장성</strong></td><td>트랜잭션·사용자 증가에도 안정적 성능 유지</td><td>트릴레마 대응</td></tr>
+<tr><td><strong>신뢰성</strong></td><td>악의적 노드 포함되어도 네트워크 무결성 유지</td><td>Byzantine 문제 해결</td></tr>
+</table>
+</li>
+<li><strong>합의 알고리즘:</strong><table>
+<tr><th>구분</th><th>알고리즘</th><th>방식</th><th>대표</th></tr>
+<tr><td><strong>작업 기반</strong></td><td><strong>PoW (작업 증명)</strong></td><td>연산 경쟁으로 블록 생성권 획득</td><td>비트코인·이더리움 1.0</td></tr>
+<tr><td></td><td><strong>PoS (지분 증명)</strong></td><td>보유 지분 비례 블록 생성권 부여</td><td>이더리움 2.0·Cardano</td></tr>
+<tr><td></td><td><strong>DPoS (위임 지분 증명)</strong></td><td>투표로 대표 노드 선출·블록 생성</td><td>EOS·TRON</td></tr>
+<tr><td></td><td><strong>PoA (권위 증명)</strong></td><td>승인된 검증자만 블록 생성</td><td>프라이빗 체인·VeChain</td></tr>
+<tr><td></td><td><strong>PoH (역사 증명)</strong></td><td>시간 순서 암호화 증명으로 합의 가속</td><td>Solana</td></tr>
+<tr><td><strong>투표 기반</strong></td><td><strong>PBFT 
+(실용 비잔틴 내결함성)</strong></td><td>노드 2/3 이상 동의로 합의·최종성 보장</td><td>Hyperledger Fabric</td></tr>
+<tr><td></td><td><strong>DPBFT (위임 PBFT)</strong></td><td>대표 노드 선출 후 PBFT 합의 수행·확장성 개선</td><td>NEO·일부 컨소시엄 체인</td></tr>
+<tr><td></td><td><strong>RBFT (평판 기반 BFT)</strong></td><td>노드 평판·신뢰도 기반 가중치 투표 합의</td><td>Hyperledger Indy</td></tr>
+<tr><td></td><td><strong>Raft</strong></td><td>리더 선출·로그 복제 기반 단순 합의</td><td>프라이빗 체인·분산 DB</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

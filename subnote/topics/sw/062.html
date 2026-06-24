@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. 소프트웨어 아키텍처</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>1. 소프트웨어 아키텍처</h4>
+<ul>
+<li><strong>정의: </strong>프로그램/시스템 컴포넌트, 컴포넌트 간의 상호관계 구조이며 이들을 설계하기 위한 지침과 원리</li>
+<li><strong>키워드</strong>: IEEE 42010, AD, Stakeholder, Concerns, Viewpoint, View</li>
+<li><strong>분류</strong>: 소프트웨어 아키텍처</li>
+<li><strong>구성요소: </strong><table>
+<tr><th><strong>요소</strong></th><th><strong>내용</strong></th></tr>
+<tr><td>Architecture 
+Description (AD)</td><td>* 아키텍처를 기록하기 위한 산출물들의 집합
+* 하나의 AD는 시스템에 대한 관심사(Concern)를 나타내며, 이에 대응하는 하나 이상의 이해관계자(Stakeholder)와 연관됨</td></tr>
+<tr><td>이해관계자 
+(Stakeholder)</td><td>* 소프트웨어 시스템 개발에 관련된 모든 사람과 조직을 의미
+* 고객, 최종 사용자, 개발자, PM, 유지보수자, 마케팅 담당자 등을 포함</td></tr>
+<tr><td>관심사 
+(Concerns)</td><td>* 동일한 시스템에 대해 각 이해관계자들이 가지는 서로 다른 의견과 목표
+* (예) 사용자: 기능/보안, 유지보수자: 용이성, 개발자: 비용/인력 효율성 등</td></tr>
+<tr><td>관점 (Viewpoint)</td><td>* 서로 다른 역할이나 책임으로 시스템이나 산출물들을 바라보는 이해관계자들의 견해
+* View를 구성하기 위한 규칙을 정의하는 패턴이며, 각각의 View와 1:1로 대응됨</td></tr>
+<tr><td>뷰 (View)</td><td>* 이해관계자들과 이들이 가지는 생각이나 견해로부터 전체 시스템을 표현한 결과물</td></tr>
+</table>
+</li>
+<li><strong>소프트웨어 아키텍처 프로세스:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;요참모프배&gt;</strong></span><table>
+<tr><th><strong>단계</strong></th><th><strong>세부 활동 및 절차</strong></th></tr>
+<tr><td>아키텍처 요구 파악</td><td>이해당사자 식별 → 품질 속성 식별(기능성, 사용성 등) → 품질 속성 시나리오 작성 → 아키텍처 요구사항 파악 → 아키텍처 리스크 식별 → 아키텍처 자료 검토</td></tr>
+<tr><td>참조 아키텍처 준비</td><td>업계 모델 조사/검토 → 표준 모델 조사/검토 → 참조 아키텍처 준비 (TRM, SP 등)</td></tr>
+<tr><td>아키텍처 모델링</td><td>뷰 정의 → <strong>패턴/스타일 설정</strong> → 프레임워크 선정 → 설계 이슈 선정 → 아키텍처 모델링 → <strong>아키텍처 평가</strong></td></tr>
+<tr><td>아키텍처 프로토타이핑</td><td>유즈케이스 단위 설계 → 컴포넌트 단위 설계 → 기술 이슈 설계 → 구현 → 아키텍처 프로토타이핑 → 프로토타입 팀 구성 → 프로토타입 검토</td></tr>
+<tr><td>아키텍처 배포</td><td>아키텍처 모델 구조화 → 프로토타입 모델 구조화 → 아키텍처 문서화 → 아키텍처 발표 자료 작성 → 아키텍처 배포 → 아키텍처 문서 검토</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

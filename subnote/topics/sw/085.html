@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. 통합테스트 (Integration Test)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>5. 통합테스트 (Integration Test)</h4>
+<ul>
+<li><strong>정의</strong>: 개별 단위 테스트가 완료된 모듈들을 결합하여 인터페이스와 상호작용 오류를 검증하는 테스트</li>
+<li><strong>키워드</strong>: 빅뱅 통합, 상향식(Bottom-up), 하향식(Top-down), 샌드위치, 스텁·드라이버</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>통합테스트 전략 비교</strong>:<table>
+<tr><th><strong>전략</strong></th><th><strong>방향</strong></th><th><strong>장점</strong></th><th><strong>단점</strong></th></tr>
+<tr><td><strong>빅뱅</strong></td><td>전체 동시 통합</td><td>단순</td><td>오류 원인 파악 어려움</td></tr>
+<tr><td><strong>하향식 (Top-down)</strong></td><td>상위→하위 모듈</td><td>조기 아키텍처 검증</td><td>스텁(Stub) 필요</td></tr>
+<tr><td><strong>상향식 (Bottom-up)</strong></td><td>하위→상위 모듈</td><td>핵심 모듈 조기 검증</td><td>드라이버(Driver) 필요</td></tr>
+<tr><td><strong>샌드위치</strong></td><td>상·하향식 혼합</td><td>병행 작업 가능</td><td>스텁·드라이버 모두 필요</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 현대 CI/CD 환경에서는 <strong>지속적 통합 테스트(자동화)</strong>가 표준으로, 개별 커밋마다 통합 테스트를 실행하여 인터페이스 오류를 조기 발견.</li>
+</ul>
+
+</body>
+</html>

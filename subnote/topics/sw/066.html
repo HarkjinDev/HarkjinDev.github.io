@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-4. 소프트웨어 아키텍처 정방향/역방향 분석</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-4. 소프트웨어 아키텍처 정방향/역방향 분석</h4>
+<ul>
+<li><strong>정의</strong>: 정방향 분석은 아키텍처 설계에서 구현 방향으로, 역방향 분석은 구현된 시스템에서 아키텍처를 추출하는 방향으로 수행하는 분석</li>
+<li><strong>키워드</strong>: 정방향(Forward) 분석, 역방향(Reverse) 분석, 아키텍처 복구(Recovery), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>아키텍처 드리프트</strong></u></span></li>
+<li><strong>분류</strong>: 소프트웨어 아키텍처</li>
+<li><strong>정방향 vs 역방향 분석 비교</strong>:<table>
+<tr><th>구분</th><th>정방향 분석</th><th>역방향 분석</th></tr>
+<tr><td>방향</td><td>아키텍처 → 코드/구현</td><td>코드/구현 → 아키텍처</td></tr>
+<tr><td>목적</td><td>설계 의도 구현 검증</td><td>현 시스템 구조 파악</td></tr>
+<tr><td>적용 시점</td><td>개발 단계</td><td>유지보수·레거시 분석</td></tr>
+<tr><td>주요 기법</td><td>ATAM, CBAM, ADR, 프로토타이핑</td><td>아키텍처 복구, 클러스터링, 지표분석, 관계분석</td></tr>
+<tr><td>결과물</td><td>구현 가이드라인</td><td>As-built 아키텍처 문서</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: <strong>아키텍처 드리프트(Drift)</strong>는 시간이 지남에 따라 구현이 설계 아키텍처에서 벗어나는 현상으로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>역방향 분석으로 드리프트를 감지하고 정방향 분석으로 재정렬하는 것이 핵심</strong></u></span>.</li>
+</ul>
+
+</body>
+</html>

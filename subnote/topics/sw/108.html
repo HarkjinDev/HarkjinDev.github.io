@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22. 적대적 테스트(Adversarial Testing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>22. 적대적 테스트(Adversarial Testing)</h4>
+<ul>
+<li><strong>정의</strong>: 시스템에 의도적으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>악의적인 공격</strong></u></span>을 시뮬레이션하여, 예상치 못한 오류나 취약점을 분석하는 테스팅 기법</li>
+<li><strong>키워드</strong>: 보안취약점 발견, 중독공격, 회피공격, 탐색적 공격, 교란, 적대적 예시, 추출공격, 전도공격</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>핵심 기법:</strong><table>
+<tr><th>구분</th><th>핵심 기술</th><th>설명</th></tr>
+<tr><td><strong>중독공격 (Poisoning)</strong></td><td><strong>서비스 거부</strong></td><td>잘못된 레이블 데이터 대량 주입</td></tr>
+<tr><td></td><td><strong>백 도어 삽입</strong></td><td>트리거 감지 시 공격자 의도대로 동작</td></tr>
+<tr><td><strong>회피공격 (Evasion)</strong></td><td><strong>교란 (Perturbation)</strong></td><td>육안 불가 미세 노이즈로 예측 변경</td></tr>
+<tr><td></td><td><strong>적대적 예시 (Adversarial Example)</strong></td><td>교란 추가 입력으로 모델 오인식 유발</td></tr>
+<tr><td><strong>탐색적공격 (Exploratory)</strong></td><td><strong>모델 추출공격 (Model Extraction)</strong></td><td>쿼리 결과 분석으로 모델 복제</td></tr>
+<tr><td></td><td><strong>모델 전도 공격 (Model Inversion)</strong></td><td>출력값 분석으로 학습 데이터 역추출</td></tr>
+</table>
+</li>
+</ul>
+<hr/>
+
+</body>
+</html>

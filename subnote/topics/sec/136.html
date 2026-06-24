@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. 개인정보 비식별조치 (De-identification)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>3. 개인정보 비식별조치 (De-identification)</h4>
+<ul>
+<li><strong>정의</strong>: 개인을 식별할 수 없도록 개인정보를 처리하는 비식별 기법</li>
+<li><strong>키워드</strong>: 가명화, 총계처리, 데이터 삭제, 범주화</li>
+<li><strong>분류</strong>: 개인정보보호</li>
+<li><strong>비식별 기법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;가총삭범마&gt;</strong></span><table>
+<tr><th><strong>기법</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
+<tr><td>가명처리</td><td>식별자를 가명으로 대체</td><td>홍길동 → 홍○○</td></tr>
+<tr><td>총계처리</td><td>개별값 대신 통계값 사용</td><td>나이 → 평균 35세</td></tr>
+<tr><td>데이터 삭제</td><td>식별 가능 항목 제거</td><td>이름, 주소 필드 삭제</td></tr>
+<tr><td>범주화</td><td>값을 범위로 변환</td><td>35세 → 30대</td></tr>
+<tr><td>데이터 마스킹</td><td>부분 값 대체</td><td>010--5678</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 비식별조치의 충분성은 재식별 가능성 검토(전문가 판단, k-익명성 등)로 확인해야 하며, 완전한 비식별화는 데이터 유용성을 크게 감소시킬 수 있음</li>
+</ul>
+
+</body>
+</html>

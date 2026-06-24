@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. GIS (Geographic Information System, 지리정보시스템)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>6. GIS (Geographic Information System, 지리정보시스템)</h4>
+<ul>
+<li><strong>정의:</strong> 지리적 위치 정보를 기반으로 공간 데이터를 수집·저장·분석·표현·관리하는 정보 시스템으로, 지도·위성영상·센서 데이터를 통합하여 공간적 의사결정을 지원하는 디지털 지리 플랫폼</li>
+<li><strong>키워드:</strong> 공간 데이터, 레이어, 벡터·래스터, 좌표계, 공간 분석, DBMS, 원격탐사, GPS</li>
+<li><strong>분류</strong>: XR/메타버스/공간</li>
+<li><strong>GIS 핵심 기능:</strong><table>
+<tr><th>구분</th><th>기능</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터 입력</strong></td><td><strong>디지타이징</strong></td><td>아날로그 지도를 디지털 벡터로 변환</td><td>지도 디지털화</td></tr>
+<tr><td></td><td><strong>원격탐사</strong></td><td>위성·항공·드론 영상 데이터 취득</td><td>항공·위성 수집</td></tr>
+<tr><td></td><td><strong>GPS 측량</strong></td><td>GPS 기반 정밀 위치 좌표 취득</td><td>현장 좌표 수집</td></tr>
+<tr><td><strong>공간 분석</strong></td><td><strong>버퍼 분석</strong></td><td>특정 지형지물 주변 영향 범위 설정</td><td>영향권 분석</td></tr>
+<tr><td></td><td><strong>오버레이 분석</strong></td><td>복수 레이어 중첩으로 공간 관계 분석</td><td>레이어 중첩 분석</td></tr>
+<tr><td></td><td><strong>네트워크 분석</strong></td><td>도로망 최적 경로·서비스 구역 분석</td><td>경로·접근성 분석</td></tr>
+<tr><td></td><td><strong>공간 보간</strong></td><td>불연속 데이터로 연속 공간 값 추정</td><td>공간 값 추정</td></tr>
+<tr><td></td><td><strong>지형 분석</strong></td><td>DEM 기반 경사·향·가시권 분석</td><td>지형 특성 분석</td></tr>
+<tr><td><strong>시각화</strong></td><td><strong>지도 렌더링</strong></td><td>공간 데이터 주제도·시각화 표현</td><td>지도 제작</td></tr>
+<tr><td></td><td><strong>3D 시각화</strong></td><td>지형·건물·시설물 3D 입체 표현</td><td>입체 공간 표현</td></tr>
+<tr><td><strong>데이터 관리</strong></td><td><strong>공간 DBMS</strong></td><td>PostGIS·Oracle Spatial 공간 데이터 저장·질의</td><td>공간 DB 관리</td></tr>
+<tr><td></td><td><strong>메타데이터 관리</strong></td><td>데이터 출처·품질·좌표계 정보 관리</td><td>데이터 품질 관리</td></tr>
+</table>
+</li>
+<li><strong>GIS 레이어 구조:</strong><table>
+<tr><th>레이어</th><th>설명</th><th>예시</th></tr>
+<tr><td><strong>기본도 레이어</strong></td><td>행정경계·도로·철도 기본 지형도</td><td>국가 기본도</td></tr>
+<tr><td><strong>지형 레이어</strong></td><td>DEM·등고선·경사·향 지형 정보</td><td>수치표고모델</td></tr>
+<tr><td><strong>주제도 레이어</strong></td><td>토지이용·인구·환경·재해 주제 정보</td><td>토지피복도</td></tr>
+<tr><td><strong>시설물 레이어</strong></td><td>상하수도·전력·가스 지하매설물</td><td>시설물 관리</td></tr>
+<tr><td><strong>위성영상 레이어</strong></td><td>광학·SAR 위성영상 래스터 데이터</td><td>토지변화 탐지</td></tr>
+</table>
+</li>
+<li><strong>활용 분야:</strong><table>
+<tr><th>분야</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>도시 계획</strong></td><td>토지이용·인구·교통 기반 도시 계획 지원</td><td>공간 의사결정</td></tr>
+<tr><td><strong>재난·재해 관리</strong></td><td>침수·산사태·지진 피해 예측·대응</td><td>재해 위험 분석</td></tr>
+<tr><td><strong>환경 모니터링</strong></td><td>산림·습지·오염 변화 탐지·분석</td><td>환경 변화 감시</td></tr>
+<tr><td><strong>스마트시티</strong></td><td>도시 인프라 통합 공간 관리·최적화</td><td>도시 통합 관제</td></tr>
+<tr><td><strong>물류·배송</strong></td><td>최적 경로·물류 거점 입지 분석</td><td>물류 최적화</td></tr>
+<tr><td><strong>국방·안보</strong></td><td>전술지도·지형 분석·작전 계획 지원</td><td>군사 공간 분석</td></tr>
+<tr><td><strong>부동산</strong></td><td>입지 분석·가격 예측·개발 타당성</td><td>공간 가치 분석</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> GIS는 단순 지도 제작 도구를 넘어 공간 데이터 기반 의사결정의 핵심 플랫폼으로 진화하였으며, 디지털 트윈·AI·빅데이터와의 융합으로 스마트시티·자율주행·재난관리의 핵심 인프라로 자리잡고 있음. 클라우드·Web GIS의 확산으로 전문가 전유물에서 일반 사용자 플랫폼으로 민주화되고 있으며, 위성영상·LiDAR·드론 측량 데이터의 급격한 증가로 AI 기반 공간 분석이 GIS의 차세대 핵심 방향으로 부상하고 있음</li>
+</ul>
+<hr/>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8. SIEM (Security Information & Event Management)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>8. SIEM (Security Information &amp; Event Management)</h4>
+<ul>
+<li><strong>정의</strong>: 보안 로그를 통합 수집·분석하여 위협을 실시간 탐지하는 보안 관리 시스템</li>
+<li><strong>키워드:</strong> 로그 통합, 실시간 상관분석, 이벤트 관리, 정규화, 위협 탐지, 컴플라이언스, UEBA, SOAR, MTTD</li>
+<li><strong>분류</strong>: 네트워크 보안</li>
+<li><strong>구성요소 및 기술요소:</strong><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>데이터 수집</strong></td><td><strong>로그 수집</strong></td><td>방화벽·IDS·OS·애플리케이션 로그 에이전트·Syslog 수집</td></tr>
+<tr><td></td><td><strong>정규화</strong></td><td>이기종 로그를 공통 포맷으로 변환·파싱</td></tr>
+<tr><td></td><td><strong>인덱싱</strong></td><td>대용량 로그 고속 검색을 위한 인덱스 구성</td></tr>
+<tr><td><strong>탐지·분석</strong></td><td><strong>상관분석 (Correlation)</strong></td><td>복수 이벤트 연관 분석으로 공격 시나리오 탐지</td></tr>
+<tr><td></td><td><strong>실시간 경보</strong></td><td>임계치·룰 기반 이상 이벤트 즉시 알림</td></tr>
+<tr><td></td><td><strong>UEBA</strong></td><td>사용자·엔티티 행위 분석으로 내부자 위협·이상 탐지</td></tr>
+<tr><td></td><td><strong>ML 기반 탐지</strong></td><td>룰 기반 한계 보완, 미지 위협·이상 패턴 자동 탐지</td></tr>
+<tr><td><strong>운영·관리</strong></td><td><strong>대시보드·가시성</strong></td><td>보안 이벤트·KPI·위협 현황 실시간 시각화</td></tr>
+<tr><td></td><td><strong>컴플라이언스 보고</strong></td><td>ISMS·ISO 27001·PCI-DSS 준수 증적 자동 생성</td></tr>
+<tr><td></td><td><strong>로그 보존</strong></td><td>법적·규제 요건에 따른 장기 로그 아카이빙</td></tr>
+</table>
+</li>
+<li><strong>SIEM vs SOAR</strong>:<ul>
+<li><strong>SIEM</strong>: 탐지·분석·경보 (분석가 개입 필요)</li>
+<li><strong>SOAR</strong>: SIEM + 자동 대응(Playbook 기반 자동화)</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: SIEM의 로그 수집 범위와 규칙(Rule) 품질이 탐지 성능을 결정하며, 현재는 AI/ML 기반 이상 탐지를 결합한 차세대 SIEM이 주류임</li>
+</ul>
+
+</body>
+</html>

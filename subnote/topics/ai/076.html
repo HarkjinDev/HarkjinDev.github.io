@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 3-3. 안전변경 최대화 테스트 (Maximum Safe Radius Testing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4><strong>[하위] 3-3. 안전변경 최대화 테스트 (Maximum Safe Radius Testing)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 모델이 올바르게 작동하는 입력값 주변의 안정적 영역을 최대화하여 견고성을 테스트</li>
+<li><strong>용도:</strong> 적대적 공격(Adversarial Attack)에 대한 모델의 저항력 측정</li>
+<li><strong>구성요소: </strong><table>
+<tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>역할 (15자 이내)</strong></th></tr>
+<tr><td><strong>테스트 포인트</strong></td><td>기준이 되는 입력 데이터</td><td>테스트 수행의 시작점</td></tr>
+<tr><td><strong>최대 안전반경</strong></td><td>오작동이 없는 최대 변화 폭</td><td>모델의 견고성 범위 측정</td></tr>
+<tr><td><strong>결정 경계</strong></td><td>분류 결과가 변하는 임계 지점</td><td>결과값 변경 여부 판단 기준</td></tr>
+<tr><td><strong>탐색 방향</strong></td><td>안전 영역 확장을 위한 벡터</td><td>효율적인 안전 반경 탐색</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

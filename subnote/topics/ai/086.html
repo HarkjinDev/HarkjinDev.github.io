@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8. 터보퀀트 (TurboQuant)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>8. 터보퀀트 (TurboQuant)</h4>
+<ul>
+<li><strong>정의:</strong> 정확도 손실 없이 메모리를 6배 압축하고 어텐션 연산을 최대 8배 가속하는 AI 추론 최적화 기술의 LLM KV 캐시 온라인 벡터 양자화 알고리즘</li>
+<li><strong>키워드:</strong> KV 캐시, 벡터 양자화, PolarQuant, QJL, Data-oblivious, 온라인 압축, 메모리 병목, ICLR 2026</li>
+<li><strong>분류:</strong> AI 응용 / 트렌드</li>
+<li><strong>핵심 원리:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>KV 캐시 병목</strong></td><td>장문 처리 시 참조 정보가 선형 증가</td><td>메모리 병목 원인</td></tr>
+<tr><td><strong>아웃라이어 분리</strong></td><td>중요·일반 데이터 지능적 선별 압축</td><td>선별적 압축</td></tr>
+<tr><td><strong>PolarQuant (1차)</strong></td><td>벡터 극좌표 변환으로 대규모 압축</td><td>좌표 변환 압축</td></tr>
+<tr><td><strong>QJL (2차 보정)</strong></td><td>1비트 보정으로 미세 오차 통계적 상쇄</td><td>오차 보정</td></tr>
+<tr><td><strong>Data-oblivious</strong></td><td>사전 분석 없이 즉시 적용 가능</td><td>플러그 앤 플레이</td></tr>
+</table>
+</li>
+<li><strong>주요 특징:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>무손실 압축</strong></td><td>3~3.5비트 압축에도 정확도 손실 없음</td><td>품질 중립성</td></tr>
+<tr><td><strong>온라인 적용</strong></td><td>실시간 스트리밍 데이터 즉시 적용</td><td>실시간 적용</td></tr>
+<tr><td><strong>재학습 불필요</strong></td><td>기존 상용 모델에 즉시 적용 가능</td><td>즉시 도입</td></tr>
+<tr><td><strong>이론적 최적성</strong></td><td>정보 이론 하한선과 약 2.7배 차이</td><td>이론적 최적 근접</td></tr>
+<tr><td><strong>2단계 압축</strong></td><td>PolarQuant + QJL 2단계 구조</td><td>정교한 압축</td></tr>
+</table>
+</li>
+<li><strong>기존 압축 기술과의 차이점:</strong><table>
+<tr><th>항목</th><th>기존 양자화</th><th>TurboQuant</th></tr>
+<tr><td><strong>사전 보정</strong></td><td>Calibration 필수</td><td>❌ 불필요</td></tr>
+<tr><td><strong>정확도 손실</strong></td><td>비트 감소 시 손실</td><td>✅ 거의 없음</td></tr>
+<tr><td><strong>적용 방식</strong></td><td>오프라인 사전 처리</td><td>✅ 온라인 실시간</td></tr>
+<tr><td><strong>모델 재학습</strong></td><td>필요한 경우 있음</td><td>❌ 불필요</td></tr>
+<tr><td><strong>압축 대상</strong></td><td>모델 가중치 중심</td><td>KV 캐시 특화</td></tr>
+<tr><td><strong>비트율 유연성</strong></td><td>고정 비트율</td><td>2.5~3.5비트 조정</td></tr>
+</table>
+</li>
+<li><strong>기대 효과:</strong><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>인프라</strong></td><td><strong>GPU 효율화</strong></td><td>동시 처리 요청 수 대폭 증가</td><td>인프라 비용 절감</td></tr>
+<tr><td></td><td><strong>장문 처리</strong></td><td>단일 GPU에서 수백만 토큰 처리</td><td>장문 처리 혁신</td></tr>
+<tr><td><strong>비용</strong></td><td><strong>추론 비용 절감</strong></td><td>GPU·메모리 자원 감소로 운영비 절감</td><td>AI 비용 민주화</td></tr>
+<tr><td></td><td><strong>온디바이스 AI</strong></td><td>모바일·엣지 환경 LLM 경량 운용</td><td>엣지 AI 확산</td></tr>
+<tr><td><strong>산업</strong></td><td><strong>벡터 검색 가속</strong></td><td>대규모 벡터 검색 저메모리 고속화</td><td>RAG·검색 효율화</td></tr>
+<tr><td></td><td><strong>AI 접근성 향상</strong></td><td>낮은 비용·다양한 환경 AI 활용</td><td>제번스 파라독스</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> 터보퀀트는 하드웨어 증설 없이 소프트웨어만으로 LLM 메모리 병목을 해결하는 혁신으로, 단기적 HBM 수요 우려와 달리 AI 접근성 확대·활용 폭증의 제번스 역설로 AI 인프라 총 수요를 장기적으로 오히려 증가시킬 것으로 전망되며 소프트웨어 지능화로 AI 인프라 패러다임이 전환되는 핵심 이정표로 평가됨</li>
+</ul>
+
+</body>
+</html>

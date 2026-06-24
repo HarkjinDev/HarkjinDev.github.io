@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. 워크플로우 관리 (Workflow Management)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>6. 워크플로우 관리 (Workflow Management)</h4>
+<ul>
+<li><strong>정의</strong>: 업무 프로세스의 단계·조건·참여자·자동화 규칙을 정의하고 실행·모니터링하는 시스템</li>
+<li><strong>키워드</strong>: DAG(Directed Acyclic Graph), 오케스트레이션, Apache Airflow, 태스크 의존성, 스케줄링, 재시도</li>
+<li><strong>분류</strong>: 형상관리/배포</li>
+<li><strong>워크플로우 관리 핵심 개념</strong>:<table>
+<tr><th><strong>개념</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>DAG</strong></td><td>태스크 간 방향성 있는 비순환 의존 그래프</td></tr>
+<tr><td><strong>오케스트레이션</strong></td><td>중앙 조율자가 태스크 실행 순서·조건 제어</td></tr>
+<tr><td><strong>코레오그래피</strong></td><td>각 서비스가 이벤트로 자율적으로 반응</td></tr>
+<tr><td><strong>스케줄링</strong></td><td>시간·이벤트 기반 워크플로우 자동 트리거</td></tr>
+</table>
+</li>
+<li><strong>주요 워크플로우 관리 도구</strong>:<table>
+<tr><th>도구</th><th>특징</th></tr>
+<tr><td>Apache Airflow</td><td>Python DAG 기반, 데이터 파이프라인</td></tr>
+<tr><td>Prefect</td><td>현대적 Python 워크플로우, 동적 구성</td></tr>
+<tr><td>Argo Workflows</td><td>Kubernetes 네이티브 컨테이너 워크플로우</td></tr>
+<tr><td>AWS Step Functions</td><td>서버리스 시각적 워크플로우</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 오케스트레이션과 코레오그래피는 <strong>MSA 내 서비스 협력 방식의 두 축</strong>으로, 오케스트레이션은 중앙 제어로 가시성이 높고 코레오그래피는 분산 자율로 결합도가 낮음.</li>
+</ul>
+
+</body>
+</html>

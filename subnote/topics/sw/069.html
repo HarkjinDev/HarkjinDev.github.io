@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-7. 아키텍처 스타일 (Architecture Style)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-7. 아키텍처 스타일 (Architecture Style)</h4>
+<ul>
+<li><strong>정의</strong>: 소프트웨어 시스템을 구성하는 컴포넌트·커넥터·제약의 재사용 가능한 조직화 패턴</li>
+<li><strong>키워드</strong>: Pipe-and-Filter, Layered, Client-Server, Event-Driven, Microservices, Repository</li>
+<li><strong>분류</strong>: 소프트웨어 아키텍처</li>
+<li><strong>주요 아키텍처 스타일:</strong><table>
+<tr><th>스타일</th><th>특징</th><th>적합 시스템</th></tr>
+<tr><td>Layered (계층형)</td><td>상위→하위 단방향 의존</td><td>웹 애플리케이션, ERP</td></tr>
+<tr><td>Pipe-and-Filter</td><td>데이터 변환 필터 직렬 연결</td><td>컴파일러, ETL, 신호처리</td></tr>
+<tr><td>Client-Server</td><td>클라이언트 요청·서버 응답</td><td>웹서비스, DB 시스템</td></tr>
+<tr><td>Event-Driven</td><td>이벤트 생산자·소비자 비동기</td><td>IoT, 금융 거래, EDA</td></tr>
+<tr><td>Microservices</td><td>독립 배포 가능한 소형 서비스</td><td>대규모 웹 플랫폼</td></tr>
+<tr><td>Repository</td><td>공유 데이터 저장소 중심</td><td>IDE, CASE 도구</td></tr>
+<tr><td>Blackboard</td><td>전문가 지식 협업 문제 해결</td><td>AI·음성인식 시스템</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 아키텍처 스타일은 <strong>시스템 품질 속성(성능·유지보수성·확장성)에 따라 선택</strong>하며, 단일 스타일보다 혼합(Hybrid) 적용이 실제 시스템에서 일반적.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. 파일 카빙 (File Carving)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>4. 파일 카빙 (File Carving)</h4>
+<ul>
+<li><strong>정의:</strong> 파일 시스템 메타데이터(FAT·MFT) 없이 데이터 패턴·시그니처로 삭제·손상된 파일을 복원하는 기법</li>
+<li><strong>키워드:</strong> Header·Footer 시그니처, 파일 구조 검증, 단편화, 포맷 복원, 슬랙 카빙, MIME 타입</li>
+<li><strong>분류:</strong> 디지털 포렌식</li>
+<li><strong>4가지 카빙 기법:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Header/Footer 카빙</strong></td><td>파일 시작(헤더)·끝(푸터) 시그니처로 파일 범위 특정 후 복원</td><td>시그니처 기반</td></tr>
+<tr><td><strong>Header/Ram Slack 카빙</strong></td><td>헤더 + 램 슬랙 경계로 파일 크기 추정하여 복원</td><td>슬랙 경계 활용</td></tr>
+<tr><td><strong>Header/File Size 카빙</strong></td><td>헤더 내 내장된 파일 크기 정보를 활용하여 복원</td><td>크기 정보 활용</td></tr>
+<tr><td><strong>파일 구조 검증</strong></td><td>ASCII·MIME 타입·내부 구조 검증으로 파일 유효성 확인</td><td>구조 기반 검증</td></tr>
+</table>
+</li>
+<li><strong>주요 기술:</strong><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>시그니처 탐지</strong></td><td><strong>파일 헤더 DB</strong></td><td>JPEG(FFD8FF)·PDF(%PDF)·ZIP(PK) 등 
+파일 유형별 헤더 시그니처 매핑</td></tr>
+<tr><td></td><td><strong>Magic Number</strong></td><td>파일 유형 식별을 위한 고유 바이트 패턴 탐지</td></tr>
+<tr><td><strong>복원 처리</strong></td><td><strong>연속 카빙</strong></td><td>단편화 없는 연속 저장 파일 헤더~푸터 직접 복원</td></tr>
+<tr><td></td><td><strong>단편화 카빙</strong></td><td>비연속 저장 파일의 파편을 재조합하여 복원</td></tr>
+<tr><td><strong>검증</strong></td><td><strong>MIME 검증</strong></td><td>복원된 파일의 실제 유형·무결성 검증</td></tr>
+</table>
+</li>
+<li><strong>한계: </strong>단편화 복원 한계, 덮어쓰기 복원 불가, SSD 복원 한계</li>
+<li><strong>인사이트:</strong> 파일 카빙은 파일 시스템이 손상·포맷된 환경에서도 데이터 복원이 가능한 강력한 포렌식 기법이나, SSD·암호화·단편화가 복원 성공률을 크게 낮추는 변수로 작용하므로 시그니처 기반 카빙과 파일 구조 검증을 병행하여 복원 데이터의 유효성을 반드시 확인해야 함</li>
+</ul>
+
+</body>
+</html>

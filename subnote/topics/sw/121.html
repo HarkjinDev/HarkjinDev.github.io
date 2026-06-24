@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. 리버스 프록시 (Reverse Proxy)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>4. 리버스 프록시 (Reverse Proxy)</h4>
+<ul>
+<li><strong>정의</strong>: 클라이언트와 백엔드 서버 사이에서 클라이언트 요청을 대신 받아 내부 서버로 전달하고 응답을 반환하는 중간 서버</li>
+<li><strong>키워드</strong>: 포워드 프록시, Nginx, HAProxy, 캐싱, SSL 종료, 로드밸런싱, 보안</li>
+<li><strong>분류</strong>: 형상관리/배포</li>
+<li><strong>포워드 프록시 vs 리버스 프록시 비교</strong>:<table>
+<tr><th>구분</th><th>포워드 프록시</th><th>리버스 프록시</th></tr>
+<tr><td>위치</td><td>클라이언트 앞</td><td>서버 앞</td></tr>
+<tr><td>대리 대상</td><td>클라이언트</td><td>서버</td></tr>
+<tr><td>주요 용도</td><td>클라이언트 익명화, 우회</td><td>서버 보호, 로드밸런싱</td></tr>
+<tr><td>서버 인지</td><td>서버가 클라이언트 실IP 모름</td><td>클라이언트가 서버 구성 모름</td></tr>
+</table>
+</li>
+<li><strong>리버스 프록시 주요 기능</strong>:<ul>
+<li>SSL/TLS 종료(Termination): 암복호화를 리버스 프록시에서 처리</li>
+<li>로드밸런싱: 백엔드 서버 트래픽 분산</li>
+<li>캐싱: 정적 콘텐츠 캐시로 백엔드 부하 감소</li>
+<li>압축: Gzip 응답 압축</li>
+<li>보안: DDoS 방어, IP 차단, WAF 연동</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 리버스 프록시는 <strong>백엔드 서버 구조를 클라이언트에 완전히 숨기는 추상화 계층</strong>으로, MSA에서 API Gateway와 함께 외부 노출 지점을 단일화하는 핵심 인프라.</li>
+</ul>
+
+</body>
+</html>

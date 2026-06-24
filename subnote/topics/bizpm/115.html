@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. DRS (Disaster Recovery System)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>3. DRS (Disaster Recovery System)</h4>
+<ul>
+<li><strong>정의</strong>: 재해 발생 시 정보시스템과 데이터를 신속하게 복구하여 업무 연속성을 지원하는 재해복구 시스템</li>
+<li><strong>키워드</strong>: 미러 사이트, 핫/웜/콜드 사이트, RTO/RPO, 자동 Failover, HA, FT, IP-SAN, DWDM, GSLB, Snapshot, 지리적 분산, DRaaS, 다중지역 동시 가동방식</li>
+<li><strong>분류</strong>: 연속성</li>
+<li><strong>DRS 유형 비교</strong>:<table>
+<tr><th><strong>유형</strong></th><th><strong>복구 시간</strong></th><th><strong>데이터 손실</strong></th><th><strong>비용</strong></th><th><strong>목표시간</strong></th></tr>
+<tr><td><strong>미러 사이트(Mirror)</strong></td><td>즉시</td><td>없음</td><td>매우 높음</td><td>RTO=0</td></tr>
+<tr><td><strong>핫 사이트(hot)</strong></td><td>즉시(~수 분)</td><td>거의 없음</td><td>매우 높음</td><td>RTO≤2h</td></tr>
+<tr><td><strong>웜 사이트(Warm)</strong></td><td>수 시간</td><td>소량</td><td>높음</td><td>RTO≤1W</td></tr>
+<tr><td><strong>콜드 사이트(Cold)</strong></td><td>수일</td><td>많음</td><td>낮음</td><td>수개월</td></tr>
+</table>
+</li>
+<li><strong>기술요소: </strong><table>
+<tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
+<tr><td><strong>가용성·이중화</strong></td><td><strong>고가용성 (HA)</strong></td><td>H/W 클러스터링·Stand-By 구성</td></tr>
+<tr><td></td><td><strong>무중단 내결함성 (FT)</strong></td><td>장애 즉시 서비스 이중화 시스템</td></tr>
+<tr><td><strong>네트워크·전송</strong></td><td><strong>IP-SAN</strong></td><td>SAN 트래픽을 IP 패킷으로 전송</td></tr>
+<tr><td></td><td><strong>DWDM</strong></td><td>고밀도 파장 분할 고속 데이터 전송</td></tr>
+<tr><td></td><td><strong>GSLB</strong></td><td>트래픽 분산·장애 시 자동 절체</td></tr>
+<tr><td><strong>데이터 복제·보호</strong></td><td><strong>데이터 복제 (Replication)</strong></td><td>주센터→복구센터 동기·비동기 복제</td></tr>
+<tr><td></td><td><strong>지속적 데이터 보호 (CDP)</strong></td><td>변경 사항 실시간 기록·즉시 복구</td></tr>
+<tr><td></td><td><strong>스냅샷 (Snapshot)</strong></td><td>특정 시점 가상 이미지 저장·복원</td></tr>
+<tr><td><strong>백업·복구</strong></td><td><strong>백업 (Backup)</strong></td><td>별도 매체에 데이터 저장·보관</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>가상화 (Virtualization)</strong></td><td>복구센터 효율성·HW 독립성 확보</td></tr>
+</table>
+</li>
+<li><strong>DRS 구축 시 핵심 고려사항</strong>: RTO·RPO 충족 여부, 지리적 분산, 자동 전환(Failover), 정기 훈련</li>
+<li><strong>DR센터 유형:</strong> 상호계약형, 공동이용형, 외부위탁형, 독자구축형   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;상공외독&gt;</strong></span></li>
+<li><strong>DRaaS 유형:</strong> 관리형, DIY형, 지원형  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;관디지&gt;</strong></span></li>
+<li><strong>다중지역 동시 가동방식 (Multi-Region Active-Active) 재해복구시스템</strong><ul>
+<li>실제로 서비스되는 시스템이 여러 지역에 동시에 가동되어 한 지역의 시스템에 장애가 있더라도 실시간으로 서비스 연속성이 보장되는(Active-Active) 방식으로 각 업무 조직별 비상 사태에 대비한 복구계획 수립을 통한 업무 연속성을 유지할 수 있는 체계</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: DRS 구축 수준은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RTO/RPO 요구사항과 비용의 트레이드오프</strong></u></span>로 결정되며, 금융·공공 핵심 시스템은 미러 사이트 + 자동 Failover를 요구함. 단순 구축보다 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정기적인 DR 훈련(DRT)으로 실효성 검증</strong></u></span>이 필수임.</li>
+</ul>
+<hr/>
+
+</body>
+</html>

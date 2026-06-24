@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 6-1. 코드 커버리지 (Code Coverage)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 6-1. 코드 커버리지 (Code Coverage)</h4>
+<ul>
+<li><strong>정의</strong>: 테스트 스위트가 소스코드의 어느 부분을 실행했는지를 측정하는 화이트박스 기반 커버리지 지표</li>
+<li><strong>키워드</strong>: 라인 커버리지, 브랜치 커버리지, JaCoCo, Istanbul, SonarQube, CI 파이프라인 연동</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>코드 커버리지 측정 도구</strong>:<table>
+<tr><th>언어</th><th>도구</th></tr>
+<tr><td>Java</td><td>JaCoCo, Cobertura</td></tr>
+<tr><td>JavaScript</td><td>Istanbul (nyc)</td></tr>
+<tr><td>Python</td><td>coverage.py</td></tr>
+<tr><td>C/C++</td><td>gcov, LCOV</td></tr>
+<tr><td>다국어 통합</td><td>SonarQube</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 코드 커버리지 100%가 <strong>결함 부재를 의미하지 않음</strong>을 명확히 하며, CI 파이프라인에 커버리지 임계값(예: 80%)을 설정하여 품질 게이트로 활용하는 것이 실무 표준.</li>
+</ul>
+
+</body>
+</html>

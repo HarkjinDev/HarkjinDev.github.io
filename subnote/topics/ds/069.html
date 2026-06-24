@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. 중앙은행 디지털 화폐 (CBDC, Central Bank Digital Currency)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>6. 중앙은행 디지털 화폐 (CBDC, Central Bank Digital Currency)</h4>
+<ul>
+<li><strong>정의:</strong> 블록체인·분산원장 등 디지털 기술 기반으로 중앙은행이 직접 발행하는 국가 공인 디지털 통화</li>
+<li><strong>키워드:</strong> 법정화폐 디지털화, 소매형·도매형, 계좌형·토큰형, 오프라인 결제, 프라이버시, 금융포용, 통화정책 수단</li>
+<li><strong>분류</strong>: 핀테크/금융</li>
+<li><strong>CBDC vs 기존 화폐 비교:</strong><table>
+<tr><th><strong>구분</strong></th><th><strong>CBDC</strong></th><th><strong>전자화폐</strong></th><th><strong>가상자산 (암호화폐)</strong></th></tr>
+<tr><td><strong>발행 주체</strong></td><td>중앙은행 발행</td><td>민간 금융기관 발행</td><td>민간 및 탈중앙망</td></tr>
+<tr><td><strong>법적 지위</strong></td><td>법정통화 (공식화폐)</td><td>지급수단 (비법정)</td><td>자산 분류 (비법정)</td></tr>
+<tr><td><strong>신뢰 기반</strong></td><td>국가 및 중앙은행 보증</td><td>발행사 신뢰 기반</td><td>블록체인 합의 알고리즘</td></tr>
+<tr><td><strong>가격 안정성</strong></td><td>1:1 고정 가치 유지</td><td>고정 또는 제한적 변동</td><td>매우 높은 가격 변동성</td></tr>
+<tr><td><strong>익명성</strong></td><td>설계 기반 제한적 익명</td><td>익명성 없음</td><td>지갑 기반 상대적 익명</td></tr>
+<tr><td><strong>유통 방식</strong></td><td>중앙 집중 및 혼합형</td><td>선불 충전 및 계좌 기반</td><td>탈중앙 P2P 직접 거래</td></tr>
+<tr><td><strong>보관 방식</strong></td><td>전용 지갑 및 계좌</td><td>전자지갑 및 계좌</td><td>개인키 기반 디지털지갑</td></tr>
+<tr><td><strong>규제 수준</strong></td><td>강력한 국가 감독·규제</td><td>일부 금융 규제 적용</td><td>국가별 상이 및 불명확</td></tr>
+<tr><td><strong>정책 연계</strong></td><td>통화정책 수단으로 활용</td><td>정책과 연계되지 않음</td><td>정책과 연계되지 않음</td></tr>
+</table>
+</li>
+<li><strong>유형 분류:</strong><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>대상</strong></td><td><strong>소매형 (Retail)</strong></td><td>일반 국민·기업 대상, 현금 대체 목적</td><td>일반 결제</td></tr>
+<tr><td></td><td><strong>도매형 (Wholesale)</strong></td><td>금융기관 간 결제·청산 목적</td><td>기관 간 결제</td></tr>
+<tr><td><strong>구현</strong></td><td><strong>계좌형 (Account-based)</strong></td><td>사용자 신원 기반 계좌에 잔액 기록</td><td>신원 연계</td></tr>
+<tr><td></td><td><strong>토큰형 (Token-based)</strong></td><td>디지털 토큰 형태로 발행·이전</td><td>현금 유사</td></tr>
+<tr><td><strong>구조</strong></td><td><strong>직접형</strong></td><td>중앙은행이 국민에게 직접 발행·관리</td><td>중앙은행 직접</td></tr>
+<tr><td></td><td><strong>간접형</strong></td><td>시중은행 유통 및 중앙은행 보증</td><td>2단계 구조</td></tr>
+<tr><td></td><td><strong>혼합형</strong></td><td>직접·간접 병행, 실무 주류 방식</td><td>혼합 운영</td></tr>
+<tr><td></td><td><strong>중계형</strong></td><td>민간기관 유통 및 지갑 관리 전담</td><td>민간 위탁 유통</td></tr>
+</table>
+</li>
+<li><strong>핵심 기술:</strong><table>
+<tr><th>구분</th><th>핵심 기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>원장·블록체인</strong></td><td><strong>분산원장 (DLT)</strong></td><td>블록체인 기반 거래 기록·검증·불변성 보장</td><td>분산 신뢰 원장</td></tr>
+<tr><td></td><td><strong>중앙화 원장</strong></td><td>중앙은행 직접 관리 고성능·고신뢰 원장</td><td>중앙 통제 원장</td></tr>
+<tr><td></td><td><strong>허가형 블록체인</strong></td><td>참여자 제한 프라이빗 블록체인 기반 운영</td><td>접근 제어 블록체인</td></tr>
+<tr><td></td><td><strong>스마트 계약</strong></td><td>조건 충족 시 자동 실행하는 프로그래밍 거래</td><td>자동화 거래</td></tr>
+<tr><td><strong>암호화·보안</strong></td><td><strong>영지식 증명 (ZKP)</strong></td><td>정보 노출 없이 거래 유효성 수학적 증명</td><td>프라이버시 보호</td></tr>
+<tr><td></td><td><strong>디지털 서명</strong></td><td>공개키 암호화 기반 거래 인증·무결성 보장</td><td>거래 진위 확인</td></tr>
+<tr><td></td><td><strong>동형 암호</strong></td><td>암호화 상태에서 직접 연산 가능한 암호 기술</td><td>암호화 연산</td></tr>
+<tr><td><strong>신원·인증</strong></td><td><strong>DID (분산신원증명)</strong></td><td>중앙기관 없이 자기주권 신원 관리·인증</td><td>자기주권 신원</td></tr>
+<tr><td></td><td><strong>KYC·AML 자동화</strong></td><td>AI 기반 실명 확인·자금세탁 방지 자동화</td><td>규제 준수 자동화</td></tr>
+<tr><td></td><td><strong>선택적 익명성</strong></td><td>소액 거래 익명·고액 거래 신원 확인 설계</td><td>프라이버시 균형</td></tr>
+<tr><td><strong>오프라인·결제</strong></td><td><strong>오프라인 결제</strong></td><td>네트워크 없이 보안 하드웨어 기반 결제</td><td>네트워크 독립</td></tr>
+<tr><td></td><td><strong>NFC·QR 결제</strong></td><td>근거리 무선·QR 코드 기반 즉시 결제</td><td>편의 결제</td></tr>
+<tr><td></td><td><strong>보안 요소 (SE)</strong></td><td>스마트폰·카드 내 보안 칩에 CBDC 저장</td><td>하드웨어 보안</td></tr>
+<tr><td><strong>상호운용성</strong></td><td><strong>크로스체인 프로토콜</strong></td><td>국가 간 서로 다른 CBDC 시스템 상호 연결</td><td>국가 간 연계</td></tr>
+<tr><td></td><td><strong>mBridge·프로젝트 넥서스</strong></td><td>BIS 주도 다국가 CBDC 상호운용 플랫폼</td><td>국제 표준 연계</td></tr>
+<tr><td><strong>프로그래머블</strong></td><td><strong>프로그래머블 화폐</strong></td><td>사용 목적·기간·조건을 코드로 제한 가능</td><td>정책 직접 실행</td></tr>
+<tr><td></td><td><strong>토큰화 (Tokenization)</strong></td><td>디지털 토큰 형태로 CBDC 발행·유통</td><td>토큰 기반 화폐</td></tr>
+</table>
+</li>
+<li><strong>주요 정책 효과:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>통화정책 강화</strong></td><td>마이너스 금리·헬리콥터 머니 등 정책 직접 집행</td><td>정책 효과 제고</td></tr>
+<tr><td><strong>금융포용</strong></td><td>은행 계좌 없는 계층도 디지털 결제 접근 가능</td><td>금융 접근성</td></tr>
+<tr><td><strong>결제 효율화</strong></td><td>실시간·저비용 국내외 송금·결제 실현</td><td>결제 혁신</td></tr>
+<tr><td><strong>자금세탁 방지</strong></td><td>거래 추적으로 AML·CFT 효과 강화</td><td>금융범죄 방지</td></tr>
+</table>
+</li>
+<li><strong>설계 고려: </strong><table>
+<tr><th>구분</th><th>고려사항</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>설계 원칙</strong></td><td><strong>익명성·프라이버시</strong></td><td>익명성 보장 vs AML 균형</td><td>프라이버시·AML 균형</td></tr>
+<tr><td></td><td><strong>포용성</strong></td><td>소외 계층 접근 가능 설계</td><td>금융 포용성</td></tr>
+<tr><td></td><td><strong>오프라인 결제</strong></td><td>네트워크 없이도 결제 가능</td><td>오프라인 사용성</td></tr>
+<tr><td><strong>기술 아키텍처</strong></td><td><strong>중앙화 vs 분산화</strong></td><td>중앙 관리 vs 분산원장 선택</td><td>운영 구조 결정</td></tr>
+<tr><td></td><td><strong>계좌 기반 vs 토큰 기반</strong></td><td>계좌형 vs 익명 토큰형 선택</td><td>결제 방식 선택</td></tr>
+<tr><td></td><td><strong>확장성</strong></td><td>대규모 TPS 처리 성능 확보</td><td>TPS 처리 성능</td></tr>
+<tr><td></td><td><strong>상호운용성</strong></td><td>기존 시스템·타국 CBDC 연동</td><td>시스템 연동</td></tr>
+<tr><td><strong>보안·신뢰</strong></td><td><strong>위·변조 방지</strong></td><td>이중 지불·위조 방지 설계</td><td>화폐 무결성</td></tr>
+<tr><td></td><td><strong>사이버 보안</strong></td><td>해킹·DDoS 방어 체계 구축</td><td>인프라 보안</td></tr>
+<tr><td></td><td><strong>복원력·가용성</strong></td><td>장애 시 서비스 연속성 보장</td><td>무중단 결제</td></tr>
+<tr><td><strong>경제·통화정책</strong></td><td><strong>청구권 직접형</strong></td><td>개인이 중앙은행에 직접 청구권</td><td>중앙은행 직접 청구</td></tr>
+<tr><td></td><td><strong>청구권 간접형</strong></td><td>민간 금융기관 통한 청구권</td><td>민간 중개 청구권</td></tr>
+<tr><td></td><td><strong>은행 이탈 리스크</strong></td><td>금융이탈로 뱅크런 등 불안정</td><td>은행 기능 보호</td></tr>
+<tr><td></td><td><strong>이자 지급 여부</strong></td><td>이자 지급 시 통화정책 영향</td><td>통화정책 영향</td></tr>
+<tr><td></td><td><strong>보유 한도 설정</strong></td><td>보유 한도로 금융 안정 유지</td><td>금융 안정 관리</td></tr>
+<tr><td><strong>법·제도</strong></td><td><strong>법적 지위</strong></td><td>강제 통용력 법정화폐 지위</td><td>법정화폐 지위</td></tr>
+<tr><td></td><td><strong>AML·KYC</strong></td><td>자금세탁방지·신원 확인 의무</td><td>규제 준수</td></tr>
+<tr><td></td><td><strong>개인정보보호</strong></td><td>거래 데이터 수집 범위 규정</td><td>정보 보호 법제화</td></tr>
+<tr><td><strong>운영·거버넌스</strong></td><td><strong>소매형 vs 도매형</strong></td><td>국민 대상 vs 금융기관 대상</td><td>대상 범위 결정</td></tr>
+<tr><td></td><td><strong>2계층 구조</strong></td><td>중앙은행·민간 역할 분담 설계</td><td>역할 분담</td></tr>
+<tr><td></td><td><strong>국가 간 연동 (mCBDC)</strong></td><td>복수 국가 CBDC 상호운용</td><td>크로스보더 결제</td></tr>
+</table>
+</li>
+<li><strong>글로벌 동향:</strong><table>
+<tr><th>국가</th><th>명칭</th><th>현황</th><th>핵심</th></tr>
+<tr><td><strong>중국</strong></td><td>e-CNY (디지털 위안)</td><td>대규모 파일럿·상용화 진행</td><td>선도국</td></tr>
+<tr><td><strong>유럽연합</strong></td><td>디지털 유로</td><td>준비 단계·입법 추진 중</td><td>입법 진행</td></tr>
+<tr><td><strong>미국</strong></td><td>디지털 달러</td><td>연구 단계·정치적 논란</td><td>신중한 접근</td></tr>
+<tr><td><strong>한국</strong></td><td>디지털 원화</td><td>한국은행 파일럿 완료·검토 중</td><td>파일럿 완료</td></tr>
+<tr><td><strong>바하마</strong></td><td>Sand Dollar</td><td>세계 최초 CBDC 상용화</td><td>최초 상용화</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> CBDC는 디지털 경제 시대의 법정화폐 진화 형태로, 중국 e-CNY의 빠른 확산이 달러 패권에 도전하는 지정학적 맥락에서도 주목받고 있음. 프라이버시 보호와 금융 감시 사이의 균형 설계, 시중은행 예금 이탈 방지를 위한 보유 한도 설정이 CBDC 설계의 핵심 과제이며, 국가 간 상호운용성 확보가 글로벌 결제 혁신의 다음 단계로 부상하고 있음</li>
+</ul>
+
+</body>
+</html>

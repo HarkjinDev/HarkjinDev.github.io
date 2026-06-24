@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반</h4>
+<ul>
+<li><strong>정의</strong>: 소프트웨어 내부 구조·코드·논리를 분석하여 실행 경로와 제어 흐름을 검증하는 테스트 기법</li>
+<li><strong>키워드</strong>: 구조 기반, 커버리지, 제어 흐름 그래프(CFG), 기본 경로 테스트, 조건 테스트, 루프 테스트</li>
+<li><strong>분류</strong>: 테스트</li>
+<li><strong>구조기반 테스트(ISO/IEEE 29119-4):   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구분결/분건합변/정계선사/정사&gt;</strong></span><table>
+<tr><th><strong>구분</strong></th><th><strong>기법</strong></th><th><strong>핵심 요약</strong></th><th><strong>특징</strong></th></tr>
+<tr><td><strong>문장·분기</strong></td><td><strong>구문 테스팅</strong></td><td>코드 라인 실행</td><td>프로그램의 모든 문장이 최소 한 번은 실행되는지 확인</td></tr>
+<tr><td></td><td><strong>분기 테스팅</strong></td><td>제어 흐름 분기</td><td>모든 분기점(if, switch 등)의 각 방향이 실행되는지 검증</td></tr>
+<tr><td></td><td><strong>결정 테스팅</strong></td><td>전체 결정문 결과</td><td>결정문 전체의 결과가 참/거짓이 되는 케이스 확보</td></tr>
+<tr><td><strong>조건</strong></td><td><strong>분기조건 테스팅</strong></td><td>개별 조건식 결과</td><td>결정문 내의 개별 조건식들이 최소 한 번은 T/F가 되도록 수행</td></tr>
+<tr><td></td><td><strong>분기조건조합 테스팅</strong></td><td>모든 조건 조합</td><td>한 결정문 안의 모든 개별 조건의 조합을 테스트하여 엄격하게 검증</td></tr>
+<tr><td></td><td><strong>변경 조건 결정(MC/DC)</strong></td><td>독립적 영향력 검증</td><td>각 조건이 결과에 독립적으로 영향을 주는지 확인</td></tr>
+<tr><td><strong>데이터
+흐름</strong></td><td><strong>모든 정의 테스팅</strong></td><td>변수 정의(Def) 커버</td><td>각 변수의 정의 지점이 최소 한 번은 사용 지점으로 도달하는지 검증</td></tr>
+<tr><td></td><td><strong>모든 계산 사용 테스팅</strong></td><td>C-Use(Calculation)</td><td>변수의 정의가 모든 계산적 사용(C-use) 지점에 도달하는지 테스트</td></tr>
+<tr><td></td><td><strong>모든 선언 사용 테스팅</strong></td><td>P-Use(Predicate)</td><td>변수의 정의가 모든 조건/결정 사용(P-use) 지점에 도달하는지 테스트</td></tr>
+<tr><td></td><td><strong>모든 사용 테스팅</strong></td><td>All-Uses</td><td>모든 변수의 정의가 모든 계산 사용 및 조건 사용 지점에 도달하는지 검증</td></tr>
+<tr><td></td><td><strong>모든 정의-사용 경로 테스팅</strong></td><td>All-du-Paths</td><td>변수의 정의에서 사용까지의 모든 유효한 경로를 테스트 (가장 강력함)</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 화이트박스는 <strong>코드 커버리지 확보</strong>가 목적이지만, 100% 커버리지가 결함 부재를 보장하지 않으며 명세 누락 결함은 블랙박스로 보완 필요.</li>
+</ul>
+
+</body>
+</html>

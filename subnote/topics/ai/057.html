@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. RAG (Retrieval-Augmented Generation, 검색 증강 생성)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>4. RAG (Retrieval-Augmented Generation, 검색 증강 생성)</h4>
+<ul>
+<li><strong>정의</strong>: LLM이 학습하지 않은 최신 데이터나 내부 문서를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>외부 지식 베이스에서 검색(Retrieval)</strong></u></span>하여 그 내용을 참고해 답변을 생성하는 기술</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>환각(Hallucination) 방지, 벡터 DB</strong></u></span>, 청킹, 시맨틱 검색, 리랭커, 쿼리 임베딩, 하이브리드 검색, HyDE</li>
+<li><strong>분류</strong>: 생성형 AI/LLM</li>
+<li><strong>핵심 구성 요소:</strong><table>
+<tr><th>구성 요소</th><th>설명</th><th>대표 기술/도구</th></tr>
+<tr><td><strong>임베딩 모델</strong></td><td>텍스트를 고차원 벡터로 변환</td><td>OpenAI Ada, BGE, E5</td></tr>
+<tr><td><strong>벡터 데이터베이스</strong></td><td>벡터 인덱싱 및 유사도 검색 수행</td><td>Pinecone, Weaviate, Chroma</td></tr>
+<tr><td><strong>청킹 (Chunking)</strong></td><td>문서를 검색 가능한 단위로 분할</td><td>고정 크기, 문장 단위, 재귀적 분할</td></tr>
+<tr><td><strong>시맨틱 검색</strong></td><td>의미 기반 유사도 검색 </td><td>FAISS, ANN 알고리즘</td></tr>
+<tr><td><strong>리랭커 (Re-ranker)</strong></td><td>검색 결과의 관련도를 재평가하여 정렬</td><td>Cross-Encoder, Cohere Rerank</td></tr>
+<tr><td><strong>LLM</strong></td><td>검색된 컨텍스트를 기반으로 최종 응답 생성</td><td>GPT-4, Claude, LLaMA</td></tr>
+</table>
+</li>
+<li><strong>프로세스: </strong><table>
+<tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>1. 질문 입력</strong></td><td>사용자의 자연어 질문을 수용함</td><td>사용자 의도 파악의 시작</td></tr>
+<tr><td><strong>2. 쿼리 임베딩</strong></td><td>질문을 수치화된 벡터로 변환함</td><td>의미 기반 검색을 위한 수치화</td></tr>
+<tr><td><strong>3. 벡터 DB 검색</strong></td><td>유사도 기반 관련 문서 청크 추출</td><td>지식 베이스 내 최적 정보 탐색</td></tr>
+<tr><td><strong>4. 리랭킹 (Reranking)</strong></td><td>검색된 결과의 관련도 우선순위 재정렬</td><td>최상위 문서의 품질 및 연관성 강화</td></tr>
+<tr><td><strong>5. 프롬프트 구성</strong></td><td>질문과 검색 컨텍스트를 하나로 결합</td><td>LLM에 풍부한 근거 정보 제공</td></tr>
+<tr><td><strong>6. 최종 답변 생성</strong></td><td>제공된 근거를 바탕으로 응답 생성</td><td>할루시네이션 최소화 및 정확도 향상</td></tr>
+</table>
+</li>
+<li><strong>RAG 유형:</strong><table>
+<tr><th>유형</th><th>설명</th><th>특징</th></tr>
+<tr><td><strong>Naive RAG</strong></td><td>기본적인 검색 → 생성 파이프라인</td><td>구현 단순, 정확도 한계</td></tr>
+<tr><td><strong>Advanced RAG</strong></td><td>쿼리 재작성, 리랭킹, 하이브리드 검색 추가</td><td>검색 품질 향상</td></tr>
+<tr><td><strong>Modular RAG</strong></td><td>각 컴포넌트를 독립 모듈로 구성·교체 가능</td><td>유연성 극대화</td></tr>
+<tr><td><strong>Graph RAG</strong></td><td>지식 그래프(KG)와 결합한 관계 기반 검색 수행</td><td>복잡한 다중 관계 질의에 강함</td></tr>
+<tr><td><strong>Agentic RAG</strong></td><td>LLM 에이전트가 검색 여부·전략을 스스로 판단</td><td>멀티스텝 추론 가능</td></tr>
+</table>
+</li>
+<li><strong>RAG 성능 개선 기법:</strong><table>
+<tr><th><strong>기법</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>하이브리드 검색</strong></td><td>시맨틱(벡터)과 키워드(BM25) 검색 병행</td><td>검색 정확도 극대화 및 누락 방지</td></tr>
+<tr><td><strong>쿼리 재작성</strong></td><td>질문을 LLM이 검색에 적합하게 재표현</td><td>모호한 질문의 명확화 및 구체화</td></tr>
+<tr><td><strong>HyDE</strong></td><td>가상 답변 생성 후 이를 쿼리 벡터로 활용</td><td>쿼리-문서 간 의미적 간극 해소</td></tr>
+<tr><td><strong>청킹 전략 최적화</strong></td><td>문서 특성에 맞춰 크기 및 오버랩 조절</td><td>맥락 보존 및 정보 손실 방지</td></tr>
+<tr><td><strong>메타데이터 필터링</strong></td><td>속성(날짜, 출처 등) 기반 검색 범위 제한</td><td>노이즈 제거 및 검색 효율 증대</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 기업용 AI(B2B) 구축 시 보안 유지와 정보의 정확성을 확보하기 위한 실질적인 표준(De-facto standard) 기법</li>
+</ul>
+
+</body>
+</html>

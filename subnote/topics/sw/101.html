@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17. 사용자 테스트(User & Acceptance Test)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>17. 사용자 테스트(User &amp; Acceptance Test)</h4>
+<ul>
+<li><strong>정의:</strong> 시스템이 사전 정의된 인수 조건을 만족하는지 확인하고, 사용자가 시스템을 인수할지 결정할 수 있도록 비즈니스 프로세스 관점에서 수행하는 최종 단계의 테스팅</li>
+<li><strong>키워드:</strong> 인수 조건 만족, 비즈니스 적절성, 확신(Confidence) 확보, 배포 가능성 평가, 준수성 확인</li>
+<li><strong>분류:</strong> 테스트</li>
+<li><strong>주요 특징:</strong><ul>
+<li><strong>검증 목적:</strong> 결함 발견보다 배포 및 사용 가능 여부에 대한 확신을 얻는 것이 핵심임</li>
+<li><strong>수행 주체:</strong> 비즈니스 프로세스를 가장 잘 이해하는 실제 사용자 및 고객이 주도함</li>
+<li><strong>평가 범위:</strong> 기능적 요구사항 외에 계약 준수, 운영 안정성, 법적 규제 등을 종합 검토함</li>
+</ul>
+</li>
+<li><strong>알파테스트 vs 베타테스트 비교: </strong><table>
+<tr><th><strong>구분</strong></th><th><strong>알파 테스트 (Alpha Test)</strong></th><th><strong>베타 테스트 (Beta Test)</strong></th></tr>
+<tr><td><strong>정의</strong></td><td>선택된 사용자에 의해 개발 환경에서 수행되는 테스트</td><td>실 환경에서 사용자 혹은 잠재 고객에 의해 수행되는 테스트</td></tr>
+<tr><td><strong>별칭</strong></td><td>공장 인수 테스팅 
+(Factory Acceptance Testing)</td><td>사이트 인수 테스팅 
+(Site Acceptance Testing)</td></tr>
+<tr><td><strong>환경</strong></td><td>개발자 조직 내 개발 환경</td><td>실제 사용자 운영 환경</td></tr>
+<tr><td><strong>목표</strong></td><td>결함 발견, 부하 검사, SW 신뢰도 향상</td><td>제품 평가, 사용자 실제 조건에서의 테스트</td></tr>
+<tr><td><strong>시점</strong></td><td>시스템 테스트 이후 (제품 70~90% 완료)</td><td>알파 테스트 후 (제품 90~95% 완료)</td></tr>
+<tr><td><strong>참가자</strong></td><td>개발자, 테스터, 고객 또는 최종 사용자</td><td>고객 또는 최종 사용자 (개발자 부재)</td></tr>
+<tr><td><strong>기간</strong></td><td>1~2주 (테스트 주기 다수 수행)</td><td>4~6주 (피드백/제안에 따라 조율)</td></tr>
+</table>
+</li>
+<li><strong>인수테스트:</strong><ul>
+<li><strong>정의: </strong>시스템이 인수조건을 만족시키는지, 사용자/고객 또는 다른 인가된 개체가 시스템을 인수할지 결정할 수 있도록 사용자의 필요, 요구, 비즈니스 프로세스를 고려하여 수행하는 테스팅</li>
+<li><strong>목적:</strong> 확신, 배포가능성 평가, 준수성 확인, 고객 피드백</li>
+<li><strong>유형:</strong><table>
+<tr><th><strong>구분</strong></th><th><strong>유형</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>공식적</strong></td><td><strong>사용자 인수테스트</strong></td><td>비즈니스 사용자가 시스템 사용의 적절성을 최종 확인</td></tr>
+<tr><td></td><td><strong>운영상의 인수테스트</strong></td><td>관리자에 의한 백업/복원, 재난복구, 보안 취약성 점검</td></tr>
+<tr><td></td><td><strong>계약 인수테스트</strong></td><td>맞춤식 개발 SW가 계약상의 인수 조건을 준수하는지 확인</td></tr>
+<tr><td></td><td><strong>규정 인수테스트</strong></td><td>정부 지침, 법률, 안전 규정 등 준수 여부 확인</td></tr>
+<tr><td><strong>비공식적</strong></td><td><strong>알파 테스트</strong></td><td>개발 조직 내에서 선택된 사용자가 수행</td></tr>
+<tr><td></td><td><strong>베타 테스트</strong></td><td>상용화 전 잠재 고객으로부터 피드백을 목적으로 활용</td></tr>
+</table>
+</li>
+<li><strong>인수테스트 프로세스: </strong><table>
+<tr><th><strong>단계</strong></th><th><strong>활동</strong></th><th><strong>설명</strong></th><th><strong>산출물</strong></th></tr>
+<tr><td><strong>준비</strong></td><td>계획 수립 및 절차 정의</td><td>요구사항 식별 및 테스트 기법/목표 수준 정의</td><td>테스트 시나리오</td></tr>
+<tr><td></td><td>환경 및 데이터 구축</td><td>수행용 HW/SW 구성 및 테스트 데이터 생성/관리</td><td></td></tr>
+<tr><td><strong>수행</strong></td><td>시나리오 기반 수행</td><td>정의된 시나리오에 따른 테스트 실시 및 결과 수집</td><td>테스트 수행 계획서</td></tr>
+<tr><td></td><td>결함 관리 및 재테스트</td><td>발견된 오류 기록, 수정 후 정상 동작 여부 재확인</td><td></td></tr>
+<tr><td><strong>평가</strong></td><td>결과 분석 및 요약</td><td>테스트 결과의 정량적 도출 및 기능별 종합 분석</td><td>테스트 결과 보고서</td></tr>
+<tr><td></td><td>검토 및 최종 승인</td><td>기대 결과 비교를 통한 인수 여부 협상 및 승인</td><td></td></tr>
+<tr><td><strong>모니터링</strong></td><td>데이터 및 자원 분석</td><td>실 운영 데이터 수집 및 시스템 자원 사용량 분석</td><td>시스템 테스트 보고서</td></tr>
+<tr><td></td><td>성능 및 보안 검증</td><td>시스템 성능 부하 분석 및 보안 위반 상태 확인</td><td></td></tr>
+</table>
+</li>
+</ul>
+</li>
+<li><strong>인사이트:</strong> 인수테스트는 개발 완료 후 최종 사용자의 신뢰를 확보하는 품질 보증의 마지막 관문으로, 단순 기능 검증을 넘어 운영 안정성과 규정 준수성을 종합적으로 평가하여 비즈니스 가치 실현 여부를 결정짓는 전략적 프로세스임.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. Secure SDLC (보안 소프트웨어 개발 생명주기)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>1. Secure SDLC (보안 소프트웨어 개발 생명주기)</h4>
+<ul>
+<li><strong>정의</strong>: 소프트웨어 개발 전 단계에 보안 활동을 내재화하는 개발 방법론</li>
+<li><strong>키워드</strong>: MS-SDL, OWASP, CLASP, 보안 내재화</li>
+<li><strong>분류</strong>: 시스템/SW 보안</li>
+<li><strong>주요 방법론 비교</strong>:<table>
+<tr><th>방법론</th><th>개발사</th><th>특징</th></tr>
+<tr><td>MS-SDL</td><td>Microsoft</td><td>단계별 보안 활동, 위협 모델링 필수</td></tr>
+<tr><td>CLASP</td><td>Secure Software</td><td>역할 중심, 경량 프로세스</td></tr>
+<tr><td>BSIMM</td><td>Synopsys</td><td>업계 벤치마크 기반 성숙도 측정</td></tr>
+</table>
+</li>
+<li><strong>단계별 보안 활동</strong>:<ul>
+<li><strong>요구사항</strong>: 보안 요구사항 정의, 위협 모델링</li>
+<li><strong>설계</strong>: 보안 아키텍처 검토, 공격 표면 분석</li>
+<li><strong>구현</strong>: 시큐어 코딩, 코드 리뷰</li>
+<li><strong>테스트</strong>: SAST, DAST, 침투 테스트</li>
+<li><strong>배포</strong>: 구성 검토, 패치 관리</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 보안 결함은 개발 후 발견할수록 수정 비용이 기하급수적으로 증가하므로(Shift Left 원칙), 요구사항/설계 단계에서의 위협 모델링이 가장 비용 효율적임</li>
+</ul>
+
+</body>
+</html>

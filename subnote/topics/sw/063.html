@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-1. 소프트웨어 아키텍처 모델</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-1. 소프트웨어 아키텍처 모델</h4>
+<ul>
+<li><strong>정의</strong>: 소프트웨어 시스템의 구조·동작·특성을 추상화하여 표현하는 공식적 또는 반공식적 표현 방식</li>
+<li><strong>키워드</strong>: 4+1 뷰, C4 모델, ADL(Architecture Description Language), 컴포넌트·커넥터</li>
+<li><strong>분류</strong>: 소프트웨어 아키텍처</li>
+<li><strong>4+1 뷰 모델 (Kruchten)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;논개프물유&gt;</strong></span><table>
+<tr><th>뷰</th><th>관점</th><th>주요 UML 다이어그램</th></tr>
+<tr><td>논리 뷰 (Logical)</td><td>기능·설계 구조</td><td>클래스, 순차 다이어그램</td></tr>
+<tr><td>개발 뷰 (Development)</td><td>코드·모듈 구조</td><td>컴포넌트, 패키지 다이어그램</td></tr>
+<tr><td>프로세스 뷰 (Process)</td><td>런타임 동작·동시성</td><td>활동, 상태 다이어그램</td></tr>
+<tr><td>물리 뷰 (Physical)</td><td>배포·하드웨어 구성</td><td>배치 다이어그램</td></tr>
+<tr><td>Usecase(시나리오) (+1)</td><td>유즈케이스로 뷰 통합 검증</td><td>유즈케이스 다이어그램</td></tr>
+</table>
+</li>
+<li><strong>C4 모델 (Simon Brown)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;텍테포코&gt;</strong></span><table>
+<tr><th>레벨</th><th>표현 대상</th><th>대상 독자</th></tr>
+<tr><td>Context (시스템 컨텍스트)</td><td>시스템과 사용자·외부 시스템 관계</td><td>모든 이해관계자</td></tr>
+<tr><td>Container (컨테이너)</td><td>애플리케이션·데이터 저장소 배치</td><td>기술 책임자</td></tr>
+<tr><td>Component (컴포넌트)</td><td>컨테이너 내부 주요 구성 요소</td><td>개발자·아키텍트</td></tr>
+<tr><td>Code (코드)</td><td>클래스 수준 UML</td><td>개발자</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 4+1 뷰는 <strong>UML 기반 다중 관점</strong>으로 전통적 아키텍처 문서화에 강점이 있고, C4 모델은 <strong>계층별 줌인(Zoom-in) 방식</strong>으로 현대 시스템의 가시화에 적합.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. 리팩토링 (Refactoring)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>4. 리팩토링 (Refactoring)</h4>
+<ul>
+<li><strong>정의</strong>: 외부 동작을 유지하면서 내부 코드 구조를 개선하여 가독성·유지보수성을 높이는 체계적인 코드 개선 활동</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>코드스멜</strong></u></span>, 외부 행위 유지, 코드 구조 개선, 점진적 개선, 자동화 테스트, 회귀 테스트</li>
+<li><strong>분류</strong>: 설계 원리/패턴</li>
+<li><strong>주요 리팩토링 기법</strong>:<table>
+<tr><th>분류</th><th>기법</th><th>핵심</th></tr>
+<tr><td><strong>메서드 정리</strong></td><td><strong>메서드 추출 (Extract Method)</strong></td><td>메서드 분리</td></tr>
+<tr><td></td><td><strong>메서드 인라인 (Inline Method)</strong></td><td>메서드 통합</td></tr>
+<tr><td></td><td><strong>임시변수 추출 (Extract Variable)</strong></td><td>표현식 명확화</td></tr>
+<tr><td></td><td><strong>알고리즘 교체 (Substitute Algorithm)</strong></td><td>알고리즘 개선</td></tr>
+<tr><td><strong>클래스 정리</strong></td><td><strong>클래스 추출 (Extract Class)</strong></td><td>클래스 분리</td></tr>
+<tr><td></td><td><strong>클래스 인라인 (Inline Class)</strong></td><td>클래스 통합</td></tr>
+<tr><td></td><td><strong>메서드 이동 (Move Method)</strong></td><td>메서드 이동</td></tr>
+<tr><td></td><td><strong>필드 이동 (Move Field)</strong></td><td>필드 이동</td></tr>
+<tr><td><strong>조건 단순화</strong></td><td><strong>조건문 분해 (Decompose Conditional)</strong></td><td>조건 분해</td></tr>
+<tr><td></td><td><strong>조건문 통합 (Consolidate Conditional)</strong></td><td>조건 통합</td></tr>
+<tr><td></td><td><strong>중첩 조건을 보호절로 대체</strong></td><td>중첩 제거</td></tr>
+<tr><td></td><td><strong>제어 플래그 제거 (Remove Control Flag)</strong></td><td>플래그 제거</td></tr>
+<tr><td><strong>상속·다형성</strong></td><td><strong>메서드 올리기 (Pull Up Method)</strong></td><td>상위 이동</td></tr>
+<tr><td></td><td><strong>메서드 내리기 (Push Down Method)</strong></td><td>하위 이동</td></tr>
+<tr><td></td><td><strong>조건문을 다형성으로 대체</strong></td><td>다형성 적용</td></tr>
+<tr><td></td><td><strong>인터페이스 추출 (Extract Interface)</strong></td><td>인터페이스 분리</td></tr>
+<tr><td><strong>데이터 구조</strong></td><td><strong>필드 캡슐화 (Encapsulate Field)</strong></td><td>캡슐화</td></tr>
+<tr><td></td><td><strong>매직넘버를 상수로 대체</strong></td><td>상수화</td></tr>
+<tr><td></td><td><strong>파라미터 객체 도입</strong></td><td>파라미터 객체화</td></tr>
+<tr><td><strong>의존성 정리</strong></td><td><strong>위임 은닉 (Hide Delegate)</strong></td><td>캡슐화 강화</td></tr>
+<tr><td></td><td><strong>상속을 위임으로 대체</strong></td><td>위임 전환</td></tr>
+<tr><td></td><td><strong>위임을 상속으로 대체</strong></td><td>상속 전환</td></tr>
+</table>
+</li>
+<li><strong>리팩토링 vs 재설계 비교</strong>:<table>
+<tr><th><strong>구분</strong></th><th><strong>리팩토링</strong></th><th><strong>재설계(Redesign)</strong></th></tr>
+<tr><td>외부 동작</td><td>유지</td><td>변경 가능</td></tr>
+<tr><td>범위</td><td>코드 구조 개선</td><td>아키텍처 변경</td></tr>
+<tr><td>위험도</td><td>낮음</td><td>높음</td></tr>
+<tr><td>전제 조건</td><td>자동화 테스트 필수</td><td>—</td></tr>
+</table>
+</li>
+<li><strong>인사이트</strong>: 리팩토링은 <strong>자동화 테스트(회귀 테스트)가 전제</strong>되어야 안전하며, 기술 부채 해소의 핵심 수단으로 코드스멜 발견 즉시 소규모로 지속 적용하는 것이 효과적.</li>
+</ul>
+
+</body>
+</html>

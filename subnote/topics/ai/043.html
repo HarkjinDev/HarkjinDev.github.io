@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6] 자연어 처리 (NLP) 및 핵심 기술</title>
+  <title>9. GNN (Graph Neural Network, 그래프 신경망)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내 여백 */
@@ -15,6 +15,47 @@
   </style>
 </head>
 <body>
-<h3 class="content-editable-leaf-rtl" contenteditable="false" data-content-editable-leaf="true" id=":r1qc:" placeholder="제목2" spellcheck="true" style='max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; font-weight: 600; font-size: 1.5em; line-height: 1.3; margin: 0px;'>[Part 6] 자연어 처리 (NLP) 및 핵심 기술</h3><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div><div class="notion-selectable notion-sub_sub_header-block" data-block-id="32f6968f-52c4-80bd-ad15-c24c9ec26cf7" dir="auto" style="width: 100%; max-width: 1088px;"><div style="display: flex; width: 100%;"><div style="width: 100%; padding-top: 22px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;">
+<h4>9. GNN (Graph Neural Network, 그래프 신경망)</h4>
+<ul>
+<li><strong>정의:</strong> 노드(Node)와 엣지(Edge)로 구성된 그래프 데이터의 복잡한 연결 관계·상호 의존성을 학습하여 분류·예측·관계 파악을 수행하는 신경망 알고리즘</li>
+<li><strong>키워드:</strong> 노드, 엣지, 인접행렬, Aggregate·Combine·Readout, GCN, GAT, GraphSAGE, 메시지 패싱</li>
+<li><strong>분류</strong>: 신경망</li>
+<li><strong>특성:</strong><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>그래프 데이터</strong></td><td>노드·엣지로 구성된 비유클리드 데이터</td><td>관계 구조 표현</td></tr>
+<tr><td><strong>인접행렬 (Adjacency Matrix)</strong></td><td>노드 간 연결 정보를 행렬로 표현</td><td>연결 구조</td></tr>
+<tr><td><strong>노드 특징행렬</strong></td><td>각 노드의 속성값을 행렬로 표현</td><td>노드 속성</td></tr>
+<tr><td><strong>메시지 패싱</strong></td><td>이웃 노드 정보를 취합·갱신하는 반복 과정</td><td>정보 전파</td></tr>
+</table>
+</li>
+<li><strong>태스크 유형:</strong><table>
+<tr><th>유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>노드 레벨</strong></td><td>각 노드에 대한 분류·회귀 문제 해결</td><td>노드 단위 예측</td></tr>
+<tr><td><strong>그래프 레벨</strong></td><td>전체 그래프에 대한 분류·회귀 문제 해결</td><td>그래프 단위 예측</td></tr>
+<tr><td><strong>엣지 레벨</strong></td><td>노드 간 연결 여부·관계 파악</td><td>링크 예측</td></tr>
+</table>
+</li>
+<li><strong>GNN 학습 절차:</strong><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 변환 (Transform)</strong></td><td>그래프를 인접행렬·노드 특징행렬로 변환</td><td>입력 구조화</td></tr>
+<tr><td><strong>2. 취합 (Aggregate)</strong></td><td>타깃 노드에 인접한 이웃 노드의 은닉 변수 정보 취합</td><td>이웃 정보 수집</td></tr>
+<tr><td><strong>3. 업데이트 (Update/Combine)</strong></td><td>타깃 노드와 이웃 노드 정보 결합하여 노드 갱신</td><td>노드 표현 갱신</td></tr>
+<tr><td><strong>4. 생성 (Readout)</strong></td><td>모든 노드 은닉 변수 결합하여 그래프 단위 표현 생성</td><td>그래프 표현 생성</td></tr>
+</table>
+</li>
+<li><strong>주요 GNN 모델:</strong><table>
+<tr><th>구분</th><th>모델</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>합성곱 기반</strong></td><td><strong>GCN (Graph Convolutional Network)</strong></td><td>스펙트럼 기반 그래프 합성곱 연산</td><td>이웃 정보 집계</td></tr>
+<tr><td></td><td><strong>GraphSAGE</strong></td><td>이웃 샘플링 기반 귀납적 표현 학습</td><td>대규모 그래프</td></tr>
+<tr><td><strong>어텐션 기반</strong></td><td><strong>GAT 
+(Graph Attention Network)</strong></td><td>이웃 노드별 어텐션 가중치 차등 적용</td><td>중요 이웃 집중</td></tr>
+<tr><td><strong>생성 기반</strong></td><td><strong>GraphVAE</strong></td><td>변분 오토인코더 기반 그래프 생성</td><td>그래프 생성</td></tr>
+<tr><td><strong>시계열 기반</strong></td><td><strong>Spatial-Temporal GNN</strong></td><td>공간·시간 상관관계 동시 학습</td><td>시공간 예측</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> GNN은 소셜 네트워크·분자·지식 그래프 등 비유클리드 구조 데이터를 효과적으로 학습하는 핵심 딥러닝 패러다임으로, Aggregate→Combine→Readout의 메시지 패싱 구조가 핵심임. 대규모 그래프의 확장성·과평활화(Over-smoothing) 문제가 실무 적용의 핵심 과제이며, 시공간 GNN과 LLM의 결합이 차세대 그래프 AI의 주요 연구 방향으로 부상하고 있음</li>
+</ul>
+<hr/>
+
 </body>
 </html>

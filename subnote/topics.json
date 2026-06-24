@@ -431,91 +431,295 @@
       },
       {
         "id": "033",
-        "name": "[Part 5] 신경망 (Neural Networks)"
+        "name": "[하위] 6-1. 생성모델의 발전"
       },
       {
         "id": "034",
-        "name": "1. 인공신경망 (ANN)"
+        "name": "[Part 5] 신경망 (Neural Networks)"
       },
       {
         "id": "035",
-        "name": "2. 활성화 함수 (Activation Function)"
+        "name": "1. 인공신경망 (ANN)"
       },
       {
         "id": "036",
-        "name": "3. 역전파 (Backpropagation)"
+        "name": "2. 활성화 함수 (Activation Function)"
       },
       {
         "id": "037",
-        "name": "4. CNN (Convolutional Neural Network)"
+        "name": "3. 역전파 (Backpropagation)"
       },
       {
         "id": "038",
-        "name": "5. RNN (Recurrent Neural Network, 순환 신경망)"
+        "name": "4. CNN (Convolutional Neural Network)"
       },
       {
         "id": "039",
-        "name": "6. SNN (Spiking Neural Network)"
+        "name": "5. RNN (Recurrent Neural Network, 순환 신경망)"
       },
       {
         "id": "040",
-        "name": "7. 은닉 마르코프 모델 (HMM, Hidden Markov Model)"
+        "name": "6. SNN (Spiking Neural Network)"
       },
       {
         "id": "041",
-        "name": "8. 시계열 딥러닝 (Time-series Deep Learning)"
+        "name": "7. 은닉 마르코프 모델 (HMM, Hidden Markov Model)"
       },
       {
         "id": "042",
-        "name": "9. GNN (Graph Neural Network, 그래프 신경망)"
+        "name": "8. 시계열 딥러닝 (Time-series Deep Learning)"
       },
       {
         "id": "043",
-        "name": "[Part 6] 자연어 처리 (NLP) 및 핵심 기술"
+        "name": "9. GNN (Graph Neural Network, 그래프 신경망)"
       },
       {
         "id": "044",
-        "name": "1. 자연어 임베딩 (NLP Embedding)"
+        "name": "[Part 6] 자연어 처리 (NLP) 및 핵심 기술"
       },
       {
         "id": "045",
-        "name": "2.워드 임베딩 (Word Embedding)"
+        "name": "1. 자연어 임베딩 (NLP Embedding)"
       },
       {
         "id": "046",
-        "name": "3. NER (Named Entity Recognition, 개체명 인식)"
+        "name": "2.워드 임베딩 (Word Embedding)"
       },
       {
         "id": "047",
-        "name": "4. TF-IDF (Term Frequency-Inverse Document Frequency)"
+        "name": "3. NER (Named Entity Recognition, 개체명 인식)"
       },
       {
         "id": "048",
-        "name": "5. Text2SQL (자연어 기반 SQL 자동 생성)"
+        "name": "4. TF-IDF (Term Frequency-Inverse Document Frequency)"
       },
       {
         "id": "049",
-        "name": "[Part 7] 생성형 AI 및 거대 언어 모델 (LLM)"
+        "name": "5. Text2SQL (자연어 기반 SQL 자동 생성)"
       },
       {
         "id": "050",
-        "name": "1. 트랜스포머 (Transformer)"
+        "name": "[Part 7] 생성형 AI 및 거대 언어 모델 (LLM)"
       },
       {
         "id": "051",
-        "name": "[하위] 1-1. Self-Attention (셀프 어텐션)"
+        "name": "1. 트랜스포머 (Transformer)"
       },
       {
         "id": "052",
-        "name": "2. 거대 언어 모델 (LLM, Large Language Model)"
+        "name": "[하위] 1-1. Self-Attention (셀프 어텐션)"
       },
       {
         "id": "053",
-        "name": "[하위] 2-1. sLLM(small Large Language Model)"
+        "name": "2. 거대 언어 모델 (LLM, Large Language Model)"
       },
       {
         "id": "054",
+        "name": "[하위] 2-1. sLLM(small Large Language Model)"
+      },
+      {
+        "id": "055",
+        "name": "[하위] 2-2. LLM 성능향상 기법"
+      },
+      {
+        "id": "056",
+        "name": "[하위] 2-3. LLM Reasoning 기법"
+      },
+      {
+        "id": "057",
         "name": "4. RAG (Retrieval-Augmented Generation, 검색 증강 생성)"
+      },
+      {
+        "id": "058",
+        "name": "5. 프롬프트 엔지니어링 (Prompt Engineering)"
+      },
+      {
+        "id": "059",
+        "name": "6. 전이학습 (Transfer Learning)"
+      },
+      {
+        "id": "060",
+        "name": "7. Fine-Tuning (파인튜닝)"
+      },
+      {
+        "id": "061",
+        "name": "8.PEFT (Parameter-Efficient Fine-Tuning, 파라미터 효율적 파인튜닝)"
+      },
+      {
+        "id": "062",
+        "name": "9. LoRA (Low-Rank Adaptation)"
+      },
+      {
+        "id": "063",
+        "name": "10. 강화학습 (Reinforcement Learning, RL)"
+      },
+      {
+        "id": "064",
+        "name": "11. RLHF / RLAIF"
+      },
+      {
+        "id": "065",
+        "name": "12. 멀티모달 (Multimodal AI)"
+      },
+      {
+        "id": "066",
+        "name": "13. MoE (Mixture of Experts, 전문가 혼합 모델)"
+      },
+      {
+        "id": "067",
+        "name": "[Part 8] 성능 평가/테스트"
+      },
+      {
+        "id": "068",
+        "name": "1. 머신러닝 성능 지표 (Performance Metrics)"
+      },
+      {
+        "id": "069",
+        "name": "[하위] 1-1. 혼동행렬 (Confusion Matrix)"
+      },
+      {
+        "id": "070",
+        "name": "[하위] 1-2. ROC 곡선 & PR 곡선"
+      },
+      {
+        "id": "071",
+        "name": "[하위] 1-3. F1-Score"
+      },
+      {
+        "id": "072",
+        "name": "2. 실루엣 계수 (Silhouette Coefficient)"
+      },
+      {
+        "id": "073",
+        "name": "3. AI 모델 테스트 기법 (소프트웨어 테스트의 확장)"
+      },
+      {
+        "id": "074",
+        "name": "[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)"
+      },
+      {
+        "id": "075",
+        "name": "[하위] 3-2. 뉴런 커버리지 테스트 (Neuron Coverage Testing)"
+      },
+      {
+        "id": "076",
+        "name": "[하위] 3-3. 안전변경 최대화 테스트 (Maximum Safe Radius Testing)"
+      },
+      {
+        "id": "077",
+        "name": "4. AI 레드 티밍 (AI Red Teaming)"
+      },
+      {
+        "id": "078",
+        "name": "[Part 9] AI 응용 및 최신 기술 트렌드"
+      },
+      {
+        "id": "079",
+        "name": "1. XAI (eXplainable AI, 설명 가능한 인공지능)"
+      },
+      {
+        "id": "080",
+        "name": "2. 에이전틱 AI (Agentic AI)"
+      },
+      {
+        "id": "081",
+        "name": "3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)"
+      },
+      {
+        "id": "082",
+        "name": "4. 컨텍스트 엔지니어링 (Context Engineering)"
+      },
+      {
+        "id": "083",
+        "name": "5. 연합학습 (Federated Learning)"
+      },
+      {
+        "id": "084",
+        "name": "6. Physical AI (피지컬 AI)"
+      },
+      {
+        "id": "085",
+        "name": "7. 양자 머신러닝 (QML, Quantum Machine Learning)"
+      },
+      {
+        "id": "086",
+        "name": "8. 터보퀀트 (TurboQuant)"
+      },
+      {
+        "id": "087",
+        "name": "9. Affective AI (감성 AI)"
+      },
+      {
+        "id": "088",
+        "name": "[Part 10] AI 운영 및 실무 응용"
+      },
+      {
+        "id": "089",
+        "name": "1. 머신러닝 모델링 & 파이프라인"
+      },
+      {
+        "id": "090",
+        "name": "2. MLOps (Machine Learning Operations)"
+      },
+      {
+        "id": "091",
+        "name": "3. AI 실무 응용 (산업별 특화 토픽)"
+      },
+      {
+        "id": "092",
+        "name": "4. AX(AI Transformer)"
+      },
+      {
+        "id": "093",
+        "name": "[Part 11] AI 윤리, 거버넌스 및 법제도"
+      },
+      {
+        "id": "094",
+        "name": "1. AI 윤리 (AI Ethics) 및 신뢰성"
+      },
+      {
+        "id": "095",
+        "name": "[하위] 1-1. 인공지능신뢰성(Trustworthiness)"
+      },
+      {
+        "id": "096",
+        "name": "[하위] 1-2. AI 신뢰성 인증제도(Certification of AI Trustworthiness, CAT)"
+      },
+      {
+        "id": "097",
+        "name": "2. AI 거버넌스 (AI Governance)"
+      },
+      {
+        "id": "098",
+        "name": "[하위] 2-1. ISO/IEC 42001 (인공지능 경영시스템)"
+      },
+      {
+        "id": "099",
+        "name": "[하위] 2-2. AI RMF (AI Risk Management Framework)"
+      },
+      {
+        "id": "100",
+        "name": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)"
+      },
+      {
+        "id": "101",
+        "name": "3. AI 법적 이슈"
+      },
+      {
+        "id": "102",
+        "name": "[하위] 3-1. 인공지능 저작권 이슈"
+      },
+      {
+        "id": "103",
+        "name": "4. EU AI Act (유럽연합 인공지능법)"
+      },
+      {
+        "id": "104",
+        "name": "5. AI 생성물 워터마크 (AI-Generated Content Watermark)"
+      },
+      {
+        "id": "105",
+        "name": "6. 인공지능 영향평가"
       }
     ]
   },
@@ -694,6 +898,438 @@
       {
         "id": "043",
         "name": "5. DDoS (Distributed Denial of Service)"
+      },
+      {
+        "id": "044",
+        "name": "[하위] 5-1. DDoS 사이버대피소"
+      },
+      {
+        "id": "045",
+        "name": "6. SSL (Secure Sockets Layer)"
+      },
+      {
+        "id": "046",
+        "name": "7. TLS (Transport Layer Security)"
+      },
+      {
+        "id": "047",
+        "name": "8. SIEM (Security Information & Event Management)"
+      },
+      {
+        "id": "048",
+        "name": "[하위] 8-1. UEBA(User and Entity Behavior Analytics)"
+      },
+      {
+        "id": "049",
+        "name": "9. SOAR (Security Orchestration, Automation and Response)"
+      },
+      {
+        "id": "050",
+        "name": "10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)"
+      },
+      {
+        "id": "051",
+        "name": "11. XDR (Extended Detection and Response, 확장 탐지 및 대응)"
+      },
+      {
+        "id": "052",
+        "name": "[Part 5] 시스템/SW 보안"
+      },
+      {
+        "id": "053",
+        "name": "1. Secure SDLC (보안 소프트웨어 개발 생명주기)"
+      },
+      {
+        "id": "054",
+        "name": "2. 시큐어 코딩 (Secure Coding)"
+      },
+      {
+        "id": "055",
+        "name": "3. OWASP (Open Web Application Security Project)"
+      },
+      {
+        "id": "056",
+        "name": "4. 공급망 보안 (Supply Chain Security)"
+      },
+      {
+        "id": "057",
+        "name": "4. 공급망 보안 (Supply Chain Security)"
+      },
+      {
+        "id": "058",
+        "name": "5. 공급망 사이버보안 위험관리 (C-SCRM, Cyber Supply Chain Risk Management)"
+      },
+      {
+        "id": "059",
+        "name": "6. SBOM (Software Bill of Materials)"
+      },
+      {
+        "id": "060",
+        "name": "7. Secure OS (보안 운영체제)"
+      },
+      {
+        "id": "061",
+        "name": "[Part 6] 위협/공격"
+      },
+      {
+        "id": "062",
+        "name": "1. 버퍼 오버플로우 (Buffer Overflow)"
+      },
+      {
+        "id": "063",
+        "name": "2. 포맷 스트링 공격 (Format String Attack)"
+      },
+      {
+        "id": "064",
+        "name": "3. 레이스 컨디션 (Race Condition)"
+      },
+      {
+        "id": "065",
+        "name": "[하위] 3-1. TOCTOU (Time Of Check Time Of Use)"
+      },
+      {
+        "id": "066",
+        "name": "4. 인젝션 (Injection)"
+      },
+      {
+        "id": "067",
+        "name": "5. XSS (Cross-Site Scripting)"
+      },
+      {
+        "id": "068",
+        "name": "6. CSRF (Cross-Site Request Forgery)"
+      },
+      {
+        "id": "069",
+        "name": "7. SSRF (Server-Side Request Forgery)"
+      },
+      {
+        "id": "070",
+        "name": "8. 공격 벡터 (Attack Vector)"
+      },
+      {
+        "id": "071",
+        "name": "9. 공격 표면 (Attack Surface)"
+      },
+      {
+        "id": "072",
+        "name": "[하위] 9-1. CTEM (Continuous Threat Exposure Management)"
+      },
+      {
+        "id": "073",
+        "name": "10. APT (Advanced Persistent Threat)"
+      },
+      {
+        "id": "074",
+        "name": "11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)"
+      },
+      {
+        "id": "075",
+        "name": "12. 사이버 킬 체인 (Cyber Kill Chain)"
+      },
+      {
+        "id": "076",
+        "name": "[하위] 12-1. STRIDE 위협 모델링(Microsoft)"
+      },
+      {
+        "id": "077",
+        "name": "13. MITRE ATT&CK (Adversarial Tactics, Techniques & Common Knowledge)"
+      },
+      {
+        "id": "078",
+        "name": "[하위] 13-1. TTPs (Tactics, Techniques, and Procedures, 전술·기법·절차)"
+      },
+      {
+        "id": "079",
+        "name": "14. 랜섬웨어 (Ransomware)"
+      },
+      {
+        "id": "080",
+        "name": "[하위] 14-1. RaaS (Ransomware as a Service)"
+      },
+      {
+        "id": "081",
+        "name": "15. 사회공학 (Social Engineering)"
+      },
+      {
+        "id": "082",
+        "name": "16. 제로데이 (Zero-Day) 취약점"
+      },
+      {
+        "id": "083",
+        "name": "17. EMP 공격 (ElectroMagnetic Pulse Attack)"
+      },
+      {
+        "id": "084",
+        "name": "18. 사이버전 (Cyber Warfare)"
+      },
+      {
+        "id": "085",
+        "name": "19. 부채널 공격 (Side-Channel Attack)"
+      },
+      {
+        "id": "086",
+        "name": "19. 마이크로세그멘테이션(Microsegmentation)"
+      },
+      {
+        "id": "087",
+        "name": "20. 기타 위협"
+      },
+      {
+        "id": "088",
+        "name": "[Part 7] 디지털 포렌식"
+      },
+      {
+        "id": "089",
+        "name": "1. 디지털 포렌식 (Digital Forensics)"
+      },
+      {
+        "id": "090",
+        "name": "2. 디지털 포렌식 아티팩트 (Artifact)"
+      },
+      {
+        "id": "091",
+        "name": "3. 파일 슬랙 (File Slack)"
+      },
+      {
+        "id": "092",
+        "name": "4. 파일 카빙 (File Carving)"
+      },
+      {
+        "id": "093",
+        "name": "5. 안티포렌식 (Anti-Forensics)"
+      },
+      {
+        "id": "094",
+        "name": "6. 클라우드 포렌식 (Cloud Forensic)"
+      },
+      {
+        "id": "095",
+        "name": "7. 스마트폰 포렌식 (Smartphone Forensic)"
+      },
+      {
+        "id": "096",
+        "name": "[Part 8] 특수 보안"
+      },
+      {
+        "id": "097",
+        "name": "70. 블록체인 보안"
+      },
+      {
+        "id": "098",
+        "name": "71. 블록체인 합의 알고리즘 (Consensus Algorithm)"
+      },
+      {
+        "id": "099",
+        "name": "72. 블록체인 스마트 컨트랙트 보안"
+      },
+      {
+        "id": "100",
+        "name": "73. NFT 보안"
+      },
+      {
+        "id": "101",
+        "name": "74. IoT 보안 (IoT Security)"
+      },
+      {
+        "id": "102",
+        "name": "75. 메타버스 보안"
+      },
+      {
+        "id": "103",
+        "name": "76. 드론 보안 (Drone Security)"
+      },
+      {
+        "id": "104",
+        "name": "77. 퍼듀 모델 (Purdue Model)"
+      },
+      {
+        "id": "105",
+        "name": "78. 클라우드 보안 (Cloud Security)"
+      },
+      {
+        "id": "106",
+        "name": "79. 클라우드 보안인증 (CSAP)"
+      },
+      {
+        "id": "107",
+        "name": "80. CDR (Content Disarm & Reconstruction)"
+      },
+      {
+        "id": "108",
+        "name": "81. IEC 61508 (기능안전 표준)"
+      },
+      {
+        "id": "109",
+        "name": "82. 지능형 CCTV 스마트관제"
+      },
+      {
+        "id": "110",
+        "name": "44. CC (Common Criteria)"
+      },
+      {
+        "id": "111",
+        "name": "46. FIPS 140-2 (Federal Information Processing Standard)"
+      },
+      {
+        "id": "112",
+        "name": "47. 기밀 컴퓨팅 (Confidential Computing)"
+      },
+      {
+        "id": "113",
+        "name": "[Part 9] 양자 보안"
+      },
+      {
+        "id": "114",
+        "name": "1. 양자암호통신 (Quantum Cryptography Communication)"
+      },
+      {
+        "id": "115",
+        "name": "2. 양자내성 암호 (Post-Quantum Cryptography, PQC)"
+      },
+      {
+        "id": "116",
+        "name": "[Part 10] AI 보안"
+      },
+      {
+        "id": "117",
+        "name": "0. AI 보안"
+      },
+      {
+        "id": "118",
+        "name": "1. 적대적 공격 (Adversarial Attack)"
+      },
+      {
+        "id": "119",
+        "name": "2. 모델 전도 공격 (Model Inversion Attack)"
+      },
+      {
+        "id": "120",
+        "name": "3. 프롬프트 인젝션 (Prompt Injection)"
+      },
+      {
+        "id": "121",
+        "name": "4. Model DoS (모델 서비스 거부 공격)"
+      },
+      {
+        "id": "122",
+        "name": "5. Jailbreak (탈옥 공격)"
+      },
+      {
+        "id": "123",
+        "name": "7. MCP 보안 (Model Context Protocol Security)"
+      },
+      {
+        "id": "124",
+        "name": "8. OWASP LLM Top 10"
+      },
+      {
+        "id": "125",
+        "name": "9. ML 편향 문제 (Machine Learning Bias)"
+      },
+      {
+        "id": "126",
+        "name": "10. 다크패턴 (Dark Pattern)"
+      },
+      {
+        "id": "127",
+        "name": "[Part 11] 보안관리체계"
+      },
+      {
+        "id": "128",
+        "name": "1. 정보보호 거버넌스 (Information Security Governance)"
+      },
+      {
+        "id": "129",
+        "name": "2. ISMS-P (개인정보보호 관리체계 인증)"
+      },
+      {
+        "id": "130",
+        "name": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
+      },
+      {
+        "id": "131",
+        "name": "3. CISO (Chief Information Security Officer)"
+      },
+      {
+        "id": "132",
+        "name": "4. 사이버 복원력(Cyber Resilience)"
+      },
+      {
+        "id": "133",
+        "name": "[Part 12] 개인정보보호"
+      },
+      {
+        "id": "134",
+        "name": "1. 개인정보보호법 개정"
+      },
+      {
+        "id": "135",
+        "name": "2. 데이터 3법"
+      },
+      {
+        "id": "136",
+        "name": "3. 개인정보 비식별조치 (De-identification)"
+      },
+      {
+        "id": "137",
+        "name": "4. 익명처리 (Anonymization)"
+      },
+      {
+        "id": "138",
+        "name": "5. 가명처리 (Pseudonymization)"
+      },
+      {
+        "id": "139",
+        "name": "6. k-익명성 (k-anonymity)"
+      },
+      {
+        "id": "140",
+        "name": "7. PET (Privacy Enhancing Technology)"
+      },
+      {
+        "id": "141",
+        "name": "8. PbD (Privacy by Design)"
+      },
+      {
+        "id": "142",
+        "name": "9. 개인정보 안전성 확보조치"
+      },
+      {
+        "id": "143",
+        "name": "[하위] 9-1. 내부관리계획"
+      },
+      {
+        "id": "144",
+        "name": "10. APEC 프라이버시 9원칙"
+      },
+      {
+        "id": "145",
+        "name": "[하위] 10-1. CBPR (Cross Border Privacy Rules)"
+      },
+      {
+        "id": "146",
+        "name": "11. 마이데이터 전송 보안"
+      },
+      {
+        "id": "147",
+        "name": "12. 개인정보 전송요구권"
+      },
+      {
+        "id": "148",
+        "name": "13. 자동화 의사결정 대응권"
+      },
+      {
+        "id": "149",
+        "name": "14. AI 개인정보보호 자율점검표"
+      },
+      {
+        "id": "150",
+        "name": "15. CCTV 개인영상정보 보호"
+      },
+      {
+        "id": "151",
+        "name": "16. 개인정보 보호 법률 체계"
       }
     ]
   },
@@ -1214,6 +1850,338 @@
       {
         "id": "053",
         "name": "[하위] 2-3. fan-in / fan-out"
+      },
+      {
+        "id": "054",
+        "name": "3. 디자인 패턴 (Design Pattern)"
+      },
+      {
+        "id": "055",
+        "name": "4. 리팩토링 (Refactoring)"
+      },
+      {
+        "id": "056",
+        "name": "[하위] 4-1. 코드스멜 (Code Smell)"
+      },
+      {
+        "id": "057",
+        "name": "5. 소프트웨어 3R (Reverse/Re-engineering/Reuse)"
+      },
+      {
+        "id": "058",
+        "name": "[하위] 5-1. 역공학 (Reverse Engineering)"
+      },
+      {
+        "id": "059",
+        "name": "[하위] 5-2. 재공학 (Re-engineering)"
+      },
+      {
+        "id": "060",
+        "name": "6. MVC 패턴 (Model View Controller)"
+      },
+      {
+        "id": "061",
+        "name": "[Part 6]. 소프트웨어 아키텍처"
+      },
+      {
+        "id": "062",
+        "name": "1. 소프트웨어 아키텍처"
+      },
+      {
+        "id": "063",
+        "name": "[하위] 1-1. 소프트웨어 아키텍처 모델"
+      },
+      {
+        "id": "064",
+        "name": "[하위] 1-2. 소프트웨어 아키텍처 드라이버"
+      },
+      {
+        "id": "065",
+        "name": "[하위] 1-3. 소프트웨어 아키텍처 분석"
+      },
+      {
+        "id": "066",
+        "name": "[하위] 1-4. 소프트웨어 아키텍처 정방향/역방향 분석"
+      },
+      {
+        "id": "067",
+        "name": "[하위] 1-5. ATAM (Architecture Trade-off Analysis Method)"
+      },
+      {
+        "id": "068",
+        "name": "[하위] 1-6. CBAM (Cost Benefit Analysis Method)"
+      },
+      {
+        "id": "069",
+        "name": "[하위] 1-7. 아키텍처 스타일 (Architecture Style)"
+      },
+      {
+        "id": "070",
+        "name": "2. 모놀리스 아키텍처 (Monolith Architecture)"
+      },
+      {
+        "id": "071",
+        "name": "3. 마이크로 서비스 아키텍처 (MSA, Micro service Architecture)"
+      },
+      {
+        "id": "072",
+        "name": "[하위] 3-1. 서비스 메쉬 (Service Mesh)"
+      },
+      {
+        "id": "073",
+        "name": "[하위] 3-2. SAGA 패턴 (SAGA Pattern)"
+      },
+      {
+        "id": "074",
+        "name": "[하위] 3-3. 클린 아키텍처 (Clean Architecture)"
+      },
+      {
+        "id": "075",
+        "name": "4. TA (Technical Architect)"
+      },
+      {
+        "id": "076",
+        "name": "[하위] 4-1. AA (Application Architect)"
+      },
+      {
+        "id": "077",
+        "name": "[하위] 4-2. TA vs AA 비교"
+      },
+      {
+        "id": "078",
+        "name": "[Part 7]. 테스트(Test)"
+      },
+      {
+        "id": "079",
+        "name": "1. 소프트웨어 테스트 원리"
+      },
+      {
+        "id": "080",
+        "name": "[하위] 1-1. V-Model"
+      },
+      {
+        "id": "081",
+        "name": "2. 동적 테스트 (Dynamic Test)"
+      },
+      {
+        "id": "082",
+        "name": "[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반"
+      },
+      {
+        "id": "083",
+        "name": "[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반"
+      },
+      {
+        "id": "084",
+        "name": "[하위] 2-3. 경험기반 테스트"
+      },
+      {
+        "id": "085",
+        "name": "5. 통합테스트 (Integration Test)"
+      },
+      {
+        "id": "086",
+        "name": "[하위] 5-1. 테스트 스텁 (Test Stub)"
+      },
+      {
+        "id": "087",
+        "name": "[하위] 5-2. 테스트 드라이버 (Test Driver)"
+      },
+      {
+        "id": "088",
+        "name": "6. 테스트 커버리지 (Test Coverage)"
+      },
+      {
+        "id": "089",
+        "name": "[하위] 6-1. 코드 커버리지 (Code Coverage)"
+      },
+      {
+        "id": "090",
+        "name": "7. 테스트 오라클(Test Oracle)"
+      },
+      {
+        "id": "091",
+        "name": "8. 인스펙션 (Inspection)"
+      },
+      {
+        "id": "092",
+        "name": "9. 회귀 테스트 (Regression Test)"
+      },
+      {
+        "id": "093",
+        "name": "10. 뮤테이션 테스트 (Mutation Test)"
+      },
+      {
+        "id": "094",
+        "name": "11. 몽키 테스트 (Monkey Test)"
+      },
+      {
+        "id": "095",
+        "name": "12. 카오스 테스트 (Chaos Test)"
+      },
+      {
+        "id": "096",
+        "name": "13. 신뢰성 테스트 (Reliability Test)"
+      },
+      {
+        "id": "097",
+        "name": "[하위] 13-1. 소프트웨어 신뢰성 성장 모델 (SRGM, Software Reliability Growth Model)"
+      },
+      {
+        "id": "098",
+        "name": "14. 이식성 테스트 (Portability Test)"
+      },
+      {
+        "id": "099",
+        "name": "15. 사용성 테스트(UT, Usability Testing)"
+      },
+      {
+        "id": "100",
+        "name": "16. 소프트웨어 성능테스트(Performance Test)"
+      },
+      {
+        "id": "101",
+        "name": "17. 사용자 테스트(User & Acceptance Test)"
+      },
+      {
+        "id": "102",
+        "name": "18. 소프트웨어 품질성능 평가시험(BMT, Benchmark Test)"
+      },
+      {
+        "id": "103",
+        "name": "[하위] 18-1. PoC(Proof of Concept)"
+      },
+      {
+        "id": "104",
+        "name": "[하위] 18-2. Pilot Test(PT)"
+      },
+      {
+        "id": "105",
+        "name": "19. 소프트웨어 테스트 자동화(Test Automation)"
+      },
+      {
+        "id": "106",
+        "name": "20. 임베디드 소프트웨어 테스트 (Embedded SW Test)"
+      },
+      {
+        "id": "107",
+        "name": "21. 패키지 소프트웨어 테스트"
+      },
+      {
+        "id": "108",
+        "name": "22. 적대적 테스트(Adversarial Testing)"
+      },
+      {
+        "id": "109",
+        "name": "[Part 8]. 형상관리/배포"
+      },
+      {
+        "id": "110",
+        "name": "1. 형상관리 (Configuration Management)"
+      },
+      {
+        "id": "111",
+        "name": "[하위] 1-1. 기준선 (Baseline)"
+      },
+      {
+        "id": "112",
+        "name": "[하위] 1-2. ALM (Application Lifecycle Management)"
+      },
+      {
+        "id": "113",
+        "name": "2. DevOps (Development and Operations)"
+      },
+      {
+        "id": "114",
+        "name": "[하위] 2-1. CI/CD (Continuous Integration / Continuous Deployment)"
+      },
+      {
+        "id": "115",
+        "name": "[하위] 2-2. DevSecOps (Development, Security and Operations)"
+      },
+      {
+        "id": "116",
+        "name": "[하위] 2-3. 데이터옵스 (DataOps)"
+      },
+      {
+        "id": "117",
+        "name": "[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)"
+      },
+      {
+        "id": "118",
+        "name": "[하위] 2-5. 플랫폼 엔지니어링 (Platform Engineering)"
+      },
+      {
+        "id": "119",
+        "name": "3. 배포 전략 (Deployment Strategy)"
+      },
+      {
+        "id": "120",
+        "name": "[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)"
+      },
+      {
+        "id": "121",
+        "name": "4. 리버스 프록시 (Reverse Proxy)"
+      },
+      {
+        "id": "122",
+        "name": "5. 로드밸런싱 (Load Balancing)"
+      },
+      {
+        "id": "123",
+        "name": "6. 워크플로우 관리 (Workflow Management)"
+      },
+      {
+        "id": "124",
+        "name": "7. 백필 (Backfill)"
+      },
+      {
+        "id": "125",
+        "name": "[Part 9]. 안전성 분석"
+      },
+      {
+        "id": "126",
+        "name": "1. 소프트웨어 안전성 진단"
+      },
+      {
+        "id": "127",
+        "name": "[하위] 1-1. FTA (Fault Tree Analysis)"
+      },
+      {
+        "id": "128",
+        "name": "[하위] 1-2. FMEA (Failure Mode and Effects Analysis)"
+      },
+      {
+        "id": "129",
+        "name": "[하위] 1-3. HAZOP (Hazard and Operability Analysis)"
+      },
+      {
+        "id": "130",
+        "name": "[하위] 1-4. ETA (Event Tree Analysis)"
+      },
+      {
+        "id": "131",
+        "name": "[하위] 1-5. STPA (System Theoretic Process Analysis)"
+      },
+      {
+        "id": "132",
+        "name": "[Part 10]. 오픈소스"
+      },
+      {
+        "id": "133",
+        "name": "1. 오픈소스 (Open Source)"
+      },
+      {
+        "id": "134",
+        "name": "2. 오픈소스 라이선스 (Open Source License)"
+      },
+      {
+        "id": "135",
+        "name": "[하위] 2-1. 오픈소스 라이선스 변화"
+      },
+      {
+        "id": "136",
+        "name": "3. 오픈소스 프로젝트관리 소프트웨어"
       }
     ]
   },
@@ -2250,6 +3218,226 @@
       {
         "id": "074",
         "name": "[하위] 5-2. RACI(Responsible, Accountable, Consult, Inform) 차트"
+      },
+      {
+        "id": "075",
+        "name": "6. 프로젝트 의사소통 관리(Communication Management)"
+      },
+      {
+        "id": "076",
+        "name": "7. 프로젝트 위험관리 (Project Risk Management)"
+      },
+      {
+        "id": "077",
+        "name": "[하위] 7-1. 리스크 대응 (Risk Response)"
+      },
+      {
+        "id": "078",
+        "name": "8. 프로젝트 원가관리"
+      },
+      {
+        "id": "079",
+        "name": "[하위] 8-1. 획득가치관리 (EVM, Earned Value Management)"
+      },
+      {
+        "id": "080",
+        "name": "9. 프로젝트 조달관리"
+      },
+      {
+        "id": "081",
+        "name": "10. 프로젝트 이해관계자 관리(Stakeholder Management)"
+      },
+      {
+        "id": "082",
+        "name": "[Part 6]. SW 사업관리"
+      },
+      {
+        "id": "083",
+        "name": "1. 소프트웨어 비용 산정 (Software Cost Estimation)"
+      },
+      {
+        "id": "084",
+        "name": "[하위] 1-1. 기능 점수(FP, Function Point)"
+      },
+      {
+        "id": "085",
+        "name": "[하위] 1-2. COCOMO II (Post-Architecture Model)"
+      },
+      {
+        "id": "086",
+        "name": "2. 협상에 의한 계약체결"
+      },
+      {
+        "id": "087",
+        "name": "3. 제안 요청서(RFP, Request for Proposal)"
+      },
+      {
+        "id": "088",
+        "name": "4. 제안서 평가 세부기준 (SW사업 제안서 평가)"
+      },
+      {
+        "id": "089",
+        "name": "5. 소프트웨어 발주"
+      },
+      {
+        "id": "090",
+        "name": "[하위] 5-1. 단계별 발주제도"
+      },
+      {
+        "id": "091",
+        "name": "[하위] 5-2. 분할 발주제도"
+      },
+      {
+        "id": "092",
+        "name": "6. SW사업 과업심의위원회"
+      },
+      {
+        "id": "093",
+        "name": "7. 소프트웨어 기술자 직무제"
+      },
+      {
+        "id": "094",
+        "name": "8. 공공SW사업 영향평가제"
+      },
+      {
+        "id": "095",
+        "name": "[Part 7]. 감리/PMO"
+      },
+      {
+        "id": "096",
+        "name": "1. 정보시스템 감리"
+      },
+      {
+        "id": "097",
+        "name": "2. PMO (Project Management Office)"
+      },
+      {
+        "id": "098",
+        "name": "[하위] 2-1. 공공 정보화 사업 PMO(Project Management Office)"
+      },
+      {
+        "id": "099",
+        "name": "3. 상주감리"
+      },
+      {
+        "id": "100",
+        "name": "4. 운영 감리"
+      },
+      {
+        "id": "101",
+        "name": "5. 유지보수 감리"
+      },
+      {
+        "id": "102",
+        "name": "7. 클라우드 전환 감리"
+      },
+      {
+        "id": "103",
+        "name": "[Part 8]. 서비스 관리"
+      },
+      {
+        "id": "104",
+        "name": "1. ITSM (IT Service Management)"
+      },
+      {
+        "id": "105",
+        "name": "2. ISO/IEC 20000 (IT 서비스 관리)"
+      },
+      {
+        "id": "106",
+        "name": "3. ITIL 4.0(IT Infrastructure Library)"
+      },
+      {
+        "id": "107",
+        "name": "4. IT아웃소싱 (IT Outsourcing)"
+      },
+      {
+        "id": "108",
+        "name": "5. SOW (Statement of Work)"
+      },
+      {
+        "id": "109",
+        "name": "6. SLA (Service Level Agreement)"
+      },
+      {
+        "id": "110",
+        "name": "[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)"
+      },
+      {
+        "id": "111",
+        "name": "7. SLM (Service Level Management)"
+      },
+      {
+        "id": "112",
+        "name": "[Part 9]. 연속성"
+      },
+      {
+        "id": "113",
+        "name": "1. BCP (Business Continuity Planning)"
+      },
+      {
+        "id": "114",
+        "name": "2. BIA(Business Impact Analysis)"
+      },
+      {
+        "id": "115",
+        "name": "3. DRS (Disaster Recovery System)"
+      },
+      {
+        "id": "116",
+        "name": "[Part 10]. ESG/윤리/정책"
+      },
+      {
+        "id": "117",
+        "name": "1. ESG 경영 (Environment, Social, Governance)"
+      },
+      {
+        "id": "118",
+        "name": "2. 데이터 주권 (Data Sovereignty)"
+      },
+      {
+        "id": "119",
+        "name": "3. 정보윤리 (Information Ethics)"
+      },
+      {
+        "id": "120",
+        "name": "4. 지식 재산권(Intellectual Property Rights)"
+      },
+      {
+        "id": "121",
+        "name": "5. 전자정부 평가(EGDI)"
+      },
+      {
+        "id": "122",
+        "name": "6. 디지털세 (Digital Tax)"
+      },
+      {
+        "id": "123",
+        "name": "[Part 11]. 마케팅/트렌드"
+      },
+      {
+        "id": "124",
+        "name": "1. 화이트 레이블 마케팅 (White Label Marketing)"
+      },
+      {
+        "id": "125",
+        "name": "[하위] 1-1. 블랙 레이블 마케팅 (Black Label Marketing)"
+      },
+      {
+        "id": "126",
+        "name": "2. 그로스 해킹 (Growth Hacking)"
+      },
+      {
+        "id": "127",
+        "name": "3. 의도 경제(Intention Economy)"
+      },
+      {
+        "id": "128",
+        "name": "4. 고객 경험 관리 (CEM, Customer Experience Management)"
+      },
+      {
+        "id": "129",
+        "name": "[하위] 4-1. 고객 여정 맵(Customer Journey Map)"
       }
     ]
   },
@@ -2500,6 +3688,218 @@
       {
         "id": "061",
         "name": "6. 커넥티드카 (Connected Car)"
+      },
+      {
+        "id": "062",
+        "name": "7. 측위 기술"
+      },
+      {
+        "id": "063",
+        "name": "[Part 6]. 핀테크/금융"
+      },
+      {
+        "id": "064",
+        "name": "1. 오픈뱅킹 (Open Banking)"
+      },
+      {
+        "id": "065",
+        "name": "2. 인슈어테크 (InsurTech)"
+      },
+      {
+        "id": "066",
+        "name": "3. 레그테크 (RegTech, Regulatory Technology)"
+      },
+      {
+        "id": "067",
+        "name": "4. 디파이 (DeFi, Decentralized Finance)"
+      },
+      {
+        "id": "068",
+        "name": "5. FDS (Fraud Detection System)"
+      },
+      {
+        "id": "069",
+        "name": "6. 중앙은행 디지털 화폐 (CBDC, Central Bank Digital Currency)"
+      },
+      {
+        "id": "070",
+        "name": "7. 스테이블코인 (Stablecoin)"
+      },
+      {
+        "id": "071",
+        "name": "8. 블록체인 (Blockchain)"
+      },
+      {
+        "id": "072",
+        "name": "[하위] 8-1. 블록체인 합의 알고리즘"
+      },
+      {
+        "id": "073",
+        "name": "[하위] 8-2. 블록체인 트릴레마(Blockchain Trilemma)"
+      },
+      {
+        "id": "074",
+        "name": "[Part 7]. 데이터 경제"
+      },
+      {
+        "id": "075",
+        "name": "1. 데이터 커머스 (Data Commerce)"
+      },
+      {
+        "id": "076",
+        "name": "2. 데이터 가치평가 (Data Valuation)"
+      },
+      {
+        "id": "077",
+        "name": "[하위] 2-1. 데이터 자산화"
+      },
+      {
+        "id": "078",
+        "name": "3. 데이터 거래소 (Data Exchange)"
+      },
+      {
+        "id": "079",
+        "name": "[Part 8]. XR/메타버스"
+      },
+      {
+        "id": "080",
+        "name": "1. 가상현실 (VR, Virtual Reality)"
+      },
+      {
+        "id": "081",
+        "name": "2. 가상융합기술 (XR, eXtended Reality)"
+      },
+      {
+        "id": "082",
+        "name": "3. 증강현실 (AR, Augmented Reality)"
+      },
+      {
+        "id": "083",
+        "name": "4. 메타버스 (Metaverse)"
+      },
+      {
+        "id": "084",
+        "name": "[하위] 4-1. 메타버스 윤리원칙"
+      },
+      {
+        "id": "085",
+        "name": "5. 공간 컴퓨팅 (Spatial Computing)"
+      },
+      {
+        "id": "086",
+        "name": "6. GIS (Geographic Information System, 지리정보시스템)"
+      },
+      {
+        "id": "087",
+        "name": "[Part 9]. 앱/서비스 트렌드"
+      },
+      {
+        "id": "088",
+        "name": "1. 슈퍼앱 (Super App)"
+      },
+      {
+        "id": "089",
+        "name": "2. 미니앱 (Mini App)"
+      },
+      {
+        "id": "090",
+        "name": "3. 멀티앱 (Multi App)"
+      },
+      {
+        "id": "091",
+        "name": "4. 앰비언트 컴퓨팅 (Ambient Computing)"
+      },
+      {
+        "id": "092",
+        "name": "5. 앰비언트 커머스 (Ambient Commerce)"
+      },
+      {
+        "id": "093",
+        "name": "6. 웹3.0 (Web 3.0)"
+      },
+      {
+        "id": "094",
+        "name": "7. NFT (Non-Fungible Token)"
+      },
+      {
+        "id": "095",
+        "name": "8. 3D 프린팅"
+      },
+      {
+        "id": "096",
+        "name": "9. 웨어러블 컴퓨팅 (Wearable Computing)"
+      },
+      {
+        "id": "097",
+        "name": "[Part 10]. 디지털 사회/정책"
+      },
+      {
+        "id": "098",
+        "name": "1. 전문성의 민주화 (Democratization of Expertise)"
+      },
+      {
+        "id": "099",
+        "name": "2. 행동인터넷 (IoB, Internet of Behavior)"
+      },
+      {
+        "id": "100",
+        "name": "3. 디지털 휴먼증강 (Digital Human Augmentation)"
+      },
+      {
+        "id": "101",
+        "name": "4. IT 생산성 패러독스 (Productivity Paradox)"
+      },
+      {
+        "id": "102",
+        "name": "8. 전자정부 평가 (EGDI, E-Government Development Index)"
+      },
+      {
+        "id": "103",
+        "name": "9. RE100 (Renewable Energy 100%)"
+      },
+      {
+        "id": "104",
+        "name": "[Part 11]. 미들웨어/아키텍처"
+      },
+      {
+        "id": "105",
+        "name": "1. EDA (Event Driven Architecture)"
+      },
+      {
+        "id": "106",
+        "name": "2. 메시지큐잉 (Message Queuing)"
+      },
+      {
+        "id": "107",
+        "name": "3. ELK 스택 (Elasticsearch / Logstash / Kibana)"
+      },
+      {
+        "id": "108",
+        "name": "[Part 12.] 신기술/동향"
+      },
+      {
+        "id": "109",
+        "name": "1. 2026년 가트너 10대 전략 기술 트렌드"
+      },
+      {
+        "id": "110",
+        "name": "2. 관측가능성 (Observability)"
+      },
+      {
+        "id": "111",
+        "name": "3. 온톨로지(Ontology)"
+      },
+      {
+        "id": "112",
+        "name": "4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)"
+      },
+      {
+        "id": "113",
+        "name": "5. 도심항공교통 (UAM, Urban Air Mobility)"
+      },
+      {
+        "id": "114",
+        "name": "6. 인터미턴트 컴퓨팅 (Intermittent Computing)"
       }
     ]
   },
@@ -2541,71 +3941,91 @@
       },
       {
         "id": "009",
-        "name": "7. 정보시스템 운영 성과측정 메뉴얼(17.4.)"
+        "name": "7. 정보시스템 운영 성과측정 메뉴얼(25.11.)"
       },
       {
         "id": "010",
-        "name": "[Part 2] 법/제도"
+        "name": "8. 생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드(26. 5.)"
       },
       {
         "id": "011",
-        "name": "1. 디지털 권리장전"
+        "name": "9. 금융 AI 가이드라인(26.6.)"
       },
       {
         "id": "012",
-        "name": "2. 디지털 포용법"
+        "name": "10. 정보화 투자관리 가이드(2026.5)"
       },
       {
         "id": "013",
-        "name": "3. 정보보호 제품 신속 확인 제도"
+        "name": "[Part 2] 법/제도"
       },
       {
         "id": "014",
-        "name": "4. 정보보호 공시제도"
+        "name": "1. 디지털 권리장전"
       },
       {
         "id": "015",
-        "name": "5. 소프트웨어 영향평가"
+        "name": "2. 디지털 포용법"
       },
       {
         "id": "016",
-        "name": "[Part 3] 표준"
+        "name": "3. 정보보호 제품 신속 확인 제도"
       },
       {
         "id": "017",
-        "name": "1. ISO 31000 (리스크관리)"
+        "name": "4. 정보보호 공시제도"
       },
       {
         "id": "018",
-        "name": "2. ISO 14000 (환경경영체제)"
+        "name": "5. 소프트웨어 영향평가"
       },
       {
         "id": "019",
-        "name": "3. ISO/IEC 27001"
+        "name": "[Part 3] 표준"
       },
       {
         "id": "020",
-        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
+        "name": "1. ISO 31000 (리스크관리)"
       },
       {
         "id": "021",
-        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
+        "name": "2. ISO 14000 (환경경영체제)"
       },
       {
         "id": "022",
-        "name": "6. ISO 42001:2023"
+        "name": "3. ISO/IEC 27001"
       },
       {
         "id": "023",
-        "name": "[Part 4] 지침"
+        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
       },
       {
         "id": "024",
-        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
+        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
       },
       {
         "id": "025",
+        "name": "6. ISO 42001:2023"
+      },
+      {
+        "id": "026",
+        "name": "7. ISO/IEC 25059:2023"
+      },
+      {
+        "id": "027",
+        "name": "[Part 4] 지침"
+      },
+      {
+        "id": "028",
+        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
+      },
+      {
+        "id": "029",
         "name": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+      },
+      {
+        "id": "030",
+        "name": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
       }
     ]
   }

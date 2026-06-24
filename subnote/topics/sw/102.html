@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18. 소프트웨어 품질성능 평가시험(BMT, Benchmark Test)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>18. 소프트웨어 품질성능 평가시험(BMT, Benchmark Test)</h4>
+<ul>
+<li><strong>정의: </strong>동종 제품간 기능 및 성능 평가 통해 우수한 제품 평가 시험</li>
+<li><strong>키워드:</strong> SW법 제55조, BMT, TTA, 변별력, 사전규격, 객관성, 공정성, 우선협상대상자</li>
+<li><strong>법적근거: </strong>소프트웨어 진흥법 제55조(상용소프트웨어 품질성능 평가시험)</li>
+<li><strong>대상:</strong><ul>
+<li>직접구매 대상 상용SW 제품 중 1억원 이상(대상분야 34종)</li>
+<li>총 사업 3억이상 사업의 구매금액 2억원 이상 SW제품</li>
+<li>국가기관등이 필요하다고 판단하는 경우</li>
+<li><strong>제외대상:</strong> 조달청 종합쇼핑몰 구매 및 직접구매 대상 제외를 받은 SW</li>
+</ul>
+</li>
+<li>절차:<table>
+<tr><th><strong>단계</strong></th><th><strong>주요 활동</strong></th><th><strong>주요 산출물 및 비고</strong></th></tr>
+<tr><td><strong>1. 평가시험 대상 검토</strong></td><td>분리발주 대상 SW 및 BMT 의무화 대상 여부 확인</td><td>법적 의무 준수 검토</td></tr>
+<tr><td><strong>2. 사전협의</strong></td><td>BMT 실시 여부 및 제외 대상(유일 제품 등) 협의</td><td>제외 및 실시 확정</td></tr>
+<tr><td><strong>3. 평가시험 설계</strong></td><td>평가 항목 개발, 테스트 시나리오 수립, 인프라 환경 구성</td><td>평가 항목/환경 구성서</td></tr>
+<tr><td><strong>4. 조달발주</strong></td><td>조달청 사전규격 공개 및 입찰공고 절차 진행</td><td>사전규격공고서</td></tr>
+<tr><td><strong>5. 평가시험 의뢰</strong></td><td>공인 시험기관(TTA 등) 또는 자체 평가위원회에 시험 요청</td><td>BMT 의뢰서</td></tr>
+<tr><td><strong>6. 평가시험 실시</strong></td><td>구성된 환경에서 시나리오에 따른 기능 및 성능 측정</td><td>BMT 결과서</td></tr>
+<tr><td><strong>7. 평가시험 결과 반영</strong></td><td>BMT 점수와 가격 점수를 합산하여 최종 순위 결정</td><td>우선협상대상자 선정 / 계약서</td></tr>
+</table>
+</li>
+<li><strong>비교표:  PoC → BMT → Pilot Test</strong><table>
+<tr><th><strong>구분</strong></th><th><strong>PoC </strong></th><th><strong>BMT </strong></th><th><strong>Pilot Test</strong></th></tr>
+<tr><td><strong>핵심 개념</strong></td><td>기술적 가능성 검증</td><td>성능 및 기능 비교</td><td>소규모 선행 운영</td></tr>
+<tr><td><strong>주요 목적</strong></td><td>신기술의 구현 가능성 확인</td><td>제품 선정의 객관적 근거 확보</td><td>운영 리스크 및 변수 사전 파악</td></tr>
+<tr><td><strong>수행 시점</strong></td><td>프로젝트 초기 (도입 전)</td><td>제품 선택 및 계약 단계</td><td>개발 완료 후 (본 가동 전)</td></tr>
+<tr><td><strong>수행 대상</strong></td><td>신기술, 프로토타입, 단일 제품</td><td>2개 이상의 후보 제품군</td><td>전체 시스템 및 서비스 일부</td></tr>
+<tr><td><strong>주요 특징</strong></td><td>◦ 기술적 불확실성 제거
+◦ Reference Site 부재 시 필수</td><td>◦ 동일 환경 내 성능 변별력 확보
+◦ 조달 및 분리발주 시 활용</td><td>◦ 실환경 데이터 기반 피드백
+◦ 시행착오 최소화 및 확산 결정</td></tr>
+<tr><td><strong>결과 활용</strong></td><td>도입 여부(Go/No-Go) 결정</td><td>우선협상대상자 선정</td><td>전체 시스템 확산 및 보완</td></tr>
+</table>
+</li>
+<li>인사이트: 공공 조달의 객관성 확보, 변별력 있는 항목 구성, Shift-Left 품질 보증을 통한 위험관리 수단으로 활용</li>
+</ul>
+
+</body>
+</html>

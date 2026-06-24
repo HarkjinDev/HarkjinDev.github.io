@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. 프롬프트 엔지니어링 (Prompt Engineering)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>5. 프롬프트 엔지니어링 (Prompt Engineering)</h4>
+<ul>
+<li><strong>정의:</strong> LLM으로부터 원하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최적의 결과를 얻기 위해</strong></u></span> 입력 메시지(Prompt)를 정교하게 설계하고 최적화하는 기술</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>페르소나 설정, 명령-맥락-출력 형식</strong></u></span>, Zero-shot, Few-shot, CoT, ReAct, ToT, APE, 시스템/유저/어시스턴트 프롬프트, 온도(Temperature), 할루시네이션 제어, 프롬프트 인젝션</li>
+<li><strong>분류:</strong> 생성형 AI / LLM</li>
+<li><strong>프롬프트의 구성 요소:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;역지맥예출&gt;</strong></span><table>
+<tr><th>구성 요소</th><th>설명</th><th>예시</th></tr>
+<tr><td><strong>역할 (Role/Persona)</strong></td><td>모델이 수행할 역할 지정</td><td>"너는 10년 경력의 보안 전문가야"</td></tr>
+<tr><td><strong>지시 (Instruction)</strong></td><td>수행할 작업을 명확히 기술</td><td>"아래 코드의 취약점을 분석해줘"</td></tr>
+<tr><td><strong>맥락 (Context)</strong></td><td>배경 정보 및 제약 조건 제공</td><td>"대상은 Python 3.10 환경이야"</td></tr>
+<tr><td><strong>예시 (Examples)</strong></td><td>입출력 형태를 예시로 제시</td><td>Few-shot 예시 포함</td></tr>
+<tr><td><strong>출력 형식 (Format)</strong></td><td>결과물의 형태 명시</td><td>"JSON 형식으로 출력해줘"</td></tr>
+</table>
+</li>
+<li><strong>주요 기법:</strong><table>
+<tr><th>기법</th><th>설명</th><th>특징</th></tr>
+<tr><td><strong>Zero-shot</strong></td><td>예시 없이 명령만으로 태스크 수행</td><td>범용성 높음, 복잡한 태스크에 한계</td></tr>
+<tr><td><strong>Few-shot</strong></td><td>입출력 예시를 몇 가지 제공하여 성능 향상</td><td>예시 품질이 결과를 좌우</td></tr>
+<tr><td><strong>CoT (Chain of Thought)</strong></td><td>"단계별로 생각해봐"로 추론 과정 유도</td><td>수학·논리 문제에 효과적</td></tr>
+<tr><td><strong>Self-Consistency</strong></td><td>동일 질문에 여러 추론 경로 생성 후 다수결</td><td>CoT의 신뢰도 향상 기법</td></tr>
+<tr><td><strong>ReAct</strong></td><td>추론(Reasoning)과 행동(Action)을 교차 수행</td><td>에이전트·툴 사용에 핵심 기법</td></tr>
+<tr><td><strong>ToT (Tree of Thought)</strong></td><td>여러 추론 경로를 트리 구조로 탐색·평가</td><td>복잡한 다단계 문제 해결에 적합</td></tr>
+<tr><td><strong>APE 
+(Auto Prompt Engineer)</strong></td><td>LLM이 스스로 최적 프롬프트를 생성·평가</td><td>자동화된 프롬프트 최적화</td></tr>
+</table>
+</li>
+<li><strong>프롬프트 유형:</strong><table>
+<tr><th>구분</th><th>역할</th><th>특징</th></tr>
+<tr><td><strong>시스템 프롬프트</strong></td><td>모델의 전반적 행동·역할·제약 정의</td><td>세션 전체에 적용, 우선순위 높음</td></tr>
+<tr><td><strong>유저 프롬프트</strong></td><td>개별 요청 및 질문 입력</td><td>매 턴마다 변경 가능</td></tr>
+<tr><td><strong>어시스턴트 프롬프트</strong></td><td>이전 모델 응답을 맥락으로 포함</td><td>멀티턴 대화 흐름 제어</td></tr>
+</table>
+</li>
+<li><strong>주요 리스크:</strong><table>
+<tr><th>리스크</th><th>설명</th><th>대응 방법</th></tr>
+<tr><td><strong>프롬프트 인젝션</strong></td><td>악의적 입력으로 시스템 프롬프트 우회</td><td>입력값 검증, 샌드박스 처리</td></tr>
+<tr><td><strong>탈옥 (Jailbreak)</strong></td><td>안전 제약을 우회하도록 유도하는 프롬프트</td><td>가드레일 설정, 출력 필터링</td></tr>
+<tr><td><strong>과도한 의존</strong></td><td>프롬프트만으로 해결 불가한 구조적 한계 무시</td><td>Fine-tuning·RAG 병행 검토</td></tr>
+<tr><td><strong>프롬프트 누출</strong></td><td>시스템 프롬프트 내용이 외부에 노출</td><td>민감 정보 미포함, 접근 제어</td></tr>
+</table>
+</li>
+<li><strong>인사이트: </strong>모델 재학습 없이 성능을 끌어올리는 가장 가성비 높은 방법이며, 에이전틱 AI의 핵심 제어 수단임. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><strong>CoT → ToT → ReAct로 이어지는 기법의 진화</strong></span>는 단순 질의응답을 넘어 LLM이 스스로 추론·행동·검증하는 에이전트 패러다임의 기반이 됨. 프롬프트 인젝션·탈옥 등 보안 리스크가 증가함에 따라, 프롬프트 설계는 단순 성능 최적화를 넘어 보안 설계의 영역으로 확장되고 있음</li>
+</ul>
+
+</body>
+</html>

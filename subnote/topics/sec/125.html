@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9. ML 편향 문제 (Machine Learning Bias)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>9. ML 편향 문제 (Machine Learning Bias)</h4>
+<ul>
+<li><strong>정의:</strong> 머신러닝 모델이 학습 데이터·알고리즘·설계 과정의 편향으로 인해 특정 집단·속성에 대해 불공정하거나 차별적인 예측·결정을 내리는 문제</li>
+<li><strong>키워드:</strong> 데이터 편향, 알고리즘 공정성, 대표성 부족, 역사적 편향, 확증 편향, XAI, 공정성 지표, AI 윤리</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>편향 발생 원인:</strong><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>샘플링 편향</strong></td><td>특정 집단이 과소·과대 대표된 학습 데이터 수집</td><td>대표성 부족</td></tr>
+<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별·불평등이 반영된 데이터 그대로 학습</td><td>과거 차별 재현</td></tr>
+<tr><td></td><td><strong>레이블 편향</strong></td><td>어노테이터 주관·편견이 레이블링에 반영</td><td>주관적 레이블</td></tr>
+<tr><td></td><td><strong>측정 편향</strong></td><td>집단별 데이터 수집·측정 방식의 불일치</td><td>측정 불일치</td></tr>
+<tr><td><strong>알고리즘</strong></td><td><strong>집계 편향</strong></td><td>전체 집단 최적화 과정에서 소수 집단 성능 저하</td><td>소수 집단 소외</td></tr>
+<tr><td></td><td><strong>평가 편향</strong></td><td>편향된 기준·지표로 모델 성능 평가</td><td>잘못된 평가</td></tr>
+<tr><td></td><td><strong>피드백 루프</strong></td><td>편향된 예측이 데이터로 재입력되어 편향 증폭</td><td>편향 자기 강화</td></tr>
+<tr><td><strong>설계·운영</strong></td><td><strong>확증 편향</strong></td><td>기존 가설을 확인하는 데이터만 선택 활용</td><td>선택적 데이터</td></tr>
+<tr><td></td><td><strong>자동화 편향</strong></td><td>AI 결과를 무비판적으로 수용하는 인간 의존</td><td>맹목적 신뢰</td></tr>
+</table>
+</li>
+<li><strong>대응 방안:</strong><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>데이터 다양성 확보</strong></td><td>소수 집단 포함 균형 있는 학습 데이터 수집</td><td>대표성 확보</td></tr>
+<tr><td></td><td><strong>재샘플링·증강</strong></td><td>과소 표현 집단 데이터 증강·오버샘플링</td><td>데이터 균형화</td></tr>
+<tr><td></td><td><strong>데이터 감사</strong></td><td>학습 데이터 편향 여부 정기 검토·검증</td><td>데이터 품질 관리</td></tr>
+<tr><td><strong>모델</strong></td><td><strong>편향 완화 알고리즘</strong></td><td>학습 단계에서 공정성 제약 조건 추가</td><td>알고리즘 공정화</td></tr>
+<tr><td></td><td><strong>후처리 보정</strong></td><td>모델 출력 후 집단 간 결과 균등화 보정</td><td>출력 보정</td></tr>
+<tr><td></td><td><strong>XAI 적용</strong></td><td>모델 편향 원인·특징 중요도 투명하게 설명</td><td>편향 원인 탐지</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>편향 감사 체계</strong></td><td>정기적 모델 편향·공정성 독립 감사 수행</td><td>주기적 검증</td></tr>
+<tr><td></td><td><strong>다양성 팀 구성</strong></td><td>다양한 배경·관점의 AI 개발팀 구성</td><td>설계 단계 예방</td></tr>
+<tr><td></td><td><strong>규제 준수</strong></td><td>EU AI Act·공정성 가이드라인 준수</td><td>법적 책임 이행</td></tr>
+</table>
+</li>
+<li><strong>인사이트:</strong> ML 편향은 기술적 문제를 넘어 사회적 차별을 AI가 자동화·증폭시키는 구조적 위험으로, 데이터·알고리즘·거버넌스 3축의 통합적 대응이 필수임. 공정성 지표 간 수학적 상충 관계(Trade-off)가 존재하여 어떤 공정성 기준을 우선할지는 기술이 아닌 사회적 가치 판단의 문제이며, AI 개발 초기부터 다양성 확보와 편향 감사를 설계에 내재화하는 것이 핵심 예방 전략임</li>
+</ul>
+
+</body>
+</html>

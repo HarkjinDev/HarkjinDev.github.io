@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. MCP 보안 (Model Context Protocol Security)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>7. MCP 보안 (Model Context Protocol Security)</h4>
+<ul>
+<li><strong>정의</strong>: MCP(Model Context Protocol) 기반 AI 서비스 구축 시 발생 가능한 보안 취약점과 대응 방안</li>
+<li><strong>키워드</strong>: 프롬프트 인젝션, 도구 오염 공격, CVE-2025-6514(mcp-remote 취약점)</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>주요 취약점</strong>:<ul>
+<li><strong>프롬프트 인젝션</strong>: 외부 도구/리소스를 통한 간접 인젝션</li>
+<li><strong>도구 오염 공격(Tool Poisoning)</strong>: 악의적 MCP 서버가 안전한 도구처럼 위장</li>
+<li><strong>권한 상승</strong>: MCP 통해 과도한 권한 획득</li>
+<li><strong>CVE-2025-6514</strong>: mcp-remote의 원격 코드 실행 취약점</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: MCP 서버 출처 검증과 샌드박스 실행이 핵심 보안 원칙임</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 2-3. LLM Reasoning 기법</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내 여백 */
+    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
+    /* 이미지 반응형 */
+    img { max-width: 100% !important; height: auto !important; }
+    /* 테이블 스크롤 */
+    table { display: block; overflow-x: auto; max-width: 100%; }
+  </style>
+</head>
+<body>
+<h4>[하위] 2-3. LLM Reasoning 기법</h4>
+<ul>
+<li><strong>LLM Reasoning 기법:</strong><table>
+<tr><th>기법</th><th>설명</th><th>대표 모델/기법</th></tr>
+<tr><td>사고사슬 (CoT)</td><td>중간 추론 단계별 서술</td><td>GPT-4, PaLM</td></tr>
+<tr><td>디컴포지션 (Decomposition)</td><td>문제를 하위로 분해</td><td>Least-to-Most, Self-Ask</td></tr>
+<tr><td>메타-리즌 (Meta-Reasoning)</td><td>추론 과정 자기검토·수정</td><td>Self-Reflection, ReAct</td></tr>
+<tr><td>귀납적 추론 (Inductive Reasoning)</td><td>데이터→패턴→일반화</td><td>In-Context Learning</td></tr>
+<tr><td>상호 추론 (Mutual Reasoning)</td><td>두 모델 상호 검증</td><td>rStar(Microsoft)</td></tr>
+<tr><td>트리탐색 (Tree of Thought: ToT)</td><td>트리구조 다경로 탐색</td><td>GPT-4 + ToT</td></tr>
+<tr><td>자기일관성 (Self-Consistency)</td><td>다수 경로 중 최다 답 선택</td><td>CoT-SC</td></tr>
+<tr><td>연역적 추론 (Deductive Reasoning)</td><td>규칙→전제→결론 도출</td><td>LogiCoT</td></tr>
+<tr><td>유추 추론 (Analogical Reasoning)</td><td>유사 사례 기반 추론</td><td>Structure Mapping</td></tr>
+<tr><td>프로그램합성 (PAL)</td><td>코드로 추론 과정 표현</td><td>Program-Aided Language</td></tr>
+<tr><td>ReAct</td><td>추론+행동 반복 루프</td><td>LangChain, ReAct</td></tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>
