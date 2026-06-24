@@ -3,19 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 4] 지침</title>
+  <title>7. ISO/IEC 25059:2023</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* iframe 내 여백 */
-    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
-    /* 이미지 반응형 */
-    img { max-width: 100% !important; height: auto !important; }
-    /* 테이블 스크롤 */
-    table { display: block; overflow-x: auto; max-width: 100%; }
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h3>[Part 4] 지침</h3>
+<h4>7. ISO/IEC 25059:2023</h4>
+<ul>
+<li><strong>정의: </strong>소프트웨어 제품 품질 표준을 기반으로 AI 시스템 고유 속성인 비결정성, 데이터 의존성 등이 반영된 AI 시스템 전용 품질모델 확장 표준</li>
+<li><strong>신규 특성: </strong>기능정확성, 기능적응성, 사용자제어가능성, 투명성, 견고성, 개입가능성</li>
+<li><strong>ISO/IEC 25059 품질 모델 (ISO/IEC 25010기반, 2023):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기신상효/유연보호안&gt;</strong></span><table>
+<tr><th>구분</th><th>서브특성</th></tr>
+<tr><td>기능적합성</td><td>기능완전성, <strong>기능정확성</strong>, 기능적합성, <strong>기능적응성</strong></td></tr>
+<tr><td>성능효율성</td><td>시간효율성, 자원효율성, 용량</td></tr>
+<tr><td>호환성</td><td>공존성, 상호운용성</td></tr>
+<tr><td>사용성</td><td>적합성인식, 학습성, 운영성, 사용자오류보호, UI미학, 접근성, <strong>사용자제어가능성</strong>, <strong>투명성</strong></td></tr>
+<tr><td>신뢰성</td><td>성숙도, 가용성, 내고장성, 복구가능성, <strong>견고성</strong></td></tr>
+<tr><td>보안</td><td>기밀성, 무결성, 부인방지, 책임성, 진정성, <strong>개입가능성</strong></td></tr>
+<tr><td>유지보수성</td><td>모듈성, 재사용성, 분석성, 변경성, 시험성</td></tr>
+<tr><td>이식성</td><td>설치성, 교체가능성, 적응성</td></tr>
+</table>
+</li>
+</ul>
 
 </body>
 </html>

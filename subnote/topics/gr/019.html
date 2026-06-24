@@ -3,19 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3] 표준</title>
+  <title>5. 소프트웨어 영향평가</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* iframe 내 여백 */
-    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
-    /* 이미지 반응형 */
-    img { max-width: 100% !important; height: auto !important; }
-    /* 테이블 스크롤 */
-    table { display: block; overflow-x: auto; max-width: 100%; }
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h3>[Part 3] 표준</h3>
+<h4>5. 소프트웨어 영향평가</h4>
+<ul>
+<li><strong>정의:</strong> 공공/정부 사업 소프트웨어 개발 출시 전, 사전 민간 소프트웨어 시장 침해 검토 사전 조정 제도</li>
+<li><strong>법적근거: </strong>소프트웨어진흥법 제43조, 시행령 제35조</li>
+<li><strong>대상:</strong><table>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td><strong>대상 사업</strong></td><td>국가기관 등의 장이 발주하는 소프트웨어 기획·구축·유지관리 사업</td></tr>
+<tr><td><strong>제외 사업</strong></td><td>소프트웨어 진흥법 시행령 제36조 (소프트웨어사업 영향평가 제외 사업)</td></tr>
+<tr><td></td><td><strong>1.</strong> 상용소프트웨어 구매·설치·유지관리 사업</td></tr>
+<tr><td></td><td><strong>2.</strong> 국가안보·치안·외교 분야 관련 소프트웨어 사업</td></tr>
+<tr><td></td><td><strong>3.</strong> 민간투자형 소프트웨어사업</td></tr>
+<tr><td></td><td><strong>4.</strong> 과학기술정보통신부장관이 정하여 고시하는 소프트웨어 사업</td></tr>
+</table>
+</li>
+<li><strong>평가 기준/방법:</strong><table>
+<tr><th>구분</th><th>평가</th><th>특징</th></tr>
+<tr><td><strong>평가 기준</strong></td><td>민간SW 시장 침해 가능성</td><td>동일·유사 SW 민간 제공 여부 기재</td></tr>
+<tr><td></td><td>SW사업 필요성·공공성</td><td>민간 SW 존재 불구 사업 추진 이유</td></tr>
+<tr><td><strong>평가 방법</strong></td><td>자체평가</td><td>국가기관 영향평가 검토결과서 작성</td></tr>
+<tr><td></td><td>기술지원</td><td>산학계 해당 전문가 자문단 풀 제공</td></tr>
+</table>
+</li>
+<li><strong>절차:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기운침필종&gt;</strong></span><table>
+<tr><th>단계</th><th>핵심</th><th>참고자료</th></tr>
+<tr><td><strong>1. 소프트웨어사업 기본정보 작성</strong></td><td>기본정보·영향평가 단계 작성</td><td>사업추진계획서</td></tr>
+<tr><td><strong>2. 운영계획 검토</strong></td><td>사용자 공동 사용 여부 확인</td><td>운영계획안</td></tr>
+<tr><td><strong>3. 민간소프트웨어 시장 침해 가능성 검토</strong></td><td>동일·유사 민간 SW 존재 여부 확인</td><td>기능 요구사항</td></tr>
+<tr><td><strong>4. 사업의 필요성 및 공공성 검토</strong></td><td>사업 추진 이유 설명</td><td>SW 규정 법령</td></tr>
+<tr><td><strong>5. 종합의견 작성</strong></td><td>추진방안·재검토 여부 판단</td><td>단계별 검토 내용</td></tr>
+</table>
+</li>
+</ul>
 
 </body>
 </html>

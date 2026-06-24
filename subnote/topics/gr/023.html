@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. ISO/IEC 27017 (클라우드 보안 통제)</title>
+  <title>3. ISO/IEC 27001</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* iframe 내 여백 */
-    body { margin: 0; padding: 20px 24px; box-sizing: border-box; }
-    /* 이미지 반응형 */
-    img { max-width: 100% !important; height: auto !important; }
-    /* 테이블 스크롤 */
-    table { display: block; overflow-x: auto; max-width: 100%; }
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>4. ISO/IEC 27017 (클라우드 보안 통제)</h4>
+<h4>3. ISO/IEC 27001</h4>
 <ul>
-<li><strong>정의</strong>: ISO 27002를 기반으로 클라우드 서비스 보안 통제를 추가한 국제표준</li>
-<li><strong>키워드</strong>: 클라우드 보안 가이드, 추가 통제항목</li>
+<li><strong>정의</strong>: 정보보안 경영시스템(ISMS)의 국제 표준</li>
+<li><strong>키워드</strong>: 위험평가, 통제항목, PDCA, 인증</li>
 <li><strong>분류</strong>: 보안관리체계</li>
-<li><strong>추가 통제항목</strong>: 클라우드 자산 소유권, 가상 환경 분리, CSP 역할과 책임 명확화</li>
-<li><strong>관련 표준</strong>: ISO 27018(클라우드 개인정보보호), ISO 27701(프라이버시 관리)</li>
-<li><strong>인사이트</strong>: 클라우드 서비스 이용 기업은 ISO 27017을 통해 CSP의 보안 책임 범위를 명확히 하고 공유 책임 모델의 자사 영역을 체계적으로 관리할 수 있음</li>
+<li><strong>구조</strong>: PDCA(Plan-Do-Check-Act) 사이클 기반<ul>
+<li><strong>계획(Plan)</strong>: 위험 평가, ISMS 범위 정의</li>
+<li><strong>실행(Do)</strong>: 통제 구현, 보안 활동 수행</li>
+<li><strong>점검(Check)</strong>: 내부 감사, 성과 모니터링</li>
+<li><strong>개선(Act)</strong>: 부적합 사항 조치, 지속 개선</li>
 </ul>
+</li>
+<li><strong>인사이트</strong>: ISO 27001은 국내 ISMS 제도의 기반이 되며, 글로벌 비즈니스에서 보안 신뢰성 입증을 위한 국제 통용 인증임</li>
+</ul>
+<p>// CMMC 2.0 한줄 내용 추가</p>
 
 </body>
 </html>
