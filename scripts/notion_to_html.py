@@ -187,18 +187,17 @@ def render_table(b):
     rows = get_all_blocks(b["id"])
     time.sleep(0.35)
     has_header = b.get("table", {}).get("has_column_header", False)
-    html = "<table>\n"
+    rows_html = ""
     for i, row in enumerate(rows):
         if row.get("type") != "table_row":
             continue
         cells = row["table_row"].get("cells", [])
-        html += "<tr>"
-        for cell in cells:
-            tag = "th" if (i == 0 and has_header) else "td"
-            html += f"<{tag}>{rt_to_html(cell)}</{tag}>"
-        html += "</tr>\n"
-    html += "</table>\n"
-    return html
+        row_html = "".join(
+            f'<{"th" if (i==0 and has_header) else "td"}>{rt_to_html(cell)}</{"th" if (i==0 and has_header) else "td"}>'
+            for cell in cells
+        )
+        rows_html += f"<tr>{row_html}</tr>\n"
+    return f'<div class="table-scroll"><table>\n{rows_html}</table></div>\n'
 
 
 def blocks_to_html(blocks, depth=0):
@@ -305,9 +304,10 @@ CSS = """
   p  { margin: 0.35rem 0; }
   ul, ol { padding-left: 1.5em; margin: 0.3rem 0; }
   li { margin: 0.2rem 0; }
-  table { border-collapse: collapse; width: 100%; margin: 0.8rem 0; font-size: 0.9rem; display: block; overflow-x: auto; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.8rem 0; }
+  table { border-collapse: collapse; width: max-content; min-width: 100%; font-size: 0.9rem; }
   th { background: #f0f0f0; font-weight: 600; }
-  th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th, td { border: 1px solid #ddd; padding: 7px 12px; text-align: left; vertical-align: top; }
   img { max-width: 100%; height: auto; border-radius: 4px; margin: 0.5rem 0; }
   figure { margin: 0.8rem 0; }
   figcaption { font-size: 0.85rem; color: #888; margin-top: 4px; }
