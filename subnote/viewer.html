@@ -5,120 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>서브노트 뷰어</title>
   <style>
-    /* ── 토큰 ── */
     :root {
-      --bg:          #f5f4f0;
-      --sidebar-bg:  #1a1f2e;
-      --sidebar-w:   260px;
+      --bg:          #f5f4ef;
+      --sidebar-bg:  #1e202b;
+      --sidebar-w:   264px;
       --header-h:    52px;
-      --text:        #2c2c2c;
-      --muted:       #888;
-      --border:      #e4e2dc;
-      --accent:      #4a7dff;
-      --active-bg:   #2a3450;
-      --active-text: #7eaaff;
-      --domain-bg:   #252b3b;
-      --tag-bg:      #3a4460;
-      --tag-text:    #a8bfff;
-      --hover:       #232840;
-      --white:       #ffffff;
-      --radius:      6px;
-      --shadow:      0 1px 4px rgba(0,0,0,.08);
+      --text:        #37352f;
+      --muted:       #9a9692;
+      --border:      #e6e3dc;
+      --accent:      #c17550;
+      --active-bg:   #353849;
+      --active-text: #a8c5ff;
+      --hover:       #272a38;
+      --domain-bg:   #262934;
+      --tag-bg:      #373d52;
+      --tag-text:    #9fb3ff;
+      --content-bg:  #ffffff;
       --font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      height: 100vh;
+    html, body {
+      height: 100%;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      font-family: var(--font);
     }
 
-    /* ── 헤더 ── */
+    body {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ── 헤더 ─────────────────────────────── */
     header {
       height: var(--header-h);
+      flex-shrink: 0;
       background: var(--sidebar-bg);
       display: flex;
       align-items: center;
-      padding: 0 18px;
+      padding: 0 16px;
       gap: 12px;
-      flex-shrink: 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.05);
     }
+
     .logo {
-      font-size: .95rem;
-      font-weight: 600;
-      color: #e8e5de;
+      font-size: .93rem;
+      font-weight: 700;
+      color: #e0ddd6;
       letter-spacing: -.01em;
     }
-    .logo span { color: var(--active-text); }
-    .header-right {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .logo em { color: var(--accent); font-style: normal; }
+
     .btn-menu {
       display: none;
       background: none;
       border: none;
-      color: #aaa;
+      color: #888;
       cursor: pointer;
-      padding: 4px;
-      font-size: 1.1rem;
+      padding: 5px 7px;
+      font-size: 1rem;
+      border-radius: 5px;
+      line-height: 1;
     }
-    .topic-breadcrumb {
-      font-size: .78rem;
-      color: #666;
-      background: var(--bg);
-      padding: 3px 10px;
+    .btn-menu:hover { background: rgba(255,255,255,.08); color: #ccc; }
+
+    .breadcrumb {
+      margin-left: auto;
+      font-size: .75rem;
+      color: #888;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 4px 12px;
       border-radius: 20px;
-      max-width: 340px;
+      max-width: 320px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* ── 메인 레이아웃 ── */
+    /* ── 레이아웃 ──────────────────────────── */
     .layout {
       display: flex;
       flex: 1;
-      overflow: hidden;
+      min-height: 0;
     }
 
-    /* ── 사이드바 ── */
+    /* ── 사이드바 ──────────────────────────── */
     aside {
       width: var(--sidebar-w);
-      background: var(--sidebar-bg);
-      display: flex;
-      flex-direction: column;
       flex-shrink: 0;
+      background: var(--sidebar-bg);
       overflow-y: auto;
-      transition: transform .25s ease;
+      overflow-x: hidden;
     }
-    aside::-webkit-scrollbar { width: 4px; }
-    aside::-webkit-scrollbar-thumb { background: #ffffff18; border-radius: 2px; }
-
-    .nav-section { padding: 8px 0; }
+    aside::-webkit-scrollbar { width: 3px; }
+    aside::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 2px; }
 
     .domain-btn {
       width: 100%;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 16px;
+      gap: 9px;
+      padding: 9px 14px;
       background: none;
       border: none;
+      border-bottom: 1px solid rgba(255,255,255,.03);
       cursor: pointer;
       text-align: left;
-      color: #c8c4bc;
-      font-size: .82rem;
+      color: #b0ab9f;
       font-family: var(--font);
+      font-size: .8rem;
       transition: background .12s;
     }
     .domain-btn:hover { background: var(--hover); }
@@ -127,89 +126,81 @@
     .domain-tag {
       background: var(--tag-bg);
       color: var(--tag-text);
-      font-size: .7rem;
-      font-weight: 600;
-      padding: 1px 7px;
+      font-size: .67rem;
+      font-weight: 700;
+      padding: 2px 7px;
       border-radius: 3px;
       flex-shrink: 0;
-      letter-spacing: .02em;
+      letter-spacing: .03em;
     }
-    .domain-name { flex: 1; font-size: .8rem; }
+    .domain-name { flex: 1; font-size: .79rem; }
     .domain-arrow {
-      font-size: .65rem;
-      color: #555;
-      transition: transform .2s;
+      font-size: .58rem;
+      color: #4a4f5e;
       flex-shrink: 0;
+      transition: transform .2s;
     }
-    .domain-btn.open .domain-arrow { transform: rotate(90deg); }
+    .domain-btn.open .domain-arrow { transform: rotate(90deg); color: #666; }
 
-    .topic-list {
-      display: none;
-      list-style: none;
-      padding: 2px 0 6px 0;
-    }
+    .topic-list { display: none; list-style: none; padding: 2px 0 4px; }
     .topic-list.open { display: block; }
 
     .topic-item {
-      display: flex;
-      align-items: center;
-      padding: 6px 16px 6px 40px;
+      display: block;
+      padding: 5px 14px 5px 34px;
       cursor: pointer;
-      color: #8a8680;
-      font-size: .78rem;
-      line-height: 1.4;
+      color: #747068;
+      font-size: .76rem;
+      line-height: 1.5;
       transition: background .1s, color .1s;
       user-select: none;
     }
-    .topic-item:hover {
-      background: var(--hover);
-      color: #c8c4bc;
-    }
-    .topic-item.active {
-      background: var(--active-bg);
-      color: var(--active-text);
-      font-weight: 500;
-    }
+    .topic-item:hover { background: var(--hover); color: #bdb7ae; }
+    .topic-item.active { background: var(--active-bg); color: var(--active-text); font-weight: 500; }
 
-    /* ── 콘텐츠 영역 ── */
+    /* ── 메인 (스크롤 컨테이너) ──────────────
+       main이 직접 스크롤 → iframe 내부 스크롤 없음
+       → 모바일에서 하단까지 정상 스크롤 보장 */
     main {
       flex: 1;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      min-width: 0;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;  /* iOS 부드러운 스크롤 */
+      background: var(--bg);
     }
 
+    /* 콘텐츠 너비 제한 (노션 뷰와 유사) */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      min-height: 100%;
+    }
+
+    /* ── 플레이스홀더 ─────────────────────── */
     .placeholder {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      min-height: 70vh;
       color: var(--muted);
-      gap: 10px;
+      gap: 12px;
     }
-    .placeholder-icon { font-size: 2.5rem; opacity: .4; }
-    .placeholder-text { font-size: .9rem; }
+    .placeholder-icon { font-size: 2.8rem; opacity: .3; }
+    .placeholder-text { font-size: .88rem; }
 
-    iframe#viewer {
-      flex: 1;
-      width: 100%;
-      border: none;
-      display: none;
-      background: var(--white);
-    }
-    iframe#viewer.show { display: block; }
-
-    /* ── 로딩 ── */
+    /* ── 로딩 ───────────────────────────────── */
     .loading {
-      flex: 1;
       display: none;
       align-items: center;
       justify-content: center;
+      min-height: 70vh;
     }
     .loading.show { display: flex; }
     .spinner {
-      width: 22px; height: 22px;
+      width: 20px; height: 20px;
       border: 2px solid var(--border);
       border-top-color: var(--accent);
       border-radius: 50%;
@@ -217,11 +208,35 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── 모바일 ── */
+    /* ── iframe ─────────────────────────────
+       scrolling="no" + 높이 동적 계산
+       → main이 스크롤, iframe 자체는 스크롤 없음 */
+    iframe#viewer {
+      width: 100%;
+      border: none;
+      display: none;
+      background: var(--content-bg);
+      /* 상단 구분선 */
+      border-top: 1px solid var(--border);
+    }
+    iframe#viewer.show { display: block; }
+
+    /* ── 오버레이 (모바일) ──────────────────── */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: var(--header-h);
+      background: rgba(0,0,0,.45);
+      z-index: 99;
+    }
+    .overlay.show { display: block; }
+
+    /* ── 모바일 ─────────────────────────────── */
     @media (max-width: 680px) {
       :root { --sidebar-w: 240px; }
       .btn-menu   { display: block; }
-      .topic-breadcrumb { max-width: 160px; }
+      .breadcrumb { max-width: 150px; }
 
       aside {
         position: fixed;
@@ -230,19 +245,12 @@
         bottom: 0;
         z-index: 100;
         transform: translateX(-100%);
-        box-shadow: 4px 0 20px rgba(0,0,0,.3);
+        transition: transform .25s ease;
+        box-shadow: 4px 0 28px rgba(0,0,0,.4);
       }
       aside.open { transform: translateX(0); }
 
-      .overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,.4);
-        z-index: 99;
-        top: var(--header-h);
-      }
-      .overlay.show { display: block; }
+      .content-wrap { max-width: 100%; }
     }
   </style>
 </head>
@@ -250,44 +258,45 @@
 
 <header>
   <button class="btn-menu" id="btnMenu" title="메뉴">☰</button>
-  <div class="logo">📚 <span>서브노트</span> 뷰어</div>
-  <div class="header-right">
-    <div class="topic-breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
-  </div>
+  <div class="logo">📚 <em>서브노트</em></div>
+  <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
 </header>
 
 <div class="layout">
   <aside id="sidebar">
-    <div class="nav-section" id="nav">
-      <div style="padding:20px 16px;color:#555;font-size:.78rem;">로딩 중...</div>
-    </div>
+    <nav id="nav">
+      <div style="padding:20px 14px;color:#444;font-size:.76rem;">불러오는 중…</div>
+    </nav>
   </aside>
 
   <div class="overlay" id="overlay"></div>
 
-  <main>
-    <div class="placeholder" id="placeholder">
-      <div class="placeholder-icon">📖</div>
-      <div class="placeholder-text">좌측에서 토픽을 선택하세요</div>
+  <main id="mainEl">
+    <div class="content-wrap">
+      <div class="placeholder" id="placeholder">
+        <div class="placeholder-icon">📖</div>
+        <div class="placeholder-text">좌측에서 토픽을 선택하세요</div>
+      </div>
+      <div class="loading" id="loading"><div class="spinner"></div></div>
+      <iframe id="viewer" title="토픽 뷰어" scrolling="no"></iframe>
     </div>
-    <div class="loading" id="loading"><div class="spinner"></div></div>
-    <iframe id="viewer" title="토픽 뷰어"></iframe>
   </main>
 </div>
 
 <script>
-const nav       = document.getElementById('nav');
-const viewer    = document.getElementById('viewer');
+const nav        = document.getElementById('nav');
+const viewer     = document.getElementById('viewer');
 const placeholder = document.getElementById('placeholder');
-const loading   = document.getElementById('loading');
+const loading    = document.getElementById('loading');
 const breadcrumb = document.getElementById('breadcrumb');
-const sidebar   = document.getElementById('sidebar');
-const overlay   = document.getElementById('overlay');
-const btnMenu   = document.getElementById('btnMenu');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('overlay');
+const btnMenu    = document.getElementById('btnMenu');
+const mainEl     = document.getElementById('mainEl');
 
-let activeItem  = null;
+let activeItem = null;
 
-// ── 사이드바 토글 (모바일) ─────────────────────────────
+/* ── 사이드바 토글 (모바일) ── */
 btnMenu.addEventListener('click', () => {
   sidebar.classList.toggle('open');
   overlay.classList.toggle('show');
@@ -298,7 +307,20 @@ function closeSidebar() {
   overlay.classList.remove('show');
 }
 
-// ── topics.json 로드 ──────────────────────────────────
+/* ── iframe 높이를 콘텐츠에 맞게 조정 ──
+   iframe 자체는 스크롤 없음 → main이 스크롤 처리
+   모바일 하단 스크롤 문제 해결 */
+function resizeIframe() {
+  try {
+    const doc = viewer.contentDocument || viewer.contentWindow.document;
+    const h   = doc.documentElement.scrollHeight || doc.body.scrollHeight;
+    if (h > 0) viewer.style.height = h + 'px';
+  } catch (e) {
+    viewer.style.height = '80vh';
+  }
+}
+
+/* ── topics.json 로드 ── */
 async function init() {
   try {
     const res  = await fetch('topics.json');
@@ -306,27 +328,23 @@ async function init() {
     const data = await res.json();
     renderNav(data);
 
-    // URL 해시로 초기 토픽 복원
-    const hash = location.hash.slice(1);  // "db/001"
+    const hash = location.hash.slice(1);
     if (hash) {
       const [domain, id] = hash.split('/');
       if (domain && id && data[domain]) {
-        const topic = data[domain].topics.find(t => t.id === id);
-        if (topic) loadTopic(domain, id, topic.name, data[domain].label, true);
+        const t = data[domain].topics.find(t => t.id === id);
+        if (t) loadTopic(domain, id, t.name, data[domain].label, true);
       }
     }
   } catch (e) {
-    nav.innerHTML = `<div style="padding:16px;color:#f87;font-size:.78rem;">⚠ topics.json 로드 실패<br>${e.message}</div>`;
+    nav.innerHTML = `<div style="padding:14px;color:#f87;font-size:.76rem;">⚠ 로드 실패: ${e.message}</div>`;
   }
 }
 
-// ── 네비게이션 렌더링 ─────────────────────────────────
+/* ── 네비게이션 렌더링 ── */
 function renderNav(data) {
   nav.innerHTML = '';
   Object.entries(data).forEach(([fname, info]) => {
-    const section = document.createElement('div');
-    section.className = 'nav-section';
-
     const btn = document.createElement('button');
     btn.className = 'domain-btn';
     btn.innerHTML = `
@@ -339,11 +357,10 @@ function renderNav(data) {
 
     info.topics.forEach(topic => {
       const li = document.createElement('li');
-      li.className = 'topic-item';
+      li.className   = 'topic-item';
       li.textContent = topic.name;
       li.dataset.domain = fname;
       li.dataset.id     = topic.id;
-      li.dataset.label  = info.label;
       li.addEventListener('click', () => {
         loadTopic(fname, topic.id, topic.name, info.label, false);
         closeSidebar();
@@ -353,70 +370,59 @@ function renderNav(data) {
 
     btn.addEventListener('click', () => {
       const isOpen = btn.classList.contains('open');
-      // 다른 도메인 닫기
       document.querySelectorAll('.domain-btn.open').forEach(b => {
         b.classList.remove('open');
-        b.nextElementSibling.classList.remove('open');
+        b.nextElementSibling?.classList.remove('open');
       });
-      if (!isOpen) {
-        btn.classList.add('open');
-        ul.classList.add('open');
-      }
+      if (!isOpen) { btn.classList.add('open'); ul.classList.add('open'); }
     });
 
-    section.appendChild(btn);
-    section.appendChild(ul);
-    nav.appendChild(section);
+    nav.appendChild(btn);
+    nav.appendChild(ul);
   });
 }
 
-// ── 토픽 로드 ─────────────────────────────────────────
-function loadTopic(domain, id, name, label, skipDomainOpen) {
-  // 이전 활성 항목 해제
+/* ── 토픽 로드 ── */
+function loadTopic(domain, id, name, label, skipOpen) {
   if (activeItem) activeItem.classList.remove('active');
-
-  // 새 활성 항목 설정
-  const newItem = nav.querySelector(
-    `.topic-item[data-domain="${domain}"][data-id="${id}"]`
-  );
-  if (newItem) {
-    newItem.classList.add('active');
-    activeItem = newItem;
-
-    // 도메인 펼치기
-    if (!skipDomainOpen) {
-      const ul  = newItem.closest('.topic-list');
+  const item = nav.querySelector(`.topic-item[data-domain="${domain}"][data-id="${id}"]`);
+  if (item) {
+    item.classList.add('active');
+    activeItem = item;
+    if (!skipOpen) {
+      const ul  = item.closest('.topic-list');
       const btn = ul?.previousElementSibling;
       if (ul && btn) {
         document.querySelectorAll('.domain-btn.open').forEach(b => {
           b.classList.remove('open');
-          b.nextElementSibling.classList.remove('open');
+          b.nextElementSibling?.classList.remove('open');
         });
         btn.classList.add('open');
         ul.classList.add('open');
       }
     }
-    // 스크롤 보이기
-    newItem.scrollIntoView({ block: 'nearest' });
+    item.scrollIntoView({ block: 'nearest' });
   }
 
-  // 브레드크럼 갱신
   breadcrumb.textContent = `${label} / ${name}`;
-
-  // URL 해시 갱신
   history.replaceState(null, '', `#${domain}/${id}`);
 
-  // iframe 로드
+  // 상태 초기화
   placeholder.style.display = 'none';
   viewer.classList.remove('show');
+  viewer.style.height = 'auto';
   loading.classList.add('show');
 
-  const src = `topics/${domain}/${id}.html`;
   viewer.onload = () => {
     loading.classList.remove('show');
-    viewer.classList.add('show');
+    // RAF으로 레이아웃 완료 후 높이 계산
+    requestAnimationFrame(() => {
+      resizeIframe();
+      viewer.classList.add('show');
+      mainEl.scrollTo({ top: 0 });
+    });
   };
-  viewer.src = src;
+  viewer.src = `topics/${domain}/${id}.html`;
 }
 
 init();
