@@ -198,30 +198,33 @@ jobs:
                       },
                       timeout=30,
                   )
-                  print(f"  syncRecordValues 상태: {sync_resp.status_code}")
                   if sync_resp.status_code == 200:
                       rec = (sync_resp.json()
                              .get("recordMap", {})
                              .get("user_export", {})
                              .get(record_id, {})
                              .get("value", {}))
-                      print(f"  레코드 키: {list(rec.keys())}")
-                      # 가능한 S3 URL 필드명들 시도
-                      for field in ("s3FileUrl", "s3_file_url", "fileUrl",
-                                    "file_url", "url", "exportUrl",
-                                    "export_url", "downloadUrl", "download_url"):
-                          if rec.get(field):
-                              s3_url = rec[field]
-                              print(f"  S3 URL ({field}): {s3_url[:100]}...")
-                              break
-                      if not s3_url:
-                          print(f"  레코드 전체: {json.dumps(rec)[:500]}")
-                  else:
-                      print(f"  syncRecordValues 실패: {sync_resp.text[:200]}")
+
+                      # ★ s3_bucket + file_ids → 직접 S3 URL 구성
+                      s3_bucket = rec.get("s3_bucket", "temporary.notion-static.com")
+                      file_ids  = rec.get("file_ids", [])
+                      file_id   = file_ids[0] if file_ids else None
+
+                      if file_id:
+                          # export_url 경로에서 파일명 추출
+                          url_path = up.urlparse(export_url).path  # /f/t/{id}/{filename}
+                          filename = url_path.rstrip("/").split("/")[-1]
+                          s3_url   = f"https://{s3_bucket}/{file_id}/{filename}"
+                          print(f"  S3 직접 URL: {s3_url}")
 
               if s3_url:
                   zip_resp = requests.get(s3_url, timeout=120)
-              else:
+                  print(f"  S3 다운로드 상태: {zip_resp.status_code}")
+                  if zip_resp.status_code != 200:
+                      print(f"  [WARN] S3 실패, fallback 시도")
+                      zip_resp = None
+              
+              if not s3_url or (zip_resp and zip_resp.status_code != 200):
                   # fallback: URL-decoded 토큰으로 직접 시도
                   token_decoded = up.unquote(TOKEN)
                   print(f"  fallback: URL-decoded 토큰으로 시도")
