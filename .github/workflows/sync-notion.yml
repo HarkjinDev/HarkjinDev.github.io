@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       # ────────────────────────────────────────
-      # 2. Python 설치
+      # 2. Python 설치 및 의존성
       # ────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,244 +28,29 @@ jobs:
         run: pip install requests beautifulsoup4
 
       # ────────────────────────────────────────
-      # 3. Notion Export API로 HTML 추출
+      # 3. Notion API → HTML 변환
       # ────────────────────────────────────────
-      - name: Export from Notion
+      - name: Convert Notion pages to HTML
         env:
-          NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
-        run: |
-          python3 << 'EOF'
-          import base64, json, os, re, time, zipfile
-          from io import BytesIO
-          from pathlib import Path
-          import requests
-
-          TOKEN = os.environ["NOTION_TOKEN_V2"]
-
-          PAGES = [
-              ("db",    "3336968f-52c4-80d4-be00-c83639a5ee64"),
-              ("ai",    "32d6968f-52c4-8064-9b2e-f0be961c3a7c"),
-              ("sec",   "3396968f-52c4-817e-8ecb-dac791ad2d56"),
-              ("nw",    "3466968f-52c4-8061-9afe-ecdbcf66c206"),
-              ("sw",    "3466968f-52c4-80fc-9ada-f62344b29fa8"),
-              ("al",    "3466968f-52c4-80b0-a414-c596c619b340"),
-              ("st",    "3436968f-52c4-81af-8f10-f58df4f3a7c5"),
-              ("caos",  "3416968f-52c4-8018-9650-ed73a0c41e7d"),
-              ("bizpm", "3466968f-52c4-8024-a060-e2173bd72c24"),
-              ("ds",    "3466968f-52c4-8061-a7cd-faafe8009fba"),
-              ("gr",    "3536968f-52c4-80b7-9401-dcaefe521c71"),
-          ]
-
-          def get_user_info():
-              """token_v2로 유저 ID + 스페이스 ID 조회"""
-              resp = requests.post(
-                  "https://www.notion.so/api/v3/loadUserContent",
-                  headers={
-                      "Cookie": f"token_v2={TOKEN}",
-                      "Content-Type": "application/json",
-                      "User-Agent": "Mozilla/5.0",
-                  },
-                  json={},
-                  timeout=30,
-              )
-              if resp.status_code != 200:
-                  print(f"  [WARN] 유저 정보 조회 실패 ({resp.status_code}): {resp.text[:200]}")
-                  return None, None
-              record_map = resp.json().get("recordMap", {})
-              users  = record_map.get("notion_user", {})
-              spaces = record_map.get("space", {})
-              user_id  = list(users.keys())[0]  if users  else None
-              space_id = list(spaces.keys())[0] if spaces else None
-              print(f"  유저 ID:   {user_id}")
-              print(f"  스페이스 ID: {space_id}")
-              return user_id, space_id
-
-          USER_ID, SPACE_ID = get_user_info()
-
-          HEADERS = {
-              "Cookie": f"token_v2={TOKEN}",
-              "Content-Type": "application/json",
-              "notion-client-version": "23.13.0.0",
-              "accept": "application/json",
-              "User-Agent": "Mozilla/5.0",
-          }
-          if USER_ID:
-              HEADERS["x-notion-active-user-header"] = USER_ID
-
-          def enqueue_export(page_id):
-              # 브라우저 실제 요청 형식: block 객체에 id + spaceId 묶음
-              body = {
-                  "task": {
-                      "eventName": "exportBlock",
-                      "request": {
-                          "block": {
-                              "id": page_id,
-                              "spaceId": SPACE_ID,
-                          },
-                          "recursive": False,
-                          "exportOptions": {
-                              "exportType": "html",
-                              "timeZone": "Asia/Seoul",
-                              "locale": "ko",
-                              "collectionViewExportType": "currentView",
-                              "flattenExportFiletree": False,
-                          },
-                          "shouldExportComments": False,
-                      }
-                  }
-              }
-
-              resp = requests.post(
-                  "https://www.notion.so/api/v3/enqueueTask",
-                  headers=HEADERS,
-                  json=body,
-                  timeout=30,
-              )
-              if resp.status_code != 200:
-                  print(f"  [ERROR] enqueueTask 응답: {resp.status_code}")
-                  print(f"  [ERROR] 응답 body: {resp.text[:500]}")
-                  resp.raise_for_status()
-              return resp.json()["taskId"]
-
-          def poll_task(task_id, timeout=600):
-              """최대 10분 폴링"""
-              for _ in range(timeout // 10):
-                  time.sleep(10)
-                  resp = requests.post(
-                      "https://www.notion.so/api/v3/getTasks",
-                      headers=HEADERS,
-                      json={"taskIds": [task_id]},
-                      timeout=30,
-                  )
-                  result = resp.json()["results"][0]
-                  state = result.get("state", "")
-                  print(f"  상태: {state}")
-                  if state == "success":
-                      return result["status"]["exportURL"]
-                  if state in ("failure", "error"):
-                      raise Exception(f"Export 실패: {result}")
-              raise Exception("Export 타임아웃")
-
-          def inline_images(html: str, zf: zipfile.ZipFile, html_zip_path: str) -> str:
-              """HTML 내 상대 경로 이미지를 base64로 인라인화"""
-              base_dir = str(Path(html_zip_path).parent)
-
-              def replace_src(m):
-                  src = m.group(1)
-                  if src.startswith("http") or src.startswith("data:"):
-                      return m.group(0)
-                  # ZIP 내 경로 계산
-                  img_path = f"{base_dir}/{src}".lstrip("/")
-                  try:
-                      img_data = zf.read(img_path)
-                      ext = Path(src).suffix.lower().lstrip(".")
-                      mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png",
-                               "gif": "gif", "webp": "webp", "svg": "svg+xml"}.get(ext, "png")
-                      b64 = base64.b64encode(img_data).decode()
-                      return f'src="data:image/{mime};base64,{b64}"'
-                  except Exception as e:
-                      print(f"    [WARN] 이미지 인라인 실패: {img_path} → {e}")
-                      return m.group(0)
-
-              return re.sub(r'src="([^"]+)"', replace_src, html)
-
-          def export_page(name, page_id):
-              print(f"\n[{name}] 익스포트 시작 ({page_id})")
-
-              task_id = enqueue_export(page_id)
-              print(f"  TaskID: {task_id}")
-
-              export_url = poll_task(task_id)
-              print(f"  다운로드 URL 획득")
-
-              # ── S3 직접 URL 구성 (export URL 경로에서 추출) ──────────────
-              # export URL: /f/t/{file_id}/{filename}
-              # S3 버킷: temporary.notion-static.com
-              import urllib.parse as up
-              url_path  = up.urlparse(export_url).path
-              parts     = [p for p in url_path.split("/") if p]
-              # ["f", "t", "{file_id}", "{filename}"]
-              zip_resp  = None
-
-              if len(parts) >= 4:
-                  file_id  = parts[2]
-                  filename = parts[3]
-                  bucket   = "temporary.notion-static.com"
-
-                  candidates = [
-                      f"https://{bucket}/{file_id}/{filename}",
-                      f"https://s3.us-west-2.amazonaws.com/{bucket}/{file_id}/{filename}",
-                  ]
-                  for try_url in candidates:
-                      print(f"  시도: {try_url[:90]}")
-                      r = requests.get(try_url, timeout=60, allow_redirects=True)
-                      print(f"  상태: {r.status_code}")
-                      if r.status_code == 200:
-                          zip_resp = r
-                          break
-
-              if zip_resp is None or zip_resp.status_code != 200:
-                  print(f"  fallback: token_v2 쿠키로 시도")
-                  zip_resp = requests.get(
-                      export_url,
-                      headers={
-                          "Cookie": f"token_v2={TOKEN}",
-                          "User-Agent": "Mozilla/5.0",
-                      },
-                      timeout=120,
-                      allow_redirects=True,
-                  )
-                  print(f"  fallback 상태: {zip_resp.status_code}")
-
-              if zip_resp.status_code != 200:
-                  print(f"  [ERROR] 다운로드 실패 ({zip_resp.status_code}): {zip_resp.text[:200]}")
-              zip_resp.raise_for_status()
-              print(f"  ZIP 크기: {len(zip_resp.content) / 1024:.1f} KB")
-
-              with zipfile.ZipFile(BytesIO(zip_resp.content)) as zf:
-                  # ZIP 내 HTML 파일 탐색
-                  html_files = [f for f in zf.namelist() if f.endswith(".html")]
-                  if not html_files:
-                      raise Exception("ZIP 내 HTML 파일 없음")
-
-                  html_zip_path = html_files[0]
-                  print(f"  HTML 파일: {html_zip_path}")
-
-                  html = zf.read(html_zip_path).decode("utf-8", errors="replace")
-                  html = inline_images(html, zf, html_zip_path)
-
-              # 저장
-              out = Path("subnote") / f"{name}.html"
-              out.parent.mkdir(exist_ok=True)
-              out.write_text(html, encoding="utf-8")
-              print(f"  [완료] {out} ({out.stat().st_size / 1024:.1f} KB)")
-
-          # 전체 실행
-          for name, page_id in PAGES:
-              try:
-                  export_page(name, page_id)
-                  time.sleep(5)  # 요청 간 딜레이
-              except Exception as e:
-                  print(f"  [ERROR] {name} 실패: {e}")
-          EOF
+          NOTION_INTEGRATION_TOKEN: ${{ secrets.NOTION_INTEGRATION_TOKEN }}
+        run: python3 scripts/notion_to_html.py
 
       # ────────────────────────────────────────
-      # 4. 토픽 분할 (topics/ 갱신)
+      # 4. 토픽 분할
       # ────────────────────────────────────────
       - name: Split into topics
         run: |
           mkdir -p subnote/topics
           for name in db ai sec nw sw al st caos bizpm ds gr; do
             html="subnote/${name}.html"
-            if [ -f "$html" ] && [ $(wc -c < "$html") -gt 100000 ]; then
-              echo "[초기화] subnote/topics/${name}/"
+            if [ -f "$html" ] && [ $(wc -c < "$html") -gt 10000 ]; then
               rm -rf "subnote/topics/${name}/"
             fi
           done
           python3 scripts/gen_topics.py
 
       # ────────────────────────────────────────
-      # 5. mem.html 생성 (두음 모음)
+      # 5. mem.html 생성
       # ────────────────────────────────────────
       - name: Generate mem.html
         run: python3 scripts/gen_mem.py
@@ -277,79 +62,52 @@ jobs:
         run: |
           python3 << 'EOF'
           from datetime import datetime, timezone, timedelta
-
           KST = timezone(timedelta(hours=9))
           now = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
-
           pages = [
-              ("db",    "DB",     "데이터베이스"),
-              ("ai",    "AI",     "인공지능"),
-              ("sec",   "SEC",    "정보보안"),
-              ("nw",    "NW",     "네트워크"),
-              ("sw",    "SW",     "소프트웨어공학"),
-              ("al",    "AL",     "알고리즘"),
-              ("st",    "ST",     "통계/수학"),
-              ("caos",  "CA/OS",  "컴퓨터구조/운영체제"),
-              ("bizpm", "BIZ/PM", "경영/프로젝트관리"),
-              ("ds",    "DS",     "디지털서비스"),
-              ("gr",    "GR",     "가이드/법제도/표준"),
+              ("db","DB","데이터베이스"),("ai","AI","인공지능"),
+              ("sec","SEC","정보보안"),("nw","NW","네트워크"),
+              ("sw","SW","소프트웨어공학"),("al","AL","알고리즘"),
+              ("st","ST","통계/수학"),("caos","CA/OS","컴퓨터구조/운영체제"),
+              ("bizpm","BIZ/PM","경영/프로젝트관리"),("ds","DS","디지털서비스"),
+              ("gr","GR","가이드/법제도/표준"),
           ]
-
-          items_html = """
-                <li class="mem-item">
-                  <a href="mem.html">
-                    <span class="label" style="background:#d44c47;color:#fff;padding:2px 8px;border-radius:4px;">📝 두음</span>
-                    <span class="desc">전 도메인 두음 모음</span>
-                  </a>
-                </li>
-                <li class="mem-item">
-                  <a href="viewer.html">
-                    <span class="label" style="background:#4a7dff;color:#fff;padding:2px 8px;border-radius:4px;">📖 뷰어</span>
-                    <span class="desc">토픽 분할 뷰어</span>
-                  </a>
-                </li>"""
-
-          for fname, label, desc in pages:
-              items_html += f"""
-                <li>
-                  <a href="{fname}.html">
-                    <span class="label">{label}</span>
-                    <span class="desc">{desc}</span>
-                  </a>
-                </li>"""
-
+          items = """
+                <li><a href="mem.html">
+                  <span class="label" style="background:#d44c47;color:#fff">📝 두음</span>
+                  <span class="desc">전 도메인 두음 모음</span></a></li>
+                <li><a href="viewer.html">
+                  <span class="label" style="background:#4a7dff;color:#fff">📖 뷰어</span>
+                  <span class="desc">토픽 분할 뷰어</span></a></li>"""
+          for f,l,d in pages:
+              items += f"""
+                <li><a href="{f}.html">
+                  <span class="label">{l}</span>
+                  <span class="desc">{d}</span></a></li>"""
           html = f"""<!DOCTYPE html>
-          <html lang="ko">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <html lang="ko"><head>
+            <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
             <title>서브노트 목록</title>
             <style>
-              body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                     max-width: 640px; margin: 60px auto; padding: 0 20px; color: #333; }}
-              h1 {{ font-size: 1.6rem; margin-bottom: 8px; }}
-              .updated {{ color: #999; font-size: 0.85rem; margin-bottom: 32px; }}
-              ul {{ list-style: none; padding: 0; }}
-              li {{ margin-bottom: 12px; }}
-              a {{ display: flex; align-items: center; gap: 12px; padding: 14px 18px;
-                   border: 1px solid #e5e5e5; border-radius: 8px; text-decoration: none;
-                   color: inherit; transition: background 0.15s; }}
-              a:hover {{ background: #f7f7f7; }}
-              .label {{ font-weight: 600; font-size: 1rem; min-width: 64px; }}
-              .desc {{ color: #666; font-size: 0.9rem; }}
+              body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                max-width:640px;margin:60px auto;padding:0 20px;color:#333}}
+              h1{{font-size:1.6rem;margin-bottom:8px}}
+              .updated{{color:#999;font-size:.85rem;margin-bottom:32px}}
+              ul{{list-style:none;padding:0}}li{{margin-bottom:12px}}
+              a{{display:flex;align-items:center;gap:12px;padding:14px 18px;
+                border:1px solid #e5e5e5;border-radius:8px;text-decoration:none;color:inherit;transition:background .15s}}
+              a:hover{{background:#f7f7f7}}
+              .label{{font-weight:600;font-size:1rem;min-width:64px;
+                background:#2d3748;color:#fff;padding:3px 10px;border-radius:4px}}
+              .desc{{color:#666;font-size:.9rem}}
             </style>
-          </head>
-          <body>
+          </head><body>
             <h1>📚 서브노트</h1>
             <p class="updated">마지막 업데이트: {now}</p>
-            <ul>{items_html}
-            </ul>
-          </body>
-          </html>"""
-
-          with open("subnote/index.html", "w", encoding="utf-8") as f:
-              f.write(html)
-          print("[완료] subnote/index.html 생성")
+            <ul>{items}</ul>
+          </body></html>"""
+          open("subnote/index.html","w",encoding="utf-8").write(html)
+          print("[완료] subnote/index.html")
           EOF
 
       # ────────────────────────────────────────
@@ -357,13 +115,13 @@ jobs:
       # ────────────────────────────────────────
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add subnote/
           if git diff --cached --quiet; then
-            echo "[INFO] 변경사항 없음 - 커밋 스킵"
+            echo "[INFO] 변경 없음"
           else
-            git commit -m "chore: sync notion subnotes [$(date +'%Y-%m-%d' -d '+9 hours')]"
+            git commit -m "chore: sync notion subnotes [$(TZ=Asia/Seoul date +'%Y-%m-%d')]"
             git push
           fi
         env:
