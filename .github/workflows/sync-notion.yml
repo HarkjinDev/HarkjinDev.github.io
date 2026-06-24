@@ -178,27 +178,58 @@ jobs:
               export_url = poll_task(task_id)
               print(f"  다운로드 URL 획득")
 
-              # ZIP 다운로드
-              # file.notion.com은 token_v2 + Referer + User-Agent 모두 필요
-              dl_session = requests.Session()
-              dl_session.cookies.set("token_v2", TOKEN, domain=".notion.so")
-              dl_session.cookies.set("token_v2", TOKEN, domain="file.notion.com")
-              zip_resp = dl_session.get(
-                  export_url,
-                  headers={
-                      "User-Agent": (
-                          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/124.0.0.0 Safari/537.36"
-                      ),
-                      "Referer": "https://www.notion.so/",
-                      "Cookie": f"token_v2={TOKEN}",
-                  },
-                  timeout=120,
-                  allow_redirects=True,
+              # ── ZIP 다운로드 (디버그 포함) ─────────────────────────────
+              dl_headers = {
+                  "User-Agent": (
+                      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/124.0.0.0 Safari/537.36"
+                  ),
+                  "Referer":  "https://www.notion.so/",
+                  "Accept":   "application/zip,application/octet-stream,*/*",
+                  "Cookie":   f"token_v2={TOKEN}",
+              }
+
+              # ① 리다이렉트 확인 (allow_redirects=False)
+              probe = requests.get(
+                  export_url, headers=dl_headers,
+                  timeout=30, allow_redirects=False,
               )
+              print(f"  [probe] status={probe.status_code}")
+              print(f"  [probe] headers={dict(probe.headers)}")
+              if probe.status_code in (301, 302, 307, 308):
+                  redirect_url = probe.headers.get("Location", "")
+                  print(f"  [probe] redirect → {redirect_url[:200]}")
+                  # S3 URL로 리다이렉트 시 직접 다운로드 시도
+                  if "s3." in redirect_url or "amazonaws" in redirect_url:
+                      zip_resp = requests.get(redirect_url, timeout=120)
+                  else:
+                      zip_resp = requests.get(
+                          export_url, headers=dl_headers,
+                          timeout=120, allow_redirects=True,
+                      )
+              elif probe.status_code == 200:
+                  zip_resp = probe
+              else:
+                  print(f"  [probe] body: {probe.text[:500]}")
+                  # ② URL에 spaceId 직접 주입 시도 (서명 무관)
+                  import urllib.parse as up
+                  parsed = up.urlparse(export_url)
+                  qs = up.parse_qs(parsed.query, keep_blank_values=True)
+                  qs["spaceId"] = [SPACE_ID]
+                  new_url = parsed._replace(
+                      query=up.urlencode(qs, doseq=True)
+                  ).geturl()
+                  print(f"  [retry] spaceId 주입 후 재시도...")
+                  zip_resp = requests.get(
+                      new_url, headers=dl_headers,
+                      timeout=120, allow_redirects=True,
+                  )
+                  print(f"  [retry] status={zip_resp.status_code}")
+
               if zip_resp.status_code != 200:
-                  print(f"  [ERROR] 다운로드 실패 ({zip_resp.status_code}): {zip_resp.text[:300]}")
+                  print(f"  [ERROR] 최종 다운로드 실패 ({zip_resp.status_code})")
+                  print(f"  [ERROR] body: {zip_resp.text[:300]}")
               zip_resp.raise_for_status()
               print(f"  ZIP 크기: {len(zip_resp.content) / 1024:.1f} KB")
 
