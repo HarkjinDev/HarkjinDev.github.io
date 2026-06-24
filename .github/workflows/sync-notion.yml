@@ -122,6 +122,7 @@ jobs:
             echo "[INFO] 변경 없음"
           else
             git commit -m "chore: sync notion subnotes [$(TZ=Asia/Seoul date +'%Y-%m-%d')]"
+            git pull --rebase origin master
             git push
           fi
         env:
