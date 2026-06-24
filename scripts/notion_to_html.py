@@ -136,7 +136,7 @@ def block_html(b, depth=0):
     if t == "heading_2":     return f"<h3{cs}>{txt}</h3>\n"
     if t == "heading_3":     return f"<h4{cs}>{txt}</h4>\n"
     if t == "paragraph":
-        return (f"<p{cs}>{txt}</p>\n") if txt else "<br>\n"
+        return (f"<p{cs}>{txt}</p>\n") if txt.strip() else ""  # 빈 단락 무시
     if t in ("bulleted_list_item", "numbered_list_item"):
         return f"<li{cs}>{txt}"          # 닫는 태그는 caller에서
     if t == "to_do":
