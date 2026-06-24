@@ -378,11 +378,30 @@ function closeSidebar() {
    모바일 하단 스크롤 문제 해결 */
 function resizeIframe() {
   try {
-    const doc = viewer.contentDocument || viewer.contentWindow.document;
-    // 1px로 먼저 축소 후 측정 → 뷰포트 높이가 scrollHeight에 영향 주는 현상 방지
+    const doc  = viewer.contentDocument;
+    const win  = viewer.contentWindow;
+    const body = doc.body;
+
+    // 1px로 축소 후 측정 (뷰포트 영향 차단)
     viewer.style.height = '1px';
-    const h = doc.body.scrollHeight;
-    viewer.style.height = h + 'px';
+
+    // getBoundingClientRect 기반 실제 콘텐츠 하단 측정
+    // scrollHeight 는 빈 <br> 공백까지 포함해 과도하게 크게 나옴
+    const cs = win.getComputedStyle(body);
+    const pb = parseFloat(cs.paddingBottom) || 0;
+
+    let maxBottom = 0;
+    for (const child of body.children) {
+      const r = child.getBoundingClientRect();
+      if (r.height > 0) {
+        const mb = parseFloat(win.getComputedStyle(child).marginBottom) || 0;
+        maxBottom = Math.max(maxBottom, r.bottom + mb);
+      }
+    }
+
+    const h = Math.ceil(maxBottom + pb);
+    // fallback: 측정값이 비정상이면 scrollHeight 사용
+    viewer.style.height = (h > 50 ? h : body.scrollHeight) + 'px';
   } catch (e) {
     viewer.style.height = '80vh';
   }
