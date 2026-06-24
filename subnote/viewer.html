@@ -72,18 +72,50 @@
     }
     .btn-menu:hover { background: rgba(255,255,255,.08); color: #ccc; }
 
-    .breadcrumb {
+    .header-right {
       margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb {
       font-size: .75rem;
       color: #888;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.08);
       padding: 4px 12px;
       border-radius: 20px;
-      max-width: 320px;
+      max-width: 260px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .nav-btn {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #ccc;
+      cursor: pointer;
+      border-radius: 8px;
+      /* 모바일 터치 영역 충분히 확보 */
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s, color .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-btn:hover:not(:disabled) { background: rgba(255,255,255,.14); color: #fff; }
+    .nav-btn:active:not(:disabled) { background: rgba(255,255,255,.2); }
+    .nav-btn:disabled { opacity: .25; cursor: default; }
+
+    @media (max-width: 680px) {
+      .nav-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+      .breadcrumb { max-width: 120px; font-size: .7rem; }
     }
 
     /* ── 레이아웃 ──────────────────────────── */
@@ -258,7 +290,12 @@
 <header>
   <button class="btn-menu" id="btnMenu" title="메뉴">☰</button>
   <div class="logo">📚 <em>서브노트</em></div>
-  <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
+  <div class="header-right">
+    <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
+    <button class="nav-btn" id="btnRand" title="랜덤 토픽">🎲</button>
+    <button class="nav-btn" id="btnPrev" title="이전 토픽" disabled>⬆</button>
+    <button class="nav-btn" id="btnNext" title="다음 토픽" disabled>⬇</button>
+  </div>
 </header>
 
 <div class="layout">
@@ -293,7 +330,37 @@ const overlay    = document.getElementById('overlay');
 const btnMenu    = document.getElementById('btnMenu');
 const mainEl     = document.getElementById('mainEl');
 
-let activeItem = null;
+let activeItem   = null;
+let allTopics    = [];   // 전체 도메인 순서대로 flattened 토픽 목록
+let currentIndex = -1;  // 현재 위치
+
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const btnRand = document.getElementById('btnRand');
+
+btnPrev.addEventListener('click', () => {
+  if (currentIndex > 0) goToIndex(currentIndex - 1);
+});
+btnNext.addEventListener('click', () => {
+  if (currentIndex < allTopics.length - 1) goToIndex(currentIndex + 1);
+});
+btnRand.addEventListener('click', () => {
+  if (allTopics.length === 0) return;
+  let idx;
+  do { idx = Math.floor(Math.random() * allTopics.length); }
+  while (allTopics.length > 1 && idx === currentIndex);  // 현재 토픽 제외
+  goToIndex(idx);
+});
+
+function goToIndex(idx) {
+  const t = allTopics[idx];
+  if (t) loadTopic(t.domain, t.id, t.name, t.label, false);
+}
+
+function updateNavBtns() {
+  btnPrev.disabled = currentIndex <= 0;
+  btnNext.disabled = currentIndex < 0 || currentIndex >= allTopics.length - 1;
+}
 
 /* ── 사이드바 토글 (모바일) ── */
 btnMenu.addEventListener('click', () => {
@@ -343,7 +410,13 @@ async function init() {
 /* ── 네비게이션 렌더링 ── */
 function renderNav(data) {
   nav.innerHTML = '';
+  allTopics = [];  // 전체 토픽 flat 배열 초기화
   Object.entries(data).forEach(([fname, info]) => {
+    // 전체 토픽 목록 구성 (이전/다음 버튼용)
+    info.topics.forEach(t => {
+      allTopics.push({ domain: fname, id: t.id, name: t.name, label: info.label });
+    });
+
     const btn = document.createElement('button');
     btn.className = 'domain-btn';
     btn.innerHTML = `
@@ -405,6 +478,10 @@ function loadTopic(domain, id, name, label, skipOpen) {
 
   breadcrumb.textContent = `${label} / ${name}`;
   history.replaceState(null, '', `#${domain}/${id}`);
+
+  // 현재 인덱스 갱신 및 버튼 상태 업데이트
+  currentIndex = allTopics.findIndex(t => t.domain === domain && t.id === id);
+  updateNavBtns();
 
   // 상태 초기화
   placeholder.style.display = 'none';
