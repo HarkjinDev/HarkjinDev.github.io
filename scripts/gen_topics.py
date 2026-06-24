@@ -83,7 +83,7 @@ def split_html(html_content: str):
 
 
 def make_topic_html(topic_name: str, section_html: str) -> str:
-    """토픽 단독 HTML 파일 생성 (CSS는 ../style.css 링크)"""
+    """토픽 단독 HTML 파일 생성 (CSS는 style.css 링크)"""
     return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -92,12 +92,12 @@ def make_topic_html(topic_name: str, section_html: str) -> str:
   <title>{topic_name}</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* iframe 내 여백 */
-    body {{ margin: 0; padding: 20px 24px; box-sizing: border-box; }}
-    /* 이미지 반응형 */
-    img {{ max-width: 100% !important; height: auto !important; }}
-    /* 테이블 스크롤 */
-    table {{ display: block; overflow-x: auto; max-width: 100%; }}
+    /* iframe 내부 여백 및 반응형 보정 */
+    body {{ margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }}
+    img  {{ max-width: 100% !important; height: auto !important; }}
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table {{ display: table !important; width: 100%; }}
+    .table-scroll {{ overflow-x: auto; -webkit-overflow-scrolling: touch; }}
   </style>
 </head>
 <body>
