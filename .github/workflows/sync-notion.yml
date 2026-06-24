@@ -3,229 +3,184 @@ name: Sync Notion Subnotes
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 15 * * *'   # 매일 KST 00:00 (UTC 15:00)
+    - cron: '0 15 * * *'   # 매일 KST 00:00
 
-# ══════════════════════════════════════════════════
-# Job 1: 각 페이지 병렬 캡처
-# ══════════════════════════════════════════════════
 jobs:
-  capture:
-    strategy:
-      fail-fast: false          # 1개 실패해도 나머지 계속 실행
-      max-parallel: 2           # 동시 실행 2개로 제한 → Notion WAF burst 방지
-      matrix:
-        include:
-          - {name: db,    url: "https://salt-stetson-a0e.notion.site/DB-3336968f52c480d4be00c83639a5ee64"}
-          - {name: ai,    url: "https://salt-stetson-a0e.notion.site/AI-32d6968f52c480649b2ef0be961c3a7c"}
-          - {name: sec,   url: "https://salt-stetson-a0e.notion.site/SEC-3396968f52c4817e8ecbdac791ad2d56"}
-          - {name: nw,    url: "https://salt-stetson-a0e.notion.site/NW-3466968f52c480619afeecdbcf66c206"}
-          - {name: sw,    url: "https://salt-stetson-a0e.notion.site/SW-3466968f52c480fc9adaf62344b29fa8"}
-          - {name: al,    url: "https://salt-stetson-a0e.notion.site/AL-3466968f52c480b0a414c596c619b340"}
-          - {name: st,    url: "https://salt-stetson-a0e.notion.site/ST-3436968f52c481af8f10f58df4f3a7c5"}
-          - {name: caos,  url: "https://salt-stetson-a0e.notion.site/CA-OS-3416968f52c480189650ed73a0c41e7d"}
-          - {name: bizpm, url: "https://salt-stetson-a0e.notion.site/BIZ-PM-3466968f52c48024a060e2173bd72c24"}
-          - {name: ds,    url: "https://salt-stetson-a0e.notion.site/DS-3466968f52c48061a7cdfaafe8009fba"}
-          - {name: gr,    url: "https://salt-stetson-a0e.notion.site/3536968f52c480b79401dcaefe521c71"}
-
+  sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Random delay
-        run: |
-          # 잡 시작 시 0~30초 랜덤 대기 → 동시 2개라도 요청 시점 분산
-          DELAY=$((RANDOM % 30))
-          echo "대기: ${DELAY}초"
-          sleep $DELAY
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install Playwright
-        run: |
-          pip install playwright playwright-stealth==1.0.6
-          playwright install chromium
-          playwright install-deps chromium
-
-      - name: Capture MHTML - ${{ matrix.name }}
-        run: |
-          python3 << 'EOF'
-          import asyncio
-          import sys
-          from playwright.async_api import async_playwright
-          from playwright_stealth import stealth_async
-
-          NAME       = "${{ matrix.name }}"
-          URL        = "${{ matrix.url }}"
-          MIN_SIZE   = 100   # KB
-          MIN_CSS    = 7
-          MAX_RETRY  = 3
-
-          CONTENT_SELECTOR = (
-              "table, "
-              "[data-block-id], "
-              "[class*='notion-page-content'], "
-              "[class*='notion-text-block'], "
-              ".notion-selectable"
-          )
-
-          async def capture():
-              async with async_playwright() as p:
-                  browser = await p.chromium.launch(
-                      headless=True,
-                      args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-                  )
-                  try:
-                      context = await browser.new_context(
-                          user_agent=(
-                              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                              "AppleWebKit/537.36 (KHTML, like Gecko) "
-                              "Chrome/124.0.0.0 Safari/537.36"
-                          ),
-                          locale="ko-KR",
-                          timezone_id="Asia/Seoul",
-                          extra_http_headers={
-                              "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-                          }
-                      )
-                      page = await context.new_page()
-
-                      # ★ Stealth 적용: headless 탐지 우회
-                      await stealth_async(page)
-
-                      cdp  = await context.new_cdp_session(page)
-                      await cdp.send("Network.enable")
-
-                      await page.goto(URL, wait_until="domcontentloaded", timeout=90000)
-
-                      try:
-                          await page.wait_for_selector(CONTENT_SELECTOR, timeout=60000)
-                          print(f"[INFO] {NAME} - 콘텐츠 감지 완료")
-                      except Exception:
-                          print(f"[WARN] {NAME} - 콘텐츠 미감지, 20초 추가 대기")
-                          await asyncio.sleep(20)
-
-                      await asyncio.sleep(3)
-
-                      # lazy-load 유발 스크롤
-                      await page.evaluate("""
-                          async () => {
-                              await new Promise(resolve => {
-                                  let total = 0;
-                                  const dist = 800;
-                                  const t = setInterval(() => {
-                                      window.scrollBy(0, dist);
-                                      total += dist;
-                                      if (total >= document.body.scrollHeight) {
-                                          clearInterval(t); resolve();
-                                      }
-                                  }, 150);
-                              });
-                          }
-                      """)
-                      await asyncio.sleep(3)
-
-                      await page.evaluate("window.scrollTo(0, 0)")
-                      await asyncio.sleep(1)
-
-                      result   = await cdp.send("Page.captureSnapshot", {"format": "mhtml"})
-                      data     = result["data"]
-                      size_kb  = len(data.encode("utf-8")) / 1024
-                      css_cnt  = data.count("Content-Type: text/css")
-                      print(f"[INFO] {NAME} - CSS {css_cnt}개 / {size_kb:.1f} KB")
-
-                      if size_kb < MIN_SIZE:
-                          raise Exception(f"크기 미달 ({size_kb:.1f} KB < {MIN_SIZE} KB)")
-                      if css_cnt < MIN_CSS:
-                          raise Exception(f"CSS 부족 ({css_cnt}개 < {MIN_CSS}개) - 로딩 상태")
-
-                      with open(f"/tmp/{NAME}.mhtml", "w", encoding="utf-8") as f:
-                          f.write(data)
-                      print(f"[완료] /tmp/{NAME}.mhtml ({size_kb:.1f} KB)")
-
-                  finally:
-                      await browser.close()
-
-          async def main():
-              for attempt in range(1, MAX_RETRY + 1):
-                  try:
-                      await capture()
-                      return  # 성공
-                  except Exception as e:
-                      print(f"[WARN] {NAME} 시도 {attempt}/{MAX_RETRY} 실패: {e}")
-                      if attempt < MAX_RETRY:
-                          delay = 60 if "CSS" in str(e) else 30
-                          print(f"[RETRY] {delay}초 대기 후 재시도")
-                          await asyncio.sleep(delay)
-                      else:
-                          print(f"[ERROR] {NAME} 최종 실패")
-                          sys.exit(1)   # job 실패 표시 → artifact 미업로드
-
-          asyncio.run(main())
-          EOF
-
-      - name: Upload MHTML artifact
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mhtml-${{ matrix.name }}
-          path: /tmp/${{ matrix.name }}.mhtml
-          retention-days: 1
-
-  # ══════════════════════════════════════════════════
-  # Job 2: 변환 및 배포 (capture 완료 후 실행)
-  # ══════════════════════════════════════════════════
-  convert-and-deploy:
-    needs: capture
-    if: always()           # capture 일부 실패해도 반드시 실행
-    runs-on: ubuntu-latest
-
-    steps:
+      # ────────────────────────────────────────
+      # 1. 체크아웃
+      # ────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ────────────────────────────────────────
+      # 2. Python 설치
+      # ────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install beautifulsoup4
-
-      - name: Download MHTML artifacts
-        uses: actions/download-artifact@v4
-        with:
-          pattern: mhtml-*
-          path: /tmp/mhtml/
-          merge-multiple: true
-        continue-on-error: true   # 일부 artifact 없어도 계속 진행
-
-      - name: Convert MHTML to HTML
-        run: |
-          mkdir -p subnote
-          for name in db ai sec nw sw al st caos bizpm ds gr; do
-            mhtml="/tmp/mhtml/${name}.mhtml"
-            html="subnote/${name}.html"
-            if [ -f "$mhtml" ]; then
-              python3 scripts/mhtml_to_html.py "$mhtml" "$html"
-            else
-              echo "[SKIP] ${name} - MHTML 없음, 기존 HTML 유지"
-            fi
-          done
-
-      - name: Generate mem.html
-        run: python3 scripts/gen_mem.py
+        run: pip install requests beautifulsoup4
 
       # ────────────────────────────────────────
-      # 토픽 분할 — 성공 도메인만 초기화 후 재생성
+      # 3. Notion Export API로 HTML 추출
+      # ────────────────────────────────────────
+      - name: Export from Notion
+        env:
+          NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
+        run: |
+          python3 << 'EOF'
+          import base64, json, os, re, time, zipfile
+          from io import BytesIO
+          from pathlib import Path
+          import requests
+
+          TOKEN = os.environ["NOTION_TOKEN_V2"]
+
+          PAGES = [
+              ("db",    "3336968f-52c4-80d4-be00-c83639a5ee64"),
+              ("ai",    "32d6968f-52c4-8064-9b2e-f0be961c3a7c"),
+              ("sec",   "3396968f-52c4-817e-8ecb-dac791ad2d56"),
+              ("nw",    "3466968f-52c4-8061-9afe-ecdbcf66c206"),
+              ("sw",    "3466968f-52c4-80fc-9ada-f62344b29fa8"),
+              ("al",    "3466968f-52c4-80b0-a414-c596c619b340"),
+              ("st",    "3436968f-52c4-81af-8f10-f58df4f3a7c5"),
+              ("caos",  "3416968f-52c4-8018-9650-ed73a0c41e7d"),
+              ("bizpm", "3466968f-52c4-8024-a060-e2173bd72c24"),
+              ("ds",    "3466968f-52c4-8061-a7cd-faafe8009fba"),
+              ("gr",    "3536968f-52c4-80b7-9401-dcaefe521c71"),
+          ]
+
+          HEADERS = {
+              "Cookie": f"token_v2={TOKEN}",
+              "Content-Type": "application/json",
+              "notion-client-version": "23.13.0.0",
+              "User-Agent": "Mozilla/5.0",
+          }
+
+          def fmt_uuid(s):
+              """하이픈 없는 UUID에 하이픈 삽입"""
+              s = s.replace("-", "")
+              return f"{s[:8]}-{s[8:12]}-{s[12:16]}-{s[16:20]}-{s[20:]}"
+
+          def enqueue_export(page_id):
+              resp = requests.post(
+                  "https://www.notion.so/api/v3/enqueueTask",
+                  headers=HEADERS,
+                  json={
+                      "task": {
+                          "eventName": "exportBlock",
+                          "request": {
+                              "blockId": page_id,
+                              "exportOptions": {
+                                  "exportType": "html",
+                                  "timeZone": "Asia/Seoul",
+                                  "locale": "ko",
+                                  "flattenExportFiletree": False,
+                              },
+                              "shouldExportComments": False,
+                          }
+                      }
+                  },
+                  timeout=30,
+              )
+              resp.raise_for_status()
+              return resp.json()["taskId"]
+
+          def poll_task(task_id, timeout=600):
+              """최대 10분 폴링"""
+              for _ in range(timeout // 10):
+                  time.sleep(10)
+                  resp = requests.post(
+                      "https://www.notion.so/api/v3/getTasks",
+                      headers=HEADERS,
+                      json={"taskIds": [task_id]},
+                      timeout=30,
+                  )
+                  result = resp.json()["results"][0]
+                  state = result.get("state", "")
+                  print(f"  상태: {state}")
+                  if state == "success":
+                      return result["status"]["exportURL"]
+                  if state in ("failure", "error"):
+                      raise Exception(f"Export 실패: {result}")
+              raise Exception("Export 타임아웃")
+
+          def inline_images(html: str, zf: zipfile.ZipFile, html_zip_path: str) -> str:
+              """HTML 내 상대 경로 이미지를 base64로 인라인화"""
+              base_dir = str(Path(html_zip_path).parent)
+
+              def replace_src(m):
+                  src = m.group(1)
+                  if src.startswith("http") or src.startswith("data:"):
+                      return m.group(0)
+                  # ZIP 내 경로 계산
+                  img_path = f"{base_dir}/{src}".lstrip("/")
+                  try:
+                      img_data = zf.read(img_path)
+                      ext = Path(src).suffix.lower().lstrip(".")
+                      mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png",
+                               "gif": "gif", "webp": "webp", "svg": "svg+xml"}.get(ext, "png")
+                      b64 = base64.b64encode(img_data).decode()
+                      return f'src="data:image/{mime};base64,{b64}"'
+                  except Exception as e:
+                      print(f"    [WARN] 이미지 인라인 실패: {img_path} → {e}")
+                      return m.group(0)
+
+              return re.sub(r'src="([^"]+)"', replace_src, html)
+
+          def export_page(name, page_id):
+              print(f"\n[{name}] 익스포트 시작 ({page_id})")
+
+              task_id = enqueue_export(page_id)
+              print(f"  TaskID: {task_id}")
+
+              export_url = poll_task(task_id)
+              print(f"  다운로드 URL 획득")
+
+              # ZIP 다운로드
+              zip_resp = requests.get(export_url, timeout=120)
+              zip_resp.raise_for_status()
+              print(f"  ZIP 크기: {len(zip_resp.content) / 1024:.1f} KB")
+
+              with zipfile.ZipFile(BytesIO(zip_resp.content)) as zf:
+                  # ZIP 내 HTML 파일 탐색
+                  html_files = [f for f in zf.namelist() if f.endswith(".html")]
+                  if not html_files:
+                      raise Exception("ZIP 내 HTML 파일 없음")
+
+                  html_zip_path = html_files[0]
+                  print(f"  HTML 파일: {html_zip_path}")
+
+                  html = zf.read(html_zip_path).decode("utf-8", errors="replace")
+                  html = inline_images(html, zf, html_zip_path)
+
+              # 저장
+              out = Path("subnote") / f"{name}.html"
+              out.parent.mkdir(exist_ok=True)
+              out.write_text(html, encoding="utf-8")
+              print(f"  [완료] {out} ({out.stat().st_size / 1024:.1f} KB)")
+
+          # 전체 실행
+          for name, page_id in PAGES:
+              try:
+                  export_page(name, page_id)
+                  time.sleep(5)  # 요청 간 딜레이
+              except Exception as e:
+                  print(f"  [ERROR] {name} 실패: {e}")
+          EOF
+
+      # ────────────────────────────────────────
+      # 4. 토픽 분할 (topics/ 갱신)
       # ────────────────────────────────────────
       - name: Split into topics
         run: |
           mkdir -p subnote/topics
-          pip install beautifulsoup4 -q
-
-          # 오늘 변환에 성공한 도메인만 topics/ 초기화
           for name in db ai sec nw sw al st caos bizpm ds gr; do
             html="subnote/${name}.html"
             if [ -f "$html" ] && [ $(wc -c < "$html") -gt 100000 ]; then
@@ -233,9 +188,17 @@ jobs:
               rm -rf "subnote/topics/${name}/"
             fi
           done
-
           python3 scripts/gen_topics.py
 
+      # ────────────────────────────────────────
+      # 5. mem.html 생성 (두음 모음)
+      # ────────────────────────────────────────
+      - name: Generate mem.html
+        run: python3 scripts/gen_mem.py
+
+      # ────────────────────────────────────────
+      # 6. index.html 생성
+      # ────────────────────────────────────────
       - name: Generate index.html
         run: |
           python3 << 'EOF'
@@ -263,6 +226,12 @@ jobs:
                   <a href="mem.html">
                     <span class="label" style="background:#d44c47;color:#fff;padding:2px 8px;border-radius:4px;">📝 두음</span>
                     <span class="desc">전 도메인 두음 모음</span>
+                  </a>
+                </li>
+                <li class="mem-item">
+                  <a href="viewer.html">
+                    <span class="label" style="background:#4a7dff;color:#fff;padding:2px 8px;border-radius:4px;">📖 뷰어</span>
+                    <span class="desc">토픽 분할 뷰어</span>
                   </a>
                 </li>"""
 
@@ -309,6 +278,9 @@ jobs:
           print("[완료] subnote/index.html 생성")
           EOF
 
+      # ────────────────────────────────────────
+      # 7. Git commit & push
+      # ────────────────────────────────────────
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
