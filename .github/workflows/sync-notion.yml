@@ -56,40 +56,62 @@ jobs:
               ("gr",    "3536968f-52c4-80b7-9401-dcaefe521c71"),
           ]
 
+          def get_user_id():
+              """token_v2로 현재 유저 ID 조회"""
+              resp = requests.post(
+                  "https://www.notion.so/api/v3/loadUserContent",
+                  headers={
+                      "Cookie": f"token_v2={TOKEN}",
+                      "Content-Type": "application/json",
+                      "User-Agent": "Mozilla/5.0",
+                  },
+                  json={},
+                  timeout=30,
+              )
+              if resp.status_code != 200:
+                  print(f"  [WARN] 유저 ID 조회 실패 ({resp.status_code}): {resp.text[:200]}")
+                  return None
+              users = resp.json().get("recordMap", {}).get("notion_user", {})
+              user_id = list(users.keys())[0] if users else None
+              print(f"  유저 ID: {user_id}")
+              return user_id
+
+          USER_ID = get_user_id()
+
           HEADERS = {
               "Cookie": f"token_v2={TOKEN}",
               "Content-Type": "application/json",
               "notion-client-version": "23.13.0.0",
               "User-Agent": "Mozilla/5.0",
           }
-
-          def fmt_uuid(s):
-              """하이픈 없는 UUID에 하이픈 삽입"""
-              s = s.replace("-", "")
-              return f"{s[:8]}-{s[8:12]}-{s[12:16]}-{s[16:20]}-{s[20:]}"
+          if USER_ID:
+              HEADERS["x-notion-active-user-header"] = USER_ID
 
           def enqueue_export(page_id):
+              body = {
+                  "task": {
+                      "eventName": "exportBlock",
+                      "request": {
+                          "blockId": page_id,
+                          "recursive": False,
+                          "exportOptions": {
+                              "exportType": "html",
+                              "timeZone": "Asia/Seoul",
+                              "locale": "ko",
+                          },
+                      }
+                  }
+              }
               resp = requests.post(
                   "https://www.notion.so/api/v3/enqueueTask",
                   headers=HEADERS,
-                  json={
-                      "task": {
-                          "eventName": "exportBlock",
-                          "request": {
-                              "blockId": page_id,
-                              "exportOptions": {
-                                  "exportType": "html",
-                                  "timeZone": "Asia/Seoul",
-                                  "locale": "ko",
-                                  "flattenExportFiletree": False,
-                              },
-                              "shouldExportComments": False,
-                          }
-                      }
-                  },
+                  json=body,
                   timeout=30,
               )
-              resp.raise_for_status()
+              if resp.status_code != 200:
+                  print(f"  [ERROR] enqueueTask 응답: {resp.status_code}")
+                  print(f"  [ERROR] 응답 body: {resp.text[:500]}")
+                  resp.raise_for_status()
               return resp.json()["taskId"]
 
           def poll_task(task_id, timeout=600):
