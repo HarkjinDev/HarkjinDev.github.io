@@ -179,7 +179,26 @@ jobs:
               print(f"  다운로드 URL 획득")
 
               # ZIP 다운로드
-              zip_resp = requests.get(export_url, timeout=120)
+              # file.notion.com은 token_v2 + Referer + User-Agent 모두 필요
+              dl_session = requests.Session()
+              dl_session.cookies.set("token_v2", TOKEN, domain=".notion.so")
+              dl_session.cookies.set("token_v2", TOKEN, domain="file.notion.com")
+              zip_resp = dl_session.get(
+                  export_url,
+                  headers={
+                      "User-Agent": (
+                          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                          "AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/124.0.0.0 Safari/537.36"
+                      ),
+                      "Referer": "https://www.notion.so/",
+                      "Cookie": f"token_v2={TOKEN}",
+                  },
+                  timeout=120,
+                  allow_redirects=True,
+              )
+              if zip_resp.status_code != 200:
+                  print(f"  [ERROR] 다운로드 실패 ({zip_resp.status_code}): {zip_resp.text[:300]}")
               zip_resp.raise_for_status()
               print(f"  ZIP 크기: {len(zip_resp.content) / 1024:.1f} KB")
 
