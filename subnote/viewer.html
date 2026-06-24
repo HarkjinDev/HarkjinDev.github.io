@@ -379,8 +379,10 @@ function closeSidebar() {
 function resizeIframe() {
   try {
     const doc = viewer.contentDocument || viewer.contentWindow.document;
-    const h   = doc.documentElement.scrollHeight || doc.body.scrollHeight;
-    if (h > 0) viewer.style.height = h + 'px';
+    // 1px로 먼저 축소 후 측정 → 뷰포트 높이가 scrollHeight에 영향 주는 현상 방지
+    viewer.style.height = '1px';
+    const h = doc.body.scrollHeight;
+    viewer.style.height = h + 'px';
   } catch (e) {
     viewer.style.height = '80vh';
   }
