@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,13 +19,13 @@
 <ul>
 <li><strong>정의:</strong> 모델이 올바르게 작동하는 입력값 주변의 안정적 영역을 최대화하여 견고성을 테스트</li>
 <li><strong>용도:</strong> 적대적 공격(Adversarial Attack)에 대한 모델의 저항력 측정</li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>역할 (15자 이내)</strong></th></tr>
 <tr><td><strong>테스트 포인트</strong></td><td>기준이 되는 입력 데이터</td><td>테스트 수행의 시작점</td></tr>
 <tr><td><strong>최대 안전반경</strong></td><td>오작동이 없는 최대 변화 폭</td><td>모델의 견고성 범위 측정</td></tr>
 <tr><td><strong>결정 경계</strong></td><td>분류 결과가 변하는 임계 지점</td><td>결과값 변경 여부 판단 기준</td></tr>
 <tr><td><strong>탐색 방향</strong></td><td>안전 영역 확장을 위한 벡터</td><td>효율적인 안전 반경 탐색</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

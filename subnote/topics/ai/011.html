@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,19 +20,19 @@
 <li><strong>정의</strong>: 손실 함수의 기울기(Gradient)를 계산하여 오차가 감소하는 방향으로 가중치를 반복적으로 업데이트하며 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>손실 함수의 최솟값을 탐색</strong></u></span>하는 핵심 최적화 알고리즘</li>
 <li><strong>키워드</strong>: 편미분(특정 가중치 수정), 연쇄 법칙(Chain Rule), 전역/지역 최솟값, 학습률 스케줄링, 수렴(Convergence), 가중치 초기화</li>
 <li><strong>분류</strong>: 학습/최적화</li>
-<li><strong>핵심 구성 요소</strong>:<table>
+<li><strong>핵심 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th><strong>핵심 요소</strong></th><th><strong>설명</strong></th><th><strong>역할</strong></th></tr>
 <tr><td><strong>손실 함수</strong></td><td>예측값과 실제값의 차이를 수치화</td><td>최적화의 목표지점 설정</td></tr>
 <tr><td><strong>학습률 (</strong><strong>\eta</strong><strong>)</strong></td><td>가중치 갱신 시 이동하는 보폭</td><td>학습 속도 및 안정성 결정</td></tr>
 <tr><td><strong>기울기 (Gradient)</strong></td><td>손실 함수를 편미분하여 얻은 값</td><td>업데이트 방향 및 크기 제공</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>동작 원리</strong>: <ul>
 <li><strong>가중치(W) = W - η × ∂L/∂W</strong></li>
 <li>기울기 반대 방향으로 가중치를 반복 이동하여 전역 최솟값(Global Minimum)을 탐색</li>
 </ul>
 </li>
-<li><strong>주요 문제점</strong>:<table>
+<li><strong>주요 문제점</strong>:<div class="table-scroll"><table>
 <tr><th><strong>문제점</strong></th><th><strong>핵심</strong></th><th><strong>대응 방안</strong></th></tr>
 <tr><td><strong>지역 최솟값 
 (Local Minimum)</strong></td><td>전체 최저점이 아닌 낮은 지점에 고립</td><td>Momentum 계열 옵티마이저 (Adam) 사용, 학습률 스케줄링</td></tr>
@@ -42,7 +42,7 @@
 <tr><td><strong>기울기 폭주 
 (Exploding Gradient)</strong></td><td>기울기가 너무 커져 가중치 발산</td><td>Gradient Clipping (임계치 제한), 
 가중치 규제</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 경사하강법 자체는 단순하나 학습률 설정과 초기 가중치에 따라 수렴 결과가 크게 달라지므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>학습률 스케줄링(Warm-up, Decay)과 가중치 초기화(Xavier, He) 전략</strong></u></span>을 함께 설계하는 것이 중요함</li>
 </ul>

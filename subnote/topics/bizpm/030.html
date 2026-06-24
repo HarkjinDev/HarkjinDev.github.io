@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 기업 내·외부 데이터를 수집·분석하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>경영 의사결정을 지원</strong></u></span>하는 기술 및 프로세스 체계</li>
 <li><strong>키워드</strong>: OLAP, 대시보드, 데이터 웨어하우스, 예측 분석, 처방 분석</li>
 <li><strong>분류</strong>: 경영전략 분석</li>
-<li><strong>BI vs BA 비교</strong>:<table>
+<li><strong>BI vs BA 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>BI (Business Intelligence)</th><th>BA (Business Analytics)</th></tr>
 <tr><td>초점</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>과거·현재 데이터 보고</strong></u></span></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>미래 예측·처방</strong></u></span></td></tr>
 <tr><td>분석 유형</td><td>기술·진단 분석</td><td>예측·처방 분석</td></tr>
 <tr><td>주요 도구</td><td>OLAP, 대시보드</td><td>머신러닝, 통계 모델</td></tr>
 <tr><td>활용 목적</td><td>현황 파악</td><td>의사결정 최적화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: BI는 <strong>“무슨 일이 일어났는가?”</strong>, BA는 <strong>“왜 일어났고 앞으로 어떻게 될 것인가?”</strong>를 다루며, 최근 AI 기반 BA가 실시간 처방적 분석(Prescriptive Analytics)으로 발전 중.</li>
 </ul>

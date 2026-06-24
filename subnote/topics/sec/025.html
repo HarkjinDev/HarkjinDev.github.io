@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,16 +21,16 @@
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SET, 구매정보/결제정보 분리</strong></u></span>, 메시지 다이제스트, M1M2, 전자봉투, PG</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>특징</strong>: 지급정보 보안 + 사용자 프라이버시 보안</li>
-<li><strong>주요 기술</strong>:<table>
+<li><strong>주요 기술</strong>:<div class="table-scroll"><table>
 <tr><th>주요기술</th><th>설명</th></tr>
 <tr><td>암호화 기술</td><td>비밀키 암호화 기법</td></tr>
 <tr><td>공개키 암호화 기법</td><td>RSA, DSA</td></tr>
 <tr><td>메시지 다이제스트</td><td>MD2, MD4, MD5, SHA</td></tr>
 <tr><td>전자서명</td><td>공개키 기반으로 문서의 무결성과 인증, 부인방지 보장</td></tr>
 <tr><td>전자봉투</td><td>대칭키 암호화 + 공개키 교환, 기밀성 보장</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>이중서명 수행 절차</strong>:<table>
+<li><strong>이중서명 수행 절차</strong>:<div class="table-scroll"><table>
 <tr><th>수행절차</th><th>설명</th></tr>
 <tr><td>이중서명 생성</td><td>① 구매/결제 DP 다이제스트 M1, M2 생성 → 해시 → M
 ② M에 사용자 개인키로 전자서명</td></tr>
@@ -45,7 +45,7 @@
 ② 비밀키 기반 결제정보/M1M2/서명 값 추출
 ③ 결제정보 해시 M2' 생성 및 M1M2의 M2를 M2' 대체
 ④ 이중서명에서 사용자 공개키 기반 M 추출하고 M=M' 검증</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 이중서명은 판매자와 금융기관이 각각 필요한 정보만 볼 수 있도록 분리하여 고객 프라이버시를 보호하는 SET의 핵심 메커니즘임. 전자봉투와 전자서명을 결합한 구조로, 구매정보와 결제정보를 단일 이중서명으로 묶어 위·변조와 부인방지를 동시에 보장함</li>
 </ul>

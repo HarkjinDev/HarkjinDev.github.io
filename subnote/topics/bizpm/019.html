@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 기업의 활동을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>본원적 활동과 지원 활동으로 분류</strong></u></span>하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>경쟁 우위의 원천을 분석</strong></u></span>하는 경영 분석 도구</li>
 <li><strong>키워드</strong>: 본원적 활동, 지원 활동, 경쟁 우위, 마진</li>
 <li><strong>분류</strong>: 경영전략 분석</li>
-<li><strong>구조</strong>:<table>
+<li><strong>구조</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>세부 활동</strong></th><th><strong>핵심 요약</strong></th></tr>
 <tr><td><strong>본원적 활동</strong></td><td><strong>내부 로지스틱스</strong></td><td>원재료 수급 및 품질 관리</td></tr>
 <tr><td></td><td><strong>생산활동</strong></td><td>제품 제조 및 공정 최적화 (품질·원가·납기)</td></tr>
@@ -31,7 +31,7 @@
 <tr><td></td><td><strong>인적자원관리</strong></td><td>인재 채용, 교육 및 성과 관리</td></tr>
 <tr><td></td><td><strong>기술개발</strong></td><td>신제품 개발 및 프로세스 혁신(R&amp;D)</td></tr>
 <tr><td></td><td><strong>조달</strong></td><td>최적의 투입 자원 및 자산 구매 활동</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>기대효과: </strong>프로세스 혁신, 원가절감, 품질향상, 납기단축</li>
 <li><strong>인사이트</strong>: 가치사슬 분석은 <strong>어느 활동에서 원가 우위나 차별화 우위가 발생하는지</strong> 파악하는 데 활용하며, IT 시스템이 각 활동의 효율화에 기여하는 방식으로 연결해 서술함.</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 문장 내에서 고유 명사나 특정 의미를 가진 단어를 찾아내어 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>그 범주(Entity)를 식별</strong></u></span>하는 기술</li>
 <li><strong>키워드</strong>: 정보 추출, 시퀀스 레이블링, BIO 태깅, 챗봇 의도 파악</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
-<li><strong>주요 단계</strong>: <table>
+<li><strong>주요 단계</strong>: <div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. 문장 토큰화</strong></td><td>문장을 최소 의미 단위로 분리함</td><td>텍스트 분석의 기초 작업</td></tr>
 <tr><td><strong>2. 품사 태깅</strong></td><td>각 토큰의 문법적 역할을 식별함</td><td>고유 명사 등 후보군 파악</td></tr>
 <tr><td><strong>3. 개체명 및 모델 매칭</strong></td><td>사전이나 학습 모델로 개체 탐색</td><td><strong>BIO 태깅(시작/내부/외부 식별)</strong>, 
 <strong>시퀀스 레이블링(토큰분류)</strong></td></tr>
 <tr><td><strong>4. 범주 분류</strong></td><td>추출된 개체를 특정 범주로 매핑</td><td>정보 추출, 챗봇 의도 파악</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 지식 그래프 구축의 핵심 기술이며, 챗봇 서비스에서 사용자 질문의 핵심 요소를 파악하는 데 필수적임</li>
 </ul>

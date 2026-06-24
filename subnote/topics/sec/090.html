@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 디지털 포렌식에서 분석 대상이 되는 시스템 활동 흔적 데이터</li>
 <li><strong>키워드:</strong> 레지스트리, 이벤트 로그, Prefetch, MFT, DNS 캐시, PCAP, 브라우저 기록, 메타데이터, 슬랙 공간</li>
 <li><strong>분류:</strong> 디지털 포렌식</li>
-<li><strong>주요 아티팩트 유형:</strong><table>
+<li><strong>주요 아티팩트 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>핵심</th></tr>
 <tr><td><strong>윈도우</strong></td><td><strong>레지스트리</strong></td><td>설정·실행 흔적</td></tr>
 <tr><td></td><td><strong>이벤트 로그</strong></td><td>행위 기록</td></tr>
@@ -42,7 +42,7 @@
 <tr><td><strong>메모리</strong></td><td><strong>프로세스 목록</strong></td><td>실행 프로세스</td></tr>
 <tr><td></td><td><strong>네트워크 연결</strong></td><td>활성 연결</td></tr>
 <tr><td></td><td><strong>암호화 키</strong></td><td>키·자격증명</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 아티팩트는 삭제 후에도 MFT·슬랙 공간·볼륨 섀도·메모리에 잔존하므로 철저한 안티포렌식 없이는 완전 은닉이 어려우며, 공격자의 행위 재구성은 단일 아티팩트가 아닌 윈도우·네트워크·브라우저·메모리 아티팩트의 교차 분석을 통해 타임라인을 구성하는 것이 핵심임</li>
 </ul>

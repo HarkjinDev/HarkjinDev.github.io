@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 송수신자가 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동일한 비밀키</strong></u></span>를 사용하여 암복호화하는 암호 방식</li>
 <li><strong>키워드</strong>: AES, DES, 동일 키, 블록/스트림</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>대표 알고리즘</strong>:<table>
+<li><strong>대표 알고리즘</strong>:<div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>키 길이</th><th>블록 크기</th><th>특징</th></tr>
 <tr><td>DES</td><td>56bit</td><td>64bit</td><td>현재 취약 (폐기)</td></tr>
 <tr><td>3DES</td><td>168bit</td><td>64bit</td><td>DES 3회 적용, 성능 저하</td></tr>
 <tr><td>AES</td><td>128/192/256bit</td><td>128bit</td><td>현재 표준, NIST 선정</td></tr>
 <tr><td>ARIA</td><td>128/192/256bit</td><td>128bit</td><td>한국 국가 표준 (KS X 1213)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>장점</strong>: 처리 속도 빠름, 대용량 데이터 암호화에 적합</li>
 <li><strong>단점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>키 배송 문제(Key Distribution Problem)</strong></u></span> — 안전한 키 전달 채널 필요</li>

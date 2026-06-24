@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 행위 기반, 생체, 명시적 미고지, 지속적 검증, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무의식, 제로트러스트</strong></u></span></li>
 <li><strong>분류</strong>: 인증/신원관리</li>
 <li><strong>특징</strong>: 로그인 후에도 지속적 신원 검증, 사용자 개입 없음, AI/ML 기반 이상 탐지</li>
-<li><strong>인증 절차:</strong><table>
+<li><strong>인증 절차:</strong><div class="table-scroll"><table>
 <tr><th><strong>인증절차</strong></th><th><strong>기능</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>1. 관찰</strong></td><td>사용자 인증 데이터 수집</td><td>사용자 특화 속성 정보 수집</td></tr>
 <tr><td></td><td>무자각 모니터링</td><td>상호작용 무자각 모니터링</td></tr>
@@ -31,7 +31,7 @@
 <tr><td></td><td>머신러닝 기반 본인 여부 분석</td><td>ML 기반 본인 여부 분석</td></tr>
 <tr><td><strong>4. 결정</strong></td><td>인증 승인</td><td>결과에 따른 승인 거부 결정</td></tr>
 <tr><td></td><td>재인증 요청</td><td>정책 기반 재인증 및 조치 수행</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>장점</strong>: 세션 하이재킹 탐지, 비밀번호 없는 사용자 경험</li>
 <li><strong>단점</strong>: 프라이버시 침해 우려, 오탐(False Positive) 가능성</li>

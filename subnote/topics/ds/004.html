@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 하이퍼바이저 위에서 독립적인 OS와 애플리케이션을 실행하는 논리적 컴퓨팅 환경</li>
 <li><strong>키워드</strong>: Guest OS, 이미지(OVF/OVA), 스냅샷, 마이그레이션, 하드웨어 에뮬레이션</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>VM vs 컨테이너 비교</strong>:<table>
+<li><strong>VM vs 컨테이너 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>가상머신(VM)</th><th>컨테이너</th></tr>
 <tr><td>OS</td><td>Guest OS 독립 탑재</td><td>호스트 OS 커널 공유</td></tr>
 <tr><td>크기</td><td>GB 단위</td><td>MB 단위</td></tr>
 <tr><td>기동 시간</td><td>분 단위</td><td>초 단위</td></tr>
 <tr><td>격리성</td><td>강한 격리</td><td>프로세스 수준 격리</td></tr>
 <tr><td>오버헤드</td><td>높음</td><td>낮음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: VM은 <strong>강한 보안 격리가 필요한 환경</strong>(멀티테넌트 퍼블릭 클라우드)에 적합하며, 컨테이너는 경량·속도 중심 MSA 배포에 적합함을 용도별로 구분해 서술.</li>
 </ul>

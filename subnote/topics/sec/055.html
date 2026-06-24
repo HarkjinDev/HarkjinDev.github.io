@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 웹 애플리케이션의 주요 보안 취약점을 발표하는 국제 오픈 보안 프로젝트</li>
 <li><strong>키워드</strong>: 웹 보안 Top 10, 취약점 가이드</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>OWASP Top 10 (2025)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;접보공암/인불인무/로예&gt;</strong></span><table>
+<li><strong>OWASP Top 10 (2025)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;접보공암/인불인무/로예&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>핵심</th><th>대응 방안</th></tr>
 <tr><td><strong>A01. 접근 제어 취약점 
 (Broken Access Control)</strong></td><td>권한 외 접근</td><td>최소 권한 원칙, IDOR·SSRF 방어, 접근 제어 정책 서버 측 강제 적용</td></tr>
@@ -36,7 +36,7 @@
 <tr><td><strong>A08. 무결성 실패 (Software and Data Integrity Failures)</strong></td><td>무결성 검증 누락</td><td>디지털 서명·체크섬 검증, 안전한 직렬화 라이브러리 사용, 업데이트 서명 검증</td></tr>
 <tr><td><strong>A09. 로깅·모니터링 실패(Security Logging and Monitoring Failures)</strong></td><td>침해 탐지 불가</td><td>중앙화 로그 수집(SIEM), 경보 임계치 설정, 로그 보존 정책 수립</td></tr>
 <tr><td><strong>A10. 예외 처리 미흡 (Mishandling of Exceptional Conditions)</strong></td><td>오류 정보 노출</td><td>에러 메시지 최소화, 예외 처리 표준화, 스택 트레이스 외부 노출 차단</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 클라우드 네이티브 환경과 오픈소스 활용이 보편화되면서 공급망 보호가 최우선 과제로 부상, 인프라가 복잡해지면서 코드로 관리하는 인프라나 클라우드 설정 오류가 주요 공격 경로가 됨.</li>
 </ul>

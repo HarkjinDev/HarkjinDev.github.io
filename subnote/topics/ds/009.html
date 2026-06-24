@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 데이터센터 서버에서 개인 데스크톱 환경을 가상화하여 중앙 관리하고, 사용자는 씬 클라이언트나 PC로 원격 접속하는 데스크톱 가상화 인프라</li>
 <li><strong>키워드</strong>: 씬 클라이언트, 세션 브로커, 중앙 관리, RDP/ICA/PCoIP, 보안 USB, BYOD, 재택근무</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>계층별 구성요소</strong>:<table>
+<li><strong>계층별 구성요소</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>구성 요소</th></tr>
 <tr><td>클라이언트</td><td>씬 클라이언트, PC, 모바일</td></tr>
 <tr><td>프로토콜</td><td>RDP, ICA(Citrix), PCoIP(VMware)</td></tr>
 <tr><td>가상화</td><td>하이퍼바이저 + 가상 데스크톱 VM</td></tr>
 <tr><td>스토리지</td><td>공유 스토리지 (SAN/NFS)</td></tr>
 <tr><td>관리</td><td>VDI 관리 플랫폼 (Citrix, VMware Horizon)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: VDI는 <strong>재택근무·보안 강화·BYOD 대응</strong>의 실용적 솔루션으로, 초기 구축 비용이 높으나 데이터 중앙화로 보안 사고 시 피해 최소화가 가능함. DaaS와의 비교(온프레미스 vs 클라우드)를 언급하면 차별화 가능.</li>
 </ul>

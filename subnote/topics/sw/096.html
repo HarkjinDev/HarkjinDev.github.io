@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 소프트웨어가 주어진 환경에서 특정 기간 동안 정상적으로 기능을 수행하는 능력(신뢰성)을 측정하고 검증하는 테스트</li>
 <li><strong>키워드</strong>: MTBF(Mean Time Between Failures), MTTF, MTTR, 가용성, 결함 내성, 신뢰성 성장 모델</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>신뢰성 측정 지표</strong>:<table>
+<li><strong>신뢰성 측정 지표</strong>:<div class="table-scroll"><table>
 <tr><th>지표</th><th>공식</th><th>설명</th></tr>
 <tr><td>MTTF</td><td>평균 고장 간격</td><td>첫 고장까지의 평균 시간</td></tr>
 <tr><td>MTTR</td><td>평균 수리 시간</td><td>고장 후 복구까지의 평균 시간</td></tr>
 <tr><td>MTBF</td><td>MTTF + MTTR</td><td>고장과 고장 사이의 평균 시간</td></tr>
 <tr><td>가용성</td><td>MTBF / (MTBF + MTTR)</td><td>정상 운영 비율</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 신뢰성 테스트는 <strong>장시간 부하 환경에서의 안정성 측정</strong>이 목적으로, MTBF·MTTR을 SLA 지표와 연계하여 가용성 목표 달성 여부를 정량적으로 평가.</li>
 </ul>

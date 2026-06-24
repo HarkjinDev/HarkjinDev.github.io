@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>K개의 중심점(Centroid)</strong></u></span>을 설정하고 각 데이터와의 거리를 최소화하도록 반복적으로 중심 위치를 업데이트하는 분할 기반 군집화 기법</li>
 <li><strong>키워드</strong>: Centroid(중심점), 앨보우 기법(최적의 K값 결정), 유클리디안(거리 측정), SSE(군집 내 응집도 지표), K-Means++</li>
 <li><strong>분류</strong>: 비지도학습</li>
-<li><strong>상세 프로세스</strong>:<table>
+<li><strong>상세 프로세스</strong>:<div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>K값 설정</strong></td><td>군집 개수 K를 사전에 결정함</td><td>엘보우 기법 등을 활용해 결정</td></tr>
 <tr><td><strong>초기 중심점 설정</strong></td><td>무작위로 K개의 중심을 지정함</td><td>초기 위치에 따라 결과가 달라짐</td></tr>
 <tr><td><strong>군집 할당</strong></td><td>가장 가까운 중심에 데이터 배정</td><td>거리 측정(유클리디안) 기반 분류</td></tr>
 <tr><td><strong>중심점 재계산</strong></td><td>군집 내 데이터 평균으로 중심 갱신</td><td>SSE, 새로운 클러스터 중심 좌표 생성</td></tr>
 <tr><td><strong>반복 및 종료</strong></td><td>중심 변화가 없을 때까지 수행</td><td>수렴 시 최종 군집 결과 확정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징 및 문제점</strong>:<ul>
 <li><strong>특징</strong>: 알고리즘이 단순하며 연산 속도가 빨라 대용량 데이터 처리에 효율적임</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,19 +20,19 @@
 <li><strong>정의:</strong> 프로젝트의 개별 활동 소요 시간을 <strong>낙관치, 최빈치, 비관치</strong>의 3점 산정방식을 통해 확률적으로 추정하고, 이를 바탕으로 전체 프로젝트 완료 시간을 예측하는 일정 관리 기법</li>
 <li><strong>키워드: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>3점 산정방식(낙관치, 최빈치, 비관치)</strong></u></span>, 일정 리스크 정량화, 표준편차 및 분산, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중심 극한 정리</strong></u></span>, 경로 수렴 문제</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>3점 산정방식:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;낙최비&gt;</strong></span><table>
+<li><strong>3점 산정방식:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;낙최비&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>기호</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>낙관치</strong></td><td>t_o</td><td>모든 조건이 가장 좋을 때, 최단 시간 내에 끝낼 수 있는 시간</td></tr>
 <tr><td><strong>최빈치</strong></td><td>t_m</td><td>가장 빈번하게 발생할 것으로 예상되는 정상적인 소요 시간</td></tr>
 <tr><td><strong>비관치</strong></td><td>t_p</td><td>예상치 못한 장애 등 최악의 상황일 때 소요되는 최장 시간</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>산출 공식: </strong><table>
+<li><strong>산출 공식: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>산출 공식</strong></th><th><strong>비고</strong></th></tr>
 <tr><td><strong>기대 소요 시간 (</strong><strong>t_e</strong><strong>)</strong></td><td>t_e = \frac{t_o + 4t_m + t_p}{6}</td><td>낙관치, 최빈치, 비관치의 가중 산술 평균</td></tr>
 <tr><td><strong>표준편차 (</strong><strong>\sigma</strong><strong>)</strong></td><td>\sigma = \frac{t_p - t_o}{6}</td><td>일정의 변동성(불확실성)을 나타내는 지표</td></tr>
 <tr><td><strong>분산 (</strong><strong>\sigma^2</strong><strong>)</strong></td><td>\sigma^2 = \left(\frac{t_p - t_o}{6}\right)^2</td><td>표준편차의 제곱으로 확률 분석 시 활용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>수행 절차: </strong><ol>
 <li><strong>활동 정의:</strong> WBS를 기반으로 프로젝트 수행에 필요한 세부 활동 식별</li>

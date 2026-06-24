@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -18,14 +18,14 @@
 <h4>[하위] 8-1. UEBA(<strong>User and Entity Behavior Analytics)</strong></h4>
 <ul>
 <li><strong>정의: </strong>기업보안에서 사용자와 시스템의 행동을 실시간으로 분석하여 정상적인 패턴을 학습하고, 이상 징후를 탐지하여 사이버 위협에 대응하는 고급 보안 기술</li>
-<li><strong>주요 탐지 시나리오:</strong><table>
+<li><strong>주요 탐지 시나리오:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>내부자 위협</strong></td><td>권한 남용·데이터 유출·비정상 접근 시도 탐지</td><td>내부 위협</td></tr>
 <tr><td><strong>계정 탈취</strong></td><td>비정상 시간대·위치·디바이스 로그인 탐지</td><td>크리덴셜 도용</td></tr>
 <tr><td><strong>횡적 이동</strong></td><td>침해 후 내부 시스템 간 비정상 이동 탐지</td><td>내부 확산 탐지</td></tr>
 <tr><td><strong>권한 상승</strong></td><td>일반 계정의 관리자 권한 획득 시도 탐지</td><td>권한 오용</td></tr>
 <tr><td><strong>데이터 유출</strong></td><td>대량 파일 다운로드·외부 전송 이상 행위 탐지</td><td>유출 탐지</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

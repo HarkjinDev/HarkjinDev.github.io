@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 외부 동작을 유지하면서 내부 코드 구조를 개선하여 가독성·유지보수성을 높이는 체계적인 코드 개선 활동</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>코드스멜</strong></u></span>, 외부 행위 유지, 코드 구조 개선, 점진적 개선, 자동화 테스트, 회귀 테스트</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>주요 리팩토링 기법</strong>:<table>
+<li><strong>주요 리팩토링 기법</strong>:<div class="table-scroll"><table>
 <tr><th>분류</th><th>기법</th><th>핵심</th></tr>
 <tr><td><strong>메서드 정리</strong></td><td><strong>메서드 추출 (Extract Method)</strong></td><td>메서드 분리</td></tr>
 <tr><td></td><td><strong>메서드 인라인 (Inline Method)</strong></td><td>메서드 통합</td></tr>
@@ -44,15 +44,15 @@
 <tr><td><strong>의존성 정리</strong></td><td><strong>위임 은닉 (Hide Delegate)</strong></td><td>캡슐화 강화</td></tr>
 <tr><td></td><td><strong>상속을 위임으로 대체</strong></td><td>위임 전환</td></tr>
 <tr><td></td><td><strong>위임을 상속으로 대체</strong></td><td>상속 전환</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>리팩토링 vs 재설계 비교</strong>:<table>
+<li><strong>리팩토링 vs 재설계 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>리팩토링</strong></th><th><strong>재설계(Redesign)</strong></th></tr>
 <tr><td>외부 동작</td><td>유지</td><td>변경 가능</td></tr>
 <tr><td>범위</td><td>코드 구조 개선</td><td>아키텍처 변경</td></tr>
 <tr><td>위험도</td><td>낮음</td><td>높음</td></tr>
 <tr><td>전제 조건</td><td>자동화 테스트 필수</td><td>—</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 리팩토링은 <strong>자동화 테스트(회귀 테스트)가 전제</strong>되어야 안전하며, 기술 부채 해소의 핵심 수단으로 코드스멜 발견 즉시 소규모로 지속 적용하는 것이 효과적.</li>
 </ul>

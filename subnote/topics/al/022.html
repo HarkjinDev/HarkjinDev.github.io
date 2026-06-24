@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,19 +20,19 @@
 <li><strong>정의</strong>: 왼쪽 자식이 작고 오른쪽 자식이 큰 이진트리 기반 탐색 자료 구조</li>
 <li><strong>키워드</strong>: 왼쪽 &lt; 루트 &lt; 오른쪽, 중위 순회, 편향 트리, AVL 트리, 레드-블랙 트리</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>연산 복잡도</strong>:<table>
+<li><strong>연산 복잡도</strong>:<div class="table-scroll"><table>
 <tr><th>연산</th><th>평균</th><th>최악 (편향 트리)</th></tr>
 <tr><td>탐색</td><td>O(log n)</td><td>O(n)</td></tr>
 <tr><td>삽입</td><td>O(log n)</td><td>O(n)</td></tr>
 <tr><td>삭제</td><td>O(log n)</td><td>O(n)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>삭제 케이스</strong>:<table>
+<li><strong>삭제 케이스</strong>:<div class="table-scroll"><table>
 <tr><th>케이스</th><th>처리 방법</th></tr>
 <tr><td>자식 없음 (리프)</td><td>노드 직접 삭제</td></tr>
 <tr><td>자식 1개</td><td>자식 노드로 대체</td></tr>
 <tr><td>자식 2개</td><td>중위 후계자(오른쪽 부트리 최솟값) 또는 중위 전위 노드로 대체</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: BST 최악 O(n) 문제는 <strong>AVL 트리(회전 연산으로 균형 유지, O(log n) 보장)</strong>나 레드-블랙 트리로 해결하며, 이것이 디스크 기반 B-트리로 확장됨을 언급</li>
 </ul>

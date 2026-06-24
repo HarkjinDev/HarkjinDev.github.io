@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: PMBOK, 5개 프로세스 그룹, 10개 지식 영역, 프로그램/포트폴리오 관리</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
 <li><strong>프로젝트의 특징:</strong> 한시성, 유일성, 목적성, 점진적 상세화</li>
-<li><strong>프로젝트 관리방안 비교:     프로젝트 &gt; 프로그램 &gt; 포트폴리오 </strong><table>
+<li><strong>프로젝트 관리방안 비교:     프로젝트 &gt; 프로그램 &gt; 포트폴리오 </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>IT 프로젝트 관리</strong></th><th><strong>IT 프로그램 관리</strong></th><th><strong>IT 포트폴리오 관리</strong></th></tr>
 <tr><td><strong>정의</strong></td><td>개별 IT 프로젝트를 일정, 비용, 품질 등을 관리하며 수행하는 것</td><td>관련된 여러 IT 프로젝트를 그룹화하여 효율적으로 관리하는 것</td><td>조직의 전체 IT 프로젝트 및 프로그램을 전략적으로 조정하는 것</td></tr>
 <tr><td><strong>범위</strong></td><td>단일 프로젝트 중심</td><td>여러 프로젝트를 포함</td><td>조직 전체의 IT 프로젝트 및 자원 관리</td></tr>
@@ -33,7 +33,7 @@
 (Program Manager)</td><td>포트폴리오 매니저 
 (Portfolio Manager)</td></tr>
 <tr><td><strong>적용 예시</strong></td><td>신규 보안 솔루션 구축 프로젝트</td><td>여러 보안 시스템 업그레이드 및 통합 관리</td><td>기업의 전체 IT 보안 투자 전략 관리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IT 프로젝트 관리는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>철삼각형(범위·시간·비용)의 균형 유지가 핵심</strong></u></span>이며, 하나의 제약 변경 시 나머지에 영향을 미치는 트레이드오프 관계를 명확히 이해하고 이해관계자와 소통해야 함.</li>
 </ul>

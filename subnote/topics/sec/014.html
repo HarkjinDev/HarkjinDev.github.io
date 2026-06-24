@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -29,13 +29,13 @@
 </ul>
 </li>
 <li><strong>보안 근거</strong>: 이산대수 문제 — g^x mod p에서 x를 역산하기 계산상 불가능</li>
-<li><strong>DH vs ECDH 비교</strong>:<table>
+<li><strong>DH vs ECDH 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>DH (Diffie-Hellman)</th><th>ECDH (Elliptic Curve DH)</th></tr>
 <tr><td>수학적 기반</td><td>유한체 이산대수</td><td>타원곡선 이산대수</td></tr>
 <tr><td>키 길이</td><td>2048bit 이상 권고</td><td>256bit으로 동등 보안강도</td></tr>
 <tr><td>성능</td><td>상대적으로 느림</td><td>빠름 (모바일·IoT 적합)</td></tr>
 <tr><td>활용</td><td>TLS 키 교환 (레거시)</td><td>TLS 1.3 표준 (ECDHE)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>전방향 안전성(PFS, Perfect Forward Secrecy)</strong>: 세션마다 임시 키 쌍 생성(DHE/ECDHE) → 장기 개인키 유출 시에도 과거 세션 복호화 불가</li>
 <li><strong>취약점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중간자 공격(MITM) 취약</strong></u></span><strong> </strong>→ 인증서 기반 인증(TLS)과 결합 필요. 소수 p가 충분히 크지 않으면 이산대수 공격에 취약 (Logjam 공격)</li>

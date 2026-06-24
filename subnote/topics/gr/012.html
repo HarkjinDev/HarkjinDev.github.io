@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의:</strong> 중앙행정기관·공공기관의 정보화사업 투자 심의 절차·기준을 규정한 예산 편성·집행 내실화 가이드</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>클라우드 우선, AI PoC</strong></u></span>, 정보시스템 효율화, ISP·ISMP, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선검증 후투자</strong></u></span>, 규모별 추진절차</li>
 <li><strong>분류:</strong> 가이드</li>
-<li><strong>배경 및 필요성:</strong><table>
+<li><strong>배경 및 필요성:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>설명</th><th>핵심</th></tr>
 <tr><td>패러다임 변화</td><td>정보화 사업 규모별 예산 투자 방식 다변화 반영</td><td>투자방식 다변화</td></tr>
 <tr><td>예산 내실화</td><td>중앙행정기관·공공기관 예산 편성·집행 내실화 도모</td><td>효율적 집행</td></tr>
 <tr><td>선검증 전환</td><td>기존 선구축 후검증 → 선검증(PoC) 후투자 체계 전환</td><td>PoC 의무화</td></tr>
 <tr><td>활용 목적</td><td>절차별 기본사항 정의·산출물 검토 준비 활용</td><td>사업계획 내실화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>적용대상 및 범위:</strong><table>
+<li><strong>적용대상 및 범위:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>내용</th></tr>
 <tr><td>적용대상</td><td>중앙행정기관 및 공공기관 추진 <strong>정보화 사업</strong></td></tr>
 <tr><td>적용범위</td><td>규모·유형별 투자 및 관리를 위한 <strong>주요 절차, 준수사항, 비용산정 방법</strong></td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>정보화사업 투자 준수사항 3대 축:</strong><table>
+<li><strong>정보화사업 투자 준수사항 3대 축:</strong><div class="table-scroll"><table>
 <tr><th>준수사항</th><th>기준</th><th>설명</th></tr>
 <tr><td><strong>클라우드 기술 우선 적용</strong></td><td><strong>방안·비용산출</strong></td><td>클라우드 적용방안·소요비용 산출</td></tr>
 <tr><td></td><td><strong>우선 검토</strong></td><td>IaaS·SaaS·PaaS 디지털서비스 전문계약 우선</td></tr>
@@ -45,25 +45,25 @@
 <tr><td><strong>정보시스템 효율화 방안 검토</strong></td><td><strong>구조조정</strong></td><td>미사용·저빈도 기능 감축 방안 검토</td></tr>
 <tr><td></td><td><strong>대안검토</strong></td><td>기능개선·유사 타시스템 재활용 등 대안 검토</td></tr>
 <tr><td></td><td><strong>시스템 구축 효율화</strong></td><td>난개발·비효율 연계 지양·RAG·AI에이전트 활용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>정보시스템 구축 규모별 특징:</strong><table>
+<li><strong>정보시스템 구축 규모별 특징:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>대규모</th><th>중규모</th><th>소규모</th></tr>
 <tr><td>정의</td><td>총사업비 500억↑·국가재정지원 300억↑</td><td>대규모 외·총구축비 50억↑</td><td>총구축비 50억↓</td></tr>
 <tr><td>특징</td><td>장기투자·단계별 조정·관리 필요</td><td>체계적 정보화 전략계획 수립 필요</td><td>단기·신속 투자지원</td></tr>
 <tr><td>절차 근거</td><td>총사업비 관리지침 준용</td><td>본 가이드 중심</td><td>본 가이드 중심</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>규모별 추진 절차:</strong><table>
+<li><strong>규모별 추진 절차:</strong><div class="table-scroll"><table>
 <tr><th>규모</th><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td>중규모</td><td>① ISP·ISMP 수립비 확보</td><td>ISP·ISMP 수행 예산 확보</td><td>계획 선행</td></tr>
 <tr><td></td><td>② ISP·ISMP 수립·검토요청</td><td>결과물 작성 후 기획재정처·NIA 적정성 검토</td><td>외부 검토</td></tr>
 <tr><td></td><td>③ 구축 추진 여부 결정</td><td>검토 결과 반영 구축사업 확정</td><td>투자 확정</td></tr>
 <tr><td>소규모</td><td>① 사업계획서 수립·검토요청</td><td>필요성·범위·예산 포함 계획서 작성·NIA 검토</td><td>간소화 절차</td></tr>
 <tr><td></td><td>② 구축 추진 여부 결정</td><td>검토 결과 기반 구축 추진 확정</td><td>신속 확정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>ISP·ISMP 수립 제외 유형:</strong><table>
+<li><strong>ISP·ISMP 수립 제외 유형:</strong><div class="table-scroll"><table>
 <tr><th>제외 유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td>단순시스템 도입</td><td>입력·조회·출력 단순 기능 개발</td><td>기본기능만</td></tr>
 <tr><td>단순기능 개발</td><td>기존 시스템 일부 기능 개선·추가</td><td>내부 효율화</td></tr>
@@ -72,7 +72,7 @@
 <tr><td>시설 구축</td><td>정보시스템 외 시설·특수장비 도입</td><td>비IT 시설</td></tr>
 <tr><td>DB 구축</td><td>인력 투입 지식정보자원 디지털화</td><td>시스템 구축 無</td></tr>
 <tr><td>민간투자형 SW 사업</td><td>민간부문 제안 민간투자형 SW</td><td>정부고시형은 필수</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 기존 선구축 후검증에서 <strong>선검증(PoC) 후투자</strong> 체계로 전환하며, 클라우드 우선·AI PoC 의무화·시스템 효율화 3대 준수사항을 통해 정보화사업 예산낭비 사전 차단이 핵심</li>
 </ul>

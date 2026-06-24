@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,44 +20,44 @@
 <li><strong>정의</strong>: 4NF를 만족하면서 조인 종속성(JD, Join Dependency)을 제거하여 무손실 분해를 보장하는 최고 단계의 정규형</li>
 <li><strong>키워드</strong>: 조인종속 제거, 무손실 분해, 5NF, PJ/NF(투영-조인, Projection-Join Normal Form)</li>
 <li><strong>분류</strong>: 정규화</li>
-<li><strong>조인 종속(JD)</strong>: 릴레이션을 세 개 이상의 릴레이션으로 분해했을 때, 다시 조인하면 원래 릴레이션이 복원되는 종속성<table>
+<li><strong>조인 종속(JD)</strong>: 릴레이션을 세 개 이상의 릴레이션으로 분해했을 때, 다시 조인하면 원래 릴레이션이 복원되는 종속성<div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>조인 종속 (JD)</strong></td><td>테이블 R이 여러 프로젝션으로 분해 후 다시 조인 시 원본과 동일한 제약</td><td>분해 후 복원 가능</td></tr>
 <tr><td><strong>표현 방식</strong></td><td>*(R1, R2, R3): R = R1 ⋈ R2 ⋈ R3</td><td>무손실 조인</td></tr>
 <tr><td><strong>다치 종속과 차이</strong></td><td>MVD는 2개 분해·JD는 3개 이상 분해</td><td>3방향 이상 종속</td></tr>
 <tr><td><strong>자명한 JD</strong></td><td>분해가 후보키에 의해 함의될 때</td><td>위반 아님</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>5NF 위반 사례</strong><ul>
-<li>교수-학생-과목 테이블: <strong>(교수명, 학생명, 과목명)</strong><table>
+<li>교수-학생-과목 테이블: <strong>(교수명, 학생명, 과목명)</strong><div class="table-scroll"><table>
 <tr><th>교수명</th><th>학생명</th><th>과목명</th></tr>
 <tr><td>김교수</td><td>철수</td><td>DB</td></tr>
 <tr><td>김교수</td><td>영희</td><td>DB</td></tr>
 <tr><td>이교수</td><td>철수</td><td>OS</td></tr>
 <tr><td>이교수</td><td>민준</td><td>OS</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>제약 조건:</strong> 김교수가 철수를 가르치고(교수-학생), 철수가 DB를 수강하고(학생-과목), 김교수가 DB를 담당하면(교수-과목) → (김교수, 철수, DB) 반드시 존재</li>
 <li><strong>조인 종속:</strong> *(교수-학생, 학생-과목, 교수-과목) → 후보키에 의해 함의되지 않음 → <strong>5NF 위반</strong></li>
-<li><strong>위반 시 이상 현상</strong><table>
+<li><strong>위반 시 이상 현상</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>삽입 이상</strong></td><td>이교수가 철수에게 DB 수업 추가 시 교수-과목 관계도 동시 성립해야 삽입 가능</td><td>연쇄 삽입 조건</td></tr>
 <tr><td><strong>삭제 이상</strong></td><td>민준이 수강 취소 시 이교수-OS 담당 관계 정보 함께 소멸</td><td>의미 정보 손실</td></tr>
 <tr><td><strong>갱신 이상</strong></td><td>교수 담당 과목 변경 시 관련 학생 수만큼 모든 행 수정 필요</td><td>연쇄 수정 부담</td></tr>
 <tr><td><strong>중복 데이터</strong></td><td>교수-학생-과목 3자 조합 수만큼 중복 행 발생</td><td>저장 공간 낭비</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>
 <li><strong>5NF 분해 (3개 테이블)</strong><ul>
-<li><strong>위반 테이블 → 3개 테이블로 분해:</strong> → 3개 테이블 자연 조인 시 원본 복원 → 5NF 만족<table>
+<li><strong>위반 테이블 → 3개 테이블로 분해:</strong> → 3개 테이블 자연 조인 시 원본 복원 → 5NF 만족<div class="table-scroll"><table>
 <tr><th>교수-학생</th><th></th><th>학생-과목</th><th></th><th>교수-과목</th><th></th></tr>
 <tr><td><strong>교수명</strong></td><td><strong>학생명</strong></td><td><strong>학생명</strong></td><td><strong>과목명</strong></td><td><strong>교수명</strong></td><td><strong>과목명</strong></td></tr>
 <tr><td>김교수</td><td>철수</td><td>철수</td><td>DB</td><td>김교수</td><td>DB</td></tr>
 <tr><td>김교수</td><td>영희</td><td>영희</td><td>DB</td><td>이교수</td><td>OS</td></tr>
 <tr><td>이교수</td><td>철수</td><td>철수</td><td>OS</td><td></td><td></td></tr>
 <tr><td>이교수</td><td>민준</td><td>민준</td><td>OS</td><td></td><td></td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

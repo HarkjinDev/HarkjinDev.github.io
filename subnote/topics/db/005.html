@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 현실 세계의 데이터를 개념/논리/물리의 단계적 추상화를 통해 데이터베이스 구조로 변환하는 설계 과정</li>
 <li><strong>키워드</strong>: 요구분석, 개념모델링, 논리모델링, 물리모델링, 식별, 비식별, ERD, Inside-Out 전략</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
-<li><strong>3단계 모델링 프로세스</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;요개논물, 주후핵관, 속엔이, 물논반&gt;</strong></span><table>
+<li><strong>3단계 모델링 프로세스</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;요개논물, 주후핵관, 속엔이, 물논반&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>세부 단계</strong></th><th><strong>설명</strong></th><th><strong>주요 고려사항</strong></th></tr>
 <tr><td><strong>1. 요구분석</strong></td><td>요구사항 도출</td><td>사용자 요구 도출</td><td>목적 및 요구 명확화</td></tr>
 <tr><td><strong>2. 개념모델링</strong></td><td>1. 주제 영역 정의</td><td>최상위 집합 구분</td><td>중복 최소화·확장성</td></tr>
@@ -33,7 +33,7 @@
 <tr><td><strong>4. 물리모델링</strong></td><td>1. 물리 환경 조사</td><td>시스템 환경 분석</td><td>관리·백업·보안 고려</td></tr>
 <tr><td></td><td>2. 논리모델 변환</td><td>물리 요소로 전환</td><td>PK 최적화 및 통합</td></tr>
 <tr><td></td><td>3. 반정규화</td><td>성능 및 운영 효율화</td><td>최소화·SQL 최적화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>식별/비식별 관계</strong>:<ul>
 <li><strong>식별 관계</strong>: 부모 PK가 자식의 PK에 포함되는 강한 의존 관계</li>

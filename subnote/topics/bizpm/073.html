@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 팀이 형성부터 해체까지 거치는 5단계 발전 과정을 설명하는 팀 개발 모델</li>
 <li><strong>키워드</strong>: Forming, Storming, Norming, Performing, Adjourning, 갈등 관리</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>5단계</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;형격규성해&gt;</strong></span><table>
+<li><strong>5단계</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;형격규성해&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>특징</strong></th><th><strong>PM 역할</strong></th></tr>
 <tr><td><strong>Forming(형성)</strong></td><td>팀 결성, 역할 불명확, 의존적</td><td>방향 제시, 지시(Direct)</td></tr>
 <tr><td><strong>Storming(격동)</strong></td><td>갈등 발생, 권위 도전</td><td>갈등 조정, 코치(Coach)</td></tr>
 <tr><td><strong>Norming(규범화)</strong></td><td>팀워크 형성, 규범 수립</td><td>촉진, 지원, 참여(Participate)</td></tr>
 <tr><td><strong>Performing(성과)</strong></td><td>높은 성과, 자율 운영</td><td>지원, 위임(Delegate)</td></tr>
 <tr><td><strong>Adjourning(해산)</strong></td><td>프로젝트 종료, 팀 해체</td><td>마무리, 축하, 평가</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: Storming 단계가 가장 위험하며, <strong>PM의 적극적 갈등 중재와 역할 명확화</strong>로 빠르게 Norming 단계로 전환시키는 것이 팀 성과 극대화의 핵심임.</li>
 </ul>

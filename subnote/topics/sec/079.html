@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -22,7 +22,7 @@
 <li><strong>분류</strong>: 위협/공격</li>
 <li><strong>암호화 원리</strong>: 대칭키(AES)로 파일 암호화 → 해당 대칭키를 공격자 공개키(RSA)로 암호화 → 개인키 없이 복호화 불가</li>
 <li><strong>이중 협박(Double Extortion)</strong>: 파일 암호화 + 데이터 탈취 후 공개 위협</li>
-<li><strong>NIST SP 800-61(사고대응) r3 단계별 대응 체크리스트: </strong><table>
+<li><strong>NIST SP 800-61(사고대응) r3 단계별 대응 체크리스트: </strong><div class="table-scroll"><table>
 <tr><th>단계</th><th><strong>단계 의미</strong></th><th><strong>랜섬웨어 대응 핵심 체크리스트</strong></th></tr>
 <tr><td><strong>GV 
 (Governance)</strong></td><td>거버넌스·
@@ -58,7 +58,7 @@
 (Improve)</strong></td><td>개선·교훈</td><td>• 사고 대응 전 과정 사후 분석
 • 재발 방지 과제 도출 및 예산·일정 반영
 • 테이블탑 훈련·복구 훈련 정례화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 랜섬웨어 대응의 핵심은 "복호화키 없이 복구 가능한 백업"이며, 온라인 백업은 랜섬웨어에 같이 암호화될 수 있어 오프라인·격리 백업이 필수임</li>
 </ul>

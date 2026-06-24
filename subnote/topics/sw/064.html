@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 최적의 아키텍처 구조를 도출하기 위해 반드시 고려해야 하는 비즈니스·기술적 요구사항 및 제약조건의 핵심 기준</li>
 <li><strong>키워드</strong>: 품질 속성 시나리오(QAS), ASR(Architecturally Significant Requirement), 트레이드오프, 아키텍처 전술(Tactic)</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>아키텍처 드라이버 유형</strong>:<table>
+<li><strong>아키텍처 드라이버 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>예시</th></tr>
 <tr><td>기능 요구사항</td><td>시스템이 수행할 기능</td><td>결제 처리, 사용자 인증</td></tr>
 <tr><td>품질 속성 (QA)</td><td>시스템 비기능 품질</td><td>응답시간, 가용성 99.9%</td></tr>
 <tr><td>제약사항</td><td>기술·법규·조직 제한</td><td>Java 사용 강제, 예산 한도</td></tr>
 <tr><td>비즈니스 목표</td><td>조직의 전략·목표</td><td>6개월 내 출시, 비용 절감</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>품질 속성 시나리오 구성</strong>:<ul>
 <li>자극원(Source) → 자극(Stimulus) → 환경(Environment) → 산출물(Artifact) → 응답(Response) → 응답 측정(Response Measure)</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,43 +20,43 @@
 <li><strong>정의</strong>: BCNF를 만족하면서 다치 종속성(MVD, Multi-Valued Dependency)을 제거한 정규화 단계</li>
 <li><strong>키워드</strong>: 다치종속 제거, MVD, 4NF, BCNF</li>
 <li><strong>분류</strong>: 정규화</li>
-<li><strong>다치 종속(MVD)</strong>: 하나의 속성 값에 다른 두 속성이 각각 독립적으로 다중 값을 가지는 종속성 (A →→ B)<table>
+<li><strong>다치 종속(MVD)</strong>: 하나의 속성 값에 다른 두 속성이 각각 독립적으로 다중 값을 가지는 종속성 (A →→ B)<div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>다치 종속 (MVD)</strong></td><td>X →→ Y: X 값에 대해 Y 값의 집합이 독립적으로 결정됨</td><td>독립적 다중 값</td></tr>
 <tr><td><strong>함수 종속과 차이</strong></td><td>함수 종속은 1:1, 다치 종속은 1:多 독립 관계</td><td>1:多 독립 종속</td></tr>
 <tr><td><strong>발생 조건</strong></td><td>하나의 테이블에 독립적인 두 다치 속성이 공존할 때</td><td>독립 다치 공존</td></tr>
 <tr><td><strong>자명한 MVD</strong></td><td>X →→ Y이고 Y ⊆ X 이거나 X∪Y = 전체 속성인 경우</td><td>위반 아님</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>4NF 위반 사례:</strong><ul>
-<li>교수-과목-교재 테이블: <strong>(교수명, 과목명, 교재명)</strong><table>
+<li>교수-과목-교재 테이블: <strong>(교수명, 과목명, 교재명)</strong><div class="table-scroll"><table>
 <tr><th>교수명</th><th>과목명</th><th>교재명</th></tr>
 <tr><td>김교수</td><td>DB</td><td>교재A</td></tr>
 <tr><td>김교수</td><td>DB</td><td>교재B</td></tr>
 <tr><td>김교수</td><td>OS</td><td>교재A</td></tr>
 <tr><td>김교수</td><td>OS</td><td>교재B</td></tr>
-</table>
+</table></div>
 </li>
 <li>다치 종속: <strong>교수명 →→ 과목명</strong>, <strong>교수명 →→ 교재명</strong></li>
 <li>과목명과 교재명은 서로 <strong>독립적</strong> (과목과 교재는 무관)</li>
 <li>문제: 교수명이 슈퍼키가 아님에도 두 개의 독립적 다치 종속 존재 → 4NF 위반</li>
-<li><strong>위반 시 이상 현상:</strong><table>
+<li><strong>위반 시 이상 현상:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>삽입 이상</strong></td><td>신규 교재 추가 시 모든 과목 조합 행 삽입 필요</td><td>불필요한 삽입</td></tr>
 <tr><td><strong>삭제 이상</strong></td><td>교재 삭제 시 연관 과목 정보도 함께 소멸</td><td>의도치 않은 삭제</td></tr>
 <tr><td><strong>갱신 이상</strong></td><td>과목 변경 시 교재 개수만큼 모든 행 수정 필요</td><td>중복 수정 부담</td></tr>
 <tr><td><strong>데이터 중복</strong></td><td>과목·교재 조합의 수만큼 중복 행 발생</td><td>저장 공간 낭비</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>
 <li><strong>4NF 분해:</strong><ul>
-<li><strong>위반 테이블 → 2개 테이블로 분해:</strong> → 독립적인 다치 종속을 각각 별도 테이블로 분리 → 4NF 만족<table>
+<li><strong>위반 테이블 → 2개 테이블로 분해:</strong> → 독립적인 다치 종속을 각각 별도 테이블로 분리 → 4NF 만족<div class="table-scroll"><table>
 <tr><th>교수-과목 테이블</th><th></th><th>교수-교재 테이블</th><th></th></tr>
 <tr><td><strong>교수명</strong></td><td><strong>과목명</strong></td><td><strong>교수명</strong></td><td><strong>교재명</strong></td></tr>
 <tr><td>김교수</td><td>DB</td><td>김교수</td><td>교재A</td></tr>
 <tr><td>김교수</td><td>OS</td><td>김교수</td><td>교재B</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

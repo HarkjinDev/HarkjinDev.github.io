@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의:</strong> 복잡한 문제를 동일한 유형의 작은 부분 문제로 분할하고, 각각을 재귀적으로 해결한 뒤 결과를 병합하여 전체 해를 구하는 알고리즘 설계 패러다임</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재귀, 분할, 병합, 기저 조건</strong></u></span>, 병합 정렬, 퀵 정렬, 이진 탐색, 시간복잡도, 마스터 정리</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>분할 (Divide)</strong></td><td>문제를 동일 유형의 더 작은 부분 문제로 분리</td><td>문제 축소</td></tr>
 <tr><td><strong>정복 (Conquer)</strong></td><td>부분 문제를 재귀적으로 해결 (기저 조건 도달 시 직접 해결)</td><td>재귀 해결</td></tr>
 <tr><td><strong>병합 (Combine)</strong></td><td>부분 문제의 해를 결합하여 전체 문제의 해 도출</td><td>결과 통합</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>대표 알고리즘: </strong>병합 정렬, 퀵 정렬, 이진 탐색, 거듭제곱, 스트라센</li>
 <li><strong>인사이트:</strong> 분할정복은 알고리즘 설계의 가장 근본적인 패러다임 중 하나로, 병합 정렬·퀵 정렬·FFT 등 핵심 알고리즘의 이론적 기반이 됨. 부분 문제가 중복되지 않는 경우 동적 프로그래밍보다 단순하고 효율적이며, 멀티코어 환경에서 병렬화가 자연스럽게 적용되어 대규모 데이터 처리의 핵심 설계 원칙으로 활용됨</li>

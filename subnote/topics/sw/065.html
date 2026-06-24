@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 시스템의 <strong>비즈니스 목표</strong> 달성을 위해 아키텍처 설계가 <strong>품질 속성</strong>을 만족하는지 체계적으로 평가하고, 상충 관계(<strong>Trade-off</strong>) 분석 및 <strong>잠재적 리스크</strong>를 식별하는 활동</li>
 <li><strong>키워드</strong>: 시나리오기반 평가, 설계 기반, 트레이드오프 식별, ATAM, CBAM, 민감점, 위험 결정, 비위험 결정</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>평가모델: </strong><table>
+<li><strong>평가모델: </strong><div class="table-scroll"><table>
 <tr><th><strong>분류</strong></th><th><strong>평가모델</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>시나리오 기반</strong></td><td><strong>SAAM</strong></td><td>* Software Architecture Analysis Method
 * <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>수정 용이성</strong></u></span><u><strong>과 </strong></u><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기능 분석 중심</strong></u></span>의 최초 아키텍처 평가 방법
@@ -37,7 +37,7 @@
 * 시나리오 중심(ATAM, SAAM)과 설계 검토(ARD) 방식을 혼합하여 위험 감소</td></tr>
 <tr><td></td><td><strong>ADR</strong></td><td>* Active Design Review
 * 설계 기반으로 아키텍처 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>구성 요소 간의 응집도 평가</strong></u></span></td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: ATAM은 <strong>품질 속성 간 트레이드오프(예: 성능↑ vs 보안↑)를 명시적으로 파악</strong>하는 것이 핵심이며, 아키텍처 확정 전 리스크를 조기에 제거하는 예방적 분석 기법.</li>
 </ul>

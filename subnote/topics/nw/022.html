@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 수신 측의 ACK를 기다리지 않고 윈도우 크기만큼 연속으로 프레임을 전송하여 채널 효율을 극대화하는 흐름 제어 기법</li>
 <li><strong>키워드</strong>: 윈도우 크기, ACK, 흐름 제어, 버퍼, 수신 윈도우(rwnd), 송신 윈도우</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>동작 원리</strong>: <table>
+<li><strong>동작 원리</strong>: <div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 윈도우 설정</strong></td><td>수신측 rwnd 기반으로 송신 윈도우 크기 결정</td><td>전송 허용 범위 설정</td></tr>
 <tr><td><strong>2. 연속 전송</strong></td><td>ACK 대기 없이 윈도우 크기만큼 프레임 연속 전송</td><td>연속 전송</td></tr>
@@ -29,14 +29,14 @@
 <tr><td><strong>5. 윈도우 축소</strong></td><td>수신 버퍼 감소 시 rwnd 축소·송신 속도 제한</td><td>속도 조절</td></tr>
 <tr><td><strong>6. Zero Window</strong></td><td>rwnd=0 수신 시 전송 중단·Window Probe 주기 전송</td><td>교착 방지</td></tr>
 <tr><td><strong>7. 전송 재개</strong></td><td>수신 버퍼 여유 생기면 rwnd 갱신 ACK로 전송 재개</td><td>전송 복구</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>윈도우 크기 결정 요소</strong>:<table>
+<li><strong>윈도우 크기 결정 요소</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th></tr>
 <tr><td>수신 윈도우(rwnd)</td><td>수신 버퍼 여유 공간</td></tr>
 <tr><td>혼잡 윈도우(cwnd)</td><td>네트워크 혼잡 기반 제한</td></tr>
 <tr><td>실효 윈도우</td><td>min(rwnd, cwnd)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 슬라이딩 윈도우는 <strong>흐름 제어의 핵심 메커니즘</strong>이며, TCP에서는 수신 윈도우(rwnd)와 혼잡 윈도우(cwnd)의 최솟값으로 실효 윈도우를 결정. Zero Window Probe로 rwnd=0 교착 상태 해소.</li>
 </ul>

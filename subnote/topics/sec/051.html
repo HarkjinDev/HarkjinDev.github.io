@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 엔드포인트(EDR)를 넘어 네트워크·클라우드·이메일·아이덴티티 등 다양한 보안 레이어의 데이터를 통합·상관분석하여 위협을 탐지·대응하는 통합 보안 플랫폼</li>
 <li><strong>키워드:</strong> 통합 보안, 사일로 구조 해결, 상관분석, SIEM 연계, EDR 확장, 네이티브 XDR, 하이브리드 XDR, 위협 인텔리전스, SOC 자동화</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>구성/기술요소: </strong><table>
+<li><strong>구성/기술요소: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>데이터 수집</strong></td><td><strong>엔드포인트</strong></td><td>행위 분석, 프로세스 모니터링, 자동 격리</td></tr>
 <tr><td></td><td><strong>네트워크</strong></td><td>NDR, 패킷 분석, 이상 탐지</td></tr>
@@ -32,22 +32,22 @@
 <tr><td></td><td><strong>공격 경로 재구성</strong></td><td>Kill Chain 시각화, 침해 타임라인</td></tr>
 <tr><td><strong>대응·복구</strong></td><td><strong>SOAR 연계</strong></td><td>플레이북 기반 자동 대응·오케스트레이션</td></tr>
 <tr><td></td><td><strong>자동 격리·차단</strong></td><td>엔드포인트 격리, 계정 차단, 트래픽 차단</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>XDR 유형:</strong><table>
+<li><strong>XDR 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>네이티브 XDR</strong></td><td>단일 벤더의 통합 보안 제품군으로 구성</td><td>단일 벤더 통합</td></tr>
 <tr><td><strong>하이브리드 XDR</strong></td><td>서드파티 보안 솔루션을 오픈 API로 통합</td><td>멀티 벤더 연계</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>EDR·SIEM과의 비교:</strong><table>
+<li><strong>EDR·SIEM과의 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>EDR</th><th>SIEM</th><th>XDR</th></tr>
 <tr><td><strong>데이터 범위</strong></td><td>엔드포인트</td><td>전체 로그 수집</td><td>보안 레이어 통합</td></tr>
 <tr><td><strong>상관분석</strong></td><td>❌ 단일 레이어</td><td>△ 룰 기반</td><td>✅ 자동 상관분석</td></tr>
 <tr><td><strong>대응 자동화</strong></td><td>△ 엔드포인트 한정</td><td>❌ 대응 미포함</td><td>✅ 통합 자동 대응</td></tr>
 <tr><td><strong>운영 복잡도</strong></td><td>낮음</td><td>높음</td><td>중간</td></tr>
 <tr><td><strong>위협 가시성</strong></td><td>엔드포인트</td><td>로그 중심</td><td>전체 공격 경로</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> XDR은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>보안 솔루션의 사일로(Silo) 구조로 인한 탐지 공백·경보 과부하 문제를 통합 상관분석으로 해결하는 차세대 SOC 아키텍처</strong></u></span>로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 벤더 의존성과 멀티 벤더 통합 복잡성 간의 선택이 도입 전략의 핵심 의사결정 포인트</strong></u></span>이며 SIEM·SOAR와의 역할 경계 재정립이 진행 중임</li>
 </ul>

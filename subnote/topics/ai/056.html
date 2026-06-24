@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 2-3. LLM Reasoning 기법</h4>
 <ul>
-<li><strong>LLM Reasoning 기법:</strong><table>
+<li><strong>LLM Reasoning 기법:</strong><div class="table-scroll"><table>
 <tr><th>기법</th><th>설명</th><th>대표 모델/기법</th></tr>
 <tr><td>사고사슬 (CoT)</td><td>중간 추론 단계별 서술</td><td>GPT-4, PaLM</td></tr>
 <tr><td>디컴포지션 (Decomposition)</td><td>문제를 하위로 분해</td><td>Least-to-Most, Self-Ask</td></tr>
@@ -30,7 +30,7 @@
 <tr><td>유추 추론 (Analogical Reasoning)</td><td>유사 사례 기반 추론</td><td>Structure Mapping</td></tr>
 <tr><td>프로그램합성 (PAL)</td><td>코드로 추론 과정 표현</td><td>Program-Aided Language</td></tr>
 <tr><td>ReAct</td><td>추론+행동 반복 루프</td><td>LangChain, ReAct</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

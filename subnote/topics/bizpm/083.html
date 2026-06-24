@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,7 +25,7 @@
 <li><strong>높게 산정 시:</strong> 예산낭비(개발비, 유지보수비), 일의 효율성 저하</li>
 </ul>
 </li>
-<li><strong>산정 방법 비교</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;하상수&gt;</strong></span><table>
+<li><strong>산정 방법 비교</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;하상수&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>산정방법</strong></th><th><strong>내용</strong></th><th><strong>기법</strong></th></tr>
 <tr><td><u><strong>하</strong></u><strong>향식 
 (Top Down)</strong></td><td>경험적 단언(시스템 이해한 후), 개발자 합의(인력, 시스템 크기, 예산)</td><td>◦ 전문가 감정
@@ -36,9 +36,9 @@
 <tr><td><u><strong>수</strong></u><strong>학적</strong></td><td>소프트웨어 비용산정의 자동화, 수치화에 의한 비용 산정</td><td>◦ 기능점수(FP)
 ◦ COCOMO
 ◦ Parametric Estimation</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>하향식과 상향식 비교:</strong><table>
+<li><strong>하향식과 상향식 비교:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>하향식 (Top Down)</strong></th><th><strong>상향식 (Bottom UP)</strong></th></tr>
 <tr><td><strong>특징</strong></td><td>◦ 전체 시스템 차원의 비용 산정
 ◦ 과거 유사 사례 기반 인력 비용 추정
@@ -48,7 +48,7 @@
 <tr><td><strong>장점</strong></td><td>산정 과정이 간편하고 경험적 신뢰감 부여</td><td>결과의 객관성 및 상세 근거 확보</td></tr>
 <tr><td><strong>단점</strong></td><td>비과학적이며 지나치게 낙관적일 수 있음</td><td>세부 기술적 난이도 반영이 배제될 수 있음</td></tr>
 <tr><td>방식</td><td>전문가 감정, 그룹 합의 방식</td><td>LOC, 기능점수(FP), COCOMO</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>규모산정 시 고려요소: </strong><ul>
 <li><strong>프로젝트 요소:</strong> 문제의 복잡도, 시스템 크기, 시스템 신뢰도</li>

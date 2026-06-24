@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,13 +21,13 @@
 <li><strong>키워드</strong>: 분산-편향 트레이드오프(Bias-Variance Tradeoff), 일반화 오류, 드롭아웃, 규제화, 교차검증, 조기종료</li>
 <li><strong>분류</strong>: 학습/최적화</li>
 <li><strong>원인</strong>: 학습 데이터 부족, 모델 복잡도 과다, 너무 많은 학습 횟수</li>
-<li><strong>해결 방법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;드규교조&gt;</strong></span><table>
+<li><strong>해결 방법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;드규교조&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>방법</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>드롭아웃 (Dropout)</strong></td><td>학습 시 임의의 노드를 비활성화함</td><td>노드 의존도 감소</td></tr>
 <tr><td><strong>L1/L2 규제화(Regularization)</strong></td><td>가중치에 페널티를 부여해 복잡도 제한</td><td>가중치 크기 제어</td></tr>
 <tr><td><strong>교차 검증</strong></td><td>데이터를 여러 개로 나누어 반복 검증</td><td>일반화 성능 확인</td></tr>
 <tr><td><strong>조기 종료(Early Stopping)</strong></td><td>성능 개선이 멈추면 학습을 조기 중단</td><td>최적 학습 지점 포착</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 과적합 방지를 위한 데이터 증강(Data Augmentation) 및 정규화(Normalization) 전략</li>
 </ul>

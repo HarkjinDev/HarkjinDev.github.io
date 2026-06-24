@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,13 +26,13 @@
 <li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
 </ol>
 </li>
-<li><strong>HTTP Polling vs WebSocket 비교</strong>:<table>
+<li><strong>HTTP Polling vs WebSocket 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>HTTP Polling</th><th>WebSocket</th></tr>
 <tr><td>연결 방식</td><td>반복 요청-응답</td><td>단일 연결 유지</td></tr>
 <tr><td>지연</td><td>높음</td><td>낮음</td></tr>
 <tr><td>오버헤드</td><td>HTTP 헤더 매번</td><td>최초 1회만</td></tr>
 <tr><td>용도</td><td>단순 갱신</td><td>채팅, 주식, 게임</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 웹소켓은 <strong>HTTP와 호환되는 포트(80/443)</strong>를 사용하여 방화벽 우회가 용이하며, wss://는 TLS 기반 보안 웹소켓으로 도청 방지.</li>
 </ul>

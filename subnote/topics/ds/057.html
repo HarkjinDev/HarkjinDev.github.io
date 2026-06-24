@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 웹 표준(URI, RDF, SPARQL)을 활용하여 기관·도메인 간 데이터를 연결하고 공개하는 구조화된 개방형 데이터 체계</li>
 <li><strong>키워드</strong>: RDF, URI, SPARQL, 5성급 모델, 시맨틱 웹, 데이터 링크</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>Tim Berners-Lee 5성급 LOD</strong>:<table>
+<li><strong>Tim Berners-Lee 5성급 LOD</strong>:<div class="table-scroll"><table>
 <tr><th>등급</th><th>기준</th></tr>
 <tr><td>★</td><td>어떤 형식이든 오픈 라이선스로 공개</td></tr>
 <tr><td>★★</td><td>구조화된 기계 판독 가능 형식 (ex. Excel)</td></tr>
 <tr><td>★★★</td><td>비독점 형식 사용 (ex. CSV)</td></tr>
 <tr><td>★★★★</td><td>W3C 표준(RDF, SPARQL) 사용</td></tr>
 <tr><td>★★★★★</td><td>다른 데이터와 링크 연결</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: LOD는 <strong>공공 데이터 개방 전략의 최상위 목표</strong>로, 데이터 사일로를 해소하고 지식 그래프 구축 기반이 됨. 오픈 데이터와의 차이(연결성 유무)를 명확히 서술.</li>
 </ul>

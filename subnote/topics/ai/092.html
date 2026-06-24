@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>4. AX(AI Transformer)</h4>
 <ul>
-<li><strong>AX 3요소 구성요소:</strong><table>
+<li><strong>AX 3요소 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>3요소</th><th>구성요소</th><th>설명</th></tr>
 <tr><td>AX 대상·서비스</td><td>고객 경험</td><td>AI 기반 맞춤화·개인화 서비스 제공</td></tr>
 <tr><td></td><td>운영 및 생산성</td><td>프로세스 자동화·공급망 최적화</td></tr>
@@ -28,9 +28,9 @@
 <tr><td>AX 운영·거버넌스</td><td>Active Learning</td><td>가치 데이터 선별·레이블링·전문가 피드백</td></tr>
 <tr><td></td><td>MLOps</td><td>개발~모니터링 전과정 자동화·안정성 확보</td></tr>
 <tr><td></td><td>Compliance</td><td>법률·윤리·편향성 검사·설명가능성 확보</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>AX 방법론 도입단계(7D) 및 접근 전략:</strong><table>
+<li><strong>AX 방법론 도입단계(7D) 및 접근 전략:</strong><div class="table-scroll"><table>
 <tr><th>도입단계</th><th>접근전략</th><th>설명</th></tr>
 <tr><td>목표 정의 (Define)</td><td>서비스·기능 발굴·목표 명확화</td><td>Vertical AI 집중·sLLM 검토</td></tr>
 <tr><td>Data 정립 (Discover)</td><td>메타데이터 중심 데이터 설계·관리</td><td>비식별화·암호화·법규 대응</td></tr>
@@ -39,7 +39,7 @@
 <tr><td>AI Full Stack 구성 (Deploy)</td><td>공공 AI Full Stack 체계 정립</td><td>5계층 참조 아키텍처·LLMOps</td></tr>
 <tr><td>서비스 채널 선택 (Deliver)</td><td>옴니채널 통합·포용적 채널 접근</td><td>사용자 경험 일관성 유지</td></tr>
 <tr><td>AX 활용 진단·모니터링 (Diagnose)</td><td>환류 거버넌스·상시 진단체계 구축</td><td>성능·비용·준법·윤리 상시진단</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 <hr/>

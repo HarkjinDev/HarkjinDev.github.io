@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 상용 패키지(ERP·CRM·그룹웨어 등)를 도입 환경에 맞게 설치·구성한 후 요구사항 충족 및 커스터마이징 정합성을 검증하는 테스트</li>
 <li><strong>키워드</strong>: 인수 테스트(UAT), 설치 테스트, 구성 테스트, 호환성 테스트, ISO 25051</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>패키지 SW 테스트 주요 유형</strong>:<table>
+<li><strong>패키지 SW 테스트 주요 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th></tr>
 <tr><td>설치 테스트</td><td>설치·업그레이드·제거 정상 동작 확인</td></tr>
 <tr><td>구성 테스트</td><td>다양한 구성 옵션에서의 정상 동작</td></tr>
 <tr><td>인수 테스트 (UAT)</td><td>실제 사용자가 업무 시나리오로 검증</td></tr>
 <tr><td>회귀 테스트</td><td>커스터마이징 후 기본 기능 영향 확인</td></tr>
 <tr><td>호환성 테스트</td><td>기존 시스템·데이터와의 연동 검증</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 패키지 SW는 소스 수정이 제한적이므로 <strong>도입 전 GAP 분석(기능 갭 파악)</strong>이 필수이며, UAT에서 실 업무 담당자가 직접 시나리오를 검증하는 것이 핵심.</li>
 </ul>

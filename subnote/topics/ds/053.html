@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 인간의 신체 구조(두 발 보행·두 팔·손)를 모방하여 인간 환경에서 자율적으로 인식·판단·행동하는 범용 이족 보행 로봇</li>
 <li><strong>키워드:</strong> 이족 보행, VLA, 전신 제어, 모방 학습, 강화학습, Sim-to-Real, 액추에이터, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Physical AI</strong></u></span>, 범용 로봇, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>인공 근육, 인더스트리 5.0</strong></u></span></li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>Layer</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>인지</strong></td><td><strong>멀티모달 센서</strong></td><td>카메라·라이다·IMU·촉각 복합 인식</td><td>환경 인식</td></tr>
 <tr><td></td><td><strong>LMM·VLA</strong></td><td>시각·언어 통합 이해·행동 변환</td><td>언어→행동</td></tr>
@@ -31,23 +31,23 @@
 <tr><td><strong>학습</strong></td><td><strong>강화학습 (RL)</strong></td><td>환경 상호작용 기반 정책 최적화</td><td>행동 학습</td></tr>
 <tr><td></td><td><strong>모방 학습</strong></td><td>인간 시연 데이터 기반 동작 학습</td><td>동작 복제</td></tr>
 <tr><td></td><td><strong>Sim-to-Real</strong></td><td>시뮬레이션 학습 결과 실세계 전이</td><td>안전 학습</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 기술:</strong><table>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>이족 보행</strong></td><td>ZMP·MPC 기반 동적 균형 유지·다양한 지형 보행</td><td>보행 안정성</td></tr>
 <tr><td><strong>인공 근육</strong></td><td>고자유도 로봇 핸드·촉각 센서 기반 정교한 물체 조작</td><td>정밀 조작</td></tr>
 <tr><td><strong>VLA 모델</strong></td><td>비전·언어 입력을 직접 로봇 행동으로 변환하는 Foundation Model</td><td>범용 제어</td></tr>
 <tr><td><strong>텔레오퍼레이션</strong></td><td>인간 동작 원격 제어로 학습 데이터 수집·모방 학습 가속화</td><td>데이터 수집</td></tr>
 <tr><td><strong>디지털 트윈</strong></td><td>물리 환경 가상 복제로 대규모 시뮬레이션 학습</td><td>가상 훈련</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기업·모델:</strong><table>
+<li><strong>주요 기업·모델:</strong><div class="table-scroll"><table>
 <tr><th>기업</th><th>모델</th><th>특징</th><th>핵심</th></tr>
 <tr><td><strong>Tesla</strong></td><td>Optimus</td><td>자율주행 AI 기술 기반, 공장 투입 목표</td><td>양산 주도</td></tr>
 <tr><td><strong>Figure AI</strong></td><td>Figure 02</td><td>OpenAI 협력·자연어 지시 수행</td><td>LLM 통합</td></tr>
 <tr><td><strong>Boston Dynamics</strong></td><td>Atlas</td><td>고난도 동작·민첩성 세계 최고 수준</td><td>동작 성능</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 2025년은 휴머노이드 로봇이 '보여주는 기술'에서 '성과를 내는 노동 주체'로 전환되는 원년으로 평가받고 있으며, VLA·World Model 등 Foundation Model의 로봇 적용이 범용 휴머노이드 실현의 핵심 돌파구로 부상하고 있음. 시장은 2035년까지 연평균 38% 성장이 전망되며, 알고리즘 경쟁을 넘어 핵심 부품 공급망·양산 역량·안전 인증이 상용화 속도를 결정하는 핵심 변수로 자리잡고 있음</li>
 </ul>

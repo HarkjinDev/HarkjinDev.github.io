@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>순환이 없는 방향 그래프</strong></u></span>로 작업 의존성 표현에 사용되는 자료 구조</li>
 <li><strong>키워드</strong>: 방향 그래프, 비순환, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>위상정렬</strong></u></span>, 진입 차수(In-degree), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의존성 분석</strong></u></span></li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>주요 특징</strong>:<table>
+<li><strong>주요 특징</strong>:<div class="table-scroll"><table>
 <tr><th>특징</th><th>설명</th></tr>
 <tr><td>비순환성</td><td>임의 정점에서 출발하여 자신으로 돌아오는 경로 없음</td></tr>
 <tr><td>위상정렬 가능</td><td>DAG인 경우에만 위상정렬 수행 가능</td></tr>
 <tr><td>소스(Source) 존재</td><td>진입 차수 0인 정점이 반드시 하나 이상 존재</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>적용</strong>: 작업 스케줄링(PERT/CPM), 컴파일러 의존성 분석, 데이터 파이프라인, Git 커밋 그래프, Makefile</li>
 <li><strong>인사이트</strong>: DAG는 <strong>위상정렬의 필요충분조건</strong>이며, 진입 차수 0인 노드를 큐에 넣고 BFS로 처리하는 Kahn’s Algorithm이 위상정렬 구현의 핵심. 사이클 감지에도 활용 가능.</li>

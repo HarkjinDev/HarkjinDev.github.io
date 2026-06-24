@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 모듈 내부 구성 요소들이 얼마나 밀접하게 관련되어 하나의 목적을 수행하는지를 나타내는 척도</li>
 <li><strong>키워드</strong>: 7단계, 기능적 응집도, 우연적 응집도, 높을수록 좋음</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>응집도 7단계 (높음 → 낮음)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기순교절시논우&gt;</strong></span><table>
+<li><strong>응집도 7단계 (높음 → 낮음)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기순교절시논우&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>수준</th><th>유형</th><th>설명</th></tr>
 <tr><td>최고</td><td>기능적 (Functional)</td><td>단일 기능만 수행 (최이상적)</td></tr>
 <tr><td>↑</td><td>순차적 (Sequential)</td><td>이전 출력이 다음 입력으로 연결</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>↑</td><td>시간적 (Temporal)</td><td>같은 시점에 실행되는 기능 묶음</td></tr>
 <tr><td>↑</td><td>논리적 (Logical)</td><td>유사 범주의 기능을 선택적 실행</td></tr>
 <tr><td>최저</td><td>우연적 (Coincidental)</td><td>아무 관계 없는 기능의 임의 집합</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 시험에서는 7단계를 <strong>순서와 함께 예시로 구분</strong>하는 것이 핵심이며, 기능적 응집도가 <strong>단일 책임 원칙(SRP)</strong>과 동일한 개념임을 연결하면 고득점.</li>
 </ul>

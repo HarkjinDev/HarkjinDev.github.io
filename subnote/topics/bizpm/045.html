@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,14 +26,14 @@
 <li><strong>일관성: </strong>통합 및 논리적 일관성 검증</li>
 </ul>
 </li>
-<li><strong>AHP 절차</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계쌍가일우&gt;</strong></span><table>
+<li><strong>AHP 절차</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계쌍가일우&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>내용</th></tr>
 <tr><td>1. 계층화</td><td>목표→기준→대안 계층 구성</td></tr>
 <tr><td>2. 쌍대비교</td><td>9점 척도로 기준 간 중요도 비교</td></tr>
 <tr><td>3. 가중치 산출</td><td>고유벡터 기반 우선순위 계산</td></tr>
 <tr><td>4. 일관성 검증</td><td>CR ≤ 0.1 이면 일관성 인정</td></tr>
 <tr><td>5. 최종 우선순위 도입</td><td>의사결정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AHP의 강점은 주관적 판단을 수치화</strong></u></span>하여 여러 전문가 의견을 합리적으로 통합할 수 있다는 점이며, IT 투자 우선순위 결정, 벤더 선정, 정책 평가에 폭넓게 활용됨.</li>
 </ul>

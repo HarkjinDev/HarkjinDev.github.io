@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-2. ALM (Application Lifecycle Management)</title>
+  <title>[하위] 1-1. 기준선 (Baseline)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>[하위] 1-2. ALM (Application Lifecycle Management)</h4>
+<h4>[하위] 1-1. 기준선 (Baseline)</h4>
 <ul>
-<li><strong>정의</strong>: 소프트웨어 요구사항 관리부터 개발·테스트·배포·유지보수까지 전체 생명주기를 통합 지원하는 도구·프로세스·사람의 결합</li>
-<li><strong>키워드</strong>: 요구사항 관리, 프로젝트 추적, 품질 관리, 형상 관리, Jira, Azure DevOps, 추적성</li>
+<li><strong>정의</strong>: 공식적으로 검토·승인된 소프트웨어 산출물의 집합으로, 이후 변경은 공식 변경 통제 절차를 통해서만 가능한 기준점</li>
+<li><strong>키워드</strong>: 형상 감사, 변경 통제 위원회(CCB), 동결(Freeze), 기능 기준선·할당 기준선·제품 기준선</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>ALM vs PLM vs SDLC 비교</strong>:<table>
-<tr><th>구분</th><th>ALM</th><th>PLM</th><th>SDLC</th></tr>
-<tr><td>대상</td><td>소프트웨어 애플리케이션</td><td>제품(하드웨어 포함)</td><td>소프트웨어 개발 프로세스</td></tr>
-<tr><td>범위</td><td>전체 SW 생명주기</td><td>제품 기획~폐기</td><td>개발 단계 중심</td></tr>
-<tr><td>통합 도구</td><td>Jira, Azure DevOps</td><td>Siemens Teamcenter</td><td>방법론 중심</td></tr>
-</table>
+<li><strong>유형:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기분설/시제운&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>단계</strong></th><th><strong>기준선</strong></th><th><strong>산출물</strong></th></tr>
+<tr><td><strong>계획</strong></td><td>기능적 기준선 (Functional Baseline)</td><td>개발 계획서, WBS</td></tr>
+<tr><td><strong>요구사항</strong></td><td>분배 기준선 (Allocated Baseline)</td><td>요구사항정의서</td></tr>
+<tr><td><strong>설계</strong></td><td>설계 기준선 (Design Baseline)</td><td>상세 설계서</td></tr>
+<tr><td><strong>구현</strong></td><td>시험 기준선 (Test Baseline)</td><td>시험 결과서</td></tr>
+<tr><td><strong>통합 시험</strong></td><td>제품 기준선 (Product Baseline)</td><td>제품 메뉴얼</td></tr>
+<tr><td><strong>설치/운영</strong></td><td>운용 기준선 (Operational Baseline)</td><td>사용자 메뉴얼</td></tr>
+</table></div>
 </li>
-<li><strong>ALM 핵심 구성 영역</strong>:<ul>
-<li>요구사항 관리 → 개발(형상관리) → 테스트 관리 → 릴리즈 관리 → 피드백·개선</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: ALM은 <strong>이해관계자·개발자·QA·운영 간 협업의 단일 플랫폼</strong>으로, 추적성(Traceability)을 통해 요구사항~배포까지 변경 영향을 전 주기 관리.</li>
+<li><strong>인사이트</strong>: 기준선은 <strong>“이 시점부터 변경 시 공식 절차 필요”</strong>를 의미하는 계약적·관리적 경계선으로, CCB(변경 통제 위원회)의 승인 없이는 기준선 변경 불가.</li>
 </ul>
 
 </body>

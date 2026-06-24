@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의:</strong> 물리적 객체·시스템·프로세스를 디지털 공간에 실시간으로 복제하여 시뮬레이션·분석·예측·최적화를 수행하는 기술</li>
 <li><strong>키워드:</strong> CPS, 실시간 동기화, 시뮬레이션, 예지보전, 디지털 쓰레드, Omniverse(NVIDIA), Xcelerator(지멘스)</li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>디지털 트윈 구성요소:</strong><table>
+<li><strong>디지털 트윈 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>물리 엔티티</strong></td><td>실제 객체·설비·시스템·프로세스</td><td>현실 세계 대상</td></tr>
 <tr><td><strong>디지털 모델</strong></td><td>물리 엔티티의 3D·수치 디지털 표현</td><td>가상 복제 모델</td></tr>
 <tr><td><strong>데이터 연결</strong></td><td>IoT·센서로 물리↔디지털 실시간 데이터 동기화</td><td>실시간 연결</td></tr>
 <tr><td><strong>분석·AI 엔진</strong></td><td>시뮬레이션·예측·최적화 수행 AI 모델</td><td>지능형 분석</td></tr>
 <tr><td><strong>서비스 인터페이스</strong></td><td>분석 결과 시각화·의사결정 지원</td><td>결과 활용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 기술요소:</strong><table>
+<li><strong>핵심 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>데이터 수집</strong></td><td><strong>IoT·IIoT 센서</strong></td><td>온도·진동·압력·위치 실시간 수집</td><td>물리 데이터 수집</td></tr>
 <tr><td></td><td><strong>엣지 컴퓨팅</strong></td><td>현장 실시간 데이터 전처리·저지연</td><td>현장 실시간 처리</td></tr>
@@ -45,9 +45,9 @@
 <tr><td></td><td><strong>AR·VR 연계</strong></td><td>증강·가상현실로 디지털 트윈 몰입 조작</td><td>직관적 인터페이스</td></tr>
 <tr><td><strong>연결·통합</strong></td><td><strong>클라우드 플랫폼</strong></td><td>대규모 데이터 저장·분석·AI 학습</td><td>대용량 처리</td></tr>
 <tr><td></td><td><strong>API·표준 프로토콜</strong></td><td>OPC-UA·MQTT 기반 이기종 시스템 연계</td><td>시스템 통합</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>구현 절차:</strong><table>
+<li><strong>구현 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 대상 정의</strong></td><td>트윈 대상·범위·목적·KPI 설정</td><td>목적 명확화</td></tr>
 <tr><td><strong>2. 데이터 수집 설계</strong></td><td>IoT 센서·수집 주기·데이터 항목 정의</td><td>데이터 파이프라인</td></tr>
@@ -56,7 +56,7 @@
 <tr><td><strong>5. 분석·시뮬레이션</strong></td><td>예측·최적화·시나리오 분석 수행</td><td>가치 창출</td></tr>
 <tr><td><strong>6. 피드백·제어</strong></td><td>분석 결과를 물리 시스템에 반영·제어</td><td>자율 최적화</td></tr>
 <tr><td><strong>7. 지속 개선</strong></td><td>데이터 축적·AI 모델 지속 고도화</td><td>모델 진화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 디지털 트윈은 단순 3D 모델을 넘어 물리 세계와 디지털 세계의 실시간 양방향 연동이 핵심으로, IoT·AI·클라우드의 융합이 디지털 트윈의 실용성을 결정함. 제품 설계 단계의 가상 검증부터 운영 단계의 예지보전·최적화까지 수명주기 전체를 디지털 쓰레드로 연결하는 것이 진정한 디지털 트윈의 가치이며, NVIDIA Omniverse·지멘스 Xcelerator 등 플랫폼 생태계 기반의 표준화된 구현이 디지털 트윈 확산의 핵심 촉진 요소임</li>
 </ul>

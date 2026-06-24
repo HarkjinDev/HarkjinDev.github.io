@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,20 +20,20 @@
 <li><strong>정의</strong>: 각 라우터가 인접 라우터와 목적지까지의 거리(홉/비용) 정보를 주기적으로 교환하여 최적 경로를 결정하는 라우팅 알고리즘</li>
 <li><strong>키워드</strong>: Bellman-Ford, 홉 카운트, 라우팅 루프, 무한 계산, Split Horizon, Poison Reverse</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>문제점 및 해결책</strong>:<table>
+<li><strong>문제점 및 해결책</strong>:<div class="table-scroll"><table>
 <tr><th>문제</th><th>원인</th><th>해결책</th></tr>
 <tr><td>라우팅 루프</td><td>느린 수렴</td><td>Split Horizon, Poison Reverse</td></tr>
 <tr><td>무한 계산</td><td>루프로 인한 홉 무한 증가</td><td>최대 홉 수 제한(RIP: 15)</td></tr>
 <tr><td>느린 수렴</td><td>주기적 업데이트</td><td>Triggered Update</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<table>
+<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th></tr>
 <tr><td>알고리즘</td><td>Bellman-Ford</td><td>Dijkstra</td></tr>
 <tr><td>정보 교환</td><td>인접 라우터만</td><td>전체 라우터</td></tr>
 <tr><td>수렴 속도</td><td>느림</td><td>빠름</td></tr>
 <tr><td>메모리/CPU</td><td>낮음</td><td>높음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 거리벡터는 <strong>소규모 네트워크에 적합</strong>하며 구현이 단순하지만 수렴 문제로 대규모 망에서 OSPF 같은 링크 상태 프로토콜이 선호됨.</li>
 </ul>

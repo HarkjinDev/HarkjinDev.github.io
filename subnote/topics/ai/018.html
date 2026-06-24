@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 원본 데이터에서 복원 추출(Bootstrap)로 여러 개의 독립적으로 학습한 모델의 예측 결과를 투표(Voting) 또는 평균으로 최종 결정하는 앙상블 기법</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>복원 추출(Bootstrap), 병렬 학습, 분류(하드보팅), 회귀(평균)</strong></u></span>, 랜덤 포레스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>37% OOB(Out-of-Bag) 검증</strong></u></span></li>
 <li><strong>분류</strong>: 지도학습</li>
-<li><strong>상세 프로세스</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;분하회평&gt;</strong></span><table>
+<li><strong>상세 프로세스</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;분하회평&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>프로세스</th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. Bootstrap 샘플링</strong></td><td>중복 허용하여 데이터셋 생성</td><td>무작위 중복 추출</td></tr>
 <tr><td><strong>2. 병렬 학습</strong></td><td>독립적인 학습기 동시 학습</td><td>모델 간 독립성 유지</td></tr>
 <tr><td><strong>3. 집계 (Aggregation)</strong></td><td>투표나 평균으로 결과 도출</td><td>최종 예측값 결정
 <strong>  • 분류: Hard Voting
   • 회귀: 평균</strong></td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징 및 대표 모델</strong>:<ul>
 <li><strong>효과</strong>: 모델 간 예측이 독립적이므로 분산(Variance)을 줄여 과적합 방지에 탁월</li>

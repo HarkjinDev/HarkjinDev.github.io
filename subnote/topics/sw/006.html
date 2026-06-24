@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 소프트웨어가 명시된 요구사항 및 사용자 기대를 만족시키는 정도를 측정하는 특성들의 집합</li>
 <li><strong>키워드</strong>: ISO/IEC 25010, 기능성, 신뢰성, 사용성, 효율성, 유지보수성, 이식성</li>
 <li><strong>분류</strong>: SW공학 개론</li>
-<li><strong>ISO/IEC 25010 품질 모델 (9대 특성, 2023):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기신상효/유연보호안&gt;</strong></span><table>
+<li><strong>ISO/IEC 25010 품질 모델 (9대 특성, 2023):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기신상효/유연보호안&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>품질 특성</th><th>주요 부특성</th></tr>
 <tr><td><strong>기능 적합성 (Functional Suitability)</strong></td><td>기능 완전성·정확성·적절성</td></tr>
 <tr><td><strong>신뢰성 (Reliability)</strong></td><td>성숙성·가용성·결함 허용성·복구성</td></tr>
@@ -31,7 +31,7 @@
 <tr><td><strong>보안성 (Security)</strong></td><td>기밀성·무결성·부인방지·책임추적성·인증성·저항성</td></tr>
 <tr><td><strong>호환성 (Compatibility)</strong></td><td>공존성·상호운용성</td></tr>
 <tr><td><strong>안전성 (Safety)</strong> (<strong>⭐ 신규)</strong></td><td>운영 제약성·위험 식별성·실패 안전성·위험 경고성·안전 통합성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: ISO/IEC 25010은 이전 표준(ISO/IEC 9126)의 후속으로 <strong>보안성, 호환성</strong>이 독립 특성으로 강화되었으며, 시험에서는 각 특성의 정의와 하위 특성(예: 신뢰성→가용성·결함허용성·복구성)을 구분해서 서술하는 것이 중요.</li>
 </ul>

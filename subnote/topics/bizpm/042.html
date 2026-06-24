@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의</strong>: IT 투자와 운영이 기업의 경영전략 목표 달성에 부합하도록 책임·의사결정·성과를 체계적으로 통제하는 관리 체계</li>
 <li><strong>키워드</strong>: COBIT, ISO/IEC 38500, ISP, ITA/EA, SCM, BCP, ITSM, IT-BSC, IT-ROI, EDM, APO, BAI, DSS, MEA</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>5대 구성요소 (COBIT 기준)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;전가위자성&gt;</strong></span><table>
+<li><strong>5대 구성요소 (COBIT 기준)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;전가위자성&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>내용</strong></th><th><strong>적용기술</strong></th></tr>
 <tr><td><strong>전략적 연계</strong></td><td>IT와 경영전략 연계</td><td>ISP, ITA/EA</td></tr>
 <tr><td><strong>가치 전달</strong></td><td>IT 투자 가치 실현</td><td>ERP, CRM, SCM, BPM</td></tr>
 <tr><td><strong>위험 관리</strong></td><td>IT 리스크 식별·통제</td><td>DR, BCP</td></tr>
 <tr><td><strong>자원 관리</strong></td><td>IT 자원 최적 배분</td><td>ITAM, CMM, ITSM</td></tr>
 <tr><td><strong>성과 측정</strong></td><td>KPI 기반 IT 성과 평가</td><td>IT-BSC, IT-ROI, PPM(프로젝트 포트폴리오 관리)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>참조모델:</strong><table>
+<li><strong>참조모델:</strong><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>COBIT</strong></td><td>기업 IT 거버넌스 구현을 위한 글로벌 참조 모델</td></tr>
 <tr><td><strong>EA/ITA</strong></td><td>비즈니스 목표 정합성 및 상호운용성 확보를 위한 전사 아키텍처 체계</td></tr>
@@ -37,7 +37,7 @@
 <tr><td><strong>ITIL</strong></td><td><strong>SLA</strong>: 서비스 수준 계약서 (성과 측정 목표치)
 <strong>SLM</strong>: 서비스 수준 관리를 위한 IT 운영 프로세스</td></tr>
 <tr><td><strong>IT BSC</strong></td><td>4대 관점(재무/전략, 프로세스, 학습·성장, 고객) 기반 정보화 성과 평가 방법론</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>효과 측정 지표</strong>: IT 투자 대비 비즈니스 가치(IT-ROI), 시스템 가용성, 사용자 만족도, 컴플라이언스 준수율</li>
 <li><strong>인사이트</strong>: IT 거버넌스의 핵심은 <strong>CIO와 이사회의 공동 책임 체계</strong> 구축이며, COBIT 프레임워크를 기반으로 IT 투자 포트폴리오 관리와 연계하여 운영함.</li>

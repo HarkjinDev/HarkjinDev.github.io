@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 추상클래스는 일부 구현을 포함한 미완성 클래스이고, 인터페이스는 구현 없이 메서드 시그니처만을 정의하는 계약(Contract)</li>
 <li><strong>키워드</strong>: abstract, interface, 다중 상속, 계약, 강제 구현, 설계 원칙</li>
 <li><strong>분류</strong>: 프로그래밍</li>
-<li><strong>추상클래스 vs 인터페이스 비교</strong><table>
+<li><strong>추상클래스 vs 인터페이스 비교</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>추상클래스</th><th>인터페이스</th></tr>
 <tr><td>구현 포함</td><td>가능 (일부 구현 허용)</td><td>불가 (Java 8+: default 메서드 예외)</td></tr>
 <tr><td>다중 상속</td><td>불가 (단일 상속)</td><td>가능 (다중 구현)</td></tr>
 <tr><td>생성자</td><td>있음</td><td>없음</td></tr>
 <tr><td>목적</td><td>공통 기능 공유</td><td>행위 계약 강제</td></tr>
 <tr><td>키워드</td><td>abstract class</td><td>interface / implements</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 인터페이스는 <strong>DIP(의존성 역전 원칙)</strong>와 연계되어 구체 클래스 의존을 제거하는 핵심 수단이며, 추상클래스는 공통 로직을 상속으로 공유할 때 선택.</li>
 </ul>

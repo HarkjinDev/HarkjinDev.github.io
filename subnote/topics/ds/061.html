@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 유·무선 네트워크에 상시 연결되어 인포테인먼트, V2X 통신, 원격 진단 등 다양한 서비스를 제공하는 스마트 자동차</li>
 <li><strong>키워드</strong>: V2X, OTA, 텔레매틱스, 인포테인먼트, 자율주행, 5G-V2X</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>분류 체계</strong>:<table>
+<li><strong>분류 체계</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>설명</th></tr>
 <tr><td>내장형(Embedded)</td><td>차량 내 통신 모듈 내장</td></tr>
 <tr><td>테더링형(Tethering)</td><td>스마트폰 연결 방식</td></tr>
 <tr><td>애드온형(Add-on)</td><td>외부 장치 추가 연결</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>주요 서비스</strong>: OTA 소프트웨어 업데이트, 원격 차량 관제, 실시간 교통 정보, 긴급 구난(eCall)</li>
 <li><strong>인사이트</strong>: 커넥티드카는 <strong>자율주행 Level 3~5의 전제 조건</strong>이며, OTA 업데이트·사이버 보안·개인정보 보호를 동시에 고려한 설계가 필수임을 강조.</li>

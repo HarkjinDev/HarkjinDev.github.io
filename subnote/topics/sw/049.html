@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 고품질 소프트웨어를 체계적으로 설계하기 위해 따라야 할 기본 원칙들의 집합</li>
 <li><strong>키워드</strong>: 추상화, 모듈화, 정보은닉, 관심사 분리, 단계적 분해, 결합도·응집도</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>핵심 설계 원리</strong>:<table>
+<li><strong>핵심 설계 원리</strong>:<div class="table-scroll"><table>
 <tr><th>원리</th><th>설명</th></tr>
 <tr><td><strong>추상화 (Abstraction)</strong></td><td>복잡성을 감추고 핵심만 표현 (기능·데이터·제어 추상화)</td></tr>
 <tr><td><strong>모듈화 (Modularity)</strong></td><td>시스템을 독립적 모듈로 분할</td></tr>
@@ -28,7 +28,7 @@
 <tr><td><strong>관심사 분리 (SoC)</strong></td><td>서로 다른 기능은 다른 모듈로 분리</td></tr>
 <tr><td><strong>단계적 분해 (Stepwise Refinement)</strong></td><td>추상화 수준을 점차 낮춰 구체화</td></tr>
 <tr><td><strong>계층화 (Layering)</strong></td><td>상위 계층은 하위 계층에만 의존</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 설계 원리는 <strong>결합도를 낮추고 응집도를 높이는</strong> 공통 목표를 지향하며, SOLID 원칙과 디자인 패턴의 이론적 기반으로 서술하면 고득점 답안.</li>
 </ul>

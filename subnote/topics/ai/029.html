@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,25 +20,25 @@
 <li><strong>정의:</strong> 데이터 개체들 간의 거리나 비유사성(Dissimilarity)을 최대한 보존하면서, 저차원 공간(주로 2, 3차원)에 시각적으로 매핑하는 차원 축소 기법</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비유사성, 스트레스(Stress, 오차 측정) 값, Scree Plot,</strong></u></span> 계량적/비계량적, 거리 행렬, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>저차원 매핑</strong></u></span>, 시각화, 유클리드 거리</li>
 <li><strong>분류</strong>: 비지도학습</li>
-<li><strong>MDS 주요 유형</strong><table>
+<li><strong>MDS 주요 유형</strong><div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>계량적 MDS (Metric)</strong></td><td>데이터 간 실제 거리 수치 유지</td><td>유클리드 거리 기반</td></tr>
 <tr><td><strong>비계량적 MDS (Non-metric)</strong></td><td>거리의 순위 정보만 보존함</td><td>서열 척도 데이터 활용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MDS 상세 프로세스</strong><table>
+<li><strong>MDS 상세 프로세스</strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>거리 행렬 계산</strong></td><td>개체 간 비유사성을 산출함</td><td>유클리드 거리 행렬</td></tr>
 <tr><td><strong>저차원 매핑</strong></td><td>초기 임의 좌표에 개체 배치</td><td>초기 위치 설정</td></tr>
 <tr><td><strong>스트레스 평가</strong></td><td>실제와 매핑 간 오차 측정</td><td>적합도(Stress) 산출</td></tr>
 <tr><td><strong>최적화</strong></td><td>스트레스 최소화 좌표 탐색</td><td>반복 계산 및 최종 시각화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MDS 평가 지표</strong><table>
+<li><strong>MDS 평가 지표</strong><div class="table-scroll"><table>
 <tr><th><strong>평가 항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>스트레스 (Stress)</strong></td><td>실제-추정 거리 간 부적합도</td><td>0에 가까울수록 정밀함</td></tr>
 <tr><td><strong>Scree Plot</strong></td><td>차원 수에 따른 스트레스 변화</td><td>최적의 차원 수 결정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> PCA가 데이터의 분산을 최대화하는 데 집중한다면, MDS는 개체 간의 '상대적 거리 관계'를 유지하는 데 집중함. 마케팅 분야의 포지셔닝 맵이나 심리학적 인지도 조사 시각화에 자주 활용됨.</li>
 </ul>

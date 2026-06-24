@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,35 +20,35 @@
 <li><strong>정의</strong>: 객체의 데이터(속성)와 이를 처리하는 메서드(행위)를 하나의 클래스로 묶고, 내부 구현을 외부로부터 감추는 OOP 원칙</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재사용성 극대화</strong></u></span>, 접근 제어자(public/private/protected), 게터/세터, 정보은닉</li>
 <li><strong>분류</strong>: 프로그래밍</li>
-<li><strong>접근제어자: </strong><table>
+<li><strong>접근제어자: </strong><div class="table-scroll"><table>
 <tr><th><strong>종류</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>private</strong></td><td>같은 클래스 내에서만 접근이 가능 (가장 강력한 은닉)</td></tr>
 <tr><td><strong>default</strong></td><td>같은 패키지 내에서만 접근 가능. 접근 제어자를 별도로 선언하지 않은 경우임</td></tr>
 <tr><td><strong>protected</strong></td><td>같은 패키지 내, 또는 다른 패키지의 자식 클래스에서 접근이 가능</td></tr>
 <tr><td><strong>public</strong></td><td>접근 제한이 전혀 없음. 어디서든 접근 가능</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>접근 제어자 비교</strong><table>
+<li><strong>접근 제어자 비교</strong><div class="table-scroll"><table>
 <tr><th>접근 제어자</th><th>동일 클래스</th><th>동일 패키지</th><th>자식 클래스</th><th>외부</th></tr>
 <tr><td><strong>private</strong></td><td>O</td><td>X</td><td>X</td><td>X</td></tr>
 <tr><td><strong>default</strong></td><td>O</td><td>O</td><td>X</td><td>X</td></tr>
 <tr><td><strong>protected</strong></td><td>O</td><td>O</td><td>O</td><td>X</td></tr>
 <tr><td><strong>public</strong></td><td>O</td><td>O</td><td>O</td><td>O</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Getter/Setter: </strong><table>
+<li><strong>Getter/Setter: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>용어</strong></th><th><strong>역할</strong></th><th><strong>특징</strong></th></tr>
 <tr><td><strong>읽기</strong></td><td><strong>게터 (Getter)</strong></td><td>객체의 내부 데이터를 외부로 리턴</td><td>메서드명이 <code>get + 필드명</code>으로 시작함</td></tr>
 <tr><td><strong>쓰기</strong></td><td><strong>세터 (Setter)</strong></td><td>외부에서 전달받은 값으로 데이터를 변경</td><td>메서드명이 <code>set + 필드명</code>으로 시작하며, 데이터 검증 로직 포함 가능</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>캡슐화 vs 정보은닉: </strong><table>
+<li><strong>캡슐화 vs 정보은닉: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>캡슐화 (Encapsulation)</strong></th><th><strong>정보은닉 (Information Hiding)</strong></th></tr>
 <tr><td><strong>핵심 개념</strong></td><td><strong>'묶기'</strong>: 데이터와 함수를 하나로 묶음</td><td><strong>'숨기기'</strong>: 내부 구현을 외부에 감춤</td></tr>
 <tr><td><strong>목적</strong></td><td>응집도 향상, 재사용성 증대</td><td>결합도 감소, 무결성 보호, 보안 강화</td></tr>
 <tr><td><strong>수단</strong></td><td><strong>클래스(Class)</strong>, 인터페이스, 접근제어자</td><td><strong>접근제어자(private, public 등)</strong></td></tr>
 <tr><td><strong>관계</strong></td><td>정보은닉을 <strong>포함하는 상위 개념</strong></td><td>캡슐화 안에서 실현되는 <strong>하위 개념</strong></td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 캡슐화는 객체의 독립성을 높여 재사용성을 극대화하고, 정보은닉은 객체 간의 결합도를 낮추어(Loose Coupling) 변경에 유연한 아키텍처를 가능케 한다. 캡슐화가 정보은닉을 구현하는 메커니즘이라는 <strong>포함 관계</strong>를 시험에서 정확히 서술하는 것이 중요.</li>
 </ul>

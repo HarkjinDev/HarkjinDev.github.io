@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 문자열의 패턴을 메타문자로 정의하여 검색·치환하는 형식 언어</li>
 <li><strong>키워드</strong>: 메타문자, 패턴 매칭, 정규 언어, *, +, ?, [], |, ^, $, 유한 오토마타</li>
 <li><strong>분류</strong>: 형식언어/오토마타</li>
-<li><strong>주요 메타문자</strong>:<table>
+<li><strong>주요 메타문자</strong>:<div class="table-scroll"><table>
 <tr><th>메타문자</th><th>의미</th><th>예시</th></tr>
 <tr><td>.</td><td>임의의 문자 1개</td><td>a.c → abc, aXc</td></tr>
 <tr><td>*</td><td>0회 이상 반복</td><td>ab* → a, ab, abb</td></tr>
@@ -30,7 +30,7 @@
 <tr><td>^</td><td>시작 앵커 / 부정</td><td>^abc → abc로 시작</td></tr>
 <tr><td>$</td><td>끝 앵커</td><td>abc$ → abc로 끝</td></tr>
 <tr><td>|</td><td>선택 (OR)</td><td>a|b → a 또는 b</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 정규 표현식은 <strong>유한 오토마타(DFA/NFA)와 동치 관계</strong>이며, 정규 언어를 정의하는 세 가지 방법(정규 표현식, 유한 오토마타, 정규 문법)이 상호 변환 가능함을 언급하면 차별화됨</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 성능 향상을 위해 정규화된 데이터 모델의 일부 중복을 허용하고 구조를 재조정하는 과정</li>
 <li><strong>키워드</strong>: 테이블 병합/분할/추가, 컬럼 반정규화, 관계 반정규화, 성능 vs 무결성 트레이드오프</li>
 <li><strong>분류</strong>: 정규화</li>
-<li><strong>수행 절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대다적/범대통조/뷰클인응&gt;</strong></span><table>
+<li><strong>수행 절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대다적/범대통조/뷰클인응&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>절차</th><th>상세 내용</th></tr>
 <tr><td>1단계</td><td><strong>역정규화 대상 조사</strong></td><td>범위처리 빈도수 조사, 대량의 범위 처리 조사, 통계성 프로세스 조사, 테이블 조인 개수</td></tr>
 <tr><td>2단계</td><td><strong>다른 방법 유도 검토</strong></td><td>뷰(View) 테이블, 클러스터링 적용, 인덱스 조정, 응용 어플리케이션</td></tr>
 <tr><td>3단계</td><td><strong>역정규화 적용</strong></td><td>테이블 역정규화, 속성 역정규화, 관계 역정규화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>반정규화 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;테컬관/병분추/중파이피/중&gt;</strong></span><ul>
 <li><strong>테이블 반정규화</strong>: 테이블 병합(1:1, 1:M), 분할(수직/수평), 추가(통계/중복)</li>

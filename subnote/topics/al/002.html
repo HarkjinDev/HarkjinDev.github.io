@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,12 +26,12 @@
 </ul>
 </li>
 <li><strong>성능 측정:</strong> 수행시간 측정</li>
-<li><strong>점근 표기법 비교</strong>:<table>
+<li><strong>점근 표기법 비교</strong>:<div class="table-scroll"><table>
 <tr><th>표기법</th><th>의미</th><th>설명</th></tr>
 <tr><td>O(g(n))- 빅오</td><td>점근적 상한 (최악)</td><td>f(n) ≤ c·g(n)을 만족하는 c, n₀ 존재</td></tr>
 <tr><td>Ω(g(n)) - 오메가</td><td>점근적 하한 (최선)</td><td>f(n) ≥ c·g(n)을 만족하는 c, n₀ 존재 </td></tr>
 <tr><td>Θ(g(n)) - 세타</td><td>점근적 정확한 경계 (평균)</td><td>O이면서 Ω를 동시에 만족</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 알고리즘 설계 답안에서 반드시 <strong>시간·공간 복잡도를 최선/평균/최악 케이스로 구분</strong>하여 분석해야 하며, 상수 계수와 하위 차수 항을 제거한 최고차항만 표기하는 점근 표기법의 수학적 의미를 명확히 서술하면 차별화됨</li>
 </ul>

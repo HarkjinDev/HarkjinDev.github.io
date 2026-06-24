@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 자율 에이전트, AutoGPT, ReAct 프레임워크, 다중 에이전트 시스템</li>
 <li><strong>분류</strong>: AI 응용/트렌드</li>
 <li><strong>특징</strong>: <strong>자율적 판단(Autonomy)</strong>, 도구 활용 능력, 장기적 계획 수립</li>
-<li><strong>핵심 구성</strong>: <table>
+<li><strong>핵심 구성</strong>: <div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>핵심 기술</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>계획 (Planning)</strong></td><td><strong>Task Decomposition</strong></td><td>복잡한 목표의 단계별 세분화</td></tr>
 <tr><td></td><td><strong>Self-Reflection</strong></td><td>스스로 오류 수정 및 계획 보완</td></tr>
@@ -29,7 +29,7 @@
 <tr><td></td><td><strong>Long-term Memory</strong></td><td>외부 지식 및 과거 경험 인출</td></tr>
 <tr><td><strong>도구 (Tool Use)</strong></td><td><strong>API/MPC Interfacing</strong></td><td>외부 서비스 및 DB 직접 연동</td></tr>
 <tr><td></td><td><strong>Code Interpreter</strong></td><td>코드 생성 및 자율 연산 수행</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 챗봇의 시대를 지나 '일하는 AI'로의 전환점이며, MCP(Model Context Protocol)와 같은 표준 프로토콜을 통한 생태계 확장이 가속화됨</li>
 </ul>

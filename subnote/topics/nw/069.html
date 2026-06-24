@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: Tbps급 전송속도, 10μs 이하 초저지연, AI 네이티브 설계를 목표로 2030년대 상용화를 목표로 하는 차세대 6세대 이동통신 기술</li>
 <li><strong>키워드</strong>: IMT-2030, 테라헤르츠(THz), AI-Native, 디지털 트윈, 위성-지상 통합, 감지-통신 통합</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>6G 성능 요구사항</strong>:<table>
+<li><strong>6G 성능 요구사항</strong>:<div class="table-scroll"><table>
 <tr><th>항목</th><th>5G(IMT-2020)</th><th>6G(IMT-2030)</th></tr>
 <tr><td>최대 전송속도</td><td>20 Gbps</td><td>1 Tbps</td></tr>
 <tr><td>지연 시간</td><td>1 ms</td><td>10 μs</td></tr>
 <tr><td>연결 밀도</td><td>10⁶/km²</td><td>10⁷/km²</td></tr>
 <tr><td>주파수</td><td>Sub-6G/mmWave</td><td>THz(100~300 GHz)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>6G 주요 기술</strong>: 테라헤르츠 통신, AI-Native 네트워크, 통신-감지 통합(ISAC), 홀로그래픽 통신, 비지상 네트워크(NTN) 통합</li>
 <li><strong>인사이트</strong>: 6G는 <strong>통신 인프라 자체가 AI로 자율 운영</strong>되는 AI-Native 구조를 지향하며, 테라헤르츠 대역의 짧은 전파 거리 문제는 RIS(재구성 가능 지능 표면)와 초밀집 기지국으로 해결 예정.</li>

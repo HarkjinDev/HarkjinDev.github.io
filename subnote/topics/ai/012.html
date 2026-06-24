@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,27 +20,27 @@
 <li><strong>정의</strong>: 고정된 테스트 데이터로 인한 성능 왜곡을 막기 위해 데이터를 여러 부분으로 나누어 학습과 검증을 반복하는 기법</li>
 <li><strong>키워드</strong>: 데이터 홀드아웃(학습/검증/평가), K-폴드, LOO, Stratified K-폴드</li>
 <li><strong>분류</strong>: 학습/최적화</li>
-<li><strong>데이터 홀드아웃(Hold-out): </strong>모델 일반화 성능 평가시 전체 데이터를 Train, Validation, Test 세 집합으로 단순 분리 및 학습, 모델 선택, 최종 성능 평가에 활용하는 데이터 분할 기법(7:3, 8:2 등 비율 조절)<table>
+<li><strong>데이터 홀드아웃(Hold-out): </strong>모델 일반화 성능 평가시 전체 데이터를 Train, Validation, Test 세 집합으로 단순 분리 및 학습, 모델 선택, 최종 성능 평가에 활용하는 데이터 분할 기법(7:3, 8:2 등 비율 조절)<div class="table-scroll"><table>
 <tr><th><strong>데이터 세트</strong></th><th><strong>설명</strong></th><th><strong>목적</strong></th></tr>
 <tr><td><strong>Training (학습)</strong></td><td>모델 학습에 직접 사용</td><td>패턴 습득 및 가중치 결정</td></tr>
 <tr><td><strong>Validation (검증)</strong></td><td>학습 중 성능 중간 점검</td><td>하이퍼파라미터 최적화</td></tr>
 <tr><td><strong>Test (평가)</strong></td><td>최종 성능 확인용 데이터</td><td>모델의 실제 일반화 성능 측정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Hold-out 기법 한계점:</strong><table>
+<li><strong>Hold-out 기법 한계점:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>한계점</th><th>설명</th><th>핵심</th></tr>
 <tr><td>평가신뢰성</td><td>분할 의존성 </td><td>분할 방식에 따라 평가지표 크게 달라짐</td><td>분할 운에 좌우</td></tr>
 <tr><td></td><td>높은 평가 분산</td><td>단일 분할로 성능 과대·과소 추정 가능</td><td>신뢰구간 불안정</td></tr>
 <tr><td>데이터특성 미반영</td><td>클래스 불균형 미반영</td><td>무작위 분할 시 클래스 비율 원본과 차이</td><td>소수클래스 신뢰저하</td></tr>
 <tr><td></td><td>시계열 데이터 부적합</td><td>미래 데이터 학습 혼입·배포 성능 괴리</td><td>데이터 누수 위험</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유형</strong>:  <table>
+<li><strong>유형</strong>:  <div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>K-Fold</strong></td><td>데이터를 K개로 분할 및 반복 검증</td><td>데이터 활용 극대화, 클래스 불균형에 취약</td></tr>
 <tr><td><strong>Leave-One-Out (LOOCV)</strong></td><td>데이터 1개만 제외하고 N번 반복 검사</td><td>소규모 데이터셋 유리, 매우 높은 연산 비용</td></tr>
 <tr><td><strong>Stratified K-Fold</strong></td><td>원본 클래스 비율을 유지하며 분할</td><td>불균형 데이터 평가 표준, 높은 신뢰성 확보</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 데이터 부족 상황에서 모델의 신뢰성 검증을 위한 필수 절차이며, 일반적으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>K=5 또는 K=10</strong></u></span>이 연산 비용과 성능 신뢰도 간의 균형점으로 권장됨</li>
 </ul>

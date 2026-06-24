@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의:</strong> AI 모델의 취약점·편향·유해 출력을 공격자 관점에서 의도적으로 탐색하여 배포 전 안전성을 검증하는 체계적 테스트 기법</li>
 <li><strong>키워드:</strong> 적대적 프롬프트, 탈옥(Jailbreak), 안전성 평가, NIST AI RMF, 프롬프트 인젝션, 편향 탐지, 유해 출력, 가드레일</li>
 <li><strong>분류</strong>: 성능평가/테스트</li>
-<li><strong>레드 티밍 수행 방식:</strong><table>
+<li><strong>레드 티밍 수행 방식:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>인간 레드팀</strong></td><td>전문가가 직접 창의적 공격 시나리오를 설계·실행</td><td>창의적 탐색</td></tr>
 <tr><td><strong>자동화 레드팀</strong></td><td>LLM이 공격 프롬프트를 자동 생성하여 대규모 탐색</td><td>대규모 탐색</td></tr>
 <tr><td><strong>하이브리드</strong></td><td>인간 설계 시나리오 + AI 자동화 공격 병행</td><td>효율·창의 균형</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 공격 유형:</strong><table>
+<li><strong>주요 공격 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>핵심</th></tr>
 <tr><td><strong>프롬프트 조작</strong></td><td>탈옥 (Jailbreak)</td><td>안전장치 우회</td></tr>
 <tr><td></td><td>프롬프트 인젝션</td><td>명령 삽입</td></tr>
@@ -41,16 +41,16 @@
 <tr><td></td><td>시스템 프롬프트 추출</td><td>내부 지시문 노출 유도</td></tr>
 <tr><td><strong>모델 신뢰성</strong></td><td>할루시네이션 유발</td><td>허위 정보 생성 유도</td></tr>
 <tr><td></td><td>편향 증폭</td><td>차별적 출력 의도적 유발</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 평가 영역:</strong><table>
+<li><strong>주요 평가 영역:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>유해 콘텐츠</strong></td><td>폭력·혐오·불법 정보 생성 여부 탐지</td><td>유해성</td></tr>
 <tr><td><strong>편향·차별</strong></td><td>특정 집단에 대한 차별적 출력 발생 여부</td><td>공정성</td></tr>
 <tr><td><strong>할루시네이션</strong></td><td>허위 정보를 사실처럼 생성하는 빈도 측정</td><td>신뢰성</td></tr>
 <tr><td><strong>프라이버시 침해</strong></td><td>개인정보·학습 데이터 역추론 가능 여부</td><td>정보 보호</td></tr>
 <tr><td><strong>탈옥 저항성</strong></td><td>다양한 우회 시도에 대한 안전 필터 견고성</td><td>안전장치 강도</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> AI 레드 티밍은 소프트웨어 보안 테스트의 개념을 AI 안전성 영역으로 확장한 기법으로, EU AI Act·NIST AI RMF 등 글로벌 규제가 고위험 AI 시스템의 배포 전 레드 티밍을 사실상 의무화하는 방향으로 수렴하고 있어 AI 거버넌스의 핵심 실행 수단으로 자리잡고 있음</li>
 </ul>

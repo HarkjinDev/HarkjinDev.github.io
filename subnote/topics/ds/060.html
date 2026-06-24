@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,24 +21,24 @@
 <li><strong>키워드:</strong> V2X, V2V, V2I, DSRC, C-V2X, RSU, OBU, 자율주행, 스마트도로</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
 <li>특징: 양방향·분산 협력, 차량·인프라 실시간 공유, 안전·자율주행·교통 최적화, </li>
-<li><strong>V2X 통신 유형:</strong><table>
+<li><strong>V2X 통신 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>V2V (Vehicle to Vehicle)</strong></td><td>차량 간 속도·위치·위험 정보 직접 공유</td><td>차량 간 직접 통신</td></tr>
 <tr><td><strong>V2I (Vehicle to Infrastructure)</strong></td><td>차량·신호등·RSU 간 교통 정보 교환</td><td>차량-인프라 통신</td></tr>
 <tr><td><strong>V2P (Vehicle to Pedestrian)</strong></td><td>차량·보행자·자전거 간 충돌 위험 알림</td><td>보행자 안전</td></tr>
 <tr><td><strong>V2N (Vehicle to Network)</strong></td><td>차량·클라우드·교통 관제 센터 연결</td><td>네트워크 연계</td></tr>
 <tr><td><strong>V2G (Vehicle to Grid)</strong></td><td>전기차·전력망 간 에너지 양방향 관리</td><td>전력망 연계</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 통신 기술:</strong><table>
+<li><strong>핵심 통신 기술:</strong><div class="table-scroll"><table>
 <tr><th>기술</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>DSRC (Dedicated Short Range Communications)</strong></td><td>5.9GHz 대역 차량 전용 단거리 무선 통신</td><td>차량 전용 단거리</td></tr>
 <tr><td><strong>C-V2X (Cellular V2X)</strong></td><td>LTE·5G 기반 광역 V2X 통신 기술</td><td>셀룰러 기반 광역</td></tr>
 <tr><td><strong>WAVE (IEEE 802.11p)</strong></td><td>차량 환경 최적화 Wi-Fi 기반 통신 표준</td><td>차량 Wi-Fi 표준</td></tr>
 <tr><td><strong>5G NR-V2X</strong></td><td>5G 기반 초저지연·고신뢰 V2X 통신</td><td>5G 초저지연</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>차량</strong></td><td><strong>OBU (On Board Unit)</strong></td><td>차량 탑재 V2X 통신·정보 처리 단말</td><td>차량 탑재 장치</td></tr>
 <tr><td></td><td><strong>GPS·GNSS</strong></td><td>정밀 차량 위치·속도·방향 측정</td><td>정밀 위치 측정</td></tr>
@@ -49,9 +49,9 @@
 <tr><td><strong>관제</strong></td><td><strong>교통 관제 센터</strong></td><td>실시간 교통 데이터 수집·분석·제어</td><td>중앙 교통 관제</td></tr>
 <tr><td></td><td><strong>C-ITS 센터</strong></td><td>V2X 데이터 통합·서비스 제공 플랫폼</td><td>협력 교통 플랫폼</td></tr>
 <tr><td></td><td><strong>HD Map (정밀지도)</strong></td><td>cm 단위 정밀 도로 지도·자율주행 기반</td><td>정밀 도로 지도</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>C-ITS 주요 서비스:</strong><table>
+<li><strong>C-ITS 주요 서비스:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>서비스</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>안전</strong></td><td><strong>전방 충돌 경고</strong></td><td>전방 차량 급정거·충돌 위험 실시간 알림</td><td>추돌 사고 예방</td></tr>
 <tr><td></td><td><strong>교차로 위험 경고</strong></td><td>교차로 진입 차량 충돌 위험 사전 경고</td><td>교차로 안전</td></tr>
@@ -62,14 +62,14 @@
 <tr><td></td><td><strong>도로 위험 정보</strong></td><td>결빙·낙하물·사고 구간 사전 경고</td><td>도로 위험 예방</td></tr>
 <tr><td><strong>자율주행</strong></td><td><strong>협력 자율주행 (CACC)</strong></td><td>차량 간 통신 기반 군집 주행</td><td>군집 자율주행</td></tr>
 <tr><td></td><td><strong>자율 주차</strong></td><td>인프라 연계 자율 주차 지원</td><td>무인 주차</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>C-ITS와 자율주행 연계:</strong><table>
+<li><strong>C-ITS와 자율주행 연계:</strong><div class="table-scroll"><table>
 <tr><th>자율주행 레벨</th><th>C-ITS 역할</th><th>핵심</th></tr>
 <tr><td><strong>Level 2~3</strong></td><td>충돌 경고·신호 정보로 운전자 보조</td><td>운전자 보조</td></tr>
 <tr><td><strong>Level 4</strong></td><td>인프라 연계 자율주행·정밀지도 활용</td><td>인프라 기반 자율</td></tr>
 <tr><td><strong>Level 5</strong></td><td>완전 자율주행·V2X 완전 통합 환경</td><td>완전 자율 통합</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> C-ITS는 차량·인프라·사람이 실시간 통신으로 협력하는 교통 생태계의 핵심 인프라로, 자율주행 레벨 4~5 실현을 위한 필수 선행 조건임. DSRC와 C-V2X의 기술 경쟁 속에서 5G 기반 C-V2X가 자율주행·스마트시티와의 통합 관점에서 주도권을 강화하고 있으며, 국내 2030년 전국 도입 목표 달성을 위해 RSU 인프라 확충·정밀지도·보안 표준화가 핵심 선결 과제임</li>
 </ul>

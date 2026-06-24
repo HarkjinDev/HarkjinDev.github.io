@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 신경망의 출력값과 실제 정답과의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>오차를 뒤(출력층→입력층)로 전파</strong></u></span>하며 가중치를 갱신하는 학습 알고리즘</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>연쇄 법칙(Chain Rule), 손실 함수, 기울기(Gradient), 가중치 갱신</strong></u></span></li>
 <li><strong>분류</strong>: 신경망</li>
-<li><strong>동작 원리 (4단계)</strong>:<table>
+<li><strong>동작 원리 (4단계)</strong>:<div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>순전파 
 (Forward)</strong></td><td>입력 데이터를 각 층에 통과시켜 예측값 도출 및 오차(Loss) 계산</td><td>예측값 및 손실함수 산출</td></tr>
@@ -28,7 +28,7 @@
 <tr><td><strong>역방향 전파 (Backprop)</strong></td><td>출력층에서 입력층 방향으로 계산된 기울기를 순차적으로 전달</td><td>기울기(Gradient)의 흐름</td></tr>
 <tr><td><strong>가중치 업데이트</strong></td><td><strong>최적화 알고리즘(Optimizer)</strong>을 사용해 가중치를 수정함</td><td>w \leftarrow w - \eta \nabla w 
 (경사하강법)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 딥러닝 학습의 핵심 엔진이며, 기울기 소실 문제를 해결하기 위한 활성화 함수 선택 및 가중치 초기화 기법과 연계하여 답안 구성 권장</li>
 </ul>

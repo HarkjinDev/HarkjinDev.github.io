@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 단일 자율 시스템(AS) 내부에서 라우터 간 라우팅 정보를 교환하여 최적 경로를 결정하는 내부 게이트웨이 프로토콜</li>
 <li><strong>키워드</strong>: AS(자율 시스템), 링크 상태, 거리 벡터, OSPF, RIP, EIGRP, 수렴</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>IGP 분류</strong>:<table>
+<li><strong>IGP 분류</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th><th>하이브리드</th></tr>
 <tr><td><strong>프로토콜</strong></td><td>RIP</td><td>OSPF, IS-IS</td><td>EIGRP</td></tr>
 <tr><td><strong>알고리즘</strong></td><td>Bellman-Ford</td><td>Dijkstra</td><td>DUAL</td></tr>
 <tr><td><strong>특징</strong></td><td>홉 카운트, 소규모 망</td><td>토폴로지 DB, 대규모 망</td><td>Cisco 전용, 빠른 수렴</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IGP는 <strong>AS 내부 최적 경로 계산</strong>을 담당하며, 기업망에서는 OSPF가 표준. 수렴 속도와 확장성이 프로토콜 선택의 핵심 기준이며 OSPF는 링크 상태 변화 시 LSA(Link State Advertisement)로 빠르게 수렴.</li>
 </ul>

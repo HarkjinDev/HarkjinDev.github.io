@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 웹 브라우저에서 별도 플러그인·앱 설치 없이 JavaScript API만으로 음성·영상·데이터 실시간 통신을 지원하는 오픈 표준</li>
 <li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<table>
+<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
 <tr><th>컴포넌트</th><th>역할</th></tr>
 <tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
 <tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
 <tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
 <tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
 <tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
 <li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>

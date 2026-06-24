@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,11 +25,11 @@
 <li><strong>C 파라미터</strong>: 값이 클수록 오분류에 엄격(하드 마진에 가까움), 값이 작을수록 오분류에 관대(소프트 마진에 가까움)</li>
 </ul>
 </li>
-<li><strong>세부 유형</strong>:<table>
+<li><strong>세부 유형</strong>:<div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>하드 마진</strong></td><td>오분류를 전혀 허용하지 않음</td><td>이상치에 매우 민감, 선형 분리 필수</td></tr>
 <tr><td><strong>소프트 마진(표준)</strong></td><td>일부 오분류를 유연하게 허용</td><td>슬랙 변수 도입, C로 허용 오차 조절</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 현실 데이터는 완벽하게 선형 분리되는 경우가 드물기 때문에 소프트 마진이 표준으로 사용되며, C 파라미터 튜닝을 통해 과적합과 과소적합 사이의 균형을 조절하는 것이 핵심임</li>
 </ul>

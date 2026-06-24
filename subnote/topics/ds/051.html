@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 전력망에 ICT를 융합하여 전력 생산·송전·소비 전 과정을 양방향으로 실시간 모니터링하고 최적 관리하는 지능형 전력 시스템</li>
 <li><strong>키워드</strong>: AMI, 양방향 통신, 수요 반응, 신재생에너지, ESS, 마이크로그리드, 스마트 미터기</li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>핵심 기술</strong>:<table>
+<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
 <tr><th>기술</th><th>설명</th></tr>
 <tr><td>AMI(지능형 계량 인프라)</td><td>스마트 미터로 실시간 소비 데이터 수집</td></tr>
 <tr><td>수요 반응(DR)</td><td>전력 수요를 실시간 조정</td></tr>
 <tr><td>ESS(에너지 저장장치)</td><td>잉여 전력 저장·공급</td></tr>
 <tr><td>마이크로그리드</td><td>지역 단위 자립형 전력망</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 스마트 그리드는 <strong>탄소 중립 실현의 인프라</strong>로, 신재생에너지의 간헐성 문제를 ESS와 수요 반응으로 해결하는 구조를 서술하면 차별화 가능.</li>
 </ul>

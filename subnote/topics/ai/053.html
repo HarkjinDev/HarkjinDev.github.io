@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,23 +25,23 @@
 <li><strong>Scaling Law:</strong> 데이터 크기, 모델 크기, 컴퓨팅 자원이 늘어날수록 성능이 지수적으로 향상됨</li>
 </ul>
 </li>
-<li><strong>분류 및 관계:</strong><table>
+<li><strong>분류 및 관계:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>모델 유형</th><th>대표 예시</th></tr>
 <tr><td><strong>인코더 기반</strong></td><td>문맥 이해 특화, 양방향 학습</td><td>BERT, RoBERTa</td></tr>
 <tr><td><strong>디코더 기반</strong></td><td>텍스트 생성 특화, 단방향 학습</td><td>GPT 시리즈, LLaMA</td></tr>
 <tr><td><strong>인코더-디코더</strong></td><td>번역·요약 등 Seq2Seq 태스크</td><td>T5, BART</td></tr>
 <tr><td><strong>파운데이션 모델</strong></td><td>LLM의 기반이 되는 범용 사전학습 모델</td><td>GPT-4, Claude, Gemini</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>LLM 구축 및 학습 프로세스:</strong><table>
+<li><strong>LLM 구축 및 학습 프로세스:</strong><div class="table-scroll"><table>
 <tr><th><strong>학습 단계</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. 사전 학습 (Pre-training)</strong></td><td>수조 개의 토큰으로 언어 모델링</td><td>기본 언어 구조 및 지식 습득</td></tr>
 <tr><td><strong>2. 지도 파인튜닝 (SFT)</strong></td><td>레이블 데이터로 미세 조정 수행</td><td>지시어 이행 및 대화 능력</td></tr>
 <tr><td><strong>3. RLHF</strong></td><td>보상 모델 학습 및 PPO 최적화</td><td>답변의 품질 및 안전성 강화</td></tr>
 <tr><td><strong>4. 평가 및 배포</strong></td><td>벤치마크 측정 후 서비스 적용</td><td>모델 성능 검증 및 최적화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 최적화 및 효율화 기술:</strong><table>
+<li><strong>핵심 최적화 및 효율화 기술:</strong><div class="table-scroll"><table>
 <tr><th><strong>기술명</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>PLM</strong></td><td>대규모 데이터로 사전 학습 수행</td><td>범용적 지식 베이스 구축</td></tr>
 <tr><td><strong>MoE</strong></td><td>필요한 전문가 모델만 선택 호출</td><td>연산 효율 및 파라미터 확장</td></tr>
@@ -49,9 +49,9 @@
 <tr><td><strong>RAG</strong></td><td>외부 DB 검색 결과 결합 생성</td><td>할루시네이션(환각) 방지</td></tr>
 <tr><td><strong>Tokenizer</strong></td><td>텍스트를 토큰 단위로 분리</td><td>BPE, WordPiece 기반 수치화</td></tr>
 <tr><td><strong>컨텍스트 윈도우</strong></td><td>한 번에 처리 가능한 입력 범위</td><td>장문 처리 및 기억 용량 결정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 한계 및 대응 기술:</strong><table>
+<li><strong>주요 한계 및 대응 기술:</strong><div class="table-scroll"><table>
 <tr><th>한계</th><th>설명</th><th>대응 기술</th></tr>
 <tr><td><strong>할루시네이션</strong></td><td>사실과 다른 내용을 자신 있게 생성</td><td>RAG, 사실 검증 모듈</td></tr>
 <tr><td><strong>컨텍스트 한계</strong></td><td>긴 문서 처리 시 앞 내용 망각</td><td>롱컨텍스트 모델, 청킹</td></tr>
@@ -59,7 +59,7 @@
 <tr><td><strong>높은 추론 비용</strong></td><td>대형 모델은 GPU 자원 소모 과다</td><td>MoE, 양자화(Quantization), 
 증류(Distillation)</td></tr>
 <tr><td><strong>최신 정보 부재</strong></td><td>학습 컷오프 이후 정보 미반영</td><td>RAG, 웹 검색 연동</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 최근 LLM 시장은 <strong>'더 크게(Large)'</strong> 만드는 경쟁에서 <strong>'더 똑똑하고 가볍게(Efficiency)'</strong> 만드는 경쟁으로 전환되었습니다. 특히 단순히 답을 내놓는 것을 넘어, 스스로 문제를 분해하고 추론하는 <strong>Chain of Thought (CoT)</strong> 기술과 다양한 모달리티(이미지, 영상, 오디오)를 동시에 처리하는 <strong>Native Multimodal</strong>로의 진화가 핵심</li>
 </ul>

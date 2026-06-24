@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,21 +26,21 @@
 <li>AI 미도입 기업의 경쟁력 급격한 약화</li>
 </ul>
 </li>
-<li><strong>전략적 추진 절차</strong>:<table>
+<li><strong>전략적 추진 절차</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>내용</th></tr>
 <tr><td>AI 비전 수립</td><td>경영전략 연계 AI 활용 방향 정의</td></tr>
 <tr><td>데이터 준비</td><td>학습 데이터 확보·정제·거버넌스</td></tr>
 <tr><td>파일럿·확산</td><td>고가치 유스케이스 선정 후 전사 확산</td></tr>
 <tr><td>성과 측정</td><td>ROI, 생산성, 품질 지표 측정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>장애 요인/대응 방안</strong>:<table>
+<li><strong>장애 요인/대응 방안</strong>:<div class="table-scroll"><table>
 <tr><th>장애 요인</th><th>대응 방안</th></tr>
 <tr><td>데이터 품질 부족</td><td>데이터 거버넌스·MDM 구축</td></tr>
 <tr><td>AI 인재 부족</td><td>내부 육성·외부 채용·협업</td></tr>
 <tr><td>AI 윤리·편향</td><td>AI 윤리 가이드라인 수립</td></tr>
 <tr><td>조직 저항</td><td>변화관리·AI 리터러시 교육</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: AX는 DX의 연장선이지만 <strong>AI를 핵심 경영 자원으로 내재화</strong>한다는 점에서 차별화됨. <strong>데이터 품질과 AI 거버넌스</strong>가 AX 성패를 결정함.</li>
 </ul>

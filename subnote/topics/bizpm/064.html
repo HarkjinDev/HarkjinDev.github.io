@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>프로젝트의 직무와 책임, 권한을 중심으로 구성원 혹은 작업집단을 나누고 연결한 외형적인 조합체계</li>
 <li><strong>키워드:</strong> 기능 조직, 매트릭스 조직, 프로젝트 중심 조직</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>조직 유형(PMBOK):</strong><table>
+<li><strong>조직 유형(PMBOK):</strong><div class="table-scroll"><table>
 <tr><th><strong>조직 유형</strong></th><th><strong>PM의 권한</strong></th><th><strong>리소스 가동률</strong></th><th><strong>예산 관리 주체</strong></th><th><strong>PM의 역할</strong></th><th><strong>행정 지원 인력</strong></th></tr>
 <tr><td><strong>기능 조직</strong>
 (Functional)</td><td>매우 낮음</td><td>매우 낮음</td><td>기능 부서장</td><td>파트타임</td><td>파트타임</td></tr>
@@ -32,7 +32,7 @@
 (Strong Matrix)</td><td>보통/높음</td><td>보통/높음</td><td>PM</td><td>풀타임</td><td>풀타임</td></tr>
 <tr><td><strong>프로젝트 중심</strong>
 (Projectized)</td><td>높음/거의 전권</td><td>높음/거의 전권</td><td>PM</td><td>풀타임</td><td>풀타임</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 2-4. 소프트웨어 품질모델</h4>
 <ul>
-<li><strong>소프트웨어 품질 평가 표준모델</strong><table>
+<li><strong>소프트웨어 품질 평가 표준모델</strong><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>국제 표준</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>제품품질 평가</strong></td><td><strong>ISO/IEC 25000</strong></td><td>9126과 14598을 통합한 차세대 품질 통합 표준(SQuaRE)</td></tr>
 <tr><td></td><td><strong>ISO/IEC 12119</strong></td><td>SW 패키지 제품의 품질 요구사항 및 시험 절차 표준</td></tr>
@@ -27,7 +27,7 @@
 <tr><td></td><td><strong>CMMI</strong></td><td>조직의 SW 및 시스템 공학 프로세스 역량/성숙도 평가 모델</td></tr>
 <tr><td><strong>경영측면 품질평가</strong></td><td><strong>ISO 9000</strong></td><td>품질경영시스템(QMS) 구축 및 관리를 위한 국제 규격</td></tr>
 <tr><td></td><td><strong>6 시그마 (6 SIGMA)</strong></td><td>100만 개 중 3.4개 결함 발생을 목표로 하는 경영 혁신 기법</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

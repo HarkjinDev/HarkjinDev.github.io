@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: OWASP에서 발표한 LLM 애플리케이션의 10대 보안 위협 목록</li>
 <li><strong>키워드</strong>: LLM 보안 위협, 프롬프트 인젝션, 데이터 유출</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>OWASP LLM Top 10 목록</strong>:<table>
+<li><strong>OWASP LLM Top 10 목록</strong>:<div class="table-scroll"><table>
 <tr><th><strong>#</strong></th><th><strong>항목</strong></th><th><strong>핵심</strong></th><th><strong>대응</strong></th></tr>
 <tr><td><strong>LLM01</strong></td><td><strong>프롬프트 인젝션</strong></td><td>프롬프트 조작</td><td>입력 정제·검증·격리</td></tr>
 <tr><td><strong>LLM02</strong></td><td><strong>민감 정보 유출</strong></td><td>데이터 노출</td><td>접근 제어·DP·데이터 정제</td></tr>
@@ -32,7 +32,7 @@
 <tr><td><strong>LLM08</strong></td><td><strong>벡터·임베딩 취약점</strong></td><td>RAG/임베딩 조작</td><td>안전 임베딩·적대적 테스트</td></tr>
 <tr><td><strong>LLM09</strong></td><td><strong>허위 정보 (Hallucination)</strong></td><td>왜곡 정보 생성</td><td>RAG·파인튜닝·인간 검증</td></tr>
 <tr><td><strong>LLM10</strong></td><td><strong>무한 소비</strong></td><td>자원 고갈 요청</td><td>속도 제한(Rate Limit)·자원 관리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: LLM06(과도한 에이전시)은 AI 에이전트가 필요 이상의 권한으로 자율 행동하는 위험으로, 최소 권한 원칙과 Human-in-the-Loop가 핵심 대응임</li>
 </ul>

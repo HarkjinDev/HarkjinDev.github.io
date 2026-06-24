@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> 정찰, 침투, 내부 이동, 데이터 유출, 사이버 킬체인, IoC, UEBA, 제로데이, 스피어피싱, C2</li>
 <li><strong>분류</strong>: 위협/공격</li>
 <li><strong>주요 특징: </strong>지능성 (Advanced), 지속성 (Persistent), 목표성 (Threat), 조직적 배후</li>
-<li><strong>APT 공격 절차:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;침탐수유&gt;</strong></span><table>
+<li><strong>APT 공격 절차:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;침탐수유&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>절차</th><th>핵심</th></tr>
 <tr><td><strong>침입</strong></td><td><strong>1. 정찰</strong> — 대상 조직·인물·인프라 정보 수집 (OSINT·소셜미디어)</td><td>목표 정보 수집</td></tr>
 <tr><td></td><td><strong>2. 초기 침입</strong> — 스피어피싱·제로데이·공급망으로 최초 거점 확보</td><td>초기 접근</td></tr>
@@ -31,9 +31,9 @@
 <tr><td><strong>수집</strong></td><td><strong>6. 내부 이동</strong> — 자격증명 탈취·Pass-the-Hash로 내부 시스템 횡적 이동</td><td>내부 확산</td></tr>
 <tr><td></td><td><strong>7. 정보 수집</strong> — 목표 데이터·자격증명·기밀 정보 탐색·수집</td><td>목표 자산 수집</td></tr>
 <tr><td><strong>유출</strong></td><td><strong>데이터 유출</strong> — 수집 데이터를 암호화·분할하여 C2 서버로 외부 유출</td><td>목표 달성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대응 방안:</strong><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>탐지</strong></td><td><strong>UEBA</strong></td><td>행위 기반 분석으로 정상 위장 APT 활동 탐지</td></tr>
 <tr><td></td><td><strong>위협 헌팅</strong></td><td>IoC·TTPs 기반 잠복 위협 능동 탐색</td></tr>
@@ -42,7 +42,7 @@
 <tr><td></td><td><strong>Zero Trust</strong></td><td>내부 이동 차단·지속적 인증·최소 권한 적용</td></tr>
 <tr><td><strong>대응</strong></td><td><strong>SIEM·SOAR</strong></td><td>다단계 공격 상관분석·자동화 대응</td></tr>
 <tr><td></td><td><strong>침해 대응 (IR)</strong></td><td>침해 지표 기반 신속 격리·포렌식·복구</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> APT는 수개월간 정상 행위로 위장하며 잠복하므로 시그니처·IoC 기반 탐지만으로는 한계가 있으며, UEBA 기반 행위 분석·위협 헌팅·Zero Trust를 통합한 다층 방어와 함께 MITRE ATT&amp;CK 프레임워크 기반 TTPs 분석이 APT 대응의 핵심 전략임</li>
 </ul>

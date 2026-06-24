@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 소프트웨어의 개발, 운용, 유지보수 및 폐기에 대한 체계적·규율적·정량적 접근 방법을 연구하는 공학 분야</li>
 <li><strong>키워드</strong>: IEEE 정의, 생산성, 품질, 비용, 소프트웨어 위기</li>
 <li><strong>분류</strong>: SW공학 개론</li>
-<li><strong>배경/목표: </strong><table>
+<li><strong>배경/목표: </strong><div class="table-scroll"><table>
 <tr><th>등장 배경</th><th>내용</th></tr>
 <tr><td>소프트웨어 위기</td><td>개발 비용 초과, 일정 지연, 낮은 품질 문제 대두</td></tr>
 <tr><td>IEEE 정의</td><td>소프트웨어의 개발·운용·유지보수에 체계적·규율적·정량적 접근 적용 및 연구</td></tr>
 <tr><td>목표</td><td>정해진 기간·비용 내에 고품질 소프트웨어 개발</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 특성(Brooks, 1871):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;비복변/무순제&gt;</strong></span><table>
+<li><strong>주요 특성(Brooks, 1871):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;비복변/무순제&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>특성</strong></th><th><strong>설명</strong></th></tr>
 <tr><td>비가시성 (Invisibility)</td><td>구조가 외부에 노출되지 않고 코드에 내재되어 있는 특성</td></tr>
 <tr><td>복잡성 (Complexity)</td><td>정형적 구조가 없어 시스템 및 개발 과정 자체가 난해함</td></tr>
@@ -35,7 +35,7 @@
 <tr><td>무형성 (Intangible)</td><td>물리적 형체가 없어 기능점수(FP) 등을 통한 유형화 노력이 필요함</td></tr>
 <tr><td>순응성 (Conformity)</td><td>사용자의 요구사항이나 주변 환경 변화에 적절히 적응 및 변형 가능</td></tr>
 <tr><td>복제 가능 (Duplicability)</td><td>간단하고 쉬운 방법으로 복제가 가능하며 재생산 비용이 저렴함</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 소프트웨어 공학은 단순 코딩 기술이 아닌 <strong>관리·프로세스·품질</strong>을 포괄하며, “소프트웨어 위기”를 해결하기 위해 등장한 공학적 접근임을 강조.</li>
 </ul>

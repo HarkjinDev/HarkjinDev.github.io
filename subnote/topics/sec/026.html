@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 암호화된 상태에서 연산을 수행하여 결과의 기밀성을 유지하는 암호 기술</li>
 <li><strong>키워드</strong>: 암호문 연산, 복호화 없이 처리, 격자기반암호, 프라이버시, 부분/다소/완전, 부트스트래핑, 스쿼싱</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>유형</strong>:<table>
+<li><strong>유형</strong>:<div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>부분동형암호(PHE)</strong></td><td>덧셈 또는 곱셈 하나만 지원</td><td>단일 연산</td></tr>
 <tr><td><strong>다소동형암호(SHE)</strong></td><td>제한된 횟수의 연산 지원</td><td>제한적 연산</td></tr>
 <tr><td><strong>완전동형암호(FHE)</strong></td><td>임의 연산 무제한 지원</td><td>완전 동형</td></tr>
 <tr><td><strong>Torus FHE(TFHE)</strong></td><td>비트 단위 고속 논리 연산</td><td>불리언 연산</td></tr>
 <tr><td><strong>근사 동형암호(CKKS)</strong></td><td>실수 기반 근사 연산 수행</td><td>근사 연산</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>원리:</strong><ul>
 <li><strong>부트스트래핑(Bootstrapping):</strong> 노이즈 적은 암호문 재생성(무한연산 가능화)</li>

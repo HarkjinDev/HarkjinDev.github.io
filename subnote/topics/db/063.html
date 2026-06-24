@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,7 +25,7 @@
 <li>실시간 분석·초저지연 응답이 요구되는 환경에서 필수 기술로 부상</li>
 </ul>
 </li>
-<li><strong>인메모리 DB vs 디스크 기반 DB 비교</strong>:<table>
+<li><strong>인메모리 DB vs 디스크 기반 DB 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>인메모리 DB (IMDB)</th><th>디스크 기반 DB</th></tr>
 <tr><td>저장 위치</td><td>메인 메모리(RAM)</td><td>디스크(HDD/SSD)</td></tr>
 <tr><td>응답 속도</td><td>마이크로초(μsec) 수준</td><td>밀리초(msec) 수준</td></tr>
@@ -33,7 +33,7 @@
 <tr><td>영속성</td><td>휘발성 → WAL·스냅샷으로 보완</td><td>기본 보장</td></tr>
 <tr><td>용량</td><td>메모리 용량에 제한</td><td>대용량 저장 가능</td></tr>
 <tr><td>비용</td><td>메모리 단가 높음</td><td>상대적으로 저렴</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>핵심 기술</strong>:<ul>
 <li><strong>WAL(Write Ahead Logging)</strong>: 데이터 변경 전 로그를 먼저 기록하여 장애 시 복구</li>

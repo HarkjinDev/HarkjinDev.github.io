@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 네트워크 혼잡 발생 시 전송률을 동적으로 조절하여 패킷 손실과 지연을 최소화하는 트래픽 관리 기법</li>
 <li><strong>키워드</strong>: 혼잡 윈도우(cwnd), Slow Start, AIMD, 혼잡 회피, Fast Retransmit, ECN</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP 혼잡 제어 단계</strong>:<table>
+<li><strong>TCP 혼잡 제어 단계</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>동작</th><th>설명</th></tr>
 <tr><td>Slow Start</td><td>cwnd 지수 증가</td><td>1→2→4→8… (매 RTT 2배)</td></tr>
 <tr><td>혼잡 회피</td><td>cwnd 선형 증가</td><td>ssthresh 도달 후 +1/RTT</td></tr>
 <tr><td>Fast Retransmit</td><td>3 Dup ACK → 즉시 재전송</td><td>타임아웃 대기 없이 빠른 복구</td></tr>
 <tr><td>Fast Recovery</td><td>ssthresh 재설정 후 혼잡 회피 진입</td><td>cwnd = ssthresh + 3</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>AIMD(Additive Increase Multiplicative Decrease)</strong>는 공정성을 보장하는 핵심 원리로, 손실 감지 시 cwnd를 절반으로 줄여 빠른 회복을 유도. QUIC/BBR 등 신규 혼잡 제어는 RTT 기반으로 동작하여 대역폭 활용률을 개선.</li>
 </ul>

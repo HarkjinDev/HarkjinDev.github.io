@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -30,11 +30,11 @@
 </ul>
 </li>
 <li><strong>Ansoff Matrix:</strong><ul>
-<li>기업이 성장을 위해 어떤 경로를 택해야 하는지 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>제품과 시장의 신규성 여부</strong></u></span>에 따라 4가지 전략으로 구분<table>
+<li>기업이 성장을 위해 어떤 경로를 택해야 하는지 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>제품과 시장의 신규성 여부</strong></u></span>에 따라 4가지 전략으로 구분<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>기존 제품</strong></th><th><strong>신규 제품</strong></th></tr>
 <tr><td><strong>기존 시장</strong></td><td>시장 침투</td><td>제품 개발</td></tr>
 <tr><td><strong>신규 시장</strong></td><td>시장 개척</td><td>다각화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>시장 침투 (Market Penetration):</strong> 기존 시장에서 기존 제품의 점유율을 높이는 전략. (가장 위험도가 낮음)</li>
 <li><strong>제품 개발 (Product Development):</strong> 기존 시장의 고객들을 위해 새로운 제품을 출시하는 전략.</li>

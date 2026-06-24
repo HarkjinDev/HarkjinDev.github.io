@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: IT 투자 집행 후 품질·이용·효과 관점에서 정보시스템의 성과를 체계적으로 분석·평가하는 활동</li>
 <li><strong>키워드</strong>: 품질 지표, 이용 지표, 효과 지표, 공공 정보화 평가, BSC</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>평가 지표 체계</strong>:<table>
+<li><strong>평가 지표 체계</strong>:<div class="table-scroll"><table>
 <tr><th><strong>관점</strong></th><th><strong>지표 예시</strong></th></tr>
 <tr><td>품질</td><td>시스템 가용성, 응답속도, 장애 횟수</td></tr>
 <tr><td>이용</td><td>이용자 수, 접속 빈도, 기능 활용률</td></tr>
 <tr><td>효과</td><td>업무 시간 절감, 비용 절감, 만족도</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IT 투자성과 평가는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>사후 피드백을 통해 다음 투자 계획을 개선하는 선순환 구조를 형성</strong></u></span>하며, 공공 부문에서는 행정안전부 기준 정보시스템 성과 측정 가이드를 준수해야 함.</li>
 </ul>

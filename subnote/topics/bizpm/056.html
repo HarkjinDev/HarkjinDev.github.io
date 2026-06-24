@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 공공 SW사업의 계획 단계에서 사업 목적·규모·방법론의 적정성을 사전에 평가하여 불필요한 사업 추진을 방지하는 기준</li>
 <li><strong>키워드</strong>: 필요성 검토, 규모 적정성, 추진 방법 적절성, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>예비타당성 연계</strong></u></span></li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>평가 기준</strong>:<table>
+<li><strong>평가 기준</strong>:<div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>내용</strong></th></tr>
 <tr><td>사업 필요성</td><td>법령·정책 근거, 중복 사업 여부</td></tr>
 <tr><td>규모 적정성</td><td>사업비·범위·기간의 적정성</td></tr>
 <tr><td>추진 방법</td><td>발주 방식, ISP/ISMP 선행 여부</td></tr>
 <tr><td>기대 효과</td><td>정량·정성 효과의 명확성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 사업 적정성 평가는 <strong>예비타당성 조사의 하위 제도</strong>로, 중소규모 공공 SW사업에도 적용하여 중복·과잉 투자를 사전에 차단하는 역할을 하며, 사업 계획서의 완성도를 높이는 효과도 있음.</li>
 </ul>

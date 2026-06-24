@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,7 +19,7 @@
 <ul>
 <li><strong>정의</strong>: 개발된 모델의 예측 성능을 정량적으로 측정하기 위한 기준</li>
 <li><strong>분류</strong>: 성능평가/테스트</li>
-<li><strong>성능평가 지표:</strong><table>
+<li><strong>성능평가 지표:</strong><div class="table-scroll"><table>
 <tr><th><strong>분류</strong></th><th>지표</th><th><strong>핵심 요약</strong></th><th><strong>수식</strong></th></tr>
 <tr><td><strong>분류</strong></td><td><strong>정밀도</strong></td><td>모델이 Positive로 예측한 것 중 실제 Positive 비율</td><td>\frac{TP}{TP + FP}</td></tr>
 <tr><td></td><td><strong>재현율</strong></td><td>실제 Positive 중 모델이 Positive로 예측한 비율</td><td>\frac{TP}{TP + FN}</td></tr>
@@ -33,7 +33,7 @@
 <tr><td><strong>군집</strong></td><td><strong>실루엣 계수</strong></td><td>클러스터 내 응집도와 클러스터 간 분리도 측정</td><td>\frac{b(i) - a(i)}{\max(a(i), b(i))}</td></tr>
 <tr><td></td><td><strong>DBI</strong></td><td>클러스터 간 평균 거리와 응집도 측정</td><td>작을수록 군집화가 잘 됨</td></tr>
 <tr><td></td><td><strong>CH 지표</strong></td><td>클러스터 간 분산과 클러스터 내 분산의 비율 측정</td><td>높을수록 군집화가 잘 됨</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

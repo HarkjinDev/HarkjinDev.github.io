@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,37 +20,37 @@
 <li><strong>정의:</strong> 통계 질의 결과에 수학적 노이즈를 추가하여 개인을 식별할 수 없도록 보호하는 프라이버시 보존 기법</li>
 <li><strong>키워드:</strong> 노이즈 추가, ε-DP, 프라이버시 예산, 라플라스 메커니즘, 가우시안 메커니즘, DP-SGD, 민감도, 전역·지역 DP</li>
 <li><strong>분류:</strong> 암호학 </li>
-<li><strong>핵심 개념:</strong><table>
+<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>ε (프라이버시 예산)</strong></td><td>허용 가능한 프라이버시 손실 수준 (작을수록 강한 보호)</td><td>보호 수준 조절</td></tr>
 <tr><td><strong>민감도 (Sensitivity)</strong></td><td>특정 개인의 데이터 유무에 따른 질의 결과 최대 변화량</td><td>노이즈 크기 기준</td></tr>
 <tr><td><strong>노이즈 추가</strong></td><td>민감도·ε 기반으로 계산된 노이즈를 질의 결과에 추가</td><td>개인 식별 방지</td></tr>
 <tr><td><strong>프라이버시-유용성 
 트레이드오프</strong></td><td>ε 작을수록 강한 보호·낮은 데이터 유용성, 클수록 반대</td><td>균형 설계 필요</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 메커니즘:</strong><table>
+<li><strong>주요 메커니즘:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>라플라스 메커니즘</strong></td><td>라플라스 분포 기반 노이즈 추가, 수치형 데이터에 적용</td><td>수치 데이터</td></tr>
 <tr><td><strong>가우시안 메커니즘</strong></td><td>가우시안 분포 기반 노이즈 추가, (ε·δ)-DP 만족</td><td>근사 DP</td></tr>
 <tr><td><strong>지수 메커니즘</strong></td><td>범주형·비수치 데이터의 최적 출력 선택에 적용</td><td>범주 데이터</td></tr>
 <tr><td><strong>무작위 응답</strong></td><td>응답 전 확률적으로 참·거짓 반전하여 개인 응답 보호</td><td>설문 데이터</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>전역 vs 지역 차분 프라이버시:</strong><table>
+<li><strong>전역 vs 지역 차분 프라이버시:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>전역 DP (Global DP)</th><th>지역 DP (Local DP)</th></tr>
 <tr><td><strong>노이즈 추가 위치</strong></td><td>중앙 서버에서 집계 후 추가</td><td>개인 기기에서 전송 전 추가</td></tr>
 <tr><td><strong>신뢰 주체</strong></td><td>중앙 서버 신뢰 필요</td><td>서버 신뢰 불필요</td></tr>
 <tr><td><strong>데이터 유용성</strong></td><td>높음</td><td>낮음</td></tr>
 <tr><td><strong>대표 사례</strong></td><td>인구조사·DB 통계</td><td>애플 iOS·구글 RAPPOR</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>AI·ML 적용 (DP-SGD):</strong><table>
+<li><strong>AI·ML 적용 (DP-SGD):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>DP-SGD</strong></td><td>경사하강법 적용 시 기울기에 노이즈 추가하여 학습 데이터 보호</td><td>ML 학습 프라이버시</td></tr>
 <tr><td><strong>기울기 클리핑</strong></td><td>개별 기울기 크기를 제한하여 민감도 통제</td><td>민감도 제어</td></tr>
 <tr><td><strong>프라이버시 예산 추적</strong></td><td>학습 전 과정의 누적 ε 관리</td><td>예산 소진 관리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 차분 프라이버시는 집계 통계 공개 시 개인 정보 유출을 수학적으로 보장하는 유일한 기법으로, DP-SGD를 통해 AI 모델 학습 데이터 보호로 적용 범위가 확대되고 있으며 ε 설정이 프라이버시·유용성 균형의 핵심 설계 변수로 실무 적용 시 도메인별 적정 예산 수준 결정이 가장 중요한 과제임</li>
 </ul>

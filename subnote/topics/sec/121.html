@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의:</strong> AI 모델에 과도한 연산·토큰·API 요청을 유발하여 서비스를 마비시키거나 운영 비용을 폭증시키는 가용성 공격</li>
 <li><strong>키워드:</strong> 토큰 폭탄, API 플러딩, 자원 소진, Rate Limiting, 토큰 예산, 이상 탐지</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>공격 유형:</strong><table>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>자원 소진</strong></td><td><strong>토큰 폭탄</strong></td><td>극도로 긴 입력·반복 패턴으로 토큰 처리 자원 소진</td><td>토큰 자원 고갈</td></tr>
 <tr><td></td><td><strong>복잡 연산 유도</strong></td><td>복잡한 수학·코드 생성 요청으로 GPU 연산 자원 소진</td><td>연산 과부하</td></tr>
 <tr><td></td><td><strong>무한 반복 유도</strong></td><td>재귀적·순환 응답 유도 프롬프트로 출력 토큰 폭증</td><td>출력 폭증</td></tr>
 <tr><td><strong>API 공격</strong></td><td><strong>API 플러딩</strong></td><td>대량 API 요청으로 처리 한계 초과·서비스 응답 불가</td><td>요청 과부하</td></tr>
 <tr><td></td><td><strong>비용 공격</strong></td><td>대량 토큰 소비 유도로 API 과금 비용 폭증</td><td>비용 유발</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대응 방안:</strong><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>예방</strong></td><td><strong>Rate Limiting</strong></td><td>API 호출 횟수·토큰 수 임계치 제한</td></tr>
 <tr><td></td><td><strong>토큰 예산 설정</strong></td><td>입력·출력 토큰 수 상한선 강제 적용</td></tr>
@@ -37,7 +37,7 @@
 <tr><td></td><td><strong>비용 모니터링</strong></td><td>API 사용량·비용 급증 실시간 경보</td></tr>
 <tr><td><strong>대응</strong></td><td><strong>자동 차단</strong></td><td>임계치 초과 요청 IP·계정 자동 차단</td></tr>
 <tr><td></td><td><strong>캐싱</strong></td><td>동일 요청 결과 캐싱으로 중복 연산 방지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> Model DoS는 기존 네트워크 DoS와 달리 토큰·연산 자원을 표적으로 하여 서비스 마비뿐 아니라 막대한 API 비용을 유발하는 경제적 공격 수단으로 악용되므로, 토큰 예산·Rate Limiting·비용 모니터링의 다층 방어가 AI 서비스 운영의 필수 보안 요건임</li>
 </ul>

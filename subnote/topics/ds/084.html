@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -28,11 +28,11 @@
 <li>진정성, 자율성, 호혜성, 사생활 존중, 공정성, 개인정보 보호, 포용성, 책임성</li>
 </ul>
 </li>
-<li><strong>인터넷·AI·메타버스 윤리 비교</strong>:<table>
+<li><strong>인터넷·AI·메타버스 윤리 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>인터넷 윤리</th><th>AI 윤리</th><th>메타버스 윤리</th></tr>
 <tr><td>주요 관심</td><td>표현의 자유, 저작권</td><td>공정성, 투명성, 설명가능성</td><td>아바타 정체성, 몰입환경 안전</td></tr>
 <tr><td>특이사항</td><td>온라인 예절·범죄</td><td>알고리즘 편향</td><td>가상-현실 경계 혼돈</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 메타버스 윤리원칙은 <strong>기존 인터넷·AI 윤리의 연장이자 확장</strong>으로, 아바타의 법적 지위와 가상 공간 내 범죄 처벌 기준 마련이 시급함을 강조.</li>
 </ul>

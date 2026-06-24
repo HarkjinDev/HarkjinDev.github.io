@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,38 +21,38 @@
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인정보 보호</strong></u></span>, 데이터 비식별화, 가중치 평균, 분산 학습, 프라이버시 보존, 가중치 집계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>FedSGD, FedAvg, 차등 프라이버시,</strong></u></span> 통신 효율, Non-IID, 온디바이스 학습</li>
 <li><strong>분류</strong>: AI 응용/트렌드</li>
 <li><strong>특징</strong>: 데이터 주권 확보, 프라이버시 보호, 통신 비용 절감</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 모델 배포</strong></td><td>서버가 전역 모델을 각 클라이언트에 배포</td><td>초기 배포</td></tr>
 <tr><td><strong>2. 로컬 학습</strong></td><td>클라이언트가 자신의 로컬 데이터로 모델 학습</td><td>분산 학습</td></tr>
 <tr><td><strong>3. 가중치 업로드</strong></td><td>데이터 대신 학습된 가중치(기울기)만 서버에 전송</td><td>프라이버시 보존</td></tr>
 <tr><td><strong>4. 집계 (Aggregation)</strong></td><td>서버가 각 클라이언트 가중치를 FedAvg 등으로 통합</td><td>전역 모델 갱신</td></tr>
 <tr><td><strong>5. 반복</strong></td><td>갱신된 전역 모델을 재배포하며 위 과정 반복</td><td>수렴까지 반복</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 유형:</strong><table>
+<li><strong>주요 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>수평 연합학습</strong></td><td>클라이언트 간 동일한 특징, 다른 샘플 데이터 보유</td><td>샘플 분산</td></tr>
 <tr><td><strong>수직 연합학습</strong></td><td>클라이언트 간 동일한 샘플, 다른 특징 데이터 보유</td><td>특징 분산</td></tr>
 <tr><td><strong>연합 전이학습</strong></td><td>데이터·특징 모두 다를 때 전이학습과 결합</td><td>이종 도메인</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 기술:</strong><table>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>FedSGD</strong></td><td>클라이언트 가중치를 서버가 집계하여 전역모델 갱신</td><td>기본 연합학습 방식</td></tr>
 <tr><td><strong>FedAvg</strong></td><td>클라이언트 가중치를 데이터 비율로 가중 평균 집계</td><td>표준 집계 알고리즘</td></tr>
 <tr><td><strong>차등 프라이버시 (DP)</strong></td><td>가중치에 노이즈를 추가하여 개인정보 역추론 방지</td><td>프라이버시 강화</td></tr>
 <tr><td><strong>보안 집계 (Secure Aggregation)</strong></td><td>암호화 기반으로 개별 가중치 노출 없이 집계 수행</td><td>암호화 집계</td></tr>
 <tr><td><strong>통신 압축</strong></td><td>가중치 양자화·희소화로 통신 비용 절감</td><td>통신 효율화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 문제점:</strong><table>
+<li><strong>주요 문제점:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Non-IID 문제</strong></td><td>클라이언트 간 데이터 분포 불균일로 모델 수렴 저하</td><td>데이터 이질성</td></tr>
 <tr><td><strong>통신 비용</strong></td><td>반복적인 가중치 송수신으로 네트워크 부하 발생</td><td>통신 병목</td></tr>
 <tr><td><strong>무임승차 공격</strong></td><td>일부 클라이언트가 학습 기여 없이 전역 모델만 수신</td><td>신뢰성 문제</td></tr>
 <tr><td><strong>적대적 공격</strong></td><td>악의적 클라이언트가 오염된 가중치로 모델 훼손</td><td>보안 취약성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 연합학습은 데이터 프라이버시 규제가 강화되는 환경에서 '데이터는 모으지 않고 지식만 모으는' 현실적 대안으로 부상함. 특히 의료·금융 등 데이터 민감도가 높은 산업에서 AI 도입의 핵심 enabler로 주목받고 있으며, 차등 프라이버시·보안 집계와의 결합으로 프라이버시 보존 수준이 지속적으로 강화되는 추세</li>
 </ul>

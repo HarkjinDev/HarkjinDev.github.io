@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,22 +21,22 @@
 <li><strong>키워드</strong>: 칸반 보드, WIP 제한, 흐름 효율성, 리드타임, 사이클타임, 도요타 생산시스템</li>
 <li><strong>분류</strong>: 개발 방법론</li>
 <li><strong>특징:</strong> Workflow 시각화, WIP 제한, 소요시간 측정 및 최적화</li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>Kanban Board</strong></td><td>보드·카드 활용 업무 시각화</td><td>가시성 확보</td></tr>
 <tr><td><strong>Process</strong></td><td>실제 업무 수행 및 산출물 작성</td><td>작업 흐름</td></tr>
 <tr><td><strong>Work Queue (대기행렬)</strong></td><td>단계 간 전환 전 대기 상태 관리</td><td>병목 관리</td></tr>
 <tr><td><strong>총 주기 시간 (Cycle Time)</strong></td><td>프로젝트 전체 작업 시간 합산</td><td>속도 측정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>칸반 vs 스크럼 비교</strong><table>
+<li><strong>칸반 vs 스크럼 비교</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>칸반</strong></th><th><strong>스크럼</strong></th></tr>
 <tr><td>반복 주기</td><td>없음 (지속적 흐름)</td><td>스프린트(2~4주)</td></tr>
 <tr><td>역할 구분</td><td>없음</td><td>PO·SM·Dev Team</td></tr>
 <tr><td>변경 허용</td><td>언제든 가능</td><td>스프린트 내 제한</td></tr>
 <tr><td>WIP 제한</td><td>명시적 제한</td><td>스프린트 용량</td></tr>
 <tr><td>적합 상황</td><td>지원·운영·유지보수</td><td>기능 개발 중심</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>칸반 4대 원칙: </strong>기존 프로세스에서 시작, 점진적 변화 추구, 현재 역할·책임 존중, 리더십은 모든 레벨에서</li>
 <li><strong>인사이트</strong>: 칸반은 <strong>WIP 제한을 통해 병목을 가시화</strong>하고 흐름 효율성을 극대화하는 것이 핵심으로, 지속적 배포(CD)와 자연스럽게 연계되는 방법론.</li>

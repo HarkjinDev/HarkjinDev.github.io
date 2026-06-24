@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의:</strong> 매 선택 단계에서 현재 시점에 가장 최적인 선택(지역 최적해)을 반복하여 전체 최적해에 도달하는 알고리즘 설계 패러다임</li>
 <li><strong>키워드:</strong> 지역 최적해, 전역 최적해, 탐욕적 선택, 최적 부분 구조, 탐욕 증명, 크루스칼, 다익스트라, 허프만 코딩</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>후보 집합 구성</strong></td><td>해를 구성할 수 있는 선택 후보 집합 정의</td><td>선택 범위 설정</td></tr>
 <tr><td><strong>탐욕적 선택</strong></td><td>현재 시점에서 가장 유리한 후보를 선택</td><td>지역 최적 선택</td></tr>
 <tr><td><strong>실현 가능성 검사</strong></td><td>선택한 후보가 해의 조건을 위반하지 않는지 확인</td><td>유효성 검사</td></tr>
 <tr><td><strong>해 검사</strong></td><td>현재까지의 선택이 완전한 해인지 확인 후 반복</td><td>종료 조건</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대표 알고리즘: </strong><table>
+<li><strong>대표 알고리즘: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>크루스칼·프림</strong></td><td>최소 가중치 간선·정점을 탐욕적으로 선택하여 MST 구성</td><td>MST</td></tr>
 <tr><td><strong>다익스트라</strong></td><td>현재까지 가장 짧은 경로를 탐욕적으로 확장</td><td>최단 경로</td></tr>
 <tr><td><strong>허프만 코딩</strong></td><td>빈도 낮은 문자부터 탐욕적으로 병합하여 최적 코드 생성</td><td>데이터 압축</td></tr>
 <tr><td><strong>활동 선택 문제</strong></td><td>종료 시간 빠른 활동을 탐욕적으로 선택하여 최대 활동 수 결정</td><td>스케줄링</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 탐욕 알고리즘은 크루스칼·다익스트라·허프만 등 핵심 알고리즘의 상위 설계 패러다임으로, 동적 프로그래밍보다 단순하고 빠르지만 탐욕적 선택의 정당성 증명이 적용 가능 여부를 결정하는 핵심 관건임. 시험에서는 알고리즘 자체보다 <strong>"왜 탐욕적 선택이 최적해를 보장하는가"</strong> 에 대한 논리적 설명이 핵심 답안 포인트</li>
 </ul>

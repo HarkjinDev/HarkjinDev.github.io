@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 공장 현장의 생산 계획 실행, 자원 관리, 품질 관리를 실시간으로 지원하는 제조 실행 시스템</li>
 <li><strong>키워드</strong>: 생산계획, 실시간 모니터링, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>품질 추적</strong></u></span>, ERP 연계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>OEE, SPC, LOT 추적</strong></u></span></li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>주요 기능</strong>:<table>
+<li><strong>주요 기능</strong>:<div class="table-scroll"><table>
 <tr><th><strong>기능</strong></th><th><strong>내용</strong></th></tr>
 <tr><td>생산 계획 실행</td><td>작업 지시 생성 및 작업자 배정</td></tr>
 <tr><td>실시간 모니터링</td><td>가동률(OEE), 불량률 실시간 추적</td></tr>
 <tr><td>품질 관리</td><td>SPC, 불량 원인 추적</td></tr>
 <tr><td>자재 추적</td><td>LOT 추적, 재고 실시간 현황</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: MES는 <strong>ERP(계획)와 현장 장비(실행) 사이의 연결 고리</strong>이며, 스마트팩토리 구현 시 IIoT 센서·디지털 트윈과 연계하여 <strong>예지정비(Predictive Maintenance)</strong>까지 확장됨.</li>
 </ul>

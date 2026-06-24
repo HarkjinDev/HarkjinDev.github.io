@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,25 +20,25 @@
 <li><strong>정의:</strong> 전체 모델 파라미터 중 일부 전문가(Expert) 네트워크만 선택적으로 활성화하여 추론하는 희소 활성화 기반 AI 모델 아키텍처</li>
 <li><strong>키워드:</strong> <strong>희소 활성화(Sparse Activation), Expert, Gate Network</strong>, Sparse Activation, Top-K 라우팅, 토큰 라우팅, 로드 밸런싱</li>
 <li><strong>분류:</strong> AI·ML / LLM 아키텍처 / 모델 효율화</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Expert (전문가 네트워크)</strong></td><td>특정 유형의 입력을 처리하는 전문화된 FFN 서브네트워크</td><td>전문화 연산 단위</td></tr>
 <tr><td><strong>Gate Network (라우터)</strong></td><td>입력 토큰을 어떤 Expert에 할당할지 결정하는 라우팅 네트워크</td><td>전문가 선택 결정</td></tr>
 <tr><td><strong>Top-K 라우팅</strong></td><td>각 토큰에 대해 상위 K개의 Expert만 선택·활성화</td><td>희소 활성화 핵심</td></tr>
 <tr><td><strong>로드 밸런싱</strong></td><td>특정 Expert에 토큰 편중 방지·균등 분배 보조 손실</td><td>전문가 균등 활용</td></tr>
 <tr><td><strong>토큰 라우팅</strong></td><td>각 토큰이 독립적으로 Expert를 선택하는 방식</td><td>토큰별 전문가 배정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MoE 동작 원리:</strong><table>
+<li><strong>MoE 동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 토큰 입력</strong></td><td>입력 시퀀스가 토큰 단위로 분리</td><td>토큰 단위 처리</td></tr>
 <tr><td><strong>2. Gate 연산</strong></td><td>Gate Network가 각 토큰의 Expert 적합도 점수 계산</td><td>라우팅 점수 산출</td></tr>
 <tr><td><strong>3. Top-K 선택</strong></td><td>점수 상위 K개 Expert 선택 (보통 K=1~2)</td><td>희소 Expert 선택</td></tr>
 <tr><td><strong>4. Expert 연산</strong></td><td>선택된 Expert가 해당 토큰 처리·출력 생성</td><td>전문화 연산</td></tr>
 <tr><td><strong>5. 출력 집계</strong></td><td>선택된 Expert 출력을 가중 합산</td><td>전문가 출력 결합</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MoE 유형:</strong><table>
+<li><strong>MoE 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Sparse MoE</strong></td><td>Top-K 선택으로 일부 Expert만 활성화</td><td>희소 활성화</td></tr>
 <tr><td><strong>Dense MoE</strong></td><td>모든 Expert를 활성화·출력 가중 합산</td><td>전체 활성화</td></tr>
@@ -46,9 +46,9 @@
 <tr><td><strong>Soft MoE</strong></td><td>토큰을 Expert에 소프트하게 분배·혼합</td><td>연속적 분배</td></tr>
 <tr><td><strong>Token-Choice MoE</strong></td><td>각 토큰이 Expert 선택 (일반적 방식)</td><td>토큰 주도 선택</td></tr>
 <tr><td><strong>Expert-Choice MoE</strong></td><td>각 Expert가 처리할 토큰 선택</td><td>Expert 주도 선택</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MoE 장단점:</strong><table>
+<li><strong>MoE 장단점:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>장점</strong></td><td><strong>파라미터 효율</strong></td><td>대규모 파라미터 보유·실제 연산은 일부만 수행</td><td>연산 효율 극대화</td></tr>
 <tr><td></td><td><strong>전문화</strong></td><td>Expert별 특정 도메인·유형 데이터 특화 학습</td><td>전문 능력 강화</td></tr>
@@ -58,7 +58,7 @@
 <tr><td></td><td><strong>로드 불균형</strong></td><td>특정 Expert 편중·나머지 미활용 위험</td><td>균등 활용 어려움</td></tr>
 <tr><td></td><td><strong>학습 복잡도</strong></td><td>Gate Network 학습·로드 밸런싱 설계 복잡</td><td>학습 난이도 높음</td></tr>
 <tr><td></td><td><strong>통신 오버헤드</strong></td><td>분산 환경에서 Expert 간 토큰 전송 비용</td><td>분산 통신 비용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> MoE는 "모든 파라미터를 항상 사용하지 않아도 된다"는 조건부 연산 개념으로 LLM 스케일링의 새로운 패러다임을 열었으며, GPT-4·Gemini·DeepSeek 등 최신 최고 성능 모델의 핵심 아키텍처로 자리잡고 있음. Dense 모델 대비 동일 연산량으로 훨씬 많은 파라미터를 효율적으로 활용할 수 있어 성능·비용 균형의 핵심 기술이며, 로드 밸런싱·메모리 관리·분산 학습 설계가 MoE 실용화의 핵심 선결 과제임</li>
 </ul>

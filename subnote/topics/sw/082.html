@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 내부 구현을 모른 채 입력과 기대 출력만으로 소프트웨어의 기능을 검증하는 테스트 기법</li>
 <li><strong>키워드</strong>: 명세 기반, 동등 분할, 경계값 분석, 원인-결과 그래프, 상태 전이, 유즈케이스 테스트</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>명세기반 테스트(ISO/IEEE 29119-4): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동분경구랜/모페이베/결원상시&gt;</strong></span><table>
+<li><strong>명세기반 테스트(ISO/IEEE 29119-4): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동분경구랜/모페이베/결원상시&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>기법</th><th>핵심</th><th>특징</th></tr>
 <tr><td><strong>입력</strong></td><td><strong>동등 분할</strong></td><td>영역별 대표값</td><td>입력 도메인을 등가 영역으로 테스트 케이스 최적화</td></tr>
 <tr><td></td><td><strong>분류 트리 기법</strong></td><td>계층적 트리 구조</td><td>입력 항목을 트리 구조로 시각화하여 테스트 케이스 설계</td></tr>
@@ -35,7 +35,7 @@
 <tr><td></td><td><strong>원인-결과 그래프</strong></td><td>인과 관계 도식화</td><td>입력·출력의 논리적 관계를 그래프로 분석</td></tr>
 <tr><td></td><td><strong>상태 전이 테스팅</strong></td><td>시스템 상태 변화</td><td>이벤트에 따른 상태 전이 경로·유효 동작 확인</td></tr>
 <tr><td></td><td><strong>시나리오 테스팅</strong></td><td>업무 프로세스 흐름</td><td>유스케이스·비즈니스 흐름 기반 실사용자 환경 검증</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 블랙박스는 <strong>기능 명세서가 기준</strong>이므로 명세 오류 발견에 한계가 있으며, 화이트박스와 조합하여 기능·구조 양면 검증이 완전한 테스트 전략.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 기술과 가격을 종합적으로 평가한 후 최고점수 업체와 협상을 통해 계약을 체결하는 공공 조달 방식</li>
 <li><strong>키워드</strong>: 기술·가격 평가, 낙찰자 결정 방식, 협상 절차, 종합낙찰제</li>
 <li><strong>분류</strong>: SW 사업관리</li>
-<li><strong>낙찰자 결정 방식 비교</strong>:<table>
+<li><strong>낙찰자 결정 방식 비교</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>특징</th></tr>
 <tr><td>최저가 낙찰</td><td>가격만 평가, 덤핑 위험</td></tr>
 <tr><td>종합평가 낙찰</td><td>기술+가격 종합 평가</td></tr>
 <tr><td>협상에 의한 계약</td><td>기술 우수자와 가격 협상</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>진행 절차</strong>: 제안서 제출 → 기술·가격 평가 → 최고점수 선정 → 협상 → 계약 체결</li>
 <li><strong>평가항목/배점</strong>: 기술평가(70~90점) + 가격평가(10~30점) = 100점 기준</li>

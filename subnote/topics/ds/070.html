@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의:</strong> 법정화폐·실물자산·알고리즘 등에 가치를 연동하여 가격 변동성을 최소화하도록 설계된 암호화폐</li>
 <li><strong>키워드:</strong> 페깅(Pegging), 법정화폐 담보, 암호화폐 담보, 알고리즘 기반, USDT, USDC, DAI, 디페깅, CBDC 연계</li>
 <li><strong>분류</strong>: 핀테크/금융</li>
-<li><strong>유형:</strong><table>
+<li><strong>유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>유형</th><th>설명</th><th>대표 사례</th></tr>
 <tr><td><strong>담보 기반</strong></td><td><strong>법정화폐 담보</strong></td><td>USD 등 법정화폐를 1:1로 준비금 보유</td><td>USDT(Teder), USDC(Circle)</td></tr>
 <tr><td></td><td><strong>실물자산 담보</strong></td><td>금·부동산 등 실물자산 가치에 연동</td><td>PAXG (금)</td></tr>
 <tr><td></td><td><strong>암호화폐 담보</strong></td><td>암호화폐를 초과 담보로 보유하여 발행</td><td>DAI (MakerDAO)</td></tr>
 <tr><td><strong>알고리즘 기반</strong></td><td><strong>알고리즘형</strong></td><td>공급량 자동 조절 알고리즘으로 가격 유지</td><td>UST (Terra, 붕괴)</td></tr>
 <tr><td></td><td><strong>하이브리드형</strong></td><td>담보·알고리즘 혼합 방식</td><td>FRAX</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 메커니즘:</strong><table>
+<li><strong>핵심 메커니즘:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>가격 안정</strong></td><td><strong>페깅 (Pegging)</strong></td><td>특정 자산(주로 USD) 가치에 1:1 연동 유지</td><td>가격 안정</td></tr>
 <tr><td></td><td><strong>민팅·버닝</strong></td><td>수요에 따라 토큰 발행·소각으로 공급 조절</td><td>공급 제어</td></tr>
@@ -39,24 +39,24 @@
 <tr><td><strong>스마트계약</strong></td><td><strong>자동화 공급 조절</strong></td><td>스마트계약으로 가격 편차 감지 시 자동 민팅·버닝</td><td>알고리즘 제어</td></tr>
 <tr><td></td><td><strong>온체인 오라클</strong></td><td>외부 자산 가격을 블록체인에 실시간 공급</td><td>가격 참조</td></tr>
 <tr><td><strong>감사·투명성</strong></td><td><strong>준비금 증명</strong></td><td>제3자 감사·온체인 증명으로 준비금 투명성 확보</td><td>신뢰 검증</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 리스크:</strong><table>
+<li><strong>주요 리스크:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>디페깅 리스크</strong></td><td>준비금 부족·신뢰 상실로 가격 연동 붕괴</td><td>가격 안정 실패</td></tr>
 <tr><td><strong>중앙화 리스크</strong></td><td>법정화폐 담보형은 발행사 신뢰·규제에 의존</td><td>중앙 의존</td></tr>
 <tr><td><strong>스마트계약 취약점</strong></td><td>암호화폐 담보형의 코드 취약점 악용 위험</td><td>코드 리스크</td></tr>
 <tr><td><strong>알고리즘 붕괴</strong></td><td>UST·LUNA 사태처럼 알고리즘 신뢰 상실 시 연쇄 붕괴</td><td>뱅크런 위험</td></tr>
 <tr><td><strong>규제 리스크</strong></td><td>각국 스테이블코인 규제 강화로 운영 제한</td><td>법적 불확실성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>규제 동향:</strong><table>
+<li><strong>규제 동향:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>EU MiCA</strong></td><td>스테이블코인 발행사 준비금·공시 의무화</td><td>EU 규제</td></tr>
 <tr><td><strong>미국</strong></td><td>스테이블코인 법안 추진·연준 감독 논의</td><td>입법 진행 중</td></tr>
 <tr><td><strong>한국</strong></td><td>가상자산이용자보호법 기반 규제 검토</td><td>국내 규제</td></tr>
 <tr><td><strong>CBDC 연계</strong></td><td>중앙은행 디지털화폐와의 역할 경쟁·보완 논의</td><td>CBDC 대안</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 스테이블코인은 암호화폐의 변동성 문제를 해결하여 결제·송금·DeFi의 기축통화로 자리잡았으나, 2022년 UST·LUNA 붕괴는 알고리즘 기반 스테이블코인의 구조적 취약성을 드러냈으며 이후 전 세계적으로 준비금 투명성·규제 의무화가 스테이블코인 신뢰 확보의 핵심 과제로 부상하고 있음</li>
 </ul>

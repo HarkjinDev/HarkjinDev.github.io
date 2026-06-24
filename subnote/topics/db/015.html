@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,7 +24,7 @@
 </li>
 <li><strong>키워드</strong>: ISO/IEC 9075, 사전 컴파일, 고정 쿼리, 실행계획 재사용, SQL 인젝션 위험, 바인드 변수</li>
 <li><strong>분류</strong>: SQL</li>
-<li><strong>비교 분석</strong>:<table>
+<li><strong>비교 분석</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>정적 SQL</th><th>동적 SQL</th></tr>
 <tr><td><strong>파싱 시점</strong></td><td>컴파일 시</td><td>실행 시</td></tr>
 <tr><td><strong>실행 계획</strong></td><td>컴파일 시 고정·재사용</td><td>매 실행마다 새로 생성</td></tr>
@@ -39,7 +39,7 @@
 <tr><td><strong>유지보수성</strong></td><td>높음 (쿼리 코드 명확)</td><td>낮음 (문자열 조합으로 복잡)</td></tr>
 <tr><td><strong>캐시 활용</strong></td><td>실행계획 캐시 적극 활용</td><td>캐시 재사용 어려움</td></tr>
 <tr><td><strong>사용 예시</strong></td><td>고정 조회·배치 처리</td><td>검색 조건 다변·관리자 도구</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 동적 SQL 사용 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>바인드 변수(Bind Variable)</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u>를</u></span> 활용하여 실행계획 재사용 및 SQL 인젝션 방지를 동시에 달성하는 것이 베스트 프랙티스</li>
 </ul>

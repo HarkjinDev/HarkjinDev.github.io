@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 평문(Plaintext)을 인가되지 않은 자가 알 수 없도록 암호문(Ciphertext)으로 변환하는 기술</li>
 <li><strong>키워드</strong>: 평문/암호문, 암호화 원리, 스트림/블록, 대칭키/비대칭키, SPN, Feistel</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>암호화 원리</strong>:<table>
+<li><strong>암호화 원리</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>내용</th><th>핵심</th></tr>
 <tr><td><strong>치환 (Substitution)</strong></td><td>메시지의 각 글자를 다른 글자로 대체 (S-Box)</td><td>문자 대체</td></tr>
 <tr><td><strong>전치 (Transposition)</strong></td><td>문자열의 위치를 서로 바꾸어 표현 (P-Box)</td><td>위치 교환</td></tr>
@@ -29,9 +29,9 @@
 (전치로 구현)</td><td>bit 분산</td></tr>
 <tr><td><strong>확장 (Expansion)</strong></td><td>무의미한 문자를 삽입하여 문자열 확장</td><td>문자열 확장</td></tr>
 <tr><td><strong>압축 (Compaction)</strong></td><td>일부 문자를 삭제하여 압축문·삭제문 분리</td><td>문자열 압축</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>암호화 분류(유형)</strong>:<table>
+<li><strong>암호화 분류(유형)</strong>:<div class="table-scroll"><table>
 <tr><th>특성</th><th>기능</th><th>알고리즘</th><th>적용 기술</th></tr>
 <tr><td><strong>정보단위</strong></td><td><strong>스트림 암호</strong></td><td>RC4, OTP</td><td>1비트·바이트 단위 실시간 암호화</td></tr>
 <tr><td></td><td><strong>블록 암호</strong></td><td>AES, DES, ARIA</td><td>고정 블록 단위 암호화</td></tr>
@@ -42,7 +42,7 @@
 <tr><td></td><td><strong>인수분해</strong></td><td>RSA</td><td>대형 소수 곱 역산 어려움 이용</td></tr>
 <tr><td></td><td><strong>이산대수</strong></td><td>DH, DSA, ECDSA</td><td>지수 계산·역산 비대칭성 이용</td></tr>
 <tr><td></td><td><strong>해시함수</strong></td><td>MD5, SHA-1, SHA-2</td><td>고정 길이 출력·단방향 변환</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 현대 암호 시스템은 단일 기반기술이 아닌 대칭키(속도)·비대칭키(키 교환)·해시(무결성)를 조합한 하이브리드 방식이 표준</li>
 </ul>

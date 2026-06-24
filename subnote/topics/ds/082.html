@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 카메라·센서로 인식한 현실 공간에 3D 가상 오브젝트와 정보를 실시간으로 중첩하여 표시하는 혼합 경험 기술</li>
 <li><strong>키워드</strong>: 마커 기반, 마커리스, SLAM, ARKit, ARCore, 공간 인식, 오클루전</li>
 <li><strong>분류</strong>: XR/메타버스/공간</li>
-<li><strong>AR 구현 방식</strong>:<table>
+<li><strong>AR 구현 방식</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>설명</th></tr>
 <tr><td>마커 기반</td><td>QR코드·이미지 인식 후 가상 객체 표시</td></tr>
 <tr><td>마커리스</td><td>GPS·관성센서·SLAM으로 공간 인식</td></tr>
 <tr><td>프로젝션</td><td>실물 표면에 영상 투사</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: AR은 <strong>현장 작업자 지원(Hands-Free 가이드)</strong>과 소매(가상 피팅) 분야에서 실용화가 빠르며, SLAM 기반 공간 인식 정확도가 몰입감의 핵심 요소임.</li>
 </ul>

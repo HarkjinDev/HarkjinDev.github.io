@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -28,13 +28,13 @@
 <li>공개키: (n, e), 개인키: (n, d)</li>
 </ul>
 </li>
-<li><strong>RSA vs DSA 비교</strong>:<table>
+<li><strong>RSA vs DSA 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>RSA</th><th>DSA</th><th>ECDSA</th></tr>
 <tr><td>수학적 기반</td><td>소인수분해 난이도</td><td>이산대수 문제</td><td>타원곡선 이산대수 문제</td></tr>
 <tr><td>용도</td><td>암호화 + 전자서명</td><td>암호화 사용 불가, 
 전자서명 전용</td><td>전자서명, 블록체인 트랜잭션 서명, TLS/SSL 인증서</td></tr>
 <tr><td>표준</td><td>PKCS#1</td><td>NIST 전자서명 표준 DSS</td><td>FIPS 186</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 양자컴퓨터의 Shor 알고리즘으로 RSA가 위협받고 있어, NIST는 격자 기반 암호(CRYSTALS-Kyber 등) 양자내성 알고리즘을 표준으로 선정 중임. 현재는 DSA는 더 짧은 키로 동등한 보안을 제공하는 ECDSA가 주류임<strong>.</strong></li>
 </ul>

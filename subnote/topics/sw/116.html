@@ -3,39 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-3. 데이터옵스 (DataOps)</title>
+  <title>[하위] 2-2. DevSecOps (Development, Security and Operations)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>[하위] 2-3. 데이터옵스 (DataOps)</h4>
+<h4>[하위] 2-2. DevSecOps (Development, Security and Operations)</h4>
 <ul>
-<li><strong>정의</strong>: DevOps 원칙을 데이터 파이프라인에 적용하여 데이터 분석·엔지니어링의 품질·속도·협업을 향상시키는 방법론</li>
-<li><strong>키워드</strong>: 데이터 파이프라인, 데이터 품질, 자동화, 애자일 데이터, 오케스트레이션, Airflow</li>
+<li><strong>정의</strong>: DevOps 파이프라인 전 단계에 보안을 내재화하여 개발 속도를 저하시키지 않으면서 보안을 지속적으로 확보하는 방법론</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Shift Left Security</strong></u></span>, SAST, DAST, SCA, IaC 보안, 보안 게이트, SBOM</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>DevOps vs DataOps 비교</strong>:<table>
-<tr><th>구분</th><th>DevOps</th><th>DataOps</th></tr>
-<tr><td>대상</td><td>소프트웨어 코드</td><td>데이터 파이프라인</td></tr>
-<tr><td>산출물</td><td>애플리케이션 릴리즈</td><td>데이터 분석 결과·모델</td></tr>
-<tr><td>테스트</td><td>단위·통합 테스트</td><td>데이터 품질 테스트</td></tr>
-<tr><td>핵심 도구</td><td>Jenkins, GitHub Actions</td><td>Airflow, dbt, Great Expectations</td></tr>
-</table>
+<li><strong>DevSecOps 보안 활동 (파이프라인 단계별)</strong>:<div class="table-scroll"><table>
+<tr><th><strong>단계</strong></th><th><strong>보안 활동</strong></th><th><strong>도구 예시</strong></th></tr>
+<tr><td><strong>계획</strong></td><td>위협 모델링, 보안 요구사항 정의</td><td>STRIDE, OWASP</td></tr>
+<tr><td><strong>코드</strong></td><td>시큐어 코딩, SAST (정적 분석)</td><td>SonarQube, Checkmarx</td></tr>
+<tr><td><strong>빌드</strong></td><td>SCA (오픈소스 취약점 분석)</td><td>Snyk, OWASP Dependency-Check</td></tr>
+<tr><td><strong>테스트</strong></td><td>DAST (동적 분석), 퍼징</td><td>OWASP ZAP, Burp Suite</td></tr>
+<tr><td><strong>배포</strong></td><td>IaC 보안 검사, 컨테이너 이미지 스캔</td><td>Trivy, Checkov</td></tr>
+<tr><td><strong>운영</strong></td><td>RASP, 모니터링, 인시던트 대응</td><td>WAF, SIEM</td></tr>
+</table></div>
 </li>
-<li><strong>DataOps 핵심 원칙</strong>:<ul>
-<li>데이터 파이프라인 버전 관리</li>
-<li>데이터 품질 자동 검증</li>
-<li>지속적 모니터링·알림</li>
-<li>실험 관리 및 반복 가능성</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: DataOps는 <strong>AI/ML 파이프라인 운영(MLOps)의 기반</strong>으로, 데이터 품질 이슈를 파이프라인 초기에 자동 탐지하는 데이터 계약(Data Contract) 개념이 최근 주목.</li>
+<li><strong>인사이트</strong>: DevSecOps의 핵심은 <strong>“Shift Left”</strong>로 보안을 개발 초기부터 적용하여 취약점 수정 비용을 최소화하는 것이며, SBOM(소프트웨어 구성 명세)이 공급망 보안의 새로운 표준으로 부상.</li>
 </ul>
 
 </body>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -28,7 +28,7 @@
 </ul>
 </li>
 <li><strong>대응 방안</strong>: 입력값 검증, 매개변수화 쿼리(Prepared Statement), ORM 사용, 최소 권한 DB 계정</li>
-<li><strong>SQL 인젝션 유형:</strong><table>
+<li><strong>SQL 인젝션 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>핵심</th><th>대응 방안</th></tr>
 <tr><td><strong>일반 SQL 인젝션</strong></td><td>입력값에 SQL 구문 삽입·직접 실행</td><td>PreparedStatement, 입력값 검증·이스케이프</td></tr>
 <tr><td><strong>Blind SQL 인젝션</strong></td><td>응답 결과 없이 참·거짓으로 데이터 추출</td><td>에러 메시지 숨김, 응답 시간 일관화</td></tr>
@@ -36,7 +36,7 @@
 <tr><td><strong>에러 기반 인젝션</strong></td><td>의도적 에러 유발로 DB 구조·데이터 노출</td><td>에러 메시지 외부 노출 차단, 커스텀 에러 페이지</td></tr>
 <tr><td><strong>UNION 기반 인젝션</strong></td><td>UNION 구문으로 다른 테이블 데이터 병합 추출</td><td>컬럼 수·타입 검증, 최소 권한 계정 사용</td></tr>
 <tr><td><strong>Out-of-Band 인젝션</strong></td><td>DNS·HTTP 요청으로 데이터를 외부 서버로 유출</td><td>외부 네트워크 요청 차단, DB 서버 아웃바운드 제한</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SQL 인젝션은 가장 오래된 취약점이지만 여전히 OWASP Top 3에 포함되어 있으며, Prepared Statement 사용만으로도 대부분의 SQL 인젝션을 방어할 수 있음</li>
 </ul>

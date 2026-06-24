@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> 프로세스 모델링, BPA, BRE, BAM, EAI, Workflow</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
 <li><strong>특징:</strong> 시스템 통합화, 업무의 자동화, 최적화, 가시성 및 통제력 제공</li>
-<li><strong>기술영역: </strong><table>
+<li><strong>기술영역: </strong><div class="table-scroll"><table>
 <tr><th><strong>관점</strong></th><th><strong>기술</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>프로세스 관점</strong></td><td><strong>프로세스 모델링</strong></td><td>프로세스 내 정보와 문서 호출의 <strong>시각적 도구</strong></td></tr>
 <tr><td></td><td><strong>BPA(Process Analysis)</strong></td><td>전체 프로세스 설계 및 <strong>병목 구간 파악</strong></td></tr>
@@ -29,7 +29,7 @@
 <tr><td></td><td><strong>BAM(Activity Monitoring)</strong></td><td>비즈니스 활동의 <strong>실시간 모니터링 및 분석</strong></td></tr>
 <tr><td><strong>통합 관점</strong></td><td><strong>EAI</strong></td><td>애플리케이션 간 <strong>이벤트 중심의 인터페이스 통합</strong></td></tr>
 <tr><td></td><td><strong>Workflow</strong></td><td><strong>사람 중심</strong>의 비즈니스 업무 흐름 처리</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

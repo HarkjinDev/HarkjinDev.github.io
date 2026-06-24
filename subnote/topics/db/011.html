@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,27 +20,27 @@
 <li><strong>정의</strong>: 릴레이션 R에 대해 X, Y, Z라는 속성의 집합이 주어졌을 경우, 여러 가지 함수종속의 성질을 유도해 낼 수 있는 추론 규칙</li>
 <li><strong>키워드</strong>: 함수적 종속(FD), 반사/확장/이행 공리, 폐포(closure), 정당성(sound), 완전성(complete)</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
-<li><strong>특징</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;폐정완&gt;</strong></span><table>
+<li><strong>특징</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;폐정완&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>특징</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>폐포 (Closure, F+)</strong></td><td>FD 집합 F로부터 추론 가능한 모든 FD의 집합</td><td>모든 FD 추론 집합</td></tr>
 <tr><td><strong>정당성 (Soundness)</strong></td><td>F로부터 반드시 F+에 속하는 FD만 생성·잘못된 함수 종속 미생성</td><td>올바른 FD만 생성</td></tr>
 <tr><td><strong>완전성 (Completeness)</strong></td><td>세 법칙 반복 적용으로 F+의 모든 FD 생성 가능</td><td>F+ 전체 생성 가능</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기본 규칙 (정당성)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;반확이/재부이&gt;</strong></span><table>
+<li><strong>기본 규칙 (정당성)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;반확이/재부이&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>원리</th><th>내용</th></tr>
 <tr><td><strong>반사공리</strong></td><td>재귀성규칙 (Subset Property): 부분집합의 성질</td><td>Y ⊆ X이면, X → Y이다.</td></tr>
 <tr><td><strong>확장공리</strong></td><td>부가성규칙 (Augmentation): 확대성질</td><td>X → Y이면, XZ → YZ이다. </td></tr>
 <tr><td><strong>이행공리</strong></td><td>이행성규칙 (Transitivity): 이행성 성질</td><td>X → Y이고 Y → Z이면, X → Z이다.</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>부가 규칙 (완전성)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;분합의&gt;</strong></span><table>
+<li><strong>부가 규칙 (완전성)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;분합의&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>원리</th><th>내용</th></tr>
 <tr><td><strong>분해규칙 
 (Decomposition)</strong></td><td>결합된 종속을 개별 종속으로 분리</td><td>X → YZ이면, X → Y이고 X → Z이다</td></tr>
 <tr><td><strong>합집합규칙 (Union)</strong></td><td>개별 종속을 하나의 결합 종속으로 통합</td><td>X → Y이고 X → Z이면, X → YZ이다</td></tr>
 <tr><td><strong>의사이행성규칙 (Pseudotransitivity)</strong></td><td>중간 속성에 추가 조건을 결합한 이행성 확장</td><td>X → Y이고 WY → Z이면, WX → Z이다</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 암스트롱 공리는 정당(sound)하며 완전(complete)한 성질을 이용하여 데이터베이스 정규화에 사용되며, 기본 3규칙(반사·확장·이행)으로부터 분해·합집합·의사이행성 규칙을 모두 유도할 수 있음</li>
 </ul>

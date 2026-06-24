@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 정보의 정량적 측정과 효율적 전송 가능성을 수학적으로 연구하는 이론 체계</li>
 <li><strong>키워드</strong>: 엔트로피, 정보량, 샤논, 채널 용량, 부호화, 잡음</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>핵심 개념</strong>:<table>
+<li><strong>핵심 개념</strong>:<div class="table-scroll"><table>
 <tr><th>개념</th><th>설명</th></tr>
 <tr><td>정보량(자기정보)</td><td>I(x) = log₂(1/P(x)) = -log₂P(x) [비트]</td></tr>
 <tr><td>엔트로피(H)</td><td>평균 정보량 H(X) = -Σ P(xᵢ)·log₂P(xᵢ)</td></tr>
 <tr><td>채널 용량(C)</td><td>잡음 채널에서 오류 없이 전송 가능한 최대 속도</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>샤논 3대 정리</strong>:<ul>
 <li><strong>제1정리(소스 코딩)</strong>: 소스 엔트로피 이상의 부호화 필요 → 무손실 압축 이론적 한계</li>

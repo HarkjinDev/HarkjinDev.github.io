@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 블록체인과 스마트 계약을 기반으로 중앙 금융 중개기관 없이 대출·거래·예치 등 금융 서비스를 제공하는 탈중앙화 금융 체계</li>
 <li><strong>키워드</strong>: 스마트 계약, AMM, 유동성 풀, 이더리움, TVL, 탈중앙화 거래소(DEX)</li>
 <li><strong>분류</strong>: 핀테크/금융</li>
-<li><strong>주요 구성 요소</strong>:<table>
+<li><strong>주요 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th>구성</th><th>설명</th></tr>
 <tr><td>DEX</td><td>탈중앙화 거래소, AMM 방식</td></tr>
 <tr><td>렌딩 프로토콜</td><td>담보 기반 탈중앙화 대출 (Aave, Compound)</td></tr>
 <tr><td>스테이블코인</td><td>가격 안정형 암호화폐 (DAI 등)</td></tr>
 <tr><td>이자 농사(Yield Farming)</td><td>유동성 제공 대가로 수익 창출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: DeFi는 <strong>금융 포용성 확대 가능성</strong>과 동시에 스마트 계약 취약점, 규제 공백, 오라클 문제 등 리스크가 상존함을 균형 있게 서술 필요.</li>
 </ul>

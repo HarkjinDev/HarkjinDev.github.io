@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,16 +24,16 @@
 <li>품질 계획(Quality Plan) 수립, 공식 기술 검토(FTR, Formal Technical Review), 소프트웨어 테스트 감독, 표준·절차 준수 감사, 변경 관리 통제</li>
 </ul>
 </li>
-<li><strong>QA vs QC 비교</strong><table>
+<li><strong>QA vs QC 비교</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>QA (Quality Assurance)</strong></th><th><strong>QC (Quality Control)</strong></th></tr>
 <tr><td>초점</td><td>프로세스</td><td>제품(결과물)</td></tr>
 <tr><td>시점</td><td>전 주기(예방적)</td><td>완료 후(발견적)</td></tr>
 <tr><td>활동</td><td>감사, 프로세스 개선</td><td>테스트, 검사</td></tr>
 <tr><td>성격</td><td>능동적(Proactive)</td><td>반응적(Reactive)</td></tr>
 <tr><td>산출물</td><td>프로세스 개선</td><td>검증된 오류수정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>동료 검토 기법 비교: </strong><table>
+<li><strong>동료 검토 기법 비교: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>워크스루 
 (Walk-through)</strong></th><th><strong>기술 검토 
 (Technical Review)</strong></th><th><strong>인스펙션 
@@ -45,7 +45,7 @@
 <tr><td><strong>체크리스트</strong></td><td>사용 안 함</td><td>선택적 사용</td><td><strong>필수 사용</strong></td></tr>
 <tr><td><strong>결과물</strong></td><td>검토 메모, 교육 자료</td><td>기술 결정 보고서</td><td><strong>검토 결과 보고서, 결함 로그</strong></td></tr>
 <tr><td><strong>특징</strong></td><td>저자가 진행하며 편안한 분위기에서 지식 전파</td><td>전문가 집단이 모여 기술적 대안을 평가</td><td>Michael Fagan이 제안한 6단계 절차 엄수</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SQA는 <strong>“올바른 프로세스를 통해 올바른 제품이 나온다”</strong>는 철학 기반으로, 테스트(QC)와 달리 개발 전 단계에 걸쳐 예방 중심으로 운영됨을 답안에 명시.</li>
 </ul>

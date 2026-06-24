@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의:</strong> 최신 기술이나 프로그램을 실제 상황에서 구현하기 전, 소규모로 모의 시행하여 오류 및 변수를 사전에 파악하고 수정·보완하는 시험 작동 기법</li>
 <li><strong>키워드:</strong> 소규모 시험, 모의 시행, 시행착오 최소화, 실현 가능성 검토, 변수 선제 대응</li>
 <li><strong>분류:</strong> 테스트 / 프로젝트 관리</li>
-<li><strong>주요 특징:</strong><table>
+<li><strong>주요 특징:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>목적</strong></td><td>부분적 사용을 통한 시스템 내구성 확인 및 본격 가동 전 타당성 검증</td></tr>
 <tr><td><strong>효과</strong></td><td>서비스 수행 전 모의 시험을 통한 발생 가능 변수 선제적 대응 및 리스크 완화</td></tr>
 <tr><td><strong>대상</strong></td><td>원시 프로그램, 시험 프로그램 등 신규 개발 시스템 및 서비스</td></tr>
 <tr><td><strong>수행/산출물</strong></td><td>서비스 운영 조직 주체 수행 / 서비스 시나리오, 테스트 결과서 도출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>진행 절차: </strong>테스트계획 → 사용성목표 설정 → 참가자 설정 및 모집 → 테스트 과제 선택 → 과제 시나리오 작성 → 테스트환경 준비 → 파일럿 테스트 → 테스트실시 → 데이터통계 처리 → 결과통보</li>
 <li><strong>인사이트:</strong> Pilot Test는 대규모 전환에 따른 기술적·환경적 불확실성을 실질적인 소규모 운영을 통해 검증하는 단계로, 단순 기능 테스트를 넘어 실제 사용 환경에서의 예기치 못한 병목과 결함을 사전에 제거함으로써 프로젝트의 전체적인 신뢰도를 확보하는 전략적 도구임.</li>

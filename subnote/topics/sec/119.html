@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: AI 모델의 출력(예측값)을 역추적하여 학습에 사용된 민감한 데이터를 복원하는 공격</li>
 <li><strong>키워드</strong>: 모델 출력 → 학습 데이터 복원, 프라이버시 침해</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>방어 방안</strong>: <table>
+<li><strong>방어 방안</strong>: <div class="table-scroll"><table>
 <tr><th><strong>방안</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>차분 프라이버시</strong></td><td>노이즈를 추가해 데이터 보호</td><td>수학적 익명성</td></tr>
 <tr><td><strong>출력 가공</strong></td><td>출력값을 반올림해 역추적 방지</td><td>정보 노출 제한</td></tr>
 <tr><td><strong>연합학습</strong></td><td>데이터 전송 없이 모델만 공유</td><td>원본 데이터 보호</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 모델 전도 공격은 GDPR의 '프라이버시 침해'에 해당할 수 있어, AI 시스템 설계 시 PbD(Privacy by Design) 원칙 적용이 필수임</li>
 </ul>

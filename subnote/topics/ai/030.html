@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,30 +20,30 @@
 <li><strong>정의:</strong> 입력 데이터를 저차원 잠재 벡터(Latent Vector)로 압축하는 인코더와, 이를 다시 원본으로 복원하는 디코더로 구성된 비지도학습 기반 신경망</li>
 <li><strong>키워드:</strong> 인코더, 디코더, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>잠재 공간(Latent Space), 잠재 벡터(z), 병목 레이어, 차원 축소</strong></u></span>, 재구성 오차, 표현 학습, VAE, 이상 탐지</li>
 <li><strong>분류</strong>: 비지도학습</li>
-<li><strong>구조:</strong><table>
+<li><strong>구조:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>인코더</strong></td><td>입력을 압축해 잠재 벡터 z 생성</td><td>특징 추출</td></tr>
 <tr><td><strong>병목 레이어</strong></td><td>핵심 특징만 남긴 압축 표현 저장</td><td>정보 압축</td></tr>
 <tr><td><strong>디코더</strong></td><td>잠재 벡터 z로 원본 데이터 복원</td><td>데이터 복원</td></tr>
 <tr><td><strong>학습 목표</strong></td><td>입력·복원 출력 간 재구성 오차 최소화</td><td>Loss 최소화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>VAE (Variational AutoEncoder):</strong><table>
+<li><strong>VAE (Variational AutoEncoder):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>핵심 차이</strong></td><td>z를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평균·분산의 확률 분포</strong></u></span>로 표현</td><td>분포 기반</td></tr>
 <tr><td><strong>샘플링</strong></td><td>분포에서 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>z 샘플링</strong></u></span> 후 디코더 전달</td><td>다양성 확보</td></tr>
 <tr><td><strong>손실 함수</strong></td><td>재구성 오차 + <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>KL Divergence</strong></u></span> 적용</td><td>정규화</td></tr>
 <tr><td><strong>의의</strong></td><td>AE에 생성 능력 부여한 확장 모델</td><td>생성 모델화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>장단점:</strong><table>
+<li><strong>장단점:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>장점</strong></td><td>레이블 없이 핵심 표현 학습 가능</td><td>비지도 학습</td></tr>
 <tr><td></td><td>이상 탐지·노이즈 제거 등 다양한 활용</td><td>범용성</td></tr>
 <tr><td></td><td>VAE 확장으로 데이터 생성 능력 보유</td><td>생성 확장</td></tr>
 <tr><td><strong>단점</strong></td><td>GAN·Diffusion 대비 생성 품질 낮음</td><td>품질 한계</td></tr>
 <tr><td></td><td>잠재 공간 해석 어렵고 병목 크기 의존</td><td>해석 어려움</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야: </strong>이상 탐지, 차원 축소, 노이즈 제거, 생성 모델</li>
 <li><strong>인사이트:</strong> AE는 비지도학습으로 데이터의 핵심 표현을 학습하는 기반 구조로, VAE로의 확장을 통해 생성 모델의 영역으로 발전함. 특히 Latent Diffusion Model(LDM)이 AE의 잠재 공간 위에서 확산 과정을 수행하는 구조를 채택하면서, AE는 현대 생성 AI 아키텍처의 핵심 구성 요소로 재조명되고 있음</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,7 +19,7 @@
 <ul>
 <li><strong>정의:</strong> 생성형 AI 서비스 이용 전 과정에서 개인정보 수집·학습·보관·이전·파기 위험을 식별하고 대응하는 가이드</li>
 <li><strong>키워드:</strong> 개인정보 생애주기, 가드레일, RAG, Machine Unlearning, PbD, 옵트아웃, 다크패턴, C2PA</li>
-<li><strong>개인정보 처리 생애주기:</strong><table>
+<li><strong>개인정보 처리 생애주기:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>생애주기</th><th>설명</th><th>핵심</th></tr>
 <tr><td>데이터 구축</td><td>원천 데이터 수집</td><td>공개·라이선스 데이터 스크래핑</td><td>소스 검증 필요</td></tr>
 <tr><td></td><td>사전 학습</td><td>원천데이터→Foundation Model 주입</td><td>대규모 학습</td></tr>
@@ -29,9 +29,9 @@
 <tr><td></td><td>실시간 추론·참조</td><td>RAG·Vector DB 지식 참조</td><td>권한 상승 위험</td></tr>
 <tr><td></td><td>기록 저장/삭제</td><td>대화이력 보관·옵트아웃</td><td>다크패턴 주의</td></tr>
 <tr><td></td><td>외부 서비스 연동</td><td>에이전틱 AI·서드파티 API 연동</td><td>과도권한 위험</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>데이터 구축 단계 주요 위험:</strong><table>
+<li><strong>데이터 구축 단계 주요 위험:</strong><div class="table-scroll"><table>
 <tr><th>생애주기</th><th>주요 위험</th><th>설명</th><th>핵심</th></tr>
 <tr><td>원천 데이터 수집</td><td>무분별한 수집</td><td>아동정보·사생활 필터링 부재</td><td>검증 없는 수집</td></tr>
 <tr><td></td><td>거부 의사 무시</td><td>robots.txt 무시 강행 스크래</td><td>법적 리스크</td></tr>
@@ -39,9 +39,9 @@
 <tr><td></td><td><u><strong>인간 편향 유입</strong></u></td><td>SFT·RLHF 검수자에 민감정보 노출</td><td>편향 주입</td></tr>
 <tr><td>가드레일 적용</td><td><u><strong>우회 공격 취약</strong></u></td><td>Jailbreak·역프롬프트로 필터 무력화</td><td>민감정보 출력</td></tr>
 <tr><td>콘텐츠 생성</td><td>불투명성 위험</td><td>워터마크·출처 미비로 투명성 결여</td><td>합성이력 미식별</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>서비스 이용 단계 주요 위험:</strong><table>
+<li><strong>서비스 이용 단계 주요 위험:</strong><div class="table-scroll"><table>
 <tr><th>생애주기</th><th>주요 위험</th><th>설명</th><th>핵심</th></tr>
 <tr><td>프롬프트 입력</td><td><u><strong>데이터 무단 재활용</strong></u></td><td>입력데이터 학습용 오남용</td><td>재활용 동의 없음</td></tr>
 <tr><td></td><td><u><strong>재식별 위험</strong></u></td><td>누적 질의 결합 시 재식별 가능</td><td>연계 식별 위험</td></tr>
@@ -52,9 +52,9 @@
 <tr><td>외부 서비스 연동</td><td><u><strong>국외 이전 미식별</strong></u></td><td>해외 리전 이전 여부 미인지</td><td>국외이전 관리</td></tr>
 <tr><td></td><td><u><strong>과도한 API 권한</strong></u></td><td>최소권한 원칙 미비 정보 과다유출</td><td>Agentic AI 위험</td></tr>
 <tr><td>서비스 결과 활용</td><td><u><strong>허위정보 위험</strong></u></td><td>워터마크 미적용 산출물 외부 유출</td><td>가짜뉴스 2차피해</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>정보주체(이용자) 관점 점검사항:</strong><table>
+<li><strong>정보주체(이용자) 관점 점검사항:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>점검사항</th><th>설명</th><th>핵심</th></tr>
 <tr><td>이용 전</td><td>학습정책 사전 식별</td><td>입력데이터 재활용·통제권 수준 확인</td><td>학습 재활용 여부</td></tr>
 <tr><td></td><td>보관/파기 주기 검토</td><td>대화이력 보관기간·범위 사전 식별</td><td>처리방침 확인</td></tr>
@@ -67,9 +67,9 @@
 <tr><td></td><td><u><strong>워터마크 삽입 확인</strong></u></td><td>AI 저작물 표기·메타데이터 식별정보 확인</td><td>C2PA 기준</td></tr>
 <tr><td>이용 후</td><td>증빙 자산 즉각 확보</td><td>개인정보 유출·왜곡 인지 시 캡처 확보</td><td>증거 보전</td></tr>
 <tr><td></td><td>권리 구제 신청</td><td>KISA 개인정보침해신고센터 신속 신청</td><td>사후 구제</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>개인정보처리자(서비스 제공자) 대응방안:</strong><table>
+<li><strong>개인정보처리자(서비스 제공자) 대응방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>대응방안</th><th>설명</th><th>핵심</th></tr>
 <tr><td>이용 전</td><td>적법 처리 근거 수립</td><td>개보법 제15조 정당한 이익 요건 검토</td><td>목적·필요성 심사</td></tr>
 <tr><td></td><td>UI/UX 개선</td><td>학습활용·국외이전·보존주기 투명 고지</td><td>처리방침 명확화</td></tr>
@@ -81,7 +81,7 @@
 <tr><td></td><td><u><strong>투명성 확보 기술</strong></u></td><td>워터마크·C2PA 표식 필수 삽입</td><td>생성물 출처 증명</td></tr>
 <tr><td>이용 후</td><td>프라이버시 대시보드</td><td>처리현황 실시간 조회·정정·삭제 창구 마련</td><td>정보주체 권리</td></tr>
 <tr><td></td><td>권리구제 담당부서 운영</td><td>침해 인지 시 즉각 대응 프로세스 가동</td><td>처리방침 공개</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 생성형 AI 개인정보 위험은 학습·서비스 전 생애주기에 분산되므로, 이용자는 Opt-out·임시모드·최소입력으로, 제공자는 PbD·가드레일·C2PA로 이중 방어체계를 구축해야 함</li>
 </ul>

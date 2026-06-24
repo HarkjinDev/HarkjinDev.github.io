@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -28,7 +28,7 @@
 <li>⑤ 인공지능 윤리기준 준수</li>
 </ul>
 </li>
-<li><strong>도입절차: </strong><table>
+<li><strong>도입절차: </strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th></tr>
 <tr><td>1. 데이터 보안 등급</td><td>업무 중요도에 따라 기밀·민감·공개 3등급 분류·보안정책 적용</td></tr>
 <tr><td>2. 클라우드 구성 방안</td><td>클라우드 영역·규모 선정·도입유형 결정·서비스 구성</td></tr>
@@ -36,7 +36,7 @@
 <tr><td>4. 서비스 도입 방식</td><td>디지털서비스 구매(클라우드 컴퓨팅·융합서비스)·조달 용역발주</td></tr>
 <tr><td>5. 유지보수 및 운영(Ops)</td><td>데이터준비·모델구축·초기설정·사전학습·추가학습·교육·배포·모니터링·최적화·거버넌스</td></tr>
 <tr><td>6. 성과 관리</td><td>AI 과제 체계적 성과 관리를 위한 성과지표 설정·관리</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

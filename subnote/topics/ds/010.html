@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 사용자가 어떤 디바이스·장소에서도 브라우저나 클라이언트를 통해 일관된 데스크톱 환경에 접근할 수 있는 클라우드 기반 VDI 서비스</li>
 <li><strong>키워드:</strong> 가상 데스크톱, VDI, 클라우드 스트리밍, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>씬 클라이언트, 멀티 테넌시, 퍼시스턴트·논퍼시스턴트</strong></u></span>, 제로 트러스트, 원격근무</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>컴퓨팅</strong></td><td><strong>가상 머신 (VM)</strong></td><td>사용자별 가상 데스크톱 인스턴스 생성·관리</td></tr>
 <tr><td></td><td><strong>하이퍼바이저</strong></td><td>물리 서버 위에 다수 VM 격리·운영</td></tr>
@@ -31,16 +31,16 @@
 <tr><td><strong>보안</strong></td><td><strong>제로 트러스트 접근</strong></td><td>모든 접속 지속 검증·최소 권한 적용</td></tr>
 <tr><td></td><td><strong>DLP·엔드포인트 보안</strong></td><td>데이터 유출 방지·접속 디바이스 보안</td></tr>
 <tr><td><strong>프토토콜</strong></td><td><strong>RDP, ICA, PCoIP</strong></td><td>원격 데스크톱 프로토콜</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>데스크톱 유형:</strong><table>
+<li><strong>데스크톱 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>퍼시스턴트 (Persistent)</strong></td><td>사용자별 전용 VM, 개인화 설정·데이터 유지</td><td>1인 전용 환경</td></tr>
 <tr><td><strong>논퍼시스턴트 (Non-Persistent)</strong></td><td>세션 종료 시 초기화, 공유 골든 이미지 사용</td><td>비용 효율</td></tr>
 <tr><td><strong>풀드 (Pooled)</strong></td><td>다수 사용자가 VM 풀을 공유하여 사용</td><td>자원 공유</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>VDI vs DaaS 비교:</strong><table>
+<li><strong>VDI vs DaaS 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>전통 VDI</th><th>DaaS</th></tr>
 <tr><td><strong>인프라 소유</strong></td><td>자체 구축·운영</td><td>클라우드 사업자 제공</td></tr>
 <tr><td><strong>초기 비용</strong></td><td>높음</td><td>낮음 (구독형)</td></tr>
@@ -48,7 +48,7 @@
 <tr><td><strong>관리 주체</strong></td><td>내부 IT 팀</td><td>클라우드 사업자</td></tr>
 <tr><td><strong>장애 대응</strong></td><td>내부 대응</td><td>SLA 기반 보장</td></tr>
 <tr><td><strong>적합 규모</strong></td><td>대기업·규제 산업</td><td>중소기업·원격근무</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> DaaS는 코로나19 이후 원격근무 확산과 함께 급성장한 클라우드 서비스로, 초기 VDI 구축 비용 없이 구독형으로 가상 데스크톱 환경을 제공하여 중소기업의 진입 장벽을 낮췄음. 제로 트러스트 아키텍처와 결합하여 BYOD·원격근무 환경의 보안을 확보하는 핵심 인프라로 자리잡고 있으며, GPU 워크로드 지원 확대로 디자인·영상·AI 개발 등 고성능 작업 환경으로 적용 범위가 확장되는 추세</li>
 </ul>

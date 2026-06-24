@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -27,27 +27,27 @@
 <li><strong>지침(Guideline)</strong>: 권고 사항 (강제성 없음)</li>
 </ul>
 </li>
-<li><strong>시점별 보안 활동</strong>:<table>
+<li><strong>시점별 보안 활동</strong>:<div class="table-scroll"><table>
 <tr><th>시점</th><th>활동</th></tr>
 <tr><td>사전</td><td>위험 평가, 정책 수립, 보안 아키텍처 설계</td></tr>
 <tr><td>운영 중</td><td>모니터링, 접근제어, 취약점 점검</td></tr>
 <tr><td>사후</td><td>침해사고 대응, 포렌식, 복구 및 개선</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>식별 vs 인증 비교</strong>:<table>
+<li><strong>식별 vs 인증 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>식별(Identification)</th><th>인증(Authentication)</th></tr>
 <tr><td>개념</td><td>"나는 OOO입니다" (주장)</td><td>"증명합니다" (검증)</td></tr>
 <tr><td>수단</td><td>사용자 ID, 계정명</td><td>패스워드, 생체정보, OTP</td></tr>
 <tr><td>선후 관계</td><td>선행</td><td>후행</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>4가지 인증 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;지소존행&gt;</strong></span><table>
+<li><strong>4가지 인증 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;지소존행&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>유형</th><th>기반</th><th>예시</th><th>장점</th><th>단점</th></tr>
 <tr><td>지식 기반</td><td>알고 있는 것</td><td>비밀번호, PIN</td><td>구현 간단</td><td>유출 위험</td></tr>
 <tr><td>소유 기반</td><td>가지고 있는 것</td><td>OTP, 스마트카드</td><td>물리적 보안</td><td>분실 위험</td></tr>
 <tr><td>존재 기반</td><td>사람 자체 특성</td><td>지문, 홍채, 안면</td><td>위조 어려움</td><td>프라이버시 우려</td></tr>
 <tr><td>행위 기반</td><td>행동 특성</td><td>서명, 타이핑 패턴</td><td>무자각 인증 가능</td><td>정확도 변동</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 정보보안 정책은 기술이 아닌 경영 의사결정이므로 경영진의 지원과 전 직원의 인식 제고가 전제되어야 하며, 정기적인 검토와 갱신이 필수임</li>
 </ul>

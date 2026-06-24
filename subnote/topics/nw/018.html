@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,29 +20,29 @@
 <li><strong>정의:</strong> ARQ의 재전송 기법과 FEC의 전진 오류 정정을 결합하여 오류 패킷을 재전송 시 이전 수신 신호와 합산·정정함으로써 전송 효율과 신뢰성을 동시에 향상시키는 오류 제어 기술</li>
 <li><strong>키워드:</strong> ARQ, FEC, 소프트 컴바이닝, Chase Combining, IR, 터보코드, LDPC, ACK/NACK, 재전송</li>
 <li><strong>분류:</strong> 네트워크 / 이동통신</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 초기 전송</strong></td><td>송신측이 FEC 부호화된 패킷 전송</td><td>부호화 전송</td></tr>
 <tr><td><strong>2. 수신·복호</strong></td><td>수신측이 FEC로 오류 정정 시도</td><td>자체 정정</td></tr>
 <tr><td><strong>3. ACK·NACK</strong></td><td>정정 성공 시 ACK, 실패 시 NACK 전송</td><td>결과 피드백</td></tr>
 <tr><td><strong>4. 재전송</strong></td><td>NACK 수신 시 동일 또는 추가 패킷 재전송</td><td>재전송 수행</td></tr>
 <tr><td><strong>5. 소프트 컴바이닝</strong></td><td>이전 수신 신호와 재전송 신호를 합산하여 복호</td><td>신호 합산 복호</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>HARQ 유형:</strong><table>
+<li><strong>HARQ 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Type I HARQ</strong></td><td>재전송 시 동일 패킷 반복 전송·합산 복호</td><td>단순 재전송</td></tr>
 <tr><td><strong>Type II HARQ (CC)</strong></td><td>Chase Combining, 동일 패킷 재전송 후 소프트 합산</td><td>동일 패킷 합산</td></tr>
 <tr><td><strong>Type III HARQ (IR)</strong></td><td>Incremental Redundancy, 재전송마다 추가 잉여 비트 전송</td><td>점진적 잉여 추가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>HARQ 프로세스 구조:</strong><table>
+<li><strong>HARQ 프로세스 구조:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>다중 HARQ 프로세스</strong></td><td>여러 HARQ 프로세스 병렬 운용으로 RTT 지연 보상</td><td>병렬 전송</td></tr>
 <tr><td><strong>Stop-and-Wait</strong></td><td>각 프로세스는 ACK 수신 전까지 대기</td><td>단순 제어</td></tr>
 <tr><td><strong>최대 재전송 횟수</strong></td><td>보통 4회로 제한, 초과 시 상위 계층 ARQ 처리</td><td>재전송 한계</td></tr>
 <tr><td><strong>RTT (왕복 지연)</strong></td><td>LTE 8ms, 5G NR 최소 1ms 수준</td><td>응답 지연</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> HARQ는 재전송 패킷을 버리지 않고 누적 합산하는 소프트 컴바이닝이 핵심으로, Chase Combining보다 Incremental Redundancy가 스펙트럼 효율이 높아 LTE·5G의 표준 방식으로 채택됨. 5G에서는 CBG 단위 부분 재전송·비동기 HARQ로 지연을 최소화하여 URLLC(초저지연·고신뢰) 서비스의 핵심 기반 기술로 자리잡고 있음</li>
 </ul>

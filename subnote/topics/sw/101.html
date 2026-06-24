@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,7 +26,7 @@
 <li><strong>평가 범위:</strong> 기능적 요구사항 외에 계약 준수, 운영 안정성, 법적 규제 등을 종합 검토함</li>
 </ul>
 </li>
-<li><strong>알파테스트 vs 베타테스트 비교: </strong><table>
+<li><strong>알파테스트 vs 베타테스트 비교: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>알파 테스트 (Alpha Test)</strong></th><th><strong>베타 테스트 (Beta Test)</strong></th></tr>
 <tr><td><strong>정의</strong></td><td>선택된 사용자에 의해 개발 환경에서 수행되는 테스트</td><td>실 환경에서 사용자 혹은 잠재 고객에 의해 수행되는 테스트</td></tr>
 <tr><td><strong>별칭</strong></td><td>공장 인수 테스팅 
@@ -37,12 +37,12 @@
 <tr><td><strong>시점</strong></td><td>시스템 테스트 이후 (제품 70~90% 완료)</td><td>알파 테스트 후 (제품 90~95% 완료)</td></tr>
 <tr><td><strong>참가자</strong></td><td>개발자, 테스터, 고객 또는 최종 사용자</td><td>고객 또는 최종 사용자 (개발자 부재)</td></tr>
 <tr><td><strong>기간</strong></td><td>1~2주 (테스트 주기 다수 수행)</td><td>4~6주 (피드백/제안에 따라 조율)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인수테스트:</strong><ul>
 <li><strong>정의: </strong>시스템이 인수조건을 만족시키는지, 사용자/고객 또는 다른 인가된 개체가 시스템을 인수할지 결정할 수 있도록 사용자의 필요, 요구, 비즈니스 프로세스를 고려하여 수행하는 테스팅</li>
 <li><strong>목적:</strong> 확신, 배포가능성 평가, 준수성 확인, 고객 피드백</li>
-<li><strong>유형:</strong><table>
+<li><strong>유형:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>유형</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>공식적</strong></td><td><strong>사용자 인수테스트</strong></td><td>비즈니스 사용자가 시스템 사용의 적절성을 최종 확인</td></tr>
 <tr><td></td><td><strong>운영상의 인수테스트</strong></td><td>관리자에 의한 백업/복원, 재난복구, 보안 취약성 점검</td></tr>
@@ -50,9 +50,9 @@
 <tr><td></td><td><strong>규정 인수테스트</strong></td><td>정부 지침, 법률, 안전 규정 등 준수 여부 확인</td></tr>
 <tr><td><strong>비공식적</strong></td><td><strong>알파 테스트</strong></td><td>개발 조직 내에서 선택된 사용자가 수행</td></tr>
 <tr><td></td><td><strong>베타 테스트</strong></td><td>상용화 전 잠재 고객으로부터 피드백을 목적으로 활용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>인수테스트 프로세스: </strong><table>
+<li><strong>인수테스트 프로세스: </strong><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>활동</strong></th><th><strong>설명</strong></th><th><strong>산출물</strong></th></tr>
 <tr><td><strong>준비</strong></td><td>계획 수립 및 절차 정의</td><td>요구사항 식별 및 테스트 기법/목표 수준 정의</td><td>테스트 시나리오</td></tr>
 <tr><td></td><td>환경 및 데이터 구축</td><td>수행용 HW/SW 구성 및 테스트 데이터 생성/관리</td><td></td></tr>
@@ -62,7 +62,7 @@
 <tr><td></td><td>검토 및 최종 승인</td><td>기대 결과 비교를 통한 인수 여부 협상 및 승인</td><td></td></tr>
 <tr><td><strong>모니터링</strong></td><td>데이터 및 자원 분석</td><td>실 운영 데이터 수집 및 시스템 자원 사용량 분석</td><td>시스템 테스트 보고서</td></tr>
 <tr><td></td><td>성능 및 보안 검증</td><td>시스템 성능 부하 분석 및 보안 위반 상태 확인</td><td></td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

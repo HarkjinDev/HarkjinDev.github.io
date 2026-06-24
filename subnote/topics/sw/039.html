@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 프로그래밍 지식 없이 완전한 시각적 도구만으로 애플리케이션을 개발하는 플랫폼 및 방식</li>
 <li><strong>키워드</strong>: 시민 개발자(Citizen Developer), 드래그앤드롭, 비개발자, Bubble, Webflow</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>로우코드 vs 노코드 비교</strong><table>
+<li><strong>로우코드 vs 노코드 비교</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>로우코드</th><th>노코드</th></tr>
 <tr><td>코딩 필요</td><td>최소한 필요</td><td>전혀 불필요</td></tr>
 <tr><td>대상 사용자</td><td>개발자 + 시민 개발자</td><td>비개발자(업무 담당자)</td></tr>
 <tr><td>복잡도</td><td>중간</td><td>단순 업무 중심</td></tr>
 <tr><td>확장성</td><td>상대적으로 높음</td><td>낮음</td></tr>
 <tr><td>대표 도구</td><td>OutSystems, Mendix</td><td>Bubble, Webflow, Zapier</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 노코드는 <strong>업무 자동화·간단한 내부 도구 개발</strong>에 적합하나 복잡성이 증가하면 로우코드로 전환이 필요하며, 두 접근 모두 <strong>거버넌스(Shadow IT 방지)</strong>가 핵심 과제.</li>
 </ul>

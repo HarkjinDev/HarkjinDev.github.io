@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -36,13 +36,13 @@
 <li><strong>타입별 분리</strong>: 수퍼타입 테이블 + 서브타입 테이블 분리. 정규화 수준 높으나 JOIN 비용 증가</li>
 </ul>
 </li>
-<li><strong>구현방식 비교</strong>:  <table>
+<li><strong>구현방식 비교</strong>:  <div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>단일 테이블 (Single)</strong></th><th><strong>서브타입별 테이블 (Individual)</strong></th><th><strong>타입별 분리 (Super+Sub)</strong></th></tr>
 <tr><td><strong>테이블 수</strong></td><td>1개</td><td>서브타입 수</td><td>수퍼+서브타입 수</td></tr>
 <tr><td><strong>NULL 발생</strong></td><td>많음</td><td>없음</td><td>없음</td></tr>
 <tr><td><strong>JOIN 비용</strong></td><td>없음</td><td>낮음</td><td>높음</td></tr>
 <tr><td><strong>적합한 상황</strong></td><td>조회 빈번 시</td><td>속성 차이 클 때</td><td>정규화 중요 시</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 물리 변환 전략 선택 시 조회 패턴과 서브타입 수를 먼저 고려해야 하며, 서브타입별 조회가 빈번하면 타입별 분리, 전체 통합 조회가 많으면 단일 테이블 전략이 유리함. 시험에서는 세 가지 변환 전략의 장단점 비교가 핵심 출제 포인트임</li>
 </ul>

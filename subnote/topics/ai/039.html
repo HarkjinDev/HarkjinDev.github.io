@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의:</strong> 이전 시점의 hidden state를 현재 입력과 함께 처리하여 순서·시간적 의존성을 학습하여, 시퀀스 데이터 처리에 특화된 모델</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>순환 구조, Hidden State, 시퀀스 학습, BPTT, 기울기 소실, 장기 의존성</strong></u></span>, LSTM, GRU(경량 LSTM), 시계열</li>
 <li><strong>분류:</strong> 딥러닝 / 시퀀스 모델</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Hidden State</strong></td><td>이전 시점 정보를 현재 입력과 결합하여 갱신</td><td>기억 전달</td></tr>
 <tr><td><strong>가중치 공유</strong></td><td>모든 시점에서 동일한 가중치를 반복 사용</td><td>파라미터 효율</td></tr>
 <tr><td><strong>BPTT(Backpropagation Through Time)</strong></td><td>시간 역방향으로 펼쳐 기울기를 역전파하는 학습 방식</td><td>시간 역전파</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 문제점:</strong><table>
+<li><strong>주요 문제점:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기울기 소실</strong></td><td>시퀀스가 길어질수록 초기 기울기가 소멸되는 현상</td><td>장기 학습 불가</td></tr>
 <tr><td><strong>기울기 폭발</strong></td><td>기울기가 지수적으로 증가하여 학습 불안정 발생</td><td>학습 불안정</td></tr>
 <tr><td><strong>장기 의존성 한계</strong></td><td>멀리 떨어진 시점 간의 관계 학습이 어려움</td><td>단기 기억</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>LSTM (Long Short-Term Memory):</strong><table>
+<li><strong>LSTM (Long Short-Term Memory):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>등장 배경</strong></td><td>RNN의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기울기 소실·장기 의존성 문제 해결</strong></u></span>을 위해 고안</td><td>기울기 소실 해결</td></tr>
 <tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Cell State</strong></u></span></td><td>장기 정보를 별도 경로로 유지하는 핵심 메모리</td><td><u><strong>장기 기억</strong></u></td></tr>
@@ -42,7 +42,7 @@
 <tr><td><strong>Input Gate</strong></td><td>현재 입력 중 저장할 정보를 선택</td><td>정보 선택</td></tr>
 <tr><td><strong>Output Gate</strong></td><td>Cell State에서 출력할 정보를 결정</td><td>정보 출력</td></tr>
 <tr><td><strong>GRU</strong></td><td>LSTM을 단순화한 경량 변형, 게이트를 2개로 축소</td><td><u><strong>경량 LSTM</strong></u></td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> RNN은 시퀀스 데이터 처리의 기반 아키텍처로, LSTM·GRU로 발전하며 NLP·시계열 분야를 주도했으나 Transformer의 등장으로 NLP 주류에서 대체됨. 그러나 경량성과 온디바이스 적용 용이성으로 인해 IoT·엣지 환경의 시계열 처리 영역에서는 여전히 실용적 가치를 유지하고 있음</li>
 </ul>

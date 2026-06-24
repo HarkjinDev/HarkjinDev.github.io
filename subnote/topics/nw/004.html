@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 이기종 네트워크 간 통신을 표준화하기 위해 ISO가 정의한 7계층 참조 모델</li>
 <li><strong>키워드</strong>: ISO, 계층화, 캡슐화, PDU, 프로토콜, 인터페이스</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>계층 구조</strong>:<table>
+<li><strong>계층 구조</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>명칭</th><th>PDU</th><th>주요 프로토콜</th><th>장비</th></tr>
 <tr><td><strong>7</strong></td><td><strong>응용 (Application)</strong></td><td>데이터</td><td>HTTP, FTP, SMTP, DNS</td><td>웹서버, 방화벽(L7), WAF</td></tr>
 <tr><td><strong>6</strong></td><td><strong>표현 (Presentation)</strong></td><td>데이터</td><td>SSL/TLS, JPEG, ASCII</td><td>-</td></tr>
@@ -29,7 +29,7 @@
 <tr><td><strong>3</strong></td><td><strong>네트워크 (Network)</strong></td><td>패킷</td><td>IP, ICMP, OSPF</td><td>라우터, L3 스위치</td></tr>
 <tr><td><strong>2</strong></td><td><strong>데이터링크 (Data Link)</strong></td><td>프레임</td><td>Ethernet, VLAN, HDLC</td><td>L2 스위치, 브리지</td></tr>
 <tr><td><strong>1</strong></td><td><strong>물리 (Physical)</strong></td><td>비트</td><td>RS-232, DSL, 광케이블</td><td>허브, 리피터, 케이블</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>캡슐화/역캡슐화</strong>: <ul>
 <li><strong>캡슐화: </strong>송신 시 각 계층이 헤더를 추가</li>

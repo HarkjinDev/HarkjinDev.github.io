@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 소프트웨어 시스템의 기술 전략·아키텍처 결정·기술 표준을 총괄하는 기술 리더십 역할</li>
 <li><strong>키워드</strong>: 아키텍처 결정(ADR), 기술 로드맵, 비기능 요구사항, 기술 표준, AA(Application Architect), EA(Enterprise Architect)</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>아키텍트 역할 비교</strong>:<table>
+<li><strong>아키텍트 역할 비교</strong>:<div class="table-scroll"><table>
 <tr><th>역할</th><th>범위</th><th>주요 책임</th></tr>
 <tr><td>EA (Enterprise Architect)</td><td>기업 전체</td><td>IT 전략·비즈니스 정렬, 기업 아키텍처</td></tr>
 <tr><td>TA (Technical Architect)</td><td>시스템·솔루션</td><td>기술 스택 선정, 아키텍처 설계, 기술 표준</td></tr>
 <tr><td>AA (Application Architect)</td><td>애플리케이션</td><td>애플리케이션 구조·컴포넌트 설계</td></tr>
 <tr><td>DA (Data Architect)</td><td>데이터</td><td>데이터 모델·흐름·거버넌스</td></tr>
 <tr><td>SA (Security Architect)</td><td>보안</td><td>보안 아키텍처·정책</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>TA의 핵심 역할</strong>:<ul>
 <li>아키텍처 결정 기록(ADR, Architecture Decision Record) 작성·관리</li>

@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 2-2. LLM 성능향상 기법</h4>
 <ul>
-<li><strong>LLM 성능향상 기술:</strong><table>
+<li><strong>LLM 성능향상 기술:</strong><div class="table-scroll"><table>
 <tr><th>기술 그룹</th><th>설명</th><th>주요 기법</th></tr>
 <tr><td>추론능력 강화</td><td>논리적 사고로 정확도 향상</td><td>CoT, ToT, Least-to-Most</td></tr>
 <tr><td>외부지식 활용 (RAG)</td><td>외부DB 참조 정확도 보강</td><td>RAG, Knowledge-Intensive NLP</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>에이전트·도구사용 </td><td>외부도구 호출·자율 실행</td><td>ReAct, AutoGPT, Function Calling</td></tr>
 <tr><td>지식증류 </td><td>대형모델→소형모델 압축</td><td>DistilBERT, TinyLLM</td></tr>
 <tr><td>정렬·안전성</td><td>인간 가치·안전 기준 정렬</td><td>RLHF, Constitutional AI, DPO</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

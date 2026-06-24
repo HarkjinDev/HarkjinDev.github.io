@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>조직외부에서 자원과 서비스를 조달하기 위해서 계획/수행/통제/종료하는 프로젝트 지식영역</li>
 <li><strong>키워드: </strong>RFI, RFP, IFB, RFQ, SOW(조달관리문서), 계약유형(FP, CP)</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>프로세스: </strong><table>
+<li><strong>프로세스: </strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>주요활동</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>1. 계획</strong></td><td><strong>조달관리계획</strong></td><td>조달관리계획서, 조달관리문서(SOW), 조달문서(RFI, RFP, IFB, RFQ)</td></tr>
 <tr><td></td><td><strong>계약유형</strong></td><td>고정가(FP), 원가정산(Cost Reimbursable), 
@@ -29,9 +29,9 @@
 <tr><td></td><td><strong>공급자선정</strong></td><td>독립산정, 전문가판단, 계약서 작성 및 체결</td></tr>
 <tr><td><strong>3. 통제</strong></td><td><strong>검사 및 감사</strong></td><td>조달통제관리시스템, 성과보고, 기록관리시스템(PMIS)</td></tr>
 <tr><td></td><td><strong>계약종료</strong></td><td>행정적 종료, 계약 종료 처리, 교훈 정리, 사후 감사</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>조달관리 계약 유형:</strong><table>
+<li><strong>조달관리 계약 유형:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>계약유형</strong></th><th><strong>지불금액</strong></th><th><strong>적용</strong></th><th><strong>유의사항</strong></th></tr>
 <tr><td><strong>고정가 계약</strong></td><td><strong>FFP</strong></td><td>확정금액</td><td>공급자 위험부담이 클 때</td><td>명확한 업무정의 필요</td></tr>
 <tr><td></td><td><strong>FPIF</strong></td><td>확정금액 + 인센티브</td><td>목표 초과 달성 시 인센티브 제공</td><td>명확한 업무정의 필요</td></tr>
@@ -40,7 +40,7 @@
 <tr><td></td><td><strong>CPIF</strong></td><td>모든 비용 + 확정이윤 + 인센티브</td><td>업무범위가 명확하지 않을 때</td><td>원가 절감 시 이익 공유</td></tr>
 <tr><td></td><td><strong>CPAF</strong></td><td>발생원가 + 수수료(수요자 평가)</td><td>수수료는 구매자가 평가</td><td>구매자 주관적 판단(항의 불가)</td></tr>
 <tr><td><strong>복합형</strong></td><td><strong>T&amp;M</strong></td><td>단가 \times 투입시간/개수</td><td>고정가와 원가정산의 혼합</td><td>공급자 작업진척관리 중요</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

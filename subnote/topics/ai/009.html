@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의:</strong> 분류 문제에서 특정 클래스의 데이터 비율이 다른 클래스에 비해 압도적으로 많거나 적어, 모델이 다수 클래스(Majority Class)에 편향되게 학습되는 현상</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>편향, 정확도의 역설(Accuracy Paradox), 재현율 저하</strong></u></span>, F1-Score, ROC-AUC, 언더샘플링, 오버샘플링, SMOTE, 비용 민감 학습(Cost-Sensitive)</li>
 <li><strong>분류</strong>: 학습/최적화</li>
-<li><strong>클래스 불균형의 주요 문제 및 평가 지표:</strong><table>
+<li><strong>클래스 불균형의 주요 문제 및 평가 지표:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>정확도의 역설</strong></td><td>모두 다수 클래스로 예측해도 높은 정확도(Accuracy)가 나오는 착시 현상</td></tr>
 <tr><td><strong>재현율(Recall) 저하</strong></td><td>실제 찾고자 하는 소수 클래스(예: 불량, 사기)를 제대로 예측하지 못함</td></tr>
 <tr><td><strong>F1-Score</strong></td><td>정밀도(Precision)와 재현율(Recall)의 조화평균으로 불균형 데이터의 핵심 평가지표</td></tr>
 <tr><td><strong>ROC-AUC</strong></td><td>임계값 변화에 따른 모델의 전반적인 클래스 분류 성능을 평가하는 지표</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>클래스 불균형 해결 기법:</strong><table>
+<li><strong>클래스 불균형 해결 기법:</strong><div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>언더샘플링 (Undersampling)</strong></td><td>다수 클래스 데이터 삭제</td><td>학습시간 단축, 정보 손실 위험</td></tr>
 <tr><td><strong>오버샘플링 (Oversampling)</strong></td><td>소수 클래스 데이터 복제</td><td>정보 손실 방지, 과적합 발생 위험</td></tr>
 <tr><td><strong>SMOTE (합성 데이터 생성)</strong></td><td>가상 소수 데이터 생성</td><td>KNN 기반 데이터 합성</td></tr>
 <tr><td><strong>비용 민감 학습(Cost-Sensitive)</strong></td><td>소수 클래스 가중치 부여</td><td>오분류 페널티 강화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 클래스 불균형 상황에서는 단순 정확도(Accuracy)에 의존하는 것을 극도로 경계해야 하며, 풀고자 하는 비즈니스 문제(예: 암 진단은 재현율 중시, 스팸 필터는 정밀도 중시)에 맞춰 적절한 <strong>평가 지표(F1-Score, AUC)를 재설정</strong>하는 것이 샘플링 기법 적용만큼이나 필수적 전제 조건임.</li>
 </ul>

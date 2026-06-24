@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 최소한의 코딩만으로 애플리케이션을 개발할 수 있도록 시각적 도구와 사전 구축된 컴포넌트를 제공하는 개발 플랫폼</li>
 <li><strong>키워드</strong>: 시각적 개발, 드래그앤드롭, LCAP(Low-Code Application Platform), 시민 개발자, Gartner, 신속 개발</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>로우코드 vs 전통 개발 비교</strong><table>
+<li><strong>로우코드 vs 전통 개발 비교</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>로우코드</strong></th><th><strong>전통 개발</strong></th></tr>
 <tr><td>개발 속도</td><td>빠름 (시각적 도구)</td><td>느림</td></tr>
 <tr><td>사용 대상</td><td>시민 개발자 포함</td><td>전문 개발자</td></tr>
 <tr><td>커스터마이징</td><td>제한적</td><td>자유로움</td></tr>
 <tr><td>유지보수</td><td>플랫폼 의존</td><td>자체 통제</td></tr>
 <tr><td>적합 용도</td><td>업무 자동화, 프로토타입</td><td>복잡한 시스템</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>주요 플랫폼</strong>: OutSystems, Mendix, Microsoft Power Apps, Appian</li>
 <li><strong>인사이트</strong>: 로우코드는 <strong>개발자 부족 문제 해소와 디지털 전환 가속</strong>에 유효하나, 복잡한 비즈니스 로직·성능 요구 시에는 한계가 있어 전통 개발과 병행(Hybrid) 전략이 현실적.</li>

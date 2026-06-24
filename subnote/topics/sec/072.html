@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -18,14 +18,14 @@
 <h4><strong>[하위] 9-1. CTEM (Continuous Threat Exposure Management)</strong></h4>
 <ul>
 <li><strong>정의:</strong> Gartner가 제시한 위협 노출을 지속적으로 평가·완화하는 통합 프로그램</li>
-<li><strong>구성요소:</strong><table>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>프로세스</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Diagnose</strong></td><td><strong>Scoping</strong></td><td>보호 대상 인프라·정보자산 식별 및 가치 높은 자산 선별</td><td>자산 범위 설정</td></tr>
 <tr><td></td><td><strong>Discovery</strong></td><td>식별된 자산의 위험·취약점·위협 발견</td><td>취약점 발견</td></tr>
 <tr><td></td><td><strong>Prioritization</strong></td><td>위협 영향도·정도 기반 우선순위 결정</td><td>위험 우선순위화</td></tr>
 <tr><td><strong>Action</strong></td><td><strong>Validation</strong></td><td>식별된 위협이 실제로 취약한지 검증</td><td>실제 위험 검증</td></tr>
 <tr><td></td><td><strong>Mobilization</strong></td><td>실제 조치를 위한 자원 투입·위험 완화 실행</td><td>위험 완화 실행</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

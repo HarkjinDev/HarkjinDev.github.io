@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 엔드포인트(PC·서버·모바일 등)에서 발생하는 악성 행위를 실시간으로 수집·분석·탐지하고 자동으로 대응·복구하는 차세대 엔드포인트 보안 솔루션</li>
 <li><strong>키워드:</strong> 행위 기반 탐지, IOC(침해지표), IOA(공격지표), 위협 헌팅, MITRE ATT&amp;CK, 포렌식, 격리, XDR 연계, 제로데이 탐지, 자동 대응, 전체 행위</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>구성/기술요소: </strong><table>
+<li><strong>구성/기술요소: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>데이터 수집</strong></td><td><strong>에이전트</strong></td><td>경량 에이전트 설치, 프로세스·파일·네트워크·레지스트리 행위 수집</td></tr>
 <tr><td></td><td><strong>이벤트 로깅</strong></td><td>시스템 이벤트·API 호출·커널 레벨 활동 실시간 기록</td></tr>
@@ -32,25 +32,25 @@
 <tr><td></td><td><strong>롤백·복구</strong></td><td>랜섬웨어 피해 파일 복원, 감염 전 상태 복구</td></tr>
 <tr><td><strong>조사·분석</strong></td><td><strong>위협 헌팅</strong></td><td>IOC·IOA 기반 잠재 위협 능동 탐색</td></tr>
 <tr><td></td><td><strong>포렌식·타임라인</strong></td><td>공격 경로·침해 원인 재구성, 증거 보존</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>탐지·대응 프로세스:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수탐조대복&gt;</strong></span><table>
+<li><strong>탐지·대응 프로세스:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수탐조대복&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>수집</strong></td><td>에이전트가 엔드포인트 행위 데이터 실시간 수집·전송</td><td>데이터 수집</td></tr>
 <tr><td><strong>탐지</strong></td><td>ML·룰·IOC·IOA 기반으로 위협 식별 및 알림</td><td>위협 식별</td></tr>
 <tr><td><strong>조사</strong></td><td>공격 경로·영향 범위·침해 타임라인 분석</td><td>원인 분석</td></tr>
 <tr><td><strong>대응</strong></td><td>격리·차단·프로세스 종료 자동 또는 수동 실행</td><td>피해 차단</td></tr>
 <tr><td><strong>복구</strong></td><td>롤백·파일 복원·정상화 후 재발 방지 조치</td><td>정상 복구</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기존 AV/EPP와의 비교:</strong><table>
+<li><strong>기존 AV/EPP와의 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>전통 AV/EPP</th><th>EDR</th></tr>
 <tr><td><strong>탐지 방식</strong></td><td>시그니처 기반</td><td>행위·이상 기반</td></tr>
 <tr><td><strong>제로데이 대응</strong></td><td>❌ 취약</td><td>✅ 가능</td></tr>
 <tr><td><strong>가시성</strong></td><td>파일 탐지 수준</td><td>전체 행위 기록</td></tr>
 <tr><td><strong>대응 방식</strong></td><td>수동</td><td>자동 격리·대응</td></tr>
 <tr><td><strong>위협 헌팅</strong></td><td>❌ 불가</td><td>✅ 가능</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> EDR은 시그니처 기반 AV의 한계를 행위 분석·AI 탐지로 극복한 현재 엔드포인트 보안의 사실상 표준으로, 단독 운용을 넘어 네트워크·클라우드·이메일 보안을 통합하는 XDR로 확장되면서 SOC의 위협 탐지·대응 역량의 핵심 인프라로 자리잡고 있음. 또한, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>국정원 국가보안관제 체계에서 EDR을 통한 보안관제체계(EMS) 도입 추진 중.</strong></u></span></li>
 </ul>

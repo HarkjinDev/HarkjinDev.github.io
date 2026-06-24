@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 횡단 관심사(Cross-cutting Concern)를 핵심 비즈니스 로직과 분리하여 모듈화하는 프로그래밍 패러다임</li>
 <li><strong>키워드</strong>: 횡단 관심사, Aspect, Advice, Pointcut, JoinPoint, Weaving, Spring AOP</li>
 <li><strong>분류</strong>: 프로그래밍</li>
-<li><strong>AOP 핵심 개념</strong><table>
+<li><strong>AOP 핵심 개념</strong><div class="table-scroll"><table>
 <tr><th><strong>용어</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>Aspect</strong></td><td>횡단 관심사를 모듈화한 단위</td></tr>
 <tr><td><strong>Advice</strong></td><td>Aspect가 실행하는 동작 (Before/After/Around 등)</td></tr>
 <tr><td><strong>JoinPoint</strong></td><td>Advice가 적용될 수 있는 실행 지점</td></tr>
 <tr><td><strong>Pointcut</strong></td><td>JoinPoint 중 실제 Advice를 적용할 지점 선택 표현식</td></tr>
 <tr><td><strong>Weaving</strong></td><td>Aspect를 핵심 코드에 적용하는 과정 (컴파일/런타임/로드타임)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>횡단 관심사 예시: </strong>로깅 (Logging), 보안 (Security), 트랜잭션 관리, 성능 모니터링, 예외 처리</li>
 <li><strong>인사이트</strong>: AOP는 <strong>OOP의 한계(횡단 관심사 코드 중복)</strong>를 보완하는 패러다임으로, Spring AOP는 런타임 위빙 방식을 사용하며 <strong>코드 응집도 향상과 중복 제거</strong>가 핵심 이점.</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,22 +20,22 @@
 <li><strong>정의</strong>: 특허 기술의 경제적 가치를 정량적·정성적으로 측정하여 기술 거래·담보·투자에 활용하는 평가 활동</li>
 <li><strong>키워드</strong>: 비용접근법, 시장접근법, 수익접근법, 기술기여도, 로열티 공제법</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>기술평가 유형:</strong><table>
+<li><strong>기술평가 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기술평가</strong></td><td>기술 가치를 가액·등급·점수로 표현</td><td>가치 수치화</td></tr>
 <tr><td><strong>기술 가치 평가</strong></td><td>가치평가 원칙·방법론으로 경제적 가치 평가</td><td>경제적 가치 측정</td></tr>
 <tr><td><strong>기술력 평가</strong></td><td>인력·조직·서비스 종합으로 혁신 능력 평가</td><td>혁신 능력 평가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술과 지식재산:</strong><table>
+<li><strong>기술과 지식재산:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기술</strong></td><td>기술적 노하우·특허·실용신안 포함 개념</td><td>노하우 포함</td></tr>
 <tr><td></td><td>지식재산 제외 시 법적 실체성 불완전</td><td>법적 실체 한계</td></tr>
 <tr><td><strong>지식재산</strong></td><td>창조적 활동으로 창출된 사상·감정 표현</td><td>창조적 산물</td></tr>
 <tr><td></td><td>고도 창작성·재산적 가치 인정받은 권리</td><td>권리화된 기술</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>평가요소:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기권시사&gt;</strong></span><table>
+<li><strong>평가요소:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기권시사&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>평가요소</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>기술성 분석</strong></td><td>기술 일반/환경</td><td>기술 구성, 동향 및 수명주기 분석</td></tr>
 <tr><td></td><td>기술의 유용성</td><td>혁신성 및 실제 활용 가능성 검토</td></tr>
@@ -47,23 +47,23 @@
 <tr><td></td><td>시장 경쟁력 분석</td><td>경쟁 구조 및 시장 점유 가능성 평가</td></tr>
 <tr><td><strong>사업성 분석</strong></td><td>사업화 기반 역량</td><td>주체의 인적·물적 사업화 역량 파악</td></tr>
 <tr><td></td><td>공법 경쟁력</td><td>가격·품질 등 시장 내 비교 우위 분석</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>3대 평가 방법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수시비&gt;</strong></span><table>
+<li><strong>3대 평가 방법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수시비&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>방법</th><th>내용</th></tr>
 <tr><td>수익접근법</td><td>미래 수익을 현재가치로 환산</td></tr>
 <tr><td>시장접근법</td><td>유사 기술 거래 사례 비교</td></tr>
 <tr><td>비용접근법</td><td>기술 개발에 투입된 비용 기반 평가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술 가치평가 vs 기술 사업 타당성 평가:</strong><table>
+<li><strong>기술 가치평가 vs 기술 사업 타당성 평가:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>기술 가치평가</strong></th><th><strong>기술 사업 타당성 평가</strong></th></tr>
 <tr><td><strong>단계</strong></td><td>사업 타당성 평가 전제로 기술 가치를 평가</td><td>사업의 가능성을 체크 하는 예비평가 이후 평가</td></tr>
 <tr><td><strong>방법</strong></td><td>소득접근, 시장접근, 비용접근 통한 기술가치 평가</td><td>기술성, 권리성, 시장성, 사업성 분석 관점</td></tr>
 <tr><td><strong>목적</strong></td><td>사업성, 소득, 시장 점유율 등 실제로 사업 수행의 가치 평가</td><td>기술성, 시장성, 사업성 등에 대한 개념 검증 수준의 평가</td></tr>
 <tr><td><strong>평가</strong></td><td>현금흐름 할인, 실물옵션, 로열티 절감, 이익배분 모델, 시장대체 원가, SW 가치평가 등</td><td>기술의 유용성, 경쟁성, 권리의 안정성, 보호범위,
 시장환경 분석, 경쟁력 분석, 사업화 기반 역량, 공법의 경쟁력 등</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 특허 기술가치평가는 <strong>수익접근법(특히 로열티공제법)이 가장 많이 활용</strong>되며, 기술 기여도 산정이 평가 신뢰성의 핵심이므로 산업별 기술기여율 데이터베이스 활용이 중요함.</li>
 </ul>

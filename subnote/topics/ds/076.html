@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,12 +21,12 @@
 <li><strong>키워드</strong>: 비용 접근법, 시장 접근법, 수익 접근법, 데이터 품질, 재화 특성, KDATA</li>
 <li><strong>분류</strong>: 데이터 경제</li>
 <li><strong>데이터의 재화적 특성</strong>: 비소진성(사용해도 소멸 안 함), 비경합성(동시 사용 가능), 무형성, 맥락 의존성</li>
-<li><strong>평가 모델</strong>:<table>
+<li><strong>평가 모델</strong>:<div class="table-scroll"><table>
 <tr><th>접근법</th><th>방법</th><th>특징</th></tr>
 <tr><td>수익 접근법</td><td>데이터 활용 기대 수익 현재가치</td><td>미래 가치 반영, 불확실성 존재</td></tr>
 <tr><td>원가 접근법</td><td>데이터 수집·가공 비용 산정</td><td>객관적, 가치 저평가 우려</td></tr>
 <tr><td>시장 접근법</td><td>유사 데이터 시장 거래 가격 비교</td><td>시장 성숙 시 유효</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용방안</strong>: 데이터 자산 회계 처리, 데이터 거래소 가격 산정, M&amp;A 시 데이터 자산 평가</li>
 <li><strong>인사이트</strong>: 데이터 가치평가는 <strong>무형 자산 회계 처리의 신규 영역</strong>으로, 표준화된 평가 기준 부재가 최대 과제이며 한국데이터산업진흥원(KDATA)의 가이드라인을 언급하면 차별화 가능.</li>

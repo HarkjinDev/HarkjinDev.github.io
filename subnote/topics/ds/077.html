@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,14 +19,14 @@
 <ul>
 <li><strong>정의:</strong> 데이터를 경제적 가치의 무형 자산으로 인식하고 체계적으로 가공·관리하여 비즈니스·의사결정에 활용 가능하도록 전환하는 과정</li>
 <li><strong>과정: </strong>데이터 표준화 → 메타데이터 관리 → 접근권한 통제 → 재사용 정책</li>
-<li><strong>핵심요소: </strong><table>
+<li><strong>핵심요소: </strong><div class="table-scroll"><table>
 <tr><th>핵심요소</th><th>설명</th><th>특징</th></tr>
 <tr><td><strong>데이터 품질</strong></td><td>수집 단계부터 체계적 품질 관리</td><td>데이터 신뢰성 확보</td></tr>
 <tr><td><strong>데이터 보안·프라이버시 보호</strong></td><td>법적 규제 준수·안전한 보호 관리</td><td>컴플라이언스·보안</td></tr>
 <tr><td><strong>데이터 거버넌스</strong></td><td>정책·표준화·조직·프로세스 구축</td><td>데이터 관리 원칙·조직·프로세스·인프라</td></tr>
 <tr><td><strong>데이터 인프라</strong></td><td>저장·처리·분석 기술 인프라 구축</td><td>데이터 카탈로그·메타데이터</td></tr>
 <tr><td><strong>데이터 분석 역량</strong></td><td>데이터 분석으로 인사이트 도출</td><td>데이터 사이언스·분석</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

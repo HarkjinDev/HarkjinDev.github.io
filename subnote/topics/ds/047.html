@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 사전 프로그래밍된 경로나 인프라 없이 센서·AI·SLAM 기술로 주변 환경을 스스로 인식·지도 작성·경로 계획하여 자율적으로 이동하는 지능형 모바일 로봇</li>
 <li><strong>키워드:</strong> SLAM, 자율 내비게이션, LiDAR, 경로 계획, 장애물 회피, Fleet Management, MES·WMS 연계</li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>핵심 기술요소:</strong><table>
+<li><strong>핵심 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>인식·지각</strong></td><td><strong>LiDAR</strong></td><td>레이저 기반 360° 거리·장애물 측정</td><td>공간 인식</td></tr>
 <tr><td></td><td><strong>카메라 (RGB-D)</strong></td><td>2D·3D 영상 기반 환경·객체 인식</td><td>시각 인식</td></tr>
@@ -36,17 +36,17 @@
 <tr><td><strong>통신·연계</strong></td><td><strong>5G·WiFi 6</strong></td><td>저지연 고속 무선 통신 기반 실시간 제어</td><td>실시간 통신</td></tr>
 <tr><td></td><td><strong>MES·WMS 연계</strong></td><td>생산·물류 시스템과 실시간 데이터 연동</td><td>시스템 통합</td></tr>
 <tr><td></td><td><strong>ROS (Robot OS)</strong></td><td>로봇 소프트웨어 표준 프레임워크</td><td>표준 플랫폼</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SLAM: </strong><table>
+<li><strong>SLAM: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>정의</strong></td><td>Simultaneous Localization And Mapping·지도 작성과 위치 추정 동시 수행</td><td>동시 지도·위치</td></tr>
 <tr><td><strong>LiDAR SLAM</strong></td><td>레이저 스캔 기반 정밀 지도 작성·위치 추정</td><td>고정밀 실내</td></tr>
 <tr><td><strong>Visual SLAM</strong></td><td>카메라 영상 기반 SLAM·비용 낮음</td><td>저비용 영상 기반</td></tr>
 <tr><td><strong>Graph SLAM</strong></td><td>위치 노드·엣지 그래프로 최적화</td><td>대규모 환경</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>AGV vs AMR 비교:</strong><table>
+<li><strong>AGV vs AMR 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>AGV (Automated Guided Vehicle)</th><th>AMR </th></tr>
 <tr><td><strong>경로 방식</strong></td><td>고정 경로 (자기테이프·레일)</td><td>자율 경로 계획</td></tr>
 <tr><td><strong>환경 변화 대응</strong></td><td>❌ 대응 불가</td><td>✅ 실시간 재경로</td></tr>
@@ -55,7 +55,7 @@
 <tr><td><strong>장애물 처리</strong></td><td>정지·대기</td><td>회피·우회</td></tr>
 <tr><td><strong>도입 비용</strong></td><td>낮음</td><td>높음</td></tr>
 <tr><td><strong>확장성</strong></td><td>어려움</td><td>쉬움</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> AMR은 AGV의 고정 경로 한계를 극복한 차세대 물류·생산 자동화 핵심 기술로, SLAM·AI·5G의 융합으로 인간과 공존하는 협업 환경(Human-Robot Collaboration)이 스마트팩토리의 표준으로 자리잡고 있음. Fleet Management 기반 수백 대 AMR의 군집 제어와 MES·WMS 연계가 AMR 도입 ROI를 결정하는 핵심이며, Physical AI와 디지털 트윈의 결합으로 AMR의 자율성·적응성이 지속 고도화되는 방향으로 발전하고 있음</li>
 </ul>

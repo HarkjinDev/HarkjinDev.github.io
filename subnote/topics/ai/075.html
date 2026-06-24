@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,12 +19,12 @@
 <ul>
 <li><strong>정의:</strong> 딥러닝 모델 내부 뉴런의 활성화 패턴을 분석하는 구조적 테스팅 기법</li>
 <li><strong>용도:</strong> 학습 데이터가 모델의 내부 로직을 얼마나 충분히 테스트했는지 측정</li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>지표명</strong></th><th><strong>설명</strong></th><th><strong>핵심 (15자 이내)</strong></th></tr>
 <tr><td><strong>NC</strong></td><td>Neuron Coverage</td><td>활성화된 뉴런의 전체 비율</td></tr>
 <tr><td><strong>KMNC</strong></td><td>K-multisection NC</td><td>뉴런 출력값의 구간별 활성</td></tr>
 <tr><td><strong>NBC</strong></td><td>Neuron Boundary Coverage</td><td>출력값의 상하한 경계 테스트</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

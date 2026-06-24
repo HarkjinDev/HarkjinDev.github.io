@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 홉 카운트(최대 15)를 메트릭으로 사용하는 거리벡터 기반의 소규모 네트워크용 IGP 프로토콜</li>
 <li><strong>키워드</strong>: RFC 2453, 홉 카운트, 30초 주기, 최대 15홉, Bellman-Ford, RIPv1/v2</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>RIPv1 vs RIPv2 비교:</strong><table>
+<li><strong>RIPv1 vs RIPv2 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>RIPv1</th><th>RIPv2</th></tr>
 <tr><td><strong>서브넷 정보</strong></td><td>미포함</td><td>✅ 포함 (CIDR 지원)</td></tr>
 <tr><td><strong>주소 체계</strong></td><td>클래스풀</td><td>클래스리스</td></tr>
@@ -28,15 +28,15 @@
 <tr><td><strong>전송 방식</strong></td><td>브로드캐스트</td><td>멀티캐스트 (224.0.0.9)</td></tr>
 <tr><td><strong>인증</strong></td><td>❌ 없음</td><td>✅ 평문·MD5 인증</td></tr>
 <tr><td><strong>RFC</strong></td><td>RFC 1058</td><td>RFC 2453</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>제한사항:</strong><table>
+<li><strong>제한사항:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>최대 15홉</strong></td><td>홉 16 = 도달 불가(Unreachable), 대규모 망 부적합</td><td>확장성 한계</td></tr>
 <tr><td><strong>느린 수렴</strong></td><td>30초 주기 업데이트로 장애 감지·수렴 속도 느림</td><td>수렴 지연</td></tr>
 <tr><td><strong>Counting-to-Infinity</strong></td><td>루프 발생 시 홉 카운트가 무한 증가하는 문제</td><td>루프 문제</td></tr>
 <tr><td><strong>대역폭 낭비</strong></td><td>전체 라우팅 테이블을 주기적으로 전송</td><td>비효율 전송</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: RIP는 <strong>소규모 단순 망에서만 적합</strong>하며, 현대 기업망에서는 OSPF/EIGRP로 대체. 15홉 제한과 Counting-to-Infinity 문제가 대표적 단점으로 시험 단골 출제.</li>
 </ul>

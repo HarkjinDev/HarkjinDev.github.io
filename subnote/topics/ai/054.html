@@ -10,19 +10,19 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 2-1. sLLM(small Large Language Model)</h4>
 <ul>
-<li><strong>sLLM (소형 언어 모델)</strong><table>
+<li><strong>sLLM (소형 언어 모델)</strong><div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>정의</strong></td><td>7B~13B 수준의 파라미터를 가진 경량 모델</td><td>특정 도메인 특화 및 온디바이스 적합</td></tr>
 <tr><td><strong>장점</strong></td><td>낮은 구축 비용, 데이터 보안(On-premise), 빠른 응답 속도</td><td>가성비와 보안성 중심의 B2B 솔루션</td></tr>
 <tr><td><strong>사례</strong></td><td>Llama 3 (8B), Mistral, Phi-3, Solar</td><td>고성능 오픈소스 모델의 확산</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 인프라 구성(서버·네트워크·스토리지)을 선언형 코드로 정의하고 버전 관리하여 자동화된 프로비저닝과 일관된 환경을 실현하는 방법론</li>
 <li><strong>키워드</strong>: Terraform, Ansible, CloudFormation, 선언형, 불변 인프라, GitOps, 드리프트 방지</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>도구 비교</strong>:<table>
+<li><strong>도구 비교</strong>:<div class="table-scroll"><table>
 <tr><th>도구</th><th>방식</th><th>특징</th></tr>
 <tr><td>Terraform</td><td>선언형</td><td>멀티클라우드, 상태 파일 관리</td></tr>
 <tr><td>Ansible</td><td>절차형</td><td>에이전트리스, 구성 관리 강점</td></tr>
 <tr><td>CloudFormation</td><td>선언형</td><td>AWS 전용, 깊은 AWS 통합</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IaC는 <strong>인프라를 개발 코드처럼 관리</strong>(Git 버전 관리, PR 리뷰, 자동 테스트)하여 환경 드리프트를 방지하고 재현 가능한 인프라를 구현하는 DevOps 핵심 실천임.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 두 개 이상의 테이블을 특정 조건으로 연결하여 데이터를 조회하는 SQL 연산</li>
 <li><strong>키워드</strong>: INNER, OUTER, NATURAL, EQUAL, CROSS, SEMI, NESTED LOOP, SORT MERGE, HASH, CARTESIAN, INDEX</li>
 <li><strong>분류</strong>: SQL</li>
-<li><strong>JOIN 유형</strong>:<table>
+<li><strong>JOIN 유형</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>종류/방식</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>논리적 종류</strong></td><td><strong>Inner Join</strong></td><td>키 일치 행 검색</td><td>교집합 추출</td></tr>
 <tr><td></td><td><strong>Outer Join</strong></td><td>미대응 행 NULL 추출</td><td>NULL 포함 결합</td></tr>
@@ -33,7 +33,7 @@
 <tr><td></td><td><strong>Hash Join</strong></td><td>해시 함수 활용 조인</td><td>해시 맵 활용</td></tr>
 <tr><td></td><td><strong>Cartesian Join</strong></td><td>전체 조합 조인 방식</td><td>대량 데이터 부하</td></tr>
 <tr><td></td><td><strong>Index Join</strong></td><td>인덱스 간 해시 조인</td><td>인덱스 최적화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>성능 향상 기법</strong>: 조인 컬럼에 인덱스 생성, 결과셋이 작은 테이블을 드라이빙 테이블로 설정</li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>OUTER JOIN은 NULL 처리 로직이 필요</strong></u></span>하며, 대용량 테이블 JOIN 시 실행계획을 반드시 확인하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Full Table Scan 여부를 검토</strong></u></span>해야 함</li>

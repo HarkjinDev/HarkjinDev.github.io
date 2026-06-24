@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,20 +20,20 @@
 <li><strong>정의</strong>: 시스템 부하·트래픽 변화에 따라 컴퓨팅 자원(서버·컨테이너)을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자동으로 확장하거나 축소</strong></u></span>하는 자동화된 자원 관리 기술</li>
 <li><strong>키워드</strong>: 수평 확장(Scale Out), 수직 확장(Scale Up), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>쿨다운, 로드밸런서, 헬스체크, 메트릭, 트리거 메트릭</strong></u></span>, 클라우드 비용 최적화, 클라우드 탄력성</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>수평/수직 확장:</strong><table>
+<li><strong>수평/수직 확장:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>방식</th><th>설명</th></tr>
 <tr><td><strong>수평 확장</strong></td><td><strong>Scale Out/In</strong></td><td>인스턴스 수 증감</td></tr>
 <tr><td><strong>수직 확장</strong></td><td><strong>Scale Up/Down</strong></td><td>인스턴스 스펙 증감</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>오토 스케일링 유형:</strong><table>
+<li><strong>오토 스케일링 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>반응형 스케일링 (Reactive)</strong></td><td>현재 메트릭 임계값 초과 시 즉각 스케일링</td><td>임계값 기반 대응</td></tr>
 <tr><td><strong>예측형 스케일링 (Predictive)</strong></td><td>과거 패턴·ML 예측으로 사전 스케일링</td><td>사전 선제 대응</td></tr>
 <tr><td><strong>스케줄 기반 스케일링</strong></td><td>특정 시간·요일 기준 사전 정의 스케일링</td><td>시간 기반 예약</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>정책</strong></td><td><strong>스케일링 정책</strong></td><td>Scale-Out·In 조건·임계값·인스턴스 수 정의</td><td>스케일링 규칙</td></tr>
 <tr><td></td><td><strong>쿨다운 (Cooldown)</strong></td><td>스케일링 후 다음 스케일링까지 대기 시간</td><td>과잉 반응 방지</td></tr>
@@ -45,7 +45,7 @@
 <tr><td></td><td><strong>헬스체크</strong></td><td>신규 인스턴스 정상 여부 확인 후 투입</td><td>정상 여부 확인</td></tr>
 <tr><td></td><td><strong>매트릭 트리거</strong></td><td>임계값 초과·미달 시 자동 스케일링</td><td>스케일링 판단 기준</td></tr>
 <tr><td></td><td><strong>AMI·이미지</strong></td><td>스케일링 시 신규 인스턴스 생성 기반 이미지</td><td>표준 인스턴스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 오토 스케일링은 <strong>클라우드 탄력성(Elasticity)의 핵심 구현체</strong>로, 비용 최적화를 위해 스케일 인 정책(지연 시간, 쿨다운)을 신중하게 설계해야 하며, HPA와의 연계를 설명하면 고득점 가능.</li>
 </ul>

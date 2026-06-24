@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,13 +26,13 @@
 <li><strong>독립적 수행</strong>: 테스트 대상 시스템(SUT)과 독립적으로 결과값이 산출되어야 함</li>
 </ul>
 </li>
-<li><strong>유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;참샘휴일&gt;</strong></span><table>
+<li><strong>유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;참샘휴일&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>유형</th><th>핵심 내용</th><th>설명</th></tr>
 <tr><td><strong>참 오라클 (True)</strong></td><td>모든 입력값에 대한 기대 결과</td><td>미션 크리티컬 시스템에 적용</td></tr>
 <tr><td><strong>샘플링 오라클 (Sampling)</strong></td><td>특정 입력값에 대한 기대 결과</td><td>선별 입력값만 결과 제공</td></tr>
 <tr><td><strong>휴리스틱 오라클 (Heuristic)</strong></td><td>추정 및 샘플링 병행</td><td>일부 참값·나머지 경험적 추정</td></tr>
 <tr><td><strong>일관성 오라클 (Consistent)</strong></td><td>수행 전후 결과 비교</td><td>변경 전후 결과 동일 여부 확인</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 전수 검증의 비용 한계를 극복하기 위해 시스템 중요도에 따른 <strong>리스크 기반 오라클(Risk-based Oracle)</strong> 차등 적용 전략이 필수적, AI 및 복잡 로직 검증을 위해 <strong>메타모픽 테스팅(Metamorphic Testing)</strong>과 AI 자동 생성 기술을 도입하여 기존의 수동 검증 한계를 탈피</li>
 </ul>

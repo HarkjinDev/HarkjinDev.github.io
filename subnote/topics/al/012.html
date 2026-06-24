@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>후입선출(LIFO) 원칙</strong></u></span>으로 삽입과 삭제가 한쪽 끝에서 이루어지는 자료 구조</li>
 <li><strong>키워드</strong>: LIFO, Push, Pop, Top, Overflow, Underflow, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재귀 호출, 콜스택</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>주요 연산 및 예외 상태</strong>:<table>
+<li><strong>주요 연산 및 예외 상태</strong>:<div class="table-scroll"><table>
 <tr><th>연산/상태</th><th>설명</th></tr>
 <tr><td>Push</td><td>Top에 데이터 삽입; <strong>Overflow</strong>: Top = MAX-1일 때 추가 시도</td></tr>
 <tr><td>Pop</td><td>Top에서 데이터 삭제; <strong>Underflow</strong>: Top = -1일 때 삭제 시도</td></tr>
 <tr><td>Peek</td><td>Top 데이터 조회 (삭제 없음)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>적용</strong>: 재귀 알고리즘, 함수 호출 스택(콜스택), 수식 변환(중위→후위), 괄호 검사, DFS 탐색, 브라우저 뒤로가기</li>
 <li><strong>Push/Pop 알고리즘 요약</strong>:<ul>

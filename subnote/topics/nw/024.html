@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,17 +20,17 @@
 <li><strong>정의</strong>: TCP에서 혼잡 윈도우(cwnd)와 ssthresh를 동적으로 조절하여 네트워크 혼잡을 감지하고 제어하는 메커니즘</li>
 <li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>혼잡 감지 방법</strong>:<table>
+<li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
 <tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
 <tr><td>타임아웃</td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
 <tr><td>3중복 ACK</td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 알고리즘 비교</strong>:<table>
+<li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>TCP Reno</strong></th><th><strong>TCP Cubic</strong></th><th><strong>BBR</strong></th></tr>
 <tr><td><strong>특징</strong></td><td>3 Dup ACK 시 cwnd 절반</td><td>시간 기반 3차함수 증가</td><td>RTT·대역폭 기반 모델링</td></tr>
 <tr><td><strong>환경</strong></td><td>유선망 표준</td><td>고속 대용량 망</td><td>고지연·무선망</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>Cubic은 리눅스 기본값</strong>으로 고속 환경에 최적화되어 있으며, 구글의 BBR은 손실 기반이 아닌 대역폭 모델 기반으로 위성·LTE 환경에서 효과적.</li>
 </ul>

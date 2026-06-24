@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 에이전트가 환경과 상호작용하며 보상을 최대화하는 행동 정책을 시행착오를 통해 스스로 학습하는 머신러닝 패러다임</li>
 <li><strong>키워드:</strong> 에이전트, 환경, 상태, 행동, 보상, 정책, 가치 함수, Q-러닝, PPO, 마르코프 결정 과정(MDP)</li>
 <li><strong>분류:</strong> 생성형 AI / LLM</li>
-<li><strong>핵심 구성 요소:</strong><table>
+<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>에이전트 (Agent)</strong></td><td>환경과 상호작용하며 행동을 결정하는 주체</td><td>학습 주체</td></tr>
 <tr><td><strong>환경 (Environment)</strong></td><td>에이전트가 행동하고 보상을 받는 외부 세계</td><td>상호작용 대상</td></tr>
@@ -29,24 +29,24 @@
 <tr><td><strong>보상 (Reward)</strong></td><td>행동의 결과로 환경이 에이전트에게 제공하는 피드백</td><td>학습 신호</td></tr>
 <tr><td><strong>정책 (Policy)</strong></td><td>상태에서 행동을 선택하는 에이전트의 전략</td><td>행동 전략</td></tr>
 <tr><td><strong>가치 함수 (Value)</strong></td><td>특정 상태·행동의 장기적 누적 보상 기댓값</td><td>장기 보상 평가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>마르코프 결정 과정 (MDP):</strong><table>
+<li><strong>마르코프 결정 과정 (MDP):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>마르코프 속성</strong></td><td>현재 상태만으로 다음 상태가 결정됨 (과거 독립)</td><td>현재 상태 의존</td></tr>
 <tr><td><strong>구성</strong></td><td>(S, A, P, R, γ) — 상태·행동·전이확률·보상·할인율</td><td>MDP 5요소</td></tr>
 <tr><td><strong>할인율 (γ)</strong></td><td>미래 보상을 현재 가치로 환산하는 계수 (0~1)</td><td>미래 보상 가중</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 알고리즘 분류:</strong><table>
+<li><strong>주요 알고리즘 분류:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>알고리즘</th><th>핵심</th></tr>
 <tr><td><strong>가치 기반</strong></td><td>Q-러닝, DQN</td><td>Q값으로 최적 행동 선택</td></tr>
 <tr><td><strong>정책 기반</strong></td><td>REINFORCE, PPO</td><td>정책 직접 최적화</td></tr>
 <tr><td><strong>액터-크리틱</strong></td><td>A3C, SAC</td><td>가치·정책 동시 학습</td></tr>
 <tr><td><strong>모델 기반</strong></td><td>AlphaZero, Dreamer</td><td>환경 모델 학습 후 계획</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기술:</strong><table>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Q-러닝</strong></td><td>상태-행동 쌍의 Q값을 학습하여 최적 정책 도출</td><td>가치 기반 학습</td></tr>
 <tr><td><strong>DQN</strong></td><td>Q-러닝에 딥러닝을 결합, 고차원 상태 공간 처리</td><td>딥 Q-러닝</td></tr>
@@ -54,15 +54,15 @@
 <tr><td><strong>탐색-활용 균형</strong></td><td>새로운 행동 탐색(Exploration)과 기존 최적 활용(Exploitation)의 균형</td><td>ε-greedy 전략</td></tr>
 <tr><td><strong>경험 재생 (Replay Buffer)</strong></td><td>과거 경험을 저장 후 무작위 샘플링하여 학습 안정화</td><td>상관성 제거</td></tr>
 <tr><td><strong>보상 설계 (Reward Shaping)</strong></td><td>학습 효율을 높이기 위한 중간 보상 설계</td><td>학습 가속화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>지도학습·비지도학습과 비교:</strong><table>
+<li><strong>지도학습·비지도학습과 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>강화학습</th><th>지도학습</th><th>비지도학습</th></tr>
 <tr><td><strong>학습 신호</strong></td><td>보상 (지연·희소)</td><td>레이블 (즉각)</td><td>없음</td></tr>
 <tr><td><strong>데이터</strong></td><td>환경 상호작용</td><td>레이블 데이터</td><td>비레이블 데이터</td></tr>
 <tr><td><strong>목표</strong></td><td>누적 보상 최대화</td><td>정답 예측</td><td>패턴·구조 발견</td></tr>
 <tr><td><strong>적용 문제</strong></td><td>순차적 의사결정</td><td>분류·회귀</td><td>클러스터링</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 강화학습은 명시적 정답 없이 환경과의 상호작용만으로 초인적 성능을 달성한 AlphaGo·ChatGPT(RLHF)의 핵심 기반으로, 단순 게임을 넘어 LLM 정렬·로보틱스·Physical AI의 핵심 학습 패러다임으로 확장되고 있으며 "보상 설계의 질"이 곧 에이전트 행동의 질을 결정하는 핵심 변수임</li>
 </ul>

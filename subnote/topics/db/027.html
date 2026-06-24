@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 릴레이션의 상태와 상태 전이에 대한 무결성을 보장하는 제약 조건 체계</li>
 <li><strong>키워드</strong>: 상태/과도/집합 제약, 즉시/지연 제약, 튜플 무결성</li>
 <li><strong>분류</strong>: 무결성</li>
-<li><strong>제약 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;상과집튜즉지&gt;</strong></span><table>
+<li><strong>제약 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;상과집튜즉지&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
 <tr><td><strong>상태변환</strong></td><td><strong>상태제약 (state constraint)</strong></td><td>데이터 정적 일관성 유지</td><td>특정 시점에 만족</td></tr>
 <tr><td></td><td><strong>과도제약 (transition constraint)</strong></td><td>상태 변환 전후 동적 비교</td><td>변환 직전/후 비교</td></tr>
@@ -28,7 +28,7 @@
 <tr><td></td><td><strong>튜플제약 (tuple constraint)</strong></td><td>개별 튜플 단위 적용 제약</td><td>CHECK 절 단일 명시</td></tr>
 <tr><td><strong>시간관계</strong></td><td><strong>즉시제약 (immediate constraint)</strong></td><td>연산 수행 즉시 적용 제약</td><td>AFTER 사용</td></tr>
 <tr><td></td><td><strong>지연제약 (deferred constraint)</strong></td><td>트랜잭션 종료 후 적용</td><td>WHEN COMMIT 사용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 즉시 제약은 DML 실행마다 검증하여 성능 영향이 있고, 지연 제약은 COMMIT 시점에 일괄 검증하여 복잡한 트랜잭션 처리에 유리함</li>
 </ul>

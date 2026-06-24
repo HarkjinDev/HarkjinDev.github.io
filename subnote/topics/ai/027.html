@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 데이터의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분산이 가장 큰 방향으로 새로운 축(주성분)을 생성</strong></u></span>하여 고차원 데이터를 저차원으로 변환하는 비지도 차원 축소 기법</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>공분산 행렬, 고유벡터(Eigenvector), 고유값(Eigenvalue), 분산 기여율, 화이트닝</strong></u></span></li>
 <li><strong>분류</strong>: 비지도학습</li>
-<li><strong>상세 프로세스</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;공고주투&gt;</strong></span><table>
+<li><strong>상세 프로세스</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;공고주투&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>공분산 행렬 계산</strong></td><td>변수 간 상관관계를 산출함</td><td>변수 간 선형 관계 파악</td></tr>
 <tr><td><strong>고유값 분해</strong></td><td>고유벡터(주성분 방향)와 고유값(분산크기)을 추출함</td><td>주성분 방향 및 분산 확보</td></tr>
 <tr><td><strong>주성분 선택</strong></td><td>분산 기여율 기준 상위 K개 주성분 선정</td><td>정보 손실 최소화 및 압축</td></tr>
 <tr><td><strong>투영 (Projection)</strong></td><td>주성분 축으로 데이터를 변환(화이트닝)</td><td>새로운 차원으로 공간 매핑</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징 및 한계</strong>:<ul>
 <li><strong>특징</strong>: 라벨(정답) 없이 적용 가능하며 노이즈 제거 효과가 뛰어남</li>

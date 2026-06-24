@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 로그 수집(Logstash)·저장·검색(Elasticsearch)·시각화(Kibana)를 통합한 오픈소스 로그 분석 플랫폼</li>
 <li><strong>키워드</strong>: 로그 수집, 분산 검색, 시각화 대시보드, Beats, 역색인(Inverted Index), ELK, Elastic Stack, 관찰가능성</li>
 <li><strong>분류</strong>: 미들웨어/아키텍처</li>
-<li><strong>ELK 스택 구성 요소</strong>:<table>
+<li><strong>ELK 스택 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th>구성 요소</th><th>역할</th><th>특징</th></tr>
 <tr><td>Elasticsearch</td><td>분산 검색·저장 엔진</td><td>역색인 기반 빠른 전문 검색, RESTful API</td></tr>
 <tr><td>Logstash</td><td>데이터 수집·변환·파이프라인</td><td>다양한 소스 입력, 필터·출력 플러그인</td></tr>
 <tr><td>Kibana</td><td>데이터 시각화·대시보드</td><td>실시간 차트·지도·대시보드</td></tr>
 <tr><td>Beats</td><td>경량 데이터 수집 에이전트</td><td>Filebeat(로그)·Metricbeat(메트릭)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>ELK 데이터 흐름</strong>:<ul>
 <li>서버/앱 로그 → Beats(에이전트) → Logstash(수집·변환) → Elasticsearch(저장·색인) → Kibana(시각화)</li>

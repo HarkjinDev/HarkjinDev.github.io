@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,13 +21,13 @@
 <li><strong>키워드</strong>: 이진 힙(Binary Heap), 최대 힙, 최소 힙, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>heapify(Sift-Down)</strong></u></span>, 다익스트라, 허프만 코딩</li>
 <li><strong>분류</strong>: 선형 자료구조</li>
 <li><strong>heapify(힙화):</strong> 일반적인 배열이나 이진 트리를 <strong>힙(Heap)의 속성(부모가 자식보다 크거나 작은 조건)을 만족하도록 재구조화</strong>하는 핵심 연산</li>
-<li><strong>구현 방식 비교</strong>:<table>
+<li><strong>구현 방식 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구현 방식</th><th>삽입</th><th>최우선 삭제</th><th>특징</th></tr>
 <tr><td>정렬 배열</td><td>O(n)</td><td>O(1)</td><td>삽입 시 정렬 유지 필요</td></tr>
 <tr><td>비정렬 배열</td><td>O(1)</td><td>O(n)</td><td>삭제 시 전체 탐색 필요</td></tr>
 <tr><td>이진 힙</td><td>O(log n)</td><td>O(log n)</td><td>최적 균형, 표준 구현</td></tr>
 <tr><td>피보나치 힙</td><td>O(1) 분할상환</td><td>O(log n) 분할상환</td><td>다익스트라 최적화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>적용</strong>: 다익스트라 최단 경로, 허프만 인코딩, OS 프로세스 스케줄링, 이벤트 시뮬레이션</li>
 <li><strong>인사이트</strong>: 우선순위 큐의 표준 구현은 <strong>이진 힙</strong>이며, 피보나치 힙 적용 시 다익스트라 알고리즘의 전체 복잡도가 O(V² + E)에서 O(V log V + E)로 개선됨을 서술하면 고득점 포인트</li>

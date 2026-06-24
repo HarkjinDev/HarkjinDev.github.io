@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -22,7 +22,7 @@
 <li><strong>분류</strong>: 프로젝트 관리</li>
 <li><strong>프로젝트 범위 관리 프로세스:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계요정W확통&gt;</strong></span></li>
 </ul>
-<table>
+<div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>세부 프로세스</strong></th><th><strong>내용</strong></th><th><strong>주요 산출물</strong></th></tr>
 <tr><td><strong>계획 
 프로세스</strong></td><td><strong>범위 관리 계획수립</strong>
@@ -42,7 +42,7 @@
 (Validate Scope)</td><td>인도물에 대한 고객/스폰서의 공식 승인</td><td>◦ 승인된 인도물</td></tr>
 <tr><td></td><td><strong>범위 통제</strong>
 (Scope Control)</td><td>범위 기준선 대비 변경사항 관리</td><td>◦ 변경요청 (CR)</td></tr>
-</table>
+</table></div>
 
 </body>
 </html>

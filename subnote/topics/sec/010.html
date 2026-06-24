@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -27,7 +27,7 @@
 </li>
 <li><strong>장점</strong>: 키 배송 문제 해결, 전자서명 지원</li>
 <li><strong>단점</strong>: 속도 느림 → 대량 데이터에 부적합</li>
-<li><strong>대표 알고리즘</strong>:<table>
+<li><strong>대표 알고리즘</strong>:<div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>키 길이</th><th>수학적 기반</th><th>특징</th></tr>
 <tr><td>RSA</td><td>1024~4096bit</td><td>소인수분해</td><td>암호화 + 전자서명 모두 지원. 
 현재 가장 널리 사용</td></tr>
@@ -37,7 +37,7 @@ FIPS 186 표준</td></tr>
 <tr><td>ElGamal</td><td>1024bit 이상</td><td>이산대수</td><td>확률적 암호화 (동일 평문 → 매번 다른 암호문). 암호문 크기 2배</td></tr>
 <tr><td>Diffie-Hellman</td><td>1024~4096bit</td><td>이산대수</td><td>키 교환 전용 (암호화·서명 불가). 
 TLS 세션키 협상에 사용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 비대칭 암호화는 처리 속도가 대칭키 대비 1000배 이상 느리므로 실무에서는 대칭키 교환 목적으로만 활용하며, 하이브리드 방식(SSL/TLS)이 표준임</li>
 </ul>

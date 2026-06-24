@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,33 +20,33 @@
 <li><strong>정의:</strong> 문장 안의 한 단어가 <strong>같은 문장 내의 다른 모든 단어들과 어떤 연관성을 가지는지 스스로(Self) 계산(Attention)하여 문맥을 파악하는 메커니즘</strong></li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Query, Key, Value</strong></u></span>, 어텐션 스코어, 소프트맥스, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>스케일드 닷 프로덕트</strong></u></span>, 멀티헤드 어텐션, 위치 인코딩, Transformer</li>
 <li><strong>분류</strong>: 생성형 AI/LLM</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. Q·K·V 생성</strong></td><td>입력 벡터에 학습된 가중치 행렬을 곱해 Q·K·V 벡터 생성</td><td>선형 변환</td></tr>
 <tr><td><strong>2. 어텐션 스코어</strong></td><td>Q와 K의 내적(dot product)으로 토큰 간 유사도 계산</td><td>연관성 측정</td></tr>
 <tr><td><strong>3. 스케일링</strong></td><td>차원수(√dk)로 나눠 기울기 소실 방지 및 학습 안정화</td><td>스케일 조정</td></tr>
 <tr><td><strong>4. 가중치 정규화</strong></td><td>스코어를 확률 분포로 변환하여 어텐션 가중치 산출</td><td>Softmax</td></tr>
 <tr><td><strong>5. 가중합 출력</strong></td><td>어텐션 가중치와 V 벡터의 가중합으로 최종 표현 생성</td><td>문맥 반영 출력</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>Self-Attention 핵심 메커니즘 </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>(Scaled Dot-Product)</strong></u></span><strong>: </strong><ul>
 <li><strong>[핵심 공식] : </strong>Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V</li>
 <li>\sqrt{d_k} 로 나누는 이유(Scaling): 차원이 커질수록 Dot-product 값이 커져 Softmax의 기울기가 소실되는 것을 방지하기 위함</li>
-<li><strong>Q · K · V 역할:</strong><table>
+<li><strong>Q · K · V 역할:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Query (Q)</strong></td><td>"나는 어떤 정보가 필요한가?" — 현재 토큰의 질의 벡터</td><td>질의</td></tr>
 <tr><td><strong>Key (K)</strong></td><td>"나는 어떤 정보를 갖고 있나?" — 각 토큰의 식별 벡터</td><td>식별</td></tr>
 <tr><td><strong>Value (V)</strong></td><td>"실제로 전달할 정보" — 어텐션 가중치에 따라 추출</td><td>정보 전달</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>
-<li><strong>멀티헤드 어텐션 (Multi-Head Attention):</strong><table>
+<li><strong>멀티헤드 어텐션 (Multi-Head Attention):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개념</strong></td><td>서로 다른 Q·K·V 가중치로 여러 개의 어텐션을 병렬 수행</td><td>다양한 관점</td></tr>
 <tr><td><strong>효과</strong></td><td>각 헤드가 다른 언어적 관계(구문·의미·지시어 등)를 학습</td><td>다중 패턴 포착</td></tr>
 <tr><td><strong>출력</strong></td><td>각 헤드의 결과를 연결(Concat) 후 선형 변환하여 통합</td><td>표현 통합</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>관련 개념 연계:</strong><pre><code class="language-plain text">Self-Attention
 ├── Transformer — Self-Attention을 핵심 구조로 사용하는 모델

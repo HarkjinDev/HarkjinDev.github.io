@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,22 +21,22 @@
 <li><strong>키워드:</strong> 단어 빈도(TF), 역문서 빈도(IDF), 텍스트 마이닝, 정보 검색, 가중치 산출, 희소 행렬, 핵심어 추출, 코사인 유사도</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
 <li><strong>활용 원리</strong>: 특정 문서에는 많이 나오지만 전체 문서에는 흔치 않은 단어일수록 높은 점수를 부여하여 '핵심어'를 추출</li>
-<li><strong>핵심 공식: </strong>(로그를 취하는 이유: 문서 수가 커질수록 IDF 값이 폭발적으로 증가하는 것을 방지)<table>
+<li><strong>핵심 공식: </strong>(로그를 취하는 이유: 문서 수가 커질수록 IDF 값이 폭발적으로 증가하는 것을 방지)<div class="table-scroll"><table>
 <tr><th>요소</th><th><strong>공식</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>TF </strong></td><td>TF(t, d) = \frac{\text{단어 } t\text{의 등장 횟수}}{\text{문서 } d\text{의 전체 단어 수}}</td><td>특정 문서 내에서 단어 출현 비율</td></tr>
 <tr><td><strong>IDF </strong></td><td>IDF(t) = \log\left(\frac{\text{전체 문서 수}}{\text{단어 } t\text{가 포함된 문서 수}}\right)</td><td>단어의 희소성을 반영 
 (흔한 단어일수록 낮은 값)</td></tr>
 <tr><td><strong>TF-IDF</strong></td><td>TF\text{-}IDF(t, d) = TF(t, d) \times IDF(t)</td><td>단어의 최종 중요도를 나타내는 가중치</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>절차: </strong><table>
+<li><strong>절차: </strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. 전처리</strong></td><td>토큰화, 불용어 제거, 어간 추출 수행</td><td>데이터 정제 및 정규화</td></tr>
 <tr><td><strong>2. TF 계산</strong></td><td>개별 문서 내 단어 출현 빈도 산출</td><td>문서 내 단어 중요도 측정</td></tr>
 <tr><td><strong>3. IDF 계산</strong></td><td>전체 문서 기준 역문서 빈도 산출</td><td>단어의 희소성 및 변별력 파악</td></tr>
 <tr><td><strong>4. TF-IDF 행렬 생성</strong></td><td>문서와 단어 간 희소 행렬 구성</td><td>텍스트의 수치 벡터화</td></tr>
 <tr><td><strong>5. 가중치 적용</strong></td><td>핵심어 추출 및 문서 유사도 계산</td><td>검색 랭킹 및 정보 검색 활용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 단순 빈도 기반의 한계를 극복하여 검색 엔진 최적화 및 키워드 추출에 여전히 널리 사용됨</li>
 </ul>

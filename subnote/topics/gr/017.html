@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,7 +24,7 @@
 <li><strong>대상: </strong>CC인증 등 기존 보안인증제도에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평가기준이 없는 신기술 및 융복합 기술</strong></u></span></li>
 <li><strong>도입 요건:  </strong>'가'그룹 기관의 경우 국가정보원의 '보안적합성 검증' 취득 시 신속확인 제품 도입 가능</li>
 <li><strong>유효기간</strong>: 2년</li>
-<li><strong>절차</strong>: <table>
+<li><strong>절차</strong>: <div class="table-scroll"><table>
 <tr><th>절차</th><th>세부활동</th><th>핵심</th></tr>
 <tr><td><strong>1. 신속확인 대상 검토</strong></td><td>기존제도 가능여부 검토 
 (국가용 보안요구사항 유무 등)</td><td>기존 인증 적용 가능 여부</td></tr>
@@ -35,7 +35,7 @@
 <tr><td></td><td>신속확인서 발급 (유효기간 2년)</td><td>확인서 취득</td></tr>
 <tr><td><strong>3. 사후관리</strong></td><td>변경승인·유효기간 연장 (신고포상제·취약점 점검 등)</td><td>지속 관리</td></tr>
 <tr><td></td><td>기존제도 기준 마련 (유효기간 만료 후 신속확인 종료)</td><td>정식 제도 편입</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 신속 확인 제도는 혁신적 보안 스타트업의 공공시장 진입 장벽을 낮추는 효과가 있으며, CC 인증과 병행 운영됨</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 2~4주 단위 스프린트를 반복하며 제품을 점진적으로 개발하는 애자일 프레임워크</li>
 <li><strong>키워드</strong>: 스프린트(Sprint), 백로그(Backlog), 데일리 스크럼, Product Owner, Scrum Master, 번다운 차트</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>스크럼 핵심 역할</strong><table>
+<li><strong>스크럼 핵심 역할</strong><div class="table-scroll"><table>
 <tr><th><strong>역할</strong></th><th><strong>책임</strong></th></tr>
 <tr><td>Product Owner (PO)</td><td>제품 백로그 관리, 우선순위 결정, 비즈니스 가치 최대화</td></tr>
 <tr><td>Scrum Master (SM)</td><td>프로세스 코치, 장애 제거, 팀 보호</td></tr>
 <tr><td>개발팀 (Dev Team)</td><td>자기 조직화, 스프린트 목표 달성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>스크럼 프로세스 흐름</strong><table>
+<li><strong>스크럼 프로세스 흐름</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>산출물/활동</th></tr>
 <tr><td>Product Backlog</td><td>전체 요구사항 목록 (PO 관리)</td></tr>
 <tr><td>Sprint Planning</td><td>스프린트 목표·Sprint Backlog 선정</td></tr>
@@ -35,10 +35,10 @@
 <tr><td>Daily Scrum</td><td>15분 일일 동기화 미팅</td></tr>
 <tr><td>Sprint Review</td><td>작동 소프트웨어 시연 및 피드백</td></tr>
 <tr><td>Sprint Retrospective</td><td>프로세스 개선점 도출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>Product Backlog: </strong>필요한 요구사항 목록들을 우선 순위별로 정리된 목록<ul>
-<li><strong>작성 절차: </strong><table>
+<li><strong>작성 절차: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>절차</strong></th><th><strong>세부내용</strong></th></tr>
 <tr><td><strong>제품 백로그 작성</strong></td><td><strong>사용자 스토리 작성</strong></td><td>아이디어와 노트를 스토리로 변환 
 (아이디어 스토리 보딩 등 활용)</td></tr>
@@ -47,9 +47,9 @@
 <tr><td></td><td><strong>우선순위 지정</strong></td><td>가치와 위험 고려하여 정렬 
 (의사결정트리, 스프린트 리뷰 등 활용)</td></tr>
 <tr><td><strong>작성 이후</strong></td><td><strong>스프린트 계획 회의</strong></td><td>4~6주 분량의 작업 가능한 백로그 선정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>구성 요소: </strong><table>
+<li><strong>구성 요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>세부내용</strong></th></tr>
 <tr><td><strong>백로그 관리</strong></td><td><strong>ID</strong></td><td>고유 식별번호, 스토리 추적성 제공</td></tr>
 <tr><td></td><td><strong>Name</strong></td><td>스토리를 설명하는 짧은 이름</td></tr>
@@ -59,33 +59,33 @@
 <tr><td><strong>속성 및 상태관리</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Priority</strong></u></span></td><td>작업 난이도 (High/Medium/Low)</td></tr>
 <tr><td></td><td><strong>Status</strong></td><td>진행 상태 (Start/Not Started/Finish)</td></tr>
 <tr><td></td><td><strong>Story Rank</strong></td><td>작업 우선순위 (회의를 통해 조정 가능)</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>
 <li><strong>일정관리: </strong><ul>
-<li><strong>번다운 차트(Burn Down Chart):</strong> 프로젝트나 스프린트(Sprint) 기간 중 <strong>남은 작업량(Work Left)</strong>을 시간의 흐름에 따라 시각적으로 나타낸 그래프<table>
+<li><strong>번다운 차트(Burn Down Chart):</strong> 프로젝트나 스프린트(Sprint) 기간 중 <strong>남은 작업량(Work Left)</strong>을 시간의 흐름에 따라 시각적으로 나타낸 그래프<div class="table-scroll"><table>
 <tr><th><strong>요소</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>X축 (Time)</strong></td><td>스프린트의 기간 (일 단위 등)</td></tr>
 <tr><td><strong>Y축 (Work)</strong></td><td>남은 작업량 (스토리 포인트, 업무 시간 등)</td></tr>
 <tr><td><strong>이상적 라인 (Ideal Line)</strong></td><td>스프린트 시작부터 종료까지 일정한 속도로 작업이 처리된다고 가정한 직선</td></tr>
 <tr><td><strong>실제 라인 (Actual Line)</strong></td><td>매일 측정된 실제 남은 작업량을 나타내는 꺾은선</td></tr>
-</table>
-<table>
+</table></div>
+<div class="table-scroll"><table>
 <tr><th><strong>패턴</strong></th><th><strong>상태 해석</strong></th></tr>
 <tr><td><strong>이상적 라인 하단</strong></td><td>계획보다 <strong>진척 속도가 빠름</strong>. 추가 작업 수립 고려 가능</td></tr>
 <tr><td><strong>이상적 라인 상단</strong></td><td>계획보다 <strong>진척 속도가 느림</strong>. 작업 범위 조정 또는 리소스 추가 검토 필요</td></tr>
 <tr><td><strong>선이 위로 상승</strong></td><td><strong>범위 확장(Scope Creep)</strong> 발생. 새로운 요구사항이 스프린트 도중 추가됨</td></tr>
 <tr><td><strong>계단식 하락</strong></td><td>작업 단위가 너무 크거나, 작업이 완료된 후 한꺼번에 갱신하는 경우</td></tr>
 <tr><td><strong>막판에 급격히 하락</strong></td><td>스프린트 종료 직전에 작업을 몰아서 처리하거나, 완료 정의(DoD) 검증이 늦어진 경우</td></tr>
-</table>
-<table>
+</table></div>
+<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>번다운 차트 (Burn Down)</strong></th><th><strong>번업 차트 (Burn Up)</strong></th></tr>
 <tr><td><strong>표시 내용</strong></td><td><strong>남은 작업량</strong>의 감소 추이</td><td><strong>완료된 누적 작업량</strong>의 증가 추이</td></tr>
 <tr><td><strong>관점</strong></td><td>"얼마나 더 해야 하는가?"</td><td>"얼마나 해냈는가?"</td></tr>
 <tr><td><strong>범위 변화</strong></td><td>범위 변화가 차트에 즉각 드러나지 않음</td><td><strong>전체 범위(Total Scope)</strong> 라인을 별도로 표시하여 명확히 확인 가능</td></tr>
 <tr><td><strong>주요 사용</strong></td><td>일일 스크럼, 단기 스프린트 관리</td><td>중장기 프로젝트, 릴리스 관리</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

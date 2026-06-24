@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: fan-in은 특정 모듈을 호출하는 상위 모듈의 수, fan-out은 특정 모듈이 호출하는 하위 모듈의 수</li>
 <li><strong>키워드</strong>: 구조도(Structure Chart), 모듈 복잡도, 재사용성, 제어 범위</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>fan-in / fan-out 특성</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;인상아하&gt;</strong></span><table>
+<li><strong>fan-in / fan-out 특성</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;인상아하&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>fan-in</strong></th><th><strong>fan-out</strong></th></tr>
 <tr><td>정의</td><td>해당 모듈을 호출하는 모듈 수</td><td>해당 모듈이 호출하는 모듈 수</td></tr>
 <tr><td>높을 때</td><td>재사용성 높음</td><td>복잡도 높음, 오류 전파 위험</td></tr>
 <tr><td>낮을 때</td><td>재사용 미흡</td><td>단순하고 독립적</td></tr>
 <tr><td>이상적 설계</td><td>높음 (공유 모듈 활용)</td><td>낮음 (7 이하 권장)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>설계 지침</strong>:<ul>
 <li>fan-in 높은 모듈: 공통 유틸리티로 품질 관리 집중</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 엔터티, 관계, 속성, 카디널리티, 바커표기법, 식별자</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
 <li><strong>핵심 구성 요소</strong>:<ul>
-<li><strong>엔터티(Entity)</strong>: 관리 대상이 되는 실체 (사람, 사물, 사건 등)   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;유개사/기중행&gt;</strong></span><table>
+<li><strong>엔터티(Entity)</strong>: 관리 대상이 되는 실체 (사람, 사물, 사건 등)   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;유개사/기중행&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>분류</strong></th><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
 <tr><td><strong>유무형</strong></td><td><strong>유형 엔터티</strong></td><td>물리적 실체 존재 및 지속 활용</td><td>사원, 물품, 강사</td></tr>
 <tr><td></td><td><strong>개념 엔터티</strong></td><td>형태는 없으나 관리할 개념 정보</td><td>조직, 보험상품</td></tr>
@@ -29,7 +29,7 @@
 <tr><td><strong>발생시점</strong></td><td><strong>기본 엔터티</strong></td><td>독립적 생성 및 타 엔터티 부모</td><td>사원, 부서, 고객</td></tr>
 <tr><td></td><td><strong>중심 엔터티</strong></td><td>기본에서 파생된 업무 중심 역할</td><td>계약, 사고, 매출</td></tr>
 <tr><td></td><td><strong>행위 엔터티</strong></td><td>설계 중 도출 및 대량 데이터 발생</td><td>주문목록, 변경이력</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>속성(Attribute)</strong>: 엔터티의 특성을 나타내는 데이터 항목</li>
 <li><strong>관계(Relationship)</strong>: 엔터티 간의 연관성 (1:1, 1:N, M:N)</li>

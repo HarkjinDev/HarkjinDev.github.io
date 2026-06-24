@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 업무를 기능 단위로 분해하고 절차적 흐름으로 분석·설계하는 전통적 소프트웨어 개발 방법론</li>
 <li><strong>키워드</strong>: DFD(Data Flow Diagram), 구조도, 하향식 설계, 분할 정복, 프로세스 중심</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>주요 산출물</strong><table>
+<li><strong>주요 산출물</strong><div class="table-scroll"><table>
 <tr><th>산출물</th><th>설명</th></tr>
 <tr><td>DFD (Data Flow Diagram)</td><td>데이터 흐름 시각화 (프로세스·데이터 저장소·외부 엔티티)</td></tr>
 <tr><td>구조도 (Structure Chart)</td><td>모듈 간 계층적 호출 관계 표현</td></tr>
 <tr><td>자료 사전 (Data Dictionary)</td><td>DFD에 등장하는 데이터 정의</td></tr>
 <tr><td>소단위 명세서</td><td>최하위 프로세스 상세 명세</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 구조적 방법론은 <strong>하향식(Top-down) 분해</strong>가 특징으로, 데이터 흐름 중심 분석(DFD)과 기능 분해 설계(구조도)의 연계가 핵심이며 대규모·공공 시스템에 적합.</li>
 </ul>

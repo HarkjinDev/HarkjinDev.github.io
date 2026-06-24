@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: REST API의 구조·엔드포인트·파라미터·응답 형식을 기계 가독 가능한 YAML/JSON으로 기술하는 표준 명세</li>
 <li><strong>키워드</strong>: Swagger, YAML/JSON, 엔드포인트, 스키마, API 문서 자동화, OpenAPI 3.x</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>OAS 주요 구성 요소</strong>:<table>
+<li><strong>OAS 주요 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th>섹션</th><th>설명</th></tr>
 <tr><td>info</td><td>API 제목·버전·설명</td></tr>
 <tr><td>servers</td><td>API 서버 URL</td></tr>
 <tr><td>paths</td><td>엔드포인트별 HTTP 메서드·파라미터·응답 정의</td></tr>
 <tr><td>components</td><td>재사용 가능한 스키마·파라미터·응답 정의</td></tr>
 <tr><td>security</td><td>인증 방식 (API Key, OAuth2, JWT 등)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: OAS는 <strong>API 설계→문서화→테스트→코드 생성을 자동화</strong>하는 표준으로, Swagger UI를 통해 실시간 API 테스트 환경을 제공하여 개발자 경험(DX)을 향상.</li>
 </ul>

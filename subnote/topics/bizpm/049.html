@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,20 +20,20 @@
 <li><strong>정의</strong>: 확률분포를 따르는 입력 변수에 대해 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>난수를 반복 생성</strong></u></span>(수천~수만 회)하여 결과의 분포와 위험을 분석하는 시뮬레이션 기법</li>
 <li><strong>키워드</strong>: 난수, 확률분포, 반복 시뮬레이션, 리스크 분포, P10/P50/P90</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;변무시결&gt;</strong></span> <table>
+<li><strong>절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;변무시결&gt;</strong></span> <div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>설명</strong></th><th><strong>핵심 </strong></th></tr>
 <tr><td><strong>1. 변수 정의</strong></td><td>변수 식별 및 확률분포 설정</td><td>분포 할당</td></tr>
 <tr><td><strong>2. 무작위 샘플링</strong></td><td>난수 기반 입력값 추출</td><td>무작위 추출</td></tr>
 <tr><td><strong>3. 시뮬레이션 실행</strong></td><td>모델 적용 후 반복 계산</td><td>반복 연산</td></tr>
 <tr><td><strong>4. 결과 집계</strong></td><td>통계 기반 결과 분포 분석</td><td>리스크 도출</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>P10/P50/P90 의미:</strong><table>
+<li><strong>P10/P50/P90 의미:</strong><div class="table-scroll"><table>
 <tr><th><strong>P값</strong></th><th><strong>비용·일정 기준</strong></th><th><strong>수익·생산량 기준</strong></th></tr>
 <tr><td><strong>P10</strong></td><td>낙관</td><td>공격</td></tr>
 <tr><td><strong>P50</strong></td><td>현실</td><td>중간</td></tr>
 <tr><td><strong>P90</strong></td><td>보수</td><td>비관</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 몬테카를로 시뮬레이션은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 예측치의 한계를 극복하여 결과의 확률적 분포와 최악·최선 시나리오를 제시</strong></u></span>하며, IT 프로젝트 비용·일정 위험 분석에 활용됨.</li>
 </ul>

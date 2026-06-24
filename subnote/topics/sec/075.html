@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 사이버 공격의 7단계 프레임워크 (Lockheed Martin 개발)</li>
 <li><strong>키워드</strong>: 정찰, 무기화, 전달, 악용, 설치, C2, 행동</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>7단계</strong>: <table>
+<li><strong>7단계</strong>: <div class="table-scroll"><table>
 <tr><th>절차</th><th>핵심</th><th>대응 방안</th></tr>
 <tr><td><strong>1. 정찰 
 (Reconnaissance)</strong></td><td>대상 정보 수집</td><td>외부 노출 정보 최소화, ASM 기반 디지털 발자국 관리</td></tr>
@@ -35,7 +35,7 @@
 (Command &amp; Control)</strong></td><td>원격 제어 채널 구축</td><td>아웃바운드 트래픽 필터링·DNS 싱크홀·C2 도메인 차단</td></tr>
 <tr><td><strong>7. 행동 
 (Actions)</strong></td><td>데이터 유출·파괴</td><td>DLP·네트워크 세그멘테이션·백업·사고 대응 계획 수립</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 킬 체인의 초기 단계에서 차단할수록 방어 비용이 낮아지므로, 정찰·전달 단계 탐지(이메일 보안, 위협 인텔리전스)가 가장 효율적인 방어임</li>
 </ul>

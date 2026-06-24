@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> 데이터 주권, 데이터 상주(Data Residency), 데이터 로컬리제이션, GDPR, Cloud Act, 기밀 컴퓨팅, 고객 관리형 키, Gaia-X</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
 <li><strong>등장 배경: </strong>GDPR, 지정학적 리스크, 공공·국방 데이터 보호, 디지털 주권 강화</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>데이터</strong></td><td><strong>데이터 상주 
 (Data Residency)</strong></td><td>데이터를 특정 국가·지역 내에서만 저장·처리</td><td>데이터 국내 고정</td></tr>
@@ -38,7 +38,7 @@
 <tr><td></td><td><strong>감사·로깅</strong></td><td>모든 데이터 접근·처리 이력 완전 기록·감사</td><td>완전 감사 추적</td></tr>
 <tr><td><strong>물리적격리</strong></td><td><strong>단일 테넌트</strong></td><td>특정 국가를 위한 전용존 구축</td><td>자국 전용존</td></tr>
 <tr><td></td><td><strong>에어갭</strong></td><td>물리적으로 단절된 클라우드 구축</td><td>물리적 단절</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>Gaia-X(유럽 클라우드 자립): </strong>EU 주도 유럽 데이터 인프라·클라우드 생태계 구축 이니셔티</li>
 <li><strong>인사이트:</strong> 소버린 클라우드는 단순한 로컬 호스팅이 아닌 디지털 주권 확보를 위한 핵심 전략으로, 미·중 기술 패권 경쟁과 GDPR·Cloud Act 등 규제 강화로 공공·금융·의료·국방 분야의 필수 아키텍처로 자리잡고 있음. 글로벌 CSP의 소버린 클라우드 솔루션과 자국 클라우드 생태계 육성의 균형이 각국 디지털 주권 전략의 핵심 과제이며, Gaia-X·한국 CSAP 등 지역별 신뢰 프레임워크 구축이 소버린 클라우드 생태계 성숙의 핵심 방향임</li>

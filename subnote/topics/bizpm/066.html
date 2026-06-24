@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>100% 규칙</strong></u></span>, Work Package, 범위 기준선, 딕셔너리, 일정·비용 연계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>연동 기획(Rolling Wave)</strong></u></span></li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
 <li><strong>특징: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>세분화(3~4레벨, 2주), 진척관리, 선후관계 정의</strong></u></span></li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>설명 </strong></th><th>핵심</th></tr>
 <tr><td><strong>작업 패키지 (WP)</strong></td><td>WBS의 최하위 관리 단위</td><td>측정 및 관리</td></tr>
 <tr><td><strong>계획 패키지 (PP)</strong></td><td>상세 작업 미확정 계획 단계</td><td>계획 중 단계</td></tr>
@@ -29,13 +29,13 @@
 <tr><td><strong>계정 코드</strong></td><td>요소별 고유 식별 체계 ID</td><td>구조화된 ID</td></tr>
 <tr><td><strong>통제 계정 (CA)</strong></td><td>성과 측정 및 관리 지점</td><td>관리 통제점</td></tr>
 <tr><td><strong>RAM (책임할당도)</strong></td><td>작업별 담당자 역할 정의</td><td>책임 관계도</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>100% 규칙(Rule)</strong>: 하위 요소의 합이 상위 요소를 100% 포함<ul>
 <li>관리가능한 크기, 레벨(3~5단계 분할), WP크기(전체작업의 1~10%, 2주이내), 100% 규칙</li>
 </ul>
 </li>
-<li><strong>작성 원칙</strong>:<table>
+<li><strong>작성 원칙</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>주요 원칙 및 키워드</strong></th><th><strong>상세 설명 요약</strong></th></tr>
 <tr><td><strong>기본 원칙 (100% Rule)</strong></td><td><strong>범위의 명확화</strong></td><td>범위 명세서에서 정의된 범위 반영</td></tr>
 <tr><td></td><td><strong>누락 및 중복 제거</strong></td><td>하위 요소들을 누락이나 중복없이 제거</td></tr>
@@ -46,7 +46,7 @@
 <tr><td><strong>(Rolling Wave)</strong></td><td><strong>계획 패키지(PP)</strong></td><td>원거리 작업은 상위 수준인 PP로 설정하여 유연성 확보</td></tr>
 <tr><td></td><td><strong>작업 패키지(WP)</strong></td><td>근거리 작업은 WP 수준으로 상세화하여 범위 확정</td></tr>
 <tr><td></td><td><strong>담당자 배정</strong></td><td>WP 상세화 완료 후 자원·일정·원가 산정 및 담당자 할당</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>일정지연 만회대책</strong>: Crashing(자원 추가), Fast Tracking(병렬 수행), 범위 조정</li>
 <li><strong>인사이트</strong>: WBS는 <strong>범위 관리의 기준선</strong>이자 일정(CPM/PERT)·비용(예산 배정)·품질·위험 관리의 출발점으로, “WBS에 없으면 프로젝트 범위가 아님”이 원칙임.</li>

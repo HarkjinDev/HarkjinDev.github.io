@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 컴퓨팅·스토리지·네트워크·가상화를 단일 소프트웨어 정의 장비에 통합한 초융합 인프라</li>
 <li><strong>키워드</strong>: 소프트웨어 정의, 단순화, 확장성, vSAN, Nutanix, 분산 스토리지</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>유형별 비교</strong>:<table>
+<li><strong>유형별 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>전통 인프라</th><th>CI(융합 인프라)</th><th>HCI(초융합 인프라)</th></tr>
 <tr><td>구성</td><td>서버·스토리지·네트워크 분리</td><td>사전 통합 패키지</td><td>소프트웨어 정의 완전 통합</td></tr>
 <tr><td>확장</td><td>개별 장비 증설</td><td>어려움</td><td>노드 추가로 선형 확장</td></tr>
 <tr><td>관리</td><td>복잡</td><td>중간</td><td>단일 관리 콘솔</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: HCI는 <strong>VDI·소규모 지점·엣지 컴퓨팅</strong>에 적합하며, 프라이빗 클라우드 구축 시 복잡성 감소와 빠른 배포가 주요 채택 이유임. 대규모 워크로드에서는 성능 병목이 발생할 수 있음.</li>
 </ul>

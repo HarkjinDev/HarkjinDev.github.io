@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,15 +20,15 @@
 <li><strong>정의:</strong> 송신측이 데이터에 잉여 비트(Redundancy)를 추가하여 전송하고 수신측이 별도 재전송 요청 없이 스스로 오류를 검출·정정하는 채널 부호화 기술</li>
 <li><strong>키워드:</strong> 채널 부호화, 잉여 비트, 부호율, 해밍 코드, 터보 코드, LDPC, Polar Code, BCH, 리드-솔로몬</li>
 <li><strong>분류:</strong> 네트워크 / 통신 이론</li>
-<li><strong>핵심 개념:</strong><table>
+<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>부호율 (Code Rate)</strong></td><td>정보 비트 수 / 전체 전송 비트 수 (낮을수록 강한 오류 정정)</td><td>정정 능력 조절</td></tr>
 <tr><td><strong>해밍 거리</strong></td><td>두 코드워드 간 다른 비트 수, 클수록 오류 정정 능력 향상</td><td>정정 능력 기준</td></tr>
 <tr><td><strong>잉여 비트 (Redundancy)</strong></td><td>오류 검출·정정을 위해 추가하는 패리티·체크 비트</td><td>오류 정정 재료</td></tr>
 <tr><td><strong>코드워드</strong></td><td>정보 비트 + 잉여 비트로 구성된 전송 단위</td><td>전송 단위</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>FEC 주요 알고리즘:</strong><table>
+<li><strong>FEC 주요 알고리즘:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>알고리즘</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>블록 코드</strong></td><td>해밍 코드 (Hamming)</td><td>1비트 정정 및 2비트 검출</td><td>단순 1비트 정정</td></tr>
 <tr><td></td><td>BCH 코드</td><td>다중 비트 오류 정정 가능</td><td>다중 비트 정정</td></tr>
@@ -37,9 +37,9 @@
 <tr><td><strong>터보 코드</strong></td><td>터보 코드 (Turbo)</td><td>샤논 한계 도달 반복 복호</td><td>반복 복호</td></tr>
 <tr><td><strong>LDPC</strong></td><td>LDPC 코드</td><td>희소 행렬 기반 5G 부호</td><td>5G 표준 부호</td></tr>
 <tr><td><strong>Polar 코드</strong></td><td>Polar Code</td><td>채널 분극 이론 기반 5G 부호</td><td>5G 제어 채널</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>FEC vs BEC 비교표: </strong><table>
+<li><strong>FEC vs BEC 비교표: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>FEC (전진 오류 정정)</th><th>BEC (후진 오류 정정)</th></tr>
 <tr><td><strong>정정 방식</strong></td><td>수신측 자체 정정</td><td>재전송 요청 (ARQ)</td></tr>
 <tr><td><strong>피드백 채널</strong></td><td>❌ 불필요</td><td>✅ 필요</td></tr>
@@ -49,7 +49,7 @@
 <tr><td><strong>적합 환경</strong></td><td>위성·방송·무선</td><td>유선·저지연 환경</td></tr>
 <tr><td><strong>대표 기술</strong></td><td>터보코드·LDPC·Polar</td><td>Stop-and-Wait·GBN·SR</td></tr>
 <tr><td><strong>결합 방식</strong></td><td>—</td><td>HARQ (FEC + BEC 혼합)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> FEC는 재전송 없이 오류를 자체 정정하므로 위성·방송·5G처럼 피드백 채널이 없거나 지연이 허용되지 않는 환경의 필수 기술임. 터보 코드→LDPC→Polar Code로 이어지는 발전은 Shannon 정보 이론의 한계에 점점 근접하는 과정이며, 5G에서 데이터 채널(LDPC)과 제어 채널(Polar)을 구분 적용하는 설계가 이론적 최적 성능 실현의 핵심임</li>
 </ul>

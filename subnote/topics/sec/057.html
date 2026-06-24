@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 소프트웨어 공급망 전반(오픈소스·서드파티·빌드 파이프라인)에서 발생할 수 있는 보안 위협을 식별·관리·대응하는 보안 활동</li>
 <li><strong>키워드:</strong> SW 공급망, SBOM, SCA, 무결성 검증, 서드파티 리스크, 코드 서명, 의존성 컨퓨전, 타이포스쿼팅, SLSA</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>주요 위협:</strong><table>
+<li><strong>주요 위협:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>핵심</th></tr>
 <tr><td><strong>패키지 위협</strong></td><td><strong>타이포스쿼팅</strong></td><td>유사한 이름의 악성 패키지를 공식 저장소에 등록하여 설치 유도</td></tr>
 <tr><td></td><td><strong>의존성 컨퓨전</strong></td><td>내부 패키지명과 동일한 공개 패키지를 배포하여 내부 시스템 침투</td></tr>
@@ -29,9 +29,9 @@
 <tr><td></td><td><strong>업데이트 메커니즘 악용</strong></td><td>정상 업데이트 채널을 통해 악성 코드를 배포</td></tr>
 <tr><td><strong>서드파티 위협</strong></td><td><strong>서드파티 라이브러리 취약점</strong></td><td>외부 라이브러리의 알려진 취약점이 내부 시스템에 전파</td></tr>
 <tr><td></td><td><strong>협력업체 침해</strong></td><td>신뢰된 협력업체 시스템을 거점으로 내부망 침투</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대응 방안:</strong><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>가시성 확보</strong></td><td><strong>SBOM</strong></td><td>소프트웨어 구성 요소 목록 관리·취약점 연계 모니터링</td></tr>
 <tr><td></td><td><strong>SCA (의존성 스캔)</strong></td><td>오픈소스·서드파티 라이브러리 취약점 자동 탐지</td></tr>
@@ -40,7 +40,7 @@
 <tr><td><strong>파이프라인 보안</strong></td><td><strong>CI/CD 보안</strong></td><td>빌드 환경 격리·접근 제어·파이프라인 무결성 검증</td></tr>
 <tr><td></td><td><strong>Zero Trust 적용</strong></td><td>공급망 전 단계 지속 검증·최소 권한 원칙 적용</td></tr>
 <tr><td><strong>취약점 관리</strong></td><td><strong>CVE·NVD 연계</strong></td><td>알려진 취약점 DB와 연계하여 사용 컴포넌트 위험 모니터링</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>대표 사례</strong>: SolarWinds 공격 (2020), Log4Shell 취약점(2021)</li>
 <li><strong>인사이트:</strong> SolarWinds·Log4Shell로 이어지는 공급망 공격은 신뢰된 채널을 통한 침투라는 점에서 기존 경계 보안으로 탐지가 불가능하며, SBOM 의무화·SLSA 프레임워크·SCA 자동화를 통한 소프트웨어 구성 요소의 전주기 가시성 확보가 현대 공급망 보안의 핵심 전략으로 자리잡고 있음</li>

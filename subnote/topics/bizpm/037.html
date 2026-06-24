@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 고객 데이터를 기반으로 고객과의 관계를 체계적으로 관리하여 고객 가치와 기업 수익을 극대화하는 경영 전략 및 시스템</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고객 생애가치(CLV)</strong></u></span>, 360° 고객뷰, RFM 분석, 세분화, 개인화, 마케팅 자동화, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고객 여정, </strong></u></span>고객이탈방지, 고객획득비용(CAC), 고객유지율, 순추천지수(NPS), 전환율, 충성도</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>핵심 기능:</strong><table>
+<li><strong>핵심 기능:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>고객 데이터</strong></td><td><strong>360° 고객 뷰</strong></td><td>구매·행동·접점 데이터 통합 단일 고객 프로파일</td><td>통합 고객 정보</td></tr>
 <tr><td></td><td><strong>RFM 분석</strong></td><td>최근성·빈도·구매금액 기반 고객 가치 측정</td><td>고객 가치 측정</td></tr>
@@ -31,16 +31,16 @@
 <tr><td></td><td><strong>영업 예측</strong></td><td>AI 기반 매출·성약률 예측</td><td>예측 영업</td></tr>
 <tr><td><strong>서비스</strong></td><td><strong>고객 여정 관리</strong></td><td>접점별 고객 경험 설계·모니터링</td><td>경험 최적화</td></tr>
 <tr><td></td><td><strong>고객 이탈 예측</strong></td><td>AI 기반 이탈 가능 고객 사전 감지·대응</td><td>이탈 방지</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 지표:</strong><table>
+<li><strong>핵심 지표:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>CLV (고객 생애가치)</strong></td><td>고객이 생애 동안 창출하는 총 수익 예측값</td><td>장기 고객 가치</td></tr>
 <tr><td><strong>고객 획득 비용 (CAC)</strong></td><td>신규 고객 1명 획득에 소요되는 비용</td><td>마케팅 효율</td></tr>
 <tr><td><strong>고객 유지율 (Retention Rate)</strong></td><td>기간 내 기존 고객 유지 비율</td><td>충성도 지표</td></tr>
 <tr><td><strong>NPS (순추천지수)</strong></td><td>고객 만족·추천 의향 측정 지표</td><td>고객 충성도</td></tr>
 <tr><td><strong>전환율 (Conversion Rate)</strong></td><td>리드 대비 실제 구매 전환 비율</td><td>영업 효율</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: CRM은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신규 고객 획득보다 기존 고객 유지가 5~7배 저렴하다는 원칙</strong></u></span>에 기반하며, 고객 생애가치(CLV) 극대화를 위해 개인화된 경험을 제공하는 것이 핵심.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 물리 세계의 사물·공정을 센서·네트워크로 사이버 세계와 실시간 연결하여 분석·제어하는 지능형 융합 시스템</li>
 <li><strong>키워드</strong>: 피드백 루프, 임베디드 시스템, 실시간 제어, 스마트팩토리, 자율주행, 디지털 트윈</li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>구성 요소</strong>:<table>
+<li><strong>구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명 </strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>물리 계층</strong></td><td><strong>센서(Sensor)</strong></td><td>물리적 상태 데이터 측정</td><td>데이터 획득</td></tr>
 <tr><td></td><td><strong>액추에이터</strong></td><td>제어 명령의 물리적 수행</td><td>실동작 제어</td></tr>
@@ -33,7 +33,7 @@
 <tr><td></td><td><strong>시뮬레이션</strong></td><td>가상 환경 사전 검증</td><td>예측 및 최적화</td></tr>
 <tr><td><strong>제어/협업</strong></td><td><strong>피드백 루프</strong></td><td>분석 결과의 물리적 환류</td><td>최적 제어</td></tr>
 <tr><td></td><td><strong>HMI</strong></td><td>사람과 시스템 상호작용</td><td>사용자 인터페이스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>IoT vs CPS 비교</strong>: IoT는 데이터 수집·연결 중심, CPS는 <strong>물리↔사이버 양방향 제어 피드백</strong>까지 포함</li>
 <li><strong>인사이트</strong>: CPS는 <strong>스마트팩토리·자율주행·스마트그리드의 공통 기반 아키텍처</strong>로, 실시간성(저지연)과 안전성이 설계 핵심임을 강조.</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 조직의 리스크를 체계적으로 식별·평가·처리·모니터링하기 위한 국제표준 리스크 관리 프레임워크</li>
 <li><strong>키워드</strong>: 리스크 컨텍스트, 리스크 평가, 리스크 처리, 커뮤니케이션, PDCA</li>
 <li><strong>분류</strong>: 표준</li>
-<li><strong>리스크 관리 프로세스</strong>:<table>
+<li><strong>리스크 관리 프로세스</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>내용</th></tr>
 <tr><td>컨텍스트 수립</td><td>조직 내·외부 환경 파악</td></tr>
 <tr><td>리스크 식별</td><td>위험 원인·사건·결과 식별</td></tr>
@@ -28,7 +28,7 @@
 <tr><td>리스크 평가</td><td>허용 가능 여부 판단</td></tr>
 <tr><td>리스크 처리</td><td>회피·전가·완화·수용</td></tr>
 <tr><td>모니터링·검토</td><td>지속적 추적·개선</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>ISO/IEC 23894:</strong> ISO 31000의 범용 리스크 관리 원칙과 프로세스를 AI 도메인에 맞게 적용</li>
 <li><strong>인사이트</strong>: ISO 31000은 <strong>모든 유형의 조직과 리스크에 적용 가능한 원칙 중심 표준</strong>으로, IT 리스크뿐 아니라 전략·운영·재무·준법 리스크를 통합 관리하는 전사 리스크 관리(ERM) 체계의 기반임.</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,19 +20,19 @@
 <li><strong>정의</strong>: 포인터로 노드를 연결하여 동적으로 크기가 변하는 선형 자료 구조</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>노드(Node), 포인터,</strong></u></span> 단순 연결, 이중 연결, 원형 연결, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동적 메모리 할당</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>유형 비교</strong>:<table>
+<li><strong>유형 비교</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>포인터 구성</th><th>특징</th></tr>
 <tr><td>단순 연결 리스트</td><td>next 포인터</td><td>단방향 순회, 구현 단순</td></tr>
 <tr><td>이중 연결 리스트</td><td>prev + next 포인터</td><td>양방향 순회, 삭제 O(1)</td></tr>
 <tr><td>원형 연결 리스트</td><td>마지막→첫 노드 연결</td><td>순환 탐색, 큐·덱 구현</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>배열 vs 연결 리스트</strong>:<table>
+<li><strong>배열 vs 연결 리스트</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>배열</th><th>연결 리스트</th></tr>
 <tr><td>탐색</td><td>O(1) (인덱스)</td><td>O(n) (순차)</td></tr>
 <tr><td>삽입·삭제</td><td>O(n) (이동 필요)</td><td>O(1) (위치 알 때)</td></tr>
 <tr><td>메모리</td><td>연속 할당</td><td>동적 분산 할당</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 연결 리스트는 <strong>삽입·삭제 O(1)</strong>이나 <strong>탐색 O(n)</strong>으로 배열과 상호 보완적 관계이며, 데이터 변경이 잦은 경우 연결 리스트, 탐색이 잦은 경우 배열을 선택함을 서술</li>
 </ul>

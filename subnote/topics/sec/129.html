@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -31,7 +31,7 @@
 <li><strong>인증 구조</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;관보개, 기위운점, 정인외물/인접안정/운보사재, 수이제파권&gt;</strong></span><ul>
 <li><strong>간편인증:</strong> ISMS 44개, ISMS-P 65개</li>
 </ul>
-<table>
+<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>인증</strong></th><th><strong>분야 (인증기준 개수)</strong></th></tr>
 <tr><td><strong>ISMS</strong></td><td><strong>1. 관리체계 수립 및 운영(16)</strong></td><td>1.1 관리체계 기반 마련(6)
 1.2 위험관리(4)
@@ -54,7 +54,7 @@
 3.3 개인정보 제공시 보호조치(3)
 3.4 개인정보 파기 시 보호조치(3)
 3.5 정보주체 권리보호(3)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인증 기관(2):</strong> 한국인터넷진흥원, 금융보안원</li>
 <li><strong>심사기관(5): </strong>정보통신기술협회, 정보통신진흥협회, 개인정보보호협회, 차세대정보보안인증원, 한국경영인증원</li>

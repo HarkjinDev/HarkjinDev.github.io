@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,23 +20,23 @@
 <li><strong>정의:</strong> AI·ML 기술을 기반으로 네트워크가 사람의 개입 없이 스스로 상태를 감시·분석·최적화·복구하는 자동화 네트워크 운영 패러다임</li>
 <li><strong>키워드:</strong> 자율 운영, 자가 치유(Self-Healing), 자가 최적화, Intent-Based Networking, TM Forum(Level0~5), 자율화 레벨, 디지털 트윈, AIOps</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>핵심 기능:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;감최치구보&gt; </strong></span><table>
+<li><strong>핵심 기능:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;감최치구보&gt; </strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>자가 감시 (Self-Monitoring)</strong></td><td>네트워크 상태·트래픽·장애를 실시간 자율 감지</td><td>실시간 탐지</td></tr>
 <tr><td><strong>자가 최적화 (Self-Optimization)</strong></td><td>트래픽 부하·QoS에 따라 라우팅·자원 자율 조정</td><td>성능 최적화</td></tr>
 <tr><td><strong>자가 치유 (Self-Healing)</strong></td><td>장애 탐지 후 자동 복구·우회 경로 설정</td><td>자동 복구</td></tr>
 <tr><td><strong>자가 구성 (Self-Configuration)</strong></td><td>신규 장비·서비스 추가 시 자동 설정·배포</td><td>자동 구성</td></tr>
 <tr><td><strong>자가 보호 (Self-Protection)</strong></td><td>사이버 위협·이상 트래픽을 탐지하여 자동 차단</td><td>자율 보안</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기술:</strong><table>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>IBN</strong></td><td>관리자의 의도(Intent)를 AI가 해석하여 네트워크 자동 설정</td><td>의도 기반 제어</td></tr>
 <tr><td><strong>AIOps</strong></td><td>AI·ML로 네트워크 운영 데이터를 분석하여 장애 예측·자동 대응</td><td>AI 기반 운영</td></tr>
 <tr><td><strong>디지털 트윈</strong></td><td>물리 네트워크를 가상으로 복제하여 변경 사항 사전 시뮬레이션</td><td>가상 검증</td></tr>
 <tr><td><strong>강화학습</strong></td><td>네트워크 환경과 상호작용하며 최적 운영 정책 자율 학습</td><td>정책 자율 학습</td></tr>
 <tr><td><strong>이상 탐지</strong></td><td>비정상 트래픽·장애 패턴을 ML로 실시간 탐지</td><td>실시간 감지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>정보 최신성(Information Freshness):</strong> 네트워크를 통해 전달·처리되는 데이터나 상태 정보가 실제 시스템·단말·서비스의 현재 상태를 얼마나 지연 없이 정확하게 반영하는지를 나타내는 특성<ul>
 <li>차세대 네트워크에서 정보 최신성은 보통 <strong>AoI (Age of Information)</strong> 개념으로 측정<ul>

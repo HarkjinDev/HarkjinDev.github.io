@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,11 +26,11 @@
 <li>Itinerary 순서 최적화(TSP 유사)로 경로 효율 극대화</li>
 </ul>
 </li>
-<li><strong>장단점</strong>:<table>
+<li><strong>장단점</strong>:<div class="table-scroll"><table>
 <tr><th>장점</th><th>단점</th></tr>
 <tr><td>멀티홉 오버헤드 감소</td><td>에이전트 크기 증가로 대역폭 소모</td></tr>
 <tr><td>집계된 데이터 전송</td><td>노드 장애 시 경로 재계획 필요</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: Itinerary Routing은 <strong>대규모 WSN에서 에너지 효율적인 데이터 수집</strong>이 필요한 환경에서 유효하며, 에이전트 이동 경로의 최적화가 성능의 핵심.</li>
 </ul>

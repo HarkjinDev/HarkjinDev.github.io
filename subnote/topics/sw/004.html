@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드:</strong> 인도물 검사(Inspection), 정량적 측정, 7가지 품질 도구, 통계적 표본 추출, 결함 제거</li>
 <li><strong>분류:</strong> SW공학 개론</li>
 <li><strong>주요 특징: </strong>결과물 중심, 최종 승인 기반, 환류(Feedback)</li>
-<li><strong>프로세스(ITO):</strong><table>
+<li><strong>프로세스(ITO):</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>주요 항목</strong></th></tr>
 <tr><td><strong>입력 (Input)</strong></td><td>품질관리계획서, 품질지표, 품질체크목록, 작업성과데이터, 승인된 변경 요청, 산출물(인도물)</td></tr>
 <tr><td><strong>도구 및 기법</strong></td><td><strong>7대 품질 도구</strong>, 통계적 표본 추출, 검사(Inspection), 런차트, 결함수정검토</td></tr>
 <tr><td><strong>출력 (Output)</strong></td><td>품질 통제 측정치, 확인된 결함 수정, 검증된 인도물, 변경 요청, 프로젝트 문서 업데이트</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>7대 품질 도구: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;체히파특/산흐관, 친연계매/데피애&gt;</strong></span><table>
+<li><strong>7대 품질 도구: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;체히파특/산흐관, 친연계매/데피애&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>도구</strong></th><th><strong>핵심 (요약)</strong></th></tr>
 <tr><td><strong>구</strong></td><td><strong>체크시트 (Check Sheet)</strong></td><td>데이터 수집, 사실 확인 및 점검</td></tr>
 <tr><td></td><td><strong>히스토그램 (Histogram)</strong></td><td>데이터 분포 형태 및 흩어짐 분석</td></tr>
@@ -44,7 +44,7 @@
 <tr><td></td><td><strong>매트릭스 데이터 해석 (Matrix Data Analysis)</strong></td><td>매트릭스 수치 데이터를 정량적으로 분석</td></tr>
 <tr><td></td><td><strong>PDPC (Process Decision Program Chart)</strong></td><td>예상 장애에 대한 실행 계획 및 대안 수립</td></tr>
 <tr><td></td><td><strong>애로우 다이어그램 (Arrow Diagram)</strong></td><td>네트워크 기반 일정 관리 및 최적 경로 파악</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

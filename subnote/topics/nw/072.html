@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,24 +20,27 @@
 <li><strong>정의</strong>: 무선접속망(RAN)에 AI/ML을 내재화하여 무선 자원 할당, 빔포밍, 간섭 관리, 셀 최적화를 실시간 자율 수행하는 차세대 RAN 기술</li>
 <li><strong>키워드</strong>: O-RAN, xApp/rApp, Near-RT RIC, Non-RT RIC, 빔관리, 자원 스케줄링, 에너지 효율</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>AI-RAN/O-RAN 구성요소:</strong><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>AI-RAN</strong></td><td><strong>Non-RT RIC</strong></td><td>1초 이상 주기 AI·ML 기반 정책·모델 관리</td><td>장주기 지능 제어</td></tr>
-<tr><td></td><td><strong>Near-RT RIC</strong></td><td>10ms~1초 주기 실시간 RAN 파라미터 최적화</td><td>단주기 실시간 제어</td></tr>
-<tr><td></td><td><strong>xApp</strong></td><td>Near-RT RIC 위에서 동작하는 서드파티 앱</td><td>지능형 앱 실행</td></tr>
-<tr><td></td><td><strong>rApp</strong></td><td>Non-RT RIC 위에서 동작하는 서드파티 앱</td><td>정책 관리 앱</td></tr>
-<tr><td><strong>기지국 기능</strong></td><td><strong>O-CU (중앙 유닛)</strong></td><td>RRC·PDCP 프로토콜 처리·중앙 집중 기능</td><td>상위 계층 처리</td></tr>
-<tr><td></td><td><strong>O-DU (분산 유닛)</strong></td><td>RLC·MAC·하위 PHY 실시간 처리</td><td>중간 계층 처리</td></tr>
-<tr><td></td><td><strong>O-RU (무선 유닛)</strong></td><td>상위 PHY·RF 안테나 신호 송수신 처리</td><td>무선 신호 처리</td></tr>
-<tr><td><strong>전송 
-인터페이스</strong></td><td><strong>Open Fronthaul 
-(F1)</strong></td><td>O-DU↔O-RU 간 표준화된 개방형 인터페이스</td><td>개방형 프론트홀</td></tr>
-<tr><td></td><td><strong>E2 인터페이스</strong></td><td>Near-RT RIC↔O-CU·O-DU 간 제어 인터페이스</td><td>RIC 제어 인터페이스</td></tr>
-<tr><td></td><td><strong>A1 인터페이스</strong></td><td>Non-RT RIC→Near-RT RIC 정책 전달 인터페이스</td><td>정책 전달</td></tr>
-<tr><td></td><td><strong>O1 인터페이스</strong></td><td>SMO↔RAN 구성요소 간 관리·운영 인터페이스</td><td>운영 관리</td></tr>
-<tr><td><strong>관리</strong></td><td><strong>SMO </strong></td><td>RAN 전체 구성·운영·관리 총괄</td><td>통합 관리 플랫폼</td></tr>
-<tr><td></td><td><strong>클라우드 인프라</strong></td><td>O-RAN 기능을 가상화·컨테이너 기반으로 운용</td><td>클라우드 네이티브</td></tr>
-</table>
+<li><strong>AI-RAN/O-RAN 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
+<tr><td>RIC</td><td>Non-RT RIC</td><td>1초↑ 주기 AI 모델 학습·정책 생성·rApp 관리</td></tr>
+<tr><td></td><td>Near-RT RIC</td><td>10ms~1초 AI 추론으로 무선자원·빔·간섭 실시간 제어</td></tr>
+<tr><td></td><td>xApp</td><td>Near-RT RIC 위 동작·빔포밍·간섭제어·스케줄링 자동화</td></tr>
+<tr><td></td><td>rApp</td><td>Non-RT RIC 위 동작·트래픽 예측·셀 최적화·슬라이싱</td></tr>
+<tr><td>AI 기능</td><td>무선 자원 자율 할당</td><td>AI가 채널·트래픽 상태 분석→주파수·전력·PRB 실시간 배분</td></tr>
+<tr><td></td><td>AI 빔포밍 최적화</td><td>사용자 위치·이동 예측 기반 빔 방향·폭 실시간 자동 조정</td></tr>
+<tr><td></td><td>AI 간섭 관리</td><td>셀 간 간섭 패턴 학습→간섭 회피·조정 자율 수행</td></tr>
+<tr><td></td><td>AI 셀 최적화</td><td>셀 커버리지·용량·에너지 AI 분석→자율 파라미터 조정</td></tr>
+<tr><td></td><td>자가 치유 
+(Self-Healing)</td><td>장애 자동 감지·원인 AI 분석·복구 조치 자율 수행</td></tr>
+<tr><td></td><td>연합학습 </td><td>기지국 간 데이터 공유 없이 분산 AI 모델 협력 학습</td></tr>
+<tr><td>기지국 </td><td>O-CU (중앙)</td><td>RRC·PDCP 처리·AI 기반 핸드오버·QoS 정책 적용</td></tr>
+<tr><td></td><td>O-DU (분산)</td><td>RLC·MAC 처리·AI 스케줄러로 실시간 자원 배분</td></tr>
+<tr><td></td><td>O-RU (무선)</td><td>PHY·RF 처리·AI 빔포밍·안테나 가중치 실시간 조정</td></tr>
+<tr><td>인터페이스</td><td>E2 인터페이스</td><td>Near-RT RIC↔O-CU·O-DU AI 제어명령 실시간 전달</td></tr>
+<tr><td></td><td>A1 인터페이스</td><td>Non-RT RIC→Near-RT RIC AI 정책·학습모델 하향 배포</td></tr>
+<tr><td>관리·운영</td><td>SMO</td><td>RAN 전체 AI 모델 배포·성능 모니터링·멀티벤더 통합관리</td></tr>
+<tr><td></td><td>O-Cloud</td><td>AI 추론·학습 워크로드를 가상화·컨테이너로 탄력 운용</td></tr>
+</table></div>
 </li>
 <li><strong>AI-RAN 주요 응용</strong>: 동적 스펙트럼 관리, 에너지 절감(트래픽 예측 기반 슬립 모드), 안테나 빔 최적화</li>
 <li><strong>인사이트</strong>: AI-RAN은 <strong>O-RAN 오픈 인터페이스</strong>를 기반으로 다양한 벤더의 AI 앱을 RAN에 탑재하는 개방형 생태계를 형성. 에너지 효율과 주파수 효율을 동시에 극대화하는 6G RAN의 핵심 기술.</li>

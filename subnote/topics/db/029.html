@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,22 +20,22 @@
 <li><strong>정의</strong>: 데이터베이스에서 ACID 속성을 보장하는 논리적 작업의 원자적 단위</li>
 <li><strong>키워드</strong>: ACID, 원자성, 일관성, 격리성, 지속성, 상태전이도, COMMIT, ROLLBACK</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
-<li><strong>ACID 속성</strong>:<table>
+<li><strong>ACID 속성</strong>:<div class="table-scroll"><table>
 <tr><th><strong>특징</strong></th><th><strong>상태관리</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>Atomicity (원자성)</strong></td><td>All or Nothing</td><td>전체 수행 또는 전체 미수행</td></tr>
 <tr><td><strong>Consistency (일관성)</strong></td><td>모순없는 상태</td><td>완료 후 일관된 상태 유지</td></tr>
 <tr><td><strong>Isolation (고립성)</strong></td><td>Locking</td><td>실행 중 중간 결과 접근 불가</td></tr>
 <tr><td><strong>Durability (영속성)</strong></td><td>Storing</td><td>완료된 결과의 영구 저장</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>상태 전이</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;활부완실철&gt;</strong></span><table>
+<li><strong>상태 전이</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;활부완실철&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>작업 구분</strong></th><th><strong>상태</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>시작</strong></td><td><strong>활동 상태 (Active)</strong></td><td>실행 중인 초기 동작 상태</td></tr>
 <tr><td><strong>성공</strong></td><td><strong>부분 완료 (Partial Committed)</strong></td><td>마지막 명령 수행 완료 상태</td></tr>
 <tr><td><strong>성공</strong></td><td><strong>완료 상태 (Committed)</strong></td><td>성공적 완료 및 영구 반영</td></tr>
 <tr><td><strong>실패</strong></td><td><strong>실패 상태 (Failed)</strong></td><td>오류 발생으로 실행 중단됨</td></tr>
 <tr><td><strong>실패</strong></td><td><strong>철회 상태 (Aborted)</strong></td><td>작업 취소 및 시작 전 복구</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: ACID 보장을 위한 비용(로킹, 로그 등)과 성능 간 균형이 중요하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>NoSQL은 성능을 위해 ACID 일부를 포기하는 BASE 모델을 채택</strong></u></span>함을 비교 언급 권장</li>
 </ul>

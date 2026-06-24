@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 사이버보안 취약점·약점·설정 오류를 표준화된 식별자로 체계화하여 보안 정보의 공유·자동화·관리를 지원하는 국제 표준 식별 체계</li>
 <li><strong>키워드:</strong> 취약점 식별, NVD, CVSS, CWE-Top 25, 보안 설정, SCAP, 취약점 데이터베이스, MITRE</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>3대 식별 체계 비교:</strong><table>
+<li><strong>3대 식별 체계 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>CVE</th><th>CWE</th><th>CCE</th></tr>
 <tr><td><strong>전체명</strong></td><td>Common Vulnerabilities and Exposures</td><td>Common Weakness Enumeration</td><td>Common Configuration Enumeration</td></tr>
 <tr><td><strong>대상</strong></td><td>특정 제품의 개별 취약점</td><td>소프트웨어 취약점 유형·근본 원인</td><td>시스템·소프트웨어 보안 설정 오류</td></tr>
@@ -28,7 +28,7 @@
 <tr><td><strong>관리 기관</strong></td><td>MITRE / NVD(NIST)</td><td>MITRE</td><td>MITRE</td></tr>
 <tr><td><strong>활용 목적</strong></td><td>취약점 추적·패치 관리</td><td>시큐어 코딩·설계 개선</td><td>보안 설정 감사·컴플라이언스</td></tr>
 <tr><td><strong>예시</strong></td><td>CVE-2021-44228 (Log4Shell)</td><td>CWE-79 (XSS), CWE-89 (SQL 인젝션)</td><td>CCE-2715 (패스워드 정책 설정)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야:</strong><ul>
 <li><strong>취약점 관리:</strong> CVE 기반 취약점 스캔·패치 우선순위 자동화</li>

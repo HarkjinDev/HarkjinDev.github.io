@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,23 +20,23 @@
 <li><strong>정의:</strong> 실제 사이버 공격에서 관찰된 공격자의 전술·기법·절차(TTPs)를 체계적으로 분류한 글로벌 사이버 위협 지식 베이스 프레임워크</li>
 <li><strong>키워드:</strong> TTPs, 전술, 기법, 절차, 위협 인텔리전스, 레드팀, 블루팀, 탐지 룰 매핑, ATT&amp;CK Navigator, 사이버 킬체인</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>핵심 구성 요소:</strong><table>
+<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>전술 (Tactics)</strong></td><td>공격자가 달성하려는 목표 단계 (Why), 14개</td><td>공격 목적</td></tr>
 <tr><td><strong>기법 (Techniques)</strong></td><td>전술 달성을 위한 구체적 방법 (How)</td><td>공격 방법</td></tr>
 <tr><td><strong>절차 (Procedures)</strong></td><td>특정 공격 그룹의 실제 기법 구현 사례</td><td>실제 사례</td></tr>
 <tr><td><strong>완화 (Mitigations)</strong></td><td>기법별 권장 방어·완화 조치</td><td>대응 방안</td></tr>
 <tr><td><strong>탐지 (Detections)</strong></td><td>기법별 탐지 방법·데이터 소스</td><td>탐지 기준</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 매트릭스:</strong><table>
+<li><strong>주요 매트릭스:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Enterprise</strong></td><td>Windows·Linux·macOS·클라우드·네트워크 대상</td><td>엔터프라이즈 환경</td></tr>
 <tr><td><strong>Mobile</strong></td><td>iOS·Android 모바일 디바이스 대상</td><td>모바일 환경</td></tr>
 <tr><td><strong>ICS</strong></td><td>산업제어시스템·OT 환경 대상</td><td>산업 환경</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 활용:</strong><table>
+<li><strong>주요 활용:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>레드팀</strong></td><td><strong>침투 테스트</strong></td><td>ATT&amp;CK 기법 기반 실제 공격 시뮬레이션·BAS</td></tr>
 <tr><td></td><td><strong>위협 에뮬레이션</strong></td><td>특정 APT 그룹 TTPs 재현하여 방어 체계 검증</td></tr>
@@ -44,7 +44,7 @@
 <tr><td></td><td><strong>탐지 공백 식별</strong></td><td>ATT&amp;CK Navigator로 미탐지 기법 시각화·우선순위 결정</td></tr>
 <tr><td><strong>위협 인텔리전스</strong></td><td><strong>APT 그룹 프로파일링</strong></td><td>공격 그룹별 TTPs 분석·추적</td></tr>
 <tr><td></td><td><strong>IOC 연계</strong></td><td>기법별 침해 지표와 위협 인텔리전스 연계</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> MITRE ATT&amp;CK은 공격자 관점의 TTPs를 표준화하여 레드팀·블루팀·위협 인텔리전스의 공통 언어로 자리잡았으며, ATT&amp;CK 기반 탐지 커버리지 측정이 SOC 성숙도 평가의 핵심 지표로 활용되면서 단순 취약점 관리를 넘어 행위 기반 방어 체계 구축의 표준 프레임워크로 자리잡고 있음</li>
 </ul>

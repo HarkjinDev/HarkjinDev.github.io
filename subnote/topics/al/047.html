@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 유한 상태와 전이 규칙으로 정규 언어를 인식하는 추상 기계 모델</li>
 <li><strong>키워드</strong>: DFA, NFA, 상태(State), 전이 함수(δ), 초기 상태, 수락 상태, 정규 언어</li>
 <li><strong>분류</strong>: 형식언어/오토마타</li>
-<li><strong>DFA vs NFA 비교</strong>:<table>
+<li><strong>DFA vs NFA 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>DFA (결정적)</th><th>NFA (비결정적)</th></tr>
 <tr><td>전이 함수</td><td>각 상태·입력에 전이 유일</td><td>복수 전이 가능</td></tr>
 <tr><td>ε-전이</td><td>불허</td><td>허용</td></tr>
 <tr><td>구현</td><td>직접 구현 용이</td><td>상태 수 적음</td></tr>
 <tr><td>인식 언어</td><td>정규 언어</td><td>정규 언어 (동등)</td></tr>
 <tr><td>변환</td><td>NFA를 DFA로 변환 가능</td><td>부분집합 구성법 사용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징</strong>: DFA와 NFA는 인식할 수 있는 언어의 표현력이 동일하며 상호 변환 가능</li>
 <li><strong>인사이트</strong>: <strong>DFA ≡ NFA ≡ 정규 표현식 ≡ 정규 문법</strong>이 모두 동등하다는 점을 강조하고, 푸시다운 오토마타(PDA)는 문맥자유언어, 튜링 기계는 재귀 가산 언어까지 인식함을 촘스키 계층과 함께 비교하면 차별화됨</li>

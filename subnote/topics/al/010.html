@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 노드와 포인터로 연결되어 동적 삽입·삭제가 가능한 선형 자료구조</li>
 <li><strong>키워드</strong>: 노드, Head, next 포인터, 동적 메모리, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ordered_insert</strong></u></span>, 정렬 삽입</li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>ordered_insert 절차 (정렬 삽입)</strong>:<table>
+<li><strong>ordered_insert 절차 (정렬 삽입)</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th></tr>
 <tr><td>1. 위치 탐색</td><td>Head부터 순회하며 새 값이 현재 노드보다 작은 위치 탐색</td></tr>
 <tr><td>2. 이전 노드 저장</td><td>삽입 위치 바로 앞 노드의 포인터 저장</td></tr>
 <tr><td>3. 새 노드 생성</td><td>새 노드의 next를 현재 노드에 연결</td></tr>
 <tr><td>4. 포인터 갱신</td><td>이전 노드의 next를 새 노드로 갱신</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: ordered_insert는 <strong>정렬 상태를 유지하며 삽입</strong>하는 알고리즘으로 O(n)이며, 이중 연결 리스트로 구현 시 이전 노드 탐색 없이 삭제 O(1) 보장. 대용량 삽입이 잦을 경우 BST나 스킵 리스트(Skip List)로 O(log n) 개선 가능</li>
 </ul>

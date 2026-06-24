@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 물리적 하드웨어 자원을 소프트웨어로 추상화하여 다수의 독립적 논리 환경을 생성·운용하는 기술</li>
 <li><strong>키워드</strong>: 하이퍼바이저, VM, 추상화, 자원 공유, 격리, 서버 가상화</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>가상화 유형/기술:</strong><table>
+<li><strong>가상화 유형/기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>유형</th><th>가상화 기술</th></tr>
 <tr><td><strong>인프라 자원</strong></td><td><strong>서버 가상화</strong></td><td>파티셔닝·가상I/O·하이퍼바이저</td></tr>
 <tr><td></td><td><strong>스토리지 가상화</strong></td><td>블록 가상화·가상 테이프라이브러리</td></tr>
@@ -35,7 +35,7 @@
 <tr><td></td><td><strong>유틸리티 서비스</strong></td><td>Metering·Provisioning</td></tr>
 <tr><td></td><td><strong>백업 가상화</strong></td><td>VTL 백업·테이프 라이브러리 기반 백업</td></tr>
 <tr><td></td><td><strong>클라이언트 데스크탑 가상화</strong></td><td>PC 가상화·SBC·VDI</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>가상화 동작 방식</strong>: 물리 서버 위에 하이퍼바이저(VMM) 설치 → Guest OS별 독립 VM 생성 → 자원(CPU·메모리·스토리지) 논리 분할</li>
 <li><strong>원격 데스크톱 프로토콜</strong>: RDP(Microsoft), VNC, ICA(Citrix) - 가상 데스크톱 원격 접속 핵심</li>

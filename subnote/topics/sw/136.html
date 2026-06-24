@@ -3,39 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 오픈소스 프로젝트관리 소프트웨어</title>
+  <title>[하위] 2-1. 오픈소스 라이선스 변화</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>3. 오픈소스 프로젝트관리 소프트웨어</h4>
+<h4>[하위] 2-1. 오픈소스 라이선스 변화</h4>
 <ul>
-<li><strong>정의</strong>: 프로젝트 계획·일정·자원·이슈를 관리하기 위해 소스코드가 공개된 오픈소스 기반의 프로젝트 관리 도구</li>
-<li><strong>키워드</strong>: Redmine, GitLab, Taiga, OpenProject, 이슈 트래킹, 칸반, 간트차트</li>
+<li><strong>정의</strong>: 오픈소스 생태계의 상업화·클라우드 산업 성장에 따라 전통적 오픈소스 라이선스에서 새로운 형태의 소스 공개 라이선스로 변화하는 추세</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SSPL</strong></u></span>(Server Side Public License, 서버 측 공용 라이선스), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>BSL</strong></u></span>(Business Source License), Commons Clause, 오픈소스 정의 충돌, 라이선스 변경(Re-licensing)</li>
 <li><strong>분류</strong>: 오픈소스</li>
-<li><strong>주요 오픈소스 PM 도구 비교</strong>:<table>
-<tr><th>도구</th><th>특징</th><th>라이선스</th></tr>
-<tr><td>Redmine</td><td>Ruby 기반, 이슈·간트·위키 통합</td><td>GPL v2</td></tr>
-<tr><td>GitLab CE</td><td>Git + CI/CD + 이슈 통합</td><td>MIT</td></tr>
-<tr><td>OpenProject</td><td>WBS·간트·칸반, 엔터프라이즈 기능</td><td>GPL v3</td></tr>
-<tr><td>Taiga</td><td>애자일 중심, 스크럼·칸반</td><td>AGPL v3</td></tr>
-</table>
+<li><strong>최근 라이선스 변화 동향</strong>:<div class="table-scroll"><table>
+<tr><th>사례</th><th>변경 내용</th><th>배경</th></tr>
+<tr><td>MongoDB → SSPL</td><td>AGPL에서 SSPL로 전환</td><td>클라우드 사업자의 무임승차 방지</td></tr>
+<tr><td>HashiCorp → BSL</td><td>MPL에서 BSL로 전환</td><td>경쟁사의 상업적 이용 제한</td></tr>
+<tr><td>Elasticsearch → SSPL</td><td>Apache 2.0에서 SSPL로</td><td>AWS의 OpenSearch 포크 대응</td></tr>
+<tr><td>Redis → RSALv2</td><td>BSD에서 RSALv2로 전환</td><td>클라우드 제공업체 이용 제한</td></tr>
+</table></div>
 </li>
-<li><strong>전자정부 표준프레임워크 연계</strong>:<ul>
-<li>국내 공공 프로젝트에서 Redmine이 형상관리·이슈 추적 도구로 널리 활용</li>
+<li><strong>OSI의 입장</strong>: SSPL·BSL은 오픈소스 정의(OSD)를 충족하지 않아 <strong>“오픈소스 라이선스”로 인정하지 않음</strong></li>
+<li><strong>인사이트</strong>: 클라우드 하이퍼스케일러(AWS·GCP·Azure)의 오픈소스 상업화에 대한 반발로 <strong>“오픈소스 정의의 경계”</strong>가 논쟁 중이며, 기업 도입 시 라이선스 변경 가능성 모니터링이 필수.</li>
 </ul>
-</li>
-<li><strong>인사이트</strong>: 오픈소스 PM 도구는 <strong>라이선스 비용 절감 + 커스터마이징 자유도</strong>가 장점이나, 운영·유지보수 인력 확보와 셀프 호스팅 인프라 비용을 총소유비용(TCO)으로 함께 평가해야 함.</li>
-</ul>
-<hr/>
-</body>
-</html>
+
 </body>
 </html>

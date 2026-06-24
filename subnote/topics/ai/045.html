@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,22 +20,22 @@
 <li><strong>정의</strong>: 사람이 사용하는 언어(텍스트)를 컴퓨터가 계산할 수 있도록 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고차원 벡터 공간의 수치로 변환</strong></u></span>하는 기술</li>
 <li><strong>키워드</strong>: 벡터화, 차원 축소, NLP, NLU, NLG, 형태소 분석, 구문 분석, 의미 분석, 희소 표현, 밀집 표현</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
-<li><strong>구성요소:  (NLP = NLU + NLG)</strong><table>
+<li><strong>구성요소:  (NLP = NLU + NLG)</strong><div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>NLP</strong></td><td>언어 처리 전체 기술</td><td>인공지능의 언어 활용</td></tr>
 <tr><td><strong>NLU</strong></td><td>의미 및 의도 분석</td><td>구문 분석 및 엔티티 추출 </td></tr>
 <tr><td><strong>NLG</strong></td><td>문장 및 텍스트 생성</td><td>자연스러운 응답 및 요약.
 (담론 생성→문장계획→어휘선택→문장생성→형태생성)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 방식</strong>:<table>
+<li><strong>핵심 방식</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>주요 기술/방식</strong></th><th><strong>상세 설명</strong></th><th><strong>핵심 요소/기법</strong></th></tr>
 <tr><td><strong>분석 체계</strong></td><td><strong>형태소 분석</strong></td><td>어절을 최소 의미 단위로 분해</td><td>ngram, stemming, 품사 태깅</td></tr>
 <tr><td></td><td><strong>구문 분석</strong></td><td>문장 구성 성분 및 구조 분석</td><td>상향식/하향식 구문분석</td></tr>
 <tr><td></td><td><strong>의미 분석</strong></td><td>문장이 가진 실제 의미 해석</td><td>통계론적 기법, 딥러닝</td></tr>
 <tr><td><strong>표현 방식</strong></td><td><strong>희소 표현</strong></td><td>0과 1로 구성된 이진 벡터</td><td>원-핫 인코딩, 의미 파악 불가</td></tr>
 <tr><td></td><td><strong>밀집 표현</strong></td><td>실수 기반의 압축된 벡터</td><td>Word2Vec, 의미적 유사성 보존</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 임베딩은 NLP의 기초이며, 최근에는 문맥에 따라 의미가 변하는 '문맥 자립형 임베딩(BERT, GPT)'으로 발전함</li>
 </ul>

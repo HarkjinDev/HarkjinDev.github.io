@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 특정 하드웨어에 종속적으로 동작하는 임베디드 시스템의 소프트웨어를 검증하는 테스트로, 실시간성·자원 제약·하드웨어 의존성이 특징</li>
 <li><strong>키워드</strong>: HIL(Hardware In the Loop), SIL(Software In the Loop), MIL(Model In the Loop), RTOS, 실시간 제약, 타이밍 분석, 안전인증</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>임베디드 테스트 환경 비교</strong>:<table>
+<li><strong>임베디드 테스트 환경 비교</strong>:<div class="table-scroll"><table>
 <tr><th>환경</th><th>설명</th><th>특징</th></tr>
 <tr><td>MIL (Model-in-the-Loop)</td><td>모델 수준 시뮬레이션</td><td>초기 설계 단계 검증</td></tr>
 <tr><td>SIL (Software-in-the-Loop)</td><td>생성된 코드 PC에서 실행</td><td>코드 로직 검증</td></tr>
 <tr><td>HIL (Hardware-in-the-Loop)</td><td>실제 하드웨어 연결 시뮬레이션</td><td>실시간 하드웨어 인터랙션</td></tr>
 <tr><td>PIL (Processor-in-the-Loop)</td><td>실제 타겟 프로세서 사용</td><td>프로세서 특성 검증</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 임베디드 테스트는 <strong>실제 환경 재현 비용이 높아 MIL→SIL→HIL 단계적 검증</strong>이 표준이며, DO-178C(항공)·ISO 26262(자동차) 등 도메인별 안전 인증 기준 준수가 필수.</li>
 </ul>

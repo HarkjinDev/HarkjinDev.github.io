@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 가중 그래프에서 두 노드 간 최소 비용 경로를 찾는 알고리즘</li>
 <li><strong>키워드</strong>: 다익스트라(Dijkstra), 벨만-포드(Bellman-Ford), 플로이드-워셜(Floyd-Warshall), A*, 음수 가중치</li>
 <li><strong>분류</strong>: 그래프 탐색</li>
-<li><strong>4가지 알고리즘 비교</strong>:<table>
+<li><strong>4가지 알고리즘 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>다익스트라</strong></th><th><strong>벨만-포드</strong></th><th><strong>플로이드-워셜</strong></th><th><strong>A* (에이스타)</strong></th></tr>
 <tr><td><strong>방식</strong></td><td>탐욕, 우선순위 큐</td><td>DP, 간선 완화 반복</td><td>DP, 경유 노드</td><td>탐욕 + 휴리스틱</td></tr>
 <tr><td><strong>복잡도</strong></td><td>O(E log V)</td><td>O(VE)</td><td>O(V³)</td><td>O(E log V)</td></tr>
 <tr><td><strong>음수 가중치</strong></td><td><strong>불가</strong></td><td><strong>가능</strong></td><td><strong>가능</strong></td><td><strong>불가</strong></td></tr>
 <tr><td><strong>음수 사이클 감지</strong></td><td>불가</td><td><strong>가능</strong></td><td><strong>가능</strong></td><td>불가</td></tr>
 <tr><td><strong>출발점</strong></td><td>단일</td><td>단일</td><td><strong>모든 쌍</strong></td><td>단일</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>알고리즘 선택 기준</strong>:<ul>
 <li>양수 가중치, 단일 출발점: 다익스트라</li>

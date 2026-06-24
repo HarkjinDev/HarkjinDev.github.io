@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 네트워크에서 트래픽 유형별로 대역폭·지연·손실을 차등 보장하여 서비스 품질을 관리하는 기술 체계</li>
 <li><strong>키워드</strong>: 대역폭, 지연, 지터, 패킷 손실, IntServ, DiffServ, RSVP, 마킹, 큐잉</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>QoS 4대 요소</strong>:<table>
+<li><strong>QoS 4대 요소</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th><th>영향 서비스</th></tr>
 <tr><td>대역폭(Bandwidth)</td><td>단위 시간 전송량</td><td>고화질 스트리밍</td></tr>
 <tr><td>지연(Latency)</td><td>패킷 전달 소요 시간</td><td>VoIP, 게임</td></tr>
 <tr><td>지터(Jitter)</td><td>지연 변동성</td><td>실시간 미디어</td></tr>
 <tr><td>패킷 손실(Loss)</td><td>패킷 폐기 비율</td><td>모든 서비스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 현대 엔터프라이즈 망은 <strong>DiffServ를 기본으로 하되, 특정 핵심 경로에 RSVP 예약</strong>을 병행하는 하이브리드 방식을 채택. 5G QoS는 QFI(QoS Flow Indicator)로 슬라이스별 SLA를 보장.</li>
 </ul>

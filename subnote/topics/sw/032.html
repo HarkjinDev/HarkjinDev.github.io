@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,24 +20,24 @@
 <li><strong>정의:</strong> 대규모 조직에서 애자일·린·DevOps 원칙을 전사적으로 확장·적용하여 다수의 팀이 정렬된 방식으로 가치를 신속하게 전달하는 스케일드 애자일 프레임워크</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>PI Planning</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ART(Agile Release Train)</strong></u></span>, RTE, 스프린트, Epic, Feature, Story, 린 애자일, DevOps, Value Stream, 릴리즈 트레인</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>애자일 vs SAFe 비교:</strong><table>
+<li><strong>애자일 vs SAFe 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>애자일 (스크럼)</th><th>SAFe</th></tr>
 <tr><td><strong>적용 규모</strong></td><td>소규모 단일 팀</td><td>대규모 다팀·전사</td></tr>
 <tr><td><strong>계획 주기</strong></td><td>스프린트 (2~4주)</td><td>PI (8~12주)</td></tr>
 <tr><td><strong>조정 단위</strong></td><td>팀 단위</td><td>ART·Solution Train</td></tr>
 <tr><td><strong>전략 연계</strong></td><td>제한적</td><td>포트폴리오~팀 완전 연계</td></tr>
 <tr><td><strong>출시 단위</strong></td><td>팀별 릴리즈</td><td>통합 릴리즈 트레인</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>4대 구성 계층:</strong><table>
+<li><strong>4대 구성 계층:</strong><div class="table-scroll"><table>
 <tr><th>계층</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Team (팀)</strong></td><td>스크럼·칸반 기반 2주 스프린트 단위 개발</td><td>기본 실행 단위</td></tr>
 <tr><td><strong>Program (프로그램)</strong></td><td>ART 중심 PI Planning으로 다팀 정렬·조율</td><td>ART 실행</td></tr>
 <tr><td><strong>Large Solution (대형 솔루션)</strong></td><td>복수 ART를 조율하는 Solution Train 운영</td><td>복잡 솔루션 조율</td></tr>
 <tr><td><strong>Portfolio (포트폴리오)</strong></td><td>전략·투자·Lean Governance로 전사 방향 설정</td><td>전사 전략 정렬</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>조직</strong></td><td><strong>ART
 (Agile Release Train)</strong></td><td>가치 흐름 기반 팀 연합체</td><td>핵심 실행 조직</td></tr>
@@ -52,24 +52,24 @@
 <tr><td><strong>백로그</strong></td><td><strong>Epic</strong></td><td>포트폴리오 수준 대형 전략</td><td>전사 이니셔티브</td></tr>
 <tr><td></td><td><strong>Feature</strong></td><td>프로그램 수준의 기능 단위</td><td>기능 단위</td></tr>
 <tr><td></td><td><strong>Story</strong></td><td>팀 수준의 작은 가치 단위</td><td>구현 단위</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>PI Planning 절차:</strong><table>
+<li><strong>PI Planning 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 비전 공유</strong></td><td>경영진·PM이 비즈니스 컨텍스트·비전 발표</td><td>방향 정렬</td></tr>
 <tr><td><strong>2. 아키텍처 비전</strong></td><td>시스템 아키텍처·기술 방향 공유</td><td>기술 정렬</td></tr>
 <tr><td><strong>3. 팀 브레이크아웃</strong></td><td>각 팀이 PI 목표·스프린트 계획·의존성 식별</td><td>팀 계획 수립</td></tr>
 <tr><td><strong>4. 리스크·의존성 조율</strong></td><td>팀 간 의존성·리스크를 Program Board로 시각화</td><td>의존성 관리</td></tr>
 <tr><td><strong>5. PI 목표 확정</strong></td><td>팀·ART 수준 PI 목표 확정·경영진 검토</td><td>목표 확정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SAFe 구성 비교 (규모별):</strong><table>
+<li><strong>SAFe 구성 비교 (규모별):</strong><div class="table-scroll"><table>
 <tr><th>구성</th><th>적용 규모</th><th>계층 수</th><th>특징</th></tr>
 <tr><td><strong>Essential SAFe</strong></td><td>중소 규모</td><td>2계층</td><td>Team+Program 기본 구성</td></tr>
 <tr><td><strong>Large Solution SAFe</strong></td><td>대형 솔루션</td><td>3계층</td><td>Solution Train 추가</td></tr>
 <tr><td><strong>Portfolio SAFe</strong></td><td>전사 포트폴리오</td><td>3계층</td><td>포트폴리오 거버넌스 추가</td></tr>
 <tr><td><strong>Full SAFe</strong></td><td>대기업·전사</td><td>4계층</td><td>전체 계층 완전 구성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> SAFe는 단순 애자일 방법론을 넘어 팀→프로그램→포트폴리오를 전략적으로 연결하는 전사 운영 모델로, PI Planning을 통한 다팀 정렬이 대규모 조직의 애자일 전환 성공의 핵심 요소임. 단 도입 초기에 형식적 이벤트·문서화가 과중해지는 오버헤드 위험이 있으므로, Essential SAFe부터 단계적으로 도입하고 ART 구성에 충분한 조직 설계가 선행되어야 함</li>
 </ul>

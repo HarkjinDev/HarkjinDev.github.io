@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,25 +24,25 @@
 <li><strong>분할 방식</strong>:</li>
 <li><strong>수평 분할 (Horizontal Partitioning)</strong>:<ul>
 <li><strong>개념</strong>: 하나의 테이블을 <strong>행(Row, 튜플) 기준</strong>으로 여러 조각으로 분리하는 방식</li>
-<li><strong>분할 기준</strong>: <table>
+<li><strong>분할 기준</strong>: <div class="table-scroll"><table>
 <tr><th>분할 기법</th><th>설명</th></tr>
 <tr><td><strong>범위(Range) 분할</strong></td><td>숫자, 날짜 등 값의 범위를 기준으로 분할 (예: 월별 매출)</td></tr>
 <tr><td><strong>해시(Hash) 분할</strong></td><td>해시 함수를 적용해 데이터를 균등하게 배분</td></tr>
 <tr><td><strong>리스트(List) 분할</strong></td><td>특정 목록 값을 기준으로 분할 (예: 지역별 코드)</td></tr>
 <tr><td><strong>조건(Condition) 분할</strong></td><td>컬럼 기준 분리</td></tr>
 <tr><td><strong>복합(Composite) 분할</strong></td><td>위 기법들을 혼합하여 분할하는 기법</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>
 <li><strong>수직 분할 (Vertical Partitioning)</strong>:<ul>
 <li><strong>개념</strong>: 테이블의 <strong>컬럼(Column)을 기준</strong>으로 나누어 별도의 테이블로 분리하고, <strong>기본키(PK)를 통해 관계를 유지</strong>하는 방식</li>
-<li><strong>분할 기준</strong>: <table>
+<li><strong>분할 기준</strong>: <div class="table-scroll"><table>
 <tr><th><strong>분할 기법</strong></th><th><strong>특징</strong></th><th><strong>설명 </strong></th></tr>
 <tr><td><strong>접근 빈도 기반</strong></td><td>조회 패턴 중심 분리</td><td>빈도별 분리로 I/O 성능 최적화</td></tr>
 <tr><td><strong>기능(업무) 기반</strong></td><td>업무 기능별 분리</td><td>업무 단위별 컬럼 그룹 분리</td></tr>
 <tr><td><strong>민감정보 기반</strong></td><td>보안 중심 분리</td><td>중요 정보 별도 관리로 보안 강화</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

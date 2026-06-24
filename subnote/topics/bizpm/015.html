@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 고객·경쟁사·자사를 동시에 분석하여 지속 가능한 경쟁 전략을 수립하는 분석 프레임워크</li>
 <li><strong>키워드</strong>: 고객 니즈, 경쟁사 역량, 자사 강점, KSF</li>
 <li><strong>분류</strong>: 경영전략 분석</li>
-<li><strong>3C/4C 분석 항목</strong>:<table>
+<li><strong>3C/4C 분석 항목</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>분석 내용</strong></th></tr>
 <tr><td>Customer</td><td>시장 규모, 니즈, 구매 행동</td></tr>
 <tr><td>Competitor</td><td>경쟁사 전략, 강약점, 시장점유율</td></tr>
 <tr><td>Company</td><td>자사 역량, 차별점, 핵심 자원</td></tr>
 <tr><td>Channel(4C)</td><td>유통 채널(경로). e-비즈니스 강조</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>3C 분석의 핵심은 세 요소 간 교차점에서 KSF(Key Success Factor)를 도출</strong></u></span>하는 것이며, 고객의 니즈를 자사가 경쟁사보다 잘 충족시킬 수 있는 영역을 찾는 데 있음.</li>
 </ul>

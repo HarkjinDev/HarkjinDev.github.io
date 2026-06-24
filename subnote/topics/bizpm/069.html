@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -27,12 +27,12 @@
 </ul>
 </li>
 <li><strong>Critical Chain (주공정 연쇄):</strong> 활동 간의 선후 관계(Logical Dependency)뿐만 아니라 <strong>자원 제약(Resource Constraint)</strong>까지 고려한 최장 경로</li>
-<li><strong>버퍼 관리:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프피자&gt;</strong></span><table>
+<li><strong>버퍼 관리:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프피자&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>버퍼 종류</strong></th><th><strong>위치 및 기능</strong></th></tr>
 <tr><td><strong>프로젝트 버퍼 (Project) </strong></td><td>프로젝트 가장 마지막에 위치하며, 주공정 연쇄의 지연을 흡수</td></tr>
 <tr><td><strong>피딩 버퍼 (Feeding)</strong></td><td>비주공정 연쇄가 주공정 연쇄로 합류하는 지점에 위치하여 지연 전파 방지</td></tr>
 <tr><td><strong>자원 버퍼 (Resource)</strong></td><td>자원 투입 시점을 알려주는 신호(Flag) 역할을 하여 대기 시간 최소화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>수행절차: </strong><ol>
 <li><strong>도전적 일정 추정:</strong> 개별 활동에서 안전율(Safety Margin)을 제거하고 실행 가능한 최소 시간으로 산정</li>
@@ -44,13 +44,13 @@
 </li>
 <li><strong>CCPM(Critical Chain Project Management): </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TOC(제약이론)를 기반</strong></u></span>으로 자원 제약과 불확실성을 고려하여 프로젝트 일정을 관리하는 기법<ul>
 <li><strong>TOC 연계</strong>: 병목(Constraint) 식별 → 버퍼로 보호 → 전체 처리량 극대화</li>
-<li><strong>비교표: </strong><table>
+<li><strong>비교표: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>CCM</strong></th><th><strong>CCPM </strong></th></tr>
 <tr><td><strong>의미</strong></td><td><strong>주공정 연쇄법</strong> (방법론)</td><td><strong>주공정 연쇄 프로젝트 관리</strong> (관리 체계)</td></tr>
 <tr><td><strong>초점</strong></td><td>일정 네트워크에서 <strong>일정을 계산하는 기법</strong></td><td>프로젝트 전체를 <strong>관리하는 프레임워크</strong></td></tr>
 <tr><td><strong>범위</strong></td><td>자원 제약과 버퍼를 이용한 <strong>스케줄링 알고리즘</strong></td><td>조직 문화, 멀티태스킹 방지 등 <strong>포괄적 경영 기법</strong></td></tr>
 <tr><td><strong>관계</strong></td><td><strong>CCPM</strong>이라는 관리 체계 안에 포함된 <strong>핵심 일정 산정 기술(CCM)</strong></td><td></td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

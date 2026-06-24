@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 자연어(Natural Language)로 입력된 질의를 AI 모델이 분석하여 실행 가능한 SQL 쿼리로 자동 변환하는 기술</li>
 <li><strong>키워드:</strong> 자연어 처리, SQL 생성, LLM, 스키마 이해, RAG, 프롬프트 엔지니어링, 시맨틱 파싱, 데이터 민주화</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 자연어 입력</strong></td><td>사용자가 일상 언어로 데이터 질의 입력</td><td>자연어 질의</td></tr>
 <tr><td><strong>2. 스키마 인식</strong></td><td>DB 테이블·컬럼·관계·제약 정보 파악</td><td>스키마 이해</td></tr>
@@ -28,9 +28,9 @@
 <tr><td><strong>4. SQL 생성</strong></td><td>LLM이 스키마·의도 기반으로 SQL 쿼리 생성</td><td>쿼리 변환</td></tr>
 <tr><td><strong>5. 검증·실행</strong></td><td>생성된 SQL 문법·실행 가능성 검증 후 DB 실행</td><td>실행 검증</td></tr>
 <tr><td><strong>6. 결과 반환</strong></td><td>쿼리 실행 결과를 자연어·시각화로 반환</td><td>결과 제공</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 기술:</strong><table>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>스키마 처리</strong></td><td><strong>스키마 링킹</strong></td><td>질의 내 엔티티와 DB 컬럼·테이블 연결</td><td>의미 매핑</td></tr>
 <tr><td></td><td><strong>스키마 직렬화</strong></td><td>DB 구조를 LLM이 이해 가능한 텍스트로 변환</td><td>구조 변환</td></tr>
@@ -41,7 +41,7 @@
 <tr><td></td><td><strong>RAG 연계</strong></td><td>유사 질의-SQL 쌍을 검색하여 프롬프트에 주입</td><td>검색 기반 생성</td></tr>
 <tr><td><strong>검증</strong></td><td><strong>실행 기반 검증</strong></td><td>생성 SQL을 실제 DB에 실행하여 결과 확인</td><td>실행 검증</td></tr>
 <tr><td></td><td><strong>자기 수정 </strong></td><td>오류 발생 시 LLM이 오류 메시지 기반 자동 수정</td><td>자동 오류 수정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> Text2SQL은 데이터 분석의 민주화를 실현하는 핵심 기술로, SQL을 모르는 비개발자도 자연어로 데이터를 조회할 수 있게 하는 실용적 AI 응용 분야임. 단순 쿼리 생성에서 스키마 탐색·자기 수정·실행 검증을 반복하는 에이전트 기반 접근으로 빠르게 진화하고 있으며, 기업 내 데이터 거버넌스·보안과 결합한 안전한 자연어 DB 접근 체계 구축이 엔터프라이즈 도입의 핵심 과제임</li>
 </ul>

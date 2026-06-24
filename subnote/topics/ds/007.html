@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 컨테이너화된 워크로드의 자동 배포·스케일링·복구·서비스 디스커버리를 관리하는 오픈소스 컨테이너 오케스트레이션 플랫폼</li>
 <li><strong>키워드</strong>: Pod, Node, Deployment, Service, HPA, CNCF, 셀프힐링, 선언적 관리</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>주요 컴포넌트</strong>:<table>
+<li><strong>주요 컴포넌트</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명 </strong></th><th><strong>핵심 </strong></th></tr>
 <tr><td><strong>Master Node</strong></td><td>Kube API Server</td><td>명령 전달 및 REST 통신</td><td>REST API 서버</td></tr>
 <tr><td></td><td>Kube Scheduler</td><td>자원 상황별 노드 할당</td><td>노드 스케줄링</td></tr>
@@ -35,7 +35,7 @@
 <tr><td></td><td>Dashboard</td><td>웹 기반 클러스터 UI</td><td>웹 관리 도구</td></tr>
 <tr><td></td><td>리소스 모니터링</td><td>시계열 매트릭스 기록 열람</td><td>자원 모니터링</td></tr>
 <tr><td></td><td>로깅</td><td>로그 중앙 저장 및 검색</td><td>통합 로그 관리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>HPA(Horizontal Pod Autoscaler)</strong>: CPU·메모리 사용률에 따라 Pod 수 자동 조정</li>
 <li><strong>인사이트</strong>: Kubernetes는 <strong>클라우드 네이티브의 사실상 표준</strong>으로, 선언적 구성(Desired State)과 셀프힐링으로 운영 자동화를 실현하며, CNCF 생태계(Helm, Istio, Prometheus)와의 연계를 언급하면 고득점 가능.</li>

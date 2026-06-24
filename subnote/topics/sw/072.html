@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: MSA에서 서비스 간 통신을 애플리케이션 코드 수정 없이 인프라 계층에서 제어·관찰·보안하는 전용 인프라 계층</li>
 <li><strong>키워드</strong>: 사이드카 프록시, 서비스 디스커버리, 서킷 브레이커, 비지니스 로직, Envoy, Istio, Linkerd, 트래픽 관리, 상호 TLS(mTLS), 분산 추적, 관찰가능성</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>구성요소</strong>: <table>
+<li><strong>구성요소</strong>: <div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>구성요소</strong></th><th><strong>상세 내용</strong></th></tr>
 <tr><td>Control Plane</td><td>컨트롤러 역할</td><td>프록시들에 설정 값을 전달하고 통합 관리하는 제어부</td></tr>
 <tr><td>Data Plane</td><td>트래픽 컨트롤</td><td>프록시들로 이루어져 실제 트래픽을 설정 값에 따라 제어하는 영역</td></tr>
@@ -28,7 +28,7 @@
 <tr><td></td><td>Service Discovery</td><td>트래픽 규칙과 구성을 식별하여 프록시에 배포 및 경로 탐색</td></tr>
 <tr><td></td><td>Circuit Breaker</td><td>Destination Rule을 정의하여 서비스 연결 상태 확인 및 이상 감지 시 차단</td></tr>
 <tr><td></td><td>Business Logic</td><td>MSA에서 수행되는 실제 비즈니스 기능 및 데이터 입출력 처리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>제공 기능</strong>:<ul>
 <li>트래픽 관리: 카나리아·A/B 배포, 재시도·타임아웃</li>

@@ -2073,114 +2073,118 @@
       },
       {
         "id": "109",
-        "name": "[Part 8]. 형상관리/배포"
+        "name": "23. 정적 테스트(Static Test)"
       },
       {
         "id": "110",
-        "name": "1. 형상관리 (Configuration Management)"
+        "name": "[Part 8]. 형상관리/배포"
       },
       {
         "id": "111",
-        "name": "[하위] 1-1. 기준선 (Baseline)"
+        "name": "1. 형상관리 (Configuration Management)"
       },
       {
         "id": "112",
-        "name": "[하위] 1-2. ALM (Application Lifecycle Management)"
+        "name": "[하위] 1-1. 기준선 (Baseline)"
       },
       {
         "id": "113",
-        "name": "2. DevOps (Development and Operations)"
+        "name": "[하위] 1-2. ALM (Application Lifecycle Management)"
       },
       {
         "id": "114",
-        "name": "[하위] 2-1. CI/CD (Continuous Integration / Continuous Deployment)"
+        "name": "2. DevOps (Development and Operations)"
       },
       {
         "id": "115",
-        "name": "[하위] 2-2. DevSecOps (Development, Security and Operations)"
+        "name": "[하위] 2-1. CI/CD (Continuous Integration / Continuous Deployment)"
       },
       {
         "id": "116",
-        "name": "[하위] 2-3. 데이터옵스 (DataOps)"
+        "name": "[하위] 2-2. DevSecOps (Development, Security and Operations)"
       },
       {
         "id": "117",
-        "name": "[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)"
+        "name": "[하위] 2-3. 데이터옵스 (DataOps)"
       },
       {
         "id": "118",
-        "name": "[하위] 2-5. 플랫폼 엔지니어링 (Platform Engineering)"
+        "name": "[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)"
       },
       {
         "id": "119",
-        "name": "3. 배포 전략 (Deployment Strategy)"
+        "name": "[하위] 2-5. 플랫폼 엔지니어링 (Platform Engineering)"
       },
       {
         "id": "120",
-        "name": "[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)"
+        "name": "3. 배포 전략 (Deployment Strategy)"
       },
       {
         "id": "121",
-        "name": "4. 리버스 프록시 (Reverse Proxy)"
+        "name": "[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)"
       },
       {
         "id": "122",
-        "name": "5. 로드밸런싱 (Load Balancing)"
+        "name": "4. 리버스 프록시 (Reverse Proxy)"
       },
       {
         "id": "123",
-        "name": "6. 워크플로우 관리 (Workflow Management)"
+        "name": "5. 로드밸런싱 (Load Balancing)"
       },
       {
         "id": "124",
-        "name": "7. 백필 (Backfill)"
+        "name": "6. 워크플로우 관리 (Workflow Management)"
       },
       {
         "id": "125",
-        "name": "[Part 9]. 안전성 분석"
+        "name": "7. 백필 (Backfill)"
       },
       {
         "id": "126",
-        "name": "1. 소프트웨어 안전성 진단"
+        "name": "[Part 9]. 안전성 분석"
       },
       {
         "id": "127",
-        "name": "[하위] 1-1. FTA (Fault Tree Analysis)"
+        "name": "1. 소프트웨어 안전성 진단"
       },
       {
         "id": "128",
-        "name": "[하위] 1-2. FMEA (Failure Mode and Effects Analysis)"
+        "name": "[하위] 1-1. FTA (Fault Tree Analysis)"
       },
       {
         "id": "129",
-        "name": "[하위] 1-3. HAZOP (Hazard and Operability Analysis)"
+        "name": "[하위] 1-2. FMEA (Failure Mode and Effects Analysis)"
       },
       {
         "id": "130",
-        "name": "[하위] 1-4. ETA (Event Tree Analysis)"
+        "name": "[하위] 1-3. HAZOP (Hazard and Operability Analysis)"
       },
       {
         "id": "131",
-        "name": "[하위] 1-5. STPA (System Theoretic Process Analysis)"
+        "name": "[하위] 1-4. ETA (Event Tree Analysis)"
       },
       {
         "id": "132",
-        "name": "[Part 10]. 오픈소스"
+        "name": "[하위] 1-5. STPA (System Theoretic Process Analysis)"
       },
       {
         "id": "133",
-        "name": "1. 오픈소스 (Open Source)"
+        "name": "[Part 10]. 오픈소스"
       },
       {
         "id": "134",
-        "name": "2. 오픈소스 라이선스 (Open Source License)"
+        "name": "1. 오픈소스 (Open Source)"
       },
       {
         "id": "135",
-        "name": "[하위] 2-1. 오픈소스 라이선스 변화"
+        "name": "2. 오픈소스 라이선스 (Open Source License)"
       },
       {
         "id": "136",
+        "name": "[하위] 2-1. 오픈소스 라이선스 변화"
+      },
+      {
+        "id": "137",
         "name": "3. 오픈소스 프로젝트관리 소프트웨어"
       }
     ]

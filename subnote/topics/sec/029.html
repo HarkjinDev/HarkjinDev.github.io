@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,13 +21,13 @@
 <li><strong>키워드</strong>: COA, KPA, CPA, CCA, 커크호프 원칙</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>커크호프 원칙(Kerckhoffs's Principle)</strong>: 알고리즘이 공개되어도 키만 비밀로 유지하면 안전해야 함</li>
-<li><strong>공격 모델 분류</strong>:<table>
+<li><strong>공격 모델 분류</strong>:<div class="table-scroll"><table>
 <tr><th>공격 유형</th><th>설명</th><th>공격자 보유 정보</th></tr>
 <tr><td>COA (암호문 단독 공격)</td><td>암호문만으로 해독 시도</td><td>암호문만</td></tr>
 <tr><td>KPA (알려진 평문 공격)</td><td>평문-암호문 쌍으로 키 추론</td><td>평문 + 암호문 쌍</td></tr>
 <tr><td>CPA (선택 평문 공격)</td><td>원하는 평문 암호화 가능</td><td>암호화 오라클 접근</td></tr>
 <tr><td>CCA (선택 암호문 공격)</td><td>원하는 암호문 복호화 가능</td><td>복호화 오라클 접근</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 커크호프 원칙에 따라 현대 암호는 알고리즘을 공개하고 키 관리에 집중하는 것이 보안 모범 사례임</li>
 </ul>

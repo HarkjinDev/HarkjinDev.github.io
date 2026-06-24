@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -23,15 +23,15 @@
 <li><strong>법적근거:</strong> 개인정보보호법 제2조1의2</li>
 <li><strong>가명처리 원칙</strong>: 가명 정보와 추가 정보(연결 테이블)를 분리 보관</li>
 <li><strong>활용 범위</strong>: 통계 작성, 과학적 연구, 공익 목적 활용</li>
-<li><strong>가명 처리 대상:</strong><table>
+<li><strong>가명 처리 대상:</strong><div class="table-scroll"><table>
 <tr><th>대상</th><th>설명</th><th>사례</th></tr>
 <tr><td><strong>직접식별자 (고유식별자)</strong></td><td>그 자체만으로 개인 식별 가능</td><td>이름·사진·주민등록번호·전화번호·이메일·IP주소·차량번호판</td></tr>
 <tr><td><strong>간접식별자 (준식별자)</strong></td><td>결합 시 특정 개인 식별 가능</td><td>생년월일·사망일·결혼기념일·직업·성별·신용등급·주소·우편번호</td></tr>
 <tr><td><strong>속성정보</strong></td><td>결합해도 식별 어려운 정보</td><td>대출총액·예금총액·보험구좌수·고객고유번호</td></tr>
 <tr><td><strong>특이정보 (민감정보)</strong></td><td>누구든지 쉽게 식별 가능</td><td>특이질환자·초고소득자·초고령연령자·특이직업·이동동선</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>가명 처리 주요 기법:</strong><table>
+<li><strong>가명 처리 주요 기법:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th></tr>
 <tr><td><strong>삭제기술</strong></td><td><strong>삭제</strong></td><td>원본정보에서 개인정보 단순 삭제 (부분삭제·로컬삭제·행항목 삭제)</td></tr>
 <tr><td></td><td><strong>마스킹</strong></td><td>특정 항목 일부·전부를 공백 또는 문자로 대체</td></tr>
@@ -53,9 +53,9 @@
 (Synthetic data)</strong></td><td>원본과 유사한 통계적 성질의 가상 데이터 생성</td></tr>
 <tr><td></td><td><strong>동형비밀분산</strong></td><td>식별정보를 2개 이상의 쉐어(share)로 대체</td></tr>
 <tr><td></td><td><strong>차분 프라이버시</strong></td><td>응답값에 잡음 추가로 특정 개인 존재 여부 은닉</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>가명 처리 주요 알고리즘:</strong><table>
+<li><strong>가명 처리 주요 알고리즘:</strong><div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>k-익명화</strong></td><td>동일 속성값 k개 이상 유지·프라이버시 보호</td><td>동일값 k개 유지</td></tr>
 <tr><td><strong>부분그래프 익명화</strong></td><td>부분 그래프 프라이버시 노출 방지 그래프 수정</td><td>그래프 구조 익명화</td></tr>
@@ -63,16 +63,16 @@
 <tr><td><strong>부분그래프 + 차수 익명화</strong></td><td>부분 그래프·차수 동시 배경 지식 프라이버시 보호</td><td>복합 배경지식 대응</td></tr>
 <tr><td><strong>매크로 기법 (Suppression)</strong></td><td>민감 셀·주변 행열 값 동시 감추기</td><td>셀값 감추기</td></tr>
 <tr><td><strong>휴리스틱 익명화</strong></td><td>규칙·판단 기반 준식별자 값 가공·은닉</td><td>규칙 기반 익명화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>가명 처리 평가 기법:</strong><table>
+<li><strong>가명 처리 평가 기법:</strong><div class="table-scroll"><table>
 <tr><th>평가 기법</th><th>취약점</th><th>설명</th></tr>
 <tr><td><strong>k-익명성</strong></td><td>연결 공격 (Linking Attack)</td><td>준식별자 동일 레코드 K개 이상 존재 보장</td></tr>
 <tr><td><strong>l-다양성</strong></td><td>동질성 공격</td><td>동일 집합 내 민감값 L개 이상 다양성 보장</td></tr>
 <tr><td><strong>t-근접성</strong></td><td>분포도</td><td>집합 내·전체 민감정보 분포 유사성 보장</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>가명정보 처리 절차: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><u><strong>&lt;준위가적안&gt;</strong></u></span><table>
+<li><strong>가명정보 처리 절차: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><u><strong>&lt;준위가적안&gt;</strong></u></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>단계별 활동</th><th>핵심</th></tr>
 <tr><td>① 사전준비</td><td>처리 목적 설정</td><td>목적 선행 확정</td></tr>
 <tr><td></td><td>가명처리 대상 선정</td><td>최소 범위 원칙</td></tr>
@@ -87,9 +87,9 @@
 <tr><td>⑤ 안전한 관리</td><td>재식별 가능성 모니터링</td><td>재식별 방지</td></tr>
 <tr><td></td><td>가명정보 파기</td><td>파기기록 보관</td></tr>
 <tr><td></td><td>활용 기간 연장</td><td>재설정 허용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>가명정보 결합·반출 절차:</strong><table>
+<li><strong>가명정보 결합·반출 절차:</strong><div class="table-scroll"><table>
 <tr><th>절차</th><th>활동</th><th>설명</th></tr>
 <tr><td>결합신청</td><td>결합 신청</td><td>목적설정·결합가능정보 탐색·기관협의·신청</td></tr>
 <tr><td>결합 및 추가처리</td><td>결합키 생성</td><td>결합키관리기관과 협의·Salt값 수신</td></tr>
@@ -102,7 +102,7 @@
 <tr><td>반출 및 활용</td><td>반출</td><td>결합전문기관 승인 후 결과물·데이터셋 반출</td></tr>
 <tr><td></td><td>활용</td><td>반출심사 시 제출 환경·목적범위 내 활용 원칙</td></tr>
 <tr><td>안전한 관리</td><td>안전한 관리</td><td>재식별 목적 처리 금지·기술적·관리적·물리적 조치</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 가명처리 후 추가 정보가 노출되면 재식별이 가능하므로, 추가 정보는 별도 안전한 저장소에 보관하고 접근을 엄격히 통제해야 함</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>모듈 간 상호 의존</strong></u></span>하는 정도를 나타내는 척도로, 낮을수록 모듈 독립성이 높음</li>
 <li><strong>키워드</strong>: 6단계, 내용 결합도, 자료 결합도, 낮을수록 좋음</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>결합도 6단계 (낮음 → 높음)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;자료구조제어는외부공통내용이다&gt;</strong></span><table>
+<li><strong>결합도 6단계 (낮음 → 높음)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;자료구조제어는외부공통내용이다&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>수준</th><th>유형</th><th>설명</th></tr>
 <tr><td>최저</td><td>자료 (Data)</td><td>단순 값(파라미터)만 전달 (최이상적)</td></tr>
 <tr><td>↑</td><td>스탬프 (Stamp)</td><td>자료 구조(레코드) 전달</td></tr>
@@ -28,7 +28,7 @@
 <tr><td>↑</td><td>외부 (External)</td><td>외부 환경·포맷에 의존</td></tr>
 <tr><td>↑</td><td>공통 (Common)</td><td>전역 변수 공유</td></tr>
 <tr><td>최고</td><td>내용 (Content)</td><td>다른 모듈 내부 직접 참조·수정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>자료 결합도(가장 낮음) ↔︎ 내용 결합도(가장 높음)</strong>의 양 극단을 기준점으로 기억하며, 결합도는 <strong>테스트·유지보수 난이도와 비례 관계</strong>임을 강조.</li>
 </ul>

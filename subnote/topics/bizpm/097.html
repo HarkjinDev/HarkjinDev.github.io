@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드</strong>: 지원형/통제형/지시형 PMO, 표준화, 포트폴리오 연계, 감리 비교</li>
 <li><strong>분류</strong>: 감리/PMO</li>
 <li><strong>주요 기능</strong>: PM 방법론 표준화, 프로젝트 현황 대시보드, 위험 조기경보, 자원 최적화</li>
-<li><strong>PMO 유형</strong>:<table>
+<li><strong>PMO 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>역할</th><th>통제 수준</th></tr>
 <tr><td>지원형(Supportive)</td><td>방법론·도구 제공, 자문</td><td>낮음</td></tr>
 <tr><td>통제형(Controlling)</td><td>표준 준수 요구, 모니터링</td><td>중간</td></tr>
 <tr><td>지시형(Directive)</td><td>직접 프로젝트 관리</td><td>높음</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>감리와의 비교:</strong><table>
+<li><strong>감리와의 비교:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>감리 (Audit)</strong></th><th><strong>PMO (Project Management Office)</strong></th></tr>
 <tr><td><strong>목적</strong></td><td>◦ 프로젝트 품질보증 평가
 ◦ PJT 공정성/투명성 확보</td><td>◦ 복수 프로젝트 관리
@@ -49,25 +49,25 @@ PMO 도입 의무화</td></tr>
 ◦ 시정조치확인보고서</td><td>◦ 요구사항 정의서(RFP)
 ◦ 사업자 선정 기준서/관리 계획서
 ◦ 아키텍처 정의서, 영역별 관리 계획서</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>PMC(Project Management Consultancy): </strong><ul>
 <li>발주기관을 대리하여 사업 전 주기에 걸쳐 전략·기획·관리·성과 창출을 종합적으로 지원하는 컨설팅 중심의 관리 방식</li>
-<li><strong>도입배경/필요성:  </strong><table>
+<li><strong>도입배경/필요성:  </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>기존 PMO 방식의 한계</strong></th><th><strong>PMC 도입 필요성</strong></th></tr>
 <tr><td><strong>사업 환경 변화</strong></td><td>일정·산출물 중심 관리 한계 및 신기술 판단 전문성 부족</td><td>전 주기 전략·성과 중심 관리 및 기술·사업 융합 컨설팅</td></tr>
 <tr><td><strong>기획-이행 단절</strong></td><td>기획 결과의 형식적 반영 및 요구사항·변경 관리 미흡</td><td>기획-본사업 정합성 확보 및 전략적 의사결정 지원</td></tr>
 <tr><td><strong>성과·거버넌스 요구</strong></td><td>정책 가치 검증 곤란 및 발주자 직접 조정·통제 한계</td><td>KPI 기반 성과 관리 및 발주자 대리 거버넌스 강화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>PMO와 비교:</strong><table>
+<li><strong>PMO와 비교:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>PMO</strong></th><th><strong>PMC</strong></th></tr>
 <tr><td><strong>기본 성격</strong></td><td>프로젝트 관리 조직</td><td>프로젝트 관리 컨설팅</td></tr>
 <tr><td><strong>관리 관점</strong></td><td>수행·통제 중심</td><td>전략·성과 중심</td></tr>
 <tr><td><strong>목표</strong></td><td>일정·범위·품질 준수</td><td>사업 성공 및 성과 창출</td></tr>
 <tr><td><strong>기능</strong></td><td>일정·진척·산출물 관리</td><td>전략·기술·사업·성과 자문</td></tr>
 <tr><td><strong>관리 패러다임</strong></td><td>프로젝트 관리</td><td>사업 관리·성과 관리</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

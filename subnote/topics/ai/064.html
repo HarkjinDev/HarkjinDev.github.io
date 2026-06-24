@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,31 +20,31 @@
 <li><strong>정의:</strong> 인간(RLHF) 또는 AI(RLAIF)의 피드백을 기반으로 강화학습하여 LLM의 응답 품질·안전성·유용성을 인간 선호에 맞게 정렬하는 기법</li>
 <li><strong>키워드:</strong> 보상 모델, PPO, DPO, 인간 선호 정렬, AI 안전성, Constitutional AI, SFT, 선호도 데이터, Alignment</li>
 <li><strong>분류:</strong> 생성형 AI / LLM</li>
-<li><strong>RLHF vs RLAIF 비교:</strong><table>
+<li><strong>RLHF vs RLAIF 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>RLHF</th><th>RLAIF</th></tr>
 <tr><td><strong>피드백 주체</strong></td><td>인간 어노테이터</td><td>AI 모델</td></tr>
 <tr><td><strong>비용·속도</strong></td><td>높은 비용·느림</td><td>낮은 비용·빠름</td></tr>
 <tr><td><strong>품질</strong></td><td>높은 신뢰도</td><td>모델 편향 위험</td></tr>
 <tr><td><strong>확장성</strong></td><td>인력 의존으로 한계</td><td>대규모 확장 가능</td></tr>
 <tr><td><strong>대표 사례</strong></td><td>GPT-4, Claude</td><td>Claude (Constitutional AI)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>RLHF 학습 파이프라인:</strong><table>
+<li><strong>RLHF 학습 파이프라인:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. SFT</strong></td><td>고품질 지시문-응답 쌍으로 기본 모델 파인튜닝</td><td>기본 정렬</td></tr>
 <tr><td><strong>2. 선호도 데이터 수집</strong></td><td>동일 질문에 대한 응답 쌍을 인간이 비교·순위화</td><td>선호 레이블링</td></tr>
 <tr><td><strong>3. 보상 모델 학습</strong></td><td>선호도 데이터로 응답 품질을 점수화하는 모델 학습</td><td>품질 평가기</td></tr>
 <tr><td><strong>4. PPO 강화학습</strong></td><td>보상 모델 피드백으로 LLM 정책을 반복 최적화</td><td>정책 최적화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기술:</strong><table>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>보상 모델 (RM)</strong></td><td>응답의 유용성·안전성·정확성을 수치로 평가하는 모델</td><td>품질 점수화</td></tr>
 <tr><td><strong>PPO</strong></td><td>보상 신호로 LLM 정책을 안정적으로 최적화하는 강화학습 알고리즘</td><td>정책 학습</td></tr>
 <tr><td><strong>DPO</strong></td><td>보상 모델 없이 선호도 데이터로 직접 정렬하는 경량화 대안</td><td>단순화 정렬</td></tr>
 <tr><td><strong>Constitutional AI</strong></td><td>AI 스스로 원칙에 따라 응답을 비판·수정하는 RLAIF 방식</td><td>AI 자기 정렬</td></tr>
 <tr><td><strong>KL 발산 제약</strong></td><td>정렬 과정에서 원본 모델과 너무 멀어지지 않도록 제약</td><td>과도 최적화 방지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> RLHF는 LLM을 단순 언어 모델에서 인간 친화적 어시스턴트로 전환한 핵심 기술이나, 인간 피드백의 비용·편향 한계를 극복하기 위해 RLAIF·DPO로 빠르게 진화하고 있으며, "어떤 가치를 정렬할 것인가"라는 AI 안전성·윤리 설계가 기술만큼 중요한 핵심 과제로 부상하고 있음</li>
 </ul>

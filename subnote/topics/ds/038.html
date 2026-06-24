@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 클라이언트와 백엔드 서비스 사이에서 API 요청을 단일 진입점으로 수신하여 라우팅·인증·제한·변환 등을 처리하는 미들웨어</li>
 <li><strong>키워드</strong>: 단일 진입점, 라우팅, Rate Limiting, 인증/인가, 로드밸런싱, MSA, BFF 패턴</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>API Gateway 주요 기능</strong>:<table>
+<li><strong>API Gateway 주요 기능</strong>:<div class="table-scroll"><table>
 <tr><th>기능</th><th>설명</th></tr>
 <tr><td>라우팅</td><td>요청 URL·메서드 기반 서비스 라우팅</td></tr>
 <tr><td>인증/인가</td><td>JWT·OAuth2 토큰 검증</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>프로토콜 변환</td><td>REST↔︎SOAP, HTTP↔︎gRPC</td></tr>
 <tr><td>로깅/모니터링</td><td>API 호출 추적·분석</td></tr>
 <tr><td>캐싱</td><td>응답 캐시로 백엔드 부하 감소</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: API Gateway는 MSA에서 <strong>“공통 횡단 관심사(인증·로깅·제한)”를 집중 처리</strong>하여 개별 서비스의 복잡성을 줄이는 필수 인프라이며, Kong·AWS API Gateway·Nginx가 대표적.</li>
 </ul>

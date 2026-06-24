@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>프로젝트 이해관계자를 식별하고 그들의 기대치와 영향도를 분석하여, 프로젝트의 의사결정과 활동들에 효과적으로 참여 시키기 위한 관리 전략 프로세스</li>
 <li><strong>키워드: </strong>유형(권력/관심도/영향력, 현저성모델), 이슈기록부, 미팅, WPI, CR</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>프로세스: </strong><table>
+<li><strong>프로세스: </strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>주요 산출물</strong></th></tr>
 <tr><td><strong>1. 이해관계자 식별</strong></td><td>프로젝트 영향 주체(개인/조직) 파악</td><td>◦ 이해관계자 관리대장</td></tr>
 <tr><td><strong>2. 이해관계자 참여 계획수립</strong></td><td>효과적 참여를 위한 전략 및 계획 개발</td><td>◦ 이해관계자 참여관리 계획서</td></tr>
@@ -31,9 +31,9 @@
 <tr><td><strong>4. 이해관계자 참여 감시</strong></td><td>참여 현황 및 관계 전반의 모니터링</td><td>◦ WPI(Work Performance Index)
 ◦ 작업성과정보
 ◦ 변경 요청(CR)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>이해관계자 관리 주요 기법:</strong><table>
+<li><strong>이해관계자 관리 주요 기법:</strong><div class="table-scroll"><table>
 <tr><th><strong>기법/도구</strong></th><th><strong>핵심 요약 내용</strong></th></tr>
 <tr><td><strong>이해관계자 분석</strong></td><td>이해관계자의 관심도(Interest), 영향도(Impact), 지원도(Support) 등 정량·정성적 정보를 체계적으로 수집 및 분석</td></tr>
 <tr><td><strong>분류 모델</strong></td><td>◦ <strong>권력/이해관계도:</strong> 권력(Power)과 관심도(Interest)에 따른 분류
@@ -50,7 +50,7 @@
 ◦ <strong>Pull:</strong> 지식저장소, 이러닝 등 사용자가 필요시 접속하여 가져가는 방식</td></tr>
 <tr><td><strong>대인관계 기술</strong></td><td>리더십, 팀빌딩, 동기부여, 영향력 행사, 문제해결 등 소프트 스킬(Soft Skills)</td></tr>
 <tr><td><strong>관리 기술</strong></td><td>협상, 의견 조정 등 통제하기 위한 능력</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>이해관계자 유형:</strong><ul>
 <li><strong>내부: </strong>프로젝트 수행팀(PM/PL/PMO), 팀원, 협력사, QA, Tester, 발주사(클라이언트, 스폰서), 수행사(최고경영자, 기능관리자, 지원/서비스 부서)</li>
@@ -65,7 +65,7 @@
 <li><strong>Power(권력): </strong>프로젝트의 인도물 혹은 조직에 끼치는 영향</li>
 <li><strong>Legitimacy(합법성): </strong>프로젝트의 합법성, 타당성 예) 합법적인 사람, CEO, CTO, 의사결정자</li>
 <li><strong>Urgency(긴급성): </strong>의사소통 요구의 긴급성</li>
-<li><strong>이해관계자 분류 및 우선순위:   </strong><u><strong>7 &gt; 4,5,6 &gt; 1,2,3</strong></u><table>
+<li><strong>이해관계자 분류 및 우선순위:   </strong><u><strong>7 &gt; 4,5,6 &gt; 1,2,3</strong></u><div class="table-scroll"><table>
 <tr><th><strong>이해관계자 우선순위</strong></th><th><strong>예시</strong></th><th><strong>현저성 수준</strong></th><th><strong>요구된 주의 수준</strong></th></tr>
 <tr><td><strong>7: 결정적 (Definitive)</strong></td><td>검수책임자</td><td>낮음</td><td>높음</td></tr>
 <tr><td><strong>4: 지배적 (Dominant)</strong></td><td>CIO</td><td>↓</td><td>↑</td></tr>
@@ -74,7 +74,7 @@
 <tr><td><strong>1: 잠재적 (Dormant)</strong></td><td>최고 경영자</td><td>↓</td><td>↑</td></tr>
 <tr><td><strong>2: 임의적 (Discretionary)</strong></td><td>규제 담당자</td><td>↓</td><td>↑</td></tr>
 <tr><td><strong>3: 요구적 (Demanding)</strong></td><td>사용자</td><td>높음</td><td>낮음</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

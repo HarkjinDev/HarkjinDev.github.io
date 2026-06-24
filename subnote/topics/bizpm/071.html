@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 4-4. 프로젝트 일정 단축기법</h4>
 <ul>
-<li><strong>공정 압축법과 공정 중첩 단축법 비교표:</strong><table>
+<li><strong>공정 압축법과 공정 중첩 단축법 비교표:</strong><div class="table-scroll"><table>
 <tr><th><strong>비교 항목</strong></th><th><strong>공정 압축법 (Crashing)</strong></th><th><strong>공정 중첩 단축법 (Fast Tracking)</strong></th></tr>
 <tr><td><strong>핵심 개념</strong></td><td><strong>자원 추가 투입</strong>을 통한 기간 단축</td><td><strong>활동 병행 수행</strong>을 통한 기간 단축</td></tr>
 <tr><td><strong>적용 상황</strong></td><td>추가 투입 가능한 <strong>예산이 충분</strong>할 때</td><td><strong>병행 가능한 활동</strong>이 존재할 때</td></tr>
@@ -26,9 +26,9 @@
 <tr><td><strong>장점</strong></td><td>유휴 리소스의 효율적 활용</td><td>추가 비용 없이 일정(Reserve) 확보 가능</td></tr>
 <tr><td><strong>단점</strong></td><td><strong>추가 비용(Direct Cost) 발생</strong></td><td><strong>재작업(Rework) 리스크</strong> 증가</td></tr>
 <tr><td><strong>사례 요약</strong></td><td>2천만 원(30일) → 3천만 원(20일) 투입</td><td>15일씩 순차 진행 → 10일 중첩 진행(20일)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>자원 평준화와 자원 평활화:</strong><table>
+<li><strong>자원 평준화와 자원 평활화:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>자원 평준화 (Resource Leveling)</th><th>자원 평활화 (Resource Smoothing)</th></tr>
 <tr><td><strong>정의</strong></td><td>자원 제약 기준으로 일정을 조정하는 기법</td><td>일정 제약 내에서 자원 사용을 균등화하는 기법</td></tr>
 <tr><td><strong>우선순위</strong></td><td>자원 제약 우선</td><td>일정(납기) 우선</td></tr>
@@ -40,7 +40,7 @@
 <tr><td><strong>일정 여유</strong></td><td>총 여유 시간 소진 가능</td><td>총 여유 시간 범위 내에서만 조정</td></tr>
 <tr><td><strong>주경로</strong></td><td><strong>변경될 수 있음</strong></td><td>유지됨</td></tr>
 <tr><td><strong>결과</strong></td><td>자원 균등화·납기 지연 가능</td><td>자원 부하 완화·납기 유지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>브룩스의 법칙 (Brooks's Law): </strong><ul>
 <li>지체되는 소프트웨어 개발 프로젝트에 인력을 추가로 투입하면 오히려 더 지연</li>

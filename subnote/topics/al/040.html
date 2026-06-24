@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>음수 가중치, 음수 사이클 탐지</strong></u></span>, 완화(Relaxation), 동적 프로그래밍, 단일 출발점, V-1 반복</li>
 <li><strong>분류:</strong> 그래프 탐색</li>
 <li><strong>특성: </strong>음수 허용, 음수 사이클 탐지 가능, DP 기반, 시간복잡도: O(V x E)</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>초기화</strong></td><td>출발 정점 거리 0, 나머지 정점 거리 ∞ 설정</td><td>거리 초기화</td></tr>
 <tr><td><strong>완화 반복</strong></td><td>모든 간선에 대해 완화 연산을 V-1회 반복 수행</td><td>V-1회 반복</td></tr>
 <tr><td><strong>음수 사이클 탐지</strong></td><td>V번째 반복에서도 갱신 발생 시 음수 사이클 존재</td><td>사이클 탐지</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>다익스트라와 비교:</strong><table>
+<li><strong>다익스트라와 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>벨만-포드</th><th>다익스트라</th></tr>
 <tr><td><strong>음수 가중치</strong></td><td>✅ 처리 가능</td><td>❌ 불가</td></tr>
 <tr><td><strong>음수 사이클 탐지</strong></td><td>✅ 가능</td><td>❌ 불가</td></tr>
@@ -36,7 +36,7 @@
 <tr><td><strong>속도</strong></td><td>느림</td><td>빠름</td></tr>
 <tr><td><strong>설계 기반</strong></td><td>동적 프로그래밍</td><td>탐욕 알고리즘</td></tr>
 <tr><td><strong>적합한 경우</strong></td><td>음수 가중치·사이클 탐지 필요 시</td><td>양수 가중치 고속 탐색</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야: </strong>네트워크 라우팅(RIP 프로토콜 기반 라우팅 경로 결정), 금융(환율 차익 거래 탐지)</li>
 <li><strong>인사이트:</strong> 벨만-포드는 다익스트라가 처리하지 못하는 음수 가중치·음수 사이클 문제를 해결하는 보완적 알고리즘으로, 두 알고리즘의 적용 조건 차이를 명확히 이해하는 것이 시험 핵심. 특히 V-1회 반복의 의미(최단 경로는 최대 V-1개의 간선을 포함)와 V번째 반복의 음수 사이클 탐지 원리가 답안 차별화의 핵심 포인트</li>

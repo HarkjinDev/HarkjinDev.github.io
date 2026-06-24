@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 하나의 물리적 5G 네트워크 인프라를 NFV/SDN 기술로 다수의 독립된 가상 네트워크로 분리하여 서비스별 최적 QoS를 제공하는 기술</li>
 <li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>5G 3대 서비스와 슬라이싱</strong>:<table>
+<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
 <tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
 <tr><td>eMBB</td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
 <tr><td>URLLC</td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
 <tr><td>mMTC</td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
 <li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>

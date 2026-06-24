@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 애플리케이션과 그 의존성을 컨테이너 이미지로 패키징하여 어떤 환경에서도 동일하게 실행 가능한 오픈소스 컨테이너 플랫폼</li>
 <li><strong>키워드</strong>: Dockerfile, 이미지, 컨테이너 레지스트리, Docker Hub, 레이어, OCI, BuildKit</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>핵심 구성</strong>:<table>
+<li><strong>핵심 구성</strong>:<div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>세부 기술</th></tr>
 <tr><td><strong>Client</strong></td><td>데몬과 상호작용하는 Binary 파일</td><td>CLI·Remote API</td></tr>
 <tr><td><strong>이미지 (Images)</strong></td><td>프로그램·라이브러리 설치한 파일 패키지</td><td>aufs·btrfs·devicemapper</td></tr>
@@ -30,7 +30,7 @@
 <tr><td><strong>네트워크</strong></td><td>호스트 간 컨테이너 데이터 전송</td><td>Network overlay</td></tr>
 <tr><td><strong>오케스트레이션</strong></td><td>멀티 컨테이너 조직화·Failover·LB</td><td>swarm·mesos·kubernetes</td></tr>
 <tr><td><strong>모니터링</strong></td><td>컨테이너·앱·로그 중앙 모니터링</td><td>cAdvisor·Sensu·Prometheus</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>이점</strong>: 환경 일관성(Dev=Staging=Prod), 빠른 배포, 마이크로서비스 분리</li>
 <li><strong>인사이트</strong>: Docker는 <strong>DevOps 파이프라인의 표준 패키징 단위</strong>로, "환경 차이로 인한 버그" 문제를 근본적으로 해결하며 Kubernetes와 결합하면 전체 컨테이너 수명주기 자동화가 가능함.</li>

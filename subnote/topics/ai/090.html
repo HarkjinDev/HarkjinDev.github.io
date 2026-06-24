@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,7 +25,7 @@
 <li><strong>Model Monitoring</strong>: 모델의 성능 저하(Drift) 감지 및 재학습 트리거</li>
 </ul>
 </li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>데이터 파이프라인</strong></td><td>데이터 수집·전처리·검증을 자동화하는 워크플로우</td><td>데이터 자동화</td></tr>
 <tr><td><strong>피처 스토어 
@@ -41,7 +41,7 @@
 <tr><td><strong>데이터 드리프트 감지</strong></td><td>학습·운영 데이터 분포 변화를 탐지하여 재학습 트리거</td><td>분포 변화 감지</td></tr>
 <tr><td><strong>오케스트레이션</strong></td><td>파이프라인 전체 워크플로우 스케줄링·실행 관리</td><td>워크플로우 관리</td></tr>
 <tr><td><strong>인프라 관리</strong></td><td>학습·서빙 환경의 컨테이너·클러스터 자원 관리</td><td>자원 관리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: MLOps의 구성요소는 데이터→학습→배포→모니터링의 전체 ML 라이프사이클을 자동화·체계화하는 데 초점을 두며, 단순 배포를 넘어 데이터의 변화(Concept Drift)를 실시간 감지하여 모델의 생명주기(Lifecycle)읲 모니터링이 운영 안정성의 핵심 축</li>
 </ul>

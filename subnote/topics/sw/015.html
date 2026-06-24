@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 오버라이딩은 부모 클래스의 메서드를 자식 클래스에서 재정의하는 것이고, 오버로딩은 같은 이름의 메서드를 매개변수 차이로 여러 개 정의하는 것</li>
 <li><strong>키워드</strong>: 다형성, 런타임 바인딩, 컴파일 타임 바인딩, 시그니처</li>
 <li><strong>분류</strong>: 프로그래밍</li>
-<li><strong>오버라이딩 vs 오버로딩 비교</strong><table>
+<li><strong>오버라이딩 vs 오버로딩 비교</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>오버라이딩 (Overriding)</strong></th><th><strong>오버로딩 (Overloading)</strong></th></tr>
 <tr><td>정의</td><td>부모 메서드 재정의</td><td>동일 이름, 다른 시그니처</td></tr>
 <tr><td>구현 위치</td><td>하위 클래스</td><td>동일 클래스</td></tr>
@@ -28,7 +28,7 @@
 <tr><td>관련 개념</td><td>상속, 다형성</td><td>다형성 (컴파일 타임)</td></tr>
 <tr><td>반환 타입</td><td>동일(또는 공변)</td><td>달라도 무방</td></tr>
 <tr><td>매개변수</td><td>동일</td><td>반드시 다름</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 오버라이딩은 <strong>런타임 다형성(동적 바인딩)</strong>, 오버로딩은 <strong>컴파일타임 다형성(정적 바인딩)</strong>으로 구분하며, “@Override 어노테이션”은 오버라이딩 검증 수단.</li>
 </ul>

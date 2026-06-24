@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 설비·장비에 부착된 센서 데이터를 AI·ML로 실시간 분석하여 고장 발생 전 이상 징후를 사전 감지하고 최적 정비 시점을 예측하는 지능형 설비 관리 기술</li>
 <li><strong>키워드:</strong> 센서 데이터, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이상 탐지, 고장 예측, 잔여 수명(RUL)</strong></u></span>, 디지털 트윈, IIoT, 엣지 AI, CBM, PHM, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>FFT·웨이블릿</strong></u></span></li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>데이터 수집</strong></td><td><strong>IIoT 센서</strong></td><td>진동·온도·전류·압력·소음 실시간 수집</td><td>다중 센서</td></tr>
 <tr><td></td><td><strong>엣지 디바이스</strong></td><td>현장 데이터 전처리·실시간 수집</td><td>로컬 처리</td></tr>
@@ -33,9 +33,9 @@
 <tr><td><strong>시각화·대응</strong></td><td><strong>대시보드</strong></td><td>설비 상태·알람·예측 결과 실시간 시각화</td><td>현황 가시성</td></tr>
 <tr><td></td><td><strong>정비 추천</strong></td><td>AI 기반 최적 정비 시점·방법 제안</td><td>의사결정 지원</td></tr>
 <tr><td><strong>시뮬레이션</strong></td><td><strong>디지털 트윈</strong></td><td>설비 가상 복제로 고장 시나리오 시뮬레이션</td><td>가상 검증</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 AI·ML 기법:</strong><table>
+<li><strong>주요 AI·ML 기법:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>이상 탐지</strong></td><td><strong>Autoencoder</strong></td><td>정상 데이터 학습 후 재구성 오차로 이상 감지</td><td>비지도 이상 탐지</td></tr>
 <tr><td></td><td><strong>Isolation Forest</strong></td><td>이상 데이터 고립 특성 기반 이상치 탐지</td><td>이상치 탐지</td></tr>
@@ -44,16 +44,16 @@
 <tr><td><strong>수명 예측</strong></td><td><strong>LSTM</strong></td><td>시계열 열화 트렌드 학습으로 RUL 예측</td><td>시계열 예측</td></tr>
 <tr><td></td><td><strong>Transformer</strong></td><td>장기 시계열 의존성 포착한 정밀 예측</td><td>장기 예측</td></tr>
 <tr><td><strong>신호 처리</strong></td><td><strong>FFT·웨이블릿</strong></td><td>진동 신호 주파수 분석으로 이상 주파수 탐지</td><td>주파수 분석</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>성과 지표 (KPI):</strong><table>
+<li><strong>성과 지표 (KPI):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>MTBF</strong></td><td>고장 간 평균 가동 시간, 높을수록 설비 신뢰성 우수</td><td>신뢰성 지표</td></tr>
 <tr><td><strong>MTTR</strong></td><td>평균 수리 시간, 낮을수록 복구 효율 우수</td><td>복구 효율</td></tr>
 <tr><td><strong>OEE</strong></td><td>설비 종합 효율, 가용성·성능·품질률 종합 지표</td><td>설비 종합 효율</td></tr>
 <tr><td><strong>고장 예측 정확도</strong></td><td>실제 고장 대비 예측 적중 비율</td><td>모델 성능</td></tr>
 <tr><td><strong>정비 비용 절감률</strong></td><td>PdM 도입 전후 정비 비용 비교</td><td>투자 효과</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> AI 예지보전은 사후 대응에서 사전 예측으로의 패러다임 전환으로, 계획되지 않은 설비 중단을 최소화하고 OEE를 극대화하는 스마트팩토리의 핵심 기술임. 단순 이상 탐지를 넘어 RUL 예측·디지털 트윈 연계·정비 최적화로 진화하고 있으며, 엣지 AI와 결합하여 실시간 현장 대응 능력을 갖춘 자율 설비 관리 체계로 발전하는 것이 궁극적 목표임</li>
 </ul>

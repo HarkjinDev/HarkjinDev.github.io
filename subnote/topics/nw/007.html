@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,11 +26,11 @@
 <li><strong>프로토콜 기반 VLAN</strong>: 상위 프로토콜 타입으로 분류</li>
 </ul>
 </li>
-<li><strong>트렁크/액세스 포트</strong>:<table>
+<li><strong>트렁크/액세스 포트</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>역할</th><th>태그 처리</th></tr>
 <tr><td>액세스 포트</td><td>단일 VLAN 연결(단말)</td><td>태그 없음</td></tr>
 <tr><td>트렁크 포트</td><td>복수 VLAN 전송(스위치 간)</td><td>802.1Q 태그 포함</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: VLAN은 <strong>브로드캐스트 도메인 분리와 보안 구역 설정</strong>에 활용되며, 인터-VLAN 라우팅(L3 스위치 또는 라우터)이 필요함을 함께 언급해야 함.</li>
 </ul>

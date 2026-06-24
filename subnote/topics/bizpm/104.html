@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의</strong>: IT 서비스를 고객 중심으로 계획·설계·전환·운영·개선하는 체계적 관리 프레임워크</li>
 <li><strong>키워드</strong>: ITIL, ISO/IEC 20000, eSCM, CMMI, 서비스 생명주기, 인시던트·문제·변경 관리, SLA</li>
 <li><strong>분류</strong>: 서비스 관리</li>
-<li><strong>ITIL 5대 서비스 생명주기</strong>:<table>
+<li><strong>ITIL 5대 서비스 생명주기</strong>:<div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>주요 프로세스</strong></th></tr>
 <tr><td>서비스 전략</td><td>서비스 포트폴리오, 수요 관리</td></tr>
 <tr><td>서비스 설계</td><td>가용성, 용량, 연속성, 보안 관리</td></tr>
 <tr><td>서비스 전환</td><td>변경, 릴리스, 구성 관리</td></tr>
 <tr><td>서비스 운영</td><td>인시던트, 문제, 이벤트 관리</td></tr>
 <tr><td>지속적 서비스 개선</td><td>CSI, 측정·분석·개선</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>ITSM 프레임워크 구성요소: </strong><table>
+<li><strong>ITSM 프레임워크 구성요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>항목</strong></th><th><strong>개요 및 구성</strong></th></tr>
 <tr><td><strong>ITIL</strong></td><td><strong>정의</strong></td><td>◦ IT 서비스 관리 산업 표준, ITSM을 위한 Best Practice 제공 지침서</td></tr>
 <tr><td></td><td><strong>구성</strong></td><td>◦ Service Lifecycle 중심: 서비스 전략, 설계, 운영 전환, 운영, 지속적 서비스 개선</td></tr>
@@ -40,7 +40,7 @@
 <tr><td><strong>CMMI</strong></td><td><strong>정의</strong></td><td>제품 개발 능력, 성숙도 평가 및 지속적 품질 개선 모델</td></tr>
 <tr><td></td><td><strong>구성</strong></td><td>◦ 세부 모델: P-CMM, SA-CMM, SE-CMM, IPD-CMM
 ◦ 프로세스 및 프로젝트 관리 등 25개 주요 Process Area 기준 레벨 측정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>ITSM 구성요소:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;인조기프&gt;</strong></span><ul>
 <li><strong>인력(People): </strong>인력 개발 및 프로세스 중심적 조직구성 통해 새로운 서비스 창출하는 인적자원관리</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 애플리케이션의 모든 기능(UI·비즈니스 로직·데이터 접근)이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 배포 단위로 통합된</strong></u></span> 전통적 소프트웨어 아키텍처</li>
 <li><strong>키워드</strong>: 단일 배포, 단단한 결합, 단순성, 스케일링 한계, 기술 스택 고정, 빅볼오브머드</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>모놀리스 유형</strong>:<table>
+<li><strong>모놀리스 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th></tr>
 <tr><td>모듈러 모놀리스 (Modular Monolith)</td><td>내부 모듈화된 단일 배포, MSA 전환 중간 단계</td></tr>
 <tr><td>빅볼오브머드 (Big Ball of Mud)</td><td>구조 없이 뒤얽힌 코드베이스</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>모놀리스 vs SOA vs MSA 비교</strong>:<table>
+<li><strong>모놀리스 vs SOA vs MSA 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>모놀리식 (Monolith)</strong></th><th><strong>SOA (Service Oriented)</strong></th><th><strong>MSA (Microservice)</strong></th></tr>
 <tr><td>개념</td><td>모든 기능이 하나의 패키지로 구성된 일체형 구조</td><td>서비스 단위로 구축하고 ESB로 통합하는 전사적 구조</td><td>독립적인 작은 서비스들의 집합체로 구성된 분산 구조</td></tr>
 <tr><td>통신</td><td>Method Call (내부 호출)</td><td><strong>ESB (Enterprise Service Bus)</strong>, SOAP/WSDL</td><td><strong>Rest API / gRPC</strong>, Lightweight Messaging</td></tr>
@@ -40,7 +40,7 @@
 <tr><td>보안 관점</td><td>단일 접점 보안 (방화벽 위주)</td><td>ESB 중심의 보안 정책 통합 관리</td><td><strong>서비스별 보안(Zero Trust)</strong>, API Gateway 보안</td></tr>
 <tr><td>장점</td><td>개발/배포 단순, 로컬 성능 우수</td><td>표준 기반 통합, 비즈니스 유연성</td><td>높은 유연성, 기술 스택 자유도, 장애 격리</td></tr>
 <tr><td>단점</td><td>부분 장애가 전체 확산, 수정 시 전체 배포</td><td>중앙 ESB 병목 및 복잡도 증가</td><td>분산 트랜잭션 관리 어려움, 인프라 복잡성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 모놀리스가 항상 나쁜 아키텍처는 아니며, <strong>“모듈러 모놀리스”는 MSA의 복잡성 없이 모듈화 이점</strong>을 누리는 현실적 대안으로, 스타트업 초기에는 모놀리스로 시작 후 필요 시 MSA 전환이 권장 전략.</li>
 </ul>

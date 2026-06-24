@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -43,12 +43,12 @@
 <li><strong>CTAP(Client to Authenticator Protocol)</strong>: 인증기와 플랫폼 간 통신 프로토콜</li>
 </ul>
 </li>
-<li><strong>버전 비교</strong>:<table>
+<li><strong>버전 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>FIDO 1.0</th><th>FIDO 2.0</th></tr>
 <tr><td>표준</td><td>UAF + U2F</td><td>CTAP + WebAuthn</td></tr>
 <tr><td>인증 방식</td><td>생체인증(UAF), 2차 인증(U2F)</td><td>패스키(Passkey) 지원</td></tr>
 <tr><td>적용 범위</td><td>앱 기반</td><td>웹 브라우저 표준 포함</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: FIDO2의 패스키(Passkey)는 비밀번호를 완전히 대체하는 차세대 인증으로, 구글·애플·마이크로소프트가 공동으로 채택하여 확산 중임</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 링크 상태 정보를 AS 내 모든 라우터에 플러딩하여 각 라우터가 SPF 알고리즘으로 최단 경로를 계산하는 링크 상태 기반 IGP 프로토콜</li>
 <li><strong>키워드:</strong> RFC 2328, LSA, LSDB, SPF·Dijkstra, Area, DR·BDR, Cost, Hello, ABR, ASBR, OSPFv3</li>
 <li><strong>분류:</strong> 라우팅 / 주소체계</li>
-<li><strong>동작 절차:</strong><table>
+<li><strong>동작 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 인접 관계 수립</strong></td><td>Hello 패킷으로 인접 라우터 발견·Neighbor 관계 형성</td><td>Hello 프로토콜</td></tr>
 <tr><td><strong>2. DR·BDR 선출</strong></td><td>멀티액세스 네트워크에서 대표 라우터 선출
@@ -28,16 +28,16 @@
 <tr><td><strong>3. LSA 교환</strong></td><td>Link State Advertisement 교환으로 LSDB 동기화</td><td>토폴로지 공유</td></tr>
 <tr><td><strong>4. SPF 계산</strong></td><td>Dijkstra 알고리즘으로 최단 경로 트리 계산</td><td>최단 경로 산출</td></tr>
 <tr><td><strong>5. 라우팅 테이블 갱신</strong></td><td>계산된 최단 경로를 라우팅 테이블에 반영</td><td>경로 적용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>LSA 유형: </strong>Type 1(Router LSA), Type 2(Network LSA), Type 3(Summary LSA), Type 4(ASBR Summary LSA), Type 5(External LSA)</li>
-<li><strong>Cost 계산:</strong><table>
+<li><strong>Cost 계산:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>공식</strong></td><td>Cost = 10⁸ / 링크 속도(bps)</td><td>속도 반비례</td></tr>
 <tr><td><strong>FastEthernet</strong></td><td>Cost = 10⁸ / 10⁸ = 1</td><td>최저 Cost</td></tr>
 <tr><td><strong>T1 (1.544Mbps)</strong></td><td>Cost = 10⁸ / 1,544,000 ≈ 64</td><td>높은 Cost</td></tr>
 <tr><td><strong>경로 선택</strong></td><td>누적 Cost 합산 최솟값 경로 선택</td><td>최소 Cost 우선</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> OSPF의 Area 설계는 네트워크 확장성의 핵심으로, Area 0은 반드시 존재해야 하며 모든 Area는 Area 0에 직·간접 연결되어야 함. Cost = 10⁸/링크속도로 고속 링크를 선호하며, DR·BDR 선출로 멀티액세스 환경의 LSA 플러딩을 최소화하는 설계가 대규모 네트워크 안정성의 핵심 포인트임</li>
 </ul>

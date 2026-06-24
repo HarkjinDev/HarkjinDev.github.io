@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드</strong>: 점근적 상한, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최고차항</strong></u></span>, 상수 계수 제거, g(n), c·g(n), n₀</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
 <li><strong>수학적 정의</strong>: f(n) = O(g(n))이면, 모든 n ≥ n₀에 대해 f(n) ≤ c·g(n)을 만족하는 양의 상수 c와 n₀가 존재함</li>
-<li><strong>계산 규칙</strong>:<table>
+<li><strong>계산 규칙</strong>:<div class="table-scroll"><table>
 <tr><th>규칙</th><th>내용</th></tr>
 <tr><td>최고차항 선택</td><td>낮은 차수 항과 상수 계수 제거 (예: 3n² + 2n → O(n²))</td></tr>
 <tr><td>덧셈 규칙</td><td>O(f + g) = O(max(f, g))</td></tr>
 <tr><td>곱셈 규칙</td><td>O(f · g) = O(f) · O(g)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>연산시간 차이 (빠른 순)</strong>:<table>
+<li><strong>연산시간 차이 (빠른 순)</strong>:<div class="table-scroll"><table>
 <tr><th><strong>연산시간</strong></th><th>복잡도</th><th>이름</th><th>대표 예시</th></tr>
 <tr><td>빠름</td><td>O(1)</td><td>상수</td><td>배열 인덱스 접근</td></tr>
 <tr><td>↑</td><td>O(log n)</td><td>로그</td><td>이진 탐색</td></tr>
@@ -36,7 +36,7 @@
 <tr><td>↑</td><td>O(n log n)</td><td>선형로그</td><td>병합 정렬, 퀵 정렬 평균</td></tr>
 <tr><td>↑</td><td>O(n²)</td><td>이차</td><td>버블/삽입/선택 정렬</td></tr>
 <tr><td>느림</td><td>O(2ⁿ)</td><td>지수</td><td>부분집합 나열</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>상수 계수와 하위 차수 항을 무시</strong>하고 최고차항만 표기하며, Big-O(상한), Big-Ω(하한), Big-Θ(정확한 경계)의 개념적 차이와 함께 실제 알고리즘에 적용하여 서술하면 고득점 포인트</li>
 </ul>

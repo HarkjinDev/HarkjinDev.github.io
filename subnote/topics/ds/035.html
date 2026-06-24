@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 자원(Resource)을 URI로 식별하고 HTTP 메서드로 상태를 전이시키는 분산 하이퍼미디어 시스템의 아키텍처 스타일</li>
 <li><strong>키워드</strong>: 자원(URI), HTTP 메서드(상태),  <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무상태(Stateless)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>균일한 인터페이스</strong></u></span>, 캐시 가능, 6대 제약</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>REST 6대 제약 조건</strong>:<table>
+<li><strong>REST 6대 제약 조건</strong>:<div class="table-scroll"><table>
 <tr><th>제약</th><th>설명</th></tr>
 <tr><td><strong>클라이언트-서버</strong></td><td>UI와 데이터 저장 분리</td></tr>
 <tr><td><strong>무상태 (Stateless)</strong></td><td>각 요청은 독립적, 세션 미보관</td></tr>
@@ -28,7 +28,7 @@
 <tr><td><strong>계층화 시스템</strong></td><td>중간 계층(프록시·게이트웨이) 투명</td></tr>
 <tr><td><strong>균일한 인터페이스</strong></td><td>자원 식별·자기 서술·HATEOAS</td></tr>
 <tr><td><strong>코드 온 디맨드 (선택)</strong></td><td>서버가 실행 코드 전송 가능</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>REST는 아키텍처 스타일이지 프로토콜이 아님</strong></u></span>을 명확히 하며, 6대 제약을 모두 준수할 때 진정한 RESTful로 인정되고 특히 <strong>무상태와 균일 인터페이스</strong>가 핵심.</li>
 </ul>

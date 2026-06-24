@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 코드에 잠재적 문제가 있음을 시사하는 표면적 징후로, 리팩토링이 필요함을 나타내는 신호</li>
 <li><strong>키워드</strong>: 기술 부채, 리팩토링 트리거, 잠재적 위험, 나쁜 코드 패턴, 스파게티 코드, 에일리언 코드</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>주요 코드스멜 유형</strong>:<table>
+<li><strong>주요 코드스멜 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th></tr>
 <tr><td><strong>긴 메서드 (Long Method)</strong></td><td>지나치게 긴 메서드, 이해·테스트 어려움</td></tr>
 <tr><td><strong>거대한 클래스 (Large Class)</strong></td><td>너무 많은 필드·메서드, SRP 위반</td></tr>
@@ -29,7 +29,7 @@
 <tr><td><strong>데이터 덩어리 (Data Clumps)</strong></td><td>항상 함께 등장하는 데이터 그룹</td></tr>
 <tr><td><strong>기능 편애 (Feature Envy)</strong></td><td>다른 클래스 데이터를 과도하게 참조</td></tr>
 <tr><td><strong>주석 과다 (Comments)</strong></td><td>이해하기 어려운 코드를 주석으로 설명</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 코드스멜은 <strong>즉각적 오류가 아닌 </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>잠재적 품질 위험 신호</strong></u></span>로, 주석 과다는 역설적으로 코드 자체가 불명확하다는 스멜이며, 이름이 좋은 코드는 주석이 불필요.</li>
 </ul>

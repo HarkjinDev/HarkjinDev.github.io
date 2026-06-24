@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,20 +20,20 @@
 <li><strong>정의:</strong> 모든 결정자(Determinant)가 후보키(Candidate Key)여야 한다는 조건을 만족하는 정규형</li>
 <li><strong>키워드:</strong> 결정자, 후보키, 함수 종속성, 이상 현상, 분해, 3NF 차이, 정규화</li>
 <li><strong>분류</strong>: 정규화</li>
-<li><strong>BCNF 조건:</strong><table>
+<li><strong>BCNF 조건:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>결정자 (Determinant)</strong></td><td>X → Y에서 X가 Y를 결정하는 속성 집합</td><td>함수 종속 좌변</td></tr>
 <tr><td><strong>후보키 (Candidate Key)</strong></td><td>튜플을 유일하게 식별하는 최소 속성 집합</td><td>유일 식별자</td></tr>
 <tr><td><strong>BCNF 조건</strong></td><td>모든 비자명 함수 종속 X → Y에서 X는 반드시 후보키</td><td>결정자 = 후보키</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>BCNF 위반 사례:</strong><ul>
-<li>수강 테이블: <strong>(학생ID, 과목명, 교수명)</strong><table>
+<li>수강 테이블: <strong>(학생ID, 과목명, 교수명)</strong><div class="table-scroll"><table>
 <tr><th>학생ID</th><th>과목명</th><th>교수명</th></tr>
 <tr><td>S001</td><td>DB</td><td>김교수</td></tr>
 <tr><td>S001</td><td>OS</td><td>이교수</td></tr>
 <tr><td>S002</td><td>DB</td><td>박교수</td></tr>
-</table>
+</table></div>
 </li>
 <li>후보키: (학생ID, 과목명), (학생ID, 교수명)</li>
 <li>함수 종속: <strong>교수명 → 과목명</strong> (교수는 하나의 과목만 담당)</li>
@@ -41,13 +41,13 @@
 </ul>
 </li>
 <li><strong>BCNF 분해:</strong><ul>
-<li><strong>위반 테이블 → 2개 테이블로 분해: </strong>교수명이 후보키인 테이블로 분리 → BCNF 만족<table>
+<li><strong>위반 테이블 → 2개 테이블로 분해: </strong>교수명이 후보키인 테이블로 분리 → BCNF 만족<div class="table-scroll"><table>
 <tr><th>교수 테이블</th><th></th><th>수강 테이블</th><th></th></tr>
 <tr><td><strong>교수명</strong></td><td><strong>과목명</strong></td><td><strong>학생ID</strong></td><td><strong>교수명</strong></td></tr>
 <tr><td>김교수</td><td>DB</td><td>S001</td><td>김교수</td></tr>
 <tr><td>이교수</td><td>OS</td><td>S001</td><td>이교수</td></tr>
 <tr><td>박교수</td><td>DB</td><td>S002</td><td>박교수</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일정 반경 내의 데이터 밀도</strong></u></span>를 기준으로 군집을 형성하며 밀도가 낮은 지역의 데이터는 노이즈로 처리하는 알고리즘</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Epsilon</strong></u></span>, MinPts, Core Point, Noise Point, 밀도 기반, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>노이즈(이상치 제거)</strong></u></span></li>
 <li><strong>분류</strong>: 비지도학습</li>
-<li><strong>핵심 구성 요소</strong>:<table>
+<li><strong>핵심 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>Epsilon (</strong><strong>\epsilon</strong><strong>)</strong></td><td>탐색 반경 거리 기준</td><td>군집 크기 결정 파라미터</td></tr>
 <tr><td><strong>MinPts</strong></td><td>군집 형성 최소 포인트 수</td><td>밀도 판단 임계값</td></tr>
 <tr><td><strong>Core Point</strong></td><td>반경 내 MinPts 이상 존재</td><td>군집 생성의 시작점</td></tr>
 <tr><td><strong>Border Point</strong></td><td>핵심점 반경 내 일반 점</td><td>군집 가장자리 데이터</td></tr>
 <tr><td><strong>Noise Point</strong></td><td>어떤 군집에도 미포함 점</td><td>이상치(Outlier) 식별</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>주요 특징 및 장점</strong>:<ul>
 <li><strong>자율성</strong>: 군집의 개수(K)를 사전에 정할 필요 없이 자동으로 결정함</li>

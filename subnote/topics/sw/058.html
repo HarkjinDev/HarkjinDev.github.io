@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 기존 소프트웨어의 소스코드·바이너리·데이터베이스를 분석하여 설계·명세 수준의 추상화된 표현을 추출하는 활동</li>
 <li><strong>키워드</strong>: 소스코드 분석, 아키텍처 복구, 데이터 역공학, 디컴파일, 레거시 문서화</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>역공학 유형</strong>:<table>
+<li><strong>역공학 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>대상</th><th>산출물</th></tr>
 <tr><td><strong>코드 역공학</strong></td><td>소스코드</td><td>클래스 다이어그램, 아키텍처</td></tr>
 <tr><td><strong>데이터 역공학</strong></td><td>DB 스키마</td><td>ERD, 데이터 사전</td></tr>
 <tr><td><strong>UI 역공학</strong></td><td>화면·인터페이스</td><td>와이어프레임, UI 명세</td></tr>
 <tr><td><strong>바이너리 역공학</strong></td><td>실행파일</td><td>소스코드 복원(디컴파일)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 역공학은 <strong>아키텍처 드리프트 복구</strong>와 <strong>레거시 문서화</strong>에 필수적이며, 보안 분야에서 악성코드 분석에도 활용되나 저작권·윤리적 제한이 따름.</li>
 </ul>

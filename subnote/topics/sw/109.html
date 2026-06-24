@@ -3,19 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 8]. 형상관리/배포</title>
+  <title>23. 정적 테스트(Static Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h3>[Part 8]. 형상관리/배포</h3>
+<h4>23. 정적 테스트(Static Test)</h4>
+<ul>
+<li>정의: SW 를 실행하지 않고 소스 코드, 설계서, 요구사항 등 산출물을 수동으로 검토하거나 자동도구로 분석하여 결함을 찾는 테스트 기법</li>
+<li>키워드:</li>
+<li><strong>분류</strong>: 테스트</li>
+<li>테스트 대상: 요구사항 정의서, 설계서, 소스코드, 테스트 계획서</li>
+<li><strong>정적 테스트 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td>도구 중심</td><td>정적 분석 </td><td>자동화 도구로 실행 없이 오류·취약점 감지</td><td>SonarQube·ESLint·PMD</td></tr>
+<tr><td>리뷰 기법</td><td>비공식 리뷰</td><td>소수 인원 자율 수행·문서화 없는 리뷰</td><td>절차 없음·비공식</td></tr>
+<tr><td></td><td>워크쓰루 </td><td>작성자가 참가자에게 산출물 설명·오류 발굴</td><td>작성자 주도·비형식</td></tr>
+<tr><td></td><td>기술 리뷰</td><td>전문가가 기술적 정확성·표준 준수 검증</td><td>구조적·품질 평가</td></tr>
+<tr><td></td><td>인스펙션</td><td>훈련된 주재자 주관·공식 규칙 적용 엄격 수행</td><td>가장 엄격한 리뷰</td></tr>
+</table></div>
+</li>
+</ul>
+<hr/>
 
 </body>
 </html>

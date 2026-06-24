@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 데이터 전송 오류 발생 시 수신 측이 송신 측에 재전송을 자동으로 요청하여 신뢰성을 보장하는 오류 제어 방식</li>
 <li><strong>키워드</strong>: Stop-and-Wait, Go-Back-N, Selective Repeat, NAK, 재전송, 시퀀스 번호</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>ARQ 방식 상세 비교</strong>:<table>
+<li><strong>ARQ 방식 상세 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>Stop-and-Wait</strong></th><th><strong>Go-Back-N</strong></th><th><strong>Selective Repeat</strong></th></tr>
 <tr><td><strong>윈도우 크기</strong></td><td>1</td><td>N(송신) / 1(수신)</td><td>N(송/수신 모두)</td></tr>
 <tr><td><strong>재전송 범위</strong></td><td>오류 1프레임</td><td>오류 포함 이후 전체</td><td>오류 프레임만</td></tr>
 <tr><td><strong>버퍼 요구</strong></td><td>없음</td><td>송신만</td><td>송수신 모두</td></tr>
 <tr><td><strong>효율</strong></td><td>매우 낮음</td><td>중간</td><td>높음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>HARQ</strong>: 4G/5G에서 ARQ + FEC를 결합, 1차 FEC로 정정 후 실패 시 ARQ로 재전송</li>
 <li><strong>인사이트</strong>: Selective Repeat은 <strong>효율이 가장 높지만 버퍼가 많이 필요</strong>하며, Go-Back-N은 구현이 단순하여 실제 구현에 많이 사용됨. 두 방식의 시퀀스 번호 범위(GBN: 2ⁿ-1, SR: 2^(n-1))도 암기 포인트.</li>

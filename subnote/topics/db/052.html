@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -30,13 +30,13 @@
 <li><strong>CP (C+P)</strong>: 가용성 포기 — HBase, MongoDB (일부 설정)</li>
 </ul>
 </li>
-<li><strong>PACELC 분류</strong>:<table>
+<li><strong>PACELC 분류</strong>:<div class="table-scroll"><table>
 <tr><th>분류</th><th>분할 시</th><th>정상 시</th><th>대표 시스템</th></tr>
 <tr><td><strong>PA/EL</strong></td><td>가용성 우선</td><td>낮은 지연시간</td><td>DynamoDB, Cassandra</td></tr>
 <tr><td><strong>PA/EC</strong></td><td>가용성 우선</td><td>일관성 우선</td><td>MongoDB</td></tr>
 <tr><td><strong>PC/EL</strong></td><td>일관성 우선</td><td>낮은 지연시간</td><td>PNUTS</td></tr>
 <tr><td><strong>PC/EC</strong></td><td>일관성 우선</td><td>일관성 우선</td><td>HBase, VoltDB, ZooKeeper</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 실무에서 완전한 CP나 AP 시스템은 드물며, 대부분 상황에 따라 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일관성 수준을 동적으로 조정하는 최종 일관성(Eventual Consistency) 모델</strong></u></span>을 채택함</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,15 +20,15 @@
 <li><strong>정의</strong>: 재해 발생 시 정보시스템과 데이터를 신속하게 복구하여 업무 연속성을 지원하는 재해복구 시스템</li>
 <li><strong>키워드</strong>: 미러 사이트, 핫/웜/콜드 사이트, RTO/RPO, 자동 Failover, HA, FT, IP-SAN, DWDM, GSLB, Snapshot, 지리적 분산, DRaaS, 다중지역 동시 가동방식</li>
 <li><strong>분류</strong>: 연속성</li>
-<li><strong>DRS 유형 비교</strong>:<table>
+<li><strong>DRS 유형 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>복구 시간</strong></th><th><strong>데이터 손실</strong></th><th><strong>비용</strong></th><th><strong>목표시간</strong></th></tr>
 <tr><td><strong>미러 사이트(Mirror)</strong></td><td>즉시</td><td>없음</td><td>매우 높음</td><td>RTO=0</td></tr>
 <tr><td><strong>핫 사이트(hot)</strong></td><td>즉시(~수 분)</td><td>거의 없음</td><td>매우 높음</td><td>RTO≤2h</td></tr>
 <tr><td><strong>웜 사이트(Warm)</strong></td><td>수 시간</td><td>소량</td><td>높음</td><td>RTO≤1W</td></tr>
 <tr><td><strong>콜드 사이트(Cold)</strong></td><td>수일</td><td>많음</td><td>낮음</td><td>수개월</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술요소: </strong><table>
+<li><strong>기술요소: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
 <tr><td><strong>가용성·이중화</strong></td><td><strong>고가용성 (HA)</strong></td><td>H/W 클러스터링·Stand-By 구성</td></tr>
 <tr><td></td><td><strong>무중단 내결함성 (FT)</strong></td><td>장애 즉시 서비스 이중화 시스템</td></tr>
@@ -40,7 +40,7 @@
 <tr><td></td><td><strong>스냅샷 (Snapshot)</strong></td><td>특정 시점 가상 이미지 저장·복원</td></tr>
 <tr><td><strong>백업·복구</strong></td><td><strong>백업 (Backup)</strong></td><td>별도 매체에 데이터 저장·보관</td></tr>
 <tr><td><strong>인프라</strong></td><td><strong>가상화 (Virtualization)</strong></td><td>복구센터 효율성·HW 독립성 확보</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>DRS 구축 시 핵심 고려사항</strong>: RTO·RPO 충족 여부, 지리적 분산, 자동 전환(Failover), 정기 훈련</li>
 <li><strong>DR센터 유형:</strong> 상호계약형, 공동이용형, 외부위탁형, 독자구축형   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;상공외독&gt;</strong></span></li>

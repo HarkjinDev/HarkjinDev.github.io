@@ -3,41 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-3. HAZOP (Hazard and Operability Analysis)</title>
+  <title>[하위] 1-2. FMEA (Failure Mode and Effects Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>[하위] 1-3. HAZOP (Hazard and Operability Analysis)</h4>
+<h4>[하위] 1-2. FMEA (Failure Mode and Effects Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 공정 변수에 가이드워드를 적용하여 의도에서 벗어난 이탈 상황을 체계적으로 식별하고 위험과 운용 문제를 분석하는 기법</li>
-<li><strong>키워드</strong>: 브레인스토밍, 팀 기반 분석, 귀납적, Bottom-up, 공정변수(특정/일반), 가이드워드(Guide Word), 이탈(Deviation), 원인, 결과</li>
+<li><strong>정의</strong>: 시스템의 각 컴포넌트에서 발생 가능한 고장 모드를 식별하고, 각 고장이 상위 시스템에 미치는 영향과 심각도를 귀납적으로 분석하는 기법</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고장 모드(Failure Mode), 영향(Effect), 심각도(Severity), 발생도(Occurrence), 검출도(Detection), RPN</strong></u></span></li>
 <li><strong>분류</strong>: 안전성 분석</li>
-<li><strong>평가방식/가이드워드: </strong><ul>
-<li><strong>평가방식: 이탈 = 공정변수 × 가이드워드</strong></li>
+<li><strong>RPN (Risk Priority Number) 계산</strong>:<ul>
+<li>RPN = 심각도(S, X좌표) × 발생도(O, Y좌표) × 검출도(D, Z좌표)</li>
+<li>각 항목 1~10점 평가</li>
+<li>RPN이 높을수록 우선 개선 대상</li>
 </ul>
-<table>
-<tr><th><strong>구분</strong></th><th><strong>세부 구분</strong></th><th><strong>설명 (요약)</strong></th></tr>
-<tr><td><strong>이탈 (Deviation)</strong></td><td>-</td><td>설계 의도(정상 운전 조건)에서 벗어난 상태</td></tr>
-<tr><td><strong>공정변수</strong></td><td><strong>특정변수</strong></td><td>가이드워드와 조합되어 이탈을 일으키는 변수</td></tr>
-<tr><td><strong>(Process Parameter)</strong></td><td><strong>일반변수</strong></td><td>단독으로 이탈을 발생시키는 변수</td></tr>
-<tr><td><strong>가이드워드</strong></td><td><strong>없음 (No/Not)</strong></td><td>설계 의도가 완전히 부정되어 양이 없는 상태</td></tr>
-<tr><td><strong>(Guide Words)</strong></td><td><strong>증가 (More)</strong></td><td>변수가 양적으로 늘어난 상태</td></tr>
-<tr><td></td><td><strong>감소 (Less)</strong></td><td>변수가 양적으로 줄어든 상태</td></tr>
-<tr><td></td><td><strong>반대 (Reverse)</strong></td><td>설계 의도와 정반대로 나타나는 상태</td></tr>
-<tr><td></td><td><strong>부가 (As Well As)</strong></td><td>설계 의도 외 다른 요소가 추가된 상태 (오염 등)</td></tr>
-<tr><td></td><td><strong>부분 (Part Of)</strong></td><td>설계 의도가 불완전하게 수행되는 상태</td></tr>
-<tr><td></td><td><strong>기타 (Other Than)</strong></td><td>설계 의도대로 설치·운전되지 않는 상태</td></tr>
-</table>
 </li>
-<li><strong>인사이트</strong>: HAZOP은 <strong>화학·플랜트 공정에서 발전</strong>했으나 소프트웨어 시스템에도 적용되며, 가이드워드별로 팀이 체계적으로 이탈 시나리오를 브레인스토밍하는 <strong>팀 기반 분석이 특징</strong>.</li>
+<li><strong>FMEA 유형:</strong> 설계 FMEA, 공정 FEMA, 시스템 FMEA</li>
+<li><strong>FMEA 분석표 구성</strong>:<div class="table-scroll"><table>
+<tr><th>항목</th><th>고장 모드</th><th>영향</th><th>심각도(S)</th><th>원인</th><th>발생도(O)</th><th>현행 대책</th><th>검출도(D)</th><th>RPN</th></tr>
+<tr><td>센서 A</td><td>신호 단절</td><td>시스템 정지</td><td>9</td><td>커넥터 불량</td><td>3</td><td>정기 점검</td><td>4</td><td>108</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: FMEA는 <strong>상향식(Bottom-up) 분석</strong>으로 FTA와 상호 보완적이며, RPN을 통한 <strong>정량적 우선순위 도출</strong>이 핵심으로 RPN 기준(예: 100 이상)으로 개선 조치를 결정.</li>
 </ul>
 
 </body>

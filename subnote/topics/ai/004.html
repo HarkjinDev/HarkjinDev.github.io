@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,38 +20,38 @@
 <li><strong>정의:</strong> 인간의 뇌 구조를 모방한 인공신경망(ANN)을 다층(Deep)으로 쌓아 데이터로부터 고차원적인 특징을 자동 학습하는 기술</li>
 <li><strong>키워드:</strong> 다층 신경망(DNN), 가중치(Weight), 순전파, 역전파, 손실계산, 활성화 함수, 손실 함수, 옵티마이저, 배치 정규화, 드롭아웃, CNN, RNN/LSTM, Transformer, GAN, 과접합, 기울기 소실, 블랙박스, 데이터 의존성</li>
 <li><strong>분류:</strong> AI 개론</li>
-<li><strong>동작 원리:  </strong>입력 → 순전파(Forward) → 역전파(Backprop) → 출력<table>
+<li><strong>동작 원리:  </strong>입력 → 순전파(Forward) → 역전파(Backprop) → 출력<div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>순전파 (Forward)</strong></td><td>입력 데이터가 각 레이어를 거쳐 출력값 생성</td><td>예측 수행</td></tr>
 <tr><td><strong>손실 계산</strong></td><td>예측값과 실제값의 차이를 손실 함수로 측정</td><td>오차 산출</td></tr>
 <tr><td><strong>역전파 (Backprop)</strong></td><td>손실을 역방향으로 전파하여 기울기 계산</td><td>기울기 산출</td></tr>
 <tr><td><strong>가중치 최적화</strong></td><td>옵티마이저(SGD·Adam 등)로 가중치 업데이트</td><td>학습 수렴</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 구성 요소:</strong><table>
+<li><strong>주요 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>활성화 함수</strong></td><td>비선형성 부여 (ReLU·Sigmoid·Softmax 등)</td><td>비선형 변환</td></tr>
 <tr><td><strong>손실 함수</strong></td><td>예측 오차 측정 (MSE·Cross Entropy 등)</td><td>오차 측정</td></tr>
 <tr><td><strong>옵티마이저</strong></td><td>가중치 업데이트 방향·크기 결정 (Adam·SGD)</td><td>학습 최적화</td></tr>
 <tr><td><strong>배치 정규화</strong></td><td>레이어 입력 분포를 정규화하여 학습 안정화</td><td>학습 안정</td></tr>
 <tr><td><strong>드롭아웃</strong></td><td>학습 중 뉴런 일부를 무작위 비활성화하여 과적합 방지</td><td>정규화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 아키텍처:</strong><table>
+<li><strong>주요 아키텍처:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>CNN</strong></td><td>합성곱 연산으로 이미지·공간 특징 추출 특화</td><td>이미지 처리</td></tr>
 <tr><td><strong>RNN·LSTM</strong></td><td>순환 구조로 시퀀스·시계열 데이터 처리 특화</td><td>순서 학습</td></tr>
 <tr><td><strong>Transformer</strong></td><td>어텐션 메커니즘 기반 병렬 처리 구조</td><td>현재 주류</td></tr>
 <tr><td><strong>GAN</strong></td><td>생성자·판별자 경쟁 학습으로 데이터 생성</td><td>생성 모델</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 문제점 및 대응:</strong><table>
+<li><strong>주요 문제점 및 대응:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>과적합</strong></td><td>학습 데이터에 과도 최적화되어 일반화 실패</td><td>드롭아웃·정규화</td></tr>
 <tr><td><strong>기울기 소실</strong></td><td>역전파 시 기울기가 소멸되어 학습 불가</td><td>ReLU·잔차연결</td></tr>
 <tr><td><strong>블랙박스</strong></td><td>내부 추론 과정의 해석 불가</td><td>XAI 연계</td></tr>
 <tr><td><strong>데이터 의존성</strong></td><td>대규모 고품질 데이터 없이 성능 확보 어려움</td><td>전이학습 활용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트: </strong>특징 자동 추출(Representation Learning)로 기존 머신러닝의 Feature Engineering 한계를 극복하며 AI 성능의 패러다임 전환을 이끔. CNN→RNN→Transformer로 이어지는 아키텍처 진화는 각각 공간·시간·전역 의존성 문제를 해결해 왔으며, 현재 Transformer가 거의 모든 도메인의 표준 구조로 자리잡음</li>
 </ul>

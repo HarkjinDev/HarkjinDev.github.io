@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,15 +20,15 @@
 <li><strong>정의</strong>: 협업 MIMO, 다중 AP 조정, 광대역 지원을 통해 실제 처리량과 채널 효율을 극대화하는 차세대 무선랜 표준 (예상 2028년)</li>
 <li><strong>키워드</strong>: Wi-Fi 8, 협업 MIMO, 다중 AP 조정, 320MHz 채널, 멀티링크, 6GHz 대역</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>Wi-Fi 세대 비교</strong>:<table>
+<li><strong>Wi-Fi 세대 비교</strong>:<div class="table-scroll"><table>
 <tr><th>세대</th><th>표준</th><th>최대 속도</th><th>주파수</th><th>주요 기술</th></tr>
 <tr><td>Wi-Fi 5</td><td>802.11ac</td><td>3.5 Gbps</td><td>5</td><td>MU-MIMO, 5GHz</td></tr>
 <tr><td>Wi-Fi 6/6E</td><td>802.11ax</td><td>9.6 Gbps</td><td>2.4, 5, 6</td><td>OFDMA, TWT, 6GHz</td></tr>
 <tr><td>Wi-Fi 7</td><td>802.11be</td><td>46 Gbps</td><td>2.4, 5, 6</td><td>320MHz, MLO, 4K QAM</td></tr>
 <tr><td>Wi-Fi 8</td><td>802.11bn</td><td>100+ Gbps</td><td>2.4, 5, 6</td><td>협업 MIMO, 다중 AP</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Wi-Fi 7 기술요소:</strong><table>
+<li><strong>Wi-Fi 7 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
 <tr><td><strong>MAC</strong></td><td><strong>MLO (Multi-Link Operation)</strong></td><td>여러 링크 동시 송수신으로 처리량·신뢰성 향상</td></tr>
 <tr><td></td><td><strong>무선공유기(AP)간 다중협력통신</strong></td><td>AP 간 데이터 공유·제어로 자원 유연성 개선</td></tr>
@@ -37,9 +37,9 @@
 <tr><td></td><td><strong>하이브리드 ARQ</strong></td><td>추가 패리티 기반 재전송 복호화 향상</td></tr>
 <tr><td><strong>PHY</strong></td><td><strong>혼합 빔포밍</strong></td><td>320MHz 광대역 협대역 분할 프리코딩</td></tr>
 <tr><td></td><td><strong>4096 QAM</strong></td><td>12bit 변조로 기존 대비 20% 성능 향상</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Wi-Fi 8 기술요소:</strong><table>
+<li><strong>Wi-Fi 8 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
 <tr><td><strong>MAC</strong></td><td><strong>MAPC (Multi-AP Coordination)</strong></td><td>다중 AP 협력으로 간섭 감소·용량 향상</td></tr>
 <tr><td></td><td><strong>분산 MLO (Distributed MLO)</strong></td><td>다중 링크 협조적 분산 운용·이동성 강화</td></tr>
@@ -51,7 +51,7 @@
 <tr><td></td><td><strong>ELR (향상된 장거리)</strong></td><td>저신호 환경 장거리 안정 연결 지원</td></tr>
 <tr><td></td><td><strong>4096 QAM 유지</strong></td><td>Wi-Fi 7 변조 방식 유지·실환경 도달률 향상</td></tr>
 <tr><td></td><td><strong>320MHz 대역폭 유지</strong></td><td>Wi-Fi 7 대역폭 유지·신뢰성 중심 운용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>협업 MIMO</strong>: 여러 AP가 협력하여 단일 사용자에게 동시 빔포밍 → 간섭 최소화, 처리량 극대화</li>
 <li><strong>Wi-Fi 8 핵심 목표 (UHR, Ultra-High Reliability):</strong> 처리량 25% 향상·지연 스파이크 25% 감소·패킷 손실 25% 저감을 목표로, 속도보다 신뢰성·안정성 중심으로 설계됨</li>

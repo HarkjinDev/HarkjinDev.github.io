@@ -3,40 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 리버스 프록시 (Reverse Proxy)</title>
+  <title>[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>4. 리버스 프록시 (Reverse Proxy)</h4>
+<h4>[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)</h4>
 <ul>
-<li><strong>정의</strong>: 클라이언트와 백엔드 서버 사이에서 클라이언트 요청을 대신 받아 내부 서버로 전달하고 응답을 반환하는 중간 서버</li>
-<li><strong>키워드</strong>: 포워드 프록시, Nginx, HAProxy, 캐싱, SSL 종료, 로드밸런싱, 보안</li>
+<li><strong>정의</strong>: 사용자가 배포 중 서비스 중단을 경험하지 않도록 서비스 가용성을 유지하면서 새 버전으로 교체하는 배포 방식</li>
+<li><strong>키워드</strong>: 가용성, 헬스체크(Health Check), 트래픽 드레이닝(Draining), 로드밸런서, Graceful Shutdown, Expand-Contract 패턴</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>포워드 프록시 vs 리버스 프록시 비교</strong>:<table>
-<tr><th>구분</th><th>포워드 프록시</th><th>리버스 프록시</th></tr>
-<tr><td>위치</td><td>클라이언트 앞</td><td>서버 앞</td></tr>
-<tr><td>대리 대상</td><td>클라이언트</td><td>서버</td></tr>
-<tr><td>주요 용도</td><td>클라이언트 익명화, 우회</td><td>서버 보호, 로드밸런싱</td></tr>
-<tr><td>서버 인지</td><td>서버가 클라이언트 실IP 모름</td><td>클라이언트가 서버 구성 모름</td></tr>
-</table>
+<li><strong>무중단 배포 구현 핵심 요소</strong>:<div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>헬스체크</strong></td><td>신규 인스턴스 정상 확인 후 트래픽 전환</td><td>정상 확인 후 전환</td></tr>
+<tr><td><strong>트래픽 드레이닝</strong></td><td>구버전 처리 중 요청 완료 대기</td><td>요청 완료 대기</td></tr>
+<tr><td><strong>Graceful Shutdown</strong></td><td>진행 중 요청 완료 후 인스턴스 종료</td><td>안전 종료</td></tr>
+<tr><td><strong>로드밸런서 연동</strong></td><td>트래픽 라우팅 자동 제어</td><td>자동 라우팅</td></tr>
+<tr><td><strong>DB 하위 호환성</strong></td><td>구·신버전 공존 시 스키마 호환 유지</td><td>스키마 호환 유지</td></tr>
+<tr><td><strong>리버스 프록시</strong></td><td>보안 강화·부하 분산 역할 수행</td><td>보안·부하 분산</td></tr>
+</table></div>
 </li>
-<li><strong>리버스 프록시 주요 기능</strong>:<ul>
-<li>SSL/TLS 종료(Termination): 암복호화를 리버스 프록시에서 처리</li>
-<li>로드밸런싱: 백엔드 서버 트래픽 분산</li>
-<li>캐싱: 정적 콘텐츠 캐시로 백엔드 부하 감소</li>
-<li>압축: Gzip 응답 압축</li>
-<li>보안: DDoS 방어, IP 차단, WAF 연동</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 리버스 프록시는 <strong>백엔드 서버 구조를 클라이언트에 완전히 숨기는 추상화 계층</strong>으로, MSA에서 API Gateway와 함께 외부 노출 지점을 단일화하는 핵심 인프라.</li>
+<li><strong>인사이트</strong>: 무중단 배포의 <strong>실제 장애 원인은 코드보다 DB 스키마 변경</strong>인 경우가 많아, Expand-Contract 패턴(스키마 확장→마이그레이션→구칼럼 제거)이 필수 실천.</li>
 </ul>
 
 </body>

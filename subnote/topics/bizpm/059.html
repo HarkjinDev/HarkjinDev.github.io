@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 기술의 개발 단계를 체계적으로 측정·평가하기 위한 기술 성숙도 9단계 평가 체계</li>
 <li><strong>키워드:</strong> 기술 성숙도, 9단계, NASA, EU Horizon, R&amp;D 평가, 기초연구·실증·상용화, 기술이전, MRL</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>TRL 9단계:</strong><table>
+<li><strong>TRL 9단계:</strong><div class="table-scroll"><table>
 <tr><th>R&amp;D 단계</th><th>단계</th><th>명칭</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기초 연구</strong></td><td><strong>TRL 1</strong></td><td>기초 원리 관찰</td><td>기본 과학 원리 발견·보고</td><td>기초 연구 시작</td></tr>
 <tr><td></td><td><strong>TRL 2</strong></td><td>기술 개념 정립</td><td>기술 응용 가능성 개념 도출</td><td>아이디어 구체화</td></tr>
@@ -31,14 +31,14 @@
 <tr><td><strong>개발·상용화</strong></td><td><strong>TRL 7</strong></td><td>실제 환경 실증</td><td>실제 운영 환경 시스템 실증 완료</td><td>운영 환경 실증</td></tr>
 <tr><td></td><td><strong>TRL 8</strong></td><td>시스템 완성·검증</td><td>실제 운영 시스템 완성·최종 검증</td><td>상용화 직전</td></tr>
 <tr><td></td><td><strong>TRL 9</strong></td><td>실제 운영 성공</td><td>실제 환경에서 성공적 운영·상용화</td><td>상용화 완료</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>TRL과 R&amp;D 투자 단계 연계:</strong><table>
+<li><strong>TRL과 R&amp;D 투자 단계 연계:</strong><div class="table-scroll"><table>
 <tr><th>TRL</th><th>R&amp;D 단계</th><th>주요 지원 기관</th><th>핵심</th></tr>
 <tr><td><strong>1~3</strong></td><td>기초 연구</td><td>한국연구재단·대학</td><td>원리·개념 탐색</td></tr>
 <tr><td><strong>4~6</strong></td><td>응용 연구</td><td>출연연·기업부설연구소</td><td>기술 검증·실증</td></tr>
 <tr><td><strong>7~9</strong></td><td>개발·사업화</td><td>TIPS·IITP·중소벤처부</td><td>상용화·시장 진출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> TRL은 R&amp;D 과제의 기술 성숙도를 객관적으로 측정하여 투자 대비 성과를 평가하는 핵심 지표로, 국내 국가 R&amp;D 사업에서 과제 기획·선정·평가의 공통 기준으로 자리잡고 있음. TRL이 낮을수록 불확실성이 높고 투자 리스크가 크므로, 단계별 기술 성숙도에 맞는 차등 지원 전략과 TRL 향상을 목표로 한 R&amp;D 로드맵 설계가 기술 사업화 성공의 핵심임</li>
 </ul>

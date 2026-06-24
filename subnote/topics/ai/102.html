@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 3-1. 인공지능 저작권 이슈</h4>
 <ul>
-<li><strong>저작권 분쟁 원인</strong><table>
+<li><strong>저작권 분쟁 원인</strong><div class="table-scroll"><table>
 <tr><th>분류</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>학습 데이터 수집</strong></td><td><strong>무단 크롤링</strong></td><td>동의 없이 저작물 대량 수집</td><td>허락 없는 복제</td></tr>
 <tr><td></td><td><strong>robots.txt 무시</strong></td><td>크롤링 거부 설정 무시 수집</td><td>접근 거부 위반</td></tr>
@@ -30,9 +30,9 @@
 <tr><td><strong>생성물 출력 단계</strong></td><td><strong>학습 데이터 재현</strong></td><td>학습 데이터 그대로 출력</td><td>원본 재현</td></tr>
 <tr><td></td><td><strong>스타일·표현 유사</strong></td><td>특정 작가 스타일 모방 출력</td><td>스타일 도용</td></tr>
 <tr><td></td><td><strong>AI 생성물 저작권 귀속</strong></td><td>창작물 권리 주체 불명확</td><td>권리 귀속 불명</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>법적 대응 방안</strong><table>
+<li><strong>법적 대응 방안</strong><div class="table-scroll"><table>
 <tr><th>분류</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>국제 규제 동향</strong></td><td><strong>EU AI Act</strong></td><td>학습 데이터 출처 공개 의무화</td><td>투명성 의무</td></tr>
 <tr><td></td><td><strong>EU 저작권 지침</strong></td><td>TDM 예외 허용·opt-out 보장</td><td>TDM 예외</td></tr>
@@ -45,9 +45,9 @@
 <tr><td></td><td><strong>opt-out 제도 도입</strong></td><td>저작권자 학습 데이터 제외 요청</td><td>권리자 보호</td></tr>
 <tr><td></td><td><strong>AI 보상 기금</strong></td><td>업계 공동 집단 보상 기금 조성</td><td>집단 보상 체계</td></tr>
 <tr><td></td><td><strong>AIBOM 공개</strong></td><td>AI 학습 데이터 구성 목록 공개</td><td>데이터 투명성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술적 대응 방안</strong><table>
+<li><strong>기술적 대응 방안</strong><div class="table-scroll"><table>
 <tr><th>분류</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>학습 데이터 관리</strong></td><td><strong>AIBOM</strong></td><td>학습 데이터 구성 요소 목록화</td><td>출처 투명성</td></tr>
 <tr><td></td><td><strong>robots.txt 준수</strong></td><td>크롤링 거부 신호 준수</td><td>접근 권한 준수</td></tr>
@@ -61,7 +61,7 @@
 <tr><td></td><td><strong>C2PA 표준</strong></td><td>AI 생성 이력·출처 표준 기록</td><td>콘텐츠 인증</td></tr>
 <tr><td></td><td><strong>유사도 필터</strong></td><td>학습 데이터 유사 출력 사전 차단</td><td>유사 출력 차단</td></tr>
 <tr><td></td><td><strong>RAG 기반 대체</strong></td><td>저작물 학습 대신 실시간 참조</td><td>학습 대체</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

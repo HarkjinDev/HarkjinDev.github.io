@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의: </strong>기존 망분리 중심의 획일적 보안체계를 탈피하여 업무정보의 기밀성(C)·민감성(S)·공개성(O) 등급에 따라 차등화된 보안통제를 적용하는 국가 공공기관 대상 새로운 정보보안 프레임워크</li>
 <li><strong>키워드: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>망분리 해제</strong></u></span><strong>, </strong>C/S/O, 위치, 주체, 객체, 정보 생산/저장 원칙, 정보 이동 원칙, 보안통제항목</li>
 <li><strong>분류</strong>: 가이드</li>
-<li><strong>업무정보 C/S/O 등급분류:</strong><table>
+<li><strong>업무정보 C/S/O 등급분류:</strong><div class="table-scroll"><table>
 <tr><th>등급</th><th>항목</th><th>법령</th></tr>
 <tr><td><strong>C (Confidential)</strong></td><td>비공개</td><td>정보공개법 1~4호</td></tr>
 <tr><td><strong>S (Sensitive)</strong></td><td>민감</td><td>정보공개법 5~8호</td></tr>
 <tr><td><strong>O (Open)</strong></td><td>공개</td><td>공공데이터법 제2조</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>절차:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;준등위/대적보&gt;</strong></span><table>
+<li><strong>절차:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;준등위/대적보&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>절차</th><th>핵심</th></tr>
 <tr><td><strong>1. 준비</strong></td><td><strong>적용 계획 수립</strong></td><td>계획 문서화</td></tr>
 <tr><td></td><td><strong>기관 업무·기능 분석</strong></td><td>BRM 분석</td></tr>
@@ -44,7 +44,7 @@
 <tr><td></td><td><strong>평가결과 협의·조정</strong></td><td>결과 협의</td></tr>
 <tr><td></td><td><strong>평가결과 승인</strong></td><td>심의위원회 승인</td></tr>
 <tr><td><strong>6. 보안성 검토</strong></td><td><strong>국가정보원 보안성 검토</strong></td><td>국정원 검토·승인</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>정보서비스 모델링: </strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;위주객&gt;</strong></span><ul>
 <li><strong>위치(Domain):</strong> 주체가 위치한 물리적 영역</li>

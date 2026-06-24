@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,24 +25,24 @@
 <li>완전형 유지보수가 가장 높은 비율 (약 50%)</li>
 </ul>
 </li>
-<li><strong>유지보수 유형 (IEEE 14764):   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수적예완&gt;</strong></span><table>
+<li><strong>유지보수 유형 (IEEE 14764):   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수적예완&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>유형</th><th>원인</th><th>예시</th></tr>
 <tr><td>Reactive</td><td>수정형 (Corrective)</td><td>결함 수정</td><td>버그 픽스, 오류 수정</td></tr>
 <tr><td></td><td>적응형 (Adaptive)</td><td>환경 변화 대응</td><td>OS 업그레이드, DB 마이그레이션</td></tr>
 <tr><td>Proactive</td><td>예방형 (Preventive)</td><td>미래 장애 예방</td><td>리팩토링, 문서화</td></tr>
 <tr><td></td><td>완전형 (Perfective)</td><td>기능 향상 요구</td><td>성능 개선, 새 기능 추가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유지보수 비용 영향 요인:</strong><table>
+<li><strong>유지보수 비용 영향 요인:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기술적</strong></td><td><strong>SW 복잡도</strong></td><td>복잡한 구조·로직은 유지보수 비용 증가</td><td>복잡도 비례</td></tr>
 <tr><td></td><td><strong>문서화 수준</strong></td><td>문서 부실 시 분석·수정 시간 증가</td><td>문서 품질</td></tr>
 <tr><td></td><td><strong>테스트 커버리지</strong></td><td>테스트 부족 시 회귀 결함 증가</td><td>검증 수준</td></tr>
 <tr><td><strong>관리적</strong></td><td><strong>유지보수 팀 역량</strong></td><td>개발팀과 유지보수팀 분리 시 지식 손실</td><td>도메인 지식</td></tr>
 <tr><td></td><td><strong>변경 관리 체계</strong></td><td>형상관리·변경 통제 미흡 시 혼란 가중</td><td>변경 통제</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유지보수 프로세스 (IEEE 14764):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프문수/유이폐&gt;</strong></span><table>
+<li><strong>유지보수 프로세스 (IEEE 14764):  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프문수/유이폐&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 프로세스 구현</strong></td><td>유지보수 계획·절차·환경 수립</td><td>유지보수 기반 수립</td></tr>
 <tr><td><strong>2. 문제·수정 분석</strong></td><td>변경 요청 분석·영향도 평가·타당성 검토</td><td>변경 요청 분석</td></tr>
@@ -50,16 +50,16 @@
 <tr><td><strong>4. 유지보수 검토·승인</strong></td><td>변경 내용 완전성·정확성·일관성 검토</td><td>변경 품질 검증</td></tr>
 <tr><td><strong>5. 이전 (Migration)</strong></td><td>구 환경에서 신 환경으로 SW·데이터 이전</td><td>환경 전환</td></tr>
 <tr><td><strong>6. 폐기 (Retirement)</strong></td><td>SW 운영 종료·데이터 보존·대체 시스템 전환</td><td>SW 생명주기 종료</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유지보수 지원 기술:</strong><table>
+<li><strong>유지보수 지원 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>형상관리 (SCM)</strong></td><td>변경 이력·버전 관리로 유지보수 추적성 확보</td><td>변경 이력 관리</td></tr>
 <tr><td><strong>역공학 (Reverse Engineering)</strong></td><td>기존 코드에서 설계·요구사항 역추출</td><td>레거시 분석</td></tr>
 <tr><td><strong>재공학 (Re-Engineering)</strong></td><td>기존 SW를 분석 후 재설계·재구현</td><td>현대화</td></tr>
 <tr><td><strong>회귀 테스트 (Regression Test)</strong></td><td>수정 후 기존 기능 영향 여부 재검증</td><td>변경 영향 검증</td></tr>
 <tr><td><strong>프로파일링</strong></td><td>성능 병목·메모리 누수 탐지·분석</td><td>성능 개선</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 소프트웨어 유지보수는 전체 SW 생명주기 비용의 약 60%를 차지하는 핵심 활동으로, 개발보다 유지보수 비용이 더 크다는 사실이 SW 설계 단계에서부터 유지보수성을 내재화해야 하는 근거임. IEEE 14764의 4대 유형 중 완전 유지보수가 50% 이상으로 가장 높은 비중을 차지하며, 이는 유지보수가 단순 결함 수정이 아닌 지속적 품질·기능 향상 활동임을 의미함. 유지보수 비용 절감의 핵심은 개발 단계에서의 모듈화·문서화·테스트 자동화 투자임</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,15 +20,15 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>규모(SLOC 또는 FP)와 비용 동인(Cost Driver)</strong></u></span>을 기반으로 개발 공수를 추정하는 모델</li>
 <li><strong>키워드</strong>: Post-Architecture Model, 비용 동인, 규모 요인, SLOC, 공수(MM) 공식</li>
 <li><strong>분류</strong>: SW 사업관리</li>
-<li><strong>COCOMO II 하위 모델</strong>:<table>
+<li><strong>COCOMO II 하위 모델</strong>:<div class="table-scroll"><table>
 <tr><th><strong>모델</strong></th><th><strong>적용 시점</strong></th><th><strong>특징</strong></th></tr>
 <tr><td>Application Composition</td><td>초기 프로토타입</td><td>LOC 단순 추정</td></tr>
 <tr><td>Early Design</td><td>아키텍처 설계 전</td><td>FP 기반</td></tr>
 <tr><td>Post-Architecture</td><td>아키텍처 확정 후</td><td>상세 비용 동인 적용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>공수 공식</strong>: <ul>
-<li>MM = A \times (Size)^B \times \prod_{i=1}^{17} EM_i<table>
+<li>MM = A \times (Size)^B \times \prod_{i=1}^{17} EM_i<div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>명칭</strong></th><th><strong>상세 설명</strong></th></tr>
 <tr><td><strong>MM</strong></td><td><strong>Person-Month</strong></td><td>프로젝트를 완료하는 데 필요한 총 노력(공수, 인·월)</td></tr>
 <tr><td><strong>A</strong></td><td><strong>상수 (Constant)</strong></td><td>모델 보정 상수 (COCOMO II 기본값은 보통 <strong>2.94</strong>)</td></tr>
@@ -37,7 +37,7 @@
 (Scale Factor)</strong></td><td>프로젝트 규모에 따른 비선형적 가중치</td></tr>
 <tr><td><strong>EM_i</strong></td><td><strong>비용 동인 
 (Effort Multiplier)</strong></td><td>제품, 플랫폼, 인적 자원, 프로젝트 특성 등 17개 가중치</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </li>

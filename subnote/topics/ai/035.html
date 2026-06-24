@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>입력층/은닉층/출력층, 가중합, 활성화 함수</strong></u></span>, 임계값, 비선형성, XOR 문제, MLP, 역전파, 범용 근사자</li>
 <li><strong>분류:</strong> 신경망</li>
 <li><strong>상위-하위 관계: </strong>퍼센트론(단일 뉴런) → 다층 퍼셉트론(MLP) → ANN → DNN</li>
-<li><strong>핵심 구성 요소:</strong><table>
+<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>가중치 (Weight)</strong></td><td>입력 신호가 결과에 주는 영향력 조절 매개변수</td><td>영향력 조절</td></tr>
 <tr><td><strong>편향 (Bias)</strong></td><td>뉴런 활성화 민감도를 조절하는 임계값</td><td>활성화 조절</td></tr>
@@ -29,23 +29,23 @@
 <tr><td><strong>입력층</strong></td><td>원시 데이터를 받아 신경망에 전달하는 레이어</td><td>데이터 입력</td></tr>
 <tr><td><strong>은닉층</strong></td><td>특징을 추출·변환하는 중간 처리 레이어</td><td>특징 추출</td></tr>
 <tr><td><strong>출력층</strong></td><td>최종 예측값을 출력하는 레이어</td><td>결과 출력</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>퍼셉트론 (Perceptron):</strong><table>
+<li><strong>퍼셉트론 (Perceptron):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개념</strong></td><td>입력값의 가중합을 임계값과 비교해 0·1 출력하는 최소 신경망 단위</td><td>단일 뉴런</td></tr>
 <tr><td><strong>단층 퍼셉트론</strong></td><td>선형 분류만 가능, AND·OR 문제 해결 가능</td><td>선형 분류</td></tr>
 <tr><td><strong>XOR 문제</strong></td><td>단층 퍼셉트론으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>XOR 비선형 분류 불가</strong></u></span></td><td>선형 한계</td></tr>
 <tr><td><strong>한계</strong></td><td>비선형 문제 해결 불가로 1차 AI 겨울의 원인이 됨</td><td>표현력 한계</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>다층 퍼셉트론 (MLP, Multi-Layer Perceptron):</strong><table>
+<li><strong>다층 퍼셉트론 (MLP, Multi-Layer Perceptron):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개념</strong></td><td>퍼셉트론을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>입력·은닉·출력층으로 다층 구성</strong></u></span>한 신경망</td><td>다층 구조</td></tr>
 <tr><td><strong>XOR 해결</strong></td><td>은닉층 추가로 비선형 경계 학습 가능해져 XOR 해결</td><td>비선형 극복</td></tr>
 <tr><td><strong>역전파 결합</strong></td><td>역전파 알고리즘으로 다층 가중치 학습 가능해짐</td><td>학습 가능화</td></tr>
 <tr><td><strong>범용 근사자</strong></td><td>은닉층이 충분하면 어떤 연속 함수도 근사 가능</td><td>딥러닝 이론 근거</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>XOR 문제:</strong> 초기 인공신경망(단층 퍼셉트론)은 데이터를 오직 직선 하나로만 분류할 수 있어, 값이 서로 다를 때만 참(1)이 되는 교차 패턴의 데이터(XOR)를 결코 나눌 수 없는 문제</li>
 <li><strong>인사이트: </strong>초기 퍼셉트론의 XOR 문제를 다층 구조(MLP)와 역전파 알고리즘으로 극복하며 딥러닝 시대를 열었으며, 단순한 뉴런 하나의 한계가 오히려 다층 신경망 발전의 동기가 됨. MLP의 범용 근사 정리(Universal Approximation Theorem)는 딥러닝의 이론적 근거가 되며, 층을 깊게 쌓을수록 더 복잡한 함수를 효율적으로 표현할 수 있음이 실증적으로 확인됨</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> LoRA, QLoRA, Adapter, Prefix Tuning, 파라미터 동결(Freeze), 경량 파인튜닝, 저랭크 근사, 양자화, 메모리 효율, 멀티태스크 적응</li>
 <li><strong>분류:</strong> 생성형 AI / LLM</li>
 <li><strong>등장배경:</strong> 전체 파인튜닝 한계, 메모리 한계, 과적합 위험, 멀티태스크 비효율</li>
-<li><strong>주요 기법 상세:</strong><table>
+<li><strong>주요 기법 상세:</strong><div class="table-scroll"><table>
 <tr><th>기법</th><th>핵심 원리</th><th>학습 파라미터 비율</th><th>특징</th></tr>
 <tr><td><strong>LoRA</strong></td><td>가중치 행렬을 저랭크 행렬(A×B)로 근사하여 추가 학습</td><td>~0.1~1%</td><td>추론 시 원본 가중치에 병합 가능, 지연 없음</td></tr>
 <tr><td><strong>QLoRA</strong></td><td>LoRA + 4bit NormalFloat 양자화로 메모리 절감</td><td>~0.1~1%</td><td>소비자급 GPU(24GB)에서 65B 모델 파인튜닝 가능</td></tr>
@@ -29,7 +29,7 @@
 <tr><td><strong>Prefix Tuning</strong></td><td>입력 앞에 학습 가능한 가상 토큰 벡터(Prefix) 추가</td><td>~0.1%</td><td>모델 가중치 전혀 변경 안 함</td></tr>
 <tr><td><strong>Prompt Tuning</strong></td><td>소프트 프롬프트 임베딩 벡터만 학습</td><td>매우 소량</td><td>모델 규모 클수록 효과적</td></tr>
 <tr><td><strong>IA³</strong></td><td>Attention·FFN의 활성화 값에 학습 가능한 스케일 벡터 곱</td><td>~0.01%</td><td>추론 비용 증가 없음, 극소 파라미터</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트: </strong>PEFT는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>LLM 파인튜닝의 민주화를 실현한 핵심 기술</strong></u></span>로, 대형 AI 연구소만 가능했던 모델 특화 작업을 개인·스타트업 수준에서도 가능하게 만든 패러다임 전환점.멀티태스크 환경에서 PEFT의 진가가 발휘됨 — 태스크별 경량 어댑터(수 MB)만 교체하면 되므로, 수백억 파라미터 모델을 태스크마다 별도 유지하는 비효율을 근본적으로 해소.</li>
 </ul>

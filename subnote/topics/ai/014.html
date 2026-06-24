@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -27,13 +27,13 @@
 <li><strong>커널 트릭 (Kernel Trick)</strong>: 저차원 데이터를 고차원으로 매핑하여 선형 분리가 불가능한 데이터도 분류 가능하게 하는 기법</li>
 </ul>
 </li>
-<li><strong>커널 기법:</strong><table>
+<li><strong>커널 기법:</strong><div class="table-scroll"><table>
 <tr><th>커널 기법</th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>선형 커널 (Linear)</strong></td><td>데이터를 변환 없이 선형 분리함</td><td>기본 커널, 연산 속도 빠름</td></tr>
 <tr><td><strong>다항식 커널 (Polynomial)</strong></td><td>데이터를 다항식 차원으로 변환함</td><td>복잡한 비선형 경계 학습</td></tr>
 <tr><td><strong>RBF 커널 (Gaussian)</strong></td><td>무한 차원 공간으로 매핑함</td><td>가장 보편적, 가우스 분포 기반</td></tr>
 <tr><td><strong>시그모이드 커널 (Sigmoid)</strong></td><td>신경망 활성화 함수와 유사함</td><td>로지스틱 회귀와 유사한 성질</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 데이터 차원이 커도 효과적이며 과적합에 강한 특성이 있어 소규모 고품질 데이터 학습에 유리하나, 대용량 데이터에서는 연산 비용이 크게 증가하는 한계가 있음</li>
 </ul>

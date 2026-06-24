@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,20 +20,20 @@
 <li><strong>정의</strong>: 소프트웨어를 실제 실행하여 결함을 발견하는 테스트</li>
 <li><strong>키워드</strong>: 실행 기반, 블랙박스·화이트박스, 기능 검증, 테스트 케이스, 동적 분석</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>동적 테스트 vs 정적 테스트 비교</strong>:<table>
+<li><strong>동적 테스트 vs 정적 테스트 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>동적 테스트</th><th>정적 테스트</th></tr>
 <tr><td>실행 여부</td><td>코드 실행 필수</td><td>코드 실행 불필요</td></tr>
 <tr><td>방법</td><td>블랙박스·화이트박스</td><td>리뷰·인스펙션·정적 분석</td></tr>
 <tr><td>발견 시점</td><td>실행 후</td><td>작성 중·완료 후</td></tr>
 <tr><td>결함 유형</td><td>런타임 오류 중심</td><td>코드 결함·논리 오류</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>테스트 유형: </strong><table>
+<li><strong>테스트 유형: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>명세 기반</th><th>구조 기반</th><th>경험 기반</th></tr>
 <tr><td><strong>근거</strong></td><td>요구사항·명세서</td><td>내부 코드·구조</td><td>테스터 경험·직관</td></tr>
 <tr><td><strong>대표 기법</strong></td><td>동등분할·경계값·상태전이</td><td>구문·결정·조건 커버리지</td><td>탐색적 테스트·오류 추정</td></tr>
 <tr><td><strong>특징</strong></td><td>기능 검증 중심</td><td>코드 실행 경로 검증</td><td>문서화되지 않은 결함 발견</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 동적 테스트는 <strong>실제 환경에서의 동작 검증</strong>이 목적으로, 정적 테스트와 상호 보완적이며 초기 정적 테스트로 기본 결함 제거 후 동적 테스트 효율이 향상됨.</li>
 </ul>

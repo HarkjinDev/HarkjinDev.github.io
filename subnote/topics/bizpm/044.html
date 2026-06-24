@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 2-1. 비즈니스 가치 경제성 분석</h4>
 <ul>
-<li><strong>경제성 분석 기법:</strong><table>
+<li><strong>경제성 분석 기법:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>방법</th><th>내용</th></tr>
 <tr><td><strong>실물옵션
 가치평가</strong></td><td><strong>블랙-숄즈
@@ -30,7 +30,7 @@
 <tr><td></td><td><strong>TCO(소유총비용)</strong></td><td>총 소유 비용(구축+운영+폐기)</td></tr>
 <tr><td></td><td><strong>BCR(비용편익비)</strong></td><td>수익(Benefit) / 비용(Cost)</td></tr>
 <tr><td></td><td><strong>PP(투자회수기간)</strong></td><td>투자회수기간 = 프로젝트 투자비용 / 연간 현금 흐름</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,16 +19,16 @@
 <ul>
 <li><strong>상호운용성: </strong>클라우드 환경에서 애플리케이션 간 상호작용하는 능력</li>
 <li><strong>이식성: </strong>클라우드 서비스 간 애플리케이션을 이관하는 능력</li>
-<li><strong>대상범위: </strong><table>
+<li><strong>대상범위: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>대상범위</th><th>설명</th></tr>
 <tr><td><strong>상호운용성</strong></td><td><strong>애플리케이션 상호운용성</strong></td><td>클라우드 앱 간 상호작용 능력</td></tr>
 <tr><td></td><td><strong>공통관리기능 상호운용성</strong></td><td>관리시스템 간 상호작용 능력</td></tr>
 <tr><td><strong>이식성</strong></td><td><strong>데이터 이식성</strong></td><td>재기입 없이 데이터 재사용</td></tr>
 <tr><td></td><td><strong>가상 어플라이언스 이식성</strong></td><td>VM·컨테이너 인프라 간 재사용</td></tr>
 <tr><td></td><td><strong>애플리케이션 이식성</strong></td><td>클라우드 간 앱 이관·재사용</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>구성요소: </strong><table>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
 <tr><td><strong>조직측면</strong></td><td><strong>DevOps</strong></td><td>개발·운영 협업 빌드·관리 문화</td></tr>
 <tr><td></td><td><strong>Agile</strong></td><td>UserStory 기반 적응형 개발방법론</td></tr>
@@ -39,24 +39,24 @@
 <tr><td></td><td><strong>쿠버네티스</strong></td><td>컨테이너 배포·확장 자동화 플랫폼</td></tr>
 <tr><td></td><td><strong>Multitenancy</strong></td><td>다수 사용자 공유·서비스 독립 유지</td></tr>
 <tr><td><strong>통합/배포</strong></td><td><strong>CI/CD</strong></td><td>빌드·테스트·릴리즈 자동화 수행</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>클라우드 네이티브 참조 아키텍처(TOC):</strong><table>
+<li><strong>클라우드 네이티브 참조 아키텍처(TOC):</strong><div class="table-scroll"><table>
 <tr><th>계층</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Application Definition/Development</strong></td><td>메타데이터·설정·이미지 관리 도구</td><td>앱 정의·개발 도구</td></tr>
 <tr><td><strong>Orchestration &amp; Management</strong></td><td>K8s 기반 배포·모니터링·서비스 탐색</td><td>컨테이너 오케스트레이션</td></tr>
 <tr><td><strong>Runtime</strong></td><td>OCI·네트워킹·스토리지 실행 표준</td><td>컨테이너 실행 표준</td></tr>
 <tr><td><strong>Provisioning</strong></td><td>DevOps 기반 배포·프로비저닝 도구</td><td>환경 프로비저닝</td></tr>
 <tr><td><strong>Infrastructure</strong></td><td>Bare Metal·퍼블릭 클라우드 호환</td><td>인프라 호환성 유지</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>성숙도 모델:</strong><table>
+<li><strong>성숙도 모델:</strong><div class="table-scroll"><table>
 <tr><th>성숙도 모델</th><th>단계</th><th>설명</th></tr>
 <tr><td><strong>CNMM 0</strong></td><td>On-Premise</td><td>자체 데이터센터 내 앱 운영</td></tr>
 <tr><td><strong>CNMM 1</strong></td><td>Cloud-Enabled</td><td>클라우드 지원 수준 단순 사용</td></tr>
 <tr><td><strong>CNMM 2</strong></td><td>Cloud-Optimized</td><td>클라우드 기능 활용 전환 앱</td></tr>
 <tr><td><strong>CNMM 3</strong></td><td>Cloud-Native</td><td>처음부터 클라우드 네이티브 구축</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

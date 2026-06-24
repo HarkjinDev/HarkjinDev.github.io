@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기울기 소실</strong></u></span>, 비선형 변환, Sigmoid, Tanh, ReLU, Leaky ReLU, Softmax</li>
 <li><strong>분류</strong>: 신경망</li>
 <li><strong>사용 이유</strong>: 신경망에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비선형성을 부여</strong></u></span>하여 깊은 층에서도 복잡한 연산이 가능하게 함</li>
-<li><strong>주요 유형</strong>:<table>
+<li><strong>주요 유형</strong>:<div class="table-scroll"><table>
 <tr><th><strong>함수명</strong></th><th><strong>설명 및 특징</strong></th><th><strong>수식 (Formula)</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>Sigmoid</strong></td><td>출력을 0~1 사이로 제한함</td><td>\sigma(x) = \frac{1}{1 + e^{-x}}</td><td>기울기 소실(Vanishing Gradient) 발생</td></tr>
 <tr><td><strong>Tanh</strong></td><td>출력을 -1~1 사이로 제한함</td><td>\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}</td><td>출력의 중심이 0 (Zero-centered)</td></tr>
 <tr><td><strong>ReLU</strong></td><td>0 이하값은 0, 양수는 그대로 출력</td><td>f(x) = \max(0, x)</td><td>연산이 매우 빠르며 가장 대중적임</td></tr>
 <tr><td><strong>Leaky ReLU</strong></td><td>음수 영역에 작은 기울기를 부여함</td><td>f(x) = \max(0.01x, x)</td><td>죽은 ReLU(Dying ReLU) 현상 해결</td></tr>
 <tr><td><strong>Softmax</strong></td><td>모든 출력 합이 1이 되도록 정규화</td><td>\sigma(z)_i = \frac{e^{z_i}}{\sum e^{z_j}}</td><td>다중 클래스 분류의 출력층에 사용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>활성화 함수 선택 = 기울기 흐름의 통로 확보</strong></u></span>. 층이 깊어질수록 ReLU 변형(Leaky ReLU, ELU) 등을 사용하여 학습 안정성을 높이는 전략이 중요함</li>
 </ul>

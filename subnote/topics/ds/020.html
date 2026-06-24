@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -23,7 +23,7 @@
 <li><strong>NIST 5대 핵심 특성</strong>: 온디맨드 셀프서비스, 광대역 네트워크 접근, 자원 풀링, 빠른 탄력성, 측정 가능한 서비스</li>
 <li><strong>활용 절차</strong>: 요구 분석 → 서비스 선택(IaaS/PaaS/SaaS) → 마이그레이션 계획 → 보안 설계 → 도입 → 운영 최적화</li>
 <li><strong>4가지 활용 구조</strong>: Lift &amp; Shift, Re-Platform, Re-Architect, Rebuild</li>
-<li><strong>클라우드 SLA:  </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>&lt;가응확신/지지고&gt;</strong></u></span><table>
+<li><strong>클라우드 SLA:  </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>&lt;가응확신/지지고&gt;</strong></u></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>기준</th><th>세부 기준</th><th>핵심</th></tr>
 <tr><td><strong>정량적</strong></td><td><strong>가용성 (Availability)</strong></td><td>가용률</td><td>서비스 접속 가능 시간 비율</td></tr>
 <tr><td></td><td><strong>응답성 (Responsiveness)</strong></td><td>응답시간</td><td>요구 처리 완료 소요 시간</td></tr>
@@ -36,7 +36,7 @@
 <tr><td></td><td><strong>서비스 지원 (Supportability)</strong></td><td>서비스 지원 체계</td><td>문서·단말·보상대책 지원</td></tr>
 <tr><td></td><td><strong>고객대응 (Customer Response)</strong></td><td>고객대응 체계</td><td>고객 의견 수렴 방법 운영</td></tr>
 <tr><td></td><td></td><td>고객불만 처리체계</td><td>불만 신속·정확 처리 능력</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 클라우드 서비스의 SLA는 <strong>가용성(99.9%+)·성능·보안·지원</strong> 항목을 명시해야 하며, CSAP 인증은 공공기관의 법적 도입 전제 조건임을 강조.</li>
 </ul>

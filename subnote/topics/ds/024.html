@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,7 +25,7 @@
 </ul>
 </li>
 <li><strong>CNCF 핵심 기술 스택</strong>: Kubernetes, Prometheus, Envoy, Helm, Argo CD</li>
-<li><strong>특성: </strong><table>
+<li><strong>특성: </strong><div class="table-scroll"><table>
 <tr><th>특성</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>확장성 (Scalability)</strong></td><td>부하 변화에 따라 자원을 자동으로 수평 확장·축소</td><td><u><strong>오토 스케일링</strong></u></td></tr>
 <tr><td><strong>탄력성 (Elasticity)</strong></td><td>수요에 따라 즉시 할당·해제하는 유연한 자원 관리</td><td>동적 자원 조정</td></tr>
@@ -37,9 +37,9 @@
 <tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선언적 API (Declarative API)</strong></u></span></td><td>목표 상태를 선언하면 시스템이 자동으로 상태 유지</td><td>상태 기반 관리</td></tr>
 <tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불변 인프라 (Immutable Infrastructure)</strong></u></span></td><td>배포 후 변경 없이 새 이미지로 교체 운영 방식</td><td>교체 기반 운영</td></tr>
 <tr><td><strong>보안 내재화 (Security by Design)</strong></td><td>설계 단계부터 보안을 내재화·DevSecOps 적용</td><td>보안 시프트 레프트</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술요소:</strong><table>
+<li><strong>기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>프로비저닝</strong></td><td><strong>컨테이너 (Docker)</strong></td><td>앱·의존성 패키징한 경량 실행 단위</td><td>이식성·일관성</td></tr>
 <tr><td><strong>오케스트레이션</strong></td><td><strong>쿠버네티스 </strong></td><td>컨테이너 배포·확장·복구 자동화</td><td>컨테이너 자동 관리</td></tr>
@@ -53,7 +53,7 @@
 <tr><td><strong>관측가능성</strong></td><td><strong>Observability(MELT) </strong></td><td>메트릭·로그·트레이싱 통합 모니터링</td><td>시스템 가시성</td></tr>
 <tr><td><strong>보안</strong></td><td><strong>DevSecOps</strong></td><td>개발·운영 전 단계 보안 내재화</td><td>보안 자동화</td></tr>
 <tr><td></td><td><strong>제로 트러스트</strong></td><td>모든 접근 지속 검증·최소 권한</td><td>신뢰 최소화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 클라우드 네이티브는 <strong>단순한 클라우드 이전이 아닌 아키텍처 혁신</strong>으로, 기존 모놀리식 앱의 MSA 전환 시 데이터 일관성·서비스 간 통신 복잡성을 체계적으로 관리해야 함.</li>
 </ul>

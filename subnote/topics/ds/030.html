@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> 저지연, 실시간 처리, 엣지 노드, 온디바이스 AI, 5G·MEC, 대역폭 절감, 데이터 주권, 오프로딩</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
 <li><strong>특징: </strong>실시간성(저지연), 분산, 보안/프라이버시 강화</li>
-<li><strong>클라우드 vs 엣지 컴퓨팅 비교:</strong><table>
+<li><strong>클라우드 vs 엣지 컴퓨팅 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>클라우드 컴퓨팅</th><th>엣지 컴퓨팅</th></tr>
 <tr><td><strong>처리 위치</strong></td><td>중앙 데이터센터</td><td>데이터 발생 지점 인근</td></tr>
 <tr><td><strong>지연</strong></td><td>높음 (수십~수백ms)</td><td>낮음 (수ms 이하)</td></tr>
@@ -29,16 +29,16 @@
 <tr><td><strong>실시간성</strong></td><td>제한적</td><td>높음</td></tr>
 <tr><td><strong>보안·프라이버시</strong></td><td>중앙 집중</td><td>현장 처리로 유출 최소화</td></tr>
 <tr><td><strong>가용성</strong></td><td>네트워크 의존</td><td>오프라인 동작 가능</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>엣지 컴퓨팅 계층 구조:</strong><table>
+<li><strong>엣지 컴퓨팅 계층 구조:</strong><div class="table-scroll"><table>
 <tr><th>계층</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>디바이스 계층</strong></td><td>IoT 센서·카메라·스마트폰 등 데이터 발생 단말</td><td>데이터 수집</td></tr>
 <tr><td><strong>엣지 계층</strong></td><td>엣지 서버·게이트웨이·MEC에서 실시간 처리</td><td>현장 처리</td></tr>
 <tr><td><strong>클라우드 계층</strong></td><td>대규모 학습·장기 저장·글로벌 분석 수행</td><td>중앙 분석</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>HW</strong></td><td><strong>엣지 서버</strong></td><td>현장 인근 소형 서버·고성능 처리 노드</td><td>현장 서버</td></tr>
 <tr><td></td><td><strong>엣지 게이트웨이</strong></td><td>디바이스↔엣지 간 데이터 수집·전처리·전달</td><td>데이터 중계</td></tr>
@@ -48,14 +48,14 @@
 <tr><td></td><td><strong>데이터 오프로딩</strong></td><td>처리 완료 후 필요 데이터만 클라우드 전송</td><td>대역폭 절감</td></tr>
 <tr><td><strong>NW</strong></td><td><strong>5G·MEC</strong></td><td>이동통신사 기지국 인접 엣지 서버 활용</td><td>초저지연 연결</td></tr>
 <tr><td></td><td><strong>SDN·NFV</strong></td><td>소프트웨어 기반 엣지 네트워크 동적 제어</td><td>네트워크 유연성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>MEC (Mobile Edge Computing):</strong><table>
+<li><strong>MEC (Mobile Edge Computing):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>정의</strong></td><td>이동통신 기지국 인접 서버에서 모바일 데이터 처리</td><td>기지국 엣지</td></tr>
 <tr><td><strong>5G 연계</strong></td><td>5G 초저지연·대용량과 MEC 결합으로 실시간 서비스</td><td>5G 시너지</td></tr>
 <tr><td><strong>활용</strong></td><td>자율주행·AR·스마트팩토리·실시간 영상 분석</td><td>실시간 서비스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 엣지 컴퓨팅은 AI·IoT·5G의 융합으로 클라우드 중심에서 분산 지능형 인프라로의 패러다임 전환을 이끄는 핵심 기술로, 자율주행·스마트팩토리·의료 등 초저지연이 요구되는 산업의 필수 인프라로 자리잡고 있음. 온디바이스 AI·MEC·클라우드의 3계층 협업 아키텍처 설계가 엣지 컴퓨팅 최적화의 핵심이며, 분산 보안 관리와 이기종 플랫폼 표준화가 대규모 확산의 핵심 선결 과제임</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,7 +19,7 @@
 <ul>
 <li>데이터의 극단적인 복잡성(고해상도, 사실적인 디테일을)을 어떻게 통제할것인가의 해답을 찾는 과정</li>
 <li>AE/VAE (one-shot, 결과물의 경계가 흐릿) → GAN/DCGAN (학습과정의 적대적 반복, 결과물의 Sharp 디테일과 텍스처) → Diffusion (생성과정의 반복, 반복적인 디테일 수정)</li>
-<li><strong>추가 생성모델 기법: </strong><table>
+<li><strong>추가 생성모델 기법: </strong><div class="table-scroll"><table>
 <tr><th><strong>기법</strong></th><th><strong>설명 </strong></th><th><strong>핵심</strong></th><th><strong>주요 모델</strong></th></tr>
 <tr><td><strong>일관성 모델</strong>
 (Consistency)</td><td>디퓨전 과정 초고속 압축</td><td>스텝 건너뛰기</td><td>Consistency Models</td></tr>
@@ -29,7 +29,7 @@
 (Diffusion Transformer)</td><td>트랜스포머와 디퓨전 결합</td><td>LLM 엔진 이식</td><td>Sora (OpenAI)</td></tr>
 <tr><td><strong>자기회귀</strong>
 (Autoregressive)</td><td>다음 픽셀을 순차적 예측</td><td>언어 모델 방식</td><td>메타, 애플의 최신 연구 모델</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 <hr/>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 산업 자동화 환경에서 PLC·센서·RTU 등 장비 간 데이터를 교환하는 마스터-슬레이브 방식의 직렬 통신 프로토콜</li>
 <li><strong>키워드</strong>: 마스터-슬레이브, RTU/ASCII/TCP, 코일, 레지스터, ICS/OT 보안, SCADA</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>MODBUS 변형</strong>:<table>
+<li><strong>MODBUS 변형</strong>:<div class="table-scroll"><table>
 <tr><th>변형</th><th>전송 매체</th><th>인코딩</th><th>특징</th></tr>
 <tr><td>MODBUS RTU</td><td>RS-232/485</td><td>이진</td><td>고효율, 산업 표준</td></tr>
 <tr><td>MODBUS ASCII</td><td>RS-232/485</td><td>ASCII</td><td>가독성, 저효율</td></tr>
 <tr><td>MODBUS TCP</td><td>Ethernet</td><td>TCP/IP</td><td>현대 OT 네트워크</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>보안 취약점</strong>: 인증·암호화 없음 → ICS/OT 보안에서 주요 위협 (Stuxnet 등 공격 사례)</li>
 <li><strong>인사이트</strong>: MODBUS는 1979년 제정된 <strong>레거시 OT 프로토콜</strong>로 보안 기능이 전무하므로, ICS 환경에서는 네트워크 세그먼테이션·화이트리스트·암호화 게이트웨이로 보완 필수.</li>

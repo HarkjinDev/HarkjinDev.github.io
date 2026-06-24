@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,12 +24,12 @@
 </li>
 <li><strong>키워드</strong>: DA, DBA, 데이터 표준, 모델링, 데이터 전략, DB 운영, 성능관리, 보안</li>
 <li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>역할 비교</strong>:<table>
+<li><strong>역할 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>DA</th><th>DBA</th></tr>
 <tr><td>주요 역할</td><td>데이터 표준화, 모델링, 전략</td><td>DB 설치/운영, 백업, 성능관리</td></tr>
 <tr><td>관점</td><td>비즈니스/논리적</td><td>기술/물리적</td></tr>
 <tr><td>산출물</td><td>ERD, 데이터 표준</td><td>DBA 스크립트, 백업 정책</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 대규모 조직에서는 DA와 DBA 역할이 분리되지만, 중소 규모에서는 DBA가 두 역할을 겸하는 경우가 많으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>디지털 전환 시대에 데이터 거버넌스를 이끄는 CDO(Chief Data Officer) 역할이 부상</strong></u></span>하고 있음</li>
 </ul>

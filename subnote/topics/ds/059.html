@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 사물에 센서와 통신 모듈을 내장하여 인터넷으로 연결하고 데이터를 수집·처리하여 지능형 서비스를 제공하는 기술 체계</li>
 <li><strong>키워드</strong>: 센서, M2M, MQTT, CoAP, 에지 컴퓨팅, 국내외 플랫폼, AIoT</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>핵심 기술</strong>:<table>
+<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>기술</th></tr>
 <tr><td>디바이스</td><td>센서, MCU, 저전력 통신(BLE, Zigbee, LoRa)</td></tr>
 <tr><td>네트워크</td><td>MQTT, CoAP, LWM2M, NB-IoT</td></tr>
 <tr><td>플랫폼</td><td>데이터 수집·분석, 디바이스 관리</td></tr>
 <tr><td>서비스</td><td>스마트홈, 스마트팩토리, 헬스케어</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>국내외 서비스 현황</strong>: AWS IoT Core, Azure IoT Hub, 국내 SKT ARTIK, KT IoT Maker's</li>
 <li><strong>인사이트</strong>: IoT는 <strong>디바이스-네트워크-플랫폼-서비스</strong> 4계층 구조로 설명하고, 보안 취약성(디바이스 무결성·암호화 부재)과 AIoT로의 진화 방향을 제시하면 고득점 가능.</li>

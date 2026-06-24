@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 상주 감리원, 실시간 점검, 법정 감리, 100억 이상 사업</li>
 <li><strong>분류</strong>: 감리/PMO</li>
 <li><strong>특징</strong>: 상시 현장 근무, 문제 조기 발견 및 즉각 시정 가능, 대규모 사업(보통 100억 이상)에 적용</li>
-<li><strong>PMO와의 비교: </strong><table>
+<li><strong>PMO와의 비교: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>PMO </strong></th><th><strong>상주감리</strong></th></tr>
 <tr><td><strong>추진배경</strong></td><td>대기업 참여 하한금액 상향(20억→40억)에 따른 중소기업의 경험 부족 보완 및 전문성 확보를 위한 위탁</td><td>대기업 참여 제한으로 인한 중소기업의 경험 부족 보완. 기존 3단계 감리만으로 불충분하여 추가 허용</td></tr>
 <tr><td><strong>법적근거</strong></td><td>◦ 전자정부법 제64조의2 (권고사항)</td><td>◦ 전자정부법 제57조의1 (의무사항)</td></tr>
@@ -37,7 +37,7 @@
 <tr><td><strong>주요산출물</strong></td><td>◦ PMO 수행계획서
 ◦ PMO 검토보고서, 수행결과보고서</td><td>◦ 감리계획서
 ◦ 감리수행결과보고서, 시정조치확인보고서</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 상주감리는 <strong>고위험 대형 사업의 품질 관리</strong>를 위한 강화된 감리 방식으로, 감리원의 독립성을 유지하면서 발주기관·수행기관과의 긴밀한 소통을 통해 조기 위험 대응이 가능함.</li>
 </ul>

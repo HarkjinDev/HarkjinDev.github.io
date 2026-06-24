@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 데이터의 정확성과 일관성을 보장하기 위해 DB에 설정되는 제약 조건의 집합</li>
 <li><strong>키워드</strong>: 개체/참조/속성/사용자/키/도메인 무결성, 제약조건, 일관성, 정확성</li>
 <li><strong>분류</strong>: 무결성</li>
-<li><strong>무결성 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개참속/사키도&gt;</strong></span><table>
+<li><strong>무결성 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개참속/사키도&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>종류</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
 <tr><td><strong>개체 무결성 </strong>(Entity Integrity)</td><td>기본키 존재 및 NULL 불가</td><td>Primary Key, NOT NULL</td></tr>
 <tr><td><strong>참조 무결성 </strong>(Referential Integrity)</td><td>외래키 기반 데이터 일관성</td><td>Foreign Key</td></tr>
@@ -28,7 +28,7 @@
 <tr><td><strong>사용자정의 무결성 </strong>(User Defined Integrity)</td><td>비즈니스 규칙 기반 정합성</td><td>Trigger, CHECK, DEFAULT</td></tr>
 <tr><td><strong>키 무결성 </strong>(Key Integrity)</td><td>키의 성질을 활용한 무결성</td><td>PK, Unique Index</td></tr>
 <tr><td><strong>도메인 무결성 </strong>(Domain Integrity)</td><td>정의된 도메인 범위 준수</td><td>Check, Foreign Key</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>데이터 무결성 확보방법</strong><ul>
 <li>DBMS 무결성 요소 : Primary key, Unique, Foreign Key, Data Type, Check, Default</li>

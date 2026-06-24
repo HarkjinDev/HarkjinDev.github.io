@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 사용자가 제품·서비스와 상호작용하는 전 과정에서 느끼는 종합적인 경험</li>
 <li><strong>키워드</strong>: 사용성(Usability), 접근성(Accessibility), UX 디자인, 페르소나, 사용자 여정 지도</li>
 <li><strong>분류</strong>: 요구공학</li>
-<li><strong>UX 구성 요소 (Peter Morville의 허니콤 모델)</strong>:<table>
+<li><strong>UX 구성 요소 (Peter Morville의 허니콤 모델)</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th></tr>
 <tr><td>유용성 (Useful)</td><td>사용자 목표 달성에 기여하는가</td></tr>
 <tr><td>사용가능성 (Usable)</td><td>쉽고 효율적으로 사용 가능한가</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>접근성 (Accessible)</td><td>장애인 포함 모두가 사용 가능한가</td></tr>
 <tr><td>신뢰성 (Credible)</td><td>신뢰를 줄 수 있는가</td></tr>
 <tr><td>가치 (Valuable)</td><td>비즈니스·사용자 모두에게 가치 있는가</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: UX는 UI(화면)보다 넓은 개념으로 <strong>서비스 전 접점의 경험</strong>을 포괄하며, 페르소나·사용자 여정 지도가 UX 설계의 핵심 도구.</li>
 </ul>

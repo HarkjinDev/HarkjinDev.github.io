@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 정보시스템 구축 전 요구사항 분석과 기본설계를 포함하여 구축 방향을 제시하는 마스터플랜</li>
 <li><strong>키워드</strong>: 요구분석, 기본설계, 방법론 체계, 산출물, ISP 후속</li>
 <li><strong>분류</strong>: IT 전략/기획</li>
-<li><strong>수립 절차</strong>:     <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt; 착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평 &gt;</strong></span><table>
+<li><strong>수립 절차</strong>:     <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt; 착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평 &gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>활동 구성항목</strong></th><th><strong>산출물</strong></th></tr>
 <tr><td><strong>착수 및 참여자 결정</strong></td><td>경영진 지원 조직 형성</td><td>프로젝트 수행조직 역할 정의서</td></tr>
 <tr><td></td><td>프로젝트 수행 조직 편성</td><td>프로젝트 수행조직 역할 정의서</td></tr>
@@ -42,9 +42,9 @@
 <tr><td></td><td>정보시스템 예산 수립</td><td>정보시스템 예산서</td></tr>
 <tr><td></td><td>제안요청서(RFP) 작성</td><td>제안요청서(RFP)</td></tr>
 <tr><td></td><td>정보시스템 구축 업체 선정/평가 지원</td><td>구축업체 선정·평가 기준</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>ISP vs ISMP:</strong><table>
+<li><strong>ISP vs ISMP:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>ISP</th><th>ISMP</th></tr>
 <tr><td><strong>개념</strong></td><td>경영 전략 지원 중·장기 정보화 전략 수립</td><td>특정 정보시스템 구축을 위한 실행 중심 마스터플랜</td></tr>
 <tr><td><strong>지향점</strong></td><td><strong>전략 중심 (Why, What)</strong></td><td><strong>실행 중심 (How)</strong></td></tr>
@@ -54,7 +54,7 @@
 <tr><td><strong>범위</strong></td><td>전사·서비스·부서 단위 정보화 전략</td><td>단위 프로젝트 또는 프로젝트 묶음</td></tr>
 <tr><td><strong>주요 관점</strong></td><td>경영·업무·정보기술·데이터·보안·거버넌스</td><td>기능·데이터·트랜잭션·성능·테스트·운영</td></tr>
 <tr><td><strong>주요 산출물</strong></td><td>동향 분석 보고서, 정보화 전략서, 로드맵</td><td>RFP, 요구사항 정의서, 예산 산정 자료</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: ISMP는 <strong>불명확한 요구사항으로 인한 사업 실패를 예방</strong>하는 사전 설계 단계로, 특히 대규모 공공 정보화 사업에서 발주·수행기관 간 <strong>이해충돌 최소화</strong>에 기여함.</li>
 </ul>

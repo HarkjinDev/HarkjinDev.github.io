@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 시스템이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>숨겨진 상태(Hidden State)와 관찰 가능한 결과(Observation)로 구성되어 있다고 가정</strong></u></span>하고, 상태 변화를 확률적으로 모델링하는 기법</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>상태 전이 확률, 마르코프 연쇄</strong></u></span>, 음성 인식, 전방-후방 알고리즘</li>
 <li><strong>분류</strong>: 신경망</li>
-<li><strong>구성 요소</strong>: <table>
+<li><strong>구성 요소</strong>: <div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>상태 전이 확률</strong></td><td>현재 상태에서 다음 상태로 변할 확률</td><td>상태 변화의 동적 모델링</td></tr>
 <tr><td><strong>방출 확률</strong></td><td>은닉 상태에서 관찰값이 생성될 확률</td><td>관찰 데이터의 확률 분포</td></tr>
 <tr><td><strong>초기 상태 분포</strong></td><td>프로세스가 특정 상태로 시작할 확률</td><td>시작 지점의 확률적 결정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 과거 음성 인식 및 자연어 처리의 주류였으나, 현재는 RNN 및 Transformer 기반 딥러닝 모델로 대체되는 추세임을 언급</li>
 </ul>

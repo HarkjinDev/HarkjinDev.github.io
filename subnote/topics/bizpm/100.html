@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 운영 중인 정보시스템의 안정성·효율성·보안성을 정기적으로 점검하고 개선을 권고하는 감리</li>
 <li><strong>키워드</strong>: 운영 안정성, 보안 취약점, 성능 지표, 변경관리 적절성, 운영 현황 점검</li>
 <li><strong>분류</strong>: 감리/PMO</li>
-<li><strong>주요 점검 항목</strong>:<table>
+<li><strong>주요 점검 항목</strong>:<div class="table-scroll"><table>
 <tr><th>영역</th><th>점검 내용</th></tr>
 <tr><td>시스템 운영</td><td>가용성, 응답속도, 장애 이력</td></tr>
 <tr><td>보안</td><td>접근통제, 취약점, 패치 현황</td></tr>
 <tr><td>변경관리</td><td>변경 승인 절차 준수 여부</td></tr>
 <tr><td>데이터 관리</td><td>백업·복구, 데이터 품질</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 운영 감리는 <strong>구축 후 방치되는 시스템의 리스크를 예방</strong>하는 지속적 품질 관리 활동으로, 특히 레거시 시스템의 보안 취약점과 성능 저하를 조기에 발견하는 데 효과적임.</li>
 </ul>

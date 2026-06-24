@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,11 +20,11 @@
 <li><strong>정의</strong>: 물리 하드웨어 위에서 다수의 가상머신을 생성·관리하며 자원을 할당하는 가상화 관리 소프트웨어 계층</li>
 <li><strong>키워드</strong>: Type 1(베어메탈), Type 2(호스트), VMM, KVM, VMware ESXi, Xen</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>유형 비교</strong>:<table>
+<li><strong>유형 비교</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>특징</th><th>사례</th></tr>
 <tr><td>Type 1 (베어메탈)</td><td>하드웨어 직접 위에 설치, 고성능·고안정성</td><td>VMware ESXi, Xen, KVM</td></tr>
 <tr><td>Type 2 (호스트)</td><td>기존 OS 위에 설치, 개발·테스트용</td><td>VMware Workstation, VirtualBox</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 엔터프라이즈 환경에서는 <strong>Type 1 하이퍼바이저</strong>가 표준이며, KVM은 Linux 커널 내장으로 클라우드 IaaS(AWS EC2, KT클라우드)의 핵심 기반임을 강조.</li>
 </ul>

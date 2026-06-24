@@ -3,19 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 10]. 오픈소스</title>
+  <title>[하위] 1-5. STPA (System Theoretic Process Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h3>[Part 10]. 오픈소스</h3>
+<h4>[하위] 1-5. STPA (System Theoretic Process Analysis)</h4>
+<ul>
+<li><strong>정의</strong>: 사고를 단순 고장의 연쇄가 아닌 제어 구조의 부적절한 제약에서 발생하는 것으로 보고, 시스템 이론 기반으로 위험을 분석하는 현대적 안전성 분석 기법</li>
+<li><strong>키워드</strong>: STAMP(System-Theoretic Accident Model), 제어 구조, UCAs(Unsafe Control Actions), 손실 시나리오</li>
+<li><strong>분류</strong>: 안전성 분석</li>
+<li><strong>UCAs(Unsafe Control Action 4가지 유형): </strong><ul>
+<li>Unsafe Control Action : 시스템의 위험을 유발할 수 있는 Control Action의 불안전한 형태<ol>
+<li>Control Action의 부재</li>
+<li>부적절한 Control Action</li>
+<li>Control Action 제공 시간, 순서</li>
+<li>Control Action 지속시간</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>STPA vs 전통 기법 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>전통 기법 (FTA·FMEA)</th><th>STPA</th></tr>
+<tr><td>기반 이론</td><td>신뢰성 이론 (부품 고장)</td><td>시스템 이론 (제어 구조)</td></tr>
+<tr><td>사고 원인 관점</td><td>컴포넌트 고장 연쇄</td><td>부적절한 제어 상호작용</td></tr>
+<tr><td>소프트웨어 적용</td><td>제한적</td><td>적합 (SW 로직 분석)</td></tr>
+<tr><td>창발적 위험 처리</td><td>어려움</td><td>가능</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: STPA는 <strong>소프트웨어·자율주행·AI 시스템처럼 복잡한 상호작용이 많은 현대 시스템</strong>에 특히 적합하며, 컴포넌트 자체가 정상이어도 제어 흐름 오류로 사고가 발생함을 설명.</li>
+</ul>
+<hr/>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 다차원 데이터를 다양한 관점에서 분석하는 집계·분석 연산에 특화된 온라인 분석 처리 시스템</li>
 <li><strong>키워드</strong>: 다차원 큐브, 슬라이싱, 다이싱, 드릴다운, MOLAP, 차원/측정값</li>
 <li><strong>분류</strong>: 특수 DB</li>
-<li><strong>OLAP vs OLTP 비교</strong>:<table>
+<li><strong>OLAP vs OLTP 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>OLAP</th><th>OLTP</th></tr>
 <tr><td>목적</td><td>분석/의사결정 지원</td><td>일상적 업무 처리</td></tr>
 <tr><td>데이터</td><td>요약/집계</td><td>최신 상세 데이터</td></tr>
 <tr><td>쿼리</td><td>복잡한 분석 쿼리</td><td>단순 CRUD</td></tr>
 <tr><td>응답 시간</td><td>수초~수분</td><td>수밀리초</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>OLAP 연산</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;슬다드롤피&gt;</strong></span><ul>
 <li>슬라이싱(Slicing), 다이싱(Dicing), 드릴다운(Drill-down), 롤업(Roll-up), 피벗(Pivot)</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 테이블 통계정보(행 수, 블록 수, 카디널리티 등)를 기반으로 비용(Cost)을 계산하여 최적의 실행계획을 선택하는 옵티마이저</li>
 <li><strong>키워드</strong>: 질의 변환기, 비용 산정기, 실행 계획 생성기, 선택도, 카디널리티, 히스토그램, 통계정보, Dictionary</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>CBO 구성요소</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;질비실&gt;</strong></span><table>
+<li><strong>CBO 구성요소</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;질비실&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>역할</strong></th><th><strong>사례</strong></th></tr>
 <tr><td><strong>질의 변환기 (Query Transformer)</strong></td><td>효율적 형태로 SQL 모양 변환</td><td>뷰 병합, 서브쿼리 비내포화</td></tr>
 <tr><td><strong>비용 산정기 (Estimator)</strong></td><td>최적 실행계획 탐색 알고리즘</td><td>선택도, 카디널리티, 비용</td></tr>
 <tr><td><strong>실행 계획 생성기 (Plan Generator)</strong></td><td>최소 비용 실행계획 최종 선택</td><td>적응적·경험적 탐색</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>CBO 기반 SQL 최적화 수행 과정</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;파최행실&gt;</strong></span><table>
+<li><strong>CBO 기반 SQL 최적화 수행 과정</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;파최행실&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>수행 과정</strong></th><th><strong>구성요소</strong></th><th><strong>수행 역할</strong></th></tr>
 <tr><td><strong>1. SQL 파싱</strong></td><td>SQL Parser</td><td>구문 분석 및 오류 확인</td></tr>
 <tr><td><strong>2. 최적화 (Optimization)</strong></td><td>Query Transformer</td><td>쿼리 표준 형태 변환</td></tr>
@@ -35,9 +35,9 @@
 <tr><td></td><td>Plan Generator</td><td>최적 실행 계획 선정</td></tr>
 <tr><td><strong>3. 행 소스 생성</strong></td><td>Row-Source Generator</td><td>실행 가능 코드로 변환</td></tr>
 <tr><td><strong>4. 실행 (Execution)</strong></td><td>SQL Engine</td><td>계획 실행 및 결과 제공</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>CBO 참조 통계정보 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;테인컬시&gt;</strong></span><table>
+<li><strong>CBO 참조 통계정보 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;테인컬시&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>통계정보 유형</th><th>세부 통계 항목</th><th>설명</th></tr>
 <tr><td><strong>테이블 통계</strong></td><td>전체 레코드 수</td><td>테이블의 전체 행의 수</td></tr>
 <tr><td></td><td>총 블록 수</td><td>테이블이 차지하고 있는 전체 블록의 수</td></tr>
@@ -51,7 +51,7 @@
 <tr><td><strong>시스템 통계</strong></td><td>CPU 속도</td><td>CPU 성능 및 사용률</td></tr>
 <tr><td></td><td>평균 I/O 속도</td><td>I/O 수행 성능</td></tr>
 <tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: CBO의 행동에 영향을 미치는 요소로 SQL의 형태, DBMS 제약 설정, 클러스터링/파티셔닝 등 다양한 요소가 존재하며, 이 중 통계정보에 대한 의존성이 절대적임. 대량 DML 이후 반드시 통계 재수집(ANALYZE/DBMS_STATS)을 수행해야 최적 실행계획 유지 가능</li>
 </ul>

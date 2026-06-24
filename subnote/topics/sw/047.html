@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,16 +20,16 @@
 <li><strong>정의</strong>: 시스템이 특정 조건 하에서 달성해야 할 응답시간·처리량·자원 사용률 등의 정량적 품질 수준을 정의한 비기능 요구사항</li>
 <li><strong>키워드</strong>: 응답시간(Response Time), 처리량(Throughput), 가용성(Availability), TPS, SLA</li>
 <li><strong>분류</strong>: 요구공학</li>
-<li><strong>성능 요구사항 유형</strong>:<table>
+<li><strong>성능 요구사항 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>예시</th></tr>
 <tr><td>응답시간</td><td>요청~응답까지 소요 시간</td><td>페이지 로딩 3초 이내</td></tr>
 <tr><td>처리량</td><td>단위 시간당 처리 건수</td><td>1,000 TPS</td></tr>
 <tr><td>가용성</td><td>서비스 정상 운영 비율</td><td>99.9% (연 8.7시간 다운 허용)</td></tr>
 <tr><td>자원 사용률</td><td>CPU·메모리·네트워크 점유율</td><td>CPU 80% 이하 유지</td></tr>
 <tr><td>확장성</td><td>부하 증가 시 성능 유지 능력</td><td>사용자 2배 증가 시 응답시간 동일</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>성능요구사항 예시: </strong><table>
+<li><strong>성능요구사항 예시: </strong><div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>요구사항 분류</strong></td><td>성능 요구사항</td></tr>
 <tr><td><strong>요구사항 고유번호</strong></td><td>PER-004</td></tr>
@@ -39,7 +39,7 @@
 <tr><td><strong>산출 정보</strong></td><td>성능시험 결과서</td></tr>
 <tr><td><strong>관련 요구사항</strong></td><td>TER-001 장비성능테스트</td></tr>
 <tr><td><strong>요구사항 출처</strong></td><td>사업수행계획서</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 성능 요구사항은 <strong>“빠른 응답”처럼 모호하게 작성하면 검증 불가</strong>하므로 반드시 정량화가 필요하며, SLA(서비스 수준 협약)와 연계하여 계약상 의무로 관리.</li>
 </ul>

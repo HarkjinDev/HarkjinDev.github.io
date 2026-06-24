@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 분산 노드 간 데이터 일치를 위해 합의를 도출하는 알고리즘</li>
 <li><strong>키워드</strong>: 이중지불 문제, 비잔틴 문제, PoW, PoS, PBFT</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>주요 합의 알고리즘 비교</strong>:<table>
+<li><strong>주요 합의 알고리즘 비교</strong>:<div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>방식</th><th>장점</th><th>단점</th><th>적용 사례</th></tr>
 <tr><td><strong>PoW (작업 증명)</strong></td><td>연산 경쟁으로 블록 생성권 획득</td><td>보안성 강함·검증 단순</td><td>에너지 소비 과다·느린 처리</td><td>Bitcoin</td></tr>
 <tr><td><strong>PoS (지분 증명)</strong></td><td>지분 보유량 기반 검증자 선출</td><td>에너지 효율·확장성</td><td>부의 집중·초기 분배 문제</td><td>Ethereum 2.0</td></tr>
 <tr><td><strong>DPoS (위임 지분 증명)</strong></td><td>지분 보유자가 대표자 선출·위임</td><td>빠른 처리 속도</td><td>대표자 담합·중앙화 우려</td><td>EOS</td></tr>
 <tr><td><strong>PBFT (실용 비잔틴)</strong></td><td>3단계 메시지 교환으로 합의</td><td>즉각적 최종성·높은 신뢰</td><td>노드 수 증가 시 성능 저하</td><td>Hyperledger</td></tr>
 <tr><td><strong>PoA (권위 증명)</strong></td><td>신뢰된 검증 기관이 블록 생성</td><td>고성능·낮은 에너지</td><td>탈중앙성 낮음·신뢰 의존</td><td>기업형 블록체인</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 합의 알고리즘 선택은 보안성-성능-탈중앙성의 트릴레마(Trilemma)에서 어떤 가치를 우선시하느냐에 따라 결정됨</li>
 </ul>

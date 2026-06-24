@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 과거 데이터와 통계·AI 모형을 활용하여 미래 수요를 정량적으로 추정하는 분석 기법</li>
 <li><strong>키워드</strong>: 정성적 예측, 정량적 예측, 이동평균, 지수평활, 회귀분석, 채찍효과 억제</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>수요 예측의 7단계:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기자요방/실검활&gt;</strong></span><table>
+<li><strong>수요 예측의 7단계:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기자요방/실검활&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>절차</strong></th><th><strong>핵심 요소</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>기간확정</strong></td><td>예측목적, 기간 확인</td><td>수요 예측 대상 선정 후 기간 파악</td></tr>
 <tr><td><strong>자료수집</strong></td><td>인터뷰, 설문조사, 자료조사</td><td>수요예측에 필요한 자료 수집</td></tr>
@@ -29,14 +29,14 @@
 <tr><td><strong>예측실시</strong></td><td>전문가 의견조사, 상호비교</td><td>예측방법에 따라 예측 실시</td></tr>
 <tr><td><strong>예측결과 검증</strong></td><td>상관분석, 회귀분석의 결과 검증</td><td>예측을 실시한 후 반드시 예측 결과 검증 수행</td></tr>
 <tr><td><strong>활용가치 고조</strong></td><td>기업별, 브랜드별, 제품 별 등의 활용가치 높임</td><td>검증을 통해 수요 예측이 정확하다고 판단되면 활용가치를 높임</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>예측 방법 분류</strong>:<table>
+<li><strong>예측 방법 분류</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>방법</th><th>특징</th></tr>
 <tr><td>정성적</td><td>경험자 의견, 델파이, 시장조사법</td><td>데이터 부족 시 활용</td></tr>
 <tr><td>시계열</td><td>이동평균, 지수평활, 가중치 이동평균</td><td>패턴 기반 단기 예측</td></tr>
 <tr><td>인과관계</td><td>회귀분석</td><td>변수 관계 기반 예측</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 수요 예측 정확도는 <strong>SCM 재고 최적화와 서비스 수준</strong>에 직결되며, AI/ML 기반 앙상블 모델이 전통 통계 모델 대비 예측 정확도를 크게 향상시키고 있음.</li>
 </ul>

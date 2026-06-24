@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>전산장비의 고장, 정보시스템의 장애 또는 사고에 의해 데이터가 소실되거나 손상될 경우를 대비하여 파일 혹은 별도의 매체에 데이터를 복사하는 작업</li>
 <li><strong>키워드:</strong> 주기(전체/차별/누적), 업무(온라인/오프라인), 데이터(파일, 디바이스), 중요도, RTO/RPO</li>
 <li><strong>분류</strong>: 지침</li>
-<li><strong>백업 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;전차누/온오/파디&gt;</strong></span><table>
+<li><strong>백업 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;전차누/온오/파디&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>분류</strong></th><th><strong>백업 방식</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>백업 주기</strong></td><td><strong>전체 백업 (Full)</strong></td><td>모든 데이터 복제</td></tr>
 <tr><td></td><td><strong>차별 증분 (Differential)</strong></td><td>직전 대비 변경분만</td></tr>
@@ -29,9 +29,9 @@
 <tr><td></td><td><strong>오프라인(Cold)</strong></td><td>서비스 중단 후 백업</td></tr>
 <tr><td><strong>데이터 형태</strong></td><td><strong>파일 단위 백업</strong></td><td>파일별 개별 복사</td></tr>
 <tr><td></td><td><strong>Device 백업</strong></td><td>블록 단위 직접 백업</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>백업 절차: </strong><table>
+<li><strong>백업 절차: </strong><div class="table-scroll"><table>
 <tr><th><strong>절차</strong></th><th><strong>세부 활동</strong></th><th><strong>주요 작업 및 고려사항</strong></th></tr>
 <tr><td><strong>백업 환경 분석</strong></td><td><strong>1. 업무 중요도 파악</strong></td><td>• 업무 분석 / 위험도 분류
 • 업무 핵심서비스 / 전략 중요업무 선정</td></tr>
@@ -46,7 +46,7 @@
 • 실패 대비 Rollback Plan 및 여유 시간 확보</td></tr>
 <tr><td></td><td><strong>7. 백업 방식 결정</strong></td><td>• 전체, 증분/차등, Synthetic, 중복 제거 백업 등
 • 온/오프라인 백업, 파일/디바이스 백업 방식 선정</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

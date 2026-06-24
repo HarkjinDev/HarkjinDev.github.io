@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,28 +20,28 @@
 <li><strong>정의:</strong> 공통 아키텍처와 재사용 가능한 코어 자산(Core Asset)을 기반으로 유사한 제품군을 체계적으로 개발·관리하는 소프트웨어 공학 방법론이자 그 결과로 탄생한 제품군 집합</li>
 <li><strong>키워드:</strong> Core Asset, 가변성·공통성(C/V 분석), PLE, 계획된 재사용, 프로액티브 재사용, 제품군 스코핑, Mass Customization</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>PLE vs SPL 개념 관계:</strong><table>
+<li><strong>PLE vs SPL 개념 관계:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>PLE (Product Line Engineering)</th><th>SPL (Software Product Line)</th></tr>
 <tr><td><strong>개념</strong></td><td>제품계열을 개발하는 방법론·프로세스</td><td>제품계열 자체 (결과물·집합)</td></tr>
 <tr><td><strong>관점</strong></td><td>어떻게 만드는가 (How)</td><td>무엇을 만드는가 (What)</td></tr>
 <tr><td><strong>관계</strong></td><td>SPL을 구축하는 엔지니어링 방법</td><td>PLE를 통해 만들어진 제품군</td></tr>
 <tr><td><strong>표준</strong></td><td>SEI·ISO 15288 기반 프로세스</td><td>SPLE 방법론 포괄 개념</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SEI 기준 3대 핵심 활동:</strong><table>
+<li><strong>SEI 기준 3대 핵심 활동:</strong><div class="table-scroll"><table>
 <tr><th>활동</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Core Asset Development</strong></td><td>재사용 자산(아키텍처·컴포넌트·테스트) 개발·관리</td><td>자산 생산</td></tr>
 <tr><td><strong>Product Development</strong></td><td>코어 자산 기반 개별 제품 파생 개발</td><td>자산 소비</td></tr>
 <tr><td><strong>Management</strong></td><td>두 활동 조율·지원하는 기술·조직·프로세스 관리</td><td>거버넌스</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SPL 주요 특성:</strong><table>
+<li><strong>SPL 주요 특성:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>계획된 재사용</strong></td><td>우연적 재사용이 아닌 체계적·사전 계획된 재사용</td><td>전략적 재사용</td></tr>
 <tr><td><strong>공통성·가변성 분석</strong></td><td>제품군 내 공통점·차이점 명확한 구분·관리</td><td>C/V 분석</td></tr>
 <tr><td><strong>프로액티브 재사용</strong></td><td>재사용을 염두에 두고 자산을 처음부터 설계</td><td>재사용 우선 설계</td></tr>
 <tr><td><strong>제품군 스코핑</strong></td><td>제품계열에 포함할 제품 범위 명확히 결정</td><td>경계 설정</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

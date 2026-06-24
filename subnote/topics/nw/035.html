@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,13 +26,13 @@
 <li>각 서브넷의 네트워크 주소, 브로드캐스트, 호스트 범위 도출</li>
 </ol>
 </li>
-<li><strong>계산 예시</strong>:<table>
+<li><strong>계산 예시</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>값</th><th>설명</th></tr>
 <tr><td>원본 네트워크</td><td>192.168.1.0/24</td><td>C클래스</td></tr>
 <tr><td>서브넷 마스크</td><td>/26 (255.255.255.192)</td><td>2비트 차용</td></tr>
 <tr><td>서브넷 수</td><td>4개</td><td>2²</td></tr>
 <tr><td>호스트 수</td><td>62개/서브넷</td><td>2⁶-2</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>VLSM(Variable Length Subnet Mask)</strong>: 서브넷마다 다른 마스크 적용 → 주소 낭비 최소화</li>
 <li><strong>인사이트</strong>: 서브네팅은 <strong>주소 효율화 + 브로드캐스트 도메인 분리</strong>가 핵심 목적이며, VLSM은 OSPF/EIGRP 같은 클래스리스 라우팅 프로토콜이 지원해야 적용 가능.</li>

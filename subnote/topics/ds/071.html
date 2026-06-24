@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 거래 데이터를 블록 단위로 묶어 체인 형태로 연결하고 네트워크 참여자 전체가 분산 저장·검증하는 분산 원장 기술(DLT)</li>
 <li><strong>키워드:</strong> 분산 원장, 합의 알고리즘, 스마트 컨트랙트, 해시, 탈중앙화, 불변성, PoW·PoS, DeFi</li>
 <li><strong>분류:</strong> 분산 시스템 / 암호화 / 핀테크</li>
-<li><strong>블록체인 핵심 구조:</strong><table>
+<li><strong>블록체인 핵심 구조:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>블록 (Block)</strong></td><td>트랜잭션 데이터·타임스탬프·이전 블록 해시 묶음</td><td>데이터 저장 단위</td></tr>
 <tr><td><strong>체인 (Chain)</strong></td><td>이전 블록 해시로 연결된 블록의 순서적 연결</td><td>불변 연결 구조</td></tr>
@@ -28,33 +28,33 @@
 <tr><td><strong>노드 (Node)</strong></td><td>블록체인 네트워크 참여·검증·저장 컴퓨터</td><td>분산 참여자</td></tr>
 <tr><td><strong>분산 원장 (DLT)</strong></td><td>모든 노드가 동일 원장 공유·저장</td><td>중앙화 없는 기록</td></tr>
 <tr><td><strong>스마트 컨트랙트</strong></td><td>조건 충족 시 자동 실행되는 프로그램 코드</td><td>자동화 계약</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>블록 구조:</strong><table>
+<li><strong>블록 구조:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>블록 헤더</strong></td><td>이전 블록 해시·타임스탬프·논스·머클루트 포함</td><td>블록 식별 정보</td></tr>
 <tr><td><strong>이전 블록 해시</strong></td><td>앞 블록 해시값으로 체인 연결·위변조 방지</td><td>체인 연결</td></tr>
 <tr><td><strong>머클 트리 (Merkle Tree)</strong></td><td>트랜잭션 해시를 이진 트리로 요약·검증</td><td>거래 무결성</td></tr>
 <tr><td><strong>논스 (Nonce)</strong></td><td>PoW 채굴 시 목표 해시 찾기 위한 임의 숫자</td><td>채굴 증명값</td></tr>
 <tr><td><strong>트랜잭션 데이터</strong></td><td>실제 거래 내역·스마트 컨트랙트 실행 기록</td><td>실제 거래 기록</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>블록체인 유형:</strong><table>
+<li><strong>블록체인 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>접근성</th><th>대표 사례</th></tr>
 <tr><td><strong>퍼블릭 블록체인</strong></td><td>누구나 참여·검증·열람 가능한 완전 공개형</td><td>완전 개방</td><td>비트코인·이더리움</td></tr>
 <tr><td><strong>프라이빗 블록체인</strong></td><td>특정 조직이 운영·허가된 참여자만 접근</td><td>폐쇄적</td><td>Hyperledger Fabric</td></tr>
 <tr><td><strong>컨소시엄 블록체인</strong></td><td>복수 기관 공동 운영·허가된 구성원 참여</td><td>반개방</td><td>R3 Corda·Quorum</td></tr>
 <tr><td><strong>하이브리드 블록체인</strong></td><td>퍼블릭·프라이빗 혼합 구성</td><td>선택적 개방</td><td>Dragonchain</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>블록체인 핵심 특성:</strong><table>
+<li><strong>블록체인 핵심 특성:</strong><div class="table-scroll"><table>
 <tr><th>특성</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>탈중앙화 (Decentralization)</strong></td><td>중앙 관리자 없이 참여자 전체가 관리</td><td>중개자 제거</td></tr>
 <tr><td><strong>불변성 (Immutability)</strong></td><td>한번 기록된 데이터 수정·삭제 불가</td><td>데이터 영속성</td></tr>
 <tr><td><strong>투명성 (Transparency)</strong></td><td>모든 거래 내역 공개·누구나 검증 가능</td><td>완전 공개</td></tr>
 <tr><td><strong>무결성 (Integrity)</strong></td><td>해시·암호화로 데이터 위변조 방지</td><td>데이터 신뢰성</td></tr>
 <tr><td><strong>가용성 (Availability)</strong></td><td>단일 장애점 없이 분산 노드로 지속 운영</td><td>고가용성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 블록체인은 신뢰의 탈중앙화라는 혁신적 개념을 실현하지만, 트릴레마(탈중앙화·보안·확장성 동시 달성 불가)가 대중화의 핵심 기술 장벽으로 작용하고 있음. Layer 2·샤딩·PoS 전환 등으로 확장성이 빠르게 개선되고 있으며, DeFi·CBDC·공급망 분야에서 실용화가 가속되고 있음. 기술 성숙도보다 규제 명확화·UX 단순화·에너지 효율화가 블록체인 대중화의 실질적 선결 과제임</li>
 </ul>

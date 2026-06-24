@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 특정 사용자가 특정 맥락에서 목표를 효과적·효율적·만족스럽게 달성할 수 있는 정도를 측정·평가하는 활동</li>
 <li><strong>키워드</strong>: 닐슨 10대 원칙, 사용성 테스트, 휴리스틱 평가, 전문가 리뷰, 사용자 테스트</li>
 <li><strong>분류</strong>: 요구공학</li>
-<li><strong>사용성 평가 방법 비교</strong>:<table>
+<li><strong>사용성 평가 방법 비교</strong>:<div class="table-scroll"><table>
 <tr><th>방법</th><th>설명</th><th>참여자</th></tr>
 <tr><td>휴리스틱 평가 (Heuristic Evaluation)</td><td>닐슨 10대 원칙 기반 전문가 점검</td><td>전문가 3~5인</td></tr>
 <tr><td>사용성 테스트 (Usability Test)</td><td>실제 사용자가 태스크 수행 관찰</td><td>실사용자</td></tr>
 <tr><td>인지적 워크스루 (Cognitive Walkthrough)</td><td>학습 용이성 중심 시나리오 평가</td><td>전문가</td></tr>
 <tr><td>설문/인터뷰</td><td>주관적 만족도 측정</td><td>사용자</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>닐슨의 10대 사용성 원칙 (핵심)</strong>:<ul>
 <li>시스템 상태 가시성 / 현실 세계 매칭 / 사용자 통제·자유 / 일관성·표준 / 오류 방지 / 인식 vs 기억 / 유연성·효율성 / 미학적·최소 디자인 / 오류 인식·진단·복구 지원 / 도움말·문서화</li>

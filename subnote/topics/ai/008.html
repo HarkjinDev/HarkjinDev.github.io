@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 머신러닝 모델이 학습 데이터의 패턴을 충분히 학습하지 못하여 학습 데이터와 새로운 데이터 모두에서 낮은 성능을 보이는 현상</li>
 <li><strong>키워드:</strong> 높은 편향(High Bias), 낮은 분산, 모델 복잡도 부족, 과적합 대비, 편향-분산 트레이드오프</li>
 <li><strong>분류</strong>: 학습/최적화</li>
-<li><strong>발생 원인:</strong><table>
+<li><strong>발생 원인:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>모델 복잡도 부족</strong></td><td>선형 모델로 비선형 패턴 학습 시도</td><td>단순 모델 한계</td></tr>
 <tr><td><strong>학습 데이터 부족</strong></td><td>충분한 학습 데이터 미확보로 패턴 미학습</td><td>데이터 부족</td></tr>
@@ -28,9 +28,9 @@
 <tr><td><strong>과도한 정규화</strong></td><td>L1·L2 정규화 강도 과다로 모델 표현력 억제</td><td>규제 과잉</td></tr>
 <tr><td><strong>특징 부족</strong></td><td>유의미한 입력 특징 미포함·중요 변수 누락</td><td>피처 부족</td></tr>
 <tr><td><strong>과도한 드롭아웃</strong></td><td>높은 드롭아웃 비율로 학습 능력 과도 억제</td><td>드롭아웃 과다</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대응 방안:</strong><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>모델 개선</strong></td><td><strong>모델 복잡도 증가</strong></td><td>더 깊은 신경망·고차 다항 모델 사용</td><td>표현력 향상</td></tr>
 <tr><td></td><td><strong>앙상블 방법</strong></td><td>여러 모델 결합으로 표현력·성능 향상</td><td>모델 결합</td></tr>
@@ -40,15 +40,15 @@
 <tr><td></td><td><strong>정규화 완화</strong></td><td>과도한 L1·L2 정규화 강도 감소</td><td>규제 완화</td></tr>
 <tr><td></td><td><strong>학습률 조정</strong></td><td>적절한 학습률 설정으로 수렴 촉진</td><td>학습률 최적화</td></tr>
 <tr><td></td><td><strong>드롭아웃 감소</strong></td><td>드롭아웃 비율 낮춰 학습 능력 향상</td><td>드롭아웃 완화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>편향-분산 트레이드오프:</strong><table>
+<li><strong>편향-분산 트레이드오프:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>편향 (Bias)</strong></td><td>모델의 예측값과 실제값의 체계적 차이</td><td>학습 능력 부족</td></tr>
 <tr><td><strong>분산 (Variance)</strong></td><td>데이터 변화에 따른 모델 예측의 변동성</td><td>일반화 능력</td></tr>
 <tr><td><strong>트레이드오프</strong></td><td>모델 복잡도 증가 시 편향 감소·분산 증가</td><td>균형 설계 핵심</td></tr>
 <tr><td><strong>최적점</strong></td><td>편향·분산 합이 최소가 되는 모델 복잡도</td><td>일반화 최적</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 과소적합은 모델이 데이터의 구조 자체를 이해하지 못한 상태로, 과적합과 달리 학습 데이터에서도 성능이 낮다는 점이 진단의 핵심 단서임. 모델 복잡도·데이터·학습 횟수·정규화 강도의 4가지 축에서 원인을 파악하고 조정하는 것이 대응의 핵심이며, 편향-분산 트레이드오프를 고려한 최적 모델 복잡도 탐색이 궁극적 해결책임</li>
 </ul>

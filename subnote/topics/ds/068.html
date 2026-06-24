@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,12 +21,12 @@
 <li><strong>키워드</strong>: 이상거래 탐지, 룰 기반, ML 기반, 전자금융거래법, 실시간 분석, 스코어링</li>
 <li><strong>분류</strong>: 핀테크/금융</li>
 <li><strong>주요 기능</strong>: 실시간 거래 패턴 분석, 임계값 기반 경보, 사용자 행동 프로파일링, 사후 분석 및 학습</li>
-<li><strong>판정 방식</strong>:<table>
+<li><strong>판정 방식</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>설명</th></tr>
 <tr><td>룰 기반</td><td>사전 정의된 규칙으로 이상 탐지 (오탐 높음)</td></tr>
 <tr><td>ML 기반</td><td>정상/이상 패턴 학습 후 스코어링</td></tr>
 <tr><td>하이브리드</td><td>룰+ML 결합으로 정확도 향상</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: FDS는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>전자금융거래법 상 의무 도입</strong></u></span> 대상이며, 오탐(False Positive)과 미탐(False Negative) 균형이 핵심 설계 과제임. AI 기반 FDS로의 전환 트렌드를 언급하면 고득점 가능.</li>
 </ul>

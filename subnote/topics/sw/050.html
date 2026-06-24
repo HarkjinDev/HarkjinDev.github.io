@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 독립적으로 컴파일·배포가 가능하고 명확한 인터페이스를 통해 다른 모듈과 통신하는 소프트웨어의 기본 구성 단위</li>
 <li><strong>키워드</strong>: 모듈화, 응집도, 결합도, 독립성, 재사용성, 블랙박스</li>
 <li><strong>분류</strong>: 설계 원리/패턴</li>
-<li><strong>좋은 모듈의 조건</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;응하결로&gt;</strong></span><table>
+<li><strong>좋은 모듈의 조건</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;응하결로&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>조건</th><th>설명</th></tr>
 <tr><td>높은 응집도</td><td>모듈 내부 요소들이 하나의 목적으로 긴밀히 연관</td></tr>
 <tr><td>낮은 결합도</td><td>다른 모듈에 대한 의존성 최소화</td></tr>
 <tr><td>명확한 인터페이스</td><td>내부 구현 감추고 API만 공개</td></tr>
 <tr><td>적정 크기</td><td>이해·테스트가 가능한 수준</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 모듈 독립성은 <strong>응집도 최대화 + 결합도 최소화</strong>로 달성되며, fan-in/fan-out 분석을 통해 모듈 구조의 복잡도와 재사용성을 정량적으로 평가 가능.</li>
 </ul>

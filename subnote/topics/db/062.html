@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -18,7 +18,7 @@
 <h4>[하위] 4-1. <strong>데이터 늪(Data Swamp)</strong></h4>
 <ul>
 <li><strong>정의: </strong>메타데이터 관리 부재로 데이터 레이크가 활용 불가능한 상태로 전락한 현상</li>
-<li><strong>발생 원인</strong><table>
+<li><strong>발생 원인</strong><div class="table-scroll"><table>
 <tr><th>영역</th><th>발생 원인</th><th>설명</th></tr>
 <tr><td><strong>데이터 소스</strong></td><td>데이터 품질 저하</td><td>결측·오류·중복으로 신뢰도 저하</td></tr>
 <tr><td></td><td>데이터 의미 불명확</td><td>정의·기준 없어 해석 오류 발생</td></tr>
@@ -26,9 +26,9 @@
 <tr><td></td><td>스키마·포맷 불일치</td><td>구조·포맷 달라 통합 불가</td></tr>
 <tr><td><strong>데이터 관리·운영 계층</strong></td><td>메타데이터·계보 부재</td><td>이력·흐름 추적 기능 부재</td></tr>
 <tr><td></td><td>보안·거버넌스 미흡</td><td>정책 부재로 통제 안 되는 저장소</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>방지 방안: </strong><table>
+<li><strong>방지 방안: </strong><div class="table-scroll"><table>
 <tr><th>방지 방안</th><th>발생 원인 제거</th><th>설명</th></tr>
 <tr><td><strong>데이터 존 설계</strong></td><td>무분별한 적재·품질 혼재</td><td>Raw·Silver·Gold 계층별 품질 관리</td></tr>
 <tr><td><strong>데이터 등록 표준화</strong></td><td>의미 불명확·소유자 부재</td><td>소유자·목적 등 필수 정보 등록</td></tr>
@@ -36,7 +36,7 @@
 <tr><td><strong>데이터 품질 게이트</strong></td><td>결측·오류·중복 문제</td><td>단계별 품질 규칙 자동 검증</td></tr>
 <tr><td><strong>거버넌스·보안 통제</strong></td><td>권한 과다·민감정보 혼재</td><td>접근권한·암호화·감사로그 통제</td></tr>
 <tr><td><strong>수명주기·운영 모니터링</strong></td><td>데이터 방치·비용 증가</td><td>보존·폐기·파이프라인 상태 점검</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

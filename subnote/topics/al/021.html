@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,11 +20,11 @@
 <li><strong>정의</strong>: DAG에서 선행 관계를 유지하며 노드를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선형 순서로 나열</strong></u></span>하는 알고리즘</li>
 <li><strong>키워드</strong>: DAG, 진입 차수, Kahn’s Algorithm, DFS 후위 순회, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선행 제약(Precedence), 비유일성</strong></u></span></li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>알고리즘 비교</strong>:<table>
+<li><strong>알고리즘 비교</strong>:<div class="table-scroll"><table>
 <tr><th>방법</th><th>절차</th><th>복잡도</th></tr>
 <tr><td>Kahn’s (BFS 기반, 직관적)</td><td>진입 차수 0 노드 큐 삽입 → Dequeue → 인접 노드 차수 감소 → 반복</td><td>O(V + E)</td></tr>
 <tr><td>DFS 기반(역방향 출력)</td><td>모든 노드 DFS → 완료 시 스택 push → 역순 출력</td><td>O(V + E)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징</strong>:<ul>
 <li>위상정렬 결과는 유일하지 않을 수 있음 (진입 차수 0 노드가 복수인 경우)</li>

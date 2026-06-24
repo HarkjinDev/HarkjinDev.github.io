@@ -3,40 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. DevOps (Development and Operations)</title>
+  <title>[하위] 1-2. ALM (Application Lifecycle Management)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
-<h4>2. DevOps (Development and Operations)</h4>
+<h4>[하위] 1-2. ALM (Application Lifecycle Management)</h4>
 <ul>
-<li><strong>정의</strong>: 개발(Dev)과 운영(Ops)의 경계를 허물고 자동화·협업·지속적 피드백을 통해 소프트웨어를 빠르고 안정적으로 제공하는 문화·방식·도구의 결합</li>
-<li><strong>키워드</strong>: 문화, 자동화, 측정, 공유(CAMS), CI/CD, 인프라 코드화(IaC), 피드백 루프, SRE</li>
+<li><strong>정의</strong>: 소프트웨어 요구사항 관리부터 개발·테스트·배포·유지보수까지 전체 생명주기를 통합 지원하는 도구·프로세스·사람의 결합</li>
+<li><strong>키워드</strong>: 요구사항 관리, 프로젝트 추적, 품질 관리, 형상 관리, Jira, Azure DevOps, 추적성</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>DevOps 핵심 원칙 (CAMS)</strong>:<table>
-<tr><th>원칙</th><th>설명</th></tr>
-<tr><td>Culture (문화)</td><td>개발·운영 협업 문화, 공동 책임</td></tr>
-<tr><td>Automation (자동화)</td><td>빌드·테스트·배포 파이프라인 자동화</td></tr>
-<tr><td>Measurement (측정)</td><td>배포 빈도·장애 복구 시간 등 지표 관리</td></tr>
-<tr><td>Sharing (공유)</td><td>지식·도구·책임의 조직 간 공유</td></tr>
-</table>
+<li><strong>ALM vs PLM vs SDLC 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>ALM</th><th>PLM</th><th>SDLC</th></tr>
+<tr><td>대상</td><td>소프트웨어 애플리케이션</td><td>제품(하드웨어 포함)</td><td>소프트웨어 개발 프로세스</td></tr>
+<tr><td>범위</td><td>전체 SW 생명주기</td><td>제품 기획~폐기</td><td>개발 단계 중심</td></tr>
+<tr><td>통합 도구</td><td>Jira, Azure DevOps</td><td>Siemens Teamcenter</td><td>방법론 중심</td></tr>
+</table></div>
 </li>
-<li><strong>DevOps 성과 지표 (DORA Metrics)</strong>:<table>
-<tr><th>지표</th><th>설명</th></tr>
-<tr><td>배포 빈도 (Deployment Frequency)</td><td>프로덕션 배포 횟수</td></tr>
-<tr><td>변경 리드타임 (Lead Time for Changes)</td><td>코드 커밋 → 프로덕션까지 시간</td></tr>
-<tr><td>변경 실패율 (Change Failure Rate)</td><td>배포 후 장애 발생 비율</td></tr>
-<tr><td>서비스 복구 시간 (MTTR)</td><td>장애 발생 후 복구까지 시간</td></tr>
-</table>
+<li><strong>ALM 핵심 구성 영역</strong>:<ul>
+<li>요구사항 관리 → 개발(형상관리) → 테스트 관리 → 릴리즈 관리 → 피드백·개선</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: DevOps는 도구 도입이 아닌 <strong>조직 문화와 프로세스의 전환</strong>이 본질이며, DORA Metrics로 엘리트 팀은 일 수회 배포·1시간 미만 복구를 달성함을 시험에 구체적으로 서술.</li>
+<li><strong>인사이트</strong>: ALM은 <strong>이해관계자·개발자·QA·운영 간 협업의 단일 플랫폼</strong>으로, 추적성(Traceability)을 통해 요구사항~배포까지 변경 영향을 전 주기 관리.</li>
 </ul>
 
 </body>

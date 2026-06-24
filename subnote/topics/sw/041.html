@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 도출, 분석, 명세, 검증, 관리, 기능/비기능 요구사항, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>IEEE 29148</strong></u></span></li>
 <li><strong>분류</strong>: 요구공학</li>
 <li><strong>요구사항 종류: </strong>사용자 요구사항, 시스템 요구사항, 명시적/묵시적 요구사항, 정량적/정성적 요구사항, 제품/프로덕트 요구사항</li>
-<li><strong>요구사항 개발 프로세스:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;추분명검&gt;</strong></span><table>
+<li><strong>요구사항 개발 프로세스:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;추분명검&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>적용기법</strong></th></tr>
 <tr><td><strong>추출</strong></td><td>- 요구사항 식별, 분류, 우선순위 설정, 문서화 수행</td><td>- 인터뷰, 문서분석, 프로토타이핑
 - 벤치마킹, 브레인스토밍 등</td></tr>
@@ -36,15 +36,15 @@
 - 사용자 요구의 올바른 기술 여부 검토 및 증명
 - 문서 표준 준수 및 설계 기초 자료 적합성 확인</td><td>- 검증(Verification)
 - 확인(Validation)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>요구사항 관리 프로세스:</strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;협기변확&gt;</strong></span><table>
+<li><strong>요구사항 관리 프로세스:</strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;협기변확&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>요구사항 협상</strong></td><td>가용한 자원과 수용 가능한 위험 수준에서 구현 가능한 기능을 협상하기 위한 기법</td></tr>
 <tr><td><strong>요구사항 기준선</strong></td><td>공식적으로 검토되고 합의된 요구사항 명세서 (향후 개발의 기본(Baseline))</td></tr>
 <tr><td><strong>요구사항 변경관리</strong></td><td>요구사항 기준선을 기반으로 모든 변경을 공식적으로 통제하기 위한 기법</td></tr>
 <tr><td><strong>요구사항 확인 및 검증</strong></td><td>구축된 시스템이 이해관계자가 기대한 요구사항에 부합되는지 확인하기 위한 방법 (Verification, Validation)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 요구사항 오류는 <strong>후반부 수정 시 최대 200배 비용 증가</strong>로 이어지므로, 조기 검증과 추적성(RTM) 유지가 품질보증의 핵심 전략.</li>
 </ul>

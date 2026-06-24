@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,7 +24,7 @@
 <li>Data Ingestion → Validation → Preparation → Training → Model Evaluation → Serving</li>
 </ul>
 </li>
-<li><strong>RLHF 및 RAFT 기반의 학습 파이프라인 비교:</strong><table>
+<li><strong>RLHF 및 RAFT 기반의 학습 파이프라인 비교:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>RLHF</th><th>RAFT</th></tr>
 <tr><td><strong>핵심 목적</strong></td><td>인간 선호 기반 정렬 (Alignment)</td><td>검색 기반 응답 정확성 강화</td></tr>
 <tr><td><strong>중심 데이터</strong></td><td>인간 피드백 (Human Feedback)</td><td>검색 문서 (Retrieved Context)</td></tr>
@@ -36,7 +36,7 @@
 <tr><td><strong>한계</strong></td><td>피드백 비용과 학습 비용 증가</td><td>검색 품질 의존성 존재</td></tr>
 <tr><td><strong>적합 환경</strong></td><td>AI Assistant, Chatbot, Alignment</td><td>기업 문서 검색, QA, RAG 환경</td></tr>
 <tr><td><strong>대표 효과</strong></td><td>유해 응답 감소 및 응답 자연성 향상</td><td>Grounded Response 및 최신성 강화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 기술 부채 해결을 위한 MLOps 도입의 필요성, 모델 재학습(Retraining) 트리거 설계</li>
 </ul>

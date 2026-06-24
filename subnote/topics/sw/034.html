@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 공통 아키텍처와 재사용 가능한 자산(Core Asset)을 기반으로 유사한 제품 군(Product Family)을 체계적으로 개발하는 소프트웨어 공학 방법론</li>
 <li><strong>키워드:</strong> Core Asset, 가변성(Variability), 공통성(Commonality), Feature Model, 도메인 공학, 응용 공학, Mass Customization, SPL</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Core Asset Base</strong></td><td>공통 컴포넌트·아키텍처·문서·테스트 자산 저장소</td><td>재사용 자산 허브</td></tr>
 <tr><td><strong>도메인 공학 </strong></td><td>재사용 가능한 코어 자산 개발·분석·관리</td><td>자산 생산 활동</td></tr>
@@ -28,16 +28,16 @@
 <tr><td><strong>가변성 관리 </strong></td><td>Feature Model로 제품 간 차이점·공통점 체계 관리
 <strong>(공통피처, 선택피처, 대안피처, 변동점)</strong></td><td>제품 차이 관리</td></tr>
 <tr><td><strong>프로세스 정의</strong></td><td>도메인·응용 공학 간 연계 프로세스·역할 정의</td><td>개발 체계화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>적용 절차:</strong><table>
+<li><strong>적용 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 스코핑</strong></td><td>제품군 범위·공통성·가변성 분석</td><td>제품군 경계 정의</td></tr>
 <tr><td><strong>2. 도메인 분석</strong></td><td>Feature Model 작성·공통·가변 요구 식별</td><td>요구 구조화</td></tr>
 <tr><td><strong>3. 코어 자산 개발</strong></td><td>공통 아키텍처·컴포넌트·테스트 자산 생성</td><td>재사용 자산 구축</td></tr>
 <tr><td><strong>4. 제품 개발</strong></td><td>코어 자산 조합·가변점 구현으로 제품 파생</td><td>제품 신속 생성</td></tr>
 <tr><td><strong>5. 자산 진화</strong></td><td>신제품 요구 기반 코어 자산 지속 갱신</td><td>자산 고도화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 제품계열 방법론은 <strong>“소프트웨어 대량 맞춤 생산(Mass Customization)”</strong> 개념으로, 초기 코어 자산 투자 비용이 크나 제품 수가 많을수록 ROI가 급격히 상승.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,7 +25,7 @@
 <li><strong>보호 (Protection)</strong>: 보안보다 광의적 의미로 사용, 전체 시스템의 안정성을 확보하는 것</li>
 </ul>
 </li>
-<li><strong>보안 핵심 프레임워크 비교 (CIA Triad / 보안 요구사항 / 보안 3A)</strong>:<table>
+<li><strong>보안 핵심 프레임워크 비교 (CIA Triad / 보안 요구사항 / 보안 3A)</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th></tr>
 <tr><td>CIA Triad</td><td>Confidentiality (기밀성)</td><td>인가된 사용자만 접근 보장</td></tr>
 <tr><td></td><td>Integrity (무결성)</td><td>인가된 사용자에 의해 인가된 방법으로만 변경 가능</td></tr>
@@ -37,7 +37,7 @@
 <tr><td>보안 3A</td><td>Accountability (책임추적성)</td><td>사용자 식별 및 활동 감사 추적 (Auditability)</td></tr>
 <tr><td></td><td>Authentication (인증)</td><td>사용자의 진위 확인</td></tr>
 <tr><td></td><td>Authorization (권한부여)</td><td>어떤 수준의 권한과 서비스를 부여</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 <hr/>

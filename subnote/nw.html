@@ -21,9 +21,10 @@
   p  { margin: 0.35rem 0; }
   ul, ol { padding-left: 1.5em; margin: 0.3rem 0; }
   li { margin: 0.2rem 0; }
-  table { border-collapse: collapse; width: 100%; margin: 0.8rem 0; font-size: 0.9rem; display: block; overflow-x: auto; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.8rem 0; }
+  table { border-collapse: collapse; width: max-content; min-width: 100%; font-size: 0.9rem; }
   th { background: #f0f0f0; font-weight: 600; }
-  th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th, td { border: 1px solid #ddd; padding: 7px 12px; text-align: left; vertical-align: top; }
   img { max-width: 100%; height: auto; border-radius: 4px; margin: 0.5rem 0; }
   figure { margin: 0.8rem 0; }
   figcaption { font-size: 0.85rem; color: #888; margin-top: 4px; }
@@ -57,12 +58,12 @@
 <li><strong>정의</strong>: 정보의 정량적 측정과 효율적 전송 가능성을 수학적으로 연구하는 이론 체계</li>
 <li><strong>키워드</strong>: 엔트로피, 정보량, 샤논, 채널 용량, 부호화, 잡음</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>핵심 개념</strong>:<table>
+<li><strong>핵심 개념</strong>:<div class="table-scroll"><table>
 <tr><th>개념</th><th>설명</th></tr>
 <tr><td>정보량(자기정보)</td><td>I(x) = log₂(1/P(x)) = -log₂P(x) [비트]</td></tr>
 <tr><td>엔트로피(H)</td><td>평균 정보량 H(X) = -Σ P(xᵢ)·log₂P(xᵢ)</td></tr>
 <tr><td>채널 용량(C)</td><td>잡음 채널에서 오류 없이 전송 가능한 최대 속도</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>샤논 3대 정리</strong>:<ul>
 <li><strong>제1정리(소스 코딩)</strong>: 소스 엔트로피 이상의 부호화 필요 → 무손실 압축 이론적 한계</li>
@@ -77,11 +78,11 @@
 <li><strong>정의</strong>: 잡음 채널에서 오류 없는 전송의 최대 속도(채널 용량)를 수학적으로 정의하는 정리</li>
 <li><strong>키워드</strong>: 채널 용량, 대역폭, SNR, 샤논-하틀리, 나이퀴스트 한계</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>핵심 공식</strong>:<table>
+<li><strong>핵심 공식</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>공식</th><th>설명</th></tr>
 <tr><td>샤논-하틀리</td><td>C = B·log₂(1 + S/N)</td><td>잡음 채널 최대 전송률</td></tr>
 <tr><td>나이퀴스트</td><td>C = 2B·log₂M</td><td>무잡음 채널, M=신호 레벨 수</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>의미</strong>: 아무리 강력한 부호화를 사용해도 채널 용량 C를 초과하는 오류 없는 전송은 불가능</li>
 <li><strong>인사이트</strong>: 샤논 용량은 <strong>이론적 상한선</strong>으로, 실제 통신 시스템은 이 한계에 근접하도록 설계됨. MIMO, OFDM 등 5G/6G 기술은 S/N 개선과 대역폭 확대로 C를 극대화하는 방향으로 발전.</li>
@@ -91,7 +92,7 @@
 <li><strong>정의</strong>: 이기종 네트워크 간 통신을 표준화하기 위해 ISO가 정의한 7계층 참조 모델</li>
 <li><strong>키워드</strong>: ISO, 계층화, 캡슐화, PDU, 프로토콜, 인터페이스</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>계층 구조</strong>:<table>
+<li><strong>계층 구조</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>명칭</th><th>PDU</th><th>주요 프로토콜</th><th>장비</th></tr>
 <tr><td><strong>7</strong></td><td><strong>응용 (Application)</strong></td><td>데이터</td><td>HTTP, FTP, SMTP, DNS</td><td>웹서버, 방화벽(L7), WAF</td></tr>
 <tr><td><strong>6</strong></td><td><strong>표현 (Presentation)</strong></td><td>데이터</td><td>SSL/TLS, JPEG, ASCII</td><td>-</td></tr>
@@ -100,7 +101,7 @@
 <tr><td><strong>3</strong></td><td><strong>네트워크 (Network)</strong></td><td>패킷</td><td>IP, ICMP, OSPF</td><td>라우터, L3 스위치</td></tr>
 <tr><td><strong>2</strong></td><td><strong>데이터링크 (Data Link)</strong></td><td>프레임</td><td>Ethernet, VLAN, HDLC</td><td>L2 스위치, 브리지</td></tr>
 <tr><td><strong>1</strong></td><td><strong>물리 (Physical)</strong></td><td>비트</td><td>RS-232, DSL, 광케이블</td><td>허브, 리피터, 케이블</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>캡슐화/역캡슐화</strong>: <ul>
 <li><strong>캡슐화: </strong>송신 시 각 계층이 헤더를 추가</li>
@@ -114,13 +115,13 @@
 <li><strong>정의</strong>: 통신 프로토콜에서 데이터 구조를 언어·플랫폼에 독립적으로 정의하는 추상 구문 표기 표준</li>
 <li><strong>키워드</strong>: ISO/ITU-T, BER/DER/CER/PER, 직렬화, SNMP, X.509, 인코딩 규칙</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>인코딩 규칙 비교</strong>:<table>
+<li><strong>인코딩 규칙 비교</strong>:<div class="table-scroll"><table>
 <tr><th>규칙</th><th>특징</th><th>주요 용도</th></tr>
 <tr><td>BER(Basic Encoding Rules)</td><td>가장 기본, 유연한 인코딩</td><td>SNMP, LDAP</td></tr>
 <tr><td>DER(Distinguished Encoding Rules)</td><td>BER 부분집합, 유일한 인코딩</td><td>X.509 인증서</td></tr>
 <tr><td>CER(Canonical Encoding Rules)</td><td>긴 데이터에 최적화</td><td>보안 프로토콜</td></tr>
 <tr><td>PER(Packed Encoding Rules)</td><td>비트 단위 최적화, 경량</td><td>이동통신 프로토콜</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야</strong>: X.509 인증서, SNMP MIB, LTE/5G 무선 프로토콜, LDAP</li>
 <li><strong>인사이트</strong>: ASN.1은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이종 시스템 간 데이터 호환성</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u>을 보장하는 핵심 표준</u></span>으로, 보안 인증서(PKI)와 네트워크 관리(SNMP)에 직결되므로 SEC 도메인과 연계하여 정리할 것.</li>
@@ -138,11 +139,11 @@
 <li><strong>프로토콜 기반 VLAN</strong>: 상위 프로토콜 타입으로 분류</li>
 </ul>
 </li>
-<li><strong>트렁크/액세스 포트</strong>:<table>
+<li><strong>트렁크/액세스 포트</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>역할</th><th>태그 처리</th></tr>
 <tr><td>액세스 포트</td><td>단일 VLAN 연결(단말)</td><td>태그 없음</td></tr>
 <tr><td>트렁크 포트</td><td>복수 VLAN 전송(스위치 간)</td><td>802.1Q 태그 포함</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: VLAN은 <strong>브로드캐스트 도메인 분리와 보안 구역 설정</strong>에 활용되며, 인터-VLAN 라우팅(L3 스위치 또는 라우터)이 필요함을 함께 언급해야 함.</li>
 </ul>
@@ -151,13 +152,13 @@
 <li><strong>정의</strong>: UDP 헤더로 L2 이더넷 프레임을 캡슐화하여 L3 네트워크에서 대규모 가상 L2 네트워크를 구현하는 터널링 기술</li>
 <li><strong>키워드</strong>: VNI, VTEP, UDP 4789, 오버레이 네트워크, 클라우드, 멀티테넌시</li>
 <li><strong>분류</strong>: 데이터링크/LAN</li>
-<li><strong>VLAN vs VXLAN 비교</strong>:<table>
+<li><strong>VLAN vs VXLAN 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>VLAN</th><th>VXLAN</th></tr>
 <tr><td>식별자</td><td>12비트 VLAN ID (최대 4,096)</td><td>24비트 VNI (최대 16,777,216)</td></tr>
 <tr><td>전송 방식</td><td>L2 스위칭</td><td>UDP 캡슐화(L3 전송)</td></tr>
 <tr><td>확장성</td><td>제한적</td><td>대규모 클라우드 환경 적합</td></tr>
 <tr><td>표준</td><td>IEEE 802.1Q</td><td>RFC 7348</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>동작 구성요소</strong>: <ul>
 <li><strong>VTEP(VXLAN Tunnel End Point):</strong> 캡슐화/역캡슐화 수행</li>
@@ -171,14 +172,14 @@
 <li><strong>정의</strong>: 슬라이딩 윈도우 기반 오류 제어를 수행하는 데이터링크 계층의 비트 지향 동기식 프로토콜</li>
 <li><strong>키워드</strong>: ISO 13239, 플래그(01111110), 스터핑, NRM/ABM, 프레임 구조, WAN</li>
 <li><strong>분류</strong>: 데이터링크/LAN</li>
-<li><strong>프레임 구조</strong>:<table>
+<li><strong>프레임 구조</strong>:<div class="table-scroll"><table>
 <tr><th>필드</th><th>크기</th><th>설명</th></tr>
 <tr><td>플래그</td><td>8비트</td><td>01111110 — 프레임 시작/끝</td></tr>
 <tr><td>주소</td><td>가변</td><td>수신지 주소</td></tr>
 <tr><td>제어</td><td>8/16비트</td><td>I/S/U 프레임 구분</td></tr>
 <tr><td>데이터</td><td>가변</td><td>상위 계층 데이터</td></tr>
 <tr><td>FCS</td><td>16/32비트</td><td>CRC 오류 검출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>동작 모드</strong>: <ul>
 <li><strong>NRM:</strong> 정상 응답 모드, 주종 관계</li>
@@ -195,12 +196,12 @@
 <li><strong>정의</strong>: IP 주소와 포트 번호를 결합한 소켓을 통해 프로세스 간 양방향 데이터를 교환하는 네트워크 통신 방식</li>
 <li><strong>키워드</strong>: IP+Port, 소켓 API, BSD 소켓, 스트림 소켓, 데이터그램 소켓, 전이중</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>소켓 유형 비교</strong>:<table>
+<li><strong>소켓 유형 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>스트림 소켓(TCP)</th><th>데이터그램 소켓(UDP)</th><th>웹소켓</th></tr>
 <tr><td>연결 방식</td><td>연결 지향</td><td>비연결</td><td>HTTP 업그레이드 후 연결 유지</td></tr>
 <tr><td>신뢰성</td><td>보장</td><td>비보장</td><td>보장(TCP 기반)</td></tr>
 <tr><td>주요 용도</td><td>파일 전송, HTTP</td><td>스트리밍, DNS</td><td>실시간 웹 앱</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>소켓 통신 흐름</strong>:   <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">//그림 표현 필요</span><ul>
 <li>서버: socket()→bind()→listen()→accept() </li>
@@ -237,13 +238,13 @@
 <li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
 </ol>
 </li>
-<li><strong>HTTP Polling vs WebSocket 비교</strong>:<table>
+<li><strong>HTTP Polling vs WebSocket 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>HTTP Polling</th><th>WebSocket</th></tr>
 <tr><td>연결 방식</td><td>반복 요청-응답</td><td>단일 연결 유지</td></tr>
 <tr><td>지연</td><td>높음</td><td>낮음</td></tr>
 <tr><td>오버헤드</td><td>HTTP 헤더 매번</td><td>최초 1회만</td></tr>
 <tr><td>용도</td><td>단순 갱신</td><td>채팅, 주식, 게임</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 웹소켓은 <strong>HTTP와 호환되는 포트(80/443)</strong>를 사용하여 방화벽 우회가 용이하며, wss://는 TLS 기반 보안 웹소켓으로 도청 방지.</li>
 </ul>
@@ -270,12 +271,12 @@
 <li><strong>정의</strong>: 데이터 전송 중 발생하는 오류를 검출하고 재전송 또는 정정을 통해 신뢰성 있는 통신을 보장하는 기법</li>
 <li><strong>키워드</strong>: 오류 검출, 오류 정정, ARQ, FEC, CRC, 해밍코드, 패리티</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>오류 제어 분류</strong>:<table>
+<li><strong>오류 제어 분류</strong>:<div class="table-scroll"><table>
 <tr><th>분류</th><th>오류 검출</th><th>오류 정정</th></tr>
 <tr><td><strong>방식</strong></td><td>재전송 요청</td><td>자체 정정</td></tr>
 <tr><td><strong>기법</strong></td><td>BEC - ARQ(Stop-and-Wait, Go-Back-N, SR)</td><td>FEC (해밍코드, 터보코드, LDPC)</td></tr>
 <tr><td><strong>특징</strong></td><td>수신측이 오류 감지 후 재전송 요청</td><td>수신측이 직접 오류 정정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: FEC는 <strong>재전송이 불가능한 위성·방송 환경</strong>에서 필수이며, ARQ는 지상 유선망에서 효율적. 5G는 HARQ(Hybrid ARQ = ARQ + FEC 결합)를 채택하여 성능 최적화.</li>
 </ul>
@@ -284,13 +285,13 @@
 <li><strong>정의</strong>: 데이터 전송 오류 발생 시 수신 측이 송신 측에 재전송을 자동으로 요청하여 신뢰성을 보장하는 오류 제어 방식</li>
 <li><strong>키워드</strong>: Stop-and-Wait, Go-Back-N, Selective Repeat, NAK, 재전송, 시퀀스 번호</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>ARQ 방식 상세 비교</strong>:<table>
+<li><strong>ARQ 방식 상세 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>Stop-and-Wait</strong></th><th><strong>Go-Back-N</strong></th><th><strong>Selective Repeat</strong></th></tr>
 <tr><td><strong>윈도우 크기</strong></td><td>1</td><td>N(송신) / 1(수신)</td><td>N(송/수신 모두)</td></tr>
 <tr><td><strong>재전송 범위</strong></td><td>오류 1프레임</td><td>오류 포함 이후 전체</td><td>오류 프레임만</td></tr>
 <tr><td><strong>버퍼 요구</strong></td><td>없음</td><td>송신만</td><td>송수신 모두</td></tr>
 <tr><td><strong>효율</strong></td><td>매우 낮음</td><td>중간</td><td>높음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>HARQ</strong>: 4G/5G에서 ARQ + FEC를 결합, 1차 FEC로 정정 후 실패 시 ARQ로 재전송</li>
 <li><strong>인사이트</strong>: Selective Repeat은 <strong>효율이 가장 높지만 버퍼가 많이 필요</strong>하며, Go-Back-N은 구현이 단순하여 실제 구현에 많이 사용됨. 두 방식의 시퀀스 번호 범위(GBN: 2ⁿ-1, SR: 2^(n-1))도 암기 포인트.</li>
@@ -300,29 +301,29 @@
 <li><strong>정의:</strong> ARQ의 재전송 기법과 FEC의 전진 오류 정정을 결합하여 오류 패킷을 재전송 시 이전 수신 신호와 합산·정정함으로써 전송 효율과 신뢰성을 동시에 향상시키는 오류 제어 기술</li>
 <li><strong>키워드:</strong> ARQ, FEC, 소프트 컴바이닝, Chase Combining, IR, 터보코드, LDPC, ACK/NACK, 재전송</li>
 <li><strong>분류:</strong> 네트워크 / 이동통신</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 초기 전송</strong></td><td>송신측이 FEC 부호화된 패킷 전송</td><td>부호화 전송</td></tr>
 <tr><td><strong>2. 수신·복호</strong></td><td>수신측이 FEC로 오류 정정 시도</td><td>자체 정정</td></tr>
 <tr><td><strong>3. ACK·NACK</strong></td><td>정정 성공 시 ACK, 실패 시 NACK 전송</td><td>결과 피드백</td></tr>
 <tr><td><strong>4. 재전송</strong></td><td>NACK 수신 시 동일 또는 추가 패킷 재전송</td><td>재전송 수행</td></tr>
 <tr><td><strong>5. 소프트 컴바이닝</strong></td><td>이전 수신 신호와 재전송 신호를 합산하여 복호</td><td>신호 합산 복호</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>HARQ 유형:</strong><table>
+<li><strong>HARQ 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Type I HARQ</strong></td><td>재전송 시 동일 패킷 반복 전송·합산 복호</td><td>단순 재전송</td></tr>
 <tr><td><strong>Type II HARQ (CC)</strong></td><td>Chase Combining, 동일 패킷 재전송 후 소프트 합산</td><td>동일 패킷 합산</td></tr>
 <tr><td><strong>Type III HARQ (IR)</strong></td><td>Incremental Redundancy, 재전송마다 추가 잉여 비트 전송</td><td>점진적 잉여 추가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>HARQ 프로세스 구조:</strong><table>
+<li><strong>HARQ 프로세스 구조:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>다중 HARQ 프로세스</strong></td><td>여러 HARQ 프로세스 병렬 운용으로 RTT 지연 보상</td><td>병렬 전송</td></tr>
 <tr><td><strong>Stop-and-Wait</strong></td><td>각 프로세스는 ACK 수신 전까지 대기</td><td>단순 제어</td></tr>
 <tr><td><strong>최대 재전송 횟수</strong></td><td>보통 4회로 제한, 초과 시 상위 계층 ARQ 처리</td><td>재전송 한계</td></tr>
 <tr><td><strong>RTT (왕복 지연)</strong></td><td>LTE 8ms, 5G NR 최소 1ms 수준</td><td>응답 지연</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> HARQ는 재전송 패킷을 버리지 않고 누적 합산하는 소프트 컴바이닝이 핵심으로, Chase Combining보다 Incremental Redundancy가 스펙트럼 효율이 높아 LTE·5G의 표준 방식으로 채택됨. 5G에서는 CBG 단위 부분 재전송·비동기 HARQ로 지연을 최소화하여 URLLC(초저지연·고신뢰) 서비스의 핵심 기반 기술로 자리잡고 있음</li>
 </ul>
@@ -331,15 +332,15 @@
 <li><strong>정의:</strong> 송신측이 데이터에 잉여 비트(Redundancy)를 추가하여 전송하고 수신측이 별도 재전송 요청 없이 스스로 오류를 검출·정정하는 채널 부호화 기술</li>
 <li><strong>키워드:</strong> 채널 부호화, 잉여 비트, 부호율, 해밍 코드, 터보 코드, LDPC, Polar Code, BCH, 리드-솔로몬</li>
 <li><strong>분류:</strong> 네트워크 / 통신 이론</li>
-<li><strong>핵심 개념:</strong><table>
+<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>부호율 (Code Rate)</strong></td><td>정보 비트 수 / 전체 전송 비트 수 (낮을수록 강한 오류 정정)</td><td>정정 능력 조절</td></tr>
 <tr><td><strong>해밍 거리</strong></td><td>두 코드워드 간 다른 비트 수, 클수록 오류 정정 능력 향상</td><td>정정 능력 기준</td></tr>
 <tr><td><strong>잉여 비트 (Redundancy)</strong></td><td>오류 검출·정정을 위해 추가하는 패리티·체크 비트</td><td>오류 정정 재료</td></tr>
 <tr><td><strong>코드워드</strong></td><td>정보 비트 + 잉여 비트로 구성된 전송 단위</td><td>전송 단위</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>FEC 주요 알고리즘:</strong><table>
+<li><strong>FEC 주요 알고리즘:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>알고리즘</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>블록 코드</strong></td><td>해밍 코드 (Hamming)</td><td>1비트 정정 및 2비트 검출</td><td>단순 1비트 정정</td></tr>
 <tr><td></td><td>BCH 코드</td><td>다중 비트 오류 정정 가능</td><td>다중 비트 정정</td></tr>
@@ -348,9 +349,9 @@
 <tr><td><strong>터보 코드</strong></td><td>터보 코드 (Turbo)</td><td>샤논 한계 도달 반복 복호</td><td>반복 복호</td></tr>
 <tr><td><strong>LDPC</strong></td><td>LDPC 코드</td><td>희소 행렬 기반 5G 부호</td><td>5G 표준 부호</td></tr>
 <tr><td><strong>Polar 코드</strong></td><td>Polar Code</td><td>채널 분극 이론 기반 5G 부호</td><td>5G 제어 채널</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>FEC vs BEC 비교표: </strong><table>
+<li><strong>FEC vs BEC 비교표: </strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>FEC (전진 오류 정정)</th><th>BEC (후진 오류 정정)</th></tr>
 <tr><td><strong>정정 방식</strong></td><td>수신측 자체 정정</td><td>재전송 요청 (ARQ)</td></tr>
 <tr><td><strong>피드백 채널</strong></td><td>❌ 불필요</td><td>✅ 필요</td></tr>
@@ -360,7 +361,7 @@
 <tr><td><strong>적합 환경</strong></td><td>위성·방송·무선</td><td>유선·저지연 환경</td></tr>
 <tr><td><strong>대표 기술</strong></td><td>터보코드·LDPC·Polar</td><td>Stop-and-Wait·GBN·SR</td></tr>
 <tr><td><strong>결합 방식</strong></td><td>—</td><td>HARQ (FEC + BEC 혼합)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> FEC는 재전송 없이 오류를 자체 정정하므로 위성·방송·5G처럼 피드백 채널이 없거나 지연이 허용되지 않는 환경의 필수 기술임. 터보 코드→LDPC→Polar Code로 이어지는 발전은 Shannon 정보 이론의 한계에 점점 근접하는 과정이며, 5G에서 데이터 채널(LDPC)과 제어 채널(Polar)을 구분 적용하는 설계가 이론적 최적 성능 실현의 핵심임</li>
 </ul>
@@ -376,12 +377,12 @@
 <li>④ 수신측: 동일 나눗셈 후 나머지 = 0이면 정상</li>
 </ul>
 </li>
-<li><strong>주요 표준</strong>:<table>
+<li><strong>주요 표준</strong>:<div class="table-scroll"><table>
 <tr><th>표준</th><th>다항식</th><th>적용</th></tr>
 <tr><td>CRC-16</td><td>x¹⁶+x¹⁵+x²+1</td><td>HDLC, USB</td></tr>
 <tr><td>CRC-32</td><td>32차 다항식</td><td>Ethernet, ZIP</td></tr>
 <tr><td>CRC-CCITT</td><td>x¹⁶+x¹²+x⁵+1</td><td>SDLC, X.25</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: CRC는 <strong>버스트 오류 검출에 탁월</strong>하지만 오류 정정은 불가. Ethernet 프레임의 FCS가 CRC-32를 사용하며, CRC는 검출만 가능하므로 오류 정정은 ARQ/FEC 필요.</li>
 </ul>
@@ -390,39 +391,39 @@
 <li><strong>정의:</strong> 송신측과 수신측 간 처리 속도 차이로 인한 수신 버퍼 오버플로우를 방지하기 위해 송신 속도를 수신 능력에 맞게 동적으로 조절하는 전송 제어 기술</li>
 <li><strong>키워드:</strong> 슬라이딩 윈도우, 수신 윈도우(rwnd), Stop-and-Wait, 버퍼 오버플로우, ACK, TCP, XON/XOFF, 어리석은 윈도우 증후군(payload(1byte) &lt;&lt; header(40byte)), Clark’s(버퍼, MSS), Nalge(버퍼, 일괄전송)</li>
 <li><strong>분류:</strong> 네트워크 / 전송 계층</li>
-<li><strong>흐름 제어 vs 혼잡 제어 비교:</strong><table>
+<li><strong>흐름 제어 vs 혼잡 제어 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>흐름 제어</th><th>혼잡 제어</th></tr>
 <tr><td><strong>목적</strong></td><td>수신측 버퍼 오버플로우 방지</td><td>네트워크 과부하 방지</td></tr>
 <tr><td><strong>제어 대상</strong></td><td>송신자 ↔ 수신자</td><td>송신자 ↔ 네트워크</td></tr>
 <tr><td><strong>윈도우</strong></td><td>수신 윈도우 (rwnd)</td><td>혼잡 윈도우 (cwnd)</td></tr>
 <tr><td><strong>주체</strong></td><td>수신측 제어</td><td>송신측 판단</td></tr>
 <tr><td><strong>계층</strong></td><td>전송 계층 (L4)</td><td>전송 계층 (L4)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기법:</strong><table>
+<li><strong>주요 기법:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>정지 대기</strong></td><td><strong>Stop-and-Wait</strong></td><td>패킷 1개 전송 후 ACK 수신까지 대기</td><td>단순·비효율</td></tr>
 <tr><td><strong>슬라이딩 윈도우</strong></td><td><strong>Go-Back-N</strong></td><td>오류 이후 전체 윈도우 재전송</td><td>윈도우 순차 재전송</td></tr>
 <tr><td></td><td><strong>Selective Repeat</strong></td><td>오류 패킷만 선택 재전송</td><td>선택 재전송</td></tr>
 <tr><td><strong>버퍼 기반</strong></td><td><strong>XON/XOFF</strong></td><td>버퍼 임계치 도달 시 XOFF 전송·중단 요청</td><td>하드웨어 흐름 제어</td></tr>
 <tr><td></td><td><strong>Credit 기반</strong></td><td>수신 가능 크레딧(버퍼 잔량)을 송신측에 통보</td><td>크레딧 기반 조절</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>TCP 흐름 제어 동작:</strong><table>
+<li><strong>TCP 흐름 제어 동작:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 버퍼 공간 통보</strong></td><td>수신측이 TCP 헤더 Window 필드로 rwnd 값 송신측에 전달</td><td>수신 능력 공지</td></tr>
 <tr><td><strong>2. 전송량 조절</strong></td><td>송신측이 rwnd 초과하지 않는 범위에서 데이터 전송</td><td>전송량 제한</td></tr>
 <tr><td><strong>3. ACK + 윈도우 갱신</strong></td><td>ACK 전송 시 최신 rwnd 값 함께 전달</td><td>동적 조절</td></tr>
 <tr><td><strong>4. Zero Window 처리</strong></td><td>rwnd=0 수신 시 Window Probe로 주기적 상태 확인</td><td>교착 방지</td></tr>
 <tr><td><strong>5. 윈도우 재개</strong></td><td>수신측 버퍼 여유 생기면 rwnd 갱신 ACK 전송</td><td>전송 재개</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군):</strong><table>
+<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군):</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개념</strong></td><td>소량 데이터를 반복 전송하여 헤더 오버헤드가 급증하는 현상</td><td>비효율 전송</td></tr>
 <tr><td><strong>수신측 대응</strong></td><td><strong>Clark 해결책</strong> — 윈도우가 충분히 커질 때까지 rwnd=0 유지</td><td>수신 지연 공지</td></tr>
 <tr><td><strong>송신측 대응</strong></td><td><strong>Nagle 알고리즘</strong> — 소량 데이터를 모아 한번에 전송</td><td>데이터 묶음 전송</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 흐름 제어는 수신측 버퍼 보호를 목적으로 하며, TCP에서 rwnd를 통한 동적 윈도우 조절이 핵심 메커니즘임. 혼잡 제어의 cwnd와 결합하여 실제 전송 크기는 min(rwnd, cwnd)로 결정되므로, 두 제어 메커니즘의 상호작용 이해가 TCP 성능 최적화의 핵심 포인트이며 Zero Window·Silly Window Syndrome이 대표적 시험 출제 포인트임</li>
 </ul>
@@ -431,7 +432,7 @@
 <li><strong>정의</strong>: 수신 측의 ACK를 기다리지 않고 윈도우 크기만큼 연속으로 프레임을 전송하여 채널 효율을 극대화하는 흐름 제어 기법</li>
 <li><strong>키워드</strong>: 윈도우 크기, ACK, 흐름 제어, 버퍼, 수신 윈도우(rwnd), 송신 윈도우</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>동작 원리</strong>: <table>
+<li><strong>동작 원리</strong>: <div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 윈도우 설정</strong></td><td>수신측 rwnd 기반으로 송신 윈도우 크기 결정</td><td>전송 허용 범위 설정</td></tr>
 <tr><td><strong>2. 연속 전송</strong></td><td>ACK 대기 없이 윈도우 크기만큼 프레임 연속 전송</td><td>연속 전송</td></tr>
@@ -440,14 +441,14 @@
 <tr><td><strong>5. 윈도우 축소</strong></td><td>수신 버퍼 감소 시 rwnd 축소·송신 속도 제한</td><td>속도 조절</td></tr>
 <tr><td><strong>6. Zero Window</strong></td><td>rwnd=0 수신 시 전송 중단·Window Probe 주기 전송</td><td>교착 방지</td></tr>
 <tr><td><strong>7. 전송 재개</strong></td><td>수신 버퍼 여유 생기면 rwnd 갱신 ACK로 전송 재개</td><td>전송 복구</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>윈도우 크기 결정 요소</strong>:<table>
+<li><strong>윈도우 크기 결정 요소</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th></tr>
 <tr><td>수신 윈도우(rwnd)</td><td>수신 버퍼 여유 공간</td></tr>
 <tr><td>혼잡 윈도우(cwnd)</td><td>네트워크 혼잡 기반 제한</td></tr>
 <tr><td>실효 윈도우</td><td>min(rwnd, cwnd)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 슬라이딩 윈도우는 <strong>흐름 제어의 핵심 메커니즘</strong>이며, TCP에서는 수신 윈도우(rwnd)와 혼잡 윈도우(cwnd)의 최솟값으로 실효 윈도우를 결정. Zero Window Probe로 rwnd=0 교착 상태 해소.</li>
 </ul>
@@ -456,13 +457,13 @@
 <li><strong>정의</strong>: 네트워크 혼잡 발생 시 전송률을 동적으로 조절하여 패킷 손실과 지연을 최소화하는 트래픽 관리 기법</li>
 <li><strong>키워드</strong>: 혼잡 윈도우(cwnd), Slow Start, AIMD, 혼잡 회피, Fast Retransmit, ECN</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP 혼잡 제어 단계</strong>:<table>
+<li><strong>TCP 혼잡 제어 단계</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>동작</th><th>설명</th></tr>
 <tr><td>Slow Start</td><td>cwnd 지수 증가</td><td>1→2→4→8… (매 RTT 2배)</td></tr>
 <tr><td>혼잡 회피</td><td>cwnd 선형 증가</td><td>ssthresh 도달 후 +1/RTT</td></tr>
 <tr><td>Fast Retransmit</td><td>3 Dup ACK → 즉시 재전송</td><td>타임아웃 대기 없이 빠른 복구</td></tr>
 <tr><td>Fast Recovery</td><td>ssthresh 재설정 후 혼잡 회피 진입</td><td>cwnd = ssthresh + 3</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>AIMD(Additive Increase Multiplicative Decrease)</strong>는 공정성을 보장하는 핵심 원리로, 손실 감지 시 cwnd를 절반으로 줄여 빠른 회복을 유도. QUIC/BBR 등 신규 혼잡 제어는 RTT 기반으로 동작하여 대역폭 활용률을 개선.</li>
 </ul>
@@ -471,17 +472,17 @@
 <li><strong>정의</strong>: TCP에서 혼잡 윈도우(cwnd)와 ssthresh를 동적으로 조절하여 네트워크 혼잡을 감지하고 제어하는 메커니즘</li>
 <li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>혼잡 감지 방법</strong>:<table>
+<li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
 <tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
 <tr><td>타임아웃</td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
 <tr><td>3중복 ACK</td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 알고리즘 비교</strong>:<table>
+<li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>TCP Reno</strong></th><th><strong>TCP Cubic</strong></th><th><strong>BBR</strong></th></tr>
 <tr><td><strong>특징</strong></td><td>3 Dup ACK 시 cwnd 절반</td><td>시간 기반 3차함수 증가</td><td>RTT·대역폭 기반 모델링</td></tr>
 <tr><td><strong>환경</strong></td><td>유선망 표준</td><td>고속 대용량 망</td><td>고지연·무선망</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>Cubic은 리눅스 기본값</strong>으로 고속 환경에 최적화되어 있으며, 구글의 BBR은 손실 기반이 아닌 대역폭 모델 기반으로 위성·LTE 환경에서 효과적.</li>
 </ul>
@@ -490,13 +491,13 @@
 <li><strong>정의</strong>: 멀티스트리밍(여러 독립 스트림)과 멀티호밍(다중 경로)을 지원하여 신뢰성과 가용성을 높인 전송 계층 프로토콜</li>
 <li><strong>키워드</strong>: RFC 4960, 멀티스트리밍, 멀티호밍, 4-way Handshake, COOKIE, 청크, 시그널링</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP vs SCTP 비교</strong>:  <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// udp까지 비교</span><table>
+<li><strong>TCP vs SCTP 비교</strong>:  <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// udp까지 비교</span><div class="table-scroll"><table>
 <tr><th>구분</th><th>TCP</th><th>SCTP</th></tr>
 <tr><td>스트림</td><td>단일 스트림 (HOL 블로킹)</td><td>멀티 스트림 (HOL 차단 없음)</td></tr>
 <tr><td>다중 경로</td><td>미지원</td><td>멀티호밍 지원</td></tr>
 <tr><td>연결 설정</td><td>3-way Handshake</td><td>4-way Handshake (INIT/INIT-ACK/COOKIE-ECHO/COOKIE-ACK)</td></tr>
 <tr><td>SYN 공격 방어</td><td>취약</td><td>COOKIE 메커니즘으로 방어</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>프로토콜 구조</strong>: 공통 헤더 + 복수 청크(DATA/SACK/HEARTBEAT/ERROR 등)</li>
 <li><strong>활용</strong>: SS7 시그널링 over IP(SIGTRAN), VoIP, 이동통신 코어 네트워크</li>
@@ -507,23 +508,23 @@
 <li><strong>정의</strong>: 파일 전송을 위한 프로토콜 및 보안이 강화된 확장 버전들의 집합</li>
 <li><strong>키워드</strong>: RFC 959, 포트 21/22, 능동/수동 모드, TLS, SSH, 제어 채널, 데이터 채널</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>3가지 프로토콜 비교</strong>:<table>
+<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>FTP</th><th>FTPS</th><th>SFTP</th></tr>
 <tr><td>보안</td><td>없음(평문)</td><td>SSL/TLS 암호화</td><td>SSH 기반 암호화</td></tr>
 <tr><td>제어 포트</td><td>21</td><td>21(또는 990)</td><td>22</td></tr>
 <tr><td>채널 구조</td><td>제어+데이터 분리</td><td>제어+데이터 분리</td><td>단일 채널</td></tr>
 <tr><td>기반 프로토콜</td><td>TCP</td><td>TCP + TLS</td><td>SSH</td></tr>
 <tr><td>방화벽 통과</td><td>어려움(수동모드)</td><td>어려움</td><td>용이(포트 22)</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>FTP 모드</strong>: <table>
+<li><strong>FTP 모드</strong>: <div class="table-scroll"><table>
 <tr><th>항목</th><th>능동 모드 (Active)</th><th>수동 모드 (Passive)</th></tr>
 <tr><td><strong>제어 연결</strong></td><td>클라이언트 → 서버 21번 포트</td><td>클라이언트 → 서버 21번 포트</td></tr>
 <tr><td><strong>데이터 연결</strong></td><td>서버(20번) → 클라이언트 임시 포트</td><td>클라이언트 → 서버 임시 포트</td></tr>
 <tr><td><strong>연결 주체</strong></td><td>서버가 클라이언트로 데이터 연결 요청</td><td>클라이언트가 서버 데이터 포트로 연결</td></tr>
 <tr><td><strong>방화벽 문제</strong></td><td>❌ 클라이언트 방화벽 차단 위험</td><td>✅ 방화벽 통과 용이</td></tr>
 <tr><td><strong>주요 사용</strong></td><td>내부 네트워크 환경</td><td>NAT·방화벽 환경</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 보안 요구 환경에서는 FTP 사용을 금지하고 <strong>SFTP(SSH 기반)를 권장</strong>. FTPS는 기존 FTP 인프라를 유지하며 TLS를 추가하는 방식. SFTP는 파일 전송 외 원격 파일 관리도 지원.</li>
 </ul>
@@ -532,7 +533,7 @@
 <li><strong>정의:</strong> TCP 기반의 HTTP/2 한계를 극복하기 위해 UDP 기반의 QUIC 프로토콜 위에서 동작하는 차세대 HTTP 표준</li>
 <li><strong>키워드:</strong> <strong>RFC 9114,</strong> QUIC, UDP, 0-RTT, 멀티플렉싱, HOL Blocking 해소, TLS 1.3 내장, 연결 마이그레이션, 스트림</li>
 <li><strong>분류:</strong> 네트워크 / 프로토콜</li>
-<li><strong>HTTP 버전 비교:</strong><table>
+<li><strong>HTTP 버전 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>HTTP/1.1</th><th>HTTP/2</th><th>HTTP/3</th></tr>
 <tr><td><strong>전송 프로토콜</strong></td><td>TCP</td><td>TCP</td><td>UDP (QUIC)</td></tr>
 <tr><td><strong>HOL Blocking</strong></td><td>❌ 발생</td><td>△ 스트림 레벨 해소</td><td>✅ 완전 해소</td></tr>
@@ -541,9 +542,9 @@
 <tr><td><strong>TLS</strong></td><td>별도 적용</td><td>별도 적용</td><td>✅ 기본 내장</td></tr>
 <tr><td><strong>연결 수립</strong></td><td>3-Way Handshake</td><td>3-Way + TLS</td><td>0-RTT·1-RTT</td></tr>
 <tr><td><strong>연결 마이그레이션</strong></td><td>❌</td><td>❌</td><td>✅</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>QUIC 핵심 기술:</strong><table>
+<li><strong>QUIC 핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>전송 기반</strong></td><td><strong>UDP 기반</strong></td><td>TCP 대신 UDP 위 애플리케이션 레벨 구현</td><td>전송 계층 혁신</td></tr>
 <tr><td><strong>성능</strong></td><td><strong>0-RTT 연결</strong></td><td>이전 연결 캐싱으로 즉시 데이터 전송</td><td>지연 최소화</td></tr>
@@ -551,20 +552,20 @@
 <tr><td></td><td><strong>연결 마이그레이션</strong></td><td>IP 변경 시에도 연결 유지</td><td>끊김 없는 연결</td></tr>
 <tr><td><strong>보안</strong></td><td><strong>TLS 1.3 내장</strong></td><td>암호화 프로토콜 기본 내장</td><td>보안 기본화</td></tr>
 <tr><td><strong>압축</strong></td><td><strong>QPACK</strong></td><td>HTTP/3 전용 헤더 압축 방식</td><td>헤더 압축</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>HOL Blocking 비교:</strong><table>
+<li><strong>HOL Blocking 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>HTTP/2</th><th>HTTP/3</th></tr>
 <tr><td><strong>애플리케이션 레벨</strong></td><td>✅ 멀티플렉싱으로 해소</td><td>✅ 해소</td></tr>
 <tr><td><strong>전송 레벨 (TCP)</strong></td><td>❌ TCP 패킷 손실 시 전체 스트림 블로킹</td><td>✅ UDP 독립 스트림으로 해소</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>0-RTT vs 1-RTT:</strong><table>
+<li><strong>0-RTT vs 1-RTT:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>0-RTT</th><th>1-RTT</th></tr>
 <tr><td><strong>조건</strong></td><td>이전 연결 세션 정보 보유</td><td>최초 연결</td></tr>
 <tr><td><strong>속도</strong></td><td>핸드셰이크 없이 즉시 전송</td><td>1회 왕복 후 전송</td></tr>
 <tr><td><strong>보안</strong></td><td>재전송 공격(Replay Attack) 위험</td><td>상대적으로 안전</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> HTTP/3는 TCP의 구조적 한계인 HOL Blocking을 UDP 기반 QUIC으로 근본적으로 해결하며, 0-RTT·연결 마이그레이션으로 모바일·불안정 네트워크 환경에서 체감 성능을 크게 향상시킴. TLS 1.3 기본 내장으로 보안이 프로토콜 수준에서 보장되어 웹 표준의 새로운 기준으로 빠르게 자리잡고 있음</li>
 </ul>
@@ -575,12 +576,12 @@
 <li><strong>정의</strong>: 단일 자율 시스템(AS) 내부에서 라우터 간 라우팅 정보를 교환하여 최적 경로를 결정하는 내부 게이트웨이 프로토콜</li>
 <li><strong>키워드</strong>: AS(자율 시스템), 링크 상태, 거리 벡터, OSPF, RIP, EIGRP, 수렴</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>IGP 분류</strong>:<table>
+<li><strong>IGP 분류</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th><th>하이브리드</th></tr>
 <tr><td><strong>프로토콜</strong></td><td>RIP</td><td>OSPF, IS-IS</td><td>EIGRP</td></tr>
 <tr><td><strong>알고리즘</strong></td><td>Bellman-Ford</td><td>Dijkstra</td><td>DUAL</td></tr>
 <tr><td><strong>특징</strong></td><td>홉 카운트, 소규모 망</td><td>토폴로지 DB, 대규모 망</td><td>Cisco 전용, 빠른 수렴</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IGP는 <strong>AS 내부 최적 경로 계산</strong>을 담당하며, 기업망에서는 OSPF가 표준. 수렴 속도와 확장성이 프로토콜 선택의 핵심 기준이며 OSPF는 링크 상태 변화 시 LSA(Link State Advertisement)로 빠르게 수렴.</li>
 </ul>
@@ -589,23 +590,23 @@
 <li><strong>정의:</strong> 서로 다른 자율 시스템(AS) 간 라우팅 정보를 교환하여 인터넷 전체의 경로를 관리하는 외부 게이트웨이 프로토콜</li>
 <li><strong>키워드:</strong> AS 간 라우팅, BGP-4, 정책 라우팅, AS 번호, AS-PATH, 피어링, eBGP, iBGP, NLRI</li>
 <li><strong>분류:</strong> 라우팅 / 주소체계</li>
-<li><strong>IGP vs EGP 비교:</strong><table>
+<li><strong>IGP vs EGP 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>IGP</th><th>EGP</th></tr>
 <tr><td><strong>적용 범위</strong></td><td>AS 내부 라우팅</td><td>AS 간 라우팅</td></tr>
 <tr><td><strong>목적</strong></td><td>최적 경로 탐색</td><td>정책 기반 경로 제어</td></tr>
 <tr><td><strong>대표 프로토콜</strong></td><td>OSPF, RIP, EIGRP</td><td>BGP-4</td></tr>
 <tr><td><strong>경로 선택 기준</strong></td><td>메트릭(홉·대역폭)</td><td>정책·속성 기반</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>BGP 동작 방식:</strong><table>
+<li><strong>BGP 동작 방식:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>eBGP</strong></td><td>서로 다른 AS 간 BGP 세션</td><td>외부 AS 연결</td></tr>
 <tr><td><strong>iBGP</strong></td><td>동일 AS 내부 BGP 세션</td><td>내부 경로 전파</td></tr>
 <tr><td><strong>피어링 (Peering)</strong></td><td>BGP 라우터 간 TCP 179 포트로 세션 수립</td><td>세션 기반 연결</td></tr>
 <tr><td><strong>NLRI</strong></td><td>도달 가능한 네트워크 정보를 포함한 경로 광고</td><td>경로 정보 교환</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>BGP 경로 속성:</strong><table>
+<li><strong>BGP 경로 속성:</strong><div class="table-scroll"><table>
 <tr><th>속성</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>AS-PATH</strong></td><td>경로가 통과한 AS 번호 목록, 루프 방지에 활용</td><td>루프 방지</td></tr>
 <tr><td><strong>NEXT-HOP</strong></td><td>다음 라우터의 IP 주소</td><td>다음 홉 지정</td></tr>
@@ -613,7 +614,7 @@
 <tr><td><strong>MED</strong></td><td>외부 AS에 선호 진입 경로 전달 (낮을수록 우선)</td><td>외부 선호도</td></tr>
 <tr><td><strong>COMMUNITY</strong></td><td>경로 태깅으로 그룹 정책 적용</td><td>정책 그룹화</td></tr>
 <tr><td><strong>ORIGIN</strong></td><td>경로 정보 출처 (IGP·EGP·Incomplete)</td><td>경로 출처</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야: </strong>ISP 간 연결, 멀티호밍, IX (인터넷 교환 포인트)</li>
 <li><strong>인사이트:</strong> BGP-4는 현재 인터넷의 유일한 EGP로, 전 세계 10만 개 이상의 AS 경로를 관리하는 인터넷의 핵심 라우팅 프로토콜임. 최적 경로가 아닌 정책 기반 경로를 선택하는 특성상 BGP 설정 오류·하이재킹이 대규모 인터넷 장애로 이어질 수 있어 RPKI 기반 경로 검증이 보안 표준으로 부상하고 있음</li>
@@ -623,7 +624,7 @@
 <li><strong>정의:</strong> 링크 상태 정보를 AS 내 모든 라우터에 플러딩하여 각 라우터가 SPF 알고리즘으로 최단 경로를 계산하는 링크 상태 기반 IGP 프로토콜</li>
 <li><strong>키워드:</strong> RFC 2328, LSA, LSDB, SPF·Dijkstra, Area, DR·BDR, Cost, Hello, ABR, ASBR, OSPFv3</li>
 <li><strong>분류:</strong> 라우팅 / 주소체계</li>
-<li><strong>동작 절차:</strong><table>
+<li><strong>동작 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 인접 관계 수립</strong></td><td>Hello 패킷으로 인접 라우터 발견·Neighbor 관계 형성</td><td>Hello 프로토콜</td></tr>
 <tr><td><strong>2. DR·BDR 선출</strong></td><td>멀티액세스 네트워크에서 대표 라우터 선출
@@ -631,16 +632,16 @@
 <tr><td><strong>3. LSA 교환</strong></td><td>Link State Advertisement 교환으로 LSDB 동기화</td><td>토폴로지 공유</td></tr>
 <tr><td><strong>4. SPF 계산</strong></td><td>Dijkstra 알고리즘으로 최단 경로 트리 계산</td><td>최단 경로 산출</td></tr>
 <tr><td><strong>5. 라우팅 테이블 갱신</strong></td><td>계산된 최단 경로를 라우팅 테이블에 반영</td><td>경로 적용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>LSA 유형: </strong>Type 1(Router LSA), Type 2(Network LSA), Type 3(Summary LSA), Type 4(ASBR Summary LSA), Type 5(External LSA)</li>
-<li><strong>Cost 계산:</strong><table>
+<li><strong>Cost 계산:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>공식</strong></td><td>Cost = 10⁸ / 링크 속도(bps)</td><td>속도 반비례</td></tr>
 <tr><td><strong>FastEthernet</strong></td><td>Cost = 10⁸ / 10⁸ = 1</td><td>최저 Cost</td></tr>
 <tr><td><strong>T1 (1.544Mbps)</strong></td><td>Cost = 10⁸ / 1,544,000 ≈ 64</td><td>높은 Cost</td></tr>
 <tr><td><strong>경로 선택</strong></td><td>누적 Cost 합산 최솟값 경로 선택</td><td>최소 Cost 우선</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> OSPF의 Area 설계는 네트워크 확장성의 핵심으로, Area 0은 반드시 존재해야 하며 모든 Area는 Area 0에 직·간접 연결되어야 함. Cost = 10⁸/링크속도로 고속 링크를 선호하며, DR·BDR 선출로 멀티액세스 환경의 LSA 플러딩을 최소화하는 설계가 대규모 네트워크 안정성의 핵심 포인트임</li>
 </ul>
@@ -649,20 +650,20 @@
 <li><strong>정의</strong>: 각 라우터가 인접 라우터와 목적지까지의 거리(홉/비용) 정보를 주기적으로 교환하여 최적 경로를 결정하는 라우팅 알고리즘</li>
 <li><strong>키워드</strong>: Bellman-Ford, 홉 카운트, 라우팅 루프, 무한 계산, Split Horizon, Poison Reverse</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>문제점 및 해결책</strong>:<table>
+<li><strong>문제점 및 해결책</strong>:<div class="table-scroll"><table>
 <tr><th>문제</th><th>원인</th><th>해결책</th></tr>
 <tr><td>라우팅 루프</td><td>느린 수렴</td><td>Split Horizon, Poison Reverse</td></tr>
 <tr><td>무한 계산</td><td>루프로 인한 홉 무한 증가</td><td>최대 홉 수 제한(RIP: 15)</td></tr>
 <tr><td>느린 수렴</td><td>주기적 업데이트</td><td>Triggered Update</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<table>
+<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th></tr>
 <tr><td>알고리즘</td><td>Bellman-Ford</td><td>Dijkstra</td></tr>
 <tr><td>정보 교환</td><td>인접 라우터만</td><td>전체 라우터</td></tr>
 <tr><td>수렴 속도</td><td>느림</td><td>빠름</td></tr>
 <tr><td>메모리/CPU</td><td>낮음</td><td>높음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 거리벡터는 <strong>소규모 네트워크에 적합</strong>하며 구현이 단순하지만 수렴 문제로 대규모 망에서 OSPF 같은 링크 상태 프로토콜이 선호됨.</li>
 </ul>
@@ -671,7 +672,7 @@
 <li><strong>정의</strong>: 홉 카운트(최대 15)를 메트릭으로 사용하는 거리벡터 기반의 소규모 네트워크용 IGP 프로토콜</li>
 <li><strong>키워드</strong>: RFC 2453, 홉 카운트, 30초 주기, 최대 15홉, Bellman-Ford, RIPv1/v2</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>RIPv1 vs RIPv2 비교:</strong><table>
+<li><strong>RIPv1 vs RIPv2 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>RIPv1</th><th>RIPv2</th></tr>
 <tr><td><strong>서브넷 정보</strong></td><td>미포함</td><td>✅ 포함 (CIDR 지원)</td></tr>
 <tr><td><strong>주소 체계</strong></td><td>클래스풀</td><td>클래스리스</td></tr>
@@ -679,15 +680,15 @@
 <tr><td><strong>전송 방식</strong></td><td>브로드캐스트</td><td>멀티캐스트 (224.0.0.9)</td></tr>
 <tr><td><strong>인증</strong></td><td>❌ 없음</td><td>✅ 평문·MD5 인증</td></tr>
 <tr><td><strong>RFC</strong></td><td>RFC 1058</td><td>RFC 2453</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>제한사항:</strong><table>
+<li><strong>제한사항:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>최대 15홉</strong></td><td>홉 16 = 도달 불가(Unreachable), 대규모 망 부적합</td><td>확장성 한계</td></tr>
 <tr><td><strong>느린 수렴</strong></td><td>30초 주기 업데이트로 장애 감지·수렴 속도 느림</td><td>수렴 지연</td></tr>
 <tr><td><strong>Counting-to-Infinity</strong></td><td>루프 발생 시 홉 카운트가 무한 증가하는 문제</td><td>루프 문제</td></tr>
 <tr><td><strong>대역폭 낭비</strong></td><td>전체 라우팅 테이블을 주기적으로 전송</td><td>비효율 전송</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: RIP는 <strong>소규모 단순 망에서만 적합</strong>하며, 현대 기업망에서는 OSPF/EIGRP로 대체. 15홉 제한과 Counting-to-Infinity 문제가 대표적 단점으로 시험 단골 출제.</li>
 </ul>
@@ -701,12 +702,12 @@
 <li>→ 슈퍼넷: 192.168.0.0/22 (4개 네트워크를 1개로 집약)</li>
 </ul>
 </li>
-<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<table>
+<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>서브네팅</th><th>슈퍼네팅</th></tr>
 <tr><td>방향</td><td>큰 네트워크 → 작게 분할</td><td>작은 네트워크 → 크게 결합</td></tr>
 <tr><td>마스크</td><td>길어짐(비트 증가)</td><td>짧아짐(비트 감소)</td></tr>
 <tr><td>목적</td><td>주소 효율화, 트래픽 분리</td><td>라우팅 테이블 축소</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 슈퍼네팅(CIDR)은 <strong>BGP 경로 집약</strong>에 핵심적으로 적용되어 인터넷 라우팅 테이블 폭발을 방지함. 연속 네트워크 블록이 2의 거듭제곱 정렬이어야 집약 가능.</li>
 </ul>
@@ -721,13 +722,13 @@
 <li>각 서브넷의 네트워크 주소, 브로드캐스트, 호스트 범위 도출</li>
 </ol>
 </li>
-<li><strong>계산 예시</strong>:<table>
+<li><strong>계산 예시</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>값</th><th>설명</th></tr>
 <tr><td>원본 네트워크</td><td>192.168.1.0/24</td><td>C클래스</td></tr>
 <tr><td>서브넷 마스크</td><td>/26 (255.255.255.192)</td><td>2비트 차용</td></tr>
 <tr><td>서브넷 수</td><td>4개</td><td>2²</td></tr>
 <tr><td>호스트 수</td><td>62개/서브넷</td><td>2⁶-2</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>VLSM(Variable Length Subnet Mask)</strong>: 서브넷마다 다른 마스크 적용 → 주소 낭비 최소화</li>
 <li><strong>인사이트</strong>: 서브네팅은 <strong>주소 효율화 + 브로드캐스트 도메인 분리</strong>가 핵심 목적이며, VLSM은 OSPF/EIGRP 같은 클래스리스 라우팅 프로토콜이 지원해야 적용 가능.</li>
@@ -739,13 +740,13 @@
 <li><strong>정의</strong>: 네트워크에서 트래픽 유형별로 대역폭·지연·손실을 차등 보장하여 서비스 품질을 관리하는 기술 체계</li>
 <li><strong>키워드</strong>: 대역폭, 지연, 지터, 패킷 손실, IntServ, DiffServ, RSVP, 마킹, 큐잉</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>QoS 4대 요소</strong>:<table>
+<li><strong>QoS 4대 요소</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th><th>영향 서비스</th></tr>
 <tr><td>대역폭(Bandwidth)</td><td>단위 시간 전송량</td><td>고화질 스트리밍</td></tr>
 <tr><td>지연(Latency)</td><td>패킷 전달 소요 시간</td><td>VoIP, 게임</td></tr>
 <tr><td>지터(Jitter)</td><td>지연 변동성</td><td>실시간 미디어</td></tr>
 <tr><td>패킷 손실(Loss)</td><td>패킷 폐기 비율</td><td>모든 서비스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 현대 엔터프라이즈 망은 <strong>DiffServ를 기본으로 하되, 특정 핵심 경로에 RSVP 예약</strong>을 병행하는 하이브리드 방식을 채택. 5G QoS는 QFI(QoS Flow Indicator)로 슬라이스별 SLA를 보장.</li>
 </ul>
@@ -754,14 +755,14 @@
 <li><strong>정의</strong>: 각 트래픽 흐름에 가중치를 부여하여 우선순위별로 공정하게 대역폭을 분배하는 스케줄링 기법</li>
 <li><strong>키워드</strong>: 가중치, 공정 큐잉, 흐름 기반, CBWFQ, LLQ, 선점, 스케줄러</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>큐잉 기법 비교</strong>:<table>
+<li><strong>큐잉 기법 비교</strong>:<div class="table-scroll"><table>
 <tr><th>기법</th><th>원리</th><th>특징</th></tr>
 <tr><td>FIFO</td><td>선착순</td><td>간단, QoS 없음</td></tr>
 <tr><td>PQ(Priority Queuing)</td><td>우선순위 절대 선점</td><td>높은 큐 독점 위험</td></tr>
 <tr><td>WFQ</td><td>가중치 비례 대역폭</td><td>공정성 + 우선순위</td></tr>
 <tr><td>CBWFQ</td><td>클래스 기반 WFQ</td><td>정책 유연성</td></tr>
 <tr><td>LLQ</td><td>CBWFQ + 엄격 우선순위 큐</td><td>VoIP 최적</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>WFQ 가중치</strong>: 낮은 IP Precedence → 높은 가중치(역비례), 저지연 흐름에 높은 우선순위</li>
 <li><strong>인사이트</strong>: <strong>LLQ(Low Latency Queuing)</strong>는 VoIP 트래픽에 엄격한 우선순위를 부여하고 나머지는 CBWFQ로 처리하는 Cisco 권장 구성. WFQ는 흐름 수가 많을수록 CPU 부하가 증가.</li>
@@ -771,21 +772,21 @@
 <li><strong>정의</strong>: IP 패킷의 DSCP 필드를 이용하여 트래픽을 클래스별로 분류하고 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>차등적 포워딩</strong></u></span> 처리를 적용하는 QoS 모델</li>
 <li><strong>키워드</strong>: RFC 2474, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DSCP, PHB</strong></u></span>, EF/AF/BE, 토큰 버킷, 폴리싱, 쉐이핑, 에지 라우터</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>PHB(Per-Hop Behavior) 종류</strong>:<table>
+<li><strong>PHB(Per-Hop Behavior) 종류</strong>:<div class="table-scroll"><table>
 <tr><th>PHB</th><th>DSCP 값</th><th>설명</th><th>대상 트래픽</th></tr>
 <tr><td>EF(Expedited Forwarding)</td><td>46</td><td>최소 지연/손실 보장</td><td>VoIP, 실시간</td></tr>
 <tr><td>AF(Assured Forwarding)</td><td>12~44</td><td>4클래스×3드롭</td><td>비즈니스 앱</td></tr>
 <tr><td>BE(Best Effort)</td><td>0</td><td>기본 처리</td><td>일반 인터넷</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>DiffServ 동작</strong>: 에지 라우터에서 패킷 분류·마킹 → 코어 라우터는 DSCP 기반 PHB만 적용</li>
-<li><strong>DiffServ vs IntServ 비교</strong>:<table>
+<li><strong>DiffServ vs IntServ 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>IntServ</th><th>DiffServ</th></tr>
 <tr><td>자원 예약</td><td>RSVP per-flow</td><td>없음(클래스 기반)</td></tr>
 <tr><td>확장성</td><td>낮음(상태 유지)</td><td>높음</td></tr>
 <tr><td>보장 수준</td><td>강한 보장</td><td>상대적 보장</td></tr>
 <tr><td>적용 범위</td><td>소규모</td><td>대규모 인터넷</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: DiffServ는 <strong>확장성이 높은 QoS 모델</strong>로 코어 라우터에서 per-flow 상태 유지가 불필요함. IntServ의 RSVP 시그널링 부하 없이 대규모 망에서 실용적으로 적용 가능.</li>
 </ul>
@@ -794,12 +795,12 @@
 <li><strong>정의</strong>: RSVP 프로토콜로 각 데이터 흐름에 필요한 네트워크 자원을 종단 간 사전 예약하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>엄격한 QoS</strong></u></span>를 보장하는 모델</li>
 <li><strong>키워드</strong>: RFC 2210, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RSVP, 자원 예약</strong></u></span>, per-flow, Guaranteed Service, CL Service, 상태 유지</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>IntServ 서비스 클래스</strong>:<table>
+<li><strong>IntServ 서비스 클래스</strong>:<div class="table-scroll"><table>
 <tr><th>서비스</th><th>설명</th><th>대상</th></tr>
 <tr><td>Guaranteed Service</td><td>최대 지연·대역폭 엄격 보장</td><td>실시간 제어, 의료</td></tr>
 <tr><td>Controlled Load</td><td>부하 없는 망 수준 보장</td><td>멀티미디어</td></tr>
 <tr><td>Best Effort</td><td>기본 전달</td><td>일반 데이터</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>RSVP 동작</strong>: 수신측이 PATH 메시지 수신 → RESV 메시지로 역방향 경로 자원 예약 → 중간 라우터 상태 저장</li>
 <li><strong>단점</strong>: 라우터당 per-flow 상태 유지 → 대규모 망 확장성 한계</li>
@@ -812,21 +813,21 @@
 <li><strong>정의</strong>: 방화벽·로드밸런서·IDS 등 전용 하드웨어 장비의 네트워크 기능을 범용 x86 서버에서 소프트웨어(VNF)로 구현하는 가상화 기술</li>
 <li><strong>키워드</strong>: ETSI, VNF, NFVI, NFV-MANO, 오케스트레이션, 상용 서버, SDN 연계</li>
 <li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>NFV 구조</strong>:<table>
+<li><strong>NFV 구조</strong>:<div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th></tr>
 <tr><td>VNF(Virtual Network Function)</td><td>소프트웨어로 구현된 네트워크 기능</td></tr>
 <tr><td>NFVI(NFV Infrastructure)</td><td>컴퓨팅·스토리지·네트워크 자원 풀</td></tr>
 <tr><td>NFV-MANO</td><td>VNF 생명주기 관리·오케스트레이션</td></tr>
 <tr><td>VNFM</td><td>개별 VNF 관리</td></tr>
 <tr><td>NFVO(Orchestrator)</td><td>서비스 체이닝, 자원 조율</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기존 방식 vs NFV 비교</strong>:<table>
+<li><strong>기존 방식 vs NFV 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>전용 장비</th><th>NFV</th></tr>
 <tr><td>확장성</td><td>장비 추가 필요</td><td>SW 배포로 즉시 확장</td></tr>
 <tr><td>비용</td><td>고비용 전용 HW</td><td>범용 서버 활용</td></tr>
 <tr><td>유연성</td><td>낮음</td><td>동적 서비스 체이닝</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: NFV와 SDN은 <strong>상호 보완 관계</strong>로, NFV는 기능 가상화, SDN은 제어 평면 분리를 담당. 5G 코어 네트워크는 NFV/SDN 기반 클라우드 네이티브 아키텍처로 구현.</li>
 </ul>
@@ -835,20 +836,20 @@
 <li><strong>정의</strong>: 네트워크 장비의 제어 평면(Control Plane)을 데이터 평면(Data Plane)에서 분리하여 중앙 집중식 소프트웨어 컨트롤러로 네트워크를 프로그래밍 방식으로 제어하는 기술</li>
 <li><strong>키워드</strong>: ONF, 제어 평면 분리, 오픈플로우, 컨트롤러, 사우스바운드/노스바운드 API, 프로그래밍</li>
 <li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>SDN 3계층 구조</strong>:<table>
+<li><strong>SDN 3계층 구조</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>구성요소</th><th>인터페이스</th></tr>
 <tr><td>응용 계층</td><td>네트워크 앱(방화벽, LB, 모니터링)</td><td>노스바운드 API(REST)</td></tr>
 <tr><td>제어 계층</td><td>SDN 컨트롤러(ONOS, OpenDaylight)</td><td>사우스바운드 API</td></tr>
 <tr><td>인프라 계층</td><td>네트워크 스위치/라우터(데이터 평면)</td><td>OpenFlow</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기존 네트워크 vs SDN 비교</strong>:<table>
+<li><strong>기존 네트워크 vs SDN 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>기존</th><th>SDN</th></tr>
 <tr><td>제어 위치</td><td>분산(장비별)</td><td>중앙 집중(컨트롤러)</td></tr>
 <tr><td>설정 방식</td><td>CLI, SNMP</td><td>API, 프로그래밍</td></tr>
 <tr><td>유연성</td><td>낮음</td><td>높음</td></tr>
 <tr><td>가시성</td><td>제한적</td><td>전체 토폴로지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SDN의 핵심은 <strong>지능(제어)과 전달(포워딩)의 분리</strong>로, 네트워크를 소프트웨어로 추상화하여 자동화와 민첩성을 확보. 단일 컨트롤러 장애 시 SPOF(단일 장애점) 위험이 있으므로 컨트롤러 HA 구성 필수.</li>
 </ul>
@@ -857,13 +858,13 @@
 <li><strong>정의</strong>: SDN 컨트롤러와 네트워크 스위치의 데이터 평면 간 통신을 표준화한 사우스바운드 API 프로토콜</li>
 <li><strong>키워드</strong>: ONF, 플로우 테이블, 매치-액션, 컨트롤 채널, TCP 6633/6653, 프로그래밍</li>
 <li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>오픈플로우 동작</strong>:<table>
+<li><strong>오픈플로우 동작</strong>:<div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th></tr>
 <tr><td>플로우 테이블</td><td>매치 조건 + 액션(전달/폐기/수정) 저장</td></tr>
 <tr><td>매치 필드</td><td>L2~L4 헤더(MAC, IP, Port 등)</td></tr>
 <tr><td>액션</td><td>Output, Drop, Modify, Flood</td></tr>
 <tr><td>컨트롤 채널</td><td>컨트롤러-스위치 간 TLS/TCP 연결</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>패킷 처리</strong>: 플로우 테이블 매치 → 액션 수행 / 미매치 → Packet-In으로 컨트롤러에 문의</li>
 <li><strong>인사이트</strong>: 오픈플로우는 <strong>SDN을 실용화한 최초의 표준 인터페이스</strong>로, 컨트롤러가 전체 네트워크 트래픽 정책을 중앙에서 프로그래밍 가능하게 함. P4 언어는 오픈플로우를 넘어 데이터 평면 자체를 프로그래밍하는 차세대 기술.</li>
@@ -873,13 +874,13 @@
 <li><strong>정의</strong>: 컴퓨팅(서버 가상화), 스토리지(SDS), 네트워킹(SDN)을 모두 소프트웨어로 정의하고 자동화하여 관리하는 차세대 데이터센터 패러다임</li>
 <li><strong>키워드</strong>: 서버 가상화, SDS, SDN, NFV, 오케스트레이션, 자동화, 클라우드 인프라</li>
 <li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>SDDC 구성 요소</strong>:<table>
+<li><strong>SDDC 구성 요소</strong>:<div class="table-scroll"><table>
 <tr><th>레이어</th><th>기술</th><th>설명</th></tr>
 <tr><td>컴퓨팅</td><td>서버 가상화(VMware/KVM)</td><td>vCPU, vRAM 동적 할당</td></tr>
 <tr><td>스토리지</td><td>SDS(Ceph, VSAN)</td><td>스토리지 풀 추상화</td></tr>
 <tr><td>네트워킹</td><td>SDN + NFV</td><td>가상 네트워크 구성</td></tr>
 <tr><td>관리</td><td>오케스트레이션(OpenStack)</td><td>통합 자동화 플랫폼</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SDDC는 <strong>하이브리드 클라우드의 기반 인프라</strong>로, 온프레미스와 퍼블릭 클라우드를 동일한 소프트웨어 정의 방식으로 관리하여 일관된 운영 효율성을 제공.</li>
 </ul>
@@ -890,7 +891,7 @@
 <li><strong>정의:</strong> 공용 네트워크(인터넷) 위에 암호화된 터널을 생성하여 사설망과 동일한 수준의 보안·기밀성을 제공하는 가상 사설 네트워크 기술</li>
 <li><strong>키워드:</strong> 터널링, 암호화, IPSec, SSL/TLS, L2TP, OpenVPN, 스플릿 터널링, 제로트러스트, Site-to-Site, Remote Access</li>
 <li><strong>분류:</strong> VPN</li>
-<li><strong>VPN 유형:</strong><table>
+<li><strong>VPN 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>접속 방식</strong></td><td><strong>Remote Access VPN</strong></td><td>개인 사용자·재택근무자 사설망 원격 접속</td></tr>
 <tr><td></td><td><strong>Site-to-Site VPN</strong></td><td>거점 간 사설망 연결, 기업 지사·데이터센터 연결</td></tr>
@@ -898,9 +899,9 @@
 <tr><td></td><td><strong>SSL/TLS VPN</strong></td><td>애플리케이션 계층, 브라우저 기반 접속 용이</td></tr>
 <tr><td></td><td><strong>L2TP/IPSec</strong></td><td>L2TP 터널링 + IPSec 암호화 결합</td></tr>
 <tr><td></td><td><strong>OpenVPN</strong></td><td>오픈소스, SSL/TLS 기반 높은 호환성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 기술:</strong><table>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>터널링</strong></td><td><strong>캡슐화</strong></td><td>원본 패킷을 암호화 후 새 패킷으로 감싸 전송</td></tr>
 <tr><td></td><td><strong>터널 프로토콜</strong></td><td>IPSec·L2TP·GRE·WireGuard 등 터널 생성</td></tr>
@@ -908,13 +909,13 @@
 <tr><td></td><td><strong>키 교환</strong></td><td>IKE·DH 알고리즘으로 세션키 안전 교환</td></tr>
 <tr><td><strong>인증</strong></td><td><strong>사용자 인증</strong></td><td>ID·PW·인증서·MFA 기반 접속자 신원 확인</td></tr>
 <tr><td></td><td><strong>무결성 검증</strong></td><td>HMAC·SHA로 데이터 변조 여부 확인</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>IPSec 동작 모드:</strong><table>
+<li><strong>IPSec 동작 모드:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>전송 모드 (Transport)</strong></td><td>페이로드만 암호화, 원본 IP 헤더 유지</td><td>단말 간 통신</td></tr>
 <tr><td><strong>터널 모드 (Tunnel)</strong></td><td>전체 패킷 암호화 후 새 IP 헤더 추가</td><td>게이트웨이 간 통신</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> VPN은 원격 접속 보안의 오랜 표준이나 내부망 묵시적 신뢰·측면 이동 위험으로 인해 Zero Trust Network Access(ZTNA)로 대체되는 전환기에 있으며, 특히 클라우드·하이브리드 환경에서 ZTNA·SDP와의 병행 운용이 현대 네트워크 보안 아키텍처의 실무 표준으로 자리잡고 있음</li>
 </ul>
@@ -923,36 +924,36 @@
 <li><strong>정의:</strong> 네트워크 계층(L3)에서 IP 패킷의 인증·암호화·무결성을 보장하여 안전한 통신을 제공하는 표준 보안 프로토콜 스위트</li>
 <li><strong>키워드:</strong> AH, ESP, IKE, SA, 전송 모드, 터널 모드, 암호화, 무결성, VPN 핵심 프로토콜</li>
 <li><strong>분류:</strong> VPN</li>
-<li><strong>핵심 구성 프로토콜:</strong><table>
+<li><strong>핵심 구성 프로토콜:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>인증</strong></td><td><strong>AH (Authentication Header)</strong></td><td>패킷 출처 인증·무결성 보장, 암호화 미제공</td></tr>
 <tr><td><strong>암호화·인증</strong></td><td><strong>ESP (Encapsulating Security Payload)</strong></td><td>페이로드 암호화·인증·무결성 동시 제공</td></tr>
 <tr><td><strong>키 관리</strong></td><td><strong>IKE (Internet Key Exchange)</strong></td><td>SA 협상·세션키 자동 교환·갱신</td></tr>
 <tr><td></td><td><strong>SA (Security Association)</strong></td><td>통신 양단 간 보안 파라미터 협약 단방향 연결</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>동작 모드:</strong><table>
+<li><strong>동작 모드:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>전송 모드 (Transport)</th><th>터널 모드 (Tunnel)</th></tr>
 <tr><td><strong>암호화 범위</strong></td><td>페이로드만 암호화</td><td>전체 패킷 암호화</td></tr>
 <tr><td><strong>IP 헤더</strong></td><td>원본 IP 헤더 유지</td><td>새 IP 헤더 추가</td></tr>
 <tr><td><strong>주요 용도</strong></td><td>단말 간 직접 통신</td><td>게이트웨이 간 VPN</td></tr>
 <tr><td><strong>적용 환경</strong></td><td>Host-to-Host</td><td>Site-to-Site VPN</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>IKE 협상 단계:</strong><table>
+<li><strong>IKE 협상 단계:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>IKE Phase 1</strong></td><td>안전한 채널 구성을 위한 IKE SA 협상·DH 키 교환</td><td>보안 채널 수립</td></tr>
 <tr><td><strong>IKE Phase 2</strong></td><td>IPSec SA 협상, 실제 데이터 암호화 파라미터 결정</td><td>데이터 보호 협상</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>AH vs ESP 비교:</strong><table>
+<li><strong>AH vs ESP 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>AH</th><th>ESP</th></tr>
 <tr><td><strong>암호화</strong></td><td>❌</td><td>✅</td></tr>
 <tr><td><strong>인증·무결성</strong></td><td>✅</td><td>✅</td></tr>
 <tr><td><strong>IP 헤더 보호</strong></td><td>✅ 포함</td><td>❌ 미포함</td></tr>
 <tr><td><strong>NAT 통과</strong></td><td>❌ 불가</td><td>✅ NAT-T 지원</td></tr>
 <tr><td><strong>실무 사용</strong></td><td>드묾</td><td>✅ 주로 사용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> IPSec은 VPN의 핵심 암호화 인프라로 네트워크 계층에서 투명하게 동작하는 강점이 있으나, NAT 환경에서의 AH 비호환·복잡한 설정 구조로 인해 경량·고성능의 WireGuard가 대안으로 부상하고 있으며 ESP+터널 모드 조합이 실무 표준으로 자리잡고 있음</li>
 </ul>
@@ -961,12 +962,12 @@
 <li><strong>정의</strong>: SSL/TLS 프로토콜 기반으로 웹 브라우저나 경량 클라이언트를 통해 원격에서 내부 네트워크 자원에 접근하는 응용 계층 VPN</li>
 <li><strong>키워드</strong>: TLS, 443 포트, 클라이언트리스, 원격 접속, HTTPS, BYOD, 세션 기반</li>
 <li><strong>분류</strong>: VPN</li>
-<li><strong>SSL VPN 접속 방식</strong>:<table>
+<li><strong>SSL VPN 접속 방식</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>설명</th><th>특징</th></tr>
 <tr><td>클라이언트리스(Portal)</td><td>웹 브라우저만 사용</td><td>추가 SW 불필요</td></tr>
 <tr><td>씬 클라이언트</td><td>경량 플러그인 설치</td><td>특정 앱 터널링</td></tr>
 <tr><td>풀 터널</td><td>VPN 클라이언트 설치</td><td>전체 트래픽 터널링</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SSL VPN은 <strong>방화벽 443 포트를 활용</strong>하여 어떤 환경에서도 접속 가능해 재택근무·BYOD 환경에 최적. 단, 브라우저 취약점이 공격 경로가 될 수 있으므로 MFA와 결합 필수.</li>
 </ul>
@@ -975,14 +976,14 @@
 <li><strong>정의</strong>: 데이터를 여러 겹의 암호화 레이어로 감싸 3개 이상의 중계 노드를 경유함으로써 발신자의 신원을 은닉하는 익명 통신 네트워크</li>
 <li><strong>키워드</strong>: 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 익명성</li>
 <li><strong>분류</strong>: VPN</li>
-<li><strong>Tor vs VPN 비교</strong>:<table>
+<li><strong>Tor vs VPN 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
 <tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
 <tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
 <tr><td>속도</td><td>빠름</td><td>느림(다중 홉)</td></tr>
 <tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
 <tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>익명성 한계</strong>: Exit 노드가 평문 트래픽 감청 가능, 트래픽 분석 공격(상관관계 분석)에 취약</li>
 <li><strong>인사이트</strong>: Tor는 <strong>완전한 익명성을 제공하지 않으며</strong>, Exit 노드 공격과 타이밍 분석에 취약. .onion 주소의 Hidden Service는 서버와 클라이언트 모두 익명성 보장으로 다크웹에 활용.</li>
@@ -994,13 +995,13 @@
 <li><strong>정의</strong>: 대기 중 레이저 빔을 이용하여 광섬유 없이 자유 공간에서 수 Gbps급 고속 광통신을 수행하는 무선 전송 기술</li>
 <li><strong>키워드</strong>: 레이저, 적외선, 시야각(LOS), 기상 조건, 고속, 라스트 마일, 백홀</li>
 <li><strong>분류</strong>: WAN/전송매체</li>
-<li><strong>특징</strong>:<table>
+<li><strong>특징</strong>:<div class="table-scroll"><table>
 <tr><th>항목</th><th>내용</th></tr>
 <tr><td>전송 속도</td><td>수 Gbps (최대 100 Gbps 이상)</td></tr>
 <tr><td>전송 거리</td><td>통상 수백 m ~ 수 km</td></tr>
 <tr><td>주요 제약</td><td>안개·비·연기 등 기상 조건, LOS 필요</td></tr>
 <tr><td>주요 용도</td><td>빌딩 간 백홀, 재해복구, 라스트마일</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>모바일 FSO</strong>: 이동 플랫폼(UAV, 위성)에 FSO를 적용하여 이동 중에도 고속 광링크 제공</li>
 <li><strong>인사이트</strong>: FSO는 <strong>RF 간섭 없는 고보안 고속 통신</strong>이 필요한 군사·재해복구·빌딩 간 연결에 적합. 날씨 의존성이 최대 약점으로 RF 백업 채널과 병행 구성하는 하이브리드 방식이 실용적.</li>
@@ -1010,13 +1011,13 @@
 <li><strong>정의</strong>: 고정 회선을 대체하여 가변 길이 프레임과 가상 회선(PVC/SVC)으로 WAN 구간을 연결하는 패킷 스위칭 프로토콜</li>
 <li><strong>키워드</strong>: DLCI, PVC/SVC, CIR, FECN/BECN, LMI, 오류 정정 생략, 1990년대 WAN</li>
 <li><strong>분류</strong>: WAN/전송매체</li>
-<li><strong>주요 구성요소</strong>:<table>
+<li><strong>주요 구성요소</strong>:<div class="table-scroll"><table>
 <tr><th>요소</th><th>설명</th></tr>
 <tr><td>DLCI(Data Link Connection Identifier)</td><td>가상 회선 식별 번호</td></tr>
 <tr><td>PVC(Permanent Virtual Circuit)</td><td>사전 설정 고정 가상 회선</td></tr>
 <tr><td>CIR(Committed Information Rate)</td><td>보장 전송률</td></tr>
 <tr><td>FECN/BECN</td><td>혼잡 알림 비트 (전방향/역방향)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>특징</strong>: 오류 검출만 수행(오류 정정은 상위 계층 위임), 낮은 지연, X.25 대비 단순화</li>
 <li><strong>인사이트</strong>: 프레임릴레이는 <strong>1980~2000년대 WAN의 주류</strong>였으나 현재는 MPLS, SD-WAN으로 대체됨. DLCI와 PVC 개념은 MPLS 레이블 스위칭의 전신으로 이해할 수 있음.</li>
@@ -1028,13 +1029,13 @@
 <li><strong>정의</strong>: 특정 기업·산업·구역에 전용 5G 네트워크 인프라를 구축하여 맞춤형 초저지연·고신뢰 서비스를 제공하는 지역 특화 이동통신 서비스</li>
 <li><strong>키워드</strong>: URLLC, 국내 28GHz 대역, 산업 IoT, 스마트팩토리, 간섭 회피, 프라이빗 코어</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>안정성/신뢰성 확보 방안</strong>:<table>
+<li><strong>안정성/신뢰성 확보 방안</strong>:<div class="table-scroll"><table>
 <tr><th>방안</th><th>설명</th></tr>
 <tr><td>전용 주파수 할당</td><td>공공망과 간섭 방지</td></tr>
 <tr><td>네트워크 슬라이싱</td><td>산업 서비스별 QoS 보장</td></tr>
 <tr><td>엣지 컴퓨팅 결합</td><td>지연 최소화 (MEC)</td></tr>
 <tr><td>이중화 구성</td><td>코어·기지국 N+1 이중화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>간섭 회피 방안</strong>: 빔포밍(지향성 안테나), 주파수 조정(FR2/FR1 선택), 전력 제어</li>
 <li><strong>인사이트</strong>: 5G 특화망은 <strong>스마트팩토리·자율주행·원격의료 등 산업 디지털 전환의 핵심 인프라</strong>로, 공공 5G 대비 보안성과 SLA 보장이 강점. 국내는 4.7GHz/28GHz 대역에서 할당 운용.</li>
@@ -1044,13 +1045,13 @@
 <li><strong>정의</strong>: 무선 통신의 변조·복조·주파수 처리 등 하드웨어로 구현되던 기능을 소프트웨어로 대체하여 유연하게 구현하는 기술</li>
 <li><strong>키워드</strong>: ADC/DAC, FPGA, DSP, 재구성 가능, 인지 무선(Cognitive Radio), 다중 표준</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>SDR 구성</strong>:<table>
+<li><strong>SDR 구성</strong>:<div class="table-scroll"><table>
 <tr><th>구성요소</th><th>역할</th></tr>
 <tr><td>안테나</td><td>RF 신호 수신</td></tr>
 <tr><td>ADC/DAC</td><td>아날로그-디지털 변환</td></tr>
 <tr><td>FPGA/DSP</td><td>소프트웨어 기반 신호 처리</td></tr>
 <tr><td>SW 모듈</td><td>변조/복조/프로토콜 처리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>장점</strong>: 단일 하드웨어로 다중 표준(LTE/5G/Wi-Fi) 지원, 펌웨어 업데이트로 기능 변경</li>
 <li><strong>인지 무선(CR) 연계</strong>: SDR 기반으로 주파수 사용 환경을 감지하여 동적으로 주파수 선택</li>
@@ -1061,13 +1062,13 @@
 <li><strong>정의</strong>: 동일 시간-주파수 자원에서 전력 수준의 차이를 이용해 다수 사용자를 동시에 다중 접속시키는 비직교 다중 접속 기술</li>
 <li><strong>키워드</strong>: SIC(연속 간섭 제거), 전력 할당, 스펙트럼 효율, 5G/6G, 근거리/원거리 사용자</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>NOMA vs OFDMA 비교</strong>:<table>
+<li><strong>NOMA vs OFDMA 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>OFDMA</th><th>NOMA</th></tr>
 <tr><td>자원 분배</td><td>직교(사용자마다 다른 주파수)</td><td>비직교(동일 주파수 중첩)</td></tr>
 <tr><td>스펙트럼 효율</td><td>상대적으로 낮음</td><td>높음</td></tr>
 <tr><td>수신 복잡도</td><td>낮음</td><td>SIC로 높음</td></tr>
 <tr><td>공정성</td><td>낮음(근거리 우선)</td><td>높음(원거리 우선 전력 할당)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>SIC(Successive Interference Cancellation)</strong>: 강한 신호부터 순차 복조 후 제거하여 약한 신호 추출</li>
 <li><strong>인사이트</strong>: NOMA는 <strong>셀 가장자리 사용자에게 더 높은 전력을 할당</strong>하여 공정성을 개선하며, 6G 후보 기술로 매시브 MIMO와 결합 시 스펙트럼 효율 극대화 가능.</li>
@@ -1077,13 +1078,13 @@
 <li><strong>정의</strong>: LTE/5G 셀룰러 네트워크 인프라를 기반으로 차량과 차량·인프라·보행자·네트워크 간 실시간 통신을 가능하게 하는 기술</li>
 <li><strong>키워드</strong>: V2V/V2I/V2P/V2N, LTE-V2X, 5G NR-V2X, DSRC, PC5 인터페이스, 자율주행</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>C-V2X 통신 유형</strong>:<table>
+<li><strong>C-V2X 통신 유형</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>활용</th></tr>
 <tr><td>V2V(Vehicle to Vehicle)</td><td>차량 간 직접 통신</td><td>충돌 방지, 군집 주행</td></tr>
 <tr><td>V2I(Vehicle to Infrastructure)</td><td>신호등·도로 인프라</td><td>교통 최적화</td></tr>
 <tr><td>V2P(Vehicle to Pedestrian)</td><td>보행자 안전</td><td>충돌 경고</td></tr>
 <tr><td>V2N(Vehicle to Network)</td><td>셀룰러 네트워크</td><td>HD맵, OTA 업데이트</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>DSRC vs C-V2X</strong>: DSRC(IEEE 802.11p)는 전용 단거리 무선, C-V2X는 기존 셀룰러 인프라 활용으로 커버리지 우위</li>
 <li><strong>인사이트</strong>: 5G NR-V2X는 <strong>1ms 이하 초저지연</strong>으로 레벨 4 이상 자율주행에 필요한 실시간 의사결정을 지원. V2X는 자율주행 인프라의 핵심 통신 기술로 국가 표준화가 진행 중.</li>
@@ -1093,14 +1094,14 @@
 <li><strong>정의</strong>: 웹 브라우저에서 별도 플러그인·앱 설치 없이 JavaScript API만으로 음성·영상·데이터 실시간 통신을 지원하는 오픈 표준</li>
 <li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<table>
+<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
 <tr><th>컴포넌트</th><th>역할</th></tr>
 <tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
 <tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
 <tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
 <tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
 <tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
 <li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>
@@ -1110,12 +1111,12 @@
 <li><strong>정의</strong>: 산업 자동화 환경에서 PLC·센서·RTU 등 장비 간 데이터를 교환하는 마스터-슬레이브 방식의 직렬 통신 프로토콜</li>
 <li><strong>키워드</strong>: 마스터-슬레이브, RTU/ASCII/TCP, 코일, 레지스터, ICS/OT 보안, SCADA</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>MODBUS 변형</strong>:<table>
+<li><strong>MODBUS 변형</strong>:<div class="table-scroll"><table>
 <tr><th>변형</th><th>전송 매체</th><th>인코딩</th><th>특징</th></tr>
 <tr><td>MODBUS RTU</td><td>RS-232/485</td><td>이진</td><td>고효율, 산업 표준</td></tr>
 <tr><td>MODBUS ASCII</td><td>RS-232/485</td><td>ASCII</td><td>가독성, 저효율</td></tr>
 <tr><td>MODBUS TCP</td><td>Ethernet</td><td>TCP/IP</td><td>현대 OT 네트워크</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>보안 취약점</strong>: 인증·암호화 없음 → ICS/OT 보안에서 주요 위협 (Stuxnet 등 공격 사례)</li>
 <li><strong>인사이트</strong>: MODBUS는 1979년 제정된 <strong>레거시 OT 프로토콜</strong>로 보안 기능이 전무하므로, ICS 환경에서는 네트워크 세그먼테이션·화이트리스트·암호화 게이트웨이로 보완 필수.</li>
@@ -1125,15 +1126,15 @@
 <li><strong>정의</strong>: 협업 MIMO, 다중 AP 조정, 광대역 지원을 통해 실제 처리량과 채널 효율을 극대화하는 차세대 무선랜 표준 (예상 2028년)</li>
 <li><strong>키워드</strong>: Wi-Fi 8, 협업 MIMO, 다중 AP 조정, 320MHz 채널, 멀티링크, 6GHz 대역</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>Wi-Fi 세대 비교</strong>:<table>
+<li><strong>Wi-Fi 세대 비교</strong>:<div class="table-scroll"><table>
 <tr><th>세대</th><th>표준</th><th>최대 속도</th><th>주파수</th><th>주요 기술</th></tr>
 <tr><td>Wi-Fi 5</td><td>802.11ac</td><td>3.5 Gbps</td><td>5</td><td>MU-MIMO, 5GHz</td></tr>
 <tr><td>Wi-Fi 6/6E</td><td>802.11ax</td><td>9.6 Gbps</td><td>2.4, 5, 6</td><td>OFDMA, TWT, 6GHz</td></tr>
 <tr><td>Wi-Fi 7</td><td>802.11be</td><td>46 Gbps</td><td>2.4, 5, 6</td><td>320MHz, MLO, 4K QAM</td></tr>
 <tr><td>Wi-Fi 8</td><td>802.11bn</td><td>100+ Gbps</td><td>2.4, 5, 6</td><td>협업 MIMO, 다중 AP</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Wi-Fi 7 기술요소:</strong><table>
+<li><strong>Wi-Fi 7 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
 <tr><td><strong>MAC</strong></td><td><strong>MLO (Multi-Link Operation)</strong></td><td>여러 링크 동시 송수신으로 처리량·신뢰성 향상</td></tr>
 <tr><td></td><td><strong>무선공유기(AP)간 다중협력통신</strong></td><td>AP 간 데이터 공유·제어로 자원 유연성 개선</td></tr>
@@ -1142,9 +1143,9 @@
 <tr><td></td><td><strong>하이브리드 ARQ</strong></td><td>추가 패리티 기반 재전송 복호화 향상</td></tr>
 <tr><td><strong>PHY</strong></td><td><strong>혼합 빔포밍</strong></td><td>320MHz 광대역 협대역 분할 프리코딩</td></tr>
 <tr><td></td><td><strong>4096 QAM</strong></td><td>12bit 변조로 기존 대비 20% 성능 향상</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Wi-Fi 8 기술요소:</strong><table>
+<li><strong>Wi-Fi 8 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
 <tr><td><strong>MAC</strong></td><td><strong>MAPC (Multi-AP Coordination)</strong></td><td>다중 AP 협력으로 간섭 감소·용량 향상</td></tr>
 <tr><td></td><td><strong>분산 MLO (Distributed MLO)</strong></td><td>다중 링크 협조적 분산 운용·이동성 강화</td></tr>
@@ -1156,7 +1157,7 @@
 <tr><td></td><td><strong>ELR (향상된 장거리)</strong></td><td>저신호 환경 장거리 안정 연결 지원</td></tr>
 <tr><td></td><td><strong>4096 QAM 유지</strong></td><td>Wi-Fi 7 변조 방식 유지·실환경 도달률 향상</td></tr>
 <tr><td></td><td><strong>320MHz 대역폭 유지</strong></td><td>Wi-Fi 7 대역폭 유지·신뢰성 중심 운용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>협업 MIMO</strong>: 여러 AP가 협력하여 단일 사용자에게 동시 빔포밍 → 간섭 최소화, 처리량 극대화</li>
 <li><strong>Wi-Fi 8 핵심 목표 (UHR, Ultra-High Reliability):</strong> 처리량 25% 향상·지연 스파이크 25% 감소·패킷 손실 25% 저감을 목표로, 속도보다 신뢰성·안정성 중심으로 설계됨</li>
@@ -1167,12 +1168,12 @@
 <li><strong>정의</strong>: 하나의 물리적 5G 네트워크 인프라를 NFV/SDN 기술로 다수의 독립된 가상 네트워크로 분리하여 서비스별 최적 QoS를 제공하는 기술</li>
 <li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>5G 3대 서비스와 슬라이싱</strong>:<table>
+<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
 <tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
 <tr><td>eMBB</td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
 <tr><td>URLLC</td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
 <tr><td>mMTC</td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
 <li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
@@ -1182,20 +1183,20 @@
 <li><strong>정의</strong>: 기지국이나 중앙 인프라 없이 이동 단말 간 자율적으로 다중 홉 무선 경로를 구성하는 인프라리스 이동 무선 네트워크</li>
 <li><strong>키워드</strong>: 멀티홉, 자율 구성, MANET, 라우팅(AODV/DSR/DSDV), 토폴로지 변동, WSN</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>Ad-hoc vs WSN 비교</strong>:<table>
+<li><strong>Ad-hoc vs WSN 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>Ad-hoc(MANET)</th><th>WSN</th></tr>
 <tr><td>노드 이동성</td><td>높음</td><td>낮음(고정 센서)</td></tr>
 <tr><td>전력</td><td>상대적 여유</td><td>극저전력 필수</td></tr>
 <tr><td>목적</td><td>범용 통신</td><td>환경 모니터링·데이터 수집</td></tr>
 <tr><td>프로토콜</td><td>AODV, DSR</td><td>LEACH, RPL</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>경로 제어 방식</strong>:<table>
+<li><strong>경로 제어 방식</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>종류</th><th>특징</th></tr>
 <tr><td>사전 계산</td><td>DSDV, OLSR</td><td>항상 경로 유지, 오버헤드 큼</td></tr>
 <tr><td>반응형</td><td>AODV, DSR</td><td>필요 시 경로 탐색, 초기 지연</td></tr>
 <tr><td>혼합형</td><td>ZRP</td><td>존 내부 사전, 외부 반응</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: Ad-hoc은 <strong>재난망·군사통신·드론 네트워크</strong>에 적용되며, 토폴로지 변동이 잦아 빠른 라우팅 수렴이 핵심 설계 과제.</li>
 </ul>
@@ -1204,7 +1205,7 @@
 <li><strong>정의</strong>: IoT 기기의 제한된 자원과 불안정한 네트워크 환경에서 효율적인 메시지 통신을 지원하는 경량 응용 계층 프로토콜들</li>
 <li><strong>키워드</strong>: MQTT, CoAP, XMPP, Pub/Sub, REST, QoS, 브로커, 경량, M2M</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>3가지 프로토콜 비교</strong>:<table>
+<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>MQTT</th><th>CoAP</th><th>XMPP</th></tr>
 <tr><td>전송</td><td>TCP</td><td>UDP</td><td>TCP</td></tr>
 <tr><td>패턴</td><td>Pub/Sub</td><td>요청-응답(REST)</td><td>IM 스타일</td></tr>
@@ -1212,7 +1213,7 @@
 <tr><td>오버헤드</td><td>매우 낮음</td><td>매우 낮음</td><td>중간</td></tr>
 <tr><td>QoS</td><td>0/1/2 레벨</td><td>확인/비확인</td><td>없음</td></tr>
 <tr><td>주요 용도</td><td>센서, IoT 플랫폼</td><td>스마트 에너지</td><td>실시간 메시징</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>MQTT는 IoT 플랫폼(AWS IoT, Azure IoT)의 사실상 표준</strong>으로 Pub/Sub 모델과 낮은 오버헤드가 장점. CoAP는 HTTP와 유사한 REST 방식으로 웹 생태계와 통합이 용이.</li>
 </ul>
@@ -1221,12 +1222,12 @@
 <li><strong>정의</strong>: GPS 신호가 도달하지 않는 실내 환경에서 Wi-Fi·BLE·초음파 등 다양한 측위 기술을 이용하여 위치를 결정하는 시스템</li>
 <li><strong>키워드</strong>: 측위 기술, RSSI, ToA/TDoA, AoA, 핑거프린팅, BLE, UWB, Wi-Fi RTT</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>측위 기술 비교</strong>:<table>
+<li><strong>측위 기술 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>Wi-Fi RSSI</strong></th><th><strong>BLE</strong></th><th><strong>UWB</strong></th><th><strong>핑거프린팅</strong></th></tr>
 <tr><td><strong>설명</strong></td><td>신호 강도 기반</td><td>신호 강도/AoA</td><td>ToA 정밀 측정</td><td>DB 매칭</td></tr>
 <tr><td><strong>정확도</strong></td><td>2~5m</td><td>1~3m</td><td>10~30cm</td><td>1~3m</td></tr>
 <tr><td><strong>특징</strong></td><td>기존 인프라 활용</td><td>저전력, 소형 비콘</td><td>고정밀, 고비용</td><td>환경 변화에 민감</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 서비스</strong>: 스마트 공항·쇼핑몰 네비게이션, 병원 자산 추적, 물류 창고 관리, 산업 안전</li>
 <li><strong>인사이트</strong>: <strong>UWB는 초정밀 측위</strong>가 필요한 산업 현장과 스마트폰(iPhone 초광대역 기능)에 탑재 확산 중. Wi-Fi RTT(Round Trip Time)는 802.11mc 표준으로 기존 Wi-Fi AP로 서브미터급 측위 가능.</li>
@@ -1242,11 +1243,11 @@
 <li>Itinerary 순서 최적화(TSP 유사)로 경로 효율 극대화</li>
 </ul>
 </li>
-<li><strong>장단점</strong>:<table>
+<li><strong>장단점</strong>:<div class="table-scroll"><table>
 <tr><th>장점</th><th>단점</th></tr>
 <tr><td>멀티홉 오버헤드 감소</td><td>에이전트 크기 증가로 대역폭 소모</td></tr>
 <tr><td>집계된 데이터 전송</td><td>노드 장애 시 경로 재계획 필요</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: Itinerary Routing은 <strong>대규모 WSN에서 에너지 효율적인 데이터 수집</strong>이 필요한 환경에서 유효하며, 에이전트 이동 경로의 최적화가 성능의 핵심.</li>
 </ul>
@@ -1255,12 +1256,12 @@
 <li><strong>정의</strong>: 무선 LAN(Wi-Fi) 전파의 신호 강도(RSSI), 도착 시간 등 전파 특성을 이용하여 실내 위치를 결정하는 기술</li>
 <li><strong>키워드</strong>: RSSI, 삼각측량, 핑거프린팅, AP 인프라, Wi-Fi RTT, 802.11mc, 채널 지문</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WLAN 측위 방법 비교</strong>:<table>
+<li><strong>WLAN 측위 방법 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>삼각측량 (Trilateration)</strong></th><th><strong>핑거프린팅 (Fingerprinting)</strong></th><th><strong>Wi-Fi RTT (802.11mc)</strong></th></tr>
 <tr><td><strong>원리</strong></td><td>AP RSSI 기반 위치 계산</td><td>위치별 신호 패턴 매칭</td><td>AP와 신호 왕복 시간 측정</td></tr>
 <tr><td><strong>정확도</strong></td><td>3~5m</td><td>1~3m</td><td>1~2m</td></tr>
 <tr><td><strong>장단점</strong></td><td>인프라 활용, 환경에 민감</td><td>고정밀, 사전 DB 구축 필요</td><td>높은 정확도, 전용 AP 필요</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>전파 특성 활용</strong>: 다중 경로(Multipath), 감쇠(Attenuation), 반사(Reflection)를 역으로 위치 결정에 활용</li>
 <li><strong>인사이트</strong>: <strong>핑거프린팅은 환경 변화(가구 배치 등)에 민감</strong>하므로 정기적인 DB 갱신이 필요. 딥러닝 기반 CSI(Channel State Information) 지문 분석으로 측위 정확도를 크게 향상시키는 연구가 활발.</li>
@@ -1272,13 +1273,13 @@
 <li><strong>정의</strong>: Tbps급 전송속도, 10μs 이하 초저지연, AI 네이티브 설계를 목표로 2030년대 상용화를 목표로 하는 차세대 6세대 이동통신 기술</li>
 <li><strong>키워드</strong>: IMT-2030, 테라헤르츠(THz), AI-Native, 디지털 트윈, 위성-지상 통합, 감지-통신 통합</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>6G 성능 요구사항</strong>:<table>
+<li><strong>6G 성능 요구사항</strong>:<div class="table-scroll"><table>
 <tr><th>항목</th><th>5G(IMT-2020)</th><th>6G(IMT-2030)</th></tr>
 <tr><td>최대 전송속도</td><td>20 Gbps</td><td>1 Tbps</td></tr>
 <tr><td>지연 시간</td><td>1 ms</td><td>10 μs</td></tr>
 <tr><td>연결 밀도</td><td>10⁶/km²</td><td>10⁷/km²</td></tr>
 <tr><td>주파수</td><td>Sub-6G/mmWave</td><td>THz(100~300 GHz)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>6G 주요 기술</strong>: 테라헤르츠 통신, AI-Native 네트워크, 통신-감지 통합(ISAC), 홀로그래픽 통신, 비지상 네트워크(NTN) 통합</li>
 <li><strong>인사이트</strong>: 6G는 <strong>통신 인프라 자체가 AI로 자율 운영</strong>되는 AI-Native 구조를 지향하며, 테라헤르츠 대역의 짧은 전파 거리 문제는 RIS(재구성 가능 지능 표면)와 초밀집 기지국으로 해결 예정.</li>
@@ -1288,12 +1289,12 @@
 <li><strong>정의</strong>: 위성(Satellite), 상공 플랫폼(Aerial/UAV), 지상 네트워크(Terrestrial)를 통합하여 전 지구적 연속 커버리지를 제공하는 3차원 통합 통신 네트워크</li>
 <li><strong>키워드</strong>: LEO/MEO/GEO 위성, HAPS, UAV, NTN, 3차원 커버리지, 재난 통신</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>SATIN 계층 구조</strong>:<table>
+<li><strong>SATIN 계층 구조</strong>:<div class="table-scroll"><table>
 <tr><th>계층</th><th>구성</th><th>고도</th><th>특징</th></tr>
 <tr><td>위성(Space)</td><td>LEO/MEO/GEO</td><td>200km~36,000km</td><td>광역 커버리지</td></tr>
 <tr><td>상공(Aerial)</td><td>HAPS, UAV, 드론</td><td>수 km~20km</td><td>재난/임시망</td></tr>
 <tr><td>지상(Terrestrial)</td><td>기지국, Wi-Fi</td><td>지상</td><td>고밀도 서비스</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 시나리오</strong>: 재난 시 지상망 대체, 낙후 지역 통신, UAV 제어 망, 해상·항공 연결</li>
 <li><strong>인사이트</strong>: SATIN은 <strong>6G의 비지상 네트워크(NTN) 통합</strong> 핵심 개념으로, Starlink·OneWeb 같은 LEO 위성 군집과 5G/6G 기지국을 유기적으로 결합하여 어디서나 연결을 보장하는 방향으로 발전.</li>
@@ -1304,36 +1305,36 @@
 <li><strong>키워드</strong>: 자율 최적화, 디지털 트윈, AI-RAN, 의도 기반 네트워킹, 폐루프 자동화, Zero-Touch</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
 <li><strong>AI-Native 핵심 기능</strong>: 자율 최적화, 디지털 트윈, 자가치유, AI-RAN, Zero-Touch</li>
-<li><strong>핵심 기술:</strong><table>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>역할</strong></th><th><strong>핵심 기능 (요약)</strong></th></tr>
 <tr><td><strong>의도 기반 인터페이스 (IBN)</strong></td><td>사용자의 의도 해석</td><td>자연어 명령을 네트워크 설정값으로 자동 변환</td></tr>
 <tr><td><strong>지능형 데이터 평면</strong></td><td>실시간 트래픽 처리</td><td>AI 모델 기반 패킷 경로 최적화 및 이상 탐지</td></tr>
 <tr><td><strong>AI 오케스트레이터</strong></td><td>자원 배치 및 제어</td><td>전역적 자원 최적화 및 자가 복구 명령 하달</td></tr>
 <tr><td><strong>네트워크 데이터 패브릭</strong></td><td>통합 데이터 수집</td><td>NW 전 영역의 데이터를 실시간 수집 및 학습용 정제</td></tr>
 <tr><td><strong>디지털 트윈 (Digital Twin)</strong></td><td>가상 시뮬레이션</td><td>물리 NW 적용 전 변경 사항의 안정성 사전 검증</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>발전과정: </strong><table>
+<li><strong>발전과정: </strong><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>명칭</strong></th><th><strong>특징 (요약)</strong></th></tr>
 <tr><td><strong>Level 1</strong></td><td><strong>AI-Assisted</strong></td><td>AI가 분석 리포트 제공, <strong>최종 결정은 운영자</strong>가 수행</td></tr>
 <tr><td><strong>Level 2</strong></td><td><strong>AI-Enhanced</strong></td><td>특정 영역(보안, 가용성)에서 <strong>룰 기반 자동화</strong> 수행</td></tr>
 <tr><td><strong>Level 3</strong></td><td><strong>AI-Native</strong></td><td>설계부터 AI 중심. <strong>Closed-loop 기반 자가 최적화</strong> 달성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 구현 기술:</strong><table>
+<li><strong>주요 구현 기술:</strong><div class="table-scroll"><table>
 <tr><th><strong>기술명</strong></th><th><strong>메커니즘 (요약)</strong></th></tr>
 <tr><td><strong>연합 학습</strong></td><td>각 에지(Edge)에서 개별 학습 후 모델만 공유하여 <strong>프라이버시 보호</strong></td></tr>
 <tr><td><strong>강화 학습 (Deep RL)</strong></td><td>네트워크 환경과의 상호작용을 통해 <strong>최적의 자원 할당 정책</strong> 도출</td></tr>
 <tr><td><strong>Generative AI</strong></td><td>복잡한 <strong>네트워크 설정 코드 및 장애 복구 스크립트</strong> 자동 생성</td></tr>
 <tr><td><strong>eBPF</strong></td><td>커널 수준에서 <strong>고성능 가시성(Observability)</strong> 확보 및 트래픽 제어</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기존 네트워크 vs AI-Native</strong>:<table>
+<li><strong>기존 네트워크 vs AI-Native</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>기존</th><th>AI-Native</th></tr>
 <tr><td>운영 방식</td><td>인간 수동 설정</td><td>AI 자율 운영</td></tr>
 <tr><td>최적화</td><td>정적 정책</td><td>실시간 동적</td></tr>
 <tr><td>장애 대응</td><td>사후 처리</td><td>예측·사전 차단</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: AI-Native는 <strong>6G의 핵심 아키텍처 패러다임</strong>으로, IBN과 결합하여 비즈니스 의도만 입력하면 AI가 전 계층을 자율 운영하는 완전 자율 네트워크를 목표로 함.</li>
 </ul>
@@ -1342,24 +1343,27 @@
 <li><strong>정의</strong>: 무선접속망(RAN)에 AI/ML을 내재화하여 무선 자원 할당, 빔포밍, 간섭 관리, 셀 최적화를 실시간 자율 수행하는 차세대 RAN 기술</li>
 <li><strong>키워드</strong>: O-RAN, xApp/rApp, Near-RT RIC, Non-RT RIC, 빔관리, 자원 스케줄링, 에너지 효율</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>AI-RAN/O-RAN 구성요소:</strong><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>AI-RAN</strong></td><td><strong>Non-RT RIC</strong></td><td>1초 이상 주기 AI·ML 기반 정책·모델 관리</td><td>장주기 지능 제어</td></tr>
-<tr><td></td><td><strong>Near-RT RIC</strong></td><td>10ms~1초 주기 실시간 RAN 파라미터 최적화</td><td>단주기 실시간 제어</td></tr>
-<tr><td></td><td><strong>xApp</strong></td><td>Near-RT RIC 위에서 동작하는 서드파티 앱</td><td>지능형 앱 실행</td></tr>
-<tr><td></td><td><strong>rApp</strong></td><td>Non-RT RIC 위에서 동작하는 서드파티 앱</td><td>정책 관리 앱</td></tr>
-<tr><td><strong>기지국 기능</strong></td><td><strong>O-CU (중앙 유닛)</strong></td><td>RRC·PDCP 프로토콜 처리·중앙 집중 기능</td><td>상위 계층 처리</td></tr>
-<tr><td></td><td><strong>O-DU (분산 유닛)</strong></td><td>RLC·MAC·하위 PHY 실시간 처리</td><td>중간 계층 처리</td></tr>
-<tr><td></td><td><strong>O-RU (무선 유닛)</strong></td><td>상위 PHY·RF 안테나 신호 송수신 처리</td><td>무선 신호 처리</td></tr>
-<tr><td><strong>전송 
-인터페이스</strong></td><td><strong>Open Fronthaul 
-(F1)</strong></td><td>O-DU↔O-RU 간 표준화된 개방형 인터페이스</td><td>개방형 프론트홀</td></tr>
-<tr><td></td><td><strong>E2 인터페이스</strong></td><td>Near-RT RIC↔O-CU·O-DU 간 제어 인터페이스</td><td>RIC 제어 인터페이스</td></tr>
-<tr><td></td><td><strong>A1 인터페이스</strong></td><td>Non-RT RIC→Near-RT RIC 정책 전달 인터페이스</td><td>정책 전달</td></tr>
-<tr><td></td><td><strong>O1 인터페이스</strong></td><td>SMO↔RAN 구성요소 간 관리·운영 인터페이스</td><td>운영 관리</td></tr>
-<tr><td><strong>관리</strong></td><td><strong>SMO </strong></td><td>RAN 전체 구성·운영·관리 총괄</td><td>통합 관리 플랫폼</td></tr>
-<tr><td></td><td><strong>클라우드 인프라</strong></td><td>O-RAN 기능을 가상화·컨테이너 기반으로 운용</td><td>클라우드 네이티브</td></tr>
-</table>
+<li><strong>AI-RAN/O-RAN 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
+<tr><td>RIC</td><td>Non-RT RIC</td><td>1초↑ 주기 AI 모델 학습·정책 생성·rApp 관리</td></tr>
+<tr><td></td><td>Near-RT RIC</td><td>10ms~1초 AI 추론으로 무선자원·빔·간섭 실시간 제어</td></tr>
+<tr><td></td><td>xApp</td><td>Near-RT RIC 위 동작·빔포밍·간섭제어·스케줄링 자동화</td></tr>
+<tr><td></td><td>rApp</td><td>Non-RT RIC 위 동작·트래픽 예측·셀 최적화·슬라이싱</td></tr>
+<tr><td>AI 기능</td><td>무선 자원 자율 할당</td><td>AI가 채널·트래픽 상태 분석→주파수·전력·PRB 실시간 배분</td></tr>
+<tr><td></td><td>AI 빔포밍 최적화</td><td>사용자 위치·이동 예측 기반 빔 방향·폭 실시간 자동 조정</td></tr>
+<tr><td></td><td>AI 간섭 관리</td><td>셀 간 간섭 패턴 학습→간섭 회피·조정 자율 수행</td></tr>
+<tr><td></td><td>AI 셀 최적화</td><td>셀 커버리지·용량·에너지 AI 분석→자율 파라미터 조정</td></tr>
+<tr><td></td><td>자가 치유 
+(Self-Healing)</td><td>장애 자동 감지·원인 AI 분석·복구 조치 자율 수행</td></tr>
+<tr><td></td><td>연합학습 </td><td>기지국 간 데이터 공유 없이 분산 AI 모델 협력 학습</td></tr>
+<tr><td>기지국 </td><td>O-CU (중앙)</td><td>RRC·PDCP 처리·AI 기반 핸드오버·QoS 정책 적용</td></tr>
+<tr><td></td><td>O-DU (분산)</td><td>RLC·MAC 처리·AI 스케줄러로 실시간 자원 배분</td></tr>
+<tr><td></td><td>O-RU (무선)</td><td>PHY·RF 처리·AI 빔포밍·안테나 가중치 실시간 조정</td></tr>
+<tr><td>인터페이스</td><td>E2 인터페이스</td><td>Near-RT RIC↔O-CU·O-DU AI 제어명령 실시간 전달</td></tr>
+<tr><td></td><td>A1 인터페이스</td><td>Non-RT RIC→Near-RT RIC AI 정책·학습모델 하향 배포</td></tr>
+<tr><td>관리·운영</td><td>SMO</td><td>RAN 전체 AI 모델 배포·성능 모니터링·멀티벤더 통합관리</td></tr>
+<tr><td></td><td>O-Cloud</td><td>AI 추론·학습 워크로드를 가상화·컨테이너로 탄력 운용</td></tr>
+</table></div>
 </li>
 <li><strong>AI-RAN 주요 응용</strong>: 동적 스펙트럼 관리, 에너지 절감(트래픽 예측 기반 슬립 모드), 안테나 빔 최적화</li>
 <li><strong>인사이트</strong>: AI-RAN은 <strong>O-RAN 오픈 인터페이스</strong>를 기반으로 다양한 벤더의 AI 앱을 RAN에 탑재하는 개방형 생태계를 형성. 에너지 효율과 주파수 효율을 동시에 극대화하는 6G RAN의 핵심 기술.</li>
@@ -1369,13 +1373,13 @@
 <li><strong>정의</strong>: 네트워크 관리자의 비즈니스 의도(Intent)를 자연어나 고수준 정책으로 입력받아 AI/ML이 자동으로 네트워크 구성을 적용하고 검증하는 기술</li>
 <li><strong>키워드</strong>: 의도, 자동화, AI/ML, 정책 번역, 폐루프, 검증, Cisco DNA, 자율 네트워크</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>IBN 4단계 사이클</strong>:<table>
+<li><strong>IBN 4단계 사이클</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th></tr>
 <tr><td>번역(Translation)</td><td>비즈니스 의도 → 네트워크 정책 변환</td></tr>
 <tr><td>활성화(Activation)</td><td>자동 구성 적용(SDN/API)</td></tr>
 <tr><td>인식(Awareness)</td><td>네트워크 상태 실시간 수집</td></tr>
 <tr><td>보장(Assurance)</td><td>의도 달성 여부 검증 및 자동 수정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: IBN은 <strong>운영 자동화(NetOps)의 핵심 방향</strong>으로, 사람의 개입 없는 자가 치유 네트워크를 목표로 함. 6G AI-Native Network와 연계하여 자율 네트워크 생태계를 구성.</li>
 </ul>
@@ -1384,23 +1388,23 @@
 <li><strong>정의:</strong> AI·ML 기술을 기반으로 네트워크가 사람의 개입 없이 스스로 상태를 감시·분석·최적화·복구하는 자동화 네트워크 운영 패러다임</li>
 <li><strong>키워드:</strong> 자율 운영, 자가 치유(Self-Healing), 자가 최적화, Intent-Based Networking, TM Forum(Level0~5), 자율화 레벨, 디지털 트윈, AIOps</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>핵심 기능:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;감최치구보&gt; </strong></span><table>
+<li><strong>핵심 기능:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;감최치구보&gt; </strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>자가 감시 (Self-Monitoring)</strong></td><td>네트워크 상태·트래픽·장애를 실시간 자율 감지</td><td>실시간 탐지</td></tr>
 <tr><td><strong>자가 최적화 (Self-Optimization)</strong></td><td>트래픽 부하·QoS에 따라 라우팅·자원 자율 조정</td><td>성능 최적화</td></tr>
 <tr><td><strong>자가 치유 (Self-Healing)</strong></td><td>장애 탐지 후 자동 복구·우회 경로 설정</td><td>자동 복구</td></tr>
 <tr><td><strong>자가 구성 (Self-Configuration)</strong></td><td>신규 장비·서비스 추가 시 자동 설정·배포</td><td>자동 구성</td></tr>
 <tr><td><strong>자가 보호 (Self-Protection)</strong></td><td>사이버 위협·이상 트래픽을 탐지하여 자동 차단</td><td>자율 보안</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 기술:</strong><table>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>IBN</strong></td><td>관리자의 의도(Intent)를 AI가 해석하여 네트워크 자동 설정</td><td>의도 기반 제어</td></tr>
 <tr><td><strong>AIOps</strong></td><td>AI·ML로 네트워크 운영 데이터를 분석하여 장애 예측·자동 대응</td><td>AI 기반 운영</td></tr>
 <tr><td><strong>디지털 트윈</strong></td><td>물리 네트워크를 가상으로 복제하여 변경 사항 사전 시뮬레이션</td><td>가상 검증</td></tr>
 <tr><td><strong>강화학습</strong></td><td>네트워크 환경과 상호작용하며 최적 운영 정책 자율 학습</td><td>정책 자율 학습</td></tr>
 <tr><td><strong>이상 탐지</strong></td><td>비정상 트래픽·장애 패턴을 ML로 실시간 탐지</td><td>실시간 감지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>정보 최신성(Information Freshness):</strong> 네트워크를 통해 전달·처리되는 데이터나 상태 정보가 실제 시스템·단말·서비스의 현재 상태를 얼마나 지연 없이 정확하게 반영하는지를 나타내는 특성<ul>
 <li>차세대 네트워크에서 정보 최신성은 보통 <strong>AoI (Age of Information)</strong> 개념으로 측정<ul>

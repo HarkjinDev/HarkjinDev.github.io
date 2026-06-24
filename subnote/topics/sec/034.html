@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 암호키를 안전하게 생성·저장하고 플랫폼 부팅 무결성을 하드웨어 수준에서 검증하는 보안 칩</li>
 <li><strong>키워드:</strong> 보안 칩, PCR, 키 저장, 부팅 무결성, BitLocker, 원격 증명, 봉인(Sealing), HSM, TPM 2.0</li>
 <li><strong>분류</strong>: 인증/신원관리</li>
-<li><strong>주요 기능:</strong><table>
+<li><strong>주요 기능:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>키 생성·저장</strong></td><td>암호키를 TPM 내부에서 생성·저장하여 외부 추출 불가</td><td>하드웨어 키 보호</td></tr>
 <tr><td><strong>부팅 무결성 측정</strong></td><td>부팅 과정 각 단계를 PCR에 해시값으로 기록·검증</td><td>신뢰 체인 수립</td></tr>
@@ -28,15 +28,15 @@
 <tr><td><strong>원격 증명</strong></td><td>TPM이 서명한 PCR 값으로 플랫폼 무결성을 원격 검증</td><td>신뢰 원격 확인</td></tr>
 <tr><td><strong>봉인 (Sealing)</strong></td><td>특정 PCR 상태에서만 데이터 복호화 가능하도록 봉인</td><td>상태 기반 복호화</td></tr>
 <tr><td><strong>난수 생성</strong></td><td>하드웨어 기반 진성 난수 생성으로 암호 연산 강화</td><td>하드웨어 RNG</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>신뢰 부팅 체인 (Trusted Boot):</strong><table>
+<li><strong>신뢰 부팅 체인 (Trusted Boot):</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. UEFI 펌웨어</strong></td><td>TPM이 펌웨어 해시값을 PCR에 기록</td><td>펌웨어 측정</td></tr>
 <tr><td><strong>2. 부트로더</strong></td><td>부트로더 무결성 측정·PCR 확장</td><td>부트로더 검증</td></tr>
 <tr><td><strong>3. OS 커널</strong></td><td>커널·드라이버 측정·PCR 확장</td><td>OS 무결성</td></tr>
 <tr><td><strong>4. 봉인 해제</strong></td><td>PCR 값이 정상이면 BitLocker 키 봉인 해제</td><td>조건부 복호화</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>TPM 2.0 vs 1.2</strong>: TPM 2.0은 다양한 알고리즘 지원, 계층적 키 관리, Windows 11 필수 요건</li>
 <li><strong>활용 분야: </strong>디스크 암호화(BitLocker·FileVault TPM 기반 키 보호), Zero Trust, 기밀 컴퓨팅(TEE 환경의 원격 증명), IoT 보안</li>

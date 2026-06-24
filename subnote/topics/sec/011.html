@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,12 +26,12 @@
 <li><strong>확산(Diffusion)</strong>: 평문의 각 비트가 암호문 전체에 영향을 미치도록 분산</li>
 </ul>
 </li>
-<li><strong>구조 방식 비교</strong>:<table>
+<li><strong>구조 방식 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>Feistel 구조</strong></th><th><strong>SPN 구조</strong></th></tr>
 <tr><td><strong>동작 방식</strong></td><td>L/R 분할 및 라운드 함수 반복</td><td>S-box 및 P-box 반복 적용</td></tr>
 <tr><td><strong>대표 알고리즘</strong></td><td>DES, 3DES, SEED</td><td>AES, ARIA</td></tr>
 <tr><td><strong>특징</strong></td><td>암복호화 구조 동일 및 역함수 불필요</td><td>병렬화 가능 및 높은 보안성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>장점</strong>: 구현 효율적, 다양한 운용 모드 지원, 병렬화 가능</li>
 <li><strong>단점</strong>: 블록 크기보다 짧은 메시지에 패딩 필요, 스트림 암호 대비 실시간 처리 유연성 낮음</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드:</strong> 벤더 종속 탈피, 클라우드 브로커, 멀티클라우드 관리 플랫폼(CMP), 인터오퍼러빌리티, 이그레스 비용, 거버넌스</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
 <li><strong>하이브리드 클라우드와의 차이점: </strong>“Private 클라우드” 포함 여부</li>
-<li><strong>멀티클라우드 도입 배경:</strong><table>
+<li><strong>멀티클라우드 도입 배경:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>벤더 종속 탈피</strong></td><td>특정 클라우드 의존 제거·협상력 향상</td><td>Lock-in 방지</td></tr>
 <tr><td><strong>최적 서비스 선택</strong></td><td>워크로드별 최적 클라우드 서비스 조합</td><td>강점 선택 활용</td></tr>
@@ -29,9 +29,9 @@
 <tr><td><strong>규제·데이터 주권</strong></td><td>국가·산업별 데이터 위치 규제 준수</td><td>컴플라이언스</td></tr>
 <tr><td><strong>비용 최적화</strong></td><td>클라우드 간 가격 경쟁·최저가 조달</td><td>TCO 절감</td></tr>
 <tr><td><strong>지역 커버리지</strong></td><td>글로벌 서비스 지역별 최적 클라우드 활용</td><td>글로벌 레이턴시 최소화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>관리</strong></td><td><strong>CMP 
 (클라우드 관리 플랫폼)</strong></td><td>복수 클라우드 통합 관제·비용·정책 관리</td><td>통합 관리</td></tr>
@@ -49,9 +49,9 @@
 <tr><td></td><td><strong>Terraform·Pulumi</strong></td><td>IaC로 멀티클라우드 인프라 코드 관리</td><td>인프라 통합 관리</td></tr>
 <tr><td><strong>관측</strong></td><td><strong>통합 모니터링</strong></td><td>멀티클라우드 메트릭·로그·트레이싱 통합</td><td>가시성 확보</td></tr>
 <tr><td></td><td><strong>통합 대시보드</strong></td><td>클라우드 별 비용·성능·보안 단일 화면</td><td>단일 창 관제</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 과제:</strong><table>
+<li><strong>주요 과제:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>운영 복잡도</strong></td><td>클라우드별 다른 API·콘솔·정책 관리</td><td>관리 부담 증가</td></tr>
 <tr><td><strong>이그레스 비용</strong></td><td>클라우드 간 데이터 이동 시 아웃바운드 과금</td><td>네트워크 비용</td></tr>
@@ -59,15 +59,15 @@
 <tr><td><strong>데이터 일관성</strong></td><td>클라우드 간 데이터 동기화·정합성 유지</td><td>데이터 분산 관리</td></tr>
 <tr><td><strong>스킬 갭</strong></td><td>복수 클라우드 전문 인력 확보 어려움</td><td>기술 역량 부족</td></tr>
 <tr><td><strong>거버넌스</strong></td><td>멀티클라우드 통합 정책·컴플라이언스 관리</td><td>통합 거버넌스</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>멀티클라우드 아키텍처 패턴:</strong><table>
+<li><strong>멀티클라우드 아키텍처 패턴:</strong><div class="table-scroll"><table>
 <tr><th>패턴</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Active-Active</strong></td><td>복수 클라우드 동시 운영·부하 분산</td><td>고가용성 최대화</td></tr>
 <tr><td><strong>Active-Passive</strong></td><td>주 클라우드 운영·보조 클라우드 DR 대기</td><td>재해 복구</td></tr>
 <tr><td><strong>워크로드 분산</strong></td><td>서비스별 최적 클라우드에 배치</td><td>강점 기반 배치</td></tr>
 <tr><td><strong>데이터 분산</strong></td><td>규제·성능 기준 데이터 클라우드 분리</td><td>데이터 주권</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 멀티클라우드는 벤더 종속 탈피와 최적 서비스 활용이라는 전략적 이점을 제공하지만, 운영 복잡도·이그레스 비용·보안 일관성이라는 3대 과제가 현실적 장벽으로 작용함. 성공적인 멀티클라우드 운영의 핵심은 CMP·IaC·통합 보안의 3축 기반 거버넌스 체계 수립이며, 최근 Kubernetes 멀티클러스터와 GitOps의 결합이 멀티클라우드 복잡도를 대폭 낮추는 핵심 방향으로 자리잡고 있음</li>
 </ul>

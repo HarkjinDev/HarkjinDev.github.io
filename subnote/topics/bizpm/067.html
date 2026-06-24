@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>프로젝트를 성공적으로 완수하고 납기를 준수할 수 있도록 개발 기간을 단계별로 철저히 계획하여 관리하는 프로젝트 관리영역</li>
 <li><strong>키워드:</strong> 활동목록, 활동속성, 마일스톤, 네트워크 도표, 모수산정, 3점산정, 주공정법(CPM), 주공정 연쇄법(CCM)</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>일정관리 프로세스: </strong><table>
+<li><strong>일정관리 프로세스: </strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>산출물</strong></th></tr>
 <tr><td><strong>일정관리 계획수립</strong></td><td>일정 관리 정책, 절차 및 기준 수립</td><td>일정관리 계획서</td></tr>
 <tr><td><strong>활동정의</strong></td><td>인도물 생산에 필요한 구체적 수행 활동 정의</td><td>활동목록, 활동속성, 마일스톤</td></tr>
@@ -28,9 +28,9 @@
 <tr><td><strong>활동기간 산정</strong></td><td>자원 투입을 고려한 개별 활동의 소요 기간 예측</td><td>활동기간 산정치</td></tr>
 <tr><td><strong>일정 개발</strong></td><td>순서·기간·자원 분석을 통해 프로젝트 일정 모델 생성</td><td>일정기준선, 프로젝트 일정</td></tr>
 <tr><td><strong>일정 통제</strong></td><td>진척 상황 모니터링 및 일정 기준선 변경 관리</td><td>일정예측, 변경요청, 문서 갱신</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>일정 개발 주요 기법:</strong><table>
+<li><strong>일정 개발 주요 기법:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>주요기법</strong></th><th><strong>특징 및 설명</strong></th></tr>
 <tr><td><strong>활동기간</strong></td><td><strong>전문가판단</strong></td><td>전문가의 지식이나 유사 프로젝트 경험을 활용하여 산정</td></tr>
 <tr><td></td><td><strong>유사산정</strong></td><td>과거 유사 사례 데이터를 참조. 신속하나 정확도는 상대적으로 낮음</td></tr>
@@ -40,7 +40,7 @@
 <tr><td></td><td><strong>주공정 연쇄법 (CCM)</strong></td><td>자원 제약을 반영하고 버퍼(Buffer) 관리를 통해 일정을 최적화</td></tr>
 <tr><td></td><td><strong>자원 최적화</strong></td><td>자원평준화(Leveling, 기간 연장 가능), 자원평활화(Smoothing) 수행</td></tr>
 <tr><td></td><td><strong>일정 단축</strong></td><td>공정압축(Crashing, 자원 투입), 공정중첩(Fast Tracking) 적용</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

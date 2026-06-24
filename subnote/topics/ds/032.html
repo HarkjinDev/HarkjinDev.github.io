@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의</strong>: 소프트웨어 컴포넌트 간 상호작용을 위해 기능 호출 방식과 데이터 교환 형식을 규정된 인터페이스 명세</li>
 <li><strong>키워드</strong>: 인터페이스, 엔드포인트, 요청/응답, 계약(Contract), SDK, 표준화</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>API 유형 분류</strong>:<table>
+<li><strong>API 유형 분류</strong>:<div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>예시</th></tr>
 <tr><td>Open API</td><td>공개된 외부 개발자 대상 API</td><td>카카오 지도 API</td></tr>
 <tr><td>Partner API</td><td>특정 파트너사에 제한 공개</td><td>B2B 연동 API</td></tr>
 <tr><td>Internal API</td><td>조직 내부용 비공개 API</td><td>사내 마이크로서비스</td></tr>
 <tr><td>Composite API</td><td>여러 API를 조합한 단일 호출</td><td>BFF 패턴</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>웹 API 종류 비교</strong>:<table>
+<li><strong>웹 API 종류 비교</strong>:<div class="table-scroll"><table>
 <tr><th><strong>종류</strong></th><th><strong>특징</strong></th></tr>
 <tr><td><strong>REST API</strong></td><td>HTTP 메서드 기반, 경량, JSON 응답, 무상태</td></tr>
 <tr><td><strong>SOAP</strong></td><td>XML 기반, 엄격한 계약, 보안·트랜잭션 강점</td></tr>
 <tr><td><strong>GraphQL</strong></td><td>클라이언트 주도 쿼리, 오버패칭 방지</td></tr>
 <tr><td><strong>gRPC</strong></td><td>Protobuf 기반, 고성능 바이너리 통신</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: API는 <strong>소프트웨어 간 계약(Contract)</strong>으로, 인터페이스가 안정적일수록 독립적 개발·배포가 가능하며 마이크로서비스 아키텍처의 핵심 통신 수단.</li>
 </ul>

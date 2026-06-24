@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의: </strong>조직의 전략적인 목표 및 정보자원 관리 목표를 도달하기 위하여 기업의 IT와 비즈니스 관계를 총괄하여 설명하는 청사진</li>
 <li><strong>키워드</strong>: ZEAF(자크만), TOGAF, FEAF, PRM, BRM, SRM, DRM, TRM, SRM, EAMS</li>
 <li><strong>분류</strong>: IT 전략/기획</li>
-<li><strong>EA Framework 구성요소:</strong><table>
+<li><strong>EA Framework 구성요소:</strong><div class="table-scroll"><table>
 <tr><th><strong>구성요소</strong></th><th><strong>내용 (요약)</strong></th><th><strong>관련모델 및 특징</strong></th></tr>
 <tr><td><strong>IT Governance</strong></td><td>IT 통제력 제고 및 비즈니스 목표와의 정합성 관리</td><td>Control, Compliance, Alignment</td></tr>
 <tr><td><strong>Business Architecture</strong></td><td>경영전략 기반의 조직·프로세스 정의 및 IT 연결</td><td>PRM(성과), BRM(업무)</td></tr>
@@ -30,9 +30,9 @@
 <tr><td><strong>Security Architecture</strong></td><td>보안 정책·원칙 및 보안 프레임워크·모델 정의</td><td>SRM(보안)</td></tr>
 <tr><td><strong>RM(Reference Model)</strong></td><td>참조모델 및 표준 사례 활용</td><td>-</td></tr>
 <tr><td><strong>SP(Standard Profile)</strong></td><td>각 RM에 대한 표준 지침 제공</td><td>-</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>EA 구축 절차:</strong><table>
+<li><strong>EA 구축 절차:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>구축절차</strong></th><th><strong>내용</strong></th></tr>
 <tr><td><strong>EA 기반 ISP/BPR</strong></td><td>EA Framework 정의</td><td>ZEAF, FEAF, TOGAF 등 참조 프레임워크 정의</td></tr>
 <tr><td></td><td>EA Matrix 정의</td><td>TO-BE BA, AA, DA, TA 산출물 정의</td></tr>
@@ -44,7 +44,7 @@
 <tr><td></td><td>EA 관리체계 정의</td><td>영역별(BA, AA, DA, TA) 관리 조직 구성</td></tr>
 <tr><td><strong>EA 활용</strong></td><td>EA 확산</td><td>EAMS 연계 범위 확대 (IT자산관리, PMS 등)</td></tr>
 <tr><td></td><td>EA 거버넌스 최적화</td><td>아키텍처 관리 조직 구성 및 운영 프로세스 실행</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>EA Framework 유형:</strong> ZEAF(자크만), TOGAF(미국 표준연합), FEAF(미연방정부)</li>
 <li><strong>EA 핵심 산출물:</strong> 아키텍처 모델, 프로그램, 로드맵, 참조모델, 원칙, 표준 가이드</li>

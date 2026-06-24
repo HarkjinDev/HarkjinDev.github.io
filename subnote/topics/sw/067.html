@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,15 +20,15 @@
 <li><strong>정의</strong>: 품질 속성 시나리오를 기반으로 아키텍처 결정이 여러 품질 속성에 미치는 트레이드오프를 분석하는 아키텍처 평가 방법</li>
 <li><strong>키워드</strong>: 트레이드오프 포인트, 민감점(Sensitivity Point), Phase0~3, 유틸리티 트리, 위험 결정(Risk), 비위험 결정, 품질 속성 유틸리티 트리</li>
 <li><strong>분류</strong>: 소프트웨어 아키텍처</li>
-<li><strong>ATATM 프로세스 단계: </strong><table>
+<li><strong>ATATM 프로세스 단계: </strong><div class="table-scroll"><table>
 <tr><th>과정</th><th>참여자</th><th>설명</th></tr>
 <tr><td><strong>Phase 0 (협력과 준비)</strong></td><td>평가팀 리더·프로젝트 주요 결정권자</td><td>킥오프·평가 가이드라인·역할 공유</td></tr>
 <tr><td><strong>Phase 1 (기본 평가)</strong></td><td>평가팀·프로젝트 결정권자</td><td>Top-Down 아키텍처 소개·분석</td></tr>
 <tr><td><strong>Phase 2 (상세 평가)</strong></td><td>평가팀·결정권자·이해관계자</td><td>Bottom-Up 분석·결과 검증</td></tr>
 <tr><td><strong>Phase 3 (후속조치)</strong></td><td>평가팀·평가 의뢰인</td><td>최종 보고서·Postmortem 피드백</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>ATAM 평가 단계</strong>:<table>
+<li><strong>ATAM 평가 단계</strong>:<div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>세부단계</strong></th><th><strong>활동</strong></th></tr>
 <tr><td>소개</td><td>1. ATAM 소개</td><td>방법·평가팀·목적 설명</td></tr>
 <tr><td></td><td>2. 비즈니스 드라이버 제시</td><td>기능·제약·품질 목표 설명</td></tr>
@@ -39,7 +39,7 @@
 <tr><td>테스트</td><td>7. 브레인스토밍·우선순위 결정</td><td>시나리오 확장</td></tr>
 <tr><td></td><td>8. 아키텍처 접근법 재분석</td><td>추가 시나리오 반영</td></tr>
 <tr><td>보고</td><td>9. 결과 발표</td><td>위험·비위험·민감점·트레이드오프 보고</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>ATAM 산출물</strong>:<ul>
 <li>위험 결정 (Risk) / 비위험 결정 (Non-risk) / 민감점 (Sensitivity Point) / 트레이드오프 포인트</li>

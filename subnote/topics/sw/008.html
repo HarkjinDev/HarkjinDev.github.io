@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,7 +24,7 @@
 <li>생산성 저하 (속도 감소), 버그 증가 및 유지보수 비용 상승, 새로운 기능 추가 어려움, 시스템 불안정</li>
 </ul>
 </li>
-<li><strong>기술 부채의 유형:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;설코테/문인보&gt;</strong></span><table>
+<li><strong>기술 부채의 유형:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;설코테/문인보&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>유형</strong></th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개발</strong></td><td><strong>설계 부채</strong></td><td>설계 악취, 임시방편 설계, 설계 규칙 위반</td><td>구조적 부채</td></tr>
 <tr><td></td><td><strong>코드 부채</strong></td><td>코드 스멜, 스파게티 코드, 에일리언 코드</td><td>코드 품질 저하</td></tr>
@@ -32,9 +32,9 @@
 <tr><td><strong>관리</strong></td><td><strong>문서 부채 </strong></td><td>문서 미작성·불일치, 신기술 미반영 문서</td><td>지식 전달 단절</td></tr>
 <tr><td></td><td><strong>인프라 부채</strong></td><td>구버전 의존성, 패치 미적용, CI/CD 미비</td><td>레거시 누적, 노후화</td></tr>
 <tr><td></td><td><strong>보안 부채</strong></td><td>취약한 라이브러리, 부적절한 인증·인가</td><td>보안 설정 부족</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>바이브코딩 환경 기술부채 유형:</strong><table>
+<li><strong>바이브코딩 환경 기술부채 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술부채 유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td>코드품질</td><td>블랙박스 코드부채</td><td>AI 생성코드 미이해 병합</td><td>코드 불투명</td></tr>
 <tr><td></td><td>테스트 공동화 부채</td><td>검증 수단 테스트 부재</td><td>신뢰성 저하</td></tr>
@@ -42,9 +42,9 @@
 <tr><td></td><td>의존성 폭발 부채</td><td>AI 무분별 외부 패키지 추가</td><td>복잡도 증가</td></tr>
 <tr><td>관리추적</td><td>문서-코드 불일치 부채</td><td>문서·주석이 코드 의도 오설명</td><td>관리정보 불신</td></tr>
 <tr><td></td><td>프롬프트 의존 부채</td><td>생성 맥락 미관리·추적 불가</td><td>재현 불가</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>관리방법: </strong><table>
+<li><strong>관리방법: </strong><div class="table-scroll"><table>
 <tr><th>관리방법</th><th>설명</th><th>기법·도구</th></tr>
 <tr><td><strong>부채 추정</strong></td><td>부채 식별·정적 코드 분석 수행</td><td>Coverity·SonarQube·CheckStyle</td></tr>
 <tr><td><strong>우선순위화</strong></td><td>이슈·리스크 기반 우선순위 해결</td><td>정량적·정성적 평가</td></tr>
@@ -52,7 +52,7 @@
 <tr><td><strong>기술 업데이트</strong></td><td>최신 버전·오픈소스로 부채 해소</td><td>컨테이너·Docker·k8s</td></tr>
 <tr><td><strong>리팩토링</strong></td><td>모듈성 결여 코드 리팩토링 검토</td><td>3R</td></tr>
 <tr><td><strong>테스팅</strong></td><td>테스트 방법론·자동화 적용</td><td>Walk Through·Peer Review·Inspection·Black Box</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 기술 부채는 <strong>금융 부채와 유사하게 “이자”가 붙어 갈수록 해소 비용이 커지므로</strong>, 조기 발견·상환이 필수이며 리팩토링과 코드스멜 제거가 핵심 해소 수단.</li>
 </ul>

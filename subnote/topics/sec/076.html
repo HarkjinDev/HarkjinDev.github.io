@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>[하위] 12-1. STRIDE 위협 모델링(Microsoft)</h4>
 <ul>
-<li><strong>STRIDE 위협 모델링:</strong><table>
+<li><strong>STRIDE 위협 모델링:</strong><div class="table-scroll"><table>
 <tr><th>위협</th><th>침해 속성</th><th>대응 방안</th></tr>
 <tr><td><strong>Spoofing (위장)</strong></td><td>인증 (Authentication)</td><td>MFA·디지털 인증서·세션 관리</td></tr>
 <tr><td><strong>Tampering (변조)</strong></td><td>무결성 (Integrity)</td><td>해시 함수·디지털 서명·접근 통제 (MAC/DAC)</td></tr>
@@ -28,7 +28,7 @@
 (서비스 거부)</strong></td><td>가용성 (Availability)</td><td>트래픽 필터링·로드 밸런싱·Quota 설정·안티-DDoS</td></tr>
 <tr><td><strong>Elevation of Privilege 
 (권한 상승)</strong></td><td>인가 (Authorization)</td><td>최소 권한 원칙 (PoLP)·RBAC·입력값 검증</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

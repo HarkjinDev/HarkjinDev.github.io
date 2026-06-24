@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의</strong>: 단일 HTML 코드베이스로 다양한 화면 크기(데스크톱·태블릿·모바일)에 최적화된 레이아웃을 자동 제공하는 웹 디자인 방식</li>
 <li><strong>키워드</strong>: 미디어 쿼리(Media Query), 유동형 그리드, 유동 이미지, 뷰포트(Viewport)</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>RWD 핵심 기술</strong>:<table>
+<li><strong>RWD 핵심 기술</strong>:<div class="table-scroll"><table>
 <tr><th>기술</th><th>설명</th></tr>
 <tr><td>미디어 쿼리</td><td>브레이크포인트별 CSS 적용 (<code>@media screen and (max-width: 768px)</code>)</td></tr>
 <tr><td>유동형 그리드</td><td>고정 픽셀 대신 % 단위 레이아웃</td></tr>
 <tr><td>유동 이미지</td><td><code>max-width: 100%</code>로 이미지 자동 조절</td></tr>
 <tr><td>뷰포트 메타태그</td><td>모바일 브라우저 렌더링 너비 지정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>RWD vs 적응형 웹(AWD) 비교</strong>:<table>
+<li><strong>RWD vs 적응형 웹(AWD) 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>RWD</th><th>AWD</th></tr>
 <tr><td>방식</td><td>CSS로 유동적 조절</td><td>기기별 별도 레이아웃</td></tr>
 <tr><td>코드베이스</td><td>단일</td><td>다중</td></tr>
 <tr><td>서버 감지</td><td>불필요</td><td>필요 (User-Agent)</td></tr>
 <tr><td>유지보수</td><td>쉬움</td><td>복잡</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>웹 접근성(WA, Web Content Accessibility): WCAG 2.0 표준</strong><ul>
 <li>인식(Perceivable) 용이성, 운용(Parable) 용이성, 이해(Understand) 용이성, 견고성(Robust)</li>

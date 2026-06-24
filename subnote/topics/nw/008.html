@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: UDP 헤더로 L2 이더넷 프레임을 캡슐화하여 L3 네트워크에서 대규모 가상 L2 네트워크를 구현하는 터널링 기술</li>
 <li><strong>키워드</strong>: VNI, VTEP, UDP 4789, 오버레이 네트워크, 클라우드, 멀티테넌시</li>
 <li><strong>분류</strong>: 데이터링크/LAN</li>
-<li><strong>VLAN vs VXLAN 비교</strong>:<table>
+<li><strong>VLAN vs VXLAN 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>VLAN</th><th>VXLAN</th></tr>
 <tr><td>식별자</td><td>12비트 VLAN ID (최대 4,096)</td><td>24비트 VNI (최대 16,777,216)</td></tr>
 <tr><td>전송 방식</td><td>L2 스위칭</td><td>UDP 캡슐화(L3 전송)</td></tr>
 <tr><td>확장성</td><td>제한적</td><td>대규모 클라우드 환경 적합</td></tr>
 <tr><td>표준</td><td>IEEE 802.1Q</td><td>RFC 7348</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>동작 구성요소</strong>: <ul>
 <li><strong>VTEP(VXLAN Tunnel End Point):</strong> 캡슐화/역캡슐화 수행</li>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 개인정보 보호를 기술적으로 강화하는 프라이버시 보호 강화 기술의 총칭</li>
 <li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>PET 기술 분류</strong>:<table>
+<li><strong>PET 기술 분류</strong>:<div class="table-scroll"><table>
 <tr><th>기술</th><th>설명</th><th>활용</th></tr>
 <tr><td>동형암호(HE)</td><td>암호화 상태에서 연산</td><td>클라우드 안전 처리</td></tr>
 <tr><td>차분 프라이버시(DP)</td><td>통계에 노이즈 추가</td><td>집계 데이터 공개</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>연합학습(FL)</td><td>데이터 이동 없이 분산 학습</td><td>의료·금융 AI</td></tr>
 <tr><td>다자간 연산(MPC)</td><td>각자 데이터 비공개 연산</td><td>공동 분석</td></tr>
 <tr><td>신뢰실행환경(TEE)</td><td>하드웨어 격리 실행</td><td>안전한 데이터 처리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: PET는 데이터 활용과 프라이버시 보호의 딜레마를 기술적으로 해결하는 수단으로, 의료·금융 분야의 데이터 공유 활성화의 핵심 기술임</li>
 </ul>

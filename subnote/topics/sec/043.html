@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 다수의 좀비 PC·서버(봇넷)를 이용하여 비정상적 대규모 트래픽을 유발해 서비스를 마비시키는 분산 서비스 거부 공격</li>
 <li><strong>키워드:</strong> 봇넷, 대역폭 소진, 자원 소진, 스크러빙 센터, CDN, 앰플리피케이션, Anycast, L7 공격, ISP 필터링</li>
 <li><strong>분류:</strong> 네트워크 보안</li>
-<li><strong>공격 유형:</strong><table>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>볼류메트릭 공격</strong></td><td><strong>UDP Flood</strong></td><td>대량 UDP 패킷으로 대역폭 소진</td></tr>
 <tr><td></td><td><strong>ICMP Flood</strong></td><td>Ping 패킷 대량 전송으로 네트워크 마비</td></tr>
@@ -32,9 +32,9 @@
 <tr><td><strong>애플리케이션 공격</strong></td><td><strong>HTTP Flood</strong></td><td>대량 HTTP 요청으로 웹 서버 자원 소진</td></tr>
 <tr><td></td><td><strong>Slowloris</strong></td><td>연결을 천천히 유지하여 웹 서버 스레드 고갈</td></tr>
 <tr><td></td><td><strong>SSL 재협상 공격</strong></td><td>반복 SSL 핸드셰이크로 서버 연산 자원 소진</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>대응 방안:</strong><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>트래픽 정제</strong></td><td><strong>스크러빙 센터</strong></td><td>정상·비정상 트래픽 분리 후 정상만 전달</td></tr>
 <tr><td></td><td><strong>Anycast 라우팅</strong></td><td>공격 트래픽을 전 세계 분산 노드로 흡수</td></tr>
@@ -44,7 +44,7 @@
 <tr><td></td><td><strong>BCP38</strong></td><td>출발지 IP 위조(스푸핑) 방지 필터링 표준</td></tr>
 <tr><td><strong>탐지·완화</strong></td><td><strong>이상 트래픽 탐지</strong></td><td>ML 기반 정상 트래픽 패턴 대비 이상 탐지</td></tr>
 <tr><td></td><td><strong>Rate Limiting</strong></td><td>출발지 IP별 요청 속도 임계치 제한</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> DDoS는 Botnet-as-a-Service로 진입 장벽이 낮아지고 공격 규모가 Tbps급으로 증가하면서 단일 대응 수단으로는 방어가 불가능해졌으며, CDN+스크러빙 센터+ISP 업스트림 필터링의 다층 방어 체계와 함께 AI 기반 실시간 이상 탐지가 현대 DDoS 대응의 필수 아키텍처로 자리잡고 있음</li>
 </ul>

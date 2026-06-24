@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -25,12 +25,12 @@
 <li>→ 슈퍼넷: 192.168.0.0/22 (4개 네트워크를 1개로 집약)</li>
 </ul>
 </li>
-<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<table>
+<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>서브네팅</th><th>슈퍼네팅</th></tr>
 <tr><td>방향</td><td>큰 네트워크 → 작게 분할</td><td>작은 네트워크 → 크게 결합</td></tr>
 <tr><td>마스크</td><td>길어짐(비트 증가)</td><td>짧아짐(비트 감소)</td></tr>
 <tr><td>목적</td><td>주소 효율화, 트래픽 분리</td><td>라우팅 테이블 축소</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 슈퍼네팅(CIDR)은 <strong>BGP 경로 집약</strong>에 핵심적으로 적용되어 인터넷 라우팅 테이블 폭발을 방지함. 연속 네트워크 블록이 2의 거듭제곱 정렬이어야 집약 가능.</li>
 </ul>

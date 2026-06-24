@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 원재료 조달에서 최종 소비자 납품까지 공급망 전체를 계획·실행·통제하여 비용과 서비스를 최적화하는 관리 체계</li>
 <li><strong>키워드</strong>: 공급망계획(SCP), 공급망실행(SCE), 공급망관리(SCI), 채찍 효과, 공급망 가시성, 수요 예측, 안전재고, 협업</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>구성요소:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;제수유운/주생유역&gt;</strong></span><table>
+<li><strong>구성요소:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;제수유운/주생유역&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
 <tr><td><strong>공급망 계획 (SCP)</strong></td><td><strong>제조 계획</strong></td><td>제조 관련 모든 일정 세부 관리</td></tr>
 <tr><td></td><td><strong>수요 계획</strong></td><td>Forecasting 기반 수요분석·계획 수립</td></tr>
@@ -31,16 +31,16 @@
 <tr><td></td><td><strong>유통 관리</strong></td><td>완성 제품의 고객 전달 관리</td></tr>
 <tr><td></td><td><strong>역물류 관리</strong></td><td>반품·하자·보상 상품 회수 관리</td></tr>
 <tr><td><strong>공급망 관리 (SCI)</strong></td><td><strong>통합 관리</strong></td><td>모니터링, 성과측정, 프로세스 개선</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SCM 핵심 프로세스 (SCOR 모델)</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계조생배회&gt;</strong></span><table>
+<li><strong>SCM 핵심 프로세스 (SCOR 모델)</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계조생배회&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>단계</strong></th><th><strong>주요 내용</strong></th><th><strong>핵심 활동</strong></th></tr>
 <tr><td><strong>계획 (Plan)</strong></td><td>최적의 운영 전략 수립</td><td>수요 예측, 재고 수준 설정, 생산 능력 계획</td></tr>
 <tr><td><strong>조달 (Source)</strong></td><td>공급업체 선정 및 관리</td><td>구매 계약, 공급업체 평가, 원재료 검수</td></tr>
 <tr><td><strong>생산 (Make)</strong></td><td>제품 제조 및 품질 관리</td><td>생산 스케줄링, 공정 관리, 품질 보증(QA)</td></tr>
 <tr><td><strong>배송 (Deliver)</strong></td><td>최종 제품의 물류 과정</td><td>창고 관리, 운송 경로 최적화, 주문 처리</td></tr>
 <tr><td><strong>회수 (Return)</strong></td><td>사후 처리를 위한 역물류</td><td>반품 관리, 수리, 재활용 및 폐기</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>채찍 효과(Bullwhip Effect)</strong>: 공급망에서 시장의 수요정보가 유통업체를 거쳐, 공급업체로 이동하면서 왜곡이 발생하여 공급 업체 등이 과잉 또는 과소 생산하는 현상 <ul>
 <li><strong>원인: </strong>수요예측, 일괄주문, 가격변동, 과잉주문</li>

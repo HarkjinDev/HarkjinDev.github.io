@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -24,42 +24,42 @@
 <li><strong>정보시스템 등급체계:</strong><ul>
 <li>A1 등급: 복수인증수단 필수, RTO 1시간 이내, RPO 실시간, 연 1회 이상 실전 재해복구 훈련 요구</li>
 </ul>
-<table>
+<div class="table-scroll"><table>
 <tr><th>등급</th><th>분류</th><th>설명</th><th>핵심</th></tr>
 <tr><td>A1</td><td>국가핵심</td><td>국가안보·치안·행정망 최상위</td><td>90점 이상</td></tr>
 <tr><td>A2</td><td>대국민필수</td><td>중단 시 대규모 행정마비 우려</td><td>80점 이상</td></tr>
 <tr><td>A3</td><td>행정중요</td><td>내부행정·특정영역 중요 과업</td><td>80점 이상</td></tr>
 <tr><td>A4</td><td>국민·행정일반</td><td>일반행정·단순조회 저영향</td><td>80점 미만</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>등급 산정 지표:</strong><table>
+<li><strong>등급 산정 지표:</strong><div class="table-scroll"><table>
 <tr><th>지표</th><th>비중</th><th>세부</th></tr>
 <tr><td>국민 영향도</td><td>70%</td><td>서비스 중요도 50% + 서비스 연속성 20%</td></tr>
 <tr><td>사용자 수</td><td>10%</td><td>-</td></tr>
 <tr><td>서비스 파급도</td><td>10%</td><td>-</td></tr>
 <tr><td>대체 가능성</td><td>10%</td><td>-</td></tr>
 <tr><td><strong>합계</strong></td><td><strong>100%</strong></td><td>A1~A3: 등급심의위원회 검토 후 최종 확정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>재해복구시스템 구축 기준: </strong>재난·재해 등 비상상황 시 각 등급에 부합하는 명확한 복구 목표 지표(RTO/RPO)
-표준 가이드라인을 제공하여 인프라 구축의 실효성과 다자간 복구 일관성을 확보하기 위함<table>
+표준 가이드라인을 제공하여 인프라 구축의 실효성과 다자간 복구 일관성을 확보하기 위함<div class="table-scroll"><table>
 <tr><th>등급</th><th>구축기준</th><th>설명</th><th>핵심</th></tr>
 <tr><td>A1</td><td>Active-Active</td><td>주/보조 실시간 동시 서비스</td><td>고가용성 분산</td></tr>
 <tr><td>A2</td><td>Active-Standby</td><td>보조 상시 동기화·장애 시 대체</td><td>즉시 전환</td></tr>
 <tr><td>A3</td><td>스토리지 DR</td><td>데이터만 타센터 실시간 복제</td><td>RTO 1~5일</td></tr>
 <tr><td>A4</td><td>원격지 소산</td><td>백업매체 주기적 원격지 보관</td><td>RTO 3주</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>정보시스템 등급 분류 절차:</strong><table>
+<li><strong>정보시스템 등급 분류 절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>절차</th><th>설명</th><th>핵심</th></tr>
 <tr><td>1단계</td><td>등급 산정 지표 평가</td><td>중요도50·연속성20·사용자수10·파급도10·대체가능성10</td><td>100점 환산</td></tr>
 <tr><td>2단계</td><td>예비 등급 분류</td><td>90↑→A1, 80~90→A2/A3, 80↓→A4</td><td>점수별 등급</td></tr>
 <tr><td>3단계</td><td>결과 및 근거 제출</td><td>분류결과·근거자료 IRM(정보자원관리시스템) 제출</td><td>IRM 등록</td></tr>
 <tr><td>4단계</td><td>검토 및 심의</td><td>행안부 검토·등급심의위원회 심의(A1~A3)</td><td>위원회 확정</td></tr>
 <tr><td>5단계</td><td>등급 확정 통보</td><td>행안부 장관 확정·통보·IRM 등록</td><td>공식 확정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>정보시스템 장애 유형:</strong><table>
+<li><strong>정보시스템 장애 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>장애유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td>장애증상</td><td>서비스 중단</td><td>10분 이상 접속불가·무응답</td><td>반복중단 포함</td></tr>
 <tr><td></td><td>서비스 지연</td><td>10분 이상 지속 응답지연</td><td>대기안내 제외</td></tr>
@@ -68,7 +68,7 @@
 <tr><td>(외부)</td><td>핵심운영설비 장애</td><td>UPS·항온항습기 등 설비 고장</td><td>전원·환경설비</td></tr>
 <tr><td></td><td>사이버침해 장애</td><td>DDoS·해킹·랜섬웨어로 서비스 중단</td><td>정보유출은 제외</td></tr>
 <tr><td></td><td>연계 장애</td><td>외부 연계기관 API 서비스 장애</td><td>외부 연동 문제</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 </body>

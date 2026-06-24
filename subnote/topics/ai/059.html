@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> 특정 도메인·태스크에서 사전 학습된 모델의 지식(가중치)을 유사한 다른 도메인·태스크에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재활용</strong></u></span>하여 적은 데이터와 비용으로 높은 성능을 달성하는 머신러닝 학습 패러다임</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>사전학습 모델, 파인튜닝, 도메인 적응, 태스트 전이</strong></u></span>, 특징 추출, 가중치 재사용, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>파운데이션 모델</strong></u></span>, 소스 도메인, 타겟 도메인, 귀납적 편향</li>
 <li><strong>분류:</strong> 생성형 AI / LLM</li>
-<li><strong>전이학습의 유형:</strong><table>
+<li><strong>전이학습의 유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>적용 조건</th></tr>
 <tr><td><strong>도메인 적응 
 (Domain Adaptation)</strong></td><td>동일 태스크, 다른 도메인 간 전이</td><td>태스크 동일·데이터 분포 상이</td></tr>
@@ -30,17 +30,17 @@
 <tr><td><strong>트랜스덕티브 전이 (Transductive TL)</strong></td><td>태스크 동일, 도메인 상이, 타겟 레이블 없음</td><td>도메인 적응 시나리오</td></tr>
 <tr><td><strong>비지도 전이 
 (Unsupervised TL)</strong></td><td>소스·타겟 모두 레이블 없음</td><td>표현 학습·클러스터링</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 적용 전략:</strong><table>
+<li><strong>주요 적용 전략:</strong><div class="table-scroll"><table>
 <tr><th>전략</th><th>설명</th><th>적합한 상황</th></tr>
 <tr><td><strong>특징 추출 </strong></td><td>사전학습 레이어를 동결(Freeze)하고 최종 레이어만 새로 학습</td><td>데이터 매우 부족, 도메인 유사</td></tr>
 <tr><td><strong>전체 파인튜닝 </strong></td><td>전체 레이어의 가중치를 타겟 데이터로 재학습</td><td>데이터 충분, 도메인 상이</td></tr>
 <tr><td><strong>부분 파인튜닝 </strong></td><td>상위 N개 레이어만 해동(Unfreeze)하여 학습</td><td>중간 규모 데이터, 절충 전략</td></tr>
 <tr><td><strong>PEFT </strong></td><td>소수의 추가 파라미터만 학습 (LoRA, Adapter 등)</td><td>LLM 경량 파인튜닝에 특화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>도메인별 대표 사전학습 모델:</strong><table>
+<li><strong>도메인별 대표 사전학습 모델:</strong><div class="table-scroll"><table>
 <tr><th>도메인</th><th>대표 모델</th><th>사전학습 데이터</th></tr>
 <tr><td><strong>이미지</strong></td><td>ResNet, ViT, CLIP</td><td>ImageNet, JFT</td></tr>
 <tr><td><strong>자연어 (NLP)</strong></td><td>BERT, GPT, RoBERTa</td><td>Wikipedia, BookCorpus</td></tr>
@@ -48,7 +48,7 @@
 <tr><td><strong>의료 영상</strong></td><td>BioViL, MedSAM</td><td>의료 이미지 데이터셋</td></tr>
 <tr><td><strong>코드</strong></td><td>CodeBERT, StarCoder</td><td>GitHub 코드 저장소</td></tr>
 <tr><td><strong>음성</strong></td><td>Wav2Vec, Whisper</td><td>다국어 음성 데이터</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트: </strong>전이학습은 현대 AI 개발의 표준 패러다임으로, "처음부터 학습"은 소수의 대형 기관만 수행하고 대부분은 사전학습 모델을 기반으로 파인튜닝하는 구조가 산업 전반에 정착됨. LoRA·QLoRA 등 PEFT 기법의 발전으로 LLM 전이학습의 진입 장벽이 크게 낮아졌으며, 소비자급 GPU 환경에서도 수십억 파라미터 모델의 도메인 특화가 가능해짐</li>
 </ul>

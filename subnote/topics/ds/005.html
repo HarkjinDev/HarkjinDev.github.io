@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 호스트 OS의 커널을 공유하면서 네임스페이스와 cgroups로 애플리케이션을 프로세스 수준에서 격리 실행하는 경량 가상화 기술</li>
 <li><strong>키워드</strong>: 네임스페이스, cgroups, Docker, 이미지, Dockerfile, 레이어, OCI 표준</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>구성요소/가상화 방식: </strong><table>
+<li><strong>구성요소/가상화 방식: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>구성요소</strong></td><td>컨테이너 엔진</td><td>독립적 운영환경 제공</td><td>운영환경 고립</td></tr>
 <tr><td></td><td>컨테이너</td><td>격리된 앱 실행 공간</td><td>앱 실행 공간</td></tr>
@@ -28,9 +28,9 @@
 <tr><td><strong>가상화 방식</strong></td><td>LXC</td><td>컨테이너 관리 모듈</td><td>관리 모듈</td></tr>
 <tr><td></td><td>libcontainer</td><td>Docker 가상화 방식</td><td>도커 가상화</td></tr>
 <tr><td></td><td>cgroups</td><td>프로세스 그룹 자원 관리</td><td>그룹 자원 관리</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>기술요소: </strong><table>
+<li><strong>기술요소: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>실행 환경</strong></td><td>컨테이너 엔진</td><td>컨테이너 생성 및 관리 수행</td><td>수명주기 관리</td></tr>
 <tr><td></td><td>런타임 (runc)</td><td>컨테이너를 실제 실행하는 도구</td><td>실행 엔진</td></tr>
@@ -40,7 +40,7 @@
 <tr><td></td><td>Cgroups</td><td>하드웨어 자원 사용량 제어</td><td>자원 할당 관리</td></tr>
 <tr><td></td><td>Overlay FS</td><td>레이어 기반의 파일 시스템</td><td>계층형 저장</td></tr>
 <tr><td><strong>네트워크</strong></td><td>가상 브리지</td><td>컨테이너 간 통신 경로 제공</td><td>내부 망 연결</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>장점</strong>: 빠른 기동, 이식성(Build Once, Run Anywhere), 자원 효율, CI/CD 파이프라인 통합</li>
 <li><strong>인사이트</strong>: 컨테이너는 <strong>MSA와 DevOps의 실현 도구</strong>로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불변 인프라(Immutable Infrastructure) 개념</strong></u></span>과 결합하여 배포 안정성과 롤백 용이성을 제공함을 강조.</li>

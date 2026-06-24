@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> LLM·AI 에이전트가 최적의 응답을 생성하도록 컨텍스트 윈도우에 제공되는 정보의 구조·선택·흐름을 체계적으로 설계·관리하는 엔지니어링 방법론</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>컨텍스트 윈도우</strong></u></span>, 메모리 관리, RAG, 정보 아키텍처, 에이전트, 토큰 최적화, 컨텍스트 오버로드, 프롬프트 엔지니어링 진화</li>
 <li><strong>분류:</strong> 생성형 AI / LLM / 에이전트 시스템</li>
-<li><strong>컨텍스트 구성 요소:</strong><table>
+<li><strong>컨텍스트 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>지시</strong></td><td><strong>시스템 프롬프트</strong></td><td>에이전트 역할·규칙·제약 정의</td><td>행동 기준 설정</td></tr>
 <tr><td></td><td><strong>태스크 지시</strong></td><td>현재 수행할 작업 명확화</td><td>목표 명시</td></tr>
@@ -31,23 +31,23 @@
 <tr><td></td><td><strong>도메인 데이터</strong></td><td>업무 특화 문서·DB·API 결과</td><td>도메인 맥락</td></tr>
 <tr><td><strong>도구</strong></td><td><strong>툴 정의·결과</strong></td><td>호출 가능한 툴 스펙·실행 결과</td><td>행동 확장</td></tr>
 <tr><td></td><td><strong>에이전트 상태</strong></td><td>이전 단계 추론·행동·관찰 이력</td><td>추론 연속성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>핵심 4대 전략:</strong><table>
+<li><strong>핵심 4대 전략:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Write (저장)</strong></td><td>중요 정보를 외부에 영구 저장하여 컨텍스트 의존 탈피</td><td>외부 메모리화</td></tr>
 <tr><td><strong>Select (선택)</strong></td><td>현재 태스크에 관련성 높은 정보만 선별하여 주입</td><td>관련 정보 선별</td></tr>
 <tr><td><strong>Compress (압축)</strong></td><td>토큰 효율 위해 요약·필터링으로 정보 압축</td><td>토큰 최적화</td></tr>
 <tr><td><strong>Isolate (격리)</strong></td><td>서브에이전트·모듈로 컨텍스트를 분리하여 오염 방지</td><td>컨텍스트 격리</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>에이전트 시스템에서의 역할:</strong><table>
+<li><strong>에이전트 시스템에서의 역할:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>단계별 컨텍스트 구성</strong></td><td>에이전트 루프 매 단계마다 최적 컨텍스트 동적 구성</td><td>동적 컨텍스트</td></tr>
 <tr><td><strong>멀티에이전트 컨텍스트 분리</strong></td><td>에이전트별 독립 컨텍스트로 오염·간섭 방지</td><td>에이전트 격리</td></tr>
 <tr><td><strong>메모리 계층 설계</strong></td><td>단기·장기·에피소딕 메모리 계층적 통합 설계</td><td>메모리 아키텍처</td></tr>
 <tr><td><strong>동적 RAG 연계</strong></td><td>태스크 맥락에 따라 검색 쿼리·범위 동적 조정</td><td>적응형 검색</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 컨텍스트 엔지니어링은 2025년 중반 프롬프트 엔지니어링의 진화적 후계자로 부상했으며, 대부분의 에이전트 실패는 모델 자체의 문제가 아닌 컨텍스트 설계 실패에서 비롯된다는 인식이 확산되면서 AI 에이전트 개발자의 핵심 역량으로 자리잡고 있음. 프롬프트 한 줄이 아닌 정보 아키텍처 전체를 설계하는 역량이 프로덕션 AI 시스템의 품질을 결정하는 시대로 전환되고 있음</li>
 </ul>

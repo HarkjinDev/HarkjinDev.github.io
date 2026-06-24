@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,19 +20,19 @@
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>피벗을 기준</strong></u></span>으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분할 정복</strong></u></span>하여 평균 O(n log n)으로 정렬하는 알고리즘</li>
 <li><strong>키워드</strong>: 피벗(Pivot), 분할 정복, 파티션, 재귀, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불안정 정렬</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Median-of-3</strong></u></span></li>
 <li><strong>분류</strong>: 정렬 알고리즘</li>
-<li><strong>복잡도</strong>:<table>
+<li><strong>복잡도</strong>:<div class="table-scroll"><table>
 <tr><th>케이스</th><th>시간 복잡도</th><th>조건</th></tr>
 <tr><td>최선/평균</td><td>O(n log n)</td><td>피벗이 중간값일 때</td></tr>
 <tr><td>최악</td><td>O(n²)</td><td>정렬된 배열에서 첫/마지막 피벗 선택</td></tr>
 <tr><td>공간</td><td>O(log n) 평균</td><td>재귀 스택</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>피벗 선택 전략</strong>:<table>
+<li><strong>피벗 선택 전략</strong>:<div class="table-scroll"><table>
 <tr><th>전략</th><th>설명</th></tr>
 <tr><td>첫 번째 요소</td><td>구현 단순, 정렬된 배열에서 최악 성능</td></tr>
 <tr><td>Median-of-3</td><td>첫·중간·마지막 3개의 중앙값 → 최악 케이스 방지</td></tr>
 <tr><td>랜덤 선택</td><td>평균 성능 보장, 예측 불가 입력 대응</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 퀵 정렬은 <strong>캐시 지역성(Cache Locality)</strong> 덕분에 평균 성능이 병합 정렬보다 우수하며, <strong>불안정 정렬</strong>이라는 점과 최악 O(n²) 방지를 위한 피벗 전략이 시험 핵심; Java의 Arrays.sort()는 이중 피벗 퀵 정렬(Dual-Pivot Quicksort) 사용</li>
 </ul>

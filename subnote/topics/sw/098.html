@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 소프트웨어가 서로 다른 환경(OS·브라우저·하드웨어·DB)으로 이전되었을 때 정상적으로 동작하는 정도를 검증하는 테스트</li>
 <li><strong>키워드</strong>: 환경 이식성, 크로스 브라우저, 크로스 플랫폼, 설치 가능성, 대체성, ISO 25010</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>이식성 하위 특성 (ISO 25010)</strong>:<table>
+<li><strong>이식성 하위 특성 (ISO 25010)</strong>:<div class="table-scroll"><table>
 <tr><th>특성</th><th>설명</th></tr>
 <tr><td>적응성 (Adaptability)</td><td>다른 환경에 적응하는 용이성</td></tr>
 <tr><td>설치성 (Installability)</td><td>지정 환경에 설치·제거 용이성</td></tr>
 <tr><td>대체성 (Replaceability)</td><td>동일 목적 소프트웨어 대체 가능성</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 클라우드·컨테이너(Docker) 환경에서는 이식성이 아키텍처 설계의 기본 요소로, <strong>“12 Factor App”</strong> 원칙이 이식성 높은 클라우드 네이티브 애플리케이션 설계의 지침.</li>
 </ul>

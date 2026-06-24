@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,7 +21,7 @@
 <li><strong>키워드</strong>: 6R 전략, Lift &amp; Shift, Re-Architect, 마이그레이션 공장, 이행 절차, TCO 분석</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
 <li><strong>대상 분류 및 선정 기준</strong>: 비즈니스 중요도, 기술 부채 수준, 클라우드 친화성, 데이터 민감도</li>
-<li><strong>6R 이행 전략</strong>:<table>
+<li><strong>6R 이행 전략</strong>:<div class="table-scroll"><table>
 <tr><th>전략</th><th>설명</th></tr>
 <tr><td>Rehost (Lift &amp; Shift)</td><td>그대로 클라우드로 이전</td></tr>
 <tr><td>Replatform</td><td>최소 변경 후 이전</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>Refactor/Re-Architect</td><td>클라우드 네이티브로 재설계</td></tr>
 <tr><td>Retire</td><td>불필요 시스템 폐기</td></tr>
 <tr><td>Retain</td><td>현행 유지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 클라우드 전환 성공의 핵심은 <strong>기술 이전보다 조직 변화 관리(OCM)</strong>이며, 파일럿 애플리케이션부터 시작하여 경험을 쌓은 후 핵심 시스템으로 확장하는 단계적 접근이 권장됨.</li>
 </ul>

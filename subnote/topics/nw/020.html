@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -27,12 +27,12 @@
 <li>④ 수신측: 동일 나눗셈 후 나머지 = 0이면 정상</li>
 </ul>
 </li>
-<li><strong>주요 표준</strong>:<table>
+<li><strong>주요 표준</strong>:<div class="table-scroll"><table>
 <tr><th>표준</th><th>다항식</th><th>적용</th></tr>
 <tr><td>CRC-16</td><td>x¹⁶+x¹⁵+x²+1</td><td>HDLC, USB</td></tr>
 <tr><td>CRC-32</td><td>32차 다항식</td><td>Ethernet, ZIP</td></tr>
 <tr><td>CRC-CCITT</td><td>x¹⁶+x¹²+x⁵+1</td><td>SDLC, X.25</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: CRC는 <strong>버스트 오류 검출에 탁월</strong>하지만 오류 정정은 불가. Ethernet 프레임의 FCS가 CRC-32를 사용하며, CRC는 검출만 가능하므로 오류 정정은 ARQ/FEC 필요.</li>
 </ul>

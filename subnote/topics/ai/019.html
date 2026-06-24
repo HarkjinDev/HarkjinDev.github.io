@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의</strong>: 약한 학습기(Weak Learner)들을 순차적으로 결합해 강한 모델을 만드는 앙상블 기법</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>순차 학습, 잔차(Residual), 가중치 재조정</strong></u></span>, AdaBoost, XGBoost, LightGBM, CatBoost, 그래디언트 부스팅</li>
 <li><strong>분류</strong>: 지도학습</li>
-<li><strong>상세 프로세스</strong>:<table>
+<li><strong>상세 프로세스</strong>:<div class="table-scroll"><table>
 <tr><th>프로세스</th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. 초기화</strong></td><td>모든 데이터에 동일 가중치 부여</td><td>가중치 균등 배분</td></tr>
 <tr><td><strong>2. 순차 학습</strong></td><td>오분류 데이터의 가중치를 증가</td><td>취약 데이터 집중 학습</td></tr>
 <tr><td><strong>3. 오차 보정</strong></td><td>이전 모델의 잔차를 반복 학습</td><td>점진적 성능 개선</td></tr>
 <tr><td><strong>4. 가중 결합</strong></td><td>성능별 가중치를 두어 결과 산출</td><td>최종 예측값 결정</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 대표 모델</strong>:<table>
+<li><strong>주요 대표 모델</strong>:<div class="table-scroll"><table>
 <tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>AdaBoost</strong></td><td>오분류 샘플 가중치 직접 조정</td><td>부스팅의 기초 모델</td></tr>
 <tr><td><strong>XGBoost</strong></td><td>병렬 처리와 규제항 추가함</td><td>고성능 및 과적합 방지</td></tr>
 <tr><td><strong>LightGBM</strong></td><td>리프 중심 분할로 효율성 증대</td><td>빠른 속도, 저메모리</td></tr>
 <tr><td><strong>CatBoost</strong></td><td>범주형 변수를 자동 처리함</td><td>범주형 데이터 특화, 과적합 억제</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 배깅과 달리 편향(Bias)을 줄이는 데 특화되어 정확도가 높으나, 순차 학습 구조상 이상치(Outlier)에 민감하고 과적합 위험이 있으므로 학습률(Learning Rate)과 트리 깊이 등 하이퍼파라미터 튜닝이 중요함</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 의사결정 대안과 불확실성을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>트리 구조로 표현</strong></u></span>하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기대값 기반</strong></u></span> 최적 의사결정을 지원하는 분석 기법</li>
 <li><strong>키워드</strong>: 결정 노드, 기회 노드, 결과 노드, EMV, 가지 가지치기, 리스크 분석</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>구성요소</strong>:<table>
+<li><strong>구성요소</strong>:<div class="table-scroll"><table>
 <tr><th>노드 유형</th><th>기호</th><th>설명</th></tr>
 <tr><td>결정 노드</td><td>□</td><td>의사결정자가 선택하는 분기점</td></tr>
 <tr><td>기회 노드</td><td>○</td><td>확률적 결과가 발생하는 분기점</td></tr>
 <tr><td>결과 노드</td><td>△</td><td>최종 결과값(이익/손실)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 의사결정나무는 <strong>정량적 위험분석의 핵심 도구</strong>로, EMV(기대화폐가치)를 각 경로별로 계산하여 최적 대안을 선택하며, 민감도 분석과 결합하여 핵심 변수의 영향도를 파악함.</li>
 </ul>

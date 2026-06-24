@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 13.56MHz 주파수 대역에서 10cm 이내 근거리 비접촉 방식으로 데이터를 교환하는 단거리 무선 통신 기술</li>
 <li><strong>키워드</strong>: 13.56MHz, ISO/IEC 14443, P2P, 카드 에뮬레이션, 리더/라이터 모드, 간편결제</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>동작 모드</strong>:<table>
+<li><strong>동작 모드</strong>:<div class="table-scroll"><table>
 <tr><th>모드</th><th>설명</th></tr>
 <tr><td>카드 에뮬레이션</td><td>스마트폰을 교통카드·신용카드처럼 동작</td></tr>
 <tr><td>리더/라이터</td><td>NFC 태그 정보를 읽거나 기록</td></tr>
 <tr><td>P2P</td><td>기기 간 데이터 직접 교환</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: NFC는 <strong>교통·결제·스마트 오피스</strong> 등 근거리 인증 인프라의 핵심이며, RFID와의 차이(거리, 양방향 통신, 보안)를 비교하면 차별화 가능.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -21,14 +21,14 @@
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최단 경로, 양수 가중치, 우선순위 큐(Min-Heap), 탐욕 알고리즘</strong></u></span>, 거리 테이블, 완화(Relaxation), 단일 출발점</li>
 <li><strong>분류:</strong> 그래프 탐색</li>
 <li><strong>특성: </strong>우선순위 큐(Min-Heap), 시간복잡도: O((V + E) log V), 양수 가중치 조건, 단일 출발</li>
-<li><strong>동작 원리:</strong><table>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 초기화</strong></td><td>출발 정점 거리 0, 나머지 정점 거리 ∞ 설정</td><td>거리 초기화</td></tr>
 <tr><td><strong>2. 정점 선택</strong></td><td>미방문 정점 중 현재 거리가 최소인 정점 선택</td><td>탐욕적 선택</td></tr>
 <tr><td><strong>3. 완화 (Relaxation)</strong></td><td>선택 정점 경유 시 인접 정점 거리가 단축되면 갱신</td><td>최단 거리 갱신</td></tr>
 <tr><td><strong>4. 방문 처리</strong></td><td>선택 정점을 방문 완료로 처리 후 반복</td><td>확정 처리</td></tr>
 <tr><td><strong>5. 종료</strong></td><td>모든 정점 방문 완료 시 종료</td><td>종료 조건</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>활용 분야:</strong> 내비게이션(출발지~목적지 최단 경로 탐색), 네트워크 라우팅(OSPF 프로토콜) </li>
 <li><strong>인사이트:</strong> 다익스트라는 BFS의 가중치 확장 버전으로, 탐욕적 선택의 정당성이 양수 가중치 조건 하에서 보장됨. 음수 가중치 처리 불가라는 한계를 벨만-포드와의 비교로 명확히 이해하는 것이 시험 핵심 포인트이며, 실무에서는 OSPF·내비게이션 등 핵심 라우팅 알고리즘의 기반으로 광범위하게 활용됨</li>

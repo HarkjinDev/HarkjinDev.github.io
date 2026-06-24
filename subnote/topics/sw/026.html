@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,13 +20,13 @@
 <li><strong>정의</strong>: 변화하는 요구사항에 빠르게 대응하기 위해 짧은 반복(Iteration)과 지속적 고객 협업을 통해 소프트웨어를 점진적으로 개발하는 방법론</li>
 <li><strong>키워드</strong>: 애자일 선언문(Agile Manifesto), 반복, 스프린트, 협업, 변화 대응, XP, 스크럼</li>
 <li><strong>분류</strong>: 개발 방법론</li>
-<li><strong>애자일 4대 가치 (Agile Manifesto, 2001):    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개동고변&gt;</strong></span><table>
+<li><strong>애자일 4대 가치 (Agile Manifesto, 2001):    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개동고변&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>가치</th><th>설명</th></tr>
 <tr><td>개인과 상호작용 &gt; 프로세스와 도구</td><td>사람 중심의 협업 강조</td></tr>
 <tr><td>작동하는 소프트웨어 &gt; 포괄적인 문서</td><td>실질적 결과물 우선</td></tr>
 <tr><td>고객과의 협력 &gt; 계약 협상</td><td>지속적 고객 참여</td></tr>
 <tr><td>변화에 대응 &gt; 계획 준수</td><td>유연한 요구사항 반영</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>애자일 12대 원칙 (핵심)</strong><ul>
 <li>고객 만족을 위한 조기·지속적 소프트웨어 인도</li>

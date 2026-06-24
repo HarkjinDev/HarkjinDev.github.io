@@ -10,14 +10,14 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 <h4>0. AI 보안</h4>
 <ul>
-<li><strong>AI 보안 위협 분류 (STRIDE 기반):</strong><table>
+<li><strong>AI 보안 위협 분류 (STRIDE 기반):</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>위협 유형</strong></th><th><strong>요약 설명</strong></th><th><strong>단계</strong></th></tr>
 <tr><td><strong>학습 단계</strong></td><td>데이터 포이즈닝</td><td>악성 데이터로 모델 오염</td><td>학습 데이터 오염</td></tr>
 <tr><td></td><td>백도어 공격</td><td>트리거 기반 오작동 유발</td><td>트리거 기반 오작동</td></tr>
@@ -29,9 +29,9 @@
 <tr><td><strong>모델 자산</strong></td><td>모델 탈취</td><td>모델 내부 정보 추출</td><td>지적재산 탈취</td></tr>
 <tr><td></td><td>멤버십 추론</td><td>학습 데이터 포함 여부 확인</td><td>프라이버시 침해</td></tr>
 <tr><td></td><td>모델 역전</td><td>원본 데이터 복원 시도</td><td>데이터 유출</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>AI 생명주기별 보안 대응:</strong><table>
+<li><strong>AI 생명주기별 보안 대응:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
 <tr><td><strong>데이터</strong></td><td><strong>데이터 검증</strong></td><td>학습 데이터 무결성·출처·편향 검증</td></tr>
 <tr><td></td><td><strong>차등 프라이버시</strong></td><td>학습 데이터 개인정보 역추론 방지</td></tr>
@@ -42,7 +42,7 @@
 <tr><td></td><td><strong>접근 제어</strong></td><td>모델 API·가중치 최소 권한·인증 강화</td></tr>
 <tr><td><strong>공급망</strong></td><td><strong>SBOM·모델 카드</strong></td><td>AI 모델 구성요소·출처 투명성 확보</td></tr>
 <tr><td></td><td><strong>코드 서명</strong></td><td>모델·파이프라인 무결성 검증</td></tr>
-</table>
+</table></div>
 </li>
 </ul>
 

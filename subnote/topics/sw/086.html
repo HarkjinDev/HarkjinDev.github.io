@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 하향식 통합 테스트 시 아직 개발되지 않은 하위 모듈을 대체하여 최소한의 응답을 반환하는 임시 모듈</li>
 <li><strong>키워드</strong>: 하향식 통합, 더미 응답, 하위 모듈 대체, 테스트 더블</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>스텁 vs 드라이버 비교</strong>:<table>
+<li><strong>스텁 vs 드라이버 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>스텁 (Stub)</th><th>드라이버 (Driver)</th></tr>
 <tr><td>대체 대상</td><td>하위(피호출) 모듈</td><td>상위(호출) 모듈</td></tr>
 <tr><td>사용 방향</td><td>하향식(Top-down) 통합</td><td>상향식(Bottom-up) 통합</td></tr>
 <tr><td>역할</td><td>고정 응답 반환</td><td>테스트 대상 모듈 호출</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 스텁은 <strong>Mock·Fake 등 테스트 더블(Test Double)의 일종</strong>으로, 단위 테스트에서도 외부 의존성(DB·API) 격리에 활용되며 Mock은 스텁과 달리 호출 검증 기능 포함.</li>
 </ul>

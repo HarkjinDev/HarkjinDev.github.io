@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,22 +20,22 @@
 <li><strong>정의</strong>: 자원을 URI로 식별하고 HTTP 메서드로 CRUD 연산을 수행하는 REST 아키텍처 기반 HTTP API</li>
 <li><strong>키워드</strong>: HTTP 메서드(GET/POST/PUT/DELETE/PATCH), 상태코드, URI 설계, JSON</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>HTTP 메서드와 CRUD 매핑</strong>:<table>
+<li><strong>HTTP 메서드와 CRUD 매핑</strong>:<div class="table-scroll"><table>
 <tr><th>HTTP 메서드</th><th>CRUD</th><th>특성</th><th>예시</th></tr>
 <tr><td>GET</td><td>Read</td><td>안전·멱등</td><td>GET /users/1</td></tr>
 <tr><td>POST</td><td>Create</td><td>비멱등</td><td>POST /users</td></tr>
 <tr><td>PUT</td><td>Update (전체)</td><td>멱등</td><td>PUT /users/1</td></tr>
 <tr><td>PATCH</td><td>Update (부분)</td><td>비멱등</td><td>PATCH /users/1</td></tr>
 <tr><td>DELETE</td><td>Delete</td><td>멱등</td><td>DELETE /users/1</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>Richardson 성숙도 모델</strong>:<table>
+<li><strong>Richardson 성숙도 모델</strong>:<div class="table-scroll"><table>
 <tr><th>레벨</th><th>설명</th></tr>
 <tr><td>Level 0</td><td>단일 URI, 단일 메서드</td></tr>
 <tr><td>Level 1</td><td>자원별 URI 분리</td></tr>
 <tr><td>Level 2</td><td>HTTP 메서드 적절히 활용</td></tr>
 <tr><td>Level 3</td><td>HATEOAS 적용 (진정한 REST)</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 실무에서는 Level 2가 일반적이며, <strong>멱등성(Idempotency)</strong>이 API 신뢰성의 핵심으로 PUT·DELETE는 반복 호출 시 동일 결과를 보장해야 함.</li>
 </ul>

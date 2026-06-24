@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,21 +20,21 @@
 <li><strong>정의</strong>: 송신자와 수신자 간에 메시지를 비동기적으로 교환하기 위해 중간 큐(Queue)를 사용하는 비동기 통신 방식</li>
 <li><strong>키워드</strong>: 큐(Queue), 프로듀서·컨슈머, 비동기, 브로커, RabbitMQ, Kafka, ActiveMQ, 내구성(Durability), 메시지 보장</li>
 <li><strong>분류</strong>: 미들웨어/아키텍처</li>
-<li><strong>메시지 큐 vs 이벤트 스트리밍 비교</strong>:<table>
+<li><strong>메시지 큐 vs 이벤트 스트리밍 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>메시지 큐 (RabbitMQ)</th><th>이벤트 스트리밍 (Kafka)</th></tr>
 <tr><td>소비 방식</td><td>단일 컨슈머 소비 후 제거</td><td>다중 컨슈머 독립 소비, 보존</td></tr>
 <tr><td>순서 보장</td><td>큐 단위</td><td>파티션 단위</td></tr>
 <tr><td>메시지 보존</td><td>소비 후 삭제</td><td>설정 기간 보존</td></tr>
 <tr><td>처리량</td><td>중간</td><td>매우 높음</td></tr>
 <tr><td>적합 용도</td><td>작업 큐, 명령 처리</td><td>실시간 스트림, 로그 집계</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>메시지 전달 보장 수준</strong>:<table>
+<li><strong>메시지 전달 보장 수준</strong>:<div class="table-scroll"><table>
 <tr><th>수준</th><th>설명</th></tr>
 <tr><td>At Most Once</td><td>최대 1회 전달, 손실 가능</td></tr>
 <tr><td>At Least Once</td><td>최소 1회 전달, 중복 가능</td></tr>
 <tr><td>Exactly Once</td><td>정확히 1회 전달, 가장 복잡</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>At Least Once + 컨슈머 멱등 처리 조합</strong>이 실무에서 가장 많이 선택되는 패턴으로, Exactly Once는 성능 비용이 크므로 금융 결제처럼 중복이 치명적인 경우에만 적용.</li>
 </ul>

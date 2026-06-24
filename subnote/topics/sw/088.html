@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 테스트가 소프트웨어의 얼마나 많은 부분을 실행하였는지를 나타내는 정량적 척도</li>
 <li><strong>키워드</strong>: 구문·결정·조건·경로 커버리지, MC/DC, 커버리지 측정 도구, 품질 지표</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>커버리지 강도 (낮음 → 높음)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구결조/결조/변조결/경&gt;</strong></span><table>
+<li><strong>커버리지 강도 (낮음 → 높음)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구결조/결조/변조결/경&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>강도</th><th>유형</th><th>설명</th><th>충족 조건</th></tr>
 <tr><td>낮음</td><td><strong>구문 커버리지 (Statement)</strong></td><td>모든 문장 실행</td><td>모든 라인 1회 이상 실행</td></tr>
 <tr><td>↓</td><td><strong>결정 커버리지 (Decision/Branch)</strong></td><td>모든 분기 T/F</td><td>각 분기 결과 모두 실행</td></tr>
@@ -28,7 +28,7 @@
 <tr><td>↓</td><td><strong>결정/조건 커버리지</strong></td><td>결정+조건 동시</td><td>결정·조건 모두 충족</td></tr>
 <tr><td>↓</td><td><strong>변경 조건/결정 (MC/DC)</strong></td><td>각 조건이 독립적 결정 영향</td><td>항공·의료 소프트웨어 표준</td></tr>
 <tr><td>높음</td><td><strong>경로 커버리지 (Path)</strong></td><td>모든 경로 실행</td><td>실현 불가능한 경우 많음</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <strong>MC/DC(Modified Condition/Decision Coverage)</strong>는 DO-178B(항공)·IEC 61508(기능안전) 등 고신뢰성 시스템의 인증 기준으로, 일반 커버리지보다 높은 결함 발견력.</li>
 </ul>

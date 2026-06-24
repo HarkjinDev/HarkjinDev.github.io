@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,41 +20,41 @@
 <li><strong>정의</strong>: 실제 데이터의 통계적 특성을 모방하여 AI로 생성한 가상 데이터</li>
 <li><strong>키워드:</strong> 데이터 증강, Model Collapse, 품질 검증, RLHF 학습 데이터, GAN, 데이터 프라이버시, 분포 보존, 편향 증폭, 유용성 검증, 안전성 검증</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>유형: </strong><table>
+<li><strong>유형: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>특징</strong></th><th><strong>내용 </strong></th></tr>
 <tr><td><strong>완전 합성데이터 </strong></td><td>가상 생성 데이터</td><td>실제 데이터 없이 모두 가상 생성</td></tr>
 <tr><td><strong>부분 합성데이터</strong></td><td>일부 변수만을 대체</td><td>일부 속성만 선택하여 대체</td></tr>
 <tr><td></td><td>민감/기밀정보 대체</td><td>민감 정보만 선택적으로 대체</td></tr>
 <tr><td><strong>복합 합성 데이터 </strong></td><td>변수 대체 후 추가 변수 도출</td><td>합성 및 실제 데이터 혼합 생성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 생성 방식:</strong><table>
+<li><strong>주요 생성 방식:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>GAN 기반</strong></td><td>생성자·판별자 경쟁 학습으로 실제 분포와 유사한 데이터 생성</td><td>분포 모방</td></tr>
 <tr><td><strong>VAE 기반</strong></td><td>잠재 공간 샘플링으로 다양한 변형 데이터 생성</td><td>변형 생성</td></tr>
 <tr><td><strong>LLM 기반</strong></td><td>대형 언어 모델로 텍스트·대화·지시문 형태의 합성 데이터 생성</td><td>텍스트 합성</td></tr>
 <tr><td><strong>규칙 기반</strong></td><td>도메인 규칙·통계 모델로 정형 데이터 생성</td><td>규칙 생성</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 활용:</strong><table>
+<li><strong>주요 활용:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>데이터 증강</strong></td><td>학습 데이터 부족 문제를 합성 데이터로 보완</td><td>데이터 확장</td></tr>
 <tr><td><strong>프라이버시 보호</strong></td><td>개인정보 포함 실데이터 대신 합성 데이터로 대체</td><td>민감 정보 대체</td></tr>
 <tr><td><strong>RLHF 학습 데이터</strong></td><td>인간 선호도 데이터 부족 시 합성 피드백 데이터 활용</td><td>정렬 학습 보완</td></tr>
 <tr><td><strong>희귀 케이스 생성</strong></td><td>실데이터에서 수집 어려운 엣지 케이스·이상치 생성</td><td>희귀 사례 확보</td></tr>
 <tr><td><strong>도메인 특화</strong></td><td>의료·금융 등 민감 도메인의 학습 데이터 확보</td><td>규제 도메인 대응</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유용성 검증방안</strong><table>
+<li><strong>유용성 검증방안</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>검증지표</th><th>설명</th></tr>
 <tr><td><strong>비정형 합성데이터</strong></td><td><strong>모델 성능 검증</strong></td><td>원본·합성 모델 성능 차이 임계값 비교</td></tr>
 <tr><td></td><td><strong>Visual Turing Test (VTT)</strong></td><td>무작위 샘플 중 원본 구분 정답률 측정</td></tr>
 <tr><td></td><td><strong>이미지 품질 검증</strong></td><td>원본·합성 이미지 데이터 분포 거리 비교</td></tr>
 <tr><td><strong>정형 합성데이터</strong></td><td><strong>2차원 관계 유사성</strong></td><td>컬럼 간 상관계수 행렬 차이 표준편차 계산</td></tr>
 <tr><td></td><td><strong>구별 불가능성</strong></td><td>ML 모델로 원본·합성 구분 확률 유사성 계산</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>안전성 검증방안</strong><table>
+<li><strong>안전성 검증방안</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>검증지표</th><th>설명</th></tr>
 <tr><td><strong>비정형 합성데이터</strong></td><td><strong>생성과정</strong></td><td>비가역 알고리즘 사용·메타데이터 처리 확인</td></tr>
 <tr><td></td><td><strong>구조적 유사성</strong></td><td>원본·합성 이미지 구조적 과도 유사 측정</td></tr>
@@ -63,7 +63,7 @@
 <tr><td></td><td><strong>식별위험도</strong></td><td>합성 레코드의 원본 내 동일 존재 확률 측정</td></tr>
 <tr><td><strong>정형 합성데이터</strong></td><td><strong>연결위험도</strong></td><td>합성 데이터로 원본 개인 민감정보 유추 위험</td></tr>
 <tr><td></td><td><strong>추론위험도</strong></td><td>합성 데이터로 개인 역추론 가능 위험 측정</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 합성 데이터는 데이터 부족·프라이버시 규제 문제를 해결하는 실용적 대안으로 부상하고 있으나, Model Collapse가 보여주듯 실제 데이터와의 혼합 없이 순수 합성 데이터만으로 학습을 반복하면 모델 품질이 점진적으로 저하되므로 품질 검증과 실데이터 비율 유지가 합성 데이터 전략의 핵심 설계 요소임</li>
 </ul>

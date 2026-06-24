@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -26,13 +26,13 @@
 <li>③ 수신자는 동일 키 스트림으로 암호문 XOR → 평문 복원</li>
 </ul>
 </li>
-<li><strong>스트림 암호 분류</strong> (키 스트림을 생성할 때 <strong>이전 평문/암호문에 의존</strong>하는지에 따라 두 가지로 분류):<table>
+<li><strong>스트림 암호 분류</strong> (키 스트림을 생성할 때 <strong>이전 평문/암호문에 의존</strong>하는지에 따라 두 가지로 분류):<div class="table-scroll"><table>
 <tr><th>구분</th><th>동기식 스트림 암호 (Synchronous)</th><th>자기 동기식 스트림 암호 (Self-Synchronizing)</th></tr>
 <tr><td>특징</td><td>키 스트림이 평문/암호문과 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>독립</strong></u></span>적임</td><td>키 스트림이 이전 암호문에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의존</strong></u></span>함</td></tr>
 <tr><td>장점</td><td>오류 전파가 없음 (해당 비트만 영향)</td><td>암호문 누락 시 자동 동기화 가능</td></tr>
 <tr><td>단점</td><td>송수신측 동기화 어긋나면 복호화 불가</td><td>오류 전파 발생 (이후 비트에 영향)</td></tr>
 <tr><td>종류</td><td>RC4, One-Time Pad, CTR 모드</td><td>CFB 모드</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>대표 알고리즘</strong>:<ul>
 <li><strong>RC4</strong>: 과거 WEP·TLS에 사용, 편향된 출력 취약점 발견 → 현재 폐기</li>
@@ -40,14 +40,14 @@
 <li><strong>Salsa20</strong>: ChaCha20의 전신, 고속 스트림 암호</li>
 </ul>
 </li>
-<li><strong>블록 암호 vs 스트림 암호 비교</strong>:<table>
+<li><strong>블록 암호 vs 스트림 암호 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>블록 암호</th><th>스트림 암호</th></tr>
 <tr><td>처리 단위</td><td>고정 블록 (64·128bit)</td><td>1비트 또는 1바이트</td></tr>
 <tr><td>속도</td><td>상대적으로 느림</td><td>빠름</td></tr>
 <tr><td>패딩</td><td>필요</td><td>불필요</td></tr>
 <tr><td>에러 전파</td><td>블록 단위 전파</td><td>최소화</td></tr>
 <tr><td>적용</td><td>파일·DB 암호화</td><td>무선통신·실시간 스트리밍</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: RC4는 초기 바이트 편향 문제로 폐기되었으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>현재는 ChaCha20-Poly1305가 스트림 암호의 사실상 표준으로 TLS 1.3에서 ECDHE와 결합하여 사용됨</strong></u></span></li>
 </ul>

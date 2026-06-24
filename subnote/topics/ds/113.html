@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,7 +20,7 @@
 <li><strong>정의:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>eVTOL(전기 수직 이착륙기)</strong></u></span>을 활용하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>도심 저고도(300~600m)</strong></u></span> 공중에서 사람·화물을 운송하는 기체·인프라·교통관리·서비스를 포괄하는 신항공교통체계</li>
 <li><strong>키워드:</strong> eVTOL, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>버티포트</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>회랑</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>멀티로터, 틸트로터, 리프트+크루즈</strong></u></span>, 벡터드 스러스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RAM (광역항공모빌리티)</strong></u></span>, K-UAM, 감항인증, 배터리, 공역관리</li>
 <li><strong>분류:</strong> 신기술/동향</li>
-<li><strong>핵심 구성요소:</strong><table>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기체</strong></td><td><strong>eVTOL</strong></td><td>전기 추진·수직 이착륙 도심형 항공기</td><td>핵심 비행체</td></tr>
 <tr><td></td><td><strong>멀티로터·틸트로터</strong></td><td>다수 로터 또는 틸팅 방식의 eVTOL 구조</td><td>기체 형태</td></tr>
@@ -30,9 +30,9 @@
 <tr><td><strong>교통관리</strong></td><td><strong>UTM (UAM 교통관리)</strong></td><td>다수 UAM의 공역 분리·충돌 방지·관제</td><td>공역 관리</td></tr>
 <tr><td></td><td><strong>AI 교통관리</strong></td><td>AI·데이터 기반 실시간 교통 흐름 최적화</td><td>지능형 관제</td></tr>
 <tr><td><strong>플랫폼</strong></td><td><strong>MaaS 연계</strong></td><td>지상 교통과 UAM을 통합 예약·결제 서비스</td><td>멀티모달 연계</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>유형:</strong><table>
+<li><strong>유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>기체 구조</strong></td><td><strong>멀티로터 (Multirotor)</strong></td><td>다수 로터 배치로 수직 이착륙·호버링 수행</td><td>구조 단순·저속</td></tr>
 <tr><td></td><td><strong>틸트로터 (Tiltrotor)</strong></td><td>이착륙 시 수직·순항 시 수평으로 로터 회전</td><td>속도·효율 균형</td></tr>
@@ -48,23 +48,23 @@
 <tr><td></td><td><strong>에어앰뷸런스</strong></td><td>응급 환자 신속 이송·의료 서비스</td><td>응급 의료</td></tr>
 <tr><td></td><td><strong>화물·물류</strong></td><td>도서·산간 지역 화물·의약품 배송</td><td>화물 운송</td></tr>
 <tr><td></td><td><strong>관광·레저</strong></td><td>도심 항공 관광·체험 비행 서비스</td><td>관광 서비스</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>K-UAM 로드맵:</strong><table>
+<li><strong>K-UAM 로드맵:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>시기</th><th>목표</th><th>핵심</th></tr>
 <tr><td><strong>초기 상용화</strong></td><td>2028년~</td><td>조종사 탑승 유인 상용 서비스 시작</td><td>1단계 상용화</td></tr>
 <tr><td><strong>성장기</strong></td><td>2030년~</td><td>노선 확대·자율비행 전환·비용 절감</td><td>본격 확산</td></tr>
 <tr><td><strong>성숙기</strong></td><td>2035년~</td><td>완전자율·대중화·광역권 서비스</td><td>완전 자율화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 과제:</strong><table>
+<li><strong>주요 과제:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>감항 인증</strong></td><td>FAA·EASA·국토부 형식증명 취득 복잡·장기화</td><td>인증 장벽</td></tr>
 <tr><td><strong>배터리 한계</strong></td><td>에너지 밀도 한계로 비행 거리·탑재 하중 제한</td><td>기술적 한계</td></tr>
 <tr><td><strong>소음·수용성</strong></td><td>도심 비행 소음에 대한 주민 사회적 수용성</td><td>사회적 수용</td></tr>
 <tr><td><strong>공역 관리</strong></td><td>기존 항공기·드론과의 공역 분리·안전 관리</td><td>공역 충돌</td></tr>
 <tr><td><strong>인프라 비용</strong></td><td>버티포트 구축·전력 인프라 초기 투자 부담</td><td>인프라 비용</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트:</strong> 국토교통부가 2026년 2월 K-UAM 운용개념서 1.5를 발간하여 2028년 상반기부터 상용화 1단계를 시행하겠다는 입장을 밝혔으며, UAM은 도심 교통 혁신을 넘어 의료·물류·공공안전을 아우르는 신교통 생태계로 진화하고 있음. AI 교통관리·버티포트 자동화·안전 인증 체계가 K-UAM 상용화의 3대 핵심 기술 과제로 꼽히며, 기체 개발 경쟁을 넘어 감항 인증·공역 관리·사회적 수용성 확보가 글로벌 UAM 시장 선점의 핵심 변수로 자리잡고 있음</li>
 </ul>

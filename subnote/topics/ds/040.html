@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 웹 페이지의 로딩 속도와 사용자 체감 성능을 개선하기 위한 기술적 전략과 기법의 총칭</li>
 <li><strong>키워드</strong>: Core Web Vitals, LCP, FID, CLS, CDN, 레이지 로딩, 코드 분할, 캐싱, SEO</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>Core Web Vitals (Google 핵심 지표)</strong>:<table>
+<li><strong>Core Web Vitals (Google 핵심 지표)</strong>:<div class="table-scroll"><table>
 <tr><th><strong>지표</strong></th><th><strong>의미</strong></th><th><strong>기준</strong></th></tr>
 <tr><td><strong>LCP (Largest Contentful Paint)</strong></td><td>주요 콘텐츠 렌더링 시간</td><td>2.5초 이하</td></tr>
 <tr><td><strong>FID (First Input Delay)</strong></td><td>첫 사용자 입력 응답 시간</td><td>100ms 이하</td></tr>
 <tr><td><strong>CLS (Cumulative Layout Shift)</strong></td><td>레이아웃 시각적 안정성</td><td>0.1 이하</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>주요 최적화 기법</strong>:<table>
+<li><strong>주요 최적화 기법</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>이미지 최적화</strong></td><td>WebP 변환</td><td>고효율 포맷으로 용량 축소</td><td>용량 절감</td></tr>
 <tr><td></td><td>레이지 로딩</td><td>시각적 영역만 우선 로드</td><td>지연 로딩</td></tr>
@@ -37,14 +37,14 @@
 <tr><td></td><td>서비스 워커</td><td>오프라인 지원 및 캐싱 제어</td><td>PWA 구현</td></tr>
 <tr><td><strong>번들링·압축</strong></td><td>Gzip/Brotli</td><td>파일 압축으로 전송량 감소</td><td>전송량 최소화</td></tr>
 <tr><td></td><td>트리 쉐이킹</td><td>미사용 코드 자동 제거</td><td>코드 경량화</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>SEO(Search Engine Optimization, 검색 엔진 최적화): </strong>웹사이트가 <strong>광고가 아닌 일반 검색 결과(Organic Search) 상단</strong>에 노출되도록 관리하는 모든 기술적, 전략적 활동을 의미<table>
+<li><strong>SEO(Search Engine Optimization, 검색 엔진 최적화): </strong>웹사이트가 <strong>광고가 아닌 일반 검색 결과(Organic Search) 상단</strong>에 노출되도록 관리하는 모든 기술적, 전략적 활동을 의미<div class="table-scroll"><table>
 <tr><th><strong>영역</strong></th><th><strong>핵심 활동</strong></th><th><strong>비유</strong></th></tr>
 <tr><td><strong>기술적 SEO (Technical)</strong></td><td>사이트 속도 최적화, 모바일 대응, 보안(HTTPS)</td><td><strong>식당의 쾌적한 시설/서비스</strong></td></tr>
 <tr><td><strong>콘텐츠 SEO (On-Page)</strong></td><td>고품질 정보 제공, 키워드 배치, 제목 태그 최적화</td><td><strong>메뉴의 맛과 영양가</strong></td></tr>
 <tr><td><strong>오프페이지 SEO (Off-Page)</strong></td><td>외부 사이트로부터의 인용(백링크), 브랜드 언급</td><td><strong>단골 손님의 입소문과 추천</strong></td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 웹 성능은 <strong>사용자 이탈률과 전환율에 직접 영향</strong>을 미치며, Google의 Core Web Vitals가 검색 순위 알고리즘에 반영되어 SEO와 성능 최적화가 연계된 전략 필요.</li>
 </ul>

@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: SSL/TLS 프로토콜 기반으로 웹 브라우저나 경량 클라이언트를 통해 원격에서 내부 네트워크 자원에 접근하는 응용 계층 VPN</li>
 <li><strong>키워드</strong>: TLS, 443 포트, 클라이언트리스, 원격 접속, HTTPS, BYOD, 세션 기반</li>
 <li><strong>분류</strong>: VPN</li>
-<li><strong>SSL VPN 접속 방식</strong>:<table>
+<li><strong>SSL VPN 접속 방식</strong>:<div class="table-scroll"><table>
 <tr><th>방식</th><th>설명</th><th>특징</th></tr>
 <tr><td>클라이언트리스(Portal)</td><td>웹 브라우저만 사용</td><td>추가 SW 불필요</td></tr>
 <tr><td>씬 클라이언트</td><td>경량 플러그인 설치</td><td>특정 앱 터널링</td></tr>
 <tr><td>풀 터널</td><td>VPN 클라이언트 설치</td><td>전체 트래픽 터널링</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: SSL VPN은 <strong>방화벽 443 포트를 활용</strong>하여 어떤 환경에서도 접속 가능해 재택근무·BYOD 환경에 최적. 단, 브라우저 취약점이 공격 경로가 될 수 있으므로 MFA와 결합 필수.</li>
 </ul>

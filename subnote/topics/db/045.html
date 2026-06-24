@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -20,14 +20,14 @@
 <li><strong>정의</strong>: 데이터베이스의 성능을 향상시키기 위해 SQL, 인덱스, 스키마 구조, 메모리 파라미터 등을 최적화하는 전반적인 활동</li>
 <li><strong>키워드</strong>: 반정규화, 파티셔닝, 인덱스설계, 캐시활용, 메모리 파라미터, 서브쿼리, 힌트</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>튜닝 절차:</strong><table>
+<li><strong>튜닝 절차:</strong><div class="table-scroll"><table>
 <tr><th><strong>튜닝단계</strong></th><th><strong>설명</strong></th><th><strong>사례</strong></th></tr>
 <tr><td><strong>1단계: DB 설계 튜닝</strong></td><td>설계 및 모델링 성능 고려</td><td>반정규화, 분산파일배치</td></tr>
 <tr><td><strong>2단계: DBMS 튜닝</strong></td><td>H/W 자원 및 환경 최적화</td><td>Buffer 크기, Cache 크기</td></tr>
 <tr><td><strong>3단계: SQL 튜닝</strong></td><td>SQL 및 실행 계획 최적화</td><td>Hash / Join</td></tr>
-</table>
+</table></div>
 </li>
-<li><strong>튜닝 단계별 기법</strong>:  <table>
+<li><strong>튜닝 단계별 기법</strong>:  <div class="table-scroll"><table>
 <tr><th>튜닝 영역</th><th>기법</th><th>상세</th></tr>
 <tr><td><strong>DB 설계 튜닝</strong></td><td>테이블 분할 및 통합</td><td>파티션 기능, 테이블 수평/수직 분할</td></tr>
 <tr><td></td><td>식별자 지정/Key 설정</td><td>본질/인조 식별자 정의, 클러스터링</td></tr>
@@ -49,7 +49,7 @@
 <tr><td></td><td>다중처리</td><td>한번의 DBMS 호출로 여러 건을 동시에 처리</td></tr>
 <tr><td></td><td>병렬처리</td><td>하나의 SQL을 여러 개의 CPU가 병렬로 분할 처리</td></tr>
 <tr><td></td><td>SORT 튜닝 수행</td><td>인덱스 이용 통해서 MIN, MAX 구하기, TOP-N 쿼리</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SQL 튜닝이 가장 높은 ROI를 보이는 튜닝 영역</strong></u></span>이며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>실행계획 분석(EXPLAIN PLAN)이 모든 튜닝의 출발점</strong></u></span>임을 답안에 명시 권장, S/W처리가 불가능하거나 효율적이지 않는 경우 <strong>H/W 방식의 시스템 데이터베이스 튜닝도 필요</strong></li>
 </ul>

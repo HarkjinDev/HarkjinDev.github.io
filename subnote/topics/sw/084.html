@@ -10,7 +10,7 @@
     body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
     img  { max-width: 100% !important; height: auto !important; }
     /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
-    table { display: table !important; width: 100%; }
+    table { display: table !important; width: max-content; min-width: 100%; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
@@ -19,12 +19,12 @@
 <ul>
 <li><strong>정의</strong>: 주관적인 직관과 경험을 토대로 테스트 케이스를 설계하고 수행하는 테스트 기법</li>
 <li><strong>키워드</strong>: 테스터 역량(Intuition), 오류 추정(Error Guessing), 탐색적 테스팅(Exploratory Testing), 체크리스트(Checklist), 시간 제한(Time-boxing), 세션(Session)</li>
-<li><strong>테스트 기법:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;에탐체&gt;</strong></span><table>
+<li><strong>테스트 기법:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;에탐체&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>기법</strong></th><th><strong>핵심</strong></th><th><strong>특징</strong></th></tr>
 <tr><td><strong>에러 추정</strong></td><td>테스터의 감각</td><td>발생 가능한 오류들을 목록화하고 직관적으로 테스트 수행</td></tr>
 <tr><td><strong>탐색적 테스팅</strong></td><td>학습과 설계의 병행</td><td>테스트 설계와 실행을 동시에 진행하며 비정형적으로 결함 탐색</td></tr>
 <tr><td><strong>체크리스트</strong></td><td>과거 경험의 자산화</td><td>과거의 결함 사례나 표준 리스트를 참고하여 누락 방지</td></tr>
-</table>
+</table></div>
 </li>
 <li><strong>탐색적 테스팅 구성요소: </strong><ul>
 <li><strong>테스트 차터(Charter)</strong>: 테스트의 목표와 범위를 정의한 간략한 지침서</li>
