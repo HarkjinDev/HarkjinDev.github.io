@@ -86,29 +86,34 @@ jobs:
               "Cookie": f"token_v2={TOKEN}",
               "Content-Type": "application/json",
               "notion-client-version": "23.13.0.0",
+              "accept": "application/json",
               "User-Agent": "Mozilla/5.0",
           }
           if USER_ID:
               HEADERS["x-notion-active-user-header"] = USER_ID
 
           def enqueue_export(page_id):
+              # 브라우저 실제 요청 형식: block 객체에 id + spaceId 묶음
               body = {
                   "task": {
                       "eventName": "exportBlock",
                       "request": {
-                          "blockId": page_id,
+                          "block": {
+                              "id": page_id,
+                              "spaceId": SPACE_ID,
+                          },
                           "recursive": False,
                           "exportOptions": {
                               "exportType": "html",
                               "timeZone": "Asia/Seoul",
                               "locale": "ko",
+                              "collectionViewExportType": "currentView",
+                              "flattenExportFiletree": False,
                           },
+                          "shouldExportComments": False,
                       }
                   }
               }
-              # ★ spaceId 추가 (없으면 500 에러)
-              if SPACE_ID:
-                  body["task"]["request"]["spaceId"] = SPACE_ID
 
               resp = requests.post(
                   "https://www.notion.so/api/v3/enqueueTask",
