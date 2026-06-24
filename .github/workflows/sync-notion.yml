@@ -178,40 +178,59 @@ jobs:
               export_url = poll_task(task_id)
               print(f"  다운로드 URL 획득")
 
-              # ── S3 Presigned URL 획득 (getSignedFileUrls) ──────────────
-              # file.notion.com은 CloudFront Signed Cookie 필요 → 직접 다운로드 불가
-              # getSignedFileUrls API로 CloudFront 없이 접근 가능한 S3 URL 획득
-              signed_resp = requests.post(
-                  "https://www.notion.so/api/v3/getSignedFileUrls",
-                  headers=HEADERS,
-                  json={
-                      "urls": [{
-                          "url": export_url,
-                          "permissionRecord": {
-                              "table": "block",
-                              "id": page_id,
-                          },
-                      }]
-                  },
-                  timeout=30,
-              )
-              print(f"  getSignedFileUrls 상태: {signed_resp.status_code}")
-              if signed_resp.status_code == 200:
-                  signed_data = signed_resp.json()
-                  s3_url = signed_data.get("signedUrls", [None])[0]
-              else:
-                  print(f"  [WARN] getSignedFileUrls 실패: {signed_resp.text[:200]}")
-                  s3_url = None
+              # ── user_export 레코드에서 실제 S3 URL 조회 ──────────────
+              import urllib.parse as up
+              qs = up.parse_qs(up.urlparse(export_url).query)
+              record_id = qs.get("id", [None])[0]
+              print(f"  record_id: {record_id}")
+
+              s3_url = None
+
+              if record_id:
+                  sync_resp = requests.post(
+                      "https://www.notion.so/api/v3/syncRecordValues",
+                      headers=HEADERS,
+                      json={
+                          "requests": [{
+                              "pointer": {"table": "user_export", "id": record_id},
+                              "version": -1,
+                          }]
+                      },
+                      timeout=30,
+                  )
+                  print(f"  syncRecordValues 상태: {sync_resp.status_code}")
+                  if sync_resp.status_code == 200:
+                      rec = (sync_resp.json()
+                             .get("recordMap", {})
+                             .get("user_export", {})
+                             .get(record_id, {})
+                             .get("value", {}))
+                      print(f"  레코드 키: {list(rec.keys())}")
+                      # 가능한 S3 URL 필드명들 시도
+                      for field in ("s3FileUrl", "s3_file_url", "fileUrl",
+                                    "file_url", "url", "exportUrl",
+                                    "export_url", "downloadUrl", "download_url"):
+                          if rec.get(field):
+                              s3_url = rec[field]
+                              print(f"  S3 URL ({field}): {s3_url[:100]}...")
+                              break
+                      if not s3_url:
+                          print(f"  레코드 전체: {json.dumps(rec)[:500]}")
+                  else:
+                      print(f"  syncRecordValues 실패: {sync_resp.text[:200]}")
 
               if s3_url:
-                  print(f"  S3 URL 획득: {s3_url[:80]}...")
                   zip_resp = requests.get(s3_url, timeout=120)
               else:
-                  # fallback: export_url 직접 시도 (token_v2 포함)
-                  print(f"  fallback: export_url 직접 시도")
+                  # fallback: URL-decoded 토큰으로 직접 시도
+                  token_decoded = up.unquote(TOKEN)
+                  print(f"  fallback: URL-decoded 토큰으로 시도")
                   zip_resp = requests.get(
                       export_url,
-                      headers={"Cookie": f"token_v2={TOKEN}"},
+                      headers={
+                          "Cookie": f"token_v2={token_decoded}",
+                          "User-Agent": "Mozilla/5.0",
+                      },
                       timeout=120,
                       allow_redirects=True,
                   )
