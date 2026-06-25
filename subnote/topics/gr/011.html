@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 금융 AI 가이드라인(26.6.)</title>
+  <title>9. 금융분야 인공지능 가이드라인 (2026.6.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,8 +15,71 @@
   </style>
 </head>
 <body>
-<h4>9. 금융 AI 가이드라인(26.6.)</h4>
-<br/>
+<h4>9. 금융분야 인공지능 가이드라인 (2026.6.)</h4>
+<ul>
+<li><strong>정의:</strong> 인공지능기본법 시행(2026.1.)에 따라 금융분야 AI 도입·운영 시 준수해야 할 7대 핵심 원칙과 리스크 관리 체계를 규정한 금융당국 가이드라인</li>
+<li><strong>키워드:</strong> 7대 원칙, 고영향 AI, HITL, Kill Switch, XAI, 보안성, AI 거버넌스, 공급망 보안</li>
+<li><strong>분류:</strong> SEC / AI 규제·거버넌스</li>
+<li><strong>제·개정 배경:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>법적 근거</td><td>인공지능기본법 시행(2026.1.)</td><td>AI 규제 법제화</td></tr>
+<tr><td>개정 배경</td><td>AI 기술 양상·규제 환경 변화 반영</td><td>고영향 AI 책무 추가</td></tr>
+<tr><td>적용 대상</td><td>금융분야 AI 도입·운영 금융회사</td><td>전 금융기관</td></tr>
+</table></div>
+</li>
+<li><strong>7대 핵심 원칙:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>핵심 내용</th><th>핵심 키워드</th></tr>
+<tr><td>1. 거버넌스</td><td>최고경영진 책임 하 AI 의사결정기구 설치</td><td>AI 거버넌스 기구</td></tr>
+<tr><td></td><td>기능적으로 분리된 독립적 위험관리 전담조직 구성</td><td>독립적 위험관리</td></tr>
+<tr><td></td><td>AI 수명주기 전반 종합 위험평가 체계 구축</td><td>위험인식·측정·경감</td></tr>
+<tr><td></td><td>관련 내부 규정 마련</td><td>내부통제 규정화</td></tr>
+<tr><td>2. 합법성</td><td>AI기본법·신용정보법 등 관련 법규 내부 규정 반영</td><td>법규 내재화</td></tr>
+<tr><td></td><td>고영향 AI 해당 시 안전성 확보·위험관리 방안 수립 의무 준수</td><td>고영향 AI 책무</td></tr>
+<tr><td>3. 보조수단성</td><td>최종 의사결정·책임은 임직원에게 귀속</td><td>인간 최종 책임</td></tr>
+<tr><td></td><td>고위험 AI에 HITL(Human-in-the-Loop) 적용</td><td>인적 개입 통제</td></tr>
+<tr><td></td><td>AI 산출물 거부 가능한 Override(재정의) 절차 구현</td><td>결과 거부권</td></tr>
+<tr><td></td><td>이상 발생 시 긴급정지(Kill Switch) 기능 필수 구현</td><td>긴급차단</td></tr>
+<tr><td>4. 신뢰성</td><td>모델 성능·데이터 품질 정기 점검 및 편향성 확인</td><td>공정성 확보</td></tr>
+<tr><td></td><td>XAI 등 활용한 설명가능성 확보</td><td>이용자 이해 보장</td></tr>
+<tr><td>5. 금융안정성</td><td>제3자 의존성(외주·클라우드) IT 리스크 평가·비상대응 계획 수립</td><td>공급망 리스크 관리</td></tr>
+<tr><td></td><td>AI 오작동 시 백업모형 운용·시스템 리스크 안전장치 마련</td><td>백업모형·안전장치</td></tr>
+<tr><td>6. 신의성실</td><td>소비자 이익 최우선·이해상충 행위 시스템적 방지</td><td>이해상충 방지</td></tr>
+<tr><td></td><td>생성형·고영향 AI 활용 사실 이용자 사전 고지</td><td>투명성 고지 의무</td></tr>
+<tr><td>7. 보안성</td><td>AI 특화 공격(데이터 조작·모델 역추론·프롬프트 인젝션) 탐지·방어 체계 구축</td><td>AI 위협 모델링</td></tr>
+<tr><td></td><td>오픈소스 모델·데이터 도입 시 파일 무결성 검증·공급망 위험 최소화</td><td>공급망 보안</td></tr>
+<tr><td></td><td>데이터·모델 파라미터 핵심자산 암호화·접근통제 적용</td><td>핵심자산 보호</td></tr>
+<tr><td></td><td>보안 목적 AI 도입 적극 검토</td><td>AI 기반 보안 고도화</td></tr>
+</table></div>
+</li>
+<li><strong>고영향 AI 특별 통제 요건:</strong><div class="table-scroll"><table>
+<tr><th>통제 항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>HITL (Human-in-the-Loop)</td><td>고위험 AI 결정에 인간 개입 통제 방식 적용</td><td>인적 개입 필수</td></tr>
+<tr><td>Override (재정의)</td><td>AI 산출물 거부·재정의 절차 시스템 구현</td><td>결과 거부권</td></tr>
+<tr><td>Kill Switch (긴급정지)</td><td>이상 발생 시 즉각 정지 기능 필수 구현</td><td>긴급차단</td></tr>
+<tr><td>사전 고지</td><td>생성형·고영향 AI 활용 사실 이용자 사전 고지</td><td>투명성 확보</td></tr>
+</table></div>
+</li>
+<li><strong>보안성 원칙 상세 (AI 특화 위협):</strong><div class="table-scroll"><table>
+<tr><th>위협 유형</th><th>설명</th><th>대응 방안</th></tr>
+<tr><td>데이터 조작 (Data Poisoning)</td><td>학습 데이터 오염으로 모델 성능 저하</td><td>데이터 무결성 검증</td></tr>
+<tr><td>모델 역추론 (Model Inversion)</td><td>모델 출력으로 학습 데이터 역추출</td><td>접근통제·차등 프라이버시</td></tr>
+<tr><td>프롬프트 인젝션</td><td>악의적 입력으로 모델 우회·오동작 유도</td><td>입력 필터링·가드레일</td></tr>
+<tr><td>공급망 위험</td><td>오픈소스 모델·데이터 도입 시 악성코드 삽입</td><td>파일 무결성 검증</td></tr>
+<tr><td>적대적 공격</td><td>입력 변형으로 모델 오분류 유도</td><td>레드팀·적대적 훈련</td></tr>
+<tr><td>핵심자산 무단접근</td><td>모델 파라미터·데이터 탈취·변조</td><td>암호화·접근통제</td></tr>
+</table></div>
+</li>
+<li><strong>AI 위험 관리 프레임워크:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>활동</th><th>핵심</th></tr>
+<tr><td>위험 인식</td><td>AI 수명주기 전반 위험 식별·분류</td><td>고영향 AI 판별</td></tr>
+<tr><td>위험 측정</td><td>모델 성능·편향성·공정성 정량 평가</td><td>KPI·메트릭 설정</td></tr>
+<tr><td>위험 경감</td><td>HITL·Override·가드레일·백업모형 적용</td><td>통제 수단 구현</td></tr>
+<tr><td>잔여 위험 평가</td><td>경감 후 잔존 위험 수용 여부 결정</td><td>경영진 승인</td></tr>
+<tr><td>지속 모니터링</td><td>모델 드리프트·이상 탐지·정기 점검</td><td>MLOps 연계</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 금융 AI 가이드라인은 거버넌스·합법성·보조수단성·신뢰성·금융안정성·신의성실·보안성 7대 원칙으로 AI 전 수명주기를 규율하며, 특히 고영향 AI에 대한 HITL·Kill Switch·XAI·공급망 보안은 금융 AI 신뢰 확보의 핵심 통제 수단임</li>
+</ul>
 
 </body>
 </html>
