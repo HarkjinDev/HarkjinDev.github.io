@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</title>
+  <title>8. 혼잡 제어 (Congestion Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,20 @@
   </style>
 </head>
 <body>
-<h4>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</h4>
+<h4>8. 혼잡 제어 (Congestion Control)</h4>
 <ul>
-<li><strong>정의</strong>: TCP에서 혼잡 윈도우(cwnd)와 ssthresh를 동적으로 조절하여 네트워크 혼잡을 감지하고 제어하는 메커니즘</li>
-<li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
+<li><strong>정의</strong>: 네트워크 혼잡 발생 시 전송률을 동적으로 조절하여 패킷 손실과 지연을 최소화하는 트래픽 관리 기법</li>
+<li><strong>키워드</strong>: 혼잡 윈도우(cwnd), Slow Start, AIMD, 혼잡 회피, Fast Retransmit, ECN</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
-<tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
-<tr><td>타임아웃</td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
-<tr><td>3중복 ACK</td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
+<li><strong>TCP 혼잡 제어 단계</strong>:<div class="table-scroll"><table>
+<tr><th>단계</th><th>동작</th><th>설명</th></tr>
+<tr><td>Slow Start</td><td>cwnd 지수 증가</td><td>1→2→4→8… (매 RTT 2배)</td></tr>
+<tr><td>혼잡 회피</td><td>cwnd 선형 증가</td><td>ssthresh 도달 후 +1/RTT</td></tr>
+<tr><td>Fast Retransmit</td><td>3 Dup ACK → 즉시 재전송</td><td>타임아웃 대기 없이 빠른 복구</td></tr>
+<tr><td>Fast Recovery</td><td>ssthresh 재설정 후 혼잡 회피 진입</td><td>cwnd = ssthresh + 3</td></tr>
 </table></div>
 </li>
-<li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>TCP Reno</strong></th><th><strong>TCP Cubic</strong></th><th><strong>BBR</strong></th></tr>
-<tr><td><strong>특징</strong></td><td>3 Dup ACK 시 cwnd 절반</td><td>시간 기반 3차함수 증가</td><td>RTT·대역폭 기반 모델링</td></tr>
-<tr><td><strong>환경</strong></td><td>유선망 표준</td><td>고속 대용량 망</td><td>고지연·무선망</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: <strong>Cubic은 리눅스 기본값</strong>으로 고속 환경에 최적화되어 있으며, 구글의 BBR은 손실 기반이 아닌 대역폭 모델 기반으로 위성·LTE 환경에서 효과적.</li>
+<li><strong>인사이트</strong>: <strong>AIMD(Additive Increase Multiplicative Decrease)</strong>는 공정성을 보장하는 핵심 원리로, 손실 감지 시 cwnd를 절반으로 줄여 빠른 회복을 유도. QUIC/BBR 등 신규 혼잡 제어는 RTT 기반으로 동작하여 대역폭 활용률을 개선.</li>
 </ul>
 
 </body>

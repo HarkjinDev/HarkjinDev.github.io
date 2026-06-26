@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. OWASP LLM Top 10</title>
+  <title>10. ML 편향 문제 (Machine Learning Bias)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,38 @@
   </style>
 </head>
 <body>
-<h4>8. OWASP LLM Top 10</h4>
+<h4>10. ML 편향 문제 (Machine Learning Bias)</h4>
 <ul>
-<li><strong>정의</strong>: OWASP에서 발표한 LLM 애플리케이션의 10대 보안 위협 목록</li>
-<li><strong>키워드</strong>: LLM 보안 위협, 프롬프트 인젝션, 데이터 유출</li>
+<li><strong>정의:</strong> 머신러닝 모델이 학습 데이터·알고리즘·설계 과정의 편향으로 인해 특정 집단·속성에 대해 불공정하거나 차별적인 예측·결정을 내리는 문제</li>
+<li><strong>키워드:</strong> 데이터 편향, 알고리즘 공정성, 대표성 부족, 역사적 편향, 확증 편향, XAI, 공정성 지표, AI 윤리</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>OWASP LLM Top 10 목록</strong>:<div class="table-scroll"><table>
-<tr><th><strong>#</strong></th><th><strong>항목</strong></th><th><strong>핵심</strong></th><th><strong>대응</strong></th></tr>
-<tr><td><strong>LLM01</strong></td><td><strong>프롬프트 인젝션</strong></td><td>프롬프트 조작</td><td>입력 정제·검증·격리</td></tr>
-<tr><td><strong>LLM02</strong></td><td><strong>민감 정보 유출</strong></td><td>데이터 노출</td><td>접근 제어·DP·데이터 정제</td></tr>
-<tr><td><strong>LLM03</strong></td><td><strong>공급망 취약점</strong></td><td>외부 모듈 결함</td><td>SBOM·무결성 체크</td></tr>
-<tr><td><strong>LLM04</strong></td><td><strong>데이터 및 모델 오염</strong></td><td>학습 데이터 변조</td><td>안전 파이프라인·무결성 검사</td></tr>
-<tr><td><strong>LLM05</strong></td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증 미흡</td><td>샌드박싱·출력 모니터링</td></tr>
-<tr><td><strong>LLM06</strong></td><td><strong>과도한 에이전시</strong></td><td>통제 불능 자율성</td><td>인간 개입(HITL)·권한 제한</td></tr>
-<tr><td><strong>LLM07</strong></td><td><strong>시스템 프롬프트 유출</strong></td><td>내부 지침 공개</td><td>프롬프트 은닉·내외부 분리</td></tr>
-<tr><td><strong>LLM08</strong></td><td><strong>벡터·임베딩 취약점</strong></td><td>RAG/임베딩 조작</td><td>안전 임베딩·적대적 테스트</td></tr>
-<tr><td><strong>LLM09</strong></td><td><strong>허위 정보 (Hallucination)</strong></td><td>왜곡 정보 생성</td><td>RAG·파인튜닝·인간 검증</td></tr>
-<tr><td><strong>LLM10</strong></td><td><strong>무한 소비</strong></td><td>자원 고갈 요청</td><td>속도 제한(Rate Limit)·자원 관리</td></tr>
+<li><strong>편향 발생 원인:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>샘플링 편향</strong></td><td>특정 집단이 과소·과대 대표된 학습 데이터 수집</td><td>대표성 부족</td></tr>
+<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별·불평등이 반영된 데이터 그대로 학습</td><td>과거 차별 재현</td></tr>
+<tr><td></td><td><strong>레이블 편향</strong></td><td>어노테이터 주관·편견이 레이블링에 반영</td><td>주관적 레이블</td></tr>
+<tr><td></td><td><strong>측정 편향</strong></td><td>집단별 데이터 수집·측정 방식의 불일치</td><td>측정 불일치</td></tr>
+<tr><td><strong>알고리즘</strong></td><td><strong>집계 편향</strong></td><td>전체 집단 최적화 과정에서 소수 집단 성능 저하</td><td>소수 집단 소외</td></tr>
+<tr><td></td><td><strong>평가 편향</strong></td><td>편향된 기준·지표로 모델 성능 평가</td><td>잘못된 평가</td></tr>
+<tr><td></td><td><strong>피드백 루프</strong></td><td>편향된 예측이 데이터로 재입력되어 편향 증폭</td><td>편향 자기 강화</td></tr>
+<tr><td><strong>설계·운영</strong></td><td><strong>확증 편향</strong></td><td>기존 가설을 확인하는 데이터만 선택 활용</td><td>선택적 데이터</td></tr>
+<tr><td></td><td><strong>자동화 편향</strong></td><td>AI 결과를 무비판적으로 수용하는 인간 의존</td><td>맹목적 신뢰</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: LLM06(과도한 에이전시)은 AI 에이전트가 필요 이상의 권한으로 자율 행동하는 위험으로, 최소 권한 원칙과 Human-in-the-Loop가 핵심 대응임</li>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>데이터 다양성 확보</strong></td><td>소수 집단 포함 균형 있는 학습 데이터 수집</td><td>대표성 확보</td></tr>
+<tr><td></td><td><strong>재샘플링·증강</strong></td><td>과소 표현 집단 데이터 증강·오버샘플링</td><td>데이터 균형화</td></tr>
+<tr><td></td><td><strong>데이터 감사</strong></td><td>학습 데이터 편향 여부 정기 검토·검증</td><td>데이터 품질 관리</td></tr>
+<tr><td><strong>모델</strong></td><td><strong>편향 완화 알고리즘</strong></td><td>학습 단계에서 공정성 제약 조건 추가</td><td>알고리즘 공정화</td></tr>
+<tr><td></td><td><strong>후처리 보정</strong></td><td>모델 출력 후 집단 간 결과 균등화 보정</td><td>출력 보정</td></tr>
+<tr><td></td><td><strong>XAI 적용</strong></td><td>모델 편향 원인·특징 중요도 투명하게 설명</td><td>편향 원인 탐지</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>편향 감사 체계</strong></td><td>정기적 모델 편향·공정성 독립 감사 수행</td><td>주기적 검증</td></tr>
+<tr><td></td><td><strong>다양성 팀 구성</strong></td><td>다양한 배경·관점의 AI 개발팀 구성</td><td>설계 단계 예방</td></tr>
+<tr><td></td><td><strong>규제 준수</strong></td><td>EU AI Act·공정성 가이드라인 준수</td><td>법적 책임 이행</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> ML 편향은 기술적 문제를 넘어 사회적 차별을 AI가 자동화·증폭시키는 구조적 위험으로, 데이터·알고리즘·거버넌스 3축의 통합적 대응이 필수임. 공정성 지표 간 수학적 상충 관계(Trade-off)가 존재하여 어떤 공정성 기준을 우선할지는 기술이 아닌 사회적 가치 판단의 문제이며, AI 개발 초기부터 다양성 확보와 편향 감사를 설계에 내재화하는 것이 핵심 예방 전략임</li>
 </ul>
 
 </body>

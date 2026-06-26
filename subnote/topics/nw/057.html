@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. NOMA (Non-Orthogonal Multiple Access)</title>
+  <title>2. SDR (Software Defined Radio)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. NOMA (Non-Orthogonal Multiple Access)</h4>
+<h4>2. SDR (Software Defined Radio)</h4>
 <ul>
-<li><strong>정의</strong>: 동일 시간-주파수 자원에서 전력 수준의 차이를 이용해 다수 사용자를 동시에 다중 접속시키는 비직교 다중 접속 기술</li>
-<li><strong>키워드</strong>: SIC(연속 간섭 제거), 전력 할당, 스펙트럼 효율, 5G/6G, 근거리/원거리 사용자</li>
+<li><strong>정의</strong>: 무선 통신의 변조·복조·주파수 처리 등 하드웨어로 구현되던 기능을 소프트웨어로 대체하여 유연하게 구현하는 기술</li>
+<li><strong>키워드</strong>: ADC/DAC, FPGA, DSP, 재구성 가능, 인지 무선(Cognitive Radio), 다중 표준</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>NOMA vs OFDMA 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>OFDMA</th><th>NOMA</th></tr>
-<tr><td>자원 분배</td><td>직교(사용자마다 다른 주파수)</td><td>비직교(동일 주파수 중첩)</td></tr>
-<tr><td>스펙트럼 효율</td><td>상대적으로 낮음</td><td>높음</td></tr>
-<tr><td>수신 복잡도</td><td>낮음</td><td>SIC로 높음</td></tr>
-<tr><td>공정성</td><td>낮음(근거리 우선)</td><td>높음(원거리 우선 전력 할당)</td></tr>
+<li><strong>SDR 구성</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>역할</th></tr>
+<tr><td>안테나</td><td>RF 신호 수신</td></tr>
+<tr><td>ADC/DAC</td><td>아날로그-디지털 변환</td></tr>
+<tr><td>FPGA/DSP</td><td>소프트웨어 기반 신호 처리</td></tr>
+<tr><td>SW 모듈</td><td>변조/복조/프로토콜 처리</td></tr>
 </table></div>
 </li>
-<li><strong>SIC(Successive Interference Cancellation)</strong>: 강한 신호부터 순차 복조 후 제거하여 약한 신호 추출</li>
-<li><strong>인사이트</strong>: NOMA는 <strong>셀 가장자리 사용자에게 더 높은 전력을 할당</strong>하여 공정성을 개선하며, 6G 후보 기술로 매시브 MIMO와 결합 시 스펙트럼 효율 극대화 가능.</li>
+<li><strong>장점</strong>: 단일 하드웨어로 다중 표준(LTE/5G/Wi-Fi) 지원, 펌웨어 업데이트로 기능 변경</li>
+<li><strong>인지 무선(CR) 연계</strong>: SDR 기반으로 주파수 사용 환경을 감지하여 동적으로 주파수 선택</li>
+<li><strong>인사이트</strong>: SDR은 <strong>주파수 유연성과 다중 표준 지원</strong>이 핵심으로, 군사통신·재난망·5G 기지국 가상화(vRAN)에 적용됨. GNU Radio 등 오픈소스 SDR 플랫폼이 연구·교육에 활용.</li>
 </ul>
 
 </body>

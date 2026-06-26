@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. SCTP (Stream Control Transmission Protocol)</title>
+  <title>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,24 @@
   </style>
 </head>
 <body>
-<h4>9. SCTP (Stream Control Transmission Protocol)</h4>
+<h4>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</h4>
 <ul>
-<li><strong>정의</strong>: 멀티스트리밍(여러 독립 스트림)과 멀티호밍(다중 경로)을 지원하여 신뢰성과 가용성을 높인 전송 계층 프로토콜</li>
-<li><strong>키워드</strong>: RFC 4960, 멀티스트리밍, 멀티호밍, 4-way Handshake, COOKIE, 청크, 시그널링</li>
+<li><strong>정의</strong>: TCP에서 혼잡 윈도우(cwnd)와 ssthresh를 동적으로 조절하여 네트워크 혼잡을 감지하고 제어하는 메커니즘</li>
+<li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP vs SCTP 비교</strong>:  <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// udp까지 비교</span><div class="table-scroll"><table>
-<tr><th>구분</th><th>TCP</th><th>SCTP</th></tr>
-<tr><td>스트림</td><td>단일 스트림 (HOL 블로킹)</td><td>멀티 스트림 (HOL 차단 없음)</td></tr>
-<tr><td>다중 경로</td><td>미지원</td><td>멀티호밍 지원</td></tr>
-<tr><td>연결 설정</td><td>3-way Handshake</td><td>4-way Handshake (INIT/INIT-ACK/COOKIE-ECHO/COOKIE-ACK)</td></tr>
-<tr><td>SYN 공격 방어</td><td>취약</td><td>COOKIE 메커니즘으로 방어</td></tr>
+<li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
+<tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
+<tr><td>타임아웃</td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
+<tr><td>3중복 ACK</td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
 </table></div>
 </li>
-<li><strong>프로토콜 구조</strong>: 공통 헤더 + 복수 청크(DATA/SACK/HEARTBEAT/ERROR 등)</li>
-<li><strong>활용</strong>: SS7 시그널링 over IP(SIGTRAN), VoIP, 이동통신 코어 네트워크</li>
-<li><strong>인사이트</strong>: SCTP는 TCP의 <strong>HOL(Head-of-Line) 블로킹 문제를 멀티스트리밍으로 해결</strong>하며, 멀티호밍으로 링크 장애 시 자동 경로 전환. HTTP/3의 QUIC도 유사한 멀티스트림 개념을 UDP 위에서 구현.</li>
+<li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>TCP Reno</strong></th><th><strong>TCP Cubic</strong></th><th><strong>BBR</strong></th></tr>
+<tr><td><strong>특징</strong></td><td>3 Dup ACK 시 cwnd 절반</td><td>시간 기반 3차함수 증가</td><td>RTT·대역폭 기반 모델링</td></tr>
+<tr><td><strong>환경</strong></td><td>유선망 표준</td><td>고속 대용량 망</td><td>고지연·무선망</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: <strong>Cubic은 리눅스 기본값</strong>으로 고속 환경에 최적화되어 있으며, 구글의 BBR은 손실 기반이 아닌 대역폭 모델 기반으로 위성·LTE 환경에서 효과적.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. Ad-hoc 네트워크</title>
+  <title>8. 5G 네트워크 슬라이싱 (Network Slicing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,20 @@
   </style>
 </head>
 <body>
-<h4>9. Ad-hoc 네트워크</h4>
+<h4>8. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
 <ul>
-<li><strong>정의</strong>: 기지국이나 중앙 인프라 없이 이동 단말 간 자율적으로 다중 홉 무선 경로를 구성하는 인프라리스 이동 무선 네트워크</li>
-<li><strong>키워드</strong>: 멀티홉, 자율 구성, MANET, 라우팅(AODV/DSR/DSDV), 토폴로지 변동, WSN</li>
+<li><strong>정의</strong>: 하나의 물리적 5G 네트워크 인프라를 NFV/SDN 기술로 다수의 독립된 가상 네트워크로 분리하여 서비스별 최적 QoS를 제공하는 기술</li>
+<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>Ad-hoc vs WSN 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>Ad-hoc(MANET)</th><th>WSN</th></tr>
-<tr><td>노드 이동성</td><td>높음</td><td>낮음(고정 센서)</td></tr>
-<tr><td>전력</td><td>상대적 여유</td><td>극저전력 필수</td></tr>
-<tr><td>목적</td><td>범용 통신</td><td>환경 모니터링·데이터 수집</td></tr>
-<tr><td>프로토콜</td><td>AODV, DSR</td><td>LEACH, RPL</td></tr>
+<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
+<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
+<tr><td>eMBB</td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
+<tr><td>URLLC</td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
+<tr><td>mMTC</td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
 </table></div>
 </li>
-<li><strong>경로 제어 방식</strong>:<div class="table-scroll"><table>
-<tr><th>방식</th><th>종류</th><th>특징</th></tr>
-<tr><td>사전 계산</td><td>DSDV, OLSR</td><td>항상 경로 유지, 오버헤드 큼</td></tr>
-<tr><td>반응형</td><td>AODV, DSR</td><td>필요 시 경로 탐색, 초기 지연</td></tr>
-<tr><td>혼합형</td><td>ZRP</td><td>존 내부 사전, 외부 반응</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: Ad-hoc은 <strong>재난망·군사통신·드론 네트워크</strong>에 적용되며, 토폴로지 변동이 잦아 빠른 라우팅 수렴이 핵심 설계 과제.</li>
+<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
+<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
 </ul>
 
 </body>

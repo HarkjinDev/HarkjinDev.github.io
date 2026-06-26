@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 7-1. 슬라이딩 윈도우 (Sliding Window)</title>
+  <title>7. 흐름 제어 (Flow Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,46 @@
   </style>
 </head>
 <body>
-<h4>[하위] 7-1. 슬라이딩 윈도우 (Sliding Window)</h4>
+<h4>7. 흐름 제어 (Flow Control)</h4>
 <ul>
-<li><strong>정의</strong>: 수신 측의 ACK를 기다리지 않고 윈도우 크기만큼 연속으로 프레임을 전송하여 채널 효율을 극대화하는 흐름 제어 기법</li>
-<li><strong>키워드</strong>: 윈도우 크기, ACK, 흐름 제어, 버퍼, 수신 윈도우(rwnd), 송신 윈도우</li>
-<li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>동작 원리</strong>: <div class="table-scroll"><table>
+<li><strong>정의:</strong> 송신측과 수신측 간 처리 속도 차이로 인한 수신 버퍼 오버플로우를 방지하기 위해 송신 속도를 수신 능력에 맞게 동적으로 조절하는 전송 제어 기술</li>
+<li><strong>키워드:</strong> 슬라이딩 윈도우, 수신 윈도우(rwnd), Stop-and-Wait, 버퍼 오버플로우, ACK, TCP, XON/XOFF, 어리석은 윈도우 증후군(payload(1byte) &lt;&lt; header(40byte)), Clark’s(버퍼, MSS), Nalge(버퍼, 일괄전송)</li>
+<li><strong>분류:</strong> 네트워크 / 전송 계층</li>
+<li><strong>흐름 제어 vs 혼잡 제어 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>흐름 제어</th><th>혼잡 제어</th></tr>
+<tr><td><strong>목적</strong></td><td>수신측 버퍼 오버플로우 방지</td><td>네트워크 과부하 방지</td></tr>
+<tr><td><strong>제어 대상</strong></td><td>송신자 ↔ 수신자</td><td>송신자 ↔ 네트워크</td></tr>
+<tr><td><strong>윈도우</strong></td><td>수신 윈도우 (rwnd)</td><td>혼잡 윈도우 (cwnd)</td></tr>
+<tr><td><strong>주체</strong></td><td>수신측 제어</td><td>송신측 판단</td></tr>
+<tr><td><strong>계층</strong></td><td>전송 계층 (L4)</td><td>전송 계층 (L4)</td></tr>
+</table></div>
+</li>
+<li><strong>주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정지 대기</strong></td><td><strong>Stop-and-Wait</strong></td><td>패킷 1개 전송 후 ACK 수신까지 대기</td><td>단순·비효율</td></tr>
+<tr><td><strong>슬라이딩 윈도우</strong></td><td><strong>Go-Back-N</strong></td><td>오류 이후 전체 윈도우 재전송</td><td>윈도우 순차 재전송</td></tr>
+<tr><td></td><td><strong>Selective Repeat</strong></td><td>오류 패킷만 선택 재전송</td><td>선택 재전송</td></tr>
+<tr><td><strong>버퍼 기반</strong></td><td><strong>XON/XOFF</strong></td><td>버퍼 임계치 도달 시 XOFF 전송·중단 요청</td><td>하드웨어 흐름 제어</td></tr>
+<tr><td></td><td><strong>Credit 기반</strong></td><td>수신 가능 크레딧(버퍼 잔량)을 송신측에 통보</td><td>크레딧 기반 조절</td></tr>
+</table></div>
+</li>
+<li><strong>TCP 흐름 제어 동작:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 윈도우 설정</strong></td><td>수신측 rwnd 기반으로 송신 윈도우 크기 결정</td><td>전송 허용 범위 설정</td></tr>
-<tr><td><strong>2. 연속 전송</strong></td><td>ACK 대기 없이 윈도우 크기만큼 프레임 연속 전송</td><td>연속 전송</td></tr>
-<tr><td><strong>3. ACK 수신</strong></td><td>수신측이 정상 수신 확인 후 ACK + 최신 rwnd 전송</td><td>수신 확인·갱신</td></tr>
-<tr><td><strong>4. 윈도우 슬라이드</strong></td><td>ACK 수신 시 윈도우를 오른쪽으로 이동·새 프레임 전송 허용</td><td>윈도우 이동</td></tr>
-<tr><td><strong>5. 윈도우 축소</strong></td><td>수신 버퍼 감소 시 rwnd 축소·송신 속도 제한</td><td>속도 조절</td></tr>
-<tr><td><strong>6. Zero Window</strong></td><td>rwnd=0 수신 시 전송 중단·Window Probe 주기 전송</td><td>교착 방지</td></tr>
-<tr><td><strong>7. 전송 재개</strong></td><td>수신 버퍼 여유 생기면 rwnd 갱신 ACK로 전송 재개</td><td>전송 복구</td></tr>
+<tr><td><strong>1. 버퍼 공간 통보</strong></td><td>수신측이 TCP 헤더 Window 필드로 rwnd 값 송신측에 전달</td><td>수신 능력 공지</td></tr>
+<tr><td><strong>2. 전송량 조절</strong></td><td>송신측이 rwnd 초과하지 않는 범위에서 데이터 전송</td><td>전송량 제한</td></tr>
+<tr><td><strong>3. ACK + 윈도우 갱신</strong></td><td>ACK 전송 시 최신 rwnd 값 함께 전달</td><td>동적 조절</td></tr>
+<tr><td><strong>4. Zero Window 처리</strong></td><td>rwnd=0 수신 시 Window Probe로 주기적 상태 확인</td><td>교착 방지</td></tr>
+<tr><td><strong>5. 윈도우 재개</strong></td><td>수신측 버퍼 여유 생기면 rwnd 갱신 ACK 전송</td><td>전송 재개</td></tr>
 </table></div>
 </li>
-<li><strong>윈도우 크기 결정 요소</strong>:<div class="table-scroll"><table>
-<tr><th>요소</th><th>설명</th></tr>
-<tr><td>수신 윈도우(rwnd)</td><td>수신 버퍼 여유 공간</td></tr>
-<tr><td>혼잡 윈도우(cwnd)</td><td>네트워크 혼잡 기반 제한</td></tr>
-<tr><td>실효 윈도우</td><td>min(rwnd, cwnd)</td></tr>
+<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>개념</strong></td><td>소량 데이터를 반복 전송하여 헤더 오버헤드가 급증하는 현상</td><td>비효율 전송</td></tr>
+<tr><td><strong>수신측 대응</strong></td><td><strong>Clark 해결책</strong> — 윈도우가 충분히 커질 때까지 rwnd=0 유지</td><td>수신 지연 공지</td></tr>
+<tr><td><strong>송신측 대응</strong></td><td><strong>Nagle 알고리즘</strong> — 소량 데이터를 모아 한번에 전송</td><td>데이터 묶음 전송</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 슬라이딩 윈도우는 <strong>흐름 제어의 핵심 메커니즘</strong>이며, TCP에서는 수신 윈도우(rwnd)와 혼잡 윈도우(cwnd)의 최솟값으로 실효 윈도우를 결정. Zero Window Probe로 rwnd=0 교착 상태 해소.</li>
+<li><strong>인사이트:</strong> 흐름 제어는 수신측 버퍼 보호를 목적으로 하며, TCP에서 rwnd를 통한 동적 윈도우 조절이 핵심 메커니즘임. 혼잡 제어의 cwnd와 결합하여 실제 전송 크기는 min(rwnd, cwnd)로 결정되므로, 두 제어 메커니즘의 상호작용 이해가 TCP 성능 최적화의 핵심 포인트이며 Zero Window·Silly Window Syndrome이 대표적 시험 출제 포인트임</li>
 </ul>
 
 </body>

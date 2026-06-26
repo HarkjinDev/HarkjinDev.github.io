@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. FTP/FTPS/SFTP</title>
+  <title>9. SCTP (Stream Control Transmission Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,22 @@
   </style>
 </head>
 <body>
-<h4>10. FTP/FTPS/SFTP</h4>
+<h4>9. SCTP (Stream Control Transmission Protocol)</h4>
 <ul>
-<li><strong>정의</strong>: 파일 전송을 위한 프로토콜 및 보안이 강화된 확장 버전들의 집합</li>
-<li><strong>키워드</strong>: RFC 959, 포트 21/22, 능동/수동 모드, TLS, SSH, 제어 채널, 데이터 채널</li>
+<li><strong>정의</strong>: 멀티스트리밍(여러 독립 스트림)과 멀티호밍(다중 경로)을 지원하여 신뢰성과 가용성을 높인 전송 계층 프로토콜</li>
+<li><strong>키워드</strong>: RFC 4960, 멀티스트리밍, 멀티호밍, 4-way Handshake, COOKIE, 청크, 시그널링</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>FTP</th><th>FTPS</th><th>SFTP</th></tr>
-<tr><td>보안</td><td>없음(평문)</td><td>SSL/TLS 암호화</td><td>SSH 기반 암호화</td></tr>
-<tr><td>제어 포트</td><td>21</td><td>21(또는 990)</td><td>22</td></tr>
-<tr><td>채널 구조</td><td>제어+데이터 분리</td><td>제어+데이터 분리</td><td>단일 채널</td></tr>
-<tr><td>기반 프로토콜</td><td>TCP</td><td>TCP + TLS</td><td>SSH</td></tr>
-<tr><td>방화벽 통과</td><td>어려움(수동모드)</td><td>어려움</td><td>용이(포트 22)</td></tr>
+<li><strong>TCP vs SCTP 비교</strong>:  <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// udp까지 비교</span><div class="table-scroll"><table>
+<tr><th>구분</th><th>TCP</th><th>SCTP</th></tr>
+<tr><td>스트림</td><td>단일 스트림 (HOL 블로킹)</td><td>멀티 스트림 (HOL 차단 없음)</td></tr>
+<tr><td>다중 경로</td><td>미지원</td><td>멀티호밍 지원</td></tr>
+<tr><td>연결 설정</td><td>3-way Handshake</td><td>4-way Handshake (INIT/INIT-ACK/COOKIE-ECHO/COOKIE-ACK)</td></tr>
+<tr><td>SYN 공격 방어</td><td>취약</td><td>COOKIE 메커니즘으로 방어</td></tr>
 </table></div>
 </li>
-<li><strong>FTP 모드</strong>: <div class="table-scroll"><table>
-<tr><th>항목</th><th>능동 모드 (Active)</th><th>수동 모드 (Passive)</th></tr>
-<tr><td><strong>제어 연결</strong></td><td>클라이언트 → 서버 21번 포트</td><td>클라이언트 → 서버 21번 포트</td></tr>
-<tr><td><strong>데이터 연결</strong></td><td>서버(20번) → 클라이언트 임시 포트</td><td>클라이언트 → 서버 임시 포트</td></tr>
-<tr><td><strong>연결 주체</strong></td><td>서버가 클라이언트로 데이터 연결 요청</td><td>클라이언트가 서버 데이터 포트로 연결</td></tr>
-<tr><td><strong>방화벽 문제</strong></td><td>❌ 클라이언트 방화벽 차단 위험</td><td>✅ 방화벽 통과 용이</td></tr>
-<tr><td><strong>주요 사용</strong></td><td>내부 네트워크 환경</td><td>NAT·방화벽 환경</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 보안 요구 환경에서는 FTP 사용을 금지하고 <strong>SFTP(SSH 기반)를 권장</strong>. FTPS는 기존 FTP 인프라를 유지하며 TLS를 추가하는 방식. SFTP는 파일 전송 외 원격 파일 관리도 지원.</li>
+<li><strong>프로토콜 구조</strong>: 공통 헤더 + 복수 청크(DATA/SACK/HEARTBEAT/ERROR 등)</li>
+<li><strong>활용</strong>: SS7 시그널링 over IP(SIGTRAN), VoIP, 이동통신 코어 네트워크</li>
+<li><strong>인사이트</strong>: SCTP는 TCP의 <strong>HOL(Head-of-Line) 블로킹 문제를 멀티스트리밍으로 해결</strong>하며, 멀티호밍으로 링크 장애 시 자동 경로 전환. HTTP/3의 QUIC도 유사한 멀티스트림 개념을 UDP 위에서 구현.</li>
 </ul>
 
 </body>

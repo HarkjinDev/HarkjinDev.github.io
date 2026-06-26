@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. MCP 보안 (Model Context Protocol Security)</title>
+  <title>9. OWASPAgentic Applications Top 10(2026)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,24 @@
   </style>
 </head>
 <body>
-<h4>7. MCP 보안 (Model Context Protocol Security)</h4>
+<h4>9. OWASP <strong>Agentic Applications Top 10(2026)</strong></h4>
 <ul>
-<li><strong>정의</strong>: MCP(Model Context Protocol) 기반 AI 서비스 구축 시 발생 가능한 보안 취약점과 대응 방안</li>
-<li><strong>키워드</strong>: 프롬프트 인젝션, 도구 오염 공격, CVE-2025-6514(mcp-remote 취약점)</li>
+<li><strong>정의</strong>: OWASP에서 발표한 agent 애플리케이션의 10대 보안 위협 목록</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>주요 취약점</strong>:<ul>
-<li><strong>프롬프트 인젝션</strong>: 외부 도구/리소스를 통한 간접 인젝션</li>
-<li><strong>도구 오염 공격(Tool Poisoning)</strong>: 악의적 MCP 서버가 안전한 도구처럼 위장</li>
-<li><strong>권한 상승</strong>: MCP 통해 과도한 권한 획득</li>
-<li><strong>CVE-2025-6514</strong>: mcp-remote의 원격 코드 실행 취약점</li>
-</ul>
+<li><strong>OWASP Top 10 for Agentic Applications 2026:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>순위</th><th>항목</th><th>핵심</th><th>대응</th></tr>
+<tr><td>의사결정 위협</td><td>ASI01</td><td>에이전트 목표 탈취</td><td>간접 조작·목표 변조</td><td>입력 검증·목표 고정</td></tr>
+<tr><td></td><td>ASI09</td><td>인간-에이전트 신뢰 악용</td><td>의인화 악용·악의적 승인 유도</td><td>독립 승인채널 분리</td></tr>
+<tr><td></td><td>ASI10</td><td>불량 에이전트</td><td>목표 불일치·자율 이탈 행동</td><td>행동 모니터링·Kill Switch</td></tr>
+<tr><td>실행 위협</td><td>ASI02</td><td>도구 오남용</td><td>합법 도구 악의적 오용</td><td>최소권한·도구 허용목록</td></tr>
+<tr><td></td><td>ASI03</td><td>신원·권한 남용</td><td>위임·캐시 자격증명 악용</td><td>에이전트 신원 격리</td></tr>
+<tr><td></td><td>ASI05</td><td>예기치 않은 코드 실행</td><td>공격자 제어 RCE 발생</td><td>샌드박스·코드 실행 제한</td></tr>
+<tr><td>시스템 위협</td><td>ASI06</td><td>메모리·컨텍스트 오염</td><td>RAG·장기메모리 지속 오염</td><td>메모리 무결성 검증</td></tr>
+<tr><td></td><td>ASI08</td><td>연쇄 장애</td><td>오류 다단계 전파·증폭</td><td>장애 격리·서킷브레이커</td></tr>
+<tr><td>연계 위협</td><td>ASI04</td><td>공급망 취약점</td><td>MCP·서드파티 컴포넌트 변조</td><td>무결성 검증·서명 확인</td></tr>
+<tr><td></td><td>ASI07</td><td>에이전트 간 통신 취약</td><td>에이전트 간 메시지 위변조</td><td>상호인증·통신 암호화</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: MCP 서버 출처 검증과 샌드박스 실행이 핵심 보안 원칙임</li>
 </ul>
 
 </body>

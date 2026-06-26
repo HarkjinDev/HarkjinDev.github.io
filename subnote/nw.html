@@ -386,6 +386,29 @@
 </li>
 <li><strong>인사이트</strong>: CRC는 <strong>버스트 오류 검출에 탁월</strong>하지만 오류 정정은 불가. Ethernet 프레임의 FCS가 CRC-32를 사용하며, CRC는 검출만 가능하므로 오류 정정은 ARQ/FEC 필요.</li>
 </ul>
+<h4>[하위] 6-5. 2계층 오류제어와 4계층 오류제어 비교</h4>
+<ul>
+<li><strong>2계층 오류제어:</strong> 직접 연결된 두 노드간의 물리적 링크를 통과하는 단일 프레임의 비트 무결성을 검증하고, 물리적 매체의 결함으로 인한 훼손을 탐지하는 기법</li>
+<li>4계층 오류제어: 최종 출발지와 목적지 간에 교환되는 전체 메시지의 순서, 누락, 중복을 제어하여 논리적으로 완벽한 형태의 데이터 전달을 보장하는 기법</li>
+<li><strong>2계층 vs 4계층 오류제어 비교 (ISO 7498):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>2계층 (데이터링크계층)</th><th>4계층 (전송계층)</th></tr>
+<tr><td>적용 범위</td><td>인접 노드 간 (Hop-by-Hop)</td><td>종단간 (End-to-End)</td></tr>
+<tr><td>대상</td><td>물리적 구간 비트 손상</td><td>네트워크 경로간 오류</td></tr>
+<tr><td>중점</td><td>탐지 위주</td><td>복구 위주</td></tr>
+<tr><td>재전송 단위</td><td>프레임 (Frame)</td><td>세그먼트 (Segment)</td></tr>
+<tr><td>오류 검출</td><td>CRC</td><td>TCP Checksum</td></tr>
+<tr><td>오류 정정</td><td>ARQ, FEC</td><td>ARQ</td></tr>
+<tr><td>오류 복구 주체</td><td>인접 노드 (스위치·브리지)</td><td>송수신 호스트</td></tr>
+<tr><td>흐름제어</td><td>슬라이딩 윈도우·XON/XOFF</td><td>슬라이딩 윈도우·수신버퍼 기반</td></tr>
+<tr><td>혼잡제어</td><td>없음</td><td>있음 (AIMD·슬로우스타트)</td></tr>
+<tr><td>ARQ 방식</td><td>Stop-and-Wait·Go-Back-N</td><td>Go-Back-N·Selective Repeat</td></tr>
+<tr><td>순서 보장</td><td>링크 구간 내 순서 보장</td><td>있음 (시퀀스 번호)</td></tr>
+<tr><td>신뢰성 보장</td><td>구간 신뢰성 (부분 보장)</td><td>완전한 종단간 신뢰성</td></tr>
+<tr><td>오버헤드</td><td>상대적으로 낮음</td><td>상대적으로 높음</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 차이:</strong> 2계층은 <strong>물리적 인접 구간</strong> 오류만 처리하므로 중간 노드 오류는 미탐지 가능 → 4계층의 종단간 오류제어가 <strong>완전한 신뢰성 보장</strong>의 최종 책임 주체</li>
+</ul>
 <h4>7. 흐름 제어 (Flow Control)</h4>
 <ul>
 <li><strong>정의:</strong> 송신측과 수신측 간 처리 속도 차이로 인한 수신 버퍼 오버플로우를 방지하기 위해 송신 속도를 수신 능력에 맞게 동적으로 조절하는 전송 제어 기술</li>

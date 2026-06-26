@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. OSPF (Open Shortest Path First)</title>
+  <title>2. EGP (Exterior Gateway Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,39 @@
   </style>
 </head>
 <body>
-<h4>3. OSPF (Open Shortest Path First)</h4>
+<h4>2. EGP (Exterior Gateway Protocol)</h4>
 <ul>
-<li><strong>정의:</strong> 링크 상태 정보를 AS 내 모든 라우터에 플러딩하여 각 라우터가 SPF 알고리즘으로 최단 경로를 계산하는 링크 상태 기반 IGP 프로토콜</li>
-<li><strong>키워드:</strong> RFC 2328, LSA, LSDB, SPF·Dijkstra, Area, DR·BDR, Cost, Hello, ABR, ASBR, OSPFv3</li>
+<li><strong>정의:</strong> 서로 다른 자율 시스템(AS) 간 라우팅 정보를 교환하여 인터넷 전체의 경로를 관리하는 외부 게이트웨이 프로토콜</li>
+<li><strong>키워드:</strong> AS 간 라우팅, BGP-4, 정책 라우팅, AS 번호, AS-PATH, 피어링, eBGP, iBGP, NLRI</li>
 <li><strong>분류:</strong> 라우팅 / 주소체계</li>
-<li><strong>동작 절차:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 인접 관계 수립</strong></td><td>Hello 패킷으로 인접 라우터 발견·Neighbor 관계 형성</td><td>Hello 프로토콜</td></tr>
-<tr><td><strong>2. DR·BDR 선출</strong></td><td>멀티액세스 네트워크에서 대표 라우터 선출
-* DR(지정 라우터), BDR(백업 DR)</td><td>플러딩 최소화</td></tr>
-<tr><td><strong>3. LSA 교환</strong></td><td>Link State Advertisement 교환으로 LSDB 동기화</td><td>토폴로지 공유</td></tr>
-<tr><td><strong>4. SPF 계산</strong></td><td>Dijkstra 알고리즘으로 최단 경로 트리 계산</td><td>최단 경로 산출</td></tr>
-<tr><td><strong>5. 라우팅 테이블 갱신</strong></td><td>계산된 최단 경로를 라우팅 테이블에 반영</td><td>경로 적용</td></tr>
+<li><strong>IGP vs EGP 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>IGP</th><th>EGP</th></tr>
+<tr><td><strong>적용 범위</strong></td><td>AS 내부 라우팅</td><td>AS 간 라우팅</td></tr>
+<tr><td><strong>목적</strong></td><td>최적 경로 탐색</td><td>정책 기반 경로 제어</td></tr>
+<tr><td><strong>대표 프로토콜</strong></td><td>OSPF, RIP, EIGRP</td><td>BGP-4</td></tr>
+<tr><td><strong>경로 선택 기준</strong></td><td>메트릭(홉·대역폭)</td><td>정책·속성 기반</td></tr>
 </table></div>
 </li>
-<li><strong>LSA 유형: </strong>Type 1(Router LSA), Type 2(Network LSA), Type 3(Summary LSA), Type 4(ASBR Summary LSA), Type 5(External LSA)</li>
-<li><strong>Cost 계산:</strong><div class="table-scroll"><table>
+<li><strong>BGP 동작 방식:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>공식</strong></td><td>Cost = 10⁸ / 링크 속도(bps)</td><td>속도 반비례</td></tr>
-<tr><td><strong>FastEthernet</strong></td><td>Cost = 10⁸ / 10⁸ = 1</td><td>최저 Cost</td></tr>
-<tr><td><strong>T1 (1.544Mbps)</strong></td><td>Cost = 10⁸ / 1,544,000 ≈ 64</td><td>높은 Cost</td></tr>
-<tr><td><strong>경로 선택</strong></td><td>누적 Cost 합산 최솟값 경로 선택</td><td>최소 Cost 우선</td></tr>
+<tr><td><strong>eBGP</strong></td><td>서로 다른 AS 간 BGP 세션</td><td>외부 AS 연결</td></tr>
+<tr><td><strong>iBGP</strong></td><td>동일 AS 내부 BGP 세션</td><td>내부 경로 전파</td></tr>
+<tr><td><strong>피어링 (Peering)</strong></td><td>BGP 라우터 간 TCP 179 포트로 세션 수립</td><td>세션 기반 연결</td></tr>
+<tr><td><strong>NLRI</strong></td><td>도달 가능한 네트워크 정보를 포함한 경로 광고</td><td>경로 정보 교환</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> OSPF의 Area 설계는 네트워크 확장성의 핵심으로, Area 0은 반드시 존재해야 하며 모든 Area는 Area 0에 직·간접 연결되어야 함. Cost = 10⁸/링크속도로 고속 링크를 선호하며, DR·BDR 선출로 멀티액세스 환경의 LSA 플러딩을 최소화하는 설계가 대규모 네트워크 안정성의 핵심 포인트임</li>
+<li><strong>BGP 경로 속성:</strong><div class="table-scroll"><table>
+<tr><th>속성</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>AS-PATH</strong></td><td>경로가 통과한 AS 번호 목록, 루프 방지에 활용</td><td>루프 방지</td></tr>
+<tr><td><strong>NEXT-HOP</strong></td><td>다음 라우터의 IP 주소</td><td>다음 홉 지정</td></tr>
+<tr><td><strong>LOCAL-PREF</strong></td><td>AS 내부에서 선호 경로 결정 (높을수록 우선)</td><td>내부 선호도</td></tr>
+<tr><td><strong>MED</strong></td><td>외부 AS에 선호 진입 경로 전달 (낮을수록 우선)</td><td>외부 선호도</td></tr>
+<tr><td><strong>COMMUNITY</strong></td><td>경로 태깅으로 그룹 정책 적용</td><td>정책 그룹화</td></tr>
+<tr><td><strong>ORIGIN</strong></td><td>경로 정보 출처 (IGP·EGP·Incomplete)</td><td>경로 출처</td></tr>
+</table></div>
+</li>
+<li><strong>활용 분야: </strong>ISP 간 연결, 멀티호밍, IX (인터넷 교환 포인트)</li>
+<li><strong>인사이트:</strong> BGP-4는 현재 인터넷의 유일한 EGP로, 전 세계 10만 개 이상의 AS 경로를 관리하는 인터넷의 핵심 라우팅 프로토콜임. 최적 경로가 아닌 정책 기반 경로를 선택하는 특성상 BGP 설정 오류·하이재킹이 대규모 인터넷 장애로 이어질 수 있어 RPKI 기반 경로 검증이 보안 표준으로 부상하고 있음</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SDR (Software Defined Radio)</title>
+  <title>1. 5G 특화망 (Private 5G Network)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,21 @@
   </style>
 </head>
 <body>
-<h4>2. SDR (Software Defined Radio)</h4>
+<h4>1. 5G 특화망 (Private 5G Network)</h4>
 <ul>
-<li><strong>정의</strong>: 무선 통신의 변조·복조·주파수 처리 등 하드웨어로 구현되던 기능을 소프트웨어로 대체하여 유연하게 구현하는 기술</li>
-<li><strong>키워드</strong>: ADC/DAC, FPGA, DSP, 재구성 가능, 인지 무선(Cognitive Radio), 다중 표준</li>
+<li><strong>정의</strong>: 특정 기업·산업·구역에 전용 5G 네트워크 인프라를 구축하여 맞춤형 초저지연·고신뢰 서비스를 제공하는 지역 특화 이동통신 서비스</li>
+<li><strong>키워드</strong>: URLLC, 국내 28GHz 대역, 산업 IoT, 스마트팩토리, 간섭 회피, 프라이빗 코어</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>SDR 구성</strong>:<div class="table-scroll"><table>
-<tr><th>구성요소</th><th>역할</th></tr>
-<tr><td>안테나</td><td>RF 신호 수신</td></tr>
-<tr><td>ADC/DAC</td><td>아날로그-디지털 변환</td></tr>
-<tr><td>FPGA/DSP</td><td>소프트웨어 기반 신호 처리</td></tr>
-<tr><td>SW 모듈</td><td>변조/복조/프로토콜 처리</td></tr>
+<li><strong>안정성/신뢰성 확보 방안</strong>:<div class="table-scroll"><table>
+<tr><th>방안</th><th>설명</th></tr>
+<tr><td>전용 주파수 할당</td><td>공공망과 간섭 방지</td></tr>
+<tr><td>네트워크 슬라이싱</td><td>산업 서비스별 QoS 보장</td></tr>
+<tr><td>엣지 컴퓨팅 결합</td><td>지연 최소화 (MEC)</td></tr>
+<tr><td>이중화 구성</td><td>코어·기지국 N+1 이중화</td></tr>
 </table></div>
 </li>
-<li><strong>장점</strong>: 단일 하드웨어로 다중 표준(LTE/5G/Wi-Fi) 지원, 펌웨어 업데이트로 기능 변경</li>
-<li><strong>인지 무선(CR) 연계</strong>: SDR 기반으로 주파수 사용 환경을 감지하여 동적으로 주파수 선택</li>
-<li><strong>인사이트</strong>: SDR은 <strong>주파수 유연성과 다중 표준 지원</strong>이 핵심으로, 군사통신·재난망·5G 기지국 가상화(vRAN)에 적용됨. GNU Radio 등 오픈소스 SDR 플랫폼이 연구·교육에 활용.</li>
+<li><strong>간섭 회피 방안</strong>: 빔포밍(지향성 안테나), 주파수 조정(FR2/FR1 선택), 전력 제어</li>
+<li><strong>인사이트</strong>: 5G 특화망은 <strong>스마트팩토리·자율주행·원격의료 등 산업 디지털 전환의 핵심 인프라</strong>로, 공공 5G 대비 보안성과 SLA 보장이 강점. 국내는 4.7GHz/28GHz 대역에서 할당 운용.</li>
 </ul>
 
 </body>

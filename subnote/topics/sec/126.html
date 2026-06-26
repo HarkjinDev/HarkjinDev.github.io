@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. 다크패턴 (Dark Pattern)</title>
+  <title>12. AI 기반 사이버위협 (AI-based Cyber Threat)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,60 @@
   </style>
 </head>
 <body>
-<h4>10. 다크패턴 (Dark Pattern)</h4>
+<h4>12. AI 기반 사이버위협 (AI-based Cyber Threat)</h4>
 <ul>
-<li><strong>정의:</strong> 사용자가 의도하지 않은 행동(구독·결제·개인정보 제공)을 유도하기 위해 UI·UX를 심리적으로 조작하여 설계한 기만적 인터페이스 패턴</li>
-<li><strong>키워드:</strong> 기만적 UI, 사용자 조작, 구독 함정, 개인정보 수집, FTC, EU DSA, 소비자 보호</li>
-<li><strong>분류</strong>: AI 보안</li>
-<li><strong>주요 유형:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;오압방편&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>오도형</strong></td><td><strong>거짓 할인·추천</strong></td><td>실제 할인이 아닌 가짜 정가·할인율로 구매 유도</td><td>허위 정보 제공</td></tr>
-<tr><td></td><td><strong>유인 판매</strong></td><td>저가 상품으로 유인 후 고가 상품으로 전환 유도</td><td>미끼 상품 악용</td></tr>
-<tr><td></td><td><strong>위장 광고</strong></td><td>광고를 일반 콘텐츠·추천처럼 위장하여 노출</td><td>광고 식별 방해</td></tr>
-<tr><td></td><td><strong>옵션 선택 조작</strong></td><td>불리한 옵션을 기본 선택으로 설정하여 동의 유도</td><td>기본값 악용</td></tr>
-<tr><td><strong>압박형</strong></td><td><strong>반복 간섭</strong></td><td>팝업·알림을 반복 노출하여 원치 않는 행동 유도</td><td>지속적 방해</td></tr>
-<tr><td></td><td><strong>시간 제한 알림</strong></td><td>가짜 카운트다운·마감 임박으로 즉각 결정 압박</td><td>허위 긴급성</td></tr>
-<tr><td></td><td><strong>낮은 재고 알림</strong></td><td>허위 재고 부족 표시로 구매 결정 촉진</td><td>허위 희소성</td></tr>
-<tr><td><strong>방해형</strong></td><td><strong>숨겨진 정보</strong></td><td>중요 정보·조건을 작은 글씨·복잡한 경로에 은닉</td><td>정보 접근 차단</td></tr>
-<tr><td></td><td><strong>가격 비교 방해</strong></td><td>가격 구조 복잡화·비교 기능 제한으로 합리적 선택 방해</td><td>비교 차단</td></tr>
-<tr><td></td><td><strong>클릭 피로감 유도</strong></td><td>해지·거절 절차를 복잡하게 설계하여 포기 유도</td><td>탈출 어렵게</td></tr>
-<tr><td><strong>편취형</strong></td><td><strong>숨은 갱신</strong></td><td>무료 체험 후 고지 없이 자동 유료 전환</td><td>자동 과금</td></tr>
-<tr><td></td><td><strong>장바구니 추가</strong></td><td>사용자 모르게 추가 상품·옵션을 장바구니에 삽입</td><td>무단 추가</td></tr>
-<tr><td></td><td><strong>순차 공개 가격</strong></td><td>결제 마지막 단계에 추가 비용·수수료 노출</td><td>비용 후반 노출</td></tr>
+<li><strong>정의:</strong> 공격자가 AI·ML을 활용하여 탐지 회피·자동화·개인화된 공격을 수행하거나, AI 시스템 자체를 표적으로 삼는 차세대 사이버위협</li>
+<li><strong>키워드:</strong> 생성형 AI, 적대적 공격, 프롬프트 인젝션, Agentic AI, OWASP ASI, 자율 공격, AI 공급망</li>
+<li><strong>분류:</strong> SEC / AI 보안</li>
+<li><strong>AI 기반 사이버위협 등장 배경:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>배경</th><th>핵심</th></tr>
+<tr><td>기술 발전</td><td>생성형 AI·LLM 대중화로 공격 자동화 진입장벽 급락</td><td>비전문가 공격 가능</td></tr>
+<tr><td>공격면 확장</td><td>AI 시스템(모델·데이터·에이전트) 자체가 새로운 공격 대상</td><td>AI가 위협 대상화</td></tr>
+<tr><td>자율화</td><td>Agentic AI의 자율 실행·멀티스텝 워크플로우 확산</td><td>자율 공격 루프</td></tr>
+<tr><td>개인화</td><td>AI 기반 딥페이크·스피어피싱 정교화·대규모 자동 생성</td><td>사회공학 고도화</td></tr>
+<tr><td>규모</td><td>AI로 취약점 탐색·익스플로잇 코드 생성 자동화</td><td>공격 속도·규모 증폭</td></tr>
 </table></div>
 </li>
-<li><strong>규제 동향:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>EU DSA</strong></td><td>디지털서비스법, 다크패턴 명시적 금지·과징금 부과</td><td>EU 규제</td></tr>
-<tr><td><strong>EU GDPR</strong></td><td>동의 기반 개인정보 수집, 기만적 동의 UI 금지</td><td>동의 기준</td></tr>
-<tr><td><strong>FTC (미국)</strong></td><td>기만적 상업 행위로 다크패턴 법적 규제·과징금</td><td>미국 규제</td></tr>
-<tr><td><strong>국내</strong></td><td>전자상거래법·개인정보보호법 기반 기만적 UI 규제</td><td>국내 규제</td></tr>
+<li><strong>AI 기반 사이버위협 특징:</strong><div class="table-scroll"><table>
+<tr><th>특징</th><th>설명</th><th>핵심</th></tr>
+<tr><td>자동화·확장성</td><td>AI가 스캐닝·익스플로잇·횡이동 전과정 자율 수행</td><td>인간 개입 없는 공격</td></tr>
+<tr><td>탐지 회피</td><td>AI가 시그니처·행위 기반 탐지 패턴 학습 후 우회</td><td>적응형 스텔스</td></tr>
+<tr><td>초개인화</td><td>표적 SNS·언어·맥락 분석한 맞춤형 피싱 자동 생성</td><td>딥페이크·스피어피싱</td></tr>
+<tr><td>비결정성</td><td>AI 출력 비결정적·동일 입력도 다른 결과·예측 불가</td><td>기존 보안모델 한계</td></tr>
+<tr><td>양방향성</td><td>AI가 공격 도구이자 공격 표적(모델·데이터·에이전트)</td><td>공격자·피공격자 동시</td></tr>
+<tr><td>연쇄성</td><td>멀티에이전트 환경에서 단일 침해가 전체로 전파</td><td>카스케이딩 장애</td></tr>
 </table></div>
 </li>
-<li><strong>AI 다크패턴:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>AI 챗봇 조작</strong></td><td>감정적 언어·인격 부여로 과도한 신뢰·의존 유도</td><td>감정 조작</td></tr>
-<tr><td><strong>개인화 함정</strong></td><td>개인화 추천을 통한 과소비·중독 유도</td><td>알고리즘 조작</td></tr>
-<tr><td><strong>AI 생성 가짜 리뷰</strong></td><td>AI로 생성한 허위 리뷰·평점으로 구매 결정 조작</td><td>허위 정보</td></tr>
+<li><strong>AI 공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>공격 유형</th><th>설명</th></tr>
+<tr><td>AI 악용</td><td>AI 피싱·소셜엔지니어링</td><td>LLM으로 맞춤형 피싱 메일·딥페이크 대량 생성</td></tr>
+<tr><td></td><td>AI 취약점 탐색</td><td>AI가 코드·시스템 취약점 자동 분석·익스플로잇 생성</td></tr>
+<tr><td></td><td>AI 악성코드</td><td>다형성 악성코드·탐지 회피 코드 자동 변형 생성</td></tr>
+<tr><td>AI 표적</td><td>적대적 공격(Adversarial)</td><td>입력 변형으로 AI 모델 오분류·오판단 유도</td></tr>
+<tr><td></td><td>데이터 포이즈닝</td><td>학습 데이터 오염으로 모델 성능 저하·백도어 삽입</td></tr>
+<tr><td></td><td>모델 역추론</td><td>모델 출력으로 학습 데이터·파라미터 역추출</td></tr>
+<tr><td></td><td>프롬프트 인젝션</td><td>악의적 입력으로 LLM 가드레일 우회·명령 실행</td></tr>
+<tr><td>AI 공급망</td><td>모델 변조</td><td>오픈소스 모델에 백도어·악성코드 삽입</td></tr>
+<tr><td></td><td>MCP 위장</td><td>악의적 MCP 서버로 에이전트 도구 환경 오염</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 다크패턴은 개인의 인지 편향을 체계적으로 악용하는 설계 기법으로, EU DSA·GDPR·FTC 규제가 강화되면서 법적 리스크로 직결되고 있으며 AI 개인화 기술과 결합하여 더욱 정교해지는 추세로 투명한 UX 설계와 사용자 자율성 보장이 기업의 윤리적 의무이자 규제 컴플라이언스 핵심 요건으로 자리잡고 있음</li>
+<li><strong>Agentic AI 활용을 위한 대응 전략:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>대응 전략</th><th>설명</th><th>핵심</th></tr>
+<tr><td>거버넌스</td><td>AI 보안 정책 수립</td><td>AI 수명주기 전반 위험평가·내부통제 체계 구축</td><td>AI 거버넌스</td></tr>
+<tr><td></td><td>HITL 적용</td><td>고위험 에이전트 의사결정에 인간 개입 통제</td><td>자율성 제한</td></tr>
+<tr><td></td><td>Kill Switch</td><td>이상 행동 감지 시 에이전트 즉각 정지 기능 구현</td><td>긴급차단</td></tr>
+<tr><td>접근제어</td><td>최소 에이전시 원칙</td><td>에이전트 권한·자율성을 필요 최소한으로 제한</td><td>Least Agency</td></tr>
+<tr><td></td><td>에이전트 신원 관리</td><td>에이전트별 독립 신원·자격증명 격리 관리</td><td>NHI 관리</td></tr>
+<tr><td></td><td>도구 허용목록</td><td>에이전트가 호출 가능한 도구 화이트리스트 적용</td><td>도구 제한</td></tr>
+<tr><td>입력·출력 통제</td><td>입력 검증·가드레일</td><td>프롬프트 인젝션·간접 조작 탐지·필터링</td><td>입력 무결성</td></tr>
+<tr><td></td><td>출력 모니터링</td><td>에이전트 산출물 실시간 이상 탐지·감사 로그</td><td>행동 가시성</td></tr>
+<tr><td>공급망 보안</td><td>AI-BOM 관리</td><td>모델·데이터·MCP 서버 등 AI 구성요소 전체 인벤토리</td><td>공급망 가시성</td></tr>
+<tr><td></td><td>무결성 검증</td><td>오픈소스 모델·서드파티 도구 서명·해시 검증</td><td>변조 탐지</td></tr>
+<tr><td>탐지·대응</td><td>AI 기반 위협 탐지</td><td>AI로 에이전트 이상 행동·적대적 패턴 실시간 탐지</td><td>AI vs AI 방어</td></tr>
+<tr><td></td><td>레드팀·침투 테스트</td><td>적대적 공격·프롬프트 인젝션 시뮬레이션 정기 수행</td><td>사전 검증</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> AI 기반 사이버위협은 공격 자동화·초개인화·에이전트 자율성이 결합된 차세대 위협으로, 기존 시그니처·행위 기반 방어를 무력화하므로 Least Agency·HITL·AI-BOM·AI 기반 탐지를 결합한 다층 방어체계(Defense-in-Depth) 구축이 필수</li>
 </ul>
 <hr/>
 

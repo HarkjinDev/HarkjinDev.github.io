@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. Tor (The Onion Router)</title>
+  <title>3. SSL VPN (Secure Socket Layer VPN)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,20 @@
   </style>
 </head>
 <body>
-<h4>4. Tor (The Onion Router)</h4>
+<h4>3. SSL VPN (Secure Socket Layer VPN)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 여러 겹의 암호화 레이어로 감싸 3개 이상의 중계 노드를 경유함으로써 발신자의 신원을 은닉하는 익명 통신 네트워크</li>
-<li><strong>키워드</strong>: 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 익명성</li>
+<li><strong>정의</strong>: SSL/TLS 프로토콜 기반으로 웹 브라우저나 경량 클라이언트를 통해 원격에서 내부 네트워크 자원에 접근하는 응용 계층 VPN</li>
+<li><strong>키워드</strong>: TLS, 443 포트, 클라이언트리스, 원격 접속, HTTPS, BYOD, 세션 기반</li>
 <li><strong>분류</strong>: VPN</li>
-<li><strong>Tor vs VPN 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
-<tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
-<tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
-<tr><td>속도</td><td>빠름</td><td>느림(다중 홉)</td></tr>
-<tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
-<tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
+<li><strong>SSL VPN 접속 방식</strong>:<div class="table-scroll"><table>
+<tr><th>방식</th><th>설명</th><th>특징</th></tr>
+<tr><td>클라이언트리스(Portal)</td><td>웹 브라우저만 사용</td><td>추가 SW 불필요</td></tr>
+<tr><td>씬 클라이언트</td><td>경량 플러그인 설치</td><td>특정 앱 터널링</td></tr>
+<tr><td>풀 터널</td><td>VPN 클라이언트 설치</td><td>전체 트래픽 터널링</td></tr>
 </table></div>
 </li>
-<li><strong>익명성 한계</strong>: Exit 노드가 평문 트래픽 감청 가능, 트래픽 분석 공격(상관관계 분석)에 취약</li>
-<li><strong>인사이트</strong>: Tor는 <strong>완전한 익명성을 제공하지 않으며</strong>, Exit 노드 공격과 타이밍 분석에 취약. .onion 주소의 Hidden Service는 서버와 클라이언트 모두 익명성 보장으로 다크웹에 활용.</li>
+<li><strong>인사이트</strong>: SSL VPN은 <strong>방화벽 443 포트를 활용</strong>하여 어떤 환경에서도 접속 가능해 재택근무·BYOD 환경에 최적. 단, 브라우저 취약점이 공격 경로가 될 수 있으므로 MFA와 결합 필수.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

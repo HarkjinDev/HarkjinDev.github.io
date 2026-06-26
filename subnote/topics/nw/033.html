@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. RIP (Routing Information Protocol)</title>
+  <title>4. 거리벡터 라우팅 (Distance Vector Routing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,27 @@
   </style>
 </head>
 <body>
-<h4>5. RIP (Routing Information Protocol)</h4>
+<h4>4. 거리벡터 라우팅 (Distance Vector Routing)</h4>
 <ul>
-<li><strong>정의</strong>: 홉 카운트(최대 15)를 메트릭으로 사용하는 거리벡터 기반의 소규모 네트워크용 IGP 프로토콜</li>
-<li><strong>키워드</strong>: RFC 2453, 홉 카운트, 30초 주기, 최대 15홉, Bellman-Ford, RIPv1/v2</li>
+<li><strong>정의</strong>: 각 라우터가 인접 라우터와 목적지까지의 거리(홉/비용) 정보를 주기적으로 교환하여 최적 경로를 결정하는 라우팅 알고리즘</li>
+<li><strong>키워드</strong>: Bellman-Ford, 홉 카운트, 라우팅 루프, 무한 계산, Split Horizon, Poison Reverse</li>
 <li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>RIPv1 vs RIPv2 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>RIPv1</th><th>RIPv2</th></tr>
-<tr><td><strong>서브넷 정보</strong></td><td>미포함</td><td>✅ 포함 (CIDR 지원)</td></tr>
-<tr><td><strong>주소 체계</strong></td><td>클래스풀</td><td>클래스리스</td></tr>
-<tr><td><strong>VLSM 지원</strong></td><td>❌</td><td>✅</td></tr>
-<tr><td><strong>전송 방식</strong></td><td>브로드캐스트</td><td>멀티캐스트 (224.0.0.9)</td></tr>
-<tr><td><strong>인증</strong></td><td>❌ 없음</td><td>✅ 평문·MD5 인증</td></tr>
-<tr><td><strong>RFC</strong></td><td>RFC 1058</td><td>RFC 2453</td></tr>
+<li><strong>문제점 및 해결책</strong>:<div class="table-scroll"><table>
+<tr><th>문제</th><th>원인</th><th>해결책</th></tr>
+<tr><td>라우팅 루프</td><td>느린 수렴</td><td>Split Horizon, Poison Reverse</td></tr>
+<tr><td>무한 계산</td><td>루프로 인한 홉 무한 증가</td><td>최대 홉 수 제한(RIP: 15)</td></tr>
+<tr><td>느린 수렴</td><td>주기적 업데이트</td><td>Triggered Update</td></tr>
 </table></div>
 </li>
-<li><strong>제한사항:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>최대 15홉</strong></td><td>홉 16 = 도달 불가(Unreachable), 대규모 망 부적합</td><td>확장성 한계</td></tr>
-<tr><td><strong>느린 수렴</strong></td><td>30초 주기 업데이트로 장애 감지·수렴 속도 느림</td><td>수렴 지연</td></tr>
-<tr><td><strong>Counting-to-Infinity</strong></td><td>루프 발생 시 홉 카운트가 무한 증가하는 문제</td><td>루프 문제</td></tr>
-<tr><td><strong>대역폭 낭비</strong></td><td>전체 라우팅 테이블을 주기적으로 전송</td><td>비효율 전송</td></tr>
+<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th></tr>
+<tr><td>알고리즘</td><td>Bellman-Ford</td><td>Dijkstra</td></tr>
+<tr><td>정보 교환</td><td>인접 라우터만</td><td>전체 라우터</td></tr>
+<tr><td>수렴 속도</td><td>느림</td><td>빠름</td></tr>
+<tr><td>메모리/CPU</td><td>낮음</td><td>높음</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: RIP는 <strong>소규모 단순 망에서만 적합</strong>하며, 현대 기업망에서는 OSPF/EIGRP로 대체. 15홉 제한과 Counting-to-Infinity 문제가 대표적 단점으로 시험 단골 출제.</li>
+<li><strong>인사이트</strong>: 거리벡터는 <strong>소규모 네트워크에 적합</strong>하며 구현이 단순하지만 수렴 문제로 대규모 망에서 OSPF 같은 링크 상태 프로토콜이 선호됨.</li>
 </ul>
 
 </body>

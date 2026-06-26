@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 5]. QoS</title>
+  <title>7. 서브네팅 (Subnetting)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,29 @@
   </style>
 </head>
 <body>
-<h3>[Part 5]. QoS</h3>
+<h4>7. 서브네팅 (Subnetting)</h4>
+<ul>
+<li><strong>정의</strong>: 하나의 IP 네트워크를 서브넷 마스크를 이용하여 여러 개의 작은 서브넷으로 분할하는 IP 주소 관리 기법</li>
+<li><strong>키워드</strong>: 서브넷 마스크, CIDR, 네트워크 주소, 브로드캐스트, VLSM, 호스트 범위</li>
+<li><strong>분류</strong>: 라우팅/주소체계</li>
+<li><strong>서브넷 분할 절차</strong>:<ol>
+<li>필요 서브넷 수 확인 → 빌려올 비트 수 결정 (2ⁿ ≥ 서브넷 수)</li>
+<li>서브넷 마스크 계산 (기본 마스크 + n비트)</li>
+<li>각 서브넷의 네트워크 주소, 브로드캐스트, 호스트 범위 도출</li>
+</ol>
+</li>
+<li><strong>계산 예시</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>값</th><th>설명</th></tr>
+<tr><td>원본 네트워크</td><td>192.168.1.0/24</td><td>C클래스</td></tr>
+<tr><td>서브넷 마스크</td><td>/26 (255.255.255.192)</td><td>2비트 차용</td></tr>
+<tr><td>서브넷 수</td><td>4개</td><td>2²</td></tr>
+<tr><td>호스트 수</td><td>62개/서브넷</td><td>2⁶-2</td></tr>
+</table></div>
+</li>
+<li><strong>VLSM(Variable Length Subnet Mask)</strong>: 서브넷마다 다른 마스크 적용 → 주소 낭비 최소화</li>
+<li><strong>인사이트</strong>: 서브네팅은 <strong>주소 효율화 + 브로드캐스트 도메인 분리</strong>가 핵심 목적이며, VLSM은 OSPF/EIGRP 같은 클래스리스 라우팅 프로토콜이 지원해야 적용 가능.</li>
+</ul>
+<hr/>
 
 </body>
 </html>

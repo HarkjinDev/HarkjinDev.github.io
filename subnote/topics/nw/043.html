@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SDN (Software Defined Networking)</title>
+  <title>1. NFV (Network Function Virtualization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,28 @@
   </style>
 </head>
 <body>
-<h4>2. SDN (Software Defined Networking)</h4>
+<h4>1. NFV (Network Function Virtualization)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크 장비의 제어 평면(Control Plane)을 데이터 평면(Data Plane)에서 분리하여 중앙 집중식 소프트웨어 컨트롤러로 네트워크를 프로그래밍 방식으로 제어하는 기술</li>
-<li><strong>키워드</strong>: ONF, 제어 평면 분리, 오픈플로우, 컨트롤러, 사우스바운드/노스바운드 API, 프로그래밍</li>
+<li><strong>정의</strong>: 방화벽·로드밸런서·IDS 등 전용 하드웨어 장비의 네트워크 기능을 범용 x86 서버에서 소프트웨어(VNF)로 구현하는 가상화 기술</li>
+<li><strong>키워드</strong>: ETSI, VNF, NFVI, NFV-MANO, 오케스트레이션, 상용 서버, SDN 연계</li>
 <li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>SDN 3계층 구조</strong>:<div class="table-scroll"><table>
-<tr><th>계층</th><th>구성요소</th><th>인터페이스</th></tr>
-<tr><td>응용 계층</td><td>네트워크 앱(방화벽, LB, 모니터링)</td><td>노스바운드 API(REST)</td></tr>
-<tr><td>제어 계층</td><td>SDN 컨트롤러(ONOS, OpenDaylight)</td><td>사우스바운드 API</td></tr>
-<tr><td>인프라 계층</td><td>네트워크 스위치/라우터(데이터 평면)</td><td>OpenFlow</td></tr>
+<li><strong>NFV 구조</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th></tr>
+<tr><td>VNF(Virtual Network Function)</td><td>소프트웨어로 구현된 네트워크 기능</td></tr>
+<tr><td>NFVI(NFV Infrastructure)</td><td>컴퓨팅·스토리지·네트워크 자원 풀</td></tr>
+<tr><td>NFV-MANO</td><td>VNF 생명주기 관리·오케스트레이션</td></tr>
+<tr><td>VNFM</td><td>개별 VNF 관리</td></tr>
+<tr><td>NFVO(Orchestrator)</td><td>서비스 체이닝, 자원 조율</td></tr>
 </table></div>
 </li>
-<li><strong>기존 네트워크 vs SDN 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>기존</th><th>SDN</th></tr>
-<tr><td>제어 위치</td><td>분산(장비별)</td><td>중앙 집중(컨트롤러)</td></tr>
-<tr><td>설정 방식</td><td>CLI, SNMP</td><td>API, 프로그래밍</td></tr>
-<tr><td>유연성</td><td>낮음</td><td>높음</td></tr>
-<tr><td>가시성</td><td>제한적</td><td>전체 토폴로지</td></tr>
+<li><strong>기존 방식 vs NFV 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>전용 장비</th><th>NFV</th></tr>
+<tr><td>확장성</td><td>장비 추가 필요</td><td>SW 배포로 즉시 확장</td></tr>
+<tr><td>비용</td><td>고비용 전용 HW</td><td>범용 서버 활용</td></tr>
+<tr><td>유연성</td><td>낮음</td><td>동적 서비스 체이닝</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: SDN의 핵심은 <strong>지능(제어)과 전달(포워딩)의 분리</strong>로, 네트워크를 소프트웨어로 추상화하여 자동화와 민첩성을 확보. 단일 컨트롤러 장애 시 SPOF(단일 장애점) 위험이 있으므로 컨트롤러 HA 구성 필수.</li>
+<li><strong>인사이트</strong>: NFV와 SDN은 <strong>상호 보완 관계</strong>로, NFV는 기능 가상화, SDN은 제어 평면 분리를 담당. 5G 코어 네트워크는 NFV/SDN 기반 클라우드 네이티브 아키텍처로 구현.</li>
 </ul>
 
 </body>
