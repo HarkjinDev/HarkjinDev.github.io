@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. TCP 4-way Handshake</title>
+  <title>[하위] 2-1. TCP 4-way Handshake</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,12 +15,11 @@
   </style>
 </head>
 <body>
-<h4>5. TCP 4-way Handshake</h4>
+<h4>[하위] 2-1. TCP 4-way Handshake</h4>
 <ul>
 <li><strong>정의</strong>: TCP 연결 종료 시 FIN→ACK→FIN→ACK 4단계 교환으로 양방향 연결을 정상 종료하는 절차</li>
 <li><strong>키워드</strong>: FIN, ACK, TIME_WAIT, CLOSE_WAIT, FIN_WAIT, 반이중 종료</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>절차</strong>:   <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 그림 추가</span></li>
 <li><strong>TIME_WAIT</strong>: 마지막 ACK 손실 대비 및 이전 세그먼트 소멸 대기 (2·MSL = 약 60~120초)</li>
 <li><strong>인사이트</strong>: <strong>TIME_WAIT 상태</strong>는 서버 포트 재사용 문제를 야기할 수 있으며, SO_REUSEADDR 옵션으로 해소 가능. 3-way와 달리 FIN과 ACK가 분리되는 이유는 <strong>수동 종료측의 잔여 데이터 전송</strong> 때문.</li>
 </ul>

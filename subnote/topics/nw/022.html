@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 흐름 제어 (Flow Control)</title>
+  <title>4. 흐름 제어 (Flow Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,7 @@
   </style>
 </head>
 <body>
-<h4>7. 흐름 제어 (Flow Control)</h4>
+<h4>4. 흐름 제어 (Flow Control)</h4>
 <ul>
 <li><strong>정의:</strong> 송신측과 수신측 간 처리 속도 차이로 인한 수신 버퍼 오버플로우를 방지하기 위해 송신 속도를 수신 능력에 맞게 동적으로 조절하는 전송 제어 기술</li>
 <li><strong>키워드:</strong> 슬라이딩 윈도우, 수신 윈도우(rwnd), Stop-and-Wait, 버퍼 오버플로우, ACK, TCP, XON/XOFF, 어리석은 윈도우 증후군(payload(1byte) &lt;&lt; header(40byte)), Clark’s(버퍼, MSS), Nalge(버퍼, 일괄전송)</li>
@@ -34,7 +34,7 @@
 <tr><td><strong>정지 대기</strong></td><td><strong>Stop-and-Wait</strong></td><td>패킷 1개 전송 후 ACK 수신까지 대기</td><td>단순·비효율</td></tr>
 <tr><td><strong>슬라이딩 윈도우</strong></td><td><strong>Go-Back-N</strong></td><td>오류 이후 전체 윈도우 재전송</td><td>윈도우 순차 재전송</td></tr>
 <tr><td></td><td><strong>Selective Repeat</strong></td><td>오류 패킷만 선택 재전송</td><td>선택 재전송</td></tr>
-<tr><td><strong>버퍼 기반</strong></td><td><strong>XON/XOFF</strong></td><td>버퍼 임계치 도달 시 XOFF 전송·중단 요청</td><td>하드웨어 흐름 제어</td></tr>
+<tr><td><strong>버퍼 기반</strong></td><td><strong>XON/XOFF</strong></td><td>버퍼 임계치 도달 시 XOFF 전송·중단 요청</td><td>SW 흐름제어</td></tr>
 <tr><td></td><td><strong>Credit 기반</strong></td><td>수신 가능 크레딧(버퍼 잔량)을 송신측에 통보</td><td>크레딧 기반 조절</td></tr>
 </table></div>
 </li>
@@ -47,7 +47,7 @@
 <tr><td><strong>5. 윈도우 재개</strong></td><td>수신측 버퍼 여유 생기면 rwnd 갱신 ACK 전송</td><td>전송 재개</td></tr>
 </table></div>
 </li>
-<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군):</strong><div class="table-scroll"><table>
+<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수클송네&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>개념</strong></td><td>소량 데이터를 반복 전송하여 헤더 오버헤드가 급증하는 현상</td><td>비효율 전송</td></tr>
 <tr><td><strong>수신측 대응</strong></td><td><strong>Clark 해결책</strong> — 윈도우가 충분히 커질 때까지 rwnd=0 유지</td><td>수신 지연 공지</td></tr>

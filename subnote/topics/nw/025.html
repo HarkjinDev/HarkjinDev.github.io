@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</title>
+  <title>[하위] 5-1. TCP 혼잡제어 (TCP Congestion Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,15 +15,15 @@
   </style>
 </head>
 <body>
-<h4>[하위] 8-1. TCP 혼잡제어 (TCP Congestion Control)</h4>
+<h4>[하위] 5-1. TCP 혼잡제어 (TCP Congestion Control)</h4>
 <ul>
 <li><strong>정의</strong>: TCP에서 혼잡 윈도우(cwnd)와 ssthresh를 동적으로 조절하여 네트워크 혼잡을 감지하고 제어하는 메커니즘</li>
 <li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
 <li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
 <tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
-<tr><td>타임아웃</td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
-<tr><td>3중복 ACK</td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
+<tr><td><strong>타임아웃</strong></td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
+<tr><td><strong>3중복 ACK </strong></td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
 </table></div>
 </li>
 <li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>

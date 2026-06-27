@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 6-3. FEC (Forward Error Correction, 전진 오류 정정)</title>
+  <title>[하위] 3-3. FEC (Forward Error Correction, 전진 오류 정정)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,11 +15,11 @@
   </style>
 </head>
 <body>
-<h4>[하위] 6-3. FEC (Forward Error Correction, 전진 오류 정정)</h4>
+<h4>[하위] 3-3. FEC (Forward Error Correction, 전진 오류 정정)</h4>
 <ul>
 <li><strong>정의:</strong> 송신측이 데이터에 잉여 비트(Redundancy)를 추가하여 전송하고 수신측이 별도 재전송 요청 없이 스스로 오류를 검출·정정하는 채널 부호화 기술</li>
 <li><strong>키워드:</strong> 채널 부호화, 잉여 비트, 부호율, 해밍 코드, 터보 코드, LDPC, Polar Code, BCH, 리드-솔로몬</li>
-<li><strong>분류:</strong> 네트워크 / 통신 이론</li>
+<li><strong>분류</strong>: 전송 프로토콜</li>
 <li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>부호율 (Code Rate)</strong></td><td>정보 비트 수 / 전체 전송 비트 수 (낮을수록 강한 오류 정정)</td><td>정정 능력 조절</td></tr>
@@ -40,15 +40,15 @@
 </table></div>
 </li>
 <li><strong>FEC vs BEC 비교표: </strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>FEC (전진 오류 정정)</th><th>BEC (후진 오류 정정)</th></tr>
-<tr><td><strong>정정 방식</strong></td><td>수신측 자체 정정</td><td>재전송 요청 (ARQ)</td></tr>
-<tr><td><strong>피드백 채널</strong></td><td>❌ 불필요</td><td>✅ 필요</td></tr>
-<tr><td><strong>지연</strong></td><td>없음</td><td>재전송 RTT 발생</td></tr>
-<tr><td><strong>오버헤드</strong></td><td>잉여 비트 추가</td><td>재전송 트래픽</td></tr>
-<tr><td><strong>오류율 대응</strong></td><td>높은 오류율 적합</td><td>낮은 오류율 적합</td></tr>
-<tr><td><strong>적합 환경</strong></td><td>위성·방송·무선</td><td>유선·저지연 환경</td></tr>
-<tr><td><strong>대표 기술</strong></td><td>터보코드·LDPC·Polar</td><td>Stop-and-Wait·GBN·SR</td></tr>
-<tr><td><strong>결합 방식</strong></td><td>—</td><td>HARQ (FEC + BEC 혼합)</td></tr>
+<tr><th>항목</th><th>FEC (전진오류수정)</th><th>BEC (후진오류수정)</th></tr>
+<tr><td>오류 처리</td><td>수신측 자체 오류 정정</td><td>검출 후 재전송 요청(ARQ기반)</td></tr>
+<tr><td>피드백 채널</td><td>불필요</td><td>필요 (ACK/NAK)</td></tr>
+<tr><td>재전송</td><td>없음</td><td>있음</td></tr>
+<tr><td>지연</td><td>지연 없음</td><td>RTT만큼 지연 발생</td></tr>
+<tr><td>오버헤드</td><td>여분 비트 오버헤드</td><td>재전송 대역폭 소모</td></tr>
+<tr><td>구현 복잡도</td><td>복잡</td><td>상대적 단순</td></tr>
+<tr><td>적합 환경</td><td>단방향·고오류율 링크</td><td>양방향·저오류율 링크</td></tr>
+<tr><td>대표 기술</td><td>Reed-Solomon·터보코드</td><td>TCP·HDLC·ARQ</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> FEC는 재전송 없이 오류를 자체 정정하므로 위성·방송·5G처럼 피드백 채널이 없거나 지연이 허용되지 않는 환경의 필수 기술임. 터보 코드→LDPC→Polar Code로 이어지는 발전은 Shannon 정보 이론의 한계에 점점 근접하는 과정이며, 5G에서 데이터 채널(LDPC)과 제어 채널(Polar)을 구분 적용하는 설계가 이론적 최적 성능 실현의 핵심임</li>

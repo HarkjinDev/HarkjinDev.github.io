@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 깊이 우선 탐색 (DFS, Depth-First Search)</title>
+  <title>1. 너비 우선 탐색 (BFS, Breadth-First Search)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,22 @@
   </style>
 </head>
 <body>
-<h4>2. 깊이 우선 탐색 (DFS, Depth-First Search)</h4>
+<h4>1. 너비 우선 탐색 (BFS, Breadth-First Search)</h4>
 <ul>
-<li><strong>정의:</strong> 시작 정점에서 한 방향으로 갈 수 있는 끝까지 탐색한 뒤, 되돌아와 다른 경로를 탐색하는 그래프 탐색 알고리즘</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>스택(Stack), 재귀</strong></u></span>, 백트래킹, 위상 정렬, 사이클 탐지, 연결 요소, 경로 탐색</li>
+<li><strong>정의:</strong> 시작 정점에서 인접한 정점을 먼저 모두 탐색한 뒤, 다음 레벨로 확장해 나가는 그래프 탐색 알고리즘</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>큐(Queue), 레벨 탐색</strong></u></span>, 최단 경로, 방문 체크, 인접 리스트, 가중치 없는 그래프</li>
 <li><strong>분류:</strong> 그래프 탐색</li>
-<li><strong>특성: </strong>Stack, 시간복잡도: O(V+E), 공간복잡도: O(V), 최단 경로 미보장</li>
+<li><strong>특성: </strong>Queue, 시간복잡도: O(V+E), 공간복잡도: O(V), 최단경로 보장</li>
 <li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>초기화</strong></td><td>시작 정점을 스택에 삽입 후 방문 처리</td><td>시작점 설정</td></tr>
-<tr><td><strong>탐색</strong></td><td>현재 정점의 미방문 인접 정점으로 깊이 이동</td><td>깊이 우선 이동</td></tr>
-<tr><td><strong>백트래킹</strong></td><td>더 이상 이동 불가 시 이전 정점으로 되돌아감</td><td>경로 복귀</td></tr>
-<tr><td><strong>반복</strong></td><td>모든 정점 방문 완료 시 종료</td><td>종료 조건</td></tr>
+<tr><td><strong>1. 초기화</strong></td><td>시작 정점을 큐에 삽입 후 방문 처리</td><td>시작점 설정</td></tr>
+<tr><td><strong>2. 탐색</strong></td><td>큐에서 정점을 꺼내 인접 미방문 정점을 모두 큐에 삽입</td><td>레벨 확장</td></tr>
+<tr><td><strong>3. 방문 체크</strong></td><td>이미 방문한 정점은 재삽입 방지</td><td>중복 방지</td></tr>
+<tr><td><strong>4. 반복</strong></td><td>큐가 빌 때까지 반복</td><td>종료 조건</td></tr>
 </table></div>
 </li>
-<li><strong>활용 분야: </strong>위상정렬, 사이클 탐지, 백트래킹</li>
-<li><strong>BFS vs DFS 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>BFS</th><th>DFS</th></tr>
-<tr><td><strong>자료구조</strong></td><td>큐</td><td>스택·재귀</td></tr>
-<tr><td><strong>탐색 방향</strong></td><td>레벨 순서</td><td>깊이 우선</td></tr>
-<tr><td><strong>최단 경로</strong></td><td>✅ 보장 (비가중치)</td><td>❌ 미보장</td></tr>
-<tr><td><strong>메모리</strong></td><td>많음</td><td>적음</td></tr>
-<tr><td><strong>적합한 경우</strong></td><td>목표가 가까울 때</td><td>목표가 깊을 때</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> DFS는 구현 단순성과 메모리 효율로 백트래킹·위상 정렬·사이클 탐지 등 광범위한 문제에 활용되는 핵심 탐색 기법임. BFS와 함께 그래프 탐색의 양대 축을 이루며, 두 알고리즘의 선택은 문제의 구조(목표의 위치·최단 경로 필요 여부)에 따라 결정됨</li>
+<li><strong>활용:</strong> 최단경로 찾기, 레벨 탐색(트리 순회), 연결성 확인</li>
+<li><strong>인사이트:</strong> BFS는 가중치 없는 환경에서 최단 경로를 보장하는 가장 단순한 알고리즘으로, 다익스트라의 개념적 기반이 됨. 큐 기반의 레벨 탐색 구조는 네트워크 홉 수 계산·소셜 그래프 분석 등 실무에서 직접 활용되며, DFS와의 선택 기준은 <strong>"목표가 가까이 있느냐 vs 깊이 있느냐"</strong> 로 판단</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 웹소켓 (WebSocket)</title>
+  <title>[하위] 1-2. 웹소켓 (WebSocket)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,14 +15,14 @@
   </style>
 </head>
 <body>
-<h4>3. 웹소켓 (WebSocket)</h4>
+<h4>[하위] 1-2. 웹소켓 (WebSocket)</h4>
 <ul>
 <li><strong>정의</strong>: HTTP 프로토콜을 업그레이드하여 클라이언트-서버 간 단일 TCP 연결로 전이중 실시간 양방향 통신을 지원하는 프로토콜</li>
 <li><strong>키워드</strong>: RFC 6455, HTTP Upgrade, ws/wss, 전이중, Upgrade 헤더, 실시간</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
 <li><strong>연결 수립 절차</strong>:<ol>
 <li>클라이언트 → HTTP GET + Upgrade: websocket 요청</li>
-<li>서버 → 101 Switching Protocols 응답</li>
+<li>서버 → 101 Switching Protocols 응</li>
 <li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
 </ol>
 </li>

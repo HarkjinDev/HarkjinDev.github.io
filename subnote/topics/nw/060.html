@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. WebRTC (Web Real-Time Communication)</title>
+  <title>4. C-V2X (Cellular Vehicle to Everything)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,21 @@
   </style>
 </head>
 <body>
-<h4>5. WebRTC (Web Real-Time Communication)</h4>
+<h4>4. C-V2X (Cellular Vehicle to Everything)</h4>
 <ul>
-<li><strong>정의</strong>: 웹 브라우저에서 별도 플러그인·앱 설치 없이 JavaScript API만으로 음성·영상·데이터 실시간 통신을 지원하는 오픈 표준</li>
-<li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
+<li><strong>정의</strong>: LTE/5G 셀룰러 네트워크 인프라를 기반으로 차량과 차량·인프라·보행자·네트워크 간 실시간 통신을 가능하게 하는 기술</li>
+<li><strong>키워드</strong>: V2V/V2I/V2P/V2N, LTE-V2X, 5G NR-V2X, DSRC, PC5 인터페이스, 자율주행</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
-<tr><th>컴포넌트</th><th>역할</th></tr>
-<tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
-<tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
-<tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
-<tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
-<tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
+<li><strong>C-V2X 통신 유형</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>활용</th></tr>
+<tr><td>V2V(Vehicle to Vehicle)</td><td>차량 간 직접 통신</td><td>충돌 방지, 군집 주행</td></tr>
+<tr><td>V2I(Vehicle to Infrastructure)</td><td>신호등·도로 인프라</td><td>교통 최적화</td></tr>
+<tr><td>V2P(Vehicle to Pedestrian)</td><td>보행자 안전</td><td>충돌 경고</td></tr>
+<tr><td>V2N(Vehicle to Network)</td><td>셀룰러 네트워크</td><td>HD맵, OTA 업데이트</td></tr>
 </table></div>
 </li>
-<li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
-<li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>
+<li><strong>DSRC vs C-V2X</strong>: DSRC(IEEE 802.11p)는 전용 단거리 무선, C-V2X는 기존 셀룰러 인프라 활용으로 커버리지 우위</li>
+<li><strong>인사이트</strong>: 5G NR-V2X는 <strong>1ms 이하 초저지연</strong>으로 레벨 4 이상 자율주행에 필요한 실시간 의사결정을 지원. V2X는 자율주행 인프라의 핵심 통신 기술로 국가 표준화가 진행 중.</li>
 </ul>
 
 </body>
