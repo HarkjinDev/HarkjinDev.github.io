@@ -253,46 +253,50 @@
       },
       {
         "id": "063",
-        "name": "5. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
+        "name": "[하위] 4-2. 델타 레이크(Delta Lake)"
       },
       {
         "id": "064",
-        "name": "[Part 11] 데이터 거버넌스/품질"
+        "name": "5. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
       },
       {
         "id": "065",
-        "name": "1. 데이터 거버넌스 (Data Governance)"
+        "name": "[Part 11] 데이터 거버넌스/품질"
       },
       {
         "id": "066",
-        "name": "2. 데이터 품질관리 (Data Quality Management)"
+        "name": "1. 데이터 거버넌스 (Data Governance)"
       },
       {
         "id": "067",
-        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
+        "name": "2. 데이터 품질관리 (Data Quality Management)"
       },
       {
         "id": "068",
-        "name": "4. DA & DBA 역할"
+        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
       },
       {
         "id": "069",
-        "name": "5. 데이터 표준화 (Data Standardization)"
+        "name": "4. DA & DBA 역할"
       },
       {
         "id": "070",
-        "name": "6. 데이터 프로파일링 (Data Profiling)"
+        "name": "5. 데이터 표준화 (Data Standardization)"
       },
       {
         "id": "071",
-        "name": "[Part 12] 마이그레이션"
+        "name": "6. 데이터 프로파일링 (Data Profiling)"
       },
       {
         "id": "072",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "[Part 12] 마이그레이션"
       },
       {
         "id": "073",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "074",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]
@@ -1330,6 +1334,10 @@
       {
         "id": "151",
         "name": "16. 개인정보 보호 법률 체계"
+      },
+      {
+        "id": "152",
+        "name": "17. 잊힐 권리 (Right to be Forgotten)"
       }
     ]
   },
@@ -3899,22 +3907,26 @@
       },
       {
         "id": "110",
-        "name": "2. 관측가능성 (Observability)"
+        "name": "[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)"
       },
       {
         "id": "111",
-        "name": "3. 온톨로지(Ontology)"
+        "name": "2. 관측가능성 (Observability)"
       },
       {
         "id": "112",
-        "name": "4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)"
+        "name": "3. 온톨로지(Ontology)"
       },
       {
         "id": "113",
-        "name": "5. 도심항공교통 (UAM, Urban Air Mobility)"
+        "name": "4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)"
       },
       {
         "id": "114",
+        "name": "5. 도심항공교통 (UAM, Urban Air Mobility)"
+      },
+      {
+        "id": "115",
         "name": "6. 인터미턴트 컴퓨팅 (Intermittent Computing)"
       }
     ]
@@ -4001,50 +4013,54 @@
       },
       {
         "id": "020",
-        "name": "[Part 3] 표준"
+        "name": "6. EU CRA (Cyber Resilience Act, 사이버복원력법)"
       },
       {
         "id": "021",
-        "name": "1. ISO 31000 (리스크관리)"
+        "name": "[Part 3] 표준"
       },
       {
         "id": "022",
-        "name": "2. ISO 14000 (환경경영체제)"
+        "name": "1. ISO 31000 (리스크관리)"
       },
       {
         "id": "023",
-        "name": "3. ISO/IEC 27001"
+        "name": "2. ISO 14000 (환경경영체제)"
       },
       {
         "id": "024",
-        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
+        "name": "3. ISO/IEC 27001"
       },
       {
         "id": "025",
-        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
+        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
       },
       {
         "id": "026",
-        "name": "6. ISO 42001:2023"
+        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
       },
       {
         "id": "027",
-        "name": "7. ISO/IEC 25059:2023"
+        "name": "6. ISO 42001:2023"
       },
       {
         "id": "028",
-        "name": "[Part 4] 지침"
+        "name": "7. ISO/IEC 25059:2023"
       },
       {
         "id": "029",
-        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
+        "name": "[Part 4] 지침"
       },
       {
         "id": "030",
-        "name": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
       },
       {
         "id": "031",
+        "name": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+      },
+      {
+        "id": "032",
         "name": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
       }
     ]

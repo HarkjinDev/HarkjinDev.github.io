@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 12] 마이그레이션</title>
+  <title>6. 데이터 프로파일링 (Data Profiling)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,21 @@
   </style>
 </head>
 <body>
-<h3>[Part 12] 마이그레이션</h3>
+<h4>6. 데이터 프로파일링 (Data Profiling)</h4>
+<ul>
+<li><strong>정의</strong>: 데이터의 구조, 값, 관계를 분석하여 품질 이슈를 사전에 진단하는 기법</li>
+<li><strong>키워드</strong>: 값/구조/관계 분석, 이상값, 결측값, 참조 무결성, 데이터 품질 진단</li>
+<li><strong>분류</strong>: 데이터 거버넌스/품질</li>
+<li><strong>분석 유형 3가지</strong>:<ul>
+<li><strong>값 분석(Value Analysis)</strong>: 최솟값/최댓값/평균/분포 등 데이터 값 자체의 통계적 특성 분석 → 이상값·결측값 탐지</li>
+<li><strong>구조 분석(Structure Analysis)</strong>: 형식·길이·데이터 타입 위반 여부 분석 → 스키마 불일치 탐지</li>
+<li><strong>관계 분석(Relationship Analysis)</strong>: 테이블 간 참조 무결성 위반, 중복 데이터 탐지 → 정합성 검증</li>
+</ul>
+</li>
+<li><strong>수행 시점</strong>: 데이터 마이그레이션 前, 데이터 웨어하우스 구축 前, 정기 품질 점검 시</li>
+<li><strong>인사이트</strong>: 데이터 마이그레이션 전 프로파일링을 통해 품질 이슈를 사전에 탐지하면 마이그레이션 실패 위험을 대폭 낮출 수 있으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>프로파일링 결과는 데이터 표준화·정제 우선순위 결정의 근거 자료</strong></u></span>로 활용됨</li>
+</ul>
+<hr/>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 도심항공교통 (UAM, Urban Air Mobility)</title>
+  <title>4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,58 +15,45 @@
   </style>
 </head>
 <body>
-<h4>5. 도심항공교통 (UAM, Urban Air Mobility)</h4>
+<h4>4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)</h4>
 <ul>
-<li><strong>정의:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>eVTOL(전기 수직 이착륙기)</strong></u></span>을 활용하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>도심 저고도(300~600m)</strong></u></span> 공중에서 사람·화물을 운송하는 기체·인프라·교통관리·서비스를 포괄하는 신항공교통체계</li>
-<li><strong>키워드:</strong> eVTOL, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>버티포트</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>회랑</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>멀티로터, 틸트로터, 리프트+크루즈</strong></u></span>, 벡터드 스러스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RAM (광역항공모빌리티)</strong></u></span>, K-UAM, 감항인증, 배터리, 공역관리</li>
+<li><strong>정의:</strong> 뇌의 전기적 신호를 감지·해석하여 외부 장치(컴퓨터·로봇·보조기기)를 직접 제어하거나, 반대로 외부 자극을 뇌에 전달하는 인간-기계 직접 연결 기술</li>
+<li><strong>키워드:</strong> EEG, 뉴럴 임플란트, 침습·비침습, 신호 처리, 뉴럴링크, 운동 피질, BMI, 신경 디코딩</li>
 <li><strong>분류:</strong> 신기술/동향</li>
+<li><strong>BCI 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>침습도</strong></td><td><strong>침습형 (Invasive)</strong></td><td>두개골 내 전극 이식, 고해상도 신호 획득</td><td>고정밀·수술 필요</td></tr>
+<tr><td></td><td><strong>반침습형 (Semi-invasive)</strong></td><td>뇌 표면(피질) 전극 배치, 수술 최소화</td><td>중간 정밀도</td></tr>
+<tr><td></td><td><strong>비침습형 (Non-invasive)</strong></td><td>두피 외부 신호 측정, 착용형 기기</td><td>저정밀·편의성</td></tr>
+<tr><td><strong>신호 방향</strong></td><td><strong>구심성 (Afferent)</strong></td><td>외부 장치→뇌로 자극 전달</td><td>감각 복원</td></tr>
+<tr><td></td><td><strong>원심성 (Efferent)</strong></td><td>뇌 신호→외부 장치 제어</td><td>운동 제어</td></tr>
+<tr><td></td><td><strong>양방향 (Bidirectional)</strong></td><td>뇌↔외부 장치 쌍방향 신호 교환</td><td>완전 상호작용</td></tr>
+</table></div>
+</li>
 <li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>기체</strong></td><td><strong>eVTOL</strong></td><td>전기 추진·수직 이착륙 도심형 항공기</td><td>핵심 비행체</td></tr>
-<tr><td></td><td><strong>멀티로터·틸트로터</strong></td><td>다수 로터 또는 틸팅 방식의 eVTOL 구조</td><td>기체 형태</td></tr>
-<tr><td></td><td><strong>배터리·추진 시스템</strong></td><td>고에너지 밀도 배터리·전기 모터 추진</td><td>동력원</td></tr>
-<tr><td><strong>인프라</strong></td><td><strong>버티포트 (Vertiport)</strong></td><td>eVTOL 이착륙·충전·여객 처리 전용 시설</td><td>이착륙 거점</td></tr>
-<tr><td></td><td><strong>회랑 (Corridor)</strong></td><td>UAM 운항을 위해 지정된 3차원 공역 경로</td><td>비행 경로</td></tr>
-<tr><td><strong>교통관리</strong></td><td><strong>UTM (UAM 교통관리)</strong></td><td>다수 UAM의 공역 분리·충돌 방지·관제</td><td>공역 관리</td></tr>
-<tr><td></td><td><strong>AI 교통관리</strong></td><td>AI·데이터 기반 실시간 교통 흐름 최적화</td><td>지능형 관제</td></tr>
-<tr><td><strong>플랫폼</strong></td><td><strong>MaaS 연계</strong></td><td>지상 교통과 UAM을 통합 예약·결제 서비스</td><td>멀티모달 연계</td></tr>
+<tr><td><strong>신호 획득</strong></td><td><strong>EEG (뇌파)</strong></td><td>두피 전극 기반 전기 신호 비침습 측정</td><td>비침습 표준</td></tr>
+<tr><td></td><td><strong>ECoG</strong></td><td>뇌 표면 전극 배치 고해상도 피질 신호</td><td>반침습 측정</td></tr>
+<tr><td></td><td><strong>뉴럴 임플란트</strong></td><td>뇌 내부 삽입 전극 배열 초고해상도 신호</td><td>침습 정밀 신호</td></tr>
+<tr><td></td><td><strong>fMRI·fNIRS</strong></td><td>뇌 혈류 변화 기반 활성 영역 이미징</td><td>공간 해상도 우수</td></tr>
+<tr><td><strong>신호 처리</strong></td><td><strong>전처리</strong></td><td>잡음 제거·필터링·아티팩트 제거</td><td>신호 정제</td></tr>
+<tr><td></td><td><strong>특징 추출</strong></td><td>주파수·시간 도메인 특징 벡터 추출</td><td>패턴 식별</td></tr>
+<tr><td></td><td><strong>신경 디코딩</strong></td><td>AI·ML로 뇌 신호→의도·명령 변환</td><td>의도 해석</td></tr>
+<tr><td><strong>출력·제어</strong></td><td><strong>보조기기 제어</strong></td><td>의수·의족·휠체어 등 직접 제어</td><td>운동 보조</td></tr>
+<tr><td></td><td><strong>커뮤니케이션</strong></td><td>타이핑·스피치 생성으로 의사소통</td><td>언어 대체</td></tr>
 </table></div>
 </li>
-<li><strong>유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>기체 구조</strong></td><td><strong>멀티로터 (Multirotor)</strong></td><td>다수 로터 배치로 수직 이착륙·호버링 수행</td><td>구조 단순·저속</td></tr>
-<tr><td></td><td><strong>틸트로터 (Tiltrotor)</strong></td><td>이착륙 시 수직·순항 시 수평으로 로터 회전</td><td>속도·효율 균형</td></tr>
-<tr><td></td><td><strong>리프트+크루즈</strong></td><td>이착륙용 로터 + 순항용 고정익 분리 구조</td><td>장거리 순항</td></tr>
-<tr><td></td><td><strong>벡터드 스러스트</strong></td><td>추력 방향 조절로 수직 이착륙·고속 순항</td><td>고성능</td></tr>
-<tr><td><strong>운항 거리</strong></td><td><strong>단거리 UAM</strong></td><td>도심 내 10~50km 단거리 이동</td><td>도심 내 이동</td></tr>
-<tr><td></td><td><strong>중거리 UAM</strong></td><td>도심↔공항·광역권 50~200km 이동</td><td>도심-공항 연결</td></tr>
-<tr><td></td><td><strong>RAM (광역항공모빌리티)</strong></td><td>200km 이상 도시 간 장거리 이동</td><td>광역 이동</td></tr>
-<tr><td><strong>자율화 수준</strong></td><td><strong>유인 (조종사 탑승)</strong></td><td>조종사 직접 탑승·조종 운항</td><td>상용화 초기</td></tr>
-<tr><td></td><td><strong>원격 조종</strong></td><td>지상 원격 조종사가 비행 제어</td><td>전환 단계</td></tr>
-<tr><td></td><td><strong>완전 자율</strong></td><td>AI 기반 무인 완전 자율비행</td><td>미래 목표</td></tr>
-<tr><td><strong>서비스 유형</strong></td><td><strong>에어택시</strong></td><td>승객 수요 기반 도심 항공 이동 서비스</td><td>여객 운송</td></tr>
-<tr><td></td><td><strong>에어앰뷸런스</strong></td><td>응급 환자 신속 이송·의료 서비스</td><td>응급 의료</td></tr>
-<tr><td></td><td><strong>화물·물류</strong></td><td>도서·산간 지역 화물·의약품 배송</td><td>화물 운송</td></tr>
-<tr><td></td><td><strong>관광·레저</strong></td><td>도심 항공 관광·체험 비행 서비스</td><td>관광 서비스</td></tr>
-</table></div>
-</li>
-<li><strong>K-UAM 로드맵:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>시기</th><th>목표</th><th>핵심</th></tr>
-<tr><td><strong>초기 상용화</strong></td><td>2028년~</td><td>조종사 탑승 유인 상용 서비스 시작</td><td>1단계 상용화</td></tr>
-<tr><td><strong>성장기</strong></td><td>2030년~</td><td>노선 확대·자율비행 전환·비용 절감</td><td>본격 확산</td></tr>
-<tr><td><strong>성숙기</strong></td><td>2035년~</td><td>완전자율·대중화·광역권 서비스</td><td>완전 자율화</td></tr>
-</table></div>
-</li>
+<li><strong>대표 기술·기업: </strong>Neuralink, Synchron, BrainGate, OpenBCI</li>
+<li><strong>활용 분야: </strong>의료·재활, 보조기기, 신경 치료, HCI 혁신, 군사·항공</li>
 <li><strong>주요 과제:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>감항 인증</strong></td><td>FAA·EASA·국토부 형식증명 취득 복잡·장기화</td><td>인증 장벽</td></tr>
-<tr><td><strong>배터리 한계</strong></td><td>에너지 밀도 한계로 비행 거리·탑재 하중 제한</td><td>기술적 한계</td></tr>
-<tr><td><strong>소음·수용성</strong></td><td>도심 비행 소음에 대한 주민 사회적 수용성</td><td>사회적 수용</td></tr>
-<tr><td><strong>공역 관리</strong></td><td>기존 항공기·드론과의 공역 분리·안전 관리</td><td>공역 충돌</td></tr>
-<tr><td><strong>인프라 비용</strong></td><td>버티포트 구축·전력 인프라 초기 투자 부담</td><td>인프라 비용</td></tr>
+<tr><td><strong>신호 안정성</strong></td><td>장기 이식 전극의 신호 품질 저하·면역 반응</td><td>장기 안정성</td></tr>
+<tr><td><strong>개인 차이</strong></td><td>사람마다 다른 뇌파 패턴으로 범용화 어려움</td><td>개인화 한계</td></tr>
+<tr><td><strong>윤리·프라이버시</strong></td><td>뇌 데이터 수집·해석의 신경 프라이버시 침해</td><td>뇌 데이터 보안</td></tr>
+<tr><td><strong>규제</strong></td><td>침습형 의료기기로 FDA·식약처 승인 절차 복잡</td><td>임상 규제</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 국토교통부가 2026년 2월 K-UAM 운용개념서 1.5를 발간하여 2028년 상반기부터 상용화 1단계를 시행하겠다는 입장을 밝혔으며, UAM은 도심 교통 혁신을 넘어 의료·물류·공공안전을 아우르는 신교통 생태계로 진화하고 있음. AI 교통관리·버티포트 자동화·안전 인증 체계가 K-UAM 상용화의 3대 핵심 기술 과제로 꼽히며, 기체 개발 경쟁을 넘어 감항 인증·공역 관리·사회적 수용성 확보가 글로벌 UAM 시장 선점의 핵심 변수로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> BCI는 인간과 디지털 세계의 경계를 허무는 궁극적 인터페이스 기술로, Neuralink의 인간 임상 성공과 Synchron의 최소 침습 접근이 상용화 가능성을 높이고 있음. AI 신경 디코딩 정밀도 향상으로 언어·운동 신호 해석 수준이 급격히 발전하고 있으나, 뇌 데이터라는 가장 민감한 개인정보의 보호·윤리·규제 체계 구축이 기술 발전과 함께 반드시 선행되어야 할 핵심 과제임</li>
 </ul>
 
 </body>

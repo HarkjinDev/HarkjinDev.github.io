@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 관측가능성 (Observability)</title>
+  <title>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,41 +15,36 @@
   </style>
 </head>
 <body>
-<h4><strong>2. 관측가능성 (Observability)</strong></h4>
+<h4>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</h4>
 <ul>
-<li><strong>정의:</strong> 시스템의 문제 해결 및 자동화를 위해 외부 출력값인 메트릭(<strong>Metric</strong>), 추적(<strong>Trace</strong>), 로그(<strong>Log</strong>) 등을 분석하여 시스템의 내부 상태를 이해하고 예측할 수 있는 속성</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>MELT-메트릭(Metric), 이벤트(Event), 추적(Trace), 로그(Log)</strong></u></span>, <strong>SRE</strong>, <strong>SLO</strong>, 외부 출력값, 내부 상태 파악, <strong>AIOps</strong></li>
+<li><strong>정의:</strong> 예측적 위협 인텔리전스와 자동화된 노출 관리, Deny·Deceive 전략을 활용하여 공격 발생 이전에 위협을 제거하는 예방 중심의 선제적 사이버보안 패러다임</li>
+<li><strong>키워드:</strong> 가트너 2026, Deny·Deceive, AI-powered SecOps, 프로그래매틱 방어, CTEM, ASM, 예측적 보안</li>
 <li><strong>분류:</strong> 신기술/동향</li>
-<li><strong>관측가능성과 모니터링의 비교:</strong><div class="table-scroll"><table>
-<tr><th><strong>비교 항목</strong></th><th><strong>관측가능성 (Observability)</strong></th><th><strong>모니터링 (Monitoring)</strong></th></tr>
-<tr><td><strong>사용 목적</strong></td><td>복잡한 오류를 추적</td><td>발생한 오류를 발견</td></tr>
-<tr><td><strong>측정 값 활용</strong></td><td>시스템 오작동 원인을 확인</td><td>시스템 영향도를 식별</td></tr>
-<tr><td><strong>데이터 상관관계</strong></td><td>데이터의 상관관계 파악이 용이</td><td>데이터의 상관관계 파악이 어려움</td></tr>
-<tr><td><strong>분석 대상</strong></td><td>여러 시스템을 연관 분석</td><td>독립형 시스템을 분석</td></tr>
-<tr><td><strong>분석 결과</strong></td><td>원인 및 과정을 도출</td><td>시점 및 종류를 도출</td></tr>
+<li><strong>필요성:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI 공격 지능화</td><td>AI 기반 공격이 밀리초 단위로 가속화·기존 탐지·대응 방식 한계 도달</td><td>반응형 보안 무력화</td></tr>
+<tr><td>공격면 확장</td><td>클라우드·OT·CPS 디지털 자산 증가로 공격면 급격히 확대</td><td>ASM 기반 노출 관리 필요</td></tr>
+<tr><td>패러다임 전환</td><td>Detect &amp; Respond 중심→AI 기반 사전 차단·기만 전략 전환</td><td>예방 중심 보안</td></tr>
 </table></div>
 </li>
-<li><strong>관측가능성 핵심 구성 요소(MLT/MELT):</strong><div class="table-scroll"><table>
-<tr><th><strong>구성 요소</strong></th><th><strong>역할 및 메커니즘 (요약)</strong></th><th><strong>주요 출력 형태</strong></th></tr>
-<tr><td><strong>메트릭 (Metric)</strong></td><td>가용성 신호의 <strong>수치화 및 집계</strong></td><td>CPU/메모리 사용량, 메시지 개수</td></tr>
-<tr><td><strong>이벤트 (Event)</strong></td><td>특정 시점에 발생한 <strong>상태 변화·행위 기록</strong></td><td>배포 이벤트·알람 발생·사용자 클릭</td></tr>
-<tr><td><strong>로그 (Log)</strong></td><td>실행 시 발생하는 <strong>텍스트/JSON 기록</strong></td><td>에러, 경고, 디버깅 정보</td></tr>
-<tr><td><strong>추적 (Tracing)</strong></td><td>트랜잭션의 <strong>이동 경로 및 지연 시간</strong> 분석</td><td>시스템 이동 경로, 처리 대기 시간</td></tr>
+<li><strong>가트너 정의 핵심 3요소:</strong><div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI-powered SecOps</td><td>AI로 보안 운영 자동화·위협 예측·우선순위화 수행</td><td>자율 보안 운영</td></tr>
+<tr><td>Programmatic Denial</td><td>알려진 악성 인프라·위협을 프로그래매틱하게 사전 차단</td><td>자동화 차단</td></tr>
+<tr><td>Deception (기만)</td><td>공격자를 허니팟·허위 자산으로 유인·무력화</td><td>공격자 혼란 유도</td></tr>
 </table></div>
 </li>
-<li><strong>기반 기술 및 세부 구현 기술:</strong><div class="table-scroll"><table>
-<tr><th><strong>기반 기술</strong></th><th><strong>세부 기술</strong></th><th><strong>핵심 메커니즘 (요약)</strong></th></tr>
-<tr><td><strong>트래픽 관리</strong></td><td><strong>eBPF</strong></td><td>커널 내 샌드박스 실행 및 Hook 활용 모니터링</td></tr>
-<tr><td></td><td><strong>복원성 패턴</strong></td><td>서비스 메시·서킷브레이커 기반 수평 확장 배포</td></tr>
-<tr><td><strong>오토 스케일링</strong></td><td><strong>메트릭 측정</strong></td><td> 요청 수, 요청 기간, 동시 요청 등</td></tr>
-<tr><td></td><td><strong>HPA</strong></td><td>메트릭 선정, 스래싱 방지, 지연 반응</td></tr>
-<tr><td><strong>운영 프로세스</strong></td><td><strong>관측가능성 운영</strong></td><td>메트릭 → 추적 ↔ 로그 순서의 연계 분석</td></tr>
-<tr><td><strong>장애 프로세스</strong></td><td><strong>장애 대응</strong></td><td>장애 발생 → 알람 전송 → 추적 분석 → 로그 분석</td></tr>
-<tr><td><strong>마이크로서비스</strong></td><td><strong>CQRS</strong></td><td>읽기/쓰기 모델 분리를 통한 독립적 최적화</td></tr>
-<tr><td><strong>파티셔닝</strong></td><td><strong>샤딩</strong></td><td>키 기반 데이터 분산 및 특정 샤드 부하 해소</td></tr>
+<li><strong>핵심 구현 기술:</strong><div class="table-scroll"><table>
+<tr><th>기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI-powered SecOps</td><td>AI로 위협 예측·탐지·우선순위화·대응 자동화</td><td>자율 보안 운영</td></tr>
+<tr><td>ASM (공격면 관리)</td><td>클라우드·OT·CPS 공격면 지속 식별·노출 관리</td><td>공격면 가시성</td></tr>
+<tr><td>CTEM (지속적 위협 노출 관리)</td><td>노출 식별→우선순위화→검증→대응 지속 수행</td><td>노출 관리 자동화</td></tr>
+<tr><td>Deception 기술</td><td>허니팟·허위 자산으로 공격자 유인·탐지·무력화</td><td>공격자 기만</td></tr>
+<tr><td>Programmatic Denial</td><td>악성 인프라 연결 전 네트워크 계층에서 자동 차단</td><td>사전 차단</td></tr>
+<tr><td>예측적 위협 인텔리전스</td><td>글로벌 CTI 실시간 수집·분석·자동 방어 정책 반영</td><td>선제적 IOC 차단</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트: </strong>관측가능성은 외부 출력값을 분석하여 시스템 내부 상태를 파악한다는 점에서 단순 모니터링과 차별화되며, <strong>SRE</strong>를 통해 <strong>SLO</strong>를 정의하고 보호하는 효율적인 운영을 실현함. 향후 IT 운영 문제를 자동 파악하여 해결하는 <strong>AIOps</strong>를 적용함으로써 운영 자동화 체계로 발전할 것으로 예상됨.</li>
+<li><strong>인사이트:</strong> 가트너는 선제적 사이버보안을 "예측이 곧 보호(Prediction is Protection)"로 정의하며, AI-powered SecOps·프로그래매틱 차단·기만 전략의 3요소로 공격자보다 먼저 행동하는 보안 패러다임 전환을 2026년 핵심 전략기술로 제시함</li>
 </ul>
 
 </body>

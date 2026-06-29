@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 11] 데이터 거버넌스/품질</title>
+  <title>5. 인메모리 데이터베이스 (IMDB, In-Memory Database)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,42 @@
   </style>
 </head>
 <body>
-<h3>[Part 11] 데이터 거버넌스/품질</h3>
+<h4>5. 인메모리 데이터베이스 (IMDB, In-Memory Database)</h4>
+<ul>
+<li><strong>정의</strong>: 데이터를 디스크 대신 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>메인 메모리(RAM)에 상주</strong></u></span>시켜 초고속 실시간 데이터 처리를 수행하는 데이터베이스 시스템</li>
+<li><strong>키워드</strong>: 메인 메모리,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> I/O비용 없음</strong></u></span>, 고속 처리, WAL, 스냅샷, 영속성, IMDG, SAP HANA, Redis, VoltDB</li>
+<li><strong>분류</strong>: 특수 DB</li>
+<li><strong>등장 배경</strong>:<ul>
+<li>기존 디스크 기반 DBMS는 I/O 병목이 성능 한계 → 메모리 가격 하락 및 대용량화로 IMDB 실용화</li>
+<li>실시간 분석·초저지연 응답이 요구되는 환경에서 필수 기술로 부상</li>
+</ul>
+</li>
+<li><strong>인메모리 DB vs 디스크 기반 DB 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>인메모리 DB (IMDB)</th><th>디스크 기반 DB</th></tr>
+<tr><td>저장 위치</td><td>메인 메모리(RAM)</td><td>디스크(HDD/SSD)</td></tr>
+<tr><td>응답 속도</td><td>마이크로초(μsec) 수준</td><td>밀리초(msec) 수준</td></tr>
+<tr><td>I/O 비용</td><td>없음 (메모리 직접 접근)</td><td>디스크 I/O 발생</td></tr>
+<tr><td>영속성</td><td>휘발성 → WAL·스냅샷으로 보완</td><td>기본 보장</td></tr>
+<tr><td>용량</td><td>메모리 용량에 제한</td><td>대용량 저장 가능</td></tr>
+<tr><td>비용</td><td>메모리 단가 높음</td><td>상대적으로 저렴</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 기술</strong>:<ul>
+<li><strong>WAL(Write Ahead Logging)</strong>: 데이터 변경 전 로그를 먼저 기록하여 장애 시 복구</li>
+<li><strong>스냅샷(Snapshot)</strong>: 특정 시점의 메모리 상태를 디스크에 주기적으로 저장</li>
+<li><strong>IMDG(In-Memory Data Grid)</strong>: 분산 메모리 환경에서 데이터를 그리드 형태로 공유 및 처리</li>
+</ul>
+</li>
+<li><strong>대표 제품</strong>:<ul>
+<li><strong>SAP HANA</strong>: 컬럼 기반 인메모리 DB, OLTP+OLAP 동시 지원 (HTAP)</li>
+<li><strong>Redis</strong>: Key-Value 기반 인메모리 DB, 캐시·세션 관리에 특화</li>
+<li><strong>VoltDB</strong>: ACID 보장 인메모리 RDBMS, 고속 트랜잭션 처리</li>
+</ul>
+</li>
+<li><strong>적용 분야</strong>: 실시간 사기 탐지, 주식·금융 거래 처리, 세션 관리, 실시간 대시보드</li>
+<li><strong>인사이트</strong>: 인메모리 DB는 초저지연 응답이 필수인 환경에서 탁월하나, 메모리 휘발성 문제를 WAL·스냅샷·복제(Replication)로 반드시 보완해야 하며, 메모리 비용과 데이터 볼륨을 고려한 하이브리드 설계(핫데이터는 IMDB, 콜드데이터는 디스크 DB)가 현실적 대안임</li>
+</ul>
+<hr/>
 
 </body>
 </html>
