@@ -289,14 +289,22 @@
       },
       {
         "id": "072",
-        "name": "[Part 12] 마이그레이션"
+        "name": "7. 데이터 스페이스(Data Space)"
       },
       {
         "id": "073",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
       },
       {
         "id": "074",
+        "name": "[Part 12] 마이그레이션"
+      },
+      {
+        "id": "075",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "076",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]
