@@ -25,6 +25,20 @@
 <li><strong>간접 인젝션</strong>: 웹페이지·문서 등 외부 콘텐츠에 악성 명령 삽입 → LLM이 처리 시 실행</li>
 </ul>
 </li>
+<li><strong>프롬프트 인젝션 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>유형</th><th>설명</th></tr>
+<tr><td>직접 인젝션</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>프롬프트 레이어링</strong></u></span></td><td>중첩 지시로 원래 시스템 프롬프트 무력화</td></tr>
+<tr><td></td><td>탈옥 (Jailbreak)</td><td>역할극·가상 시나리오로 안전장치 우회</td></tr>
+<tr><td></td><td>시스템 프롬프트 추출</td><td>내부 시스템 프롬프트 내용 노출 유도</td></tr>
+<tr><td>간접 인젝션</td><td>웹 콘텐츠 인젝션</td><td>웹페이지에 숨겨진 악성 지시 AI 에이전트 실행</td></tr>
+<tr><td></td><td>이메일 인젝션</td><td>이메일 본문 숨겨진 지시로 에이전트 원격 조종</td></tr>
+<tr><td></td><td>RAG 데이터 오염</td><td>지식베이스 문서에 악성 지시 삽입·검색 조작</td></tr>
+<tr><td></td><td>문서·파일 인젝션</td><td>PDF·Word 파일 내 숨겨진 악성 지시 삽입</td></tr>
+<tr><td>에이전트 인젝션</td><td>에이전트 목표 탈취</td><td>외부 콘텐츠로 에이전트 목표·행동 경로 변조</td></tr>
+<tr><td></td><td>메모리·컨텍스트 오염</td><td>에이전트 장기 메모리에 악성 지시 지속 삽입</td></tr>
+<tr><td></td><td>도구 호출 조작</td><td>에이전트 도구 호출 과정에 악성 파라미터 주입</td></tr>
+</table></div>
+</li>
 <li><strong>대응 방안</strong>: 입력값 검증, 프롬프트 캡슐화·정규화, 최소 권한, 신뢰 경계 설정, 가드레일 LLM</li>
 <li><strong>인사이트</strong>: 간접 프롬프트 인젝션은 LLM이 신뢰하는 외부 데이터 소스에 삽입되어 탐지가 어려우며, 에이전트 기반 AI 시스템에서 가장 위험한 공격 벡터임</li>
 </ul>
