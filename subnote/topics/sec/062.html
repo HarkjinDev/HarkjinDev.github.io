@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 버퍼 오버플로우 (Buffer Overflow)</title>
+  <title>2. 포맷 스트링 공격 (Format String Attack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,14 @@
   </style>
 </head>
 <body>
-<h4>1. 버퍼 오버플로우 (Buffer Overflow)</h4>
+<h4>2. 포맷 스트링 공격 (Format String Attack)</h4>
 <ul>
-<li><strong>정의:</strong> 프로그램이 할당된 메모리 버퍼 경계를 초과하여 데이터를 쓸 때 인접 메모리 영역을 덮어써 시스템을 오작동시키거나 악의적 코드를 실행시키는 취약점</li>
-<li><strong>키워드:</strong> 스택 오버플로우, 힙 오버플로우, 리턴 주소 변조, 쉘코드, NX bit, ASLR, 스택 카나리, 포맷 스트링</li>
-<li><strong>분류:</strong> 위협/공격</li>
-<li><strong>공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
-<tr><td><strong>스택 기반</strong></td><td><strong>스택 오버플로우</strong></td><td>리턴 주소 변조로 공격자 코드 실행 유도</td></tr>
-<tr><td></td><td><strong>리턴 주소 변조</strong></td><td>함수 복귀 주소를 쉘코드 주소로 덮어쓰기</td></tr>
-<tr><td><strong>힙 기반</strong></td><td><strong>힙 오버플로우</strong></td><td>동적 할당 영역 초과 쓰기로 힙 메타데이터 변조</td></tr>
-<tr><td></td><td><strong>Use-After-Free</strong></td><td>해제된 메모리 재사용으로 임의 코드 실행</td></tr>
-<tr><td><strong>기타</strong></td><td><strong>포맷 스트링</strong></td><td>printf 포맷 문자열 취약점으로 메모리 읽기·쓰기</td></tr>
-</table></div>
-</li>
-<li><strong>주요 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>방어 기법</strong></td><td><strong>ASLR</strong></td><td>메모리 주소 무작위화로 공격 주소 예측 불가</td></tr>
-<tr><td></td><td><strong>스택 카나리</strong></td><td>리턴 주소 앞에 카나리 값 배치, 변조 시 탐지</td></tr>
-<tr><td></td><td><strong>NX bit / DEP</strong></td><td>스택·힙 영역 코드 실행 불가 설정</td></tr>
-<tr><td></td><td><strong>CFI</strong></td><td>제어 흐름 무결성 검증으로 비정상 분기 차단</td></tr>
-<tr><td><strong>개발 보안</strong></td><td><strong>안전한 함수</strong></td><td>strcpy→strncpy, gets→fgets 등 경계 검사 함수 사용</td></tr>
-<tr><td></td><td><strong>정적 분석</strong></td><td>컴파일 단계 취약 코드 패턴 자동 탐지</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 버퍼 오버플로우는 수십 년간 가장 많이 악용된 취약점으로 ASLR·NX·카나리 등 다층 방어가 표준화되었으나, ROP(Return-Oriented Programming) 등 우회 기법이 지속 진화하여 컴파일러 보안 옵션과 정적·동적 분석의 병행 적용이 필수임</li>
+<li><strong>정의</strong>: printf 계열 함수에서 포맷 문자열을 사용자 입력으로 받을 때 발생하는 메모리 조작 공격</li>
+<li><strong>키워드</strong>: printf, %x, %n, 메모리 읽기/쓰기</li>
+<li><strong>분류</strong>: 위협/공격</li>
+<li><strong>공격 원리</strong>: <code>printf(user_input)</code> 형태에서 <code>%x</code>로 스택 메모리 읽기, <code>%n</code>으로 임의 메모리 쓰기 가능</li>
+<li><strong>대응 방안</strong>: <code>printf("%s", user_input)</code> 형태로 포맷 문자열 하드코딩</li>
+<li><strong>인사이트</strong>: 포맷 스트링 취약점은 C/C++ 코드에서 발생하며, 현대 컴파일러(GCC -Wformat)는 경고를 발생시키므로 컴파일러 경고 무시 금지가 중요함</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>19. 마이크로세그멘테이션(Microsegmentation)</title>
+  <title>20. 기타 위협</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,17 @@
   </style>
 </head>
 <body>
-<h4>19. 마이크로세그멘테이션(Microsegmentation)</h4>
+<h4>20. 기타 위협</h4>
+<div class="table-scroll"><table>
+<tr><th>공격명</th><th>핵심</th><th>대응 방안</th></tr>
+<tr><td><strong>크리덴셜 스터핑 (Credential Stuffing)</strong></td><td>유출된 계정·패스워드로 다른 서비스 자동 로그인 시도</td><td>MFA 적용, 비밀번호 재사용 금지, 로그인 이상 탐지</td></tr>
+<tr><td><strong>인포스틸러 (Infostealer)</strong></td><td>브라우저 저장 자격증명·쿠키·카드정보 자동 탈취 악성코드</td><td>EDR 적용, 브라우저 자격증명 저장 금지, 정기 점검</td></tr>
+<tr><td><strong>BPFdoor</strong></td><td>Linux BPF 필터 악용, 포트 미오픈 상태로 백도어 통신</td><td>커널 BPF 모니터링, 비정상 프로세스 탐지, EDR</td></tr>
+<tr><td><strong>Mirai 봇넷</strong></td><td>IoT 기기 기본 계정 탈취 후 DDoS 봇넷으로 악용</td><td>IoT 기본 계정 변경, 펌웨어 업데이트, 네트워크 분리</td></tr>
+<tr><td><strong>스턱스넷 (Stuxnet)</strong></td><td>산업제어시스템(ICS) 표적 국가급 사이버 무기, USB 전파</td><td>OT·IT 망분리, USB 차단, ICS 전용 보안 솔루션</td></tr>
+<tr><td><strong>LotL (Living off the Land)</strong></td><td>PowerShell·WMI 등 정상 시스템 도구 악용으로 탐지 회피</td><td>정상 도구 행위 모니터링, PowerShell 로깅, UEBA</td></tr>
+</table></div>
+<hr/>
 
 </body>
 </html>

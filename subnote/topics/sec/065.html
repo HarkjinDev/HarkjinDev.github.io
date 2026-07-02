@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</title>
+  <title>4. 인젝션 (Injection)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,30 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</h4>
+<h4>4. 인젝션 (Injection)</h4>
 <ul>
-<li><strong>정의</strong>: 자원 검사 시점(TOC)과 사용 시점(TOU) 사이의 시간차를 악용하는 경쟁 조건 취약점</li>
-<li><strong>키워드</strong>: 검사-사용 시간차, 경쟁조건, 원자성 위반</li>
+<li><strong>정의</strong>: 악의적 코드를 삽입하여 시스템을 비정상 동작시키는 보안 공격 기법</li>
+<li><strong>키워드</strong>: SQL/OS/LDAP 인젝션, 입력값 검증 부재, Blind 인젝션, Union 인젝션, OOB 인젝션</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>공격 시나리오</strong>:<ul>
-<li>① 프로그램이 파일 권한 검사 (TOC)</li>
-<li>② 공격자가 파일을 심볼릭 링크로 교체 (시간차)</li>
-<li>③ 프로그램이 교체된 파일에 쓰기 (TOU) → 권한 상승</li>
+<li><strong>주요 유형</strong>:<ul>
+<li><strong>SQL 인젝션</strong>: DB 쿼리 조작으로 데이터 탈취·변조</li>
+<li><strong>OS 인젝션</strong>: 시스템 명령어 실행</li>
+<li><strong>LDAP 인젝션</strong>: 디렉토리 서비스 조작</li>
+<li><strong>XML 인젝션 / XPath 인젝션</strong>: XML 파서 조작</li>
 </ul>
 </li>
-<li><strong>대응 방안</strong>: 원자적 연산(Atomic Operation) 사용, 검사와 사용을 단일 시스템 콜로 처리, 임시 파일 사용 최소화</li>
-<li><strong>인사이트</strong>: TOCTOU는 멀티스레드 환경에서 빈번하게 발생하므로, 파일 작업 시 경로 대신 파일 디스크립터(File Descriptor)를 사용하는 것이 안전함</li>
+<li><strong>대응 방안</strong>: 입력값 검증(화이트리스트 기반 입력 검증), 입력값 타입 강제, 특수문자 이스케이프, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>매개변수화 쿼리(Prepared Statement)</strong></u></span>, ORM 사용, 최소 권한 DB 계정, 샌드박스 실행, 오류메시지 최소화</li>
+<li><strong>SQL 인젝션 유형:</strong><div class="table-scroll"><table>
+<tr><th>유형</th><th>핵심</th><th>대응 방안</th></tr>
+<tr><td><strong>일반 SQL 인젝션</strong></td><td>입력값에 SQL 구문 삽입·직접 실행</td><td>PreparedStatement, 입력값 검증·이스케이프</td></tr>
+<tr><td><strong>Blind SQL 인젝션</strong></td><td>응답 결과 없이 참·거짓으로 데이터 추출</td><td>에러 메시지 숨김, 응답 시간 일관화</td></tr>
+<tr><td><strong>시간 기반 블라인드</strong></td><td>SLEEP() 등으로 응답 지연을 통해 데이터 추출</td><td>쿼리 실행 시간 제한, WAF 적용</td></tr>
+<tr><td><strong>에러 기반 인젝션</strong></td><td>의도적 에러 유발로 DB 구조·데이터 노출</td><td>에러 메시지 외부 노출 차단, 커스텀 에러 페이지</td></tr>
+<tr><td><strong>UNION 기반 인젝션</strong></td><td>UNION 구문으로 다른 테이블 데이터 병합 추출</td><td>컬럼 수·타입 검증, 최소 권한 계정 사용</td></tr>
+<tr><td><strong>Out-of-Band 인젝션</strong></td><td>DNS·HTTP 요청으로 데이터를 외부 서버로 유출</td><td>외부 네트워크 요청 차단, DB 서버 아웃바운드 제한</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: SQL 인젝션은 가장 오래된 취약점이지만 여전히 OWASP Top 3에 포함되어 있으며, Prepared Statement 사용만으로도 대부분의 SQL 인젝션을 방어할 수 있음</li>
 </ul>
 
 </body>

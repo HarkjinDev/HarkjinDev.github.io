@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 드론 보안 (Drone Security)</title>
+  <title>8. 퍼듀 모델 (Purdue Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,20 @@
   </style>
 </head>
 <body>
-<h4>7. 드론 보안 (Drone Security)</h4>
+<h4>8. 퍼듀 모델 (Purdue Model)</h4>
 <ul>
-<li><strong>정의</strong>: 드론 시스템의 통신, 제어, 데이터 보안 위협과 대응 방안</li>
-<li><strong>키워드</strong>: GPS 스푸핑, 통신 가로채기, 물리적 탈취</li>
+<li><strong>정의</strong>: 산업제어시스템(ICS/OT)의 보안을 계층적으로 정의한 참조 아키텍처 모델</li>
+<li><strong>키워드</strong>: 레벨 0~5, IT/OT 경계, 산업보안 참조 모델</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>주요 위협</strong>:<ul>
-<li><strong>GPS 스푸핑</strong>: 가짜 GPS 신호로 드론 경로 조작</li>
-<li><strong>통신 재밍(Jamming)</strong>: 제어 신호 방해로 드론 통제 불능</li>
-<li><strong>신호 가로채기(Hijacking)</strong>: 제어권 탈취</li>
+<li><strong>레벨 구조</strong>:<ul>
+<li><strong>Level 0~1</strong>: 물리적 프로세스 및 센서·액추에이터 (필드 장치)</li>
+<li><strong>Level 2</strong>: 제어 시스템 (SCADA, DCS, PLC)</li>
+<li><strong>Level 3</strong>: 생산 운영 관리</li>
+<li><strong>DMZ</strong>: IT/OT 경계 (데이터 다이오드, 방화벽)</li>
+<li><strong>Level 4~5</strong>: 기업 IT 네트워크 및 인터넷</li>
 </ul>
 </li>
-<li><strong>대응 방안</strong>: 암호화된 통신, GPS 신호 검증, 지오펜싱(Geofencing), 드론 등록·추적 시스템</li>
-<li><strong>인사이트</strong>: UTM(Unmanned Traffic Management) 시스템과 연계된 드론 보안 체계 구축이 국가 과제로 부상하고 있음</li>
+<li><strong>인사이트</strong>: OT와 IT의 연결(Industry 4.0) 증가로 퍼듀 모델의 경계가 희미해지고 있으며, 제로 트러스트 원칙의 OT 환경 적용이 새로운 트렌드임</li>
 </ul>
 
 </body>

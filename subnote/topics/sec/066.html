@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 인젝션 (Injection)</title>
+  <title>5. XSS (Cross-Site Scripting)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,29 @@
   </style>
 </head>
 <body>
-<h4>4. 인젝션 (Injection)</h4>
+<h4>5. XSS (Cross-Site Scripting)</h4>
 <ul>
-<li><strong>정의</strong>: 악의적 코드를 삽입하여 시스템을 비정상 동작시키는 보안 공격 기법</li>
-<li><strong>키워드</strong>: SQL/OS/LDAP 인젝션, 입력값 검증 부재</li>
+<li><strong>정의:</strong> 공격자가 웹 페이지에 악성 스크립트를 삽입하여 피해자의 브라우저에서 실행시켜 세션 탈취·악성코드 배포 등을 유발하는 웹 공격</li>
+<li><strong>키워드:</strong> 악성 스크립트, 세션 탈취, DOM, 반사형, 저장형, CSP, 입력값 검증, 출력 이스케이프</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>주요 유형</strong>:<ul>
-<li><strong>SQL 인젝션</strong>: DB 쿼리 조작으로 데이터 탈취·변조</li>
-<li><strong>OS 인젝션</strong>: 시스템 명령어 실행</li>
-<li><strong>LDAP 인젝션</strong>: 디렉토리 서비스 조작</li>
-<li><strong>XML 인젝션 / XPath 인젝션</strong>: XML 파서 조작</li>
-</ul>
-</li>
-<li><strong>대응 방안</strong>: 입력값 검증, 매개변수화 쿼리(Prepared Statement), ORM 사용, 최소 권한 DB 계정</li>
-<li><strong>SQL 인젝션 유형:</strong><div class="table-scroll"><table>
-<tr><th>유형</th><th>핵심</th><th>대응 방안</th></tr>
-<tr><td><strong>일반 SQL 인젝션</strong></td><td>입력값에 SQL 구문 삽입·직접 실행</td><td>PreparedStatement, 입력값 검증·이스케이프</td></tr>
-<tr><td><strong>Blind SQL 인젝션</strong></td><td>응답 결과 없이 참·거짓으로 데이터 추출</td><td>에러 메시지 숨김, 응답 시간 일관화</td></tr>
-<tr><td><strong>시간 기반 블라인드</strong></td><td>SLEEP() 등으로 응답 지연을 통해 데이터 추출</td><td>쿼리 실행 시간 제한, WAF 적용</td></tr>
-<tr><td><strong>에러 기반 인젝션</strong></td><td>의도적 에러 유발로 DB 구조·데이터 노출</td><td>에러 메시지 외부 노출 차단, 커스텀 에러 페이지</td></tr>
-<tr><td><strong>UNION 기반 인젝션</strong></td><td>UNION 구문으로 다른 테이블 데이터 병합 추출</td><td>컬럼 수·타입 검증, 최소 권한 계정 사용</td></tr>
-<tr><td><strong>Out-of-Band 인젝션</strong></td><td>DNS·HTTP 요청으로 데이터를 외부 서버로 유출</td><td>외부 네트워크 요청 차단, DB 서버 아웃바운드 제한</td></tr>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>반사형 (Reflected)</strong></td><td>악성 스크립트를 URL에 삽입, 서버 응답에 반사되어 즉시 실행</td><td>URL 기반 즉시 실행</td></tr>
+<tr><td><strong>저장형 (Stored)</strong></td><td>악성 스크립트를 DB에 저장 후 피해자 접근 시 지속 실행</td><td>지속적 영향</td></tr>
+<tr><td><strong>DOM 기반 (DOM-based)</strong></td><td>서버 개입 없이 클라이언트 DOM 조작으로 스크립트 실행</td><td>클라이언트 측 실행</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: SQL 인젝션은 가장 오래된 취약점이지만 여전히 OWASP Top 3에 포함되어 있으며, Prepared Statement 사용만으로도 대부분의 SQL 인젝션을 방어할 수 있음</li>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>입력 처리</strong></td><td><strong>입력값 검증</strong></td><td>허용 문자 화이트리스트 기반 입력값 검증</td></tr>
+<tr><td></td><td><strong>출력 이스케이프</strong></td><td>HTML 특수문자(&amp;·&lt;·&gt;·"·') 인코딩 처리</td></tr>
+<tr><td><strong>브라우저 방어</strong></td><td><strong>CSP</strong></td><td>허용된 스크립트 출처만 실행하는 콘텐츠 보안 정책</td></tr>
+<tr><td></td><td><strong>HttpOnly 쿠키</strong></td><td>JS에서 쿠키 접근 불가 설정으로 세션 탈취 방지</td></tr>
+<tr><td><strong>서버 방어</strong></td><td><strong>WAF</strong></td><td>악성 스크립트 패턴 탐지·차단</td></tr>
+<tr><td></td><td><strong>X-XSS-Protection</strong></td><td>브라우저 내장 XSS 필터 활성화 헤더 설정</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> XSS는 OWASP Top 10 지속 등재 취약점으로 입력·출력 양방향 검증이 핵심이며, CSP 도입으로 스크립트 실행 출처를 제한하는 것이 가장 효과적인 심층 방어 수단임</li>
 </ul>
 
 </body>

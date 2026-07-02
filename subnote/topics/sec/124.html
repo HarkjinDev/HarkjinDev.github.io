@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. ML 편향 문제 (Machine Learning Bias)</title>
+  <title>11. 다크패턴 (Dark Pattern)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,44 @@
   </style>
 </head>
 <body>
-<h4>10. ML 편향 문제 (Machine Learning Bias)</h4>
+<h4>11. 다크패턴 (Dark Pattern)</h4>
 <ul>
-<li><strong>정의:</strong> 머신러닝 모델이 학습 데이터·알고리즘·설계 과정의 편향으로 인해 특정 집단·속성에 대해 불공정하거나 차별적인 예측·결정을 내리는 문제</li>
-<li><strong>키워드:</strong> 데이터 편향, 알고리즘 공정성, 대표성 부족, 역사적 편향, 확증 편향, XAI, 공정성 지표, AI 윤리</li>
+<li><strong>정의:</strong> 사용자가 의도하지 않은 행동(구독·결제·개인정보 제공)을 유도하기 위해 UI·UX를 심리적으로 조작하여 설계한 기만적 인터페이스 패턴</li>
+<li><strong>키워드:</strong> 기만적 UI, 사용자 조작, 구독 함정, 개인정보 수집, FTC, EU DSA, 소비자 보호</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>편향 발생 원인:</strong><div class="table-scroll"><table>
+<li><strong>주요 유형:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;오압방편&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>샘플링 편향</strong></td><td>특정 집단이 과소·과대 대표된 학습 데이터 수집</td><td>대표성 부족</td></tr>
-<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별·불평등이 반영된 데이터 그대로 학습</td><td>과거 차별 재현</td></tr>
-<tr><td></td><td><strong>레이블 편향</strong></td><td>어노테이터 주관·편견이 레이블링에 반영</td><td>주관적 레이블</td></tr>
-<tr><td></td><td><strong>측정 편향</strong></td><td>집단별 데이터 수집·측정 방식의 불일치</td><td>측정 불일치</td></tr>
-<tr><td><strong>알고리즘</strong></td><td><strong>집계 편향</strong></td><td>전체 집단 최적화 과정에서 소수 집단 성능 저하</td><td>소수 집단 소외</td></tr>
-<tr><td></td><td><strong>평가 편향</strong></td><td>편향된 기준·지표로 모델 성능 평가</td><td>잘못된 평가</td></tr>
-<tr><td></td><td><strong>피드백 루프</strong></td><td>편향된 예측이 데이터로 재입력되어 편향 증폭</td><td>편향 자기 강화</td></tr>
-<tr><td><strong>설계·운영</strong></td><td><strong>확증 편향</strong></td><td>기존 가설을 확인하는 데이터만 선택 활용</td><td>선택적 데이터</td></tr>
-<tr><td></td><td><strong>자동화 편향</strong></td><td>AI 결과를 무비판적으로 수용하는 인간 의존</td><td>맹목적 신뢰</td></tr>
+<tr><td><strong>오도형</strong></td><td><strong>거짓 할인·추천</strong></td><td>실제 할인이 아닌 가짜 정가·할인율로 구매 유도</td><td>허위 정보 제공</td></tr>
+<tr><td></td><td><strong>유인 판매</strong></td><td>저가 상품으로 유인 후 고가 상품으로 전환 유도</td><td>미끼 상품 악용</td></tr>
+<tr><td></td><td><strong>위장 광고</strong></td><td>광고를 일반 콘텐츠·추천처럼 위장하여 노출</td><td>광고 식별 방해</td></tr>
+<tr><td></td><td><strong>옵션 선택 조작</strong></td><td>불리한 옵션을 기본 선택으로 설정하여 동의 유도</td><td>기본값 악용</td></tr>
+<tr><td><strong>압박형</strong></td><td><strong>반복 간섭</strong></td><td>팝업·알림을 반복 노출하여 원치 않는 행동 유도</td><td>지속적 방해</td></tr>
+<tr><td></td><td><strong>시간 제한 알림</strong></td><td>가짜 카운트다운·마감 임박으로 즉각 결정 압박</td><td>허위 긴급성</td></tr>
+<tr><td></td><td><strong>낮은 재고 알림</strong></td><td>허위 재고 부족 표시로 구매 결정 촉진</td><td>허위 희소성</td></tr>
+<tr><td><strong>방해형</strong></td><td><strong>숨겨진 정보</strong></td><td>중요 정보·조건을 작은 글씨·복잡한 경로에 은닉</td><td>정보 접근 차단</td></tr>
+<tr><td></td><td><strong>가격 비교 방해</strong></td><td>가격 구조 복잡화·비교 기능 제한으로 합리적 선택 방해</td><td>비교 차단</td></tr>
+<tr><td></td><td><strong>클릭 피로감 유도</strong></td><td>해지·거절 절차를 복잡하게 설계하여 포기 유도</td><td>탈출 어렵게</td></tr>
+<tr><td><strong>편취형</strong></td><td><strong>숨은 갱신</strong></td><td>무료 체험 후 고지 없이 자동 유료 전환</td><td>자동 과금</td></tr>
+<tr><td></td><td><strong>장바구니 추가</strong></td><td>사용자 모르게 추가 상품·옵션을 장바구니에 삽입</td><td>무단 추가</td></tr>
+<tr><td></td><td><strong>순차 공개 가격</strong></td><td>결제 마지막 단계에 추가 비용·수수료 노출</td><td>비용 후반 노출</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>데이터 다양성 확보</strong></td><td>소수 집단 포함 균형 있는 학습 데이터 수집</td><td>대표성 확보</td></tr>
-<tr><td></td><td><strong>재샘플링·증강</strong></td><td>과소 표현 집단 데이터 증강·오버샘플링</td><td>데이터 균형화</td></tr>
-<tr><td></td><td><strong>데이터 감사</strong></td><td>학습 데이터 편향 여부 정기 검토·검증</td><td>데이터 품질 관리</td></tr>
-<tr><td><strong>모델</strong></td><td><strong>편향 완화 알고리즘</strong></td><td>학습 단계에서 공정성 제약 조건 추가</td><td>알고리즘 공정화</td></tr>
-<tr><td></td><td><strong>후처리 보정</strong></td><td>모델 출력 후 집단 간 결과 균등화 보정</td><td>출력 보정</td></tr>
-<tr><td></td><td><strong>XAI 적용</strong></td><td>모델 편향 원인·특징 중요도 투명하게 설명</td><td>편향 원인 탐지</td></tr>
-<tr><td><strong>거버넌스</strong></td><td><strong>편향 감사 체계</strong></td><td>정기적 모델 편향·공정성 독립 감사 수행</td><td>주기적 검증</td></tr>
-<tr><td></td><td><strong>다양성 팀 구성</strong></td><td>다양한 배경·관점의 AI 개발팀 구성</td><td>설계 단계 예방</td></tr>
-<tr><td></td><td><strong>규제 준수</strong></td><td>EU AI Act·공정성 가이드라인 준수</td><td>법적 책임 이행</td></tr>
+<li><strong>규제 동향:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>EU DSA</strong></td><td>디지털서비스법, 다크패턴 명시적 금지·과징금 부과</td><td>EU 규제</td></tr>
+<tr><td><strong>EU GDPR</strong></td><td>동의 기반 개인정보 수집, 기만적 동의 UI 금지</td><td>동의 기준</td></tr>
+<tr><td><strong>FTC (미국)</strong></td><td>기만적 상업 행위로 다크패턴 법적 규제·과징금</td><td>미국 규제</td></tr>
+<tr><td><strong>국내</strong></td><td>전자상거래법·개인정보보호법 기반 기만적 UI 규제</td><td>국내 규제</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> ML 편향은 기술적 문제를 넘어 사회적 차별을 AI가 자동화·증폭시키는 구조적 위험으로, 데이터·알고리즘·거버넌스 3축의 통합적 대응이 필수임. 공정성 지표 간 수학적 상충 관계(Trade-off)가 존재하여 어떤 공정성 기준을 우선할지는 기술이 아닌 사회적 가치 판단의 문제이며, AI 개발 초기부터 다양성 확보와 편향 감사를 설계에 내재화하는 것이 핵심 예방 전략임</li>
+<li><strong>AI 다크패턴:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>AI 챗봇 조작</strong></td><td>감정적 언어·인격 부여로 과도한 신뢰·의존 유도</td><td>감정 조작</td></tr>
+<tr><td><strong>개인화 함정</strong></td><td>개인화 추천을 통한 과소비·중독 유도</td><td>알고리즘 조작</td></tr>
+<tr><td><strong>AI 생성 가짜 리뷰</strong></td><td>AI로 생성한 허위 리뷰·평점으로 구매 결정 조작</td><td>허위 정보</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 다크패턴은 개인의 인지 편향을 체계적으로 악용하는 설계 기법으로, EU DSA·GDPR·FTC 규제가 강화되면서 법적 리스크로 직결되고 있으며 AI 개인화 기술과 결합하여 더욱 정교해지는 추세로 투명한 UX 설계와 사용자 자율성 보장이 기업의 윤리적 의무이자 규제 컴플라이언스 핵심 요건으로 자리잡고 있음</li>
 </ul>
 
 </body>

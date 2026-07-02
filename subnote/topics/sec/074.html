@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)</title>
+  <title>12. 사이버 킬 체인 (Cyber Kill Chain)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,29 +15,29 @@
   </style>
 </head>
 <body>
-<h4>11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)</h4>
+<h4>12. 사이버 킬 체인 (Cyber Kill Chain)</h4>
 <ul>
-<li><strong>정의:</strong> 사이버보안 취약점·약점·설정 오류를 표준화된 식별자로 체계화하여 보안 정보의 공유·자동화·관리를 지원하는 국제 표준 식별 체계</li>
-<li><strong>키워드:</strong> 취약점 식별, NVD, CVSS, CWE-Top 25, 보안 설정, SCAP, 취약점 데이터베이스, MITRE</li>
+<li><strong>정의</strong>: 사이버 공격의 7단계 프레임워크 (Lockheed Martin 개발)</li>
+<li><strong>키워드</strong>: 정찰, 무기화, 전달, 악용, 설치, C2, 행동</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>3대 식별 체계 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>CVE</th><th>CWE</th><th>CCE</th></tr>
-<tr><td><strong>전체명</strong></td><td>Common Vulnerabilities and Exposures</td><td>Common Weakness Enumeration</td><td>Common Configuration Enumeration</td></tr>
-<tr><td><strong>대상</strong></td><td>특정 제품의 개별 취약점</td><td>소프트웨어 취약점 유형·근본 원인</td><td>시스템·소프트웨어 보안 설정 오류</td></tr>
-<tr><td><strong>식별 단위</strong></td><td>개별 취약점 인스턴스</td><td>취약점 유형·패턴</td><td>보안 설정 항목</td></tr>
-<tr><td><strong>관리 기관</strong></td><td>MITRE / NVD(NIST)</td><td>MITRE</td><td>MITRE</td></tr>
-<tr><td><strong>활용 목적</strong></td><td>취약점 추적·패치 관리</td><td>시큐어 코딩·설계 개선</td><td>보안 설정 감사·컴플라이언스</td></tr>
-<tr><td><strong>예시</strong></td><td>CVE-2021-44228 (Log4Shell)</td><td>CWE-79 (XSS), CWE-89 (SQL 인젝션)</td><td>CCE-2715 (패스워드 정책 설정)</td></tr>
+<li><strong>7단계</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정무전악/설씨행&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>절차</th><th>핵심</th><th>대응 방안</th></tr>
+<tr><td><strong>1. 정찰 
+(Reconnaissance)</strong></td><td>대상 정보 수집</td><td>외부 노출 정보 최소화, ASM 기반 디지털 발자국 관리</td></tr>
+<tr><td><strong>2. 무기화 
+(Weaponization)</strong></td><td>악성코드 제작</td><td>위협 인텔리전스 기반 신규 악성코드 패턴 선제 탐지</td></tr>
+<tr><td><strong>3. 전달 
+(Delivery)</strong></td><td>이메일·웹·USB 전달</td><td>이메일 필터링·웹 게이트웨이·USB 차단 정책 적용</td></tr>
+<tr><td><strong>4. 악용 
+(Exploitation)</strong></td><td>취약점 실행</td><td>패치 관리·취약점 스캔·ASLR·DEP 등 익스플로잇 방어</td></tr>
+<tr><td><strong>5. 설치 (Installation)</strong></td><td>백도어·RAT 설치</td><td>EDR 기반 악성 프로세스 탐지·차단·격리</td></tr>
+<tr><td><strong>6. C2 
+(Command &amp; Control)</strong></td><td>원격 제어 채널 구축</td><td>아웃바운드 트래픽 필터링·DNS 싱크홀·C2 도메인 차단</td></tr>
+<tr><td><strong>7. 행동 
+(Actions)</strong></td><td>데이터 유출·파괴</td><td>DLP·네트워크 세그멘테이션·백업·사고 대응 계획 수립</td></tr>
 </table></div>
 </li>
-<li><strong>활용 분야:</strong><ul>
-<li><strong>취약점 관리:</strong> CVE 기반 취약점 스캔·패치 우선순위 자동화</li>
-<li><strong>시큐어 코딩:</strong> CWE Top 25 기반 정적 분석·코드 리뷰 기준</li>
-<li><strong>컴플라이언스:</strong> CCE 기반 보안 설정 감사·ISMS·ISO 27001 준수</li>
-<li><strong>SBOM 연계:</strong> 컴포넌트별 CVE 자동 매핑으로 공급망 위험 관리</li>
-</ul>
-</li>
-<li><strong>인사이트:</strong> CVE·CWE·CCE는 각각 취약점 사례·근본 원인·설정 오류를 표준화하는 상호 보완적 체계로, 세 식별 체계를 통합 운용하면 취약점 발생 원인 분석(CWE)→개별 취약점 추적(CVE)→설정 강화(CCE)로 이어지는 완전한 취약점 생명주기 관리가 가능해짐</li>
+<li><strong>인사이트</strong>: 킬 체인의 초기 단계에서 차단할수록 방어 비용이 낮아지므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정찰·전달 단계 탐지(이메일 보안, 위협 인텔리전스)가 가장 효율적인 방어임</strong></u></span></li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. APT (Advanced Persistent Threat)</title>
+  <title>11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,36 +15,29 @@
   </style>
 </head>
 <body>
-<h4>10. APT (Advanced Persistent Threat)</h4>
+<h4>11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)</h4>
 <ul>
-<li><strong>정의:</strong> 특정 대상을 장기간 지속적으로 공격하는 지능형 위협</li>
-<li><strong>키워드:</strong> 정찰, 침투, 내부 이동, 데이터 유출, 사이버 킬체인, IoC, UEBA, 제로데이, 스피어피싱, C2</li>
+<li><strong>정의:</strong> 사이버보안 취약점·약점·설정 오류를 표준화된 식별자로 체계화하여 보안 정보의 공유·자동화·관리를 지원하는 국제 표준 식별 체계</li>
+<li><strong>키워드:</strong> 취약점 식별, NVD, CVSS, CWE-Top 25, 보안 설정, SCAP, 취약점 데이터베이스, MITRE</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>주요 특징: </strong>지능성 (Advanced), 지속성 (Persistent), 목표성 (Threat), 조직적 배후</li>
-<li><strong>APT 공격 절차:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;침탐수유&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>절차</th><th>핵심</th></tr>
-<tr><td><strong>침입</strong></td><td><strong>1. 정찰</strong> — 대상 조직·인물·인프라 정보 수집 (OSINT·소셜미디어)</td><td>목표 정보 수집</td></tr>
-<tr><td></td><td><strong>2. 초기 침입</strong> — 스피어피싱·제로데이·공급망으로 최초 거점 확보</td><td>초기 접근</td></tr>
-<tr><td></td><td><strong>3. 지속성 확보</strong> — 백도어·RAT·루트킷 설치로 재진입 경로 유지</td><td>장기 거점 유지</td></tr>
-<tr><td><strong>탐지 회피</strong></td><td><strong>4. 권한 상승</strong> — 관리자 권한 획득으로 내부 접근 범위 확대</td><td>권한 확대</td></tr>
-<tr><td></td><td><strong>5. 은닉·잠복</strong> — 정상 프로세스·트래픽으로 위장하여 탐지 회피</td><td>장기 잠복</td></tr>
-<tr><td><strong>수집</strong></td><td><strong>6. 내부 이동</strong> — 자격증명 탈취·Pass-the-Hash로 내부 시스템 횡적 이동</td><td>내부 확산</td></tr>
-<tr><td></td><td><strong>7. 정보 수집</strong> — 목표 데이터·자격증명·기밀 정보 탐색·수집</td><td>목표 자산 수집</td></tr>
-<tr><td><strong>유출</strong></td><td><strong>데이터 유출</strong> — 수집 데이터를 암호화·분할하여 C2 서버로 외부 유출</td><td>목표 달성</td></tr>
+<li><strong>3대 식별 체계 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>CVE</th><th>CWE</th><th>CCE</th></tr>
+<tr><td><strong>전체명</strong></td><td>Common Vulnerabilities and Exposures</td><td>Common Weakness Enumeration</td><td>Common Configuration Enumeration</td></tr>
+<tr><td><strong>대상</strong></td><td>특정 제품의 개별 취약점</td><td>소프트웨어 취약점 유형·근본 원인</td><td>시스템·소프트웨어 보안 설정 오류</td></tr>
+<tr><td><strong>식별 단위</strong></td><td>개별 취약점 인스턴스</td><td>취약점 유형·패턴</td><td>보안 설정 항목</td></tr>
+<tr><td><strong>관리 기관</strong></td><td>MITRE / NVD(NIST)</td><td>MITRE</td><td>MITRE</td></tr>
+<tr><td><strong>활용 목적</strong></td><td>취약점 추적·패치 관리</td><td>시큐어 코딩·설계 개선</td><td>보안 설정 감사·컴플라이언스</td></tr>
+<tr><td><strong>예시</strong></td><td>CVE-2021-44228 (Log4Shell)</td><td>CWE-79 (XSS), CWE-89 (SQL 인젝션)</td><td>CCE-2715 (패스워드 정책 설정)</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>탐지</strong></td><td><strong>UEBA</strong></td><td>행위 기반 분석으로 정상 위장 APT 활동 탐지</td></tr>
-<tr><td></td><td><strong>위협 헌팅</strong></td><td>IoC·TTPs 기반 잠복 위협 능동 탐색</td></tr>
-<tr><td></td><td><strong>NDR</strong></td><td>내부 네트워크 트래픽 이상 탐지·C2 통신 식별</td></tr>
-<tr><td><strong>예방</strong></td><td><strong>이메일 보안</strong></td><td>스피어피싱 차단·첨부파일 샌드박스 분석</td></tr>
-<tr><td></td><td><strong>Zero Trust</strong></td><td>내부 이동 차단·지속적 인증·최소 권한 적용</td></tr>
-<tr><td><strong>대응</strong></td><td><strong>SIEM·SOAR</strong></td><td>다단계 공격 상관분석·자동화 대응</td></tr>
-<tr><td></td><td><strong>침해 대응 (IR)</strong></td><td>침해 지표 기반 신속 격리·포렌식·복구</td></tr>
-</table></div>
+<li><strong>활용 분야:</strong><ul>
+<li><strong>취약점 관리:</strong> CVE 기반 취약점 스캔·패치 우선순위 자동화</li>
+<li><strong>시큐어 코딩:</strong> CWE Top 25 기반 정적 분석·코드 리뷰 기준</li>
+<li><strong>컴플라이언스:</strong> CCE 기반 보안 설정 감사·ISMS·ISO 27001 준수</li>
+<li><strong>SBOM 연계:</strong> 컴포넌트별 CVE 자동 매핑으로 공급망 위험 관리</li>
+</ul>
 </li>
-<li><strong>인사이트:</strong> APT는 수개월간 정상 행위로 위장하며 잠복하므로 시그니처·IoC 기반 탐지만으로는 한계가 있으며, UEBA 기반 행위 분석·위협 헌팅·Zero Trust를 통합한 다층 방어와 함께 MITRE ATT&amp;CK 프레임워크 기반 TTPs 분석이 APT 대응의 핵심 전략임</li>
+<li><strong>인사이트:</strong> CVE·CWE·CCE는 각각 취약점 사례·근본 원인·설정 오류를 표준화하는 상호 보완적 체계로, 세 식별 체계를 통합 운용하면 취약점 발생 원인 분석(CWE)→개별 취약점 추적(CVE)→설정 강화(CCE)로 이어지는 완전한 취약점 생명주기 관리가 가능해짐</li>
 </ul>
 
 </body>

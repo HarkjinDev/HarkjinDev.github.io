@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0. AI 보안</title>
+  <title>1. 적대적 공격 (Adversarial Attack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,35 +15,19 @@
   </style>
 </head>
 <body>
-<h4>0. AI 보안</h4>
+<h4>1. 적대적 공격 (Adversarial Attack)</h4>
 <ul>
-<li><strong>AI 보안 위협 분류:</strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>위협 유형</strong></th><th><strong>요약 설명</strong></th><th><strong>단계</strong></th></tr>
-<tr><td><strong>학습 단계</strong></td><td>데이터 포이즈닝</td><td>악성 데이터로 모델 오염</td><td>학습 데이터 오염</td></tr>
-<tr><td></td><td>백도어 공격</td><td>트리거 기반 오작동 유발</td><td>트리거 기반 오작동</td></tr>
-<tr><td></td><td>공급망 공격</td><td>공급망 내 악성 모델 배포</td><td>AI 공급망 침해</td></tr>
-<tr><td><strong>추론 단계</strong></td><td>적대적 공격</td><td>오분류 유도 입력 생성</td><td>모델 오분류 유도</td></tr>
-<tr><td></td><td>Model DoS</td><td>과부하로 서비스 마비</td><td>가용성 공격</td></tr>
-<tr><td></td><td>Jailbreak</td><td>보안 가드레일 우회</td><td>안전장치 우회</td></tr>
-<tr><td></td><td>프롬프트 인젝션</td><td>시스템 명령 무력화</td><td>명령 삽입</td></tr>
-<tr><td><strong>모델 자산</strong></td><td>모델 탈취</td><td>모델 내부 정보 추출</td><td>지적재산 탈취</td></tr>
-<tr><td></td><td>멤버십 추론</td><td>학습 데이터 포함 여부 확인</td><td>프라이버시 침해</td></tr>
-<tr><td></td><td>모델 역전</td><td>원본 데이터 복원 시도</td><td>데이터 유출</td></tr>
-</table></div>
+<li><strong>정의</strong>: 입력 데이터에 인간이 인지하기 어려운 미세한 교란을 가하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AI 모델의 오분류를 유도</strong></u></span>하는 공격 기법</li>
+<li><strong>키워드</strong>: 적대적 예제, 오분류 유도, 회피 공격, 데이터 오염</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>학습 과정 기반 적대적 공격 4가지</strong>:<ul>
+<li><strong>데이터 오염 공격(Poisoning Attack)</strong>: 학습 데이터에 악성 샘플 삽입 → 모델 성능 저하</li>
+<li><strong>회피 공격(Evasion Attack)</strong>: 추론 시 입력 교란으로 오분류 유도</li>
+<li><strong>추출 공격(Extraction Attack)</strong>: 모델의 예측값으로 내부 모델 역설계</li>
+<li><strong>추론 공격(Inference Attack)</strong>: 모델 출력으로 학습 데이터 프라이버시 추론</li>
+</ul>
 </li>
-<li><strong>AI 생명주기별 보안 대응:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>데이터 검증</strong></td><td>학습 데이터 무결성·출처·편향 검증</td></tr>
-<tr><td></td><td><strong>차등 프라이버시</strong></td><td>학습 데이터 개인정보 역추론 방지</td></tr>
-<tr><td><strong>모델 개발</strong></td><td><strong>보안 테스트</strong></td><td>적대적 예제·백도어 탐지 자동화 테스트</td></tr>
-<tr><td></td><td><strong>AI 레드팀</strong></td><td>개발 단계 공격 시뮬레이션·취약점 발견</td></tr>
-<tr><td><strong>배포·운영</strong></td><td><strong>입출력 가드레일</strong></td><td>입력 검증·출력 필터링 다층 적용</td></tr>
-<tr><td></td><td><strong>모델 모니터링</strong></td><td>드리프트·이상 출력·공격 패턴 실시간 탐지</td></tr>
-<tr><td></td><td><strong>접근 제어</strong></td><td>모델 API·가중치 최소 권한·인증 강화</td></tr>
-<tr><td><strong>공급망</strong></td><td><strong>AI-BOM·모델 카드</strong></td><td>AI 모델 구성요소·출처 투명성 확보</td></tr>
-<tr><td></td><td><strong>코드 서명</strong></td><td>모델·파이프라인 무결성 검증</td></tr>
-</table></div>
-</li>
+<li><strong>인사이트</strong>: 자율주행·의료 AI에서 적대적 공격은 인명 피해로 직결될 수 있어, AI 시스템 인증에 적대적 견고성 검증이 필수 요건으로 논의되고 있음</li>
 </ul>
 
 </body>

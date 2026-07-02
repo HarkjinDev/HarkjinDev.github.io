@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 디지털 포렌식 아티팩트 (Artifact)</title>
+  <title>3. 파일 슬랙 (File Slack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,36 +15,26 @@
   </style>
 </head>
 <body>
-<h4>2. 디지털 포렌식 아티팩트 (Artifact)</h4>
+<h4>3. 파일 슬랙 (File Slack)</h4>
 <ul>
-<li><strong>정의:</strong> 디지털 포렌식에서 분석 대상이 되는 시스템 활동 흔적 데이터</li>
-<li><strong>키워드:</strong> 레지스트리, 이벤트 로그, Prefetch, MFT, DNS 캐시, PCAP, 브라우저 기록, 메타데이터, 슬랙 공간</li>
+<li><strong>정의:</strong> 파일 할당 후 클러스터 내 남는 미사용 영역에 잔존하는 데이터</li>
+<li><strong>키워드:</strong> 램 슬랙, 드라이브 슬랙, 클러스터, 미사용 영역, 증거 잔존, TRIM, 안티포렌식</li>
 <li><strong>분류:</strong> 디지털 포렌식</li>
-<li><strong>주요 아티팩트 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
-<tr><td><strong>윈도우</strong></td><td><strong>레지스트리</strong></td><td>설정·실행 흔적</td></tr>
-<tr><td></td><td><strong>이벤트 로그</strong></td><td>행위 기록</td></tr>
-<tr><td></td><td><strong>Prefetch</strong></td><td>실행 이력</td></tr>
-<tr><td></td><td><strong>LNK 파일</strong></td><td>파일 접근 이력</td></tr>
-<tr><td></td><td><strong>NTFS $MFT</strong></td><td>파일 시스템 이력</td></tr>
-<tr><td></td><td><strong>점프 리스트</strong></td><td>최근 사용 이력</td></tr>
-<tr><td><strong>네트워크</strong></td><td><strong>방화벽 로그</strong></td><td>네트워크 접근</td></tr>
-<tr><td></td><td><strong>DNS 캐시</strong></td><td>도메인 접근 이력</td></tr>
-<tr><td></td><td><strong>PCAP</strong></td><td>패킷 분석</td></tr>
-<tr><td></td><td><strong>라우터·스위치 로그</strong></td><td>내부 이동 추적</td></tr>
-<tr><td><strong>브라우저</strong></td><td><strong>방문 기록</strong></td><td>웹 접근 이력</td></tr>
-<tr><td></td><td><strong>다운로드 기록</strong></td><td>다운로드 추적</td></tr>
-<tr><td></td><td><strong>쿠키·세션</strong></td><td>인증 정보</td></tr>
-<tr><td><strong>모바일</strong></td><td><strong>통화·SMS 기록</strong></td><td>통신 이력</td></tr>
-<tr><td></td><td><strong>앱 데이터</strong></td><td>앱 사용 흔적</td></tr>
-<tr><td></td><td><strong>위치 정보</strong></td><td>위치 추적</td></tr>
-<tr><td></td><td><strong>사진·미디어 메타데이터</strong></td><td>미디어 흔적</td></tr>
-<tr><td><strong>메모리</strong></td><td><strong>프로세스 목록</strong></td><td>실행 프로세스</td></tr>
-<tr><td></td><td><strong>네트워크 연결</strong></td><td>활성 연결</td></tr>
-<tr><td></td><td><strong>암호화 키</strong></td><td>키·자격증명</td></tr>
+<li><strong>발생 원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>클러스터</strong></td><td>OS가 파일을 저장하는 최소 할당 단위</td><td>저장 단위</td></tr>
+<tr><td><strong>슬랙 발생</strong></td><td>파일 크기가 클러스터 크기보다 작을 때 남는 미사용 공간 발생</td><td>공간 낭비·잔존</td></tr>
+<tr><td><strong>잔존 데이터</strong></td><td>이전 파일·메모리 데이터가 슬랙 영역에 남아 포렌식 증거로 활용</td><td>증거 잔존</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 아티팩트는 삭제 후에도 MFT·슬랙 공간·볼륨 섀도·메모리에 잔존하므로 철저한 안티포렌식 없이는 완전 은닉이 어려우며, 공격자의 행위 재구성은 단일 아티팩트가 아닌 윈도우·네트워크·브라우저·메모리 아티팩트의 교차 분석을 통해 타임라인을 구성하는 것이 핵심임</li>
+<li><strong>유형:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>램 슬랙 (RAM Slack)</strong></td><td>파일 종료 섹터~섹터 끝까지 메모리 잔존 데이터로 채워지는 영역</td><td>메모리 잔존</td></tr>
+<tr><td><strong>드라이브 슬랙 (Drive Slack)</strong></td><td>마지막 섹터 다음~클러스터 끝까지 이전 데이터가 잔존하는 영역</td><td>이전 데이터 잔존</td></tr>
+</table></div>
+</li>
+<li><strong>포렌식 활용 및 한계: </strong>증거 활용, 안티포렌식, SSD 복원 한계</li>
+<li><strong>인사이트:</strong> 파일 슬랙은 삭제·덮어쓰기 후에도 이전 데이터가 잔존하는 핵심 포렌식 증거 영역이나, SSD의 TRIM 자동 실행으로 인해 HDD 대비 슬랙 증거 복원 가능성이 크게 낮아지므로 SSD 환경에서는 메모리·로그 기반 분석과 병행이 필수임</li>
 </ul>
 
 </body>

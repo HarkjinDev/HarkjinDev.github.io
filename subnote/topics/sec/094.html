@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 클라우드 포렌식 (Cloud Forensic)</title>
+  <title>7. 스마트폰 포렌식 (Smartphone Forensic)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,15 +15,20 @@
   </style>
 </head>
 <body>
-<h4>6. 클라우드 포렌식 (Cloud Forensic)</h4>
+<h4>7. 스마트폰 포렌식 (Smartphone Forensic)</h4>
 <ul>
-<li><strong>정의</strong>: 클라우드 환경에서의 디지털 포렌식 수사 기법</li>
-<li><strong>키워드</strong>: 클라우드 시그니처, 증거 수집 절차</li>
+<li><strong>정의</strong>: 스마트폰에서 디지털 증거를 수집·분석하는 포렌식 기술</li>
+<li><strong>키워드</strong>: 논리적/물리적 추출, 데이터 유형, 절차</li>
 <li><strong>분류</strong>: 디지털 포렌식</li>
-<li><strong>도전 과제</strong>: 데이터 위치 불명확(다중 관할), 멀티 테넌시 환경, CSP 협력 필요, 증거 휘발성 높음</li>
-<li><strong>조사 절차</strong>: CSP 협력 요청 → API 기반 로그 수집 → 타임스탬프 검증 → 가상 이미지 확보 → 분석</li>
-<li><strong>인사이트</strong>: 클라우드 포렌식은 CSP와의 협력이 필수이며, 국제 데이터 이전 규정(GDPR, 개인정보보호법)이 증거 수집을 복잡하게 만드는 요인임</li>
+<li><strong>데이터 추출 방법</strong>:<ul>
+<li><strong>논리적 추출</strong>: 백업, ADB(Android Debug Bridge)로 파일시스템 접근 → 비교적 쉬움</li>
+<li><strong>물리적 추출</strong>: JTAG, 칩오프(Chip-off)로 스토리지 직접 덤프 → 암호화 우회 가능</li>
+<li><strong>클라우드 추출</strong>: 계정 백업(iCloud, Google Drive)에서 데이터 획득</li>
 </ul>
+</li>
+<li><strong>인사이트</strong>: iOS는 강력한 암호화와 Secure Enclave로 물리적 추출이 어렵고, Android는 제조사별로 상이하여 포렌식 도구(Cellebrite, Oxygen Forensics)의 지속적 업데이트가 중요함</li>
+</ul>
+<hr/>
 
 </body>
 </html>

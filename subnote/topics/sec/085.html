@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>19. 부채널 공격 (Side-Channel Attack)</title>
+  <title>19. 마이크로세그멘테이션(Microsegmentation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,37 +15,29 @@
   </style>
 </head>
 <body>
-<h4>19. 부채널 공격 (Side-Channel Attack)</h4>
+<h4>19. 마이크로세그멘테이션(Microsegmentation)</h4>
 <ul>
-<li><strong>정의:</strong> 암호 알고리즘 자체가 아닌 구현 과정에서 발생하는 전력 소비·전자기파·타이밍·음향 등 물리적 부가 정보를 분석하여 비밀키·민감 정보를 추출하는 공격 기법</li>
-<li><strong>키워드:</strong> 전력 분석, 타이밍 공격, 전자기 분석, 캐시 공격, Spectre·Meltdown, 물리적 취약점, 암호 구현 취약점</li>
-<li><strong>분류:</strong> 위협 / 공격 / 암호학</li>
-<li><strong>공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>전력 기반</strong></td><td><strong>SPA (단순 전력 분석)</strong></td><td>단일 전력 파형으로 연산 과정·키 추출</td><td>파형 직접 분석</td></tr>
-<tr><td></td><td><strong>DPA (차분 전력 분석)</strong></td><td>다수 전력 파형의 통계적 차이로 키 추출</td><td>통계적 분석</td></tr>
-<tr><td><strong>타이밍 기반</strong></td><td><strong>타이밍 공격</strong></td><td>연산 수행 시간 차이로 비밀 정보 추론</td><td>시간 차이 분석</td></tr>
-<tr><td></td><td><strong>캐시 타이밍</strong></td><td>CPU 캐시 히트·미스 시간 차이로 데이터 추론</td><td>캐시 상태 추론</td></tr>
-<tr><td><strong>전자기 기반</strong></td><td><strong>EM 분석</strong></td><td>장치에서 방출되는 전자기파 분석으로 키 추출</td><td>전자기파 분석</td></tr>
-<tr><td><strong>하드웨어 취약점</strong></td><td><strong>Spectre</strong></td><td>CPU 분기 예측 악용, 다른 프로세스 메모리 읽기</td><td>분기 예측 악용</td></tr>
-<tr><td></td><td><strong>Meltdown</strong></td><td>CPU 투기적 실행 악용, 커널 메모리 접근</td><td>투기적 실행 악용</td></tr>
-<tr><td></td><td><strong>Rowhammer</strong></td><td>DRAM 메모리 셀 반복 접근으로 인접 비트 반전</td><td>메모리 비트 반전</td></tr>
-<tr><td><strong>기타</strong></td><td><strong>음향 공격</strong></td><td>장치 동작 중 발생하는 소리로 연산 정보 추출</td><td>음향 신호 분석</td></tr>
-<tr><td></td><td><strong>광학 공격</strong></td><td>LED 깜박임·화면 반사광으로 정보 유출</td><td>광학 신호 분석</td></tr>
+<li><strong>정의:</strong> 데이터센터·클라우드 환경에서 워크로드·애플리케이션·사용자 단위로 네트워크를 세분화하여 동서(East-West) 트래픽을 정밀 통제하는 제로트러스트 핵심 기술</li>
+<li><strong>키워드:</strong> 제로트러스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>East-West 트래픽</strong></u></span>, 정책 기반 격리, SDN, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>소프트웨어 정의 경계(SDP), 측면 이동 차단, 워크로드 격리</strong></u></span></li>
+<li><strong>분류:</strong> 위협/공격</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정책 엔진</strong></td><td>워크로드별 세그먼트 정책 정의·배포·관리</td><td>중앙 정책 관리</td></tr>
+<tr><td><strong>소프트웨어 정의 경계 (SDP)</strong></td><td>SW로 동적 경계 생성·접근 허용</td><td>동적 경계</td></tr>
+<tr><td><strong>에이전트/센서</strong></td><td>워크로드별 트래픽 수집·정책 적용</td><td>엔드포인트 적용</td></tr>
+<tr><td><strong>가시성 엔진</strong></td><td>East-West 트래픽 전체 흐름 모니터링</td><td>내부 가시성</td></tr>
+<tr><td><strong>오케스트레이터</strong></td><td>SDN·클라우드 API 연동 정책 자동 배포</td><td>자동화 배포</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>하드웨어 방어</strong></td><td><strong>전력 노이즈 추가</strong></td><td>연산과 무관한 랜덤 전력 소비 추가로 파형 은닉</td></tr>
-<tr><td></td><td><strong>전자기 차폐</strong></td><td>패러데이 케이지·차폐 설계로 전자기파 유출 차단</td></tr>
-<tr><td><strong>소프트웨어 방어</strong></td><td><strong>일정 시간 연산</strong></td><td>입력값에 관계없이 동일 시간 소요되도록 구현</td></tr>
-<tr><td></td><td><strong>마스킹</strong></td><td>중간 연산값에 랜덤값을 XOR하여 전력 상관관계 제거</td></tr>
-<tr><td><strong>CPU 패치</strong></td><td><strong>Spectre·Meltdown 패치</strong></td><td>커널 페이지 테이블 격리(KPTI)·펌웨어 업데이트</td></tr>
-<tr><td></td><td><strong>투기적 실행 제한</strong></td><td>분기 예측·투기적 실행 범위 제한 설정</td></tr>
-<tr><td><strong>설계 보안</strong></td><td><strong>보안 칩 설계</strong></td><td>부채널 내성 암호 하드웨어 모듈(HSM·SE) 사용</td></tr>
+<li><strong>NIST SP 800-207 제로트러스트 연계:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>마이크로세그멘테이션 적용</th><th>핵심</th></tr>
+<tr><td>명시적 검증</td><td>모든 워크로드 간 통신 ID·속성 기반 검증</td><td>묵시적 신뢰 제거</td></tr>
+<tr><td>최소 권한</td><td>업무 필요 통신만 허용·나머지 차단</td><td>Least Privilege</td></tr>
+<tr><td>침해 가정</td><td>내부 침해 전제 워크로드 단위 격리</td><td>Assume Breach</td></tr>
+<tr><td>측면 이동 차단</td><td>침해 후 내부 수평 이동 경로 차단</td><td>피해 범위 최소화</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 부채널 공격은 암호 알고리즘 자체가 아닌 구현 환경의 물리적 정보를 악용하므로 수학적으로 완벽한 암호도 구현 취약점으로 무력화될 수 있으며, Spectre·Meltdown 이후 CPU 아키텍처 설계 단계부터 부채널 내성을 고려하는 하드웨어 보안 설계가 필수 요건으로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> 마이크로세그멘테이션은 제로트러스트의 핵심 구현 기술로, 워크로드 단위 East-West 트래픽 정밀 통제로 측면 이동을 차단하며, 클라우드·컨테이너·하이브리드 환경에서 소프트웨어 정의 정책 기반으로 동적 확장 가능한 차세대 내부 네트워크 보안 아키텍처의 표준으로 자리잡음</li>
 </ul>
 
 </body>
