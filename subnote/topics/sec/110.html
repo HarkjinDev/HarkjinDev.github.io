@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. FIPS 140-2 (Federal Information Processing Standard)</title>
+  <title>12. CC (Common Criteria)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,19 @@
   </style>
 </head>
 <body>
-<h4>13. FIPS 140-2 (Federal Information Processing Standard)</h4>
+<h4>12. CC (Common Criteria)</h4>
 <ul>
-<li><strong>정의</strong>: 암호 모듈의 보안 요구사항을 4단계로 정의한 미국 연방 표준 (NIST)</li>
-<li><strong>키워드</strong>: 암호모듈 보안 레벨 1~4, 미국 연방표준</li>
+<li><strong>정의</strong>: IT 제품의 보안 기능을 국제 표준(ISO/IEC 15408)으로 평가하는 공통평가기준</li>
+<li><strong>키워드</strong>: 국제 보안 평가, EAL 1~7, PP/ST/TOE</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>FIPS 140-2 레벨별 비교</strong>:<div class="table-scroll"><table>
-<tr><th>레벨</th><th>요구사항</th><th>적용 대상</th></tr>
-<tr><td>Level 1</td><td>기본 보안 요구사항</td><td>소프트웨어 암호 모듈</td></tr>
-<tr><td>Level 2</td><td>물리적 탬퍼 증거 요구</td><td>일반 암호 장비</td></tr>
-<tr><td>Level 3</td><td>탬퍼 탐지 및 대응</td><td>고보안 장비</td></tr>
-<tr><td>Level 4</td><td>완전한 물리적 보호, 환경 공격 대응</td><td>최고보안 환경 장비</td></tr>
-</table></div>
+<li><strong>핵심 개념</strong>:<ul>
+<li><strong>TOE(Target of Evaluation)</strong>: 평가 대상 제품</li>
+<li><strong>PP(Protection Profile)</strong>: 제품 유형별 보안 요구사항 명세</li>
+<li><strong>ST(Security Target)</strong>: 특정 TOE의 보안 주장</li>
+<li><strong>EAL(Evaluation Assurance Level)</strong>: 보증 수준 1~7 (숫자가 높을수록 엄격)</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: FIPS 140-2는 미국 연방 조달 필수 요건이며, 국내 금융·공공 분야에서도 사실상 표준으로 참조됨. 현재는 FIPS 140-3(ISO/IEC 19790)으로 전환 중</li>
+<li><strong>인사이트</strong>: 국내 공공기관 도입 보안제품은 CC 인증 또는 보안기능확인서가 필요하며, EAL 4이상이 실무 권고 수준임</li>
 </ul>
 
 </body>

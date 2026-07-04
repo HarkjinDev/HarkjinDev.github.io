@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. Jailbreak (탈옥 공격)</title>
+  <title>4. Model DoS (모델 서비스 거부 공격)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,31 @@
   </style>
 </head>
 <body>
-<h4>5. Jailbreak (탈옥 공격)</h4>
+<h4>4. Model DoS (모델 서비스 거부 공격)</h4>
 <ul>
-<li><strong>정의:</strong> AI 모델의 가드레일을 우회하여 유해 콘텐츠 생성·금지 정보 획득·정책 위반 출력을 유도하는 공격</li>
-<li><strong>키워드:</strong> 안전장치 우회, 적대적 프롬프트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DAN</strong></u></span>, 롤플레이, 프롬프트 인젝션, 가드레일, AI 레드팀, Constitutional AI</li>
+<li><strong>정의:</strong> AI 모델에 과도한 연산·토큰·API 요청을 유발하여 서비스를 마비시키거나 운영 비용을 폭증시키는 가용성 공격</li>
+<li><strong>키워드:</strong> 토큰 폭탄, API 플러딩, 자원 소진, Rate Limiting, 토큰 예산, 이상 탐지</li>
 <li><strong>분류</strong>: AI 보안</li>
 <li><strong>공격 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>역할·맥락 위장</strong></td><td><strong>롤플레이 우회</strong></td><td>가상 시나리오·페르소나 설정으로 안전 필터 우회</td><td>맥락 위장</td></tr>
-<tr><td></td><td><strong>DAN 공격</strong></td><td>"Do Anything Now" 등 제약 없는 AI 역할 강제 부여</td><td>역할 강제</td></tr>
-<tr><td></td><td><strong>점진적 유도</strong></td><td>무해한 요청부터 단계적으로 금지 내용으로 유도</td><td>단계적 우회</td></tr>
-<tr><td><strong>기술적 우회</strong></td><td><strong>프롬프트 인젝션</strong></td><td>시스템 프롬프트를 무력화하는 악성 입력 삽입</td><td>지시 덮어쓰기</td></tr>
-<tr><td></td><td><strong>인코딩 우회</strong></td><td>Base64·특수문자로 금지 내용 인코딩하여 필터 회피</td><td>인코딩 위장</td></tr>
-<tr><td></td><td><strong>다국어 우회</strong></td><td>안전 필터가 약한 언어로 질의하여 제약 회피</td><td>언어 취약점</td></tr>
-<tr><td><strong>모달리티 악용</strong></td><td><strong>멀티모달 공격</strong></td><td>이미지·음성에 금지 지시 삽입하여 텍스트 필터 우회</td><td>모달리티 악용</td></tr>
+<tr><td><strong>자원 소진</strong></td><td><strong>토큰 폭탄</strong></td><td>극도로 긴 입력·반복 패턴으로 토큰 처리 자원 소진</td><td>토큰 자원 고갈</td></tr>
+<tr><td></td><td><strong>복잡 연산 유도</strong></td><td>복잡한 수학·코드 생성 요청으로 GPU 연산 자원 소진</td><td>연산 과부하</td></tr>
+<tr><td></td><td><strong>무한 반복 유도</strong></td><td>재귀적·순환 응답 유도 프롬프트로 출력 토큰 폭증</td><td>출력 폭증</td></tr>
+<tr><td><strong>API 공격</strong></td><td><strong>API 플러딩</strong></td><td>대량 API 요청으로 처리 한계 초과·서비스 응답 불가</td><td>요청 과부하</td></tr>
+<tr><td></td><td><strong>비용 공격</strong></td><td>대량 토큰 소비 유도로 API 과금 비용 폭증</td><td>비용 유발</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안: </strong><div class="table-scroll"><table>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>모델 정렬</strong></td><td><strong>RLHF·DPO</strong></td><td>안전 정책 내재화로 탈옥 저항성 향상</td></tr>
-<tr><td></td><td><strong>Constitutional AI</strong></td><td>AI 스스로 원칙 기반 응답 검토·수정</td></tr>
-<tr><td><strong>필터링</strong></td><td><strong>입력 프롬프트 검증</strong></td><td>입력 의도·패턴 사전 분류·차단</td></tr>
-<tr><td></td><td><strong>출력 가드레일</strong></td><td>유해 출력 탐지·차단 레이어 적용</td></tr>
-<tr><td><strong>검증</strong></td><td><strong>AI 레드팀</strong></td><td>지속적 탈옥 시도·취약점 발견·패치 반복</td></tr>
-<tr><td></td><td><strong>탈옥 벤치마크</strong></td><td>모델별 탈옥 저항성 정량 평가·비교</td></tr>
+<tr><td><strong>예방</strong></td><td><strong>Rate Limiting</strong></td><td>API 호출 횟수·토큰 수 임계치 제한</td></tr>
+<tr><td></td><td><strong>토큰 예산 설정</strong></td><td>입력·출력 토큰 수 상한선 강제 적용</td></tr>
+<tr><td><strong>탐지</strong></td><td><strong>이상 탐지</strong></td><td>비정상 요청 패턴·반복 쿼리 자동 탐지·차단</td></tr>
+<tr><td></td><td><strong>비용 모니터링</strong></td><td>API 사용량·비용 급증 실시간 경보</td></tr>
+<tr><td><strong>대응</strong></td><td><strong>자동 차단</strong></td><td>임계치 초과 요청 IP·계정 자동 차단</td></tr>
+<tr><td></td><td><strong>캐싱</strong></td><td>동일 요청 결과 캐싱으로 중복 연산 방지</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> Jailbreak는 모델 정렬 기술과 공격 기법이 지속적으로 경쟁하는 구조로, 단일 가드레일로는 방어가 불가능하며 입력 검증·모델 정렬·출력 필터링·AI 레드팀의 다층 방어와 함께 멀티모달·다국어 확장에 따른 공격 표면 증가에 선제적으로 대응하는 지속적 안전성 평가가 AI 서비스 보안의 핵심 과제임</li>
+<li><strong>인사이트:</strong> Model DoS는 기존 네트워크 DoS와 달리 토큰·연산 자원을 표적으로 하여 서비스 마비뿐 아니라 막대한 API 비용을 유발하는 경제적 공격 수단으로 악용되므로, 토큰 예산·Rate Limiting·비용 모니터링의 다층 방어가 AI 서비스 운영의 필수 보안 요건임</li>
 </ul>
 
 </body>

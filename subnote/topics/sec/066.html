@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</title>
+  <title>3. 레이스 컨디션 (Race Condition)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,31 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</h4>
+<h4>3. 레이스 컨디션 (Race Condition)</h4>
 <ul>
-<li><strong>정의</strong>: 자원 검사 시점(TOC)과 사용 시점(TOU) 사이의 시간차를 악용하는 경쟁 조건 취약점</li>
-<li><strong>키워드</strong>: 검사-사용 시간차, 경쟁조건, 심볼릭 링크, 원자성 위반, 파일 디스크립터</li>
-<li><strong>분류</strong>: 위협/공격</li>
-<li><strong>공격 시나리오</strong>:<ul>
-<li>① 프로그램이 파일 권한 검사 (TOC)</li>
-<li>② 공격자가 파일을 심볼릭 링크로 교체 (시간차)</li>
-<li>③ 프로그램이 교체된 파일에 쓰기 (TOU) → 권한 상승</li>
-</ul>
+<li><strong>정의:</strong> 둘 이상의 프로세스·스레드가 공유 자원에 동시에 접근할 때 실행 순서에 따라 예기치 않은 결과가 발생하는 동시성 취약점</li>
+<li><strong>키워드:</strong> 공유 자원, 임계 구역, TOCTOU, 뮤텍스, 세마포어, 원자적 연산, 동시성, 심볼릭 링크 공격</li>
+<li><strong>분류:</strong> 위협/공격</li>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>파일 시스템</strong></td><td><strong>TOCTOU</strong></td><td>파일 검사(Time-of-Check)와 사용(Time-of-Use) 사이 파일 교체</td></tr>
+<tr><td></td><td><strong>심볼릭 링크 공격</strong></td><td>검사 후 심볼릭 링크를 교체하여 권한 상승 유도</td></tr>
+<tr><td><strong>메모리</strong></td><td><strong>더블 Free</strong></td><td>해제된 메모리를 재해제하여 힙 구조 손상</td></tr>
+<tr><td></td><td><strong>신호 핸들러 경쟁</strong></td><td>비동기 신호 처리 중 공유 변수 동시 접근</td></tr>
+<tr><td><strong>웹·애플리케이션</strong></td><td><strong>결제·잔액 경쟁</strong></td><td>동시 요청으로 잔액 검사·차감 사이 중복 처리</td></tr>
+</table></div>
 </li>
-<li><strong>대응 방안</strong>: 원자적 연산(Atomic Operation) 사용, 검사와 사용을 단일 시스템 콜로 처리, 임시 파일 사용 최소화</li>
-<li><strong>인사이트</strong>: TOCTOU는 멀티스레드 환경에서 빈번하게 발생하므로, 파일 작업 시 경로 대신 파일 디스크립터(File Descriptor)를 사용하는 것이 안전함</li>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>동기화</strong></td><td><strong>뮤텍스·락</strong></td><td>임계 구역 진입 전 락 획득으로 단일 접근 보장</td></tr>
+<tr><td></td><td><strong>세마포어</strong></td><td>공유 자원 접근 가능 스레드 수 제한</td></tr>
+<tr><td></td><td><strong>원자적 연산</strong></td><td>분리 불가능한 단일 연산으로 중간 상태 제거</td></tr>
+<tr><td><strong>개발 보안</strong></td><td><strong>TOCTOU 방지</strong></td><td>파일 검사·사용을 동일 트랜잭션 내 처리</td></tr>
+<tr><td></td><td><strong>임시 파일 보안</strong></td><td>예측 불가한 임시 파일명 사용(mkstemp)</td></tr>
+<tr><td><strong>웹 보안</strong></td><td><strong>트랜잭션 처리</strong></td><td>DB 트랜잭션·락으로 동시 요청 직렬화 처리</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 레이스 컨디션은 단독으로도 권한 상승·데이터 무결성 침해를 유발하며, 특히 웹 애플리케이션의 결제·포인트 시스템에서 동시 요청 처리 취약점으로 자주 악용되므로 임계 구역 식별과 원자적 트랜잭션 설계가 핵심 대응 원칙임</li>
 </ul>
 
 </body>

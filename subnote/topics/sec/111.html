@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>14. 기밀 컴퓨팅 (Confidential Computing)</title>
+  <title>13. FIPS 140-2 (Federal Information Processing Standard)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,21 @@
   </style>
 </head>
 <body>
-<h4>14. 기밀 컴퓨팅 (Confidential Computing)</h4>
+<h4>13. FIPS 140-2 (Federal Information Processing Standard)</h4>
 <ul>
-<li><strong>정의:</strong> 데이터를 처리(연산)하는 중에도 하드웨어 기반 신뢰 실행 환경(TEE)에서 암호화·격리하여 클라우드·외부 위협으로부터 사용 중 데이터를 보호하는 기술</li>
-<li><strong>키워드:</strong> TEE, 신뢰 실행 환경, Intel SGX, AMD SEV, Enclave, 사용 중 데이터 보호, 기밀 가상머신, 원격 증명</li>
-<li><strong>분류</strong>: 특수 보안</li>
-<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>TEE</strong></td><td><strong>Intel SGX</strong></td><td>CPU 내 Enclave 격리 영역에서 코드·데이터 보호</td></tr>
-<tr><td></td><td><strong>AMD SEV</strong></td><td>가상머신 메모리를 암호화하여 하이퍼바이저로부터 격리</td></tr>
-<tr><td></td><td><strong>ARM TrustZone</strong></td><td>모바일·임베디드 환경의 하드웨어 보안 격리 영역</td></tr>
-<tr><td><strong>검증</strong></td><td><strong>원격 증명 </strong></td><td>TEE 환경의 무결성을 원격으로 암호학적 검증</td></tr>
-<tr><td></td><td><strong>봉인 (Sealing)</strong></td><td>데이터를 특정 TEE 인스턴스에만 복호화 가능하도록 암호화</td></tr>
-<tr><td><strong>클라우드</strong></td><td><strong>기밀 VM</strong></td><td>VM 전체를 TEE로 보호, 클라우드 사업자도 접근 불가</td></tr>
-<tr><td></td><td><strong>기밀 컨테이너</strong></td><td>컨테이너 워크로드를 TEE 내에서 격리·실행</td></tr>
+<li><strong>정의</strong>: 암호 모듈의 보안 요구사항을 4단계로 정의한 미국 연방 표준 (NIST)</li>
+<li><strong>키워드</strong>: 암호모듈 보안 레벨 1~4, 미국 연방표준</li>
+<li><strong>분류</strong>: 시스템/SW 보안</li>
+<li><strong>FIPS 140-2 레벨별 비교</strong>:<div class="table-scroll"><table>
+<tr><th>레벨</th><th>요구사항</th><th>적용 대상</th></tr>
+<tr><td>Level 1</td><td>기본 보안 요구사항</td><td>소프트웨어 암호 모듈</td></tr>
+<tr><td>Level 2</td><td>물리적 탬퍼 증거 요구</td><td>일반 암호 장비</td></tr>
+<tr><td>Level 3</td><td>탬퍼 탐지 및 대응</td><td>고보안 장비</td></tr>
+<tr><td>Level 4</td><td>완전한 물리적 보호, 환경 공격 대응</td><td>최고보안 환경 장비</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 기밀 컴퓨팅은 "클라우드 사업자도 데이터를 볼 수 없다"는 제로 트러스트 원칙을 하드웨어 수준에서 구현하는 기술로, 의료·금융·AI 등 민감 데이터의 클라우드 이전 장벽을 낮추는 핵심 enabler로 부상하고 있으며 멀티파티 컴퓨팅·AI 모델 보호와 결합하여 프라이버시 보존 컴퓨팅의 핵심 인프라로 자리잡고 있음</li>
+<li><strong>인사이트</strong>: FIPS 140-2는 미국 연방 조달 필수 요건이며, 국내 금융·공공 분야에서도 사실상 표준으로 참조됨. 현재는 FIPS 140-3(ISO/IEC 19790)으로 전환 중</li>
 </ul>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// Trusted WEB 추가</span></p>
-<hr/>
 
 </body>
 </html>

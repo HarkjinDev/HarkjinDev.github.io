@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. ML 편향 문제 (Machine Learning Bias)</title>
+  <title>9. OWASPAgentic Applications Top 10(2026)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,24 @@
   </style>
 </head>
 <body>
-<h4>10. ML 편향 문제 (Machine Learning Bias)</h4>
+<h4>9. OWASP <strong>Agentic Applications Top 10(2026)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 머신러닝 모델이 학습 데이터·알고리즘·설계 과정의 편향으로 인해 특정 집단·속성에 대해 불공정하거나 차별적인 예측·결정을 내리는 문제</li>
-<li><strong>키워드:</strong> 데이터 편향, 알고리즘 공정성, 대표성 부족, 역사적 편향, 확증 편향, XAI, 공정성 지표, AI 윤리</li>
+<li><strong>정의</strong>: OWASP에서 발표한 agent 애플리케이션의 10대 보안 위협 목록</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>편향 발생 원인:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>샘플링 편향</strong></td><td>특정 집단이 과소·과대 대표된 학습 데이터 수집</td><td>대표성 부족</td></tr>
-<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별·불평등이 반영된 데이터 그대로 학습</td><td>과거 차별 재현</td></tr>
-<tr><td></td><td><strong>레이블 편향</strong></td><td>어노테이터 주관·편견이 레이블링에 반영</td><td>주관적 레이블</td></tr>
-<tr><td></td><td><strong>측정 편향</strong></td><td>집단별 데이터 수집·측정 방식의 불일치</td><td>측정 불일치</td></tr>
-<tr><td><strong>알고리즘</strong></td><td><strong>집계 편향</strong></td><td>전체 집단 최적화 과정에서 소수 집단 성능 저하</td><td>소수 집단 소외</td></tr>
-<tr><td></td><td><strong>평가 편향</strong></td><td>편향된 기준·지표로 모델 성능 평가</td><td>잘못된 평가</td></tr>
-<tr><td></td><td><strong>피드백 루프</strong></td><td>편향된 예측이 데이터로 재입력되어 편향 증폭</td><td>편향 자기 강화</td></tr>
-<tr><td><strong>설계·운영</strong></td><td><strong>확증 편향</strong></td><td>기존 가설을 확인하는 데이터만 선택 활용</td><td>선택적 데이터</td></tr>
-<tr><td></td><td><strong>자동화 편향</strong></td><td>AI 결과를 무비판적으로 수용하는 인간 의존</td><td>맹목적 신뢰</td></tr>
+<li><strong>OWASP Top 10 for Agentic Applications 2026:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>순위</th><th>항목</th><th>핵심</th><th>대응</th></tr>
+<tr><td>의사결정 위협</td><td>ASI01</td><td>에이전트 목표 탈취</td><td>간접 조작·목표 변조</td><td>입력 검증·목표 고정</td></tr>
+<tr><td></td><td>ASI09</td><td>인간-에이전트 신뢰 악용</td><td>의인화 악용·악의적 승인 유도</td><td>독립 승인채널 분리</td></tr>
+<tr><td></td><td>ASI10</td><td>불량 에이전트</td><td>목표 불일치·자율 이탈 행동</td><td>행동 모니터링·Kill Switch</td></tr>
+<tr><td>실행 위협</td><td>ASI02</td><td>도구 오남용</td><td>합법 도구 악의적 오용</td><td>최소권한·도구 허용목록</td></tr>
+<tr><td></td><td>ASI03</td><td>신원·권한 남용</td><td>위임·캐시 자격증명 악용</td><td>에이전트 신원 격리</td></tr>
+<tr><td></td><td>ASI05</td><td>예기치 않은 코드 실행</td><td>공격자 제어 RCE 발생</td><td>샌드박스·코드 실행 제한</td></tr>
+<tr><td>시스템 위협</td><td>ASI06</td><td>메모리·컨텍스트 오염</td><td>RAG·장기메모리 지속 오염</td><td>메모리 무결성 검증</td></tr>
+<tr><td></td><td>ASI08</td><td>연쇄 장애</td><td>오류 다단계 전파·증폭</td><td>장애 격리·서킷브레이커</td></tr>
+<tr><td>연계 위협</td><td>ASI04</td><td>공급망 취약점</td><td>MCP·서드파티 컴포넌트 변조</td><td>무결성 검증·서명 확인</td></tr>
+<tr><td></td><td>ASI07</td><td>에이전트 간 통신 취약</td><td>에이전트 간 메시지 위변조</td><td>상호인증·통신 암호화</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>데이터 다양성 확보</strong></td><td>소수 집단 포함 균형 있는 학습 데이터 수집</td><td>대표성 확보</td></tr>
-<tr><td></td><td><strong>재샘플링·증강</strong></td><td>과소 표현 집단 데이터 증강·오버샘플링</td><td>데이터 균형화</td></tr>
-<tr><td></td><td><strong>데이터 감사</strong></td><td>학습 데이터 편향 여부 정기 검토·검증</td><td>데이터 품질 관리</td></tr>
-<tr><td><strong>모델</strong></td><td><strong>편향 완화 알고리즘</strong></td><td>학습 단계에서 공정성 제약 조건 추가</td><td>알고리즘 공정화</td></tr>
-<tr><td></td><td><strong>후처리 보정</strong></td><td>모델 출력 후 집단 간 결과 균등화 보정</td><td>출력 보정</td></tr>
-<tr><td></td><td><strong>XAI 적용</strong></td><td>모델 편향 원인·특징 중요도 투명하게 설명</td><td>편향 원인 탐지</td></tr>
-<tr><td><strong>거버넌스</strong></td><td><strong>편향 감사 체계</strong></td><td>정기적 모델 편향·공정성 독립 감사 수행</td><td>주기적 검증</td></tr>
-<tr><td></td><td><strong>다양성 팀 구성</strong></td><td>다양한 배경·관점의 AI 개발팀 구성</td><td>설계 단계 예방</td></tr>
-<tr><td></td><td><strong>규제 준수</strong></td><td>EU AI Act·공정성 가이드라인 준수</td><td>법적 책임 이행</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> ML 편향은 기술적 문제를 넘어 사회적 차별을 AI가 자동화·증폭시키는 구조적 위험으로, 데이터·알고리즘·거버넌스 3축의 통합적 대응이 필수임. 공정성 지표 간 수학적 상충 관계(Trade-off)가 존재하여 어떤 공정성 기준을 우선할지는 기술이 아닌 사회적 가치 판단의 문제이며, AI 개발 초기부터 다양성 확보와 편향 감사를 설계에 내재화하는 것이 핵심 예방 전략임</li>
 </ul>
 
 </body>
