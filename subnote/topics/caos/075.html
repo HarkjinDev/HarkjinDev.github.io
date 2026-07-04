@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. 상호연결망 (Interconnection Network)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>2. 상호연결망 (Interconnection Network)</h4>
+<ul>
+<li><strong>정의</strong>: 다수의 프로세서나 서버를 연결하여 데이터를 교환·공유할 수 있도록 구성한 네트워크 토폴로지 체계</li>
+<li><strong>키워드</strong>: 토폴로지, 대역폭, 지연(Latency), 확장성, 이분 대역폭, 직경(Diameter), 차수(Degree)</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>성능 평가 지표</strong>:<div class="table-scroll"><table>
+<tr><th><strong>지표</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>직경 (Diameter)</strong></td><td>임의의 두 노드 간 최대 홉 수 (작을수록 유리)</td></tr>
+<tr><td><strong>차수 (Degree)</strong></td><td>노드 당 연결 링크 수 (클수록 대역폭 유리, 비용 증가)</td></tr>
+<tr><td><strong>이분 대역폭</strong></td><td>네트워크를 반으로 나눴을 때 교차 링크 대역폭 합</td></tr>
+<tr><td><strong>확장성</strong></td><td>노드 추가 시 성능 저하 없이 확장 가능한 정도</td></tr>
+</table></div>
+</li>
+<li><strong>주요 토폴로지 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구조</th><th>직경</th><th>차수</th><th>특징</th></tr>
+<tr><td><strong>버스 (Bus)</strong></td><td>N-1</td><td>2</td><td>구조 단순, 충돌 발생</td></tr>
+<tr><td><strong>링 (Ring)</strong></td><td>N/2</td><td>2</td><td>단순 이중화 가능</td></tr>
+<tr><td><strong>메시 (Mesh)</strong></td><td>2(√N-1)</td><td>4</td><td>균일한 지연, 확장성 양호</td></tr>
+<tr><td><strong>토러스 (Torus)</strong></td><td>√N</td><td>4</td><td>메시 개선형, 래핑으로 직경 단축</td></tr>
+<tr><td><strong>하이퍼큐브 (Hypercube)</strong></td><td>log₂N</td><td>log₂N</td><td>로그 직경, 고성능 HPC용</td></tr>
+<tr><td><strong>팻트리 (Fat-Tree)</strong></td><td>2log N</td><td>가변</td><td>데이터센터·클라우드 표준</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 상호연결망은 <strong>직경(Latency)과 차수(Bandwidth)의 트레이드오프</strong> 관계가 핵심이며, AI 클러스터에서는 팻트리·드래곤플라이, HPC에서는 토러스·하이퍼큐브가 주로 채택됨을 비교 언급할 것.</li>
+</ul>
+
+</body>
+</html>

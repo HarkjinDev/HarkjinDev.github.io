@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3] 추정</title>
+  <title>5. 기하 분포 (Geometric Distribution)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,6 +15,19 @@
   </style>
 </head>
 <body>
-<h3 class="content-editable-leaf-rtl" contenteditable="false" data-content-editable-leaf="true" id=":rat:" placeholder="제목2" spellcheck="true" style='max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; font-weight: 600; font-size: 1.5em; line-height: 1.3; margin: 0px;'>[Part 3] 추정</h3><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div><div class="notion-selectable notion-sub_sub_header-block" data-block-id="3456968f-52c4-8084-b323-ee2f3e1cec04" dir="auto" style="width: 100%; max-width: 1088px;"><div style="display: flex; width: 100%;"><div style="width: 100%; padding-top: 22px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;">
+<h4>5. 기하 분포 (Geometric Distribution)</h4>
+<ul>
+<li><strong>정의</strong>: 첫 번째 성공이 나올 때까지의 시행 횟수를 모형화하는 이산분포</li>
+<li><strong>키워드</strong>: 첫 성공까지 시행 횟수, 확률 p, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무기억성</strong></u></span></li>
+<li><strong>분류</strong>: 확률분포</li>
+<li><strong>특징</strong>:<ul>
+<li>P(X=k) = (1-p)^(k-1) × p</li>
+<li>E[X] = 1/p, Var[X] = (1-p)/p²</li>
+<li><strong>무기억성(Memoryless)</strong>: P(X&gt;m+n | X&gt;m) = P(X&gt;n)</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 이산 분포에서 무기억성을 가지는 유일한 분포. 연속 버전의 무기억성 분포는 지수분포(exponential distribution)임을 함께 기억할 것.</li>
+</ul>
+
 </body>
 </html>

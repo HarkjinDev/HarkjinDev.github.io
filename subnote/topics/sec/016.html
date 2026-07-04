@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. ECC (Elliptic Curve Cryptography, 타원곡선 암호)</title>
+  <title>7. RSA (Rivest-Shamir-Adleman)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,28 @@
   </style>
 </head>
 <body>
-<h4>8. ECC (Elliptic Curve Cryptography, 타원곡선 암호)</h4>
+<h4>7. RSA (Rivest-Shamir-Adleman)</h4>
 <ul>
-<li><strong>정의</strong>: 타원곡선 위의 점 연산(이산대수 문제)을 기반으로 하는 공개키 암호 알고리즘</li>
-<li><strong>키워드</strong>: 타원곡선 이산대수, 짧은 키 길이, ECDH, ECDSA, 모바일·IoT</li>
+<li><strong>정의</strong>: 큰 수의 소인수분해 난이도에 기반한 공개키 암호 알고리즘</li>
+<li><strong>키워드</strong>: 소인수 분해, 소수(p,q), C=M^e mod n, M=C^d mod n, 공개키(n,e), 개인키(n, d)</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>수학적 기반</strong>:<ul>
-<li>타원곡선 방정식: <strong>y² = x³ + ax + b (mod p)</strong></li>
-<li>타원곡선 위의 점 P에 대해 k번 덧셈(점 배가) → Q = kP 계산은 쉬움</li>
-<li>Q와 P로부터 k를 역산하는 것은 계산상 불가능 (타원곡선 이산대수 문제)</li>
+<li><strong>키 생성 절차</strong>:<ul>
+<li>① 두 소수 p, q 선택 → n = p × q 계산</li>
+<li>② φ(n) = (p-1)(q-1) 계산</li>
+<li>③ e 선택: gcd(e, φ(n)) = 1 (공개 지수)</li>
+<li>④ d 계산: e × d ≡ 1 (mod φ(n)) (비밀 지수)</li>
+<li>공개키: (n, e), 개인키: (n, d)</li>
 </ul>
 </li>
-<li><strong>ECC 기반 알고리즘</strong>:<ul>
-<li><strong>ECDH</strong>: 타원곡선 기반 Diffie-Hellman 키 교환 → TLS 1.3 기본 방식</li>
-<li><strong>ECDHE</strong>: ECDH + 임시 키 사용 → 전방향 안전성(PFS) 제공</li>
-<li><strong>ECDSA</strong>: 타원곡선 기반 전자서명 → DSA의 ECC 버전</li>
-<li><strong>EdDSA (Ed25519)</strong>: Edwards 곡선 기반, 빠른 서명·검증, SSH·TLS에 활용</li>
-</ul>
+<li><strong>RSA vs DSA 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>RSA</th><th>DSA</th><th>ECDSA</th></tr>
+<tr><td>수학적 기반</td><td>소인수분해 난이도</td><td>이산대수 문제</td><td>타원곡선 이산대수 문제</td></tr>
+<tr><td>용도</td><td>암호화 + 전자서명</td><td>암호화 사용 불가, 
+전자서명 전용</td><td>전자서명, 블록체인 트랜잭션 서명, TLS/SSL 인증서</td></tr>
+<tr><td>표준</td><td>PKCS#1</td><td>NIST 전자서명 표준 DSS</td><td>FIPS 186</td></tr>
+</table></div>
 </li>
-<li><strong>장점</strong>: RSA 대비 짧은 키로 동등한 보안강도 → 연산 속도 빠름, 전력 소모 적음</li>
-<li><strong>단점</strong>: 구현 복잡도 높음, 잘못된 곡선 파라미터 선택 시 취약점 발생 가능</li>
-<li><strong>인사이트</strong>: ECC는 모바일·IoT·TLS 환경에서 RSA를 대체하는 추세이며, 256bit(P-256) 곡선이 사실상 표준임. 단, 양자컴퓨터의 Shor 알고리즘에 취약하므로 장기적으로는 PQC(양자내성암호)로의 전환이 필요함</li>
+<li><strong>인사이트</strong>: 양자컴퓨터의 Shor 알고리즘으로 RSA가 위협받고 있어, NIST는 격자 기반 암호(CRYSTALS-Kyber 등) 양자내성 알고리즘을 표준으로 선정 중임. 현재는 DSA는 더 짧은 키로 동등한 보안을 제공하는 ECDSA가 주류임<strong>.</strong></li>
 </ul>
 
 </body>

@@ -18,7 +18,7 @@
 <h4>2. 접근제어/통제 (Access Control)</h4>
 <ul>
 <li><strong>정의</strong>: 인가된 주체만 자원에 접근하도록 통제하는 보안 메커니즘</li>
-<li><strong>키워드</strong>: MAC, DAC, RBAC, ABAC</li>
+<li><strong>키워드</strong>: MAC, DAC, RBAC, ABAC, ACL, CL, SL, BLP, BIBA, 클락윌슨, 만리장성</li>
 <li><strong>분류</strong>: 접근제어</li>
 <li><strong>접근통제 원칙:</strong> 최소 권한, 권한 분리, 최소 기능</li>
 <li><strong>접근제어 3요소</strong>: 정책(Policy), 모델(Model), 메커니즘(Mechanism)   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정모메&gt;</strong></span></li>
@@ -26,13 +26,14 @@
 <tr><th>구분</th><th>개념</th><th>특징</th></tr>
 <tr><td><strong>ACL (접근제어 목록)</strong></td><td>객체(자원) 기준 권한 목록 관리</td><td>객체 중심·자원별 권한 확인 용이·사용자 증가 시 관리 복잡</td></tr>
 <tr><td><strong>CL (권한 목록)</strong></td><td>주체(사용자) 기준 권한 목록 관리</td><td>주체 중심·사용자 전체 권한 확인 용이·권한 위임 관리 어려움</td></tr>
+<tr><td><strong>SL (보안 레이블)</strong></td><td>주체·객체 보안 등급 레이블 접근 통제</td><td>등급 기반 강제 통제·MAC 구현 핵심·유연성 낮음·기밀 환경 적합</td></tr>
 </table></div>
 </li>
 <li><strong>접근제어 정책 유형</strong>:</li>
 </ul>
 <div class="table-scroll"><table>
 <tr><th>구분</th><th>MAC (Mandatory Access Control)</th><th>DAC (Discretionary Access Control)</th><th>RBAC (Role-Based Access Control)</th><th>ABAC (Attribute-Based Access Control)</th></tr>
-<tr><td>기본 개념</td><td>보안 등급에 따라 접근을 강제적으로 제한</td><td>리소스 소유자가 접근 권한을 부여</td><td>역할(Role)에 따라 권한을 부여</td><td>속성(Attribute) 기반으로 접근 통제</td></tr>
+<tr><td>기본 개념</td><td>보안 등급에 따라 접근을 강제적으로 제한</td><td>리소스 소유자가 접근 권한을 부여</td><td>역할(Role)에 따라 권한을 부여</td><td>속성(Attribute) 기반으로 동적 접근 통제</td></tr>
 <tr><td>관리 주체</td><td>시스템 관리자</td><td>리소스 소유자</td><td>보안 관리자</td><td>정책에 따라 자동 결정</td></tr>
 <tr><td>정책 기준</td><td>보안 등급(Label) 및 규칙</td><td>파일/디렉터리 소유자의 결정</td><td>조직 내 역할(Role)</td><td>사용자, 자원, 환경 속성 조합</td></tr>
 <tr><td>유연성</td><td>낮음 (엄격한 보안 정책)</td><td>높음 (사용자 간 자유로운 공유)</td><td>중간 (역할 변경 시 유연함)</td><td>높음 (동적 정책 적용 가능)</td></tr>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. 엣지 컴퓨팅 (Edge Computing)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>4. 엣지 컴퓨팅 (Edge Computing)</h4>
+<ul>
+<li><strong>정의</strong>: 데이터 처리를 중앙 클라우드가 아닌 데이터 발생 지점(엣지)에 근접한 분산 노드에서 수행하여 지연을 최소화하는 컴퓨팅 패러다임</li>
+<li><strong>키워드</strong>: 저지연, MEC(Multi-access Edge Computing), Fog Computing, IoT, 5G, 오프로딩, 분산처리</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>클라우드 vs 엣지 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>클라우드 컴퓨팅</th><th>엣지 컴퓨팅</th></tr>
+<tr><td>처리 위치</td><td>중앙 데이터센터</td><td>데이터 발생 근처</td></tr>
+<tr><td>지연(Latency)</td><td>수십~수백 ms</td><td>1~10 ms</td></tr>
+<tr><td>대역폭 소비</td><td>높음 (모든 데이터 전송)</td><td>낮음 (현장 전처리 후 요약 전송)</td></tr>
+<tr><td>보안</td><td>집중 관리 용이</td><td>분산으로 공격 면적 증가</td></tr>
+<tr><td>적합 워크로드</td><td>배치처리, 대용량 분석</td><td>실시간 제어, 자율주행, AR/VR</td></tr>
+</table></div>
+</li>
+<li><strong>엣지 계층 구조</strong>:<ul>
+<li>디바이스 엣지: 센서·IoT 기기 자체 처리 (TinyML)</li>
+<li>근접 엣지 (Near Edge): 게이트웨이·기지국 수준 (MEC 서버)</li>
+<li>원격 엣지 (Far Edge): 지역 소규모 DC, 클라우드 연동</li>
+</ul>
+</li>
+<li><strong>주요 표준 및 기술</strong>:<ul>
+<li>ETSI MEC: 5G 기지국 근처 엣지 서버에 컴퓨팅 배치 표준</li>
+<li>Fog Computing: 엣지~클라우드 계층 간 중간 처리 계층 (Cisco 제안)</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 엣지 컴퓨팅의 핵심 가치는 <strong>지연 감소 + 대역폭 절감 + 데이터 주권(Data Sovereignty) 확보</strong>이며, 5G MEC와 결합하여 <strong>자율주행·스마트팩토리·실시간 영상분석</strong> 등 초저지연 서비스를 가능하게 함을 서술.</li>
+</ul>
+
+</body>
+</html>

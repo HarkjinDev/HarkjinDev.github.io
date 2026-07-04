@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 스마트폰 포렌식 (Smartphone Forensic)</title>
+  <title>5. 안티포렌식 (Anti-Forensics)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,45 @@
   </style>
 </head>
 <body>
-<h4>7. 스마트폰 포렌식 (Smartphone Forensic)</h4>
+<h4>5. 안티포렌식 (Anti-Forensics)</h4>
 <ul>
-<li><strong>정의</strong>: 스마트폰에서 디지털 증거를 수집·분석하는 포렌식 기술</li>
-<li><strong>키워드</strong>: 논리적/물리적 추출, 데이터 유형, 절차</li>
-<li><strong>분류</strong>: 디지털 포렌식</li>
-<li><strong>데이터 추출 방법</strong>:<ul>
-<li><strong>논리적 추출</strong>: 백업, ADB(Android Debug Bridge)로 파일시스템 접근 → 비교적 쉬움</li>
-<li><strong>물리적 추출</strong>: JTAG, 칩오프(Chip-off)로 스토리지 직접 덤프 → 암호화 우회 가능</li>
-<li><strong>클라우드 추출</strong>: 계정 백업(iCloud, Google Drive)에서 데이터 획득</li>
-</ul>
+<li><strong>정의:</strong> 디지털 포렌식 수사를 방해하기 위해 증거를 인멸·은닉·변조하는 기술 및 행위</li>
+<li><strong>키워드:</strong> Clear·Purge, 디가우징, 와이핑, 스테가노그래피, ADS, 타임스탬프 변조, 암호화, 로그 삭제</li>
+<li><strong>분류:</strong> 디지털 포렌식</li>
+<li><strong>데이터 삭제 수준 분류:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Clear</strong></td><td>일반적인 삭제·포맷, 복원 도구로 복구 가능</td><td>복원 가능</td></tr>
+<tr><td><strong>Purge</strong></td><td>덮어쓰기·디가우징으로 복원 불가 수준 삭제</td><td>복원 불가</td></tr>
+<tr><td><strong>Destroy</strong></td><td>물리적 파괴·소각으로 완전 폐기</td><td>물리적 파괴</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: iOS는 강력한 암호화와 Secure Enclave로 물리적 추출이 어렵고, Android는 제조사별로 상이하여 포렌식 도구(Cellebrite, Oxygen Forensics)의 지속적 업데이트가 중요함</li>
+<li><strong>기술 분류:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;삭은변암&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>데이터 삭제</strong></td><td><strong>덮어쓰기 (Wiping)</strong></td><td>복원 불가 삭제</td></tr>
+<tr><td></td><td><strong>디가우징 (Degaussing)</strong></td><td>자기 소거</td></tr>
+<tr><td></td><td><strong>물리적 파괴</strong></td><td>물리적 폐기</td></tr>
+<tr><td></td><td><strong>SSD TRIM 활용</strong></td><td>SSD 자동 소거</td></tr>
+<tr><td><strong>데이터 은닉</strong></td><td><strong>스테가노그래피</strong></td><td>파일 내 은닉</td></tr>
+<tr><td></td><td><strong>대체 데이터 스트림 (ADS)</strong></td><td>NTFS 스트림 은닉</td></tr>
+<tr><td></td><td><strong>슬랙 영역 은닉</strong></td><td>미사용 영역 활용</td></tr>
+<tr><td><strong>데이터 변조</strong></td><td><strong>타임스탬프 변조</strong></td><td>시간 정보 조작</td></tr>
+<tr><td></td><td><strong>메타데이터 삭제</strong></td><td>메타정보 제거</td></tr>
+<tr><td></td><td><strong>로그 삭제·변조</strong></td><td>행위 기록 삭제</td></tr>
+<tr><td><strong>암호화</strong></td><td><strong>전체 디스크 암호화</strong></td><td>내용 접근 차단</td></tr>
+<tr><td></td><td><strong>볼륨 은닉</strong></td><td>존재 자체 은닉</td></tr>
+</table></div>
+</li>
+<li><strong>안티포렌식 탐지 기법:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>와이핑 도구 흔적</strong></td><td>Eraser·BCWipe 등 삭제 도구 실행 흔적 탐지</td><td>도구 사용 증거</td></tr>
+<tr><td><strong>타임스탬프 불일치</strong></td><td>파일 생성·수정·MFT 시간 불일치로 변조 탐지</td><td>시간 불일치 탐지</td></tr>
+<tr><td><strong>ADS 탐지</strong></td><td>NTFS 숨겨진 스트림 스캔으로 은닉 파일 탐지</td><td>스트림 스캔</td></tr>
+<tr><td><strong>스테가노그래피 탐지</strong></td><td>통계 분석·파일 크기 이상으로 은닉 데이터 탐지</td><td>통계적 탐지</td></tr>
+<tr><td><strong>로그 공백 탐지</strong></td><td>로그 삭제·공백 구간으로 행위 은닉 시도 탐지</td><td>공백 구간 분석</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 안티포렌식의 존재 자체(와이핑 도구 흔적·타임스탬프 불일치·ADS 발견)가 역설적으로 범죄 의도의 증거로 활용될 수 있으며, 완벽한 증거 은닉은 사실상 불가능하므로 다중 아티팩트 교차 분석과 안티포렌식 탐지 기법의 병행이 현대 디지털 포렌식의 핵심 접근법임</li>
 </ul>
-<hr/>
 
 </body>
 </html>

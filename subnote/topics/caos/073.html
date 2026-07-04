@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-1. FTS (Fault Tolerant System)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-1. FTS (Fault Tolerant System)</h4>
+<ul>
+<li><strong>정의</strong>: 하드웨어·소프트웨어의 일부 구성요소에 결함이 발생하더라도 서비스 중단 없이 정상 동작을 지속하는 내결함성 시스템</li>
+<li><strong>키워드</strong>: 내결함성, 이중화, TMR, 체크포인팅, 오류 감지·수정, 페일세이프(Fail-safe)</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>HA와 FTS 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>HA (고가용성)</th><th>FTS (내결함성)</th></tr>
+<tr><td>장애 대응</td><td>장애 후 Failover로 복구</td><td>장애 중에도 무중단 운영</td></tr>
+<tr><td>다운타임</td><td>수 초~수 분 허용</td><td>사실상 0 (Zero Downtime)</td></tr>
+<tr><td>비용</td><td>상대적으로 낮음</td><td>매우 높음 (완전 이중화)</td></tr>
+<tr><td>적용 예</td><td>웹 서버 클러스터</td><td>항공기 제어, 금융 코어</td></tr>
+</table></div>
+</li>
+<li><strong>주요 구현 기법</strong>:<div class="table-scroll"><table>
+<tr><th>기법</th><th>설명</th></tr>
+<tr><td><strong>TMR (Triple Modular Redundancy)</strong></td><td>3개 모듈 병렬 수행 후 다수결로 결과 선택</td></tr>
+<tr><td><strong>Watchdog Timer</strong></td><td>주기적 타이머 가동을 위한 초기화</td></tr>
+<tr><td><strong>체크포인팅 (Checkpointing)</strong></td><td>주기적 상태 저장 → 결함 발생 시 최근 체크포인트로 복원</td></tr>
+<tr><td><strong>Recovery Block</strong></td><td>재 수행(Rollback&amp;Retry)</td></tr>
+<tr><td><strong>오류 정정 코드 (ECC)</strong></td><td>메모리 오류 자동 감지 및 수정</td></tr>
+<tr><td><strong>페일세이프 (Fail-safe)</strong></td><td>장애 시 안전한 상태로 자동 전환</td></tr>
+<tr><td><strong>Rollback(undo)</strong></td><td>트랙잭션 ACID 보장</td></tr>
+</table></div>
+</li>
+<li><strong>TMR(Triple Modular Redundancy): </strong>세 개의 모듈의 병렬 수행하여, 다수결 결과를 통해 결정하는 결함허용 시스템<ul>
+<li><strong>핵심: </strong>투표(Vote), 락스텝(lockstep), Fault Tolerant, Output comparator(결과 비교기)</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: FTS는 HA보다 상위 개념으로 <strong>결함이 발생해도 서비스가 지속</strong>된다는 점에서 차별화되며, 항공·의료·금융 같은 <strong>무중단이 절대적으로 요구</strong>되는 환경에서 TMR과 ECC를 함께 적용함을 강조.</li>
+</ul>
+
+</body>
+</html>

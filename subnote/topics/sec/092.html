@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 안티포렌식 (Anti-Forensics)</title>
+  <title>3. 파일 슬랙 (File Slack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,26 @@
   </style>
 </head>
 <body>
-<h4>5. 안티포렌식 (Anti-Forensics)</h4>
+<h4>3. 파일 슬랙 (File Slack)</h4>
 <ul>
-<li><strong>정의:</strong> 디지털 포렌식 수사를 방해하기 위해 증거를 인멸·은닉·변조하는 기술 및 행위</li>
-<li><strong>키워드:</strong> Clear·Purge, 디가우징, 와이핑, 스테가노그래피, ADS, 타임스탬프 변조, 암호화, 로그 삭제</li>
+<li><strong>정의:</strong> 파일 할당 후 클러스터 내 남는 미사용 영역에 잔존하는 데이터</li>
+<li><strong>키워드:</strong> 램 슬랙, 드라이브 슬랙, 클러스터, 미사용 영역, 증거 잔존, TRIM, 안티포렌식</li>
 <li><strong>분류:</strong> 디지털 포렌식</li>
-<li><strong>데이터 삭제 수준 분류:</strong><div class="table-scroll"><table>
+<li><strong>발생 원리:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Clear</strong></td><td>일반적인 삭제·포맷, 복원 도구로 복구 가능</td><td>복원 가능</td></tr>
-<tr><td><strong>Purge</strong></td><td>덮어쓰기·디가우징으로 복원 불가 수준 삭제</td><td>복원 불가</td></tr>
-<tr><td><strong>Destroy</strong></td><td>물리적 파괴·소각으로 완전 폐기</td><td>물리적 파괴</td></tr>
+<tr><td><strong>클러스터</strong></td><td>OS가 파일을 저장하는 최소 할당 단위</td><td>저장 단위</td></tr>
+<tr><td><strong>슬랙 발생</strong></td><td>파일 크기가 클러스터 크기보다 작을 때 남는 미사용 공간 발생</td><td>공간 낭비·잔존</td></tr>
+<tr><td><strong>잔존 데이터</strong></td><td>이전 파일·메모리 데이터가 슬랙 영역에 남아 포렌식 증거로 활용</td><td>증거 잔존</td></tr>
 </table></div>
 </li>
-<li><strong>기술 분류:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;삭은변암&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
-<tr><td><strong>데이터 삭제</strong></td><td><strong>덮어쓰기 (Wiping)</strong></td><td>복원 불가 삭제</td></tr>
-<tr><td></td><td><strong>디가우징 (Degaussing)</strong></td><td>자기 소거</td></tr>
-<tr><td></td><td><strong>물리적 파괴</strong></td><td>물리적 폐기</td></tr>
-<tr><td></td><td><strong>SSD TRIM 활용</strong></td><td>SSD 자동 소거</td></tr>
-<tr><td><strong>데이터 은닉</strong></td><td><strong>스테가노그래피</strong></td><td>파일 내 은닉</td></tr>
-<tr><td></td><td><strong>대체 데이터 스트림 (ADS)</strong></td><td>NTFS 스트림 은닉</td></tr>
-<tr><td></td><td><strong>슬랙 영역 은닉</strong></td><td>미사용 영역 활용</td></tr>
-<tr><td><strong>데이터 변조</strong></td><td><strong>타임스탬프 변조</strong></td><td>시간 정보 조작</td></tr>
-<tr><td></td><td><strong>메타데이터 삭제</strong></td><td>메타정보 제거</td></tr>
-<tr><td></td><td><strong>로그 삭제·변조</strong></td><td>행위 기록 삭제</td></tr>
-<tr><td><strong>암호화</strong></td><td><strong>전체 디스크 암호화</strong></td><td>내용 접근 차단</td></tr>
-<tr><td></td><td><strong>볼륨 은닉</strong></td><td>존재 자체 은닉</td></tr>
-</table></div>
-</li>
-<li><strong>안티포렌식 탐지 기법:</strong><div class="table-scroll"><table>
+<li><strong>유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>와이핑 도구 흔적</strong></td><td>Eraser·BCWipe 등 삭제 도구 실행 흔적 탐지</td><td>도구 사용 증거</td></tr>
-<tr><td><strong>타임스탬프 불일치</strong></td><td>파일 생성·수정·MFT 시간 불일치로 변조 탐지</td><td>시간 불일치 탐지</td></tr>
-<tr><td><strong>ADS 탐지</strong></td><td>NTFS 숨겨진 스트림 스캔으로 은닉 파일 탐지</td><td>스트림 스캔</td></tr>
-<tr><td><strong>스테가노그래피 탐지</strong></td><td>통계 분석·파일 크기 이상으로 은닉 데이터 탐지</td><td>통계적 탐지</td></tr>
-<tr><td><strong>로그 공백 탐지</strong></td><td>로그 삭제·공백 구간으로 행위 은닉 시도 탐지</td><td>공백 구간 분석</td></tr>
+<tr><td><strong>램 슬랙 (RAM Slack)</strong></td><td>파일 종료 섹터~섹터 끝까지 메모리 잔존 데이터로 채워지는 영역</td><td>메모리 잔존</td></tr>
+<tr><td><strong>드라이브 슬랙 (Drive Slack)</strong></td><td>마지막 섹터 다음~클러스터 끝까지 이전 데이터가 잔존하는 영역</td><td>이전 데이터 잔존</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 안티포렌식의 존재 자체(와이핑 도구 흔적·타임스탬프 불일치·ADS 발견)가 역설적으로 범죄 의도의 증거로 활용될 수 있으며, 완벽한 증거 은닉은 사실상 불가능하므로 다중 아티팩트 교차 분석과 안티포렌식 탐지 기법의 병행이 현대 디지털 포렌식의 핵심 접근법임</li>
+<li><strong>포렌식 활용 및 한계: </strong>증거 활용, 안티포렌식, SSD 복원 한계</li>
+<li><strong>인사이트:</strong> 파일 슬랙은 삭제·덮어쓰기 후에도 이전 데이터가 잔존하는 핵심 포렌식 증거 영역이나, SSD의 TRIM 자동 실행으로 인해 HDD 대비 슬랙 증거 복원 가능성이 크게 낮아지므로 SSD 환경에서는 메모리·로그 기반 분석과 병행이 필수임</li>
 </ul>
 
 </body>

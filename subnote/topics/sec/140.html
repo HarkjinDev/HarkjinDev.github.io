@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. PbD (Privacy by Design)</title>
+  <title>6. k-익명성 (k-anonymity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,19 @@
   </style>
 </head>
 <body>
-<h4>8. PbD (Privacy by Design)</h4>
+<h4>6. k-익명성 (k-anonymity)</h4>
 <ul>
-<li><strong>정의</strong>: 시스템 설계 단계부터 프라이버시를 내재화하는 방법론 (Ann Cavoukian 제안)</li>
-<li><strong>키워드</strong>: 7대 원칙, 8대 전략, 개인정보보호법 원칙과 비교</li>
+<li><strong>정의</strong>: 동일한 준식별자 속성값을 가진 레코드가 k개 이상 존재하도록 보장하는 프라이버시 모델</li>
+<li><strong>키워드</strong>: 준식별자, 일반화, 삭제, 재식별 방지</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>7대 원칙</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;사초내균/생가존&gt;</strong></span><ul>
-<li>① 사후 조치가 아닌 사전 예방</li>
-<li>② 기본 설정으로 개인정보 보호</li>
-<li>③ 설계에 개인정보 보호 내재화</li>
-<li>④ 기능 충돌이 아닌 상호 보완</li>
-<li>⑤ 전 생애주기 보안</li>
-<li>⑥ 가시성과 투명성</li>
-<li>⑦ 사용자 프라이버시 존중</li>
+<li><strong>구현 기법</strong>: 일반화(Generalization: 35세 → 30대), 억제(Suppression: 특이값 삭제)</li>
+<li><strong>취약점</strong>:<ul>
+<li><strong>동질성 공격</strong>: 동일 그룹 내 민감 속성이 균일한 경우 유추 가능</li>
+<li><strong>배경 지식 공격</strong>: 외부 정보와 결합하여 재식별</li>
 </ul>
 </li>
-<li><strong>8대 전략</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;최숨분총/정통집입&gt;</strong></span><ul>
-<li>데이터 중심 전략: 최소화(Minimize), 숨김(Hide), 분리(Separate), 총계(Aggregate)</li>
-<li>프로세스 중심 전략: 정보(Inform), 통제(Control), 집행(Enforce), 입증(Demonstrate)</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: PbD는 GDPR Article 25의 'Data Protection by Design and Default' 조항의 기반 원칙으로 법적 의무화되어 있으며, 개보법 제3조와도 연계됨</li>
+<li><strong>확장 모델</strong>: ℓ-다양성(l-diversity), t-근접성(t-closeness)</li>
+<li><strong>인사이트</strong>: k-익명성은 단독으로는 충분한 보호를 제공하지 못하므로, ℓ-다양성·t-근접성과 결합하여 적용하는 것이 권장됨</li>
 </ul>
 
 </body>

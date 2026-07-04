@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. EU CRA (Cyber Resilience Act, 사이버복원력법)</title>
+  <title>6. 개인정보 영향평가</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,32 @@
   </style>
 </head>
 <body>
-<h4>6. EU CRA (Cyber Resilience Act, 사이버복원력법)</h4>
+<h4>6. 개인정보 영향평가</h4>
 <ul>
-<li><strong>정의:</strong> 디지털 요소를 포함한 제품(하드웨어·소프트웨어)의 전체 수명주기에 걸쳐 사이버보안 요구사항을 의무화한 EU 규정으로, 2024년 10월 발효·2027년 12월 전면 시행 예정</li>
-<li><strong>키워드:</strong> 디지털 제품 보안, CE 마킹, SBOM, 취약점 공개, 수명주기 보안, NIS2 연계, 중요제품, 공급망 보안</li>
-<li><strong>분류</strong>: 법/제도</li>
-<li><strong>핵심 의무사항:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>의무</th><th>설명</th><th>핵심</th></tr>
-<tr><td>설계</td><td>보안 내재화 
-(Security by Design)</td><td>출시 전 취약점 최소화 설계</td><td>기본 보안 설정</td></tr>
-<tr><td></td><td>기본 보안 설정</td><td>안전한 기본값·불필요 기능 비활성화</td><td>Secure by Default</td></tr>
-<tr><td></td><td>SBOM 작성</td><td>소프트웨어 구성요소 명세서 작성·관리</td><td>공급망 투명성</td></tr>
-<tr><td>운영</td><td>취약점 공개 정책</td><td>취약점 발견 시 조정 공개 절차 운영</td><td>CVD 정책</td></tr>
-<tr><td></td><td>보안 업데이트</td><td>제품 수명주기 전반 보안 패치 제공</td><td>최소 5년 지원</td></tr>
-<tr><td></td><td>사고 보고</td><td>적극적 악용 취약점 24시간 내 ENISA 보고</td><td>72시간 내 상세 보고</td></tr>
-<tr><td>출시</td><td>CE 마킹</td><td>CRA 준수 확인 후 CE 마킹 부착 의무</td><td>시장 진입 허가</td></tr>
-<tr><td></td><td>적합성 선언</td><td>EU 적합성 선언서 작성·10년 보관</td><td>문서화 의무</td></tr>
+<li><strong>정의:</strong> 개인정보에 미치는 영향을 사전에 조사, 예측,검토하여 개선방안을 도출하고 이행여부를 점검하는 절차</li>
+<li><strong>법적근거:</strong> 개인정보보호법 제 33조</li>
+<li><strong>개인정보영향평가(PIA) 평가 대상:</strong><div class="table-scroll"><table>
+<tr><th>대상</th><th>기준</th><th>핵심</th></tr>
+<tr><td>5만명</td><td>개인정보파일</td><td>민감·고유식별</td></tr>
+<tr><td>50만명</td><td>개인정보파일과 연계</td><td>연계 결과 기준</td></tr>
+<tr><td>100만명</td><td>개인정보파일</td><td>정보주체 수 기준</td></tr>
+<tr><td>변경시</td><td>개인정보 검색 및 운용 체계</td><td>운용체계 변경</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> EU CRA는 디지털 제품의 설계→출시→운영→폐기 전 수명주기에 걸쳐 보안을 의무화하는 세계 최초 포괄적 제품 사이버보안 규제로, SBOM·CVD·CE 마킹을 통해 공급망 투명성과 시장 신뢰를 동시에 확보하는 규제 패러다임의 전환점</li>
+<li><strong>개인정보영향평가(PIA) 평가 절차:</strong><div class="table-scroll"><table>
+<tr><th>절차</th><th>활동</th></tr>
+<tr><td>1. 사업계획 작성</td><td>영향평가 필요성 검토, 사업계획서 작성</td></tr>
+<tr><td>2. 사업자 선정</td><td>제안서 작성·사업발주, 영향평가 기관 선정</td></tr>
+<tr><td>3. 평가수행 계획수립</td><td>평가수행 계획수립, 평가팀 구성</td></tr>
+<tr><td>4. 평가자료 수집</td><td>내부자료 분석, 외부자료 분석, 대상시스템 관련자료 분석</td></tr>
+<tr><td>5. 개인정보 흐름분석</td><td>개인정보 처리업무 분석 현황, 개인정보 흐름표 작성, 개인정보 흐름도 작성, 시스템 구조도 작성</td></tr>
+<tr><td>6. 개인정보 침해요인 분석</td><td>평가 항목 작성, 개인정보보호 조치 현황 파악, 개인정보 침해요인 도출, 개인정보 위험도 산정</td></tr>
+<tr><td>7. 개선계획 수립</td><td>개선사항 도출, 개선계획 수립</td></tr>
+<tr><td>8. 영향평가서 작성</td><td>영향평가서 요약본 작성, 보고서 요약본 제출, 요약본 공개</td></tr>
+<tr><td>9. 개선계획 반영·점검</td><td>개선계획 반영, 개선계획 반영 점검</td></tr>
+<tr><td>10. 개선사항 이행확인</td><td>개선사항 이행 확인, 이행확인서 제출 (영향평가서 제출받은 날로부터 <strong>1년 이내</strong> 개인정보보호위원회 제출)</td></tr>
+</table></div>
+</li>
 </ul>
 
 </body>

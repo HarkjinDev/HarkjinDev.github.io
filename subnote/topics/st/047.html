@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 7] 데이터 마이닝</title>
+  <title>3. 이동평균모형 (MA, Moving Average Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,6 +15,26 @@
   </style>
 </head>
 <body>
-<h3 class="content-editable-leaf-rtl" contenteditable="false" data-content-editable-leaf="true" id=":r15s:" placeholder="제목2" spellcheck="true" style='max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; font-weight: 600; font-size: 1.5em; line-height: 1.3; margin: 0px;'>[Part 7] 데이터 마이닝</h3><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div><div class="notion-selectable notion-sub_sub_header-block" data-block-id="d226f815-ecf6-48dd-aad2-0f8bb43a16f0" dir="auto" style="width: 100%; max-width: 1088px;"><div style="display: flex; width: 100%;"><div style="width: 100%; padding-top: 22px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;">
+<h4>3. 이동평균모형 (MA, Moving Average Model)</h4>
+<ul>
+<li><strong>정의</strong>: 과거 오차항의 가중 합으로 현재값을 예측하는 시계열 분석 모형</li>
+<li><strong>키워드</strong>: MA(q), 과거 오차항, ACF, 평활화</li>
+<li><strong>분류</strong>: 시계열 분석</li>
+<li><strong>특징</strong>:<ul>
+<li>MA(q): Xt = εt + θ1εt-1 + θ2εt-2 + ... + θqεt-q</li>
+<li>차수 q: ACF(자기상관함수)로 결정</li>
+<li>AR과 달리 유한 기억(finite memory) 구조</li>
+</ul>
+</li>
+<li><strong>비교</strong> (AR vs MA):<div class="table-scroll"><table>
+<tr><th>구분</th><th>AR 모형</th><th>MA 모형</th></tr>
+<tr><td><strong>의존 대상</strong></td><td>과거 자기값 (Xt-p)</td><td>과거 오차항 (εt-q)</td></tr>
+<tr><td><strong>차수 결정</strong></td><td>PACF</td><td>ACF</td></tr>
+<tr><td><strong>기억 구조</strong></td><td>무한 기억</td><td>유한 기억</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: MA 차수 q는 ACF가 유의하게 절단되는 시차로 결정. AR(PACF)과 MA(ACF)의 차수 결정 도구 차이를 반드시 구분하여 기술할 것.</li>
+</ul>
+
 </body>
 </html>

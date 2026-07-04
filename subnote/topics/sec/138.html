@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. k-익명성 (k-anonymity)</title>
+  <title>4. 익명처리 (Anonymization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,17 @@
   </style>
 </head>
 <body>
-<h4>6. k-익명성 (k-anonymity)</h4>
+<h4>4. 익명처리 (Anonymization)</h4>
 <ul>
-<li><strong>정의</strong>: 동일한 준식별자 속성값을 가진 레코드가 k개 이상 존재하도록 보장하는 프라이버시 모델</li>
-<li><strong>키워드</strong>: 준식별자, 일반화, 삭제, 재식별 방지</li>
+<li><strong>정의</strong>: 재식별이 불가능하도록 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비가역적</strong></u></span>으로 개인정보를 처리하는 기법</li>
+<li><strong>키워드</strong>: 비가역적, 재식별 불가, 데이터 활용</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>구현 기법</strong>: 일반화(Generalization: 35세 → 30대), 억제(Suppression: 특이값 삭제)</li>
-<li><strong>취약점</strong>:<ul>
-<li><strong>동질성 공격</strong>: 동일 그룹 내 민감 속성이 균일한 경우 유추 가능</li>
-<li><strong>배경 지식 공격</strong>: 외부 정보와 결합하여 재식별</li>
+<li><strong>가명처리 vs 익명처리</strong>:<ul>
+<li><strong>가명처리</strong>: 추가 정보로 재식별 가능(개보법 적용), 연구 목적 활용 가능</li>
+<li><strong>익명처리</strong>: 재식별 불가(개보법 미적용), 완전 자유 활용</li>
 </ul>
 </li>
-<li><strong>확장 모델</strong>: ℓ-다양성(l-diversity), t-근접성(t-closeness)</li>
-<li><strong>인사이트</strong>: k-익명성은 단독으로는 충분한 보호를 제공하지 못하므로, ℓ-다양성·t-근접성과 결합하여 적용하는 것이 권장됨</li>
+<li><strong>인사이트</strong>: 완전한 익명화는 이론적으로 매우 어렵고(AOL 사례, Netflix 사례), 재식별 공격이 가능하므로 익명처리 시에도 재식별 위험성 지속 모니터링이 필요함</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 대칭 암호화 (Symmetric Encryption)</title>
+  <title>1. 암호화 (Cryptography)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,36 @@
   </style>
 </head>
 <body>
-<h4>2. 대칭 암호화 (Symmetric Encryption)</h4>
+<h4>1. 암호화 (Cryptography)</h4>
 <ul>
-<li><strong>정의</strong>: 송수신자가 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동일한 비밀키</strong></u></span>를 사용하여 암복호화하는 암호 방식</li>
-<li><strong>키워드</strong>: AES, DES, 동일 키, 블록/스트림</li>
+<li><strong>정의</strong>: 평문(Plaintext)을 인가되지 않은 자가 알 수 없도록 암호문(Ciphertext)으로 변환하는 기술</li>
+<li><strong>키워드</strong>: 평문/암호문, 암호화 원리, 스트림/블록, 대칭키/비대칭키, SPN, Feistel</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>대표 알고리즘</strong>:<div class="table-scroll"><table>
-<tr><th>알고리즘</th><th>키 길이</th><th>블록 크기</th><th>특징</th></tr>
-<tr><td>DES</td><td>56bit</td><td>64bit</td><td>현재 취약 (폐기)</td></tr>
-<tr><td>3DES</td><td>168bit</td><td>64bit</td><td>DES 3회 적용, 성능 저하</td></tr>
-<tr><td>AES</td><td>128/192/256bit</td><td>128bit</td><td>현재 표준, NIST 선정</td></tr>
-<tr><td>ARIA</td><td>128/192/256bit</td><td>128bit</td><td>한국 국가 표준 (KS X 1213)</td></tr>
+<li><strong>암호화 원리</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>내용</th><th>핵심</th></tr>
+<tr><td><strong>치환 (Substitution)</strong></td><td>메시지의 각 글자를 다른 글자로 대체 (S-Box)</td><td>문자 대체</td></tr>
+<tr><td><strong>전치 (Transposition)</strong></td><td>문자열의 위치를 서로 바꾸어 표현 (P-Box)</td><td>위치 교환</td></tr>
+<tr><td><strong>혼돈 (Confusion)</strong></td><td>평문의 작은 변화가 암호문에 예측 불가한 변화 유발 (치환으로 구현)</td><td>예측 불가 변화</td></tr>
+<tr><td><strong>확산 (Diffusion)</strong></td><td>평문의 각 bit 정보가 암호문 여러 bit로 분산 
+(전치로 구현)</td><td>bit 분산</td></tr>
+<tr><td><strong>확장 (Expansion)</strong></td><td>무의미한 문자를 삽입하여 문자열 확장</td><td>문자열 확장</td></tr>
+<tr><td><strong>압축 (Compaction)</strong></td><td>일부 문자를 삭제하여 압축문·삭제문 분리</td><td>문자열 압축</td></tr>
 </table></div>
 </li>
-<li><strong>장점</strong>: 처리 속도 빠름, 대용량 데이터 암호화에 적합</li>
-<li><strong>단점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>키 배송 문제(Key Distribution Problem)</strong></u></span> — 안전한 키 전달 채널 필요</li>
-<li><strong>인사이트</strong>: 대칭 암호화는 속도가 빠르나 키 관리가 어려워, 실무에서는 데이터 암호화에 대칭키, 키 교환에 비대칭키를 사용하는 하이브리드 방식이 표준임</li>
+<li><strong>암호화 분류(유형)</strong>:<div class="table-scroll"><table>
+<tr><th>특성</th><th>기능</th><th>알고리즘</th><th>적용 기술</th></tr>
+<tr><td><strong>정보단위</strong></td><td><strong>스트림 암호</strong></td><td>RC4, OTP</td><td>1비트·바이트 단위 실시간 암호화</td></tr>
+<tr><td></td><td><strong>블록 암호</strong></td><td>AES, DES, ARIA</td><td>고정 블록 단위 암호화</td></tr>
+<tr><td><strong>키 형태</strong></td><td><strong>대칭키 (비밀키)</strong></td><td>DES, 3DES, AES, ARIA</td><td>송수신자 공유키 암·복호화</td></tr>
+<tr><td></td><td><strong>비대칭키 (공개키)</strong></td><td>RSA, DSA, ECC, DH</td><td>공개키 암호화·비밀키 복호화</td></tr>
+<tr><td><strong>암호화 기반기술</strong></td><td><strong>SPN</strong></td><td>AES, ARIA</td><td>대체·순열 반복으로 혼돈·확산</td></tr>
+<tr><td></td><td><strong>Feistel (피스텔)</strong></td><td>DES, SEED</td><td>블록 분할 후 라운드 반복 연산</td></tr>
+<tr><td></td><td><strong>인수분해</strong></td><td>RSA</td><td>대형 소수 곱 역산 어려움 이용</td></tr>
+<tr><td></td><td><strong>이산대수</strong></td><td>DH, DSA, ECDSA</td><td>지수 계산·역산 비대칭성 이용</td></tr>
+<tr><td></td><td><strong>해시함수</strong></td><td>MD5, SHA-1, SHA-2</td><td>고정 길이 출력·단방향 변환</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 현대 암호 시스템은 단일 기반기술이 아닌 대칭키(속도)·비대칭키(키 교환)·해시(무결성)를 조합한 하이브리드 방식이 표준</li>
 </ul>
 
 </body>

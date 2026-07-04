@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 무자각 지속 인증 (Implicit Continuous Authentication)</title>
+  <title>1. LDAP (Lightweight Directory Access Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,18 @@
   </style>
 </head>
 <body>
-<h4>2. 무자각 지속 인증 (Implicit Continuous Authentication)</h4>
+<h4>1. LDAP (Lightweight Directory Access Protocol)</h4>
 <ul>
-<li><strong>정의</strong>: 사용자의 행위 및 환경정보를 활용하여 사용자의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>명시적 개입 없이 지속적</strong></u></span>으로 신원을 검증하는 신뢰기반의 인증기술</li>
-<li><strong>키워드</strong>: 행위 기반, 생체, 명시적 미고지, 지속적 검증, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무의식, 제로트러스트</strong></u></span></li>
+<li><strong>정의</strong>: 디렉토리 서비스에 접근하여 사용자 정보를 조회하고 인증하는 프로토콜</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>디렉토리 서비스, DN, X.500 경량화,</strong></u></span> AD/SSO 인증</li>
 <li><strong>분류</strong>: 인증/신원관리</li>
-<li><strong>특징</strong>: 로그인 후에도 지속적 신원 검증, 사용자 개입 없음, AI/ML 기반 이상 탐지</li>
-<li><strong>인증 절차:</strong><div class="table-scroll"><table>
-<tr><th><strong>인증절차</strong></th><th><strong>기능</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>1. 관찰</strong></td><td>사용자 인증 데이터 수집</td><td>사용자 특화 속성 정보 수집</td></tr>
-<tr><td></td><td>무자각 모니터링</td><td>상호작용 무자각 모니터링</td></tr>
-<tr><td><strong>2. 프로파일 생성·갱신</strong></td><td>신규 사용자 프로파일 생성</td><td>신규 사용자 프로파일 생성</td></tr>
-<tr><td></td><td>기존 사용자 프로파일 갱신</td><td>수집 데이터 기반 프로파일 갱신</td></tr>
-<tr><td><strong>3. 비교</strong></td><td>패턴 매칭</td><td>프로파일 데이터 패턴 비교</td></tr>
-<tr><td></td><td>머신러닝 기반 본인 여부 분석</td><td>ML 기반 본인 여부 분석</td></tr>
-<tr><td><strong>4. 결정</strong></td><td>인증 승인</td><td>결과에 따른 승인 거부 결정</td></tr>
-<tr><td></td><td>재인증 요청</td><td>정책 기반 재인증 및 조치 수행</td></tr>
-</table></div>
+<li><strong>구조</strong>: 트리 형태의 계층 구조 (DIT, Directory Information Tree)<ul>
+<li><strong>DN(Distinguished Name)</strong>: 디렉토리 항목의 고유 이름 (예: cn=홍길동,ou=IT,o=회사,c=KR)</li>
+</ul>
 </li>
-<li><strong>장점</strong>: 세션 하이재킹 탐지, 비밀번호 없는 사용자 경험</li>
-<li><strong>단점</strong>: 프라이버시 침해 우려, 오탐(False Positive) 가능성</li>
-<li><strong>인사이트</strong>: 무자각 지속 인증은 제로 트러스트 아키텍처의 "지속 검증(Continuous Verification)" 원칙을 구현하는 핵심 기술임</li>
+<li><strong>LDAP 인증 흐름</strong>: 클라이언트 → 서버 연결(포트 389/636) → 바인딩(Bind) → 검색(Search) → 결과 반환 → 언바인딩</li>
+<li><strong>활용</strong>: Active Directory(AD) 통합 인증, SSO 기반 인증, 기업 디렉토리 서비스</li>
+<li><strong>인사이트</strong>: LDAP은 읽기 작업에 최적화되어 있어 사용자 인증 조회에 탁월하나, 쓰기 작업이 많은 환경에서는 성능 한계가 있음</li>
 </ul>
 
 </body>

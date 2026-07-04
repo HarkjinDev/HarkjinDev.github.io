@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 9-2. 해시 솔트 (Hash Salt)</title>
+  <title>[하위] 9-1. Rainbow Table (레인보우 테이블)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,14 +15,14 @@
   </style>
 </head>
 <body>
-<h4>[하위] 9-2. 해시 솔트 (Hash Salt)</h4>
+<h4>[하위] 9-1. Rainbow Table (레인보우 테이블)</h4>
 <ul>
-<li><strong>정의</strong>: 해시 연산 전 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>임의의 난수 값</strong></u></span>을 추가하여 동일 비밀번호의 해시 중복을 방지하는 기법</li>
-<li><strong>키워드</strong>: 임의 난수, 해시 앞에 추가, 레인보우 테이블 방어</li>
+<li><strong>정의</strong>: 해시값에서 원문을 역추적하기 위해 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>사전 계산된</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"> </span>해시-원문 매핑 테이블</li>
+<li><strong>키워드</strong>: 사전 계산 해시, 역추적, 솔트로 방어</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>솔트 적용 방법</strong>: Hash(Salt || Password) 또는 Hash(Password || Salt)</li>
-<li><strong>Salt &amp; Pepper</strong>: Salt(공개 가능한 임의값) + Pepper(서버 비밀값)를 결합하여 이중 보호</li>
-<li><strong>인사이트</strong>: 솔트는 사용자별로 독립적으로 생성되어야 하며, 솔트값은 해시와 함께 저장해도 무방함 (공격자가 알더라도 Rainbow Table 사전 계산이 불가능하기 때문)</li>
+<li><strong>동작 원리</strong>: 감소 함수(Reduction Function)와 해시 함수를 번갈아 적용하여 체인을 구성 → 저장 공간 최소화하면서 역추적 가능</li>
+<li><strong>대응 방안</strong>: 해시 솔트(Salt) 적용 → 동일 비밀번호도 다른 해시값 생성</li>
+<li><strong>인사이트</strong>: Rainbow Table의 효과는 솔트 적용으로 무력화되므로, 현대 시스템에서는 솔트 없는 해시 저장은 절대 금지임</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. PET (Privacy Enhancing Technology)</title>
+  <title>5. 가명처리 (Pseudonymization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,96 @@
   </style>
 </head>
 <body>
-<h4>7. PET (Privacy Enhancing Technology)</h4>
+<h4>5. 가명처리 (Pseudonymization)</h4>
 <ul>
-<li><strong>정의</strong>: 개인정보 보호를 기술적으로 강화하는 프라이버시 보호 강화 기술의 총칭</li>
-<li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습</li>
+<li><strong>정의</strong>: 개인 식별 정보를 대체하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>추가 정보 없이</strong></u></span>는 식별 불가하게 처리하는 기법</li>
+<li><strong>키워드</strong>: 대체, 가명화, 재식별 가능, 추가 정보 분리</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>PET 기술 분류</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동차합영/연다신&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>기술</th><th>설명</th><th>활용</th></tr>
-<tr><td>동형암호(HE)</td><td>암호화 상태에서 연산</td><td>클라우드 안전 처리</td></tr>
-<tr><td>차분 프라이버시(DP)</td><td>통계에 노이즈 추가</td><td>집계 데이터 공개</td></tr>
-<tr><td>합성데이터</td><td>원본 특성 모방 가상 데이터</td><td>AI 학습 데이터</td></tr>
-<tr><td>영지식 증명(ZKP)</td><td>정보 공개 없이 사실 증명</td><td>블록체인, 인증</td></tr>
-<tr><td>연합학습(FL)</td><td>데이터 이동 없이 분산 학습</td><td>의료·금융 AI</td></tr>
-<tr><td>다자간 연산(MPC)</td><td>각자 데이터 비공개 연산</td><td>공동 분석</td></tr>
-<tr><td>신뢰실행환경(TEE)</td><td>하드웨어 격리 실행</td><td>안전한 데이터 처리</td></tr>
+<li><strong>법적근거:</strong> 개인정보보호법 제2조1의2</li>
+<li><strong>가명처리 원칙</strong>: 가명 정보와 추가 정보(연결 테이블)를 분리 보관</li>
+<li><strong>활용 범위</strong>: 통계 작성, 과학적 연구, 공익 목적 활용</li>
+<li><strong>가명 처리 대상:</strong><div class="table-scroll"><table>
+<tr><th>대상</th><th>설명</th><th>사례</th></tr>
+<tr><td><strong>직접식별자 (고유식별자)</strong></td><td>그 자체만으로 개인 식별 가능</td><td>이름·사진·주민등록번호·전화번호·이메일·IP주소·차량번호판</td></tr>
+<tr><td><strong>간접식별자 (준식별자)</strong></td><td>결합 시 특정 개인 식별 가능</td><td>생년월일·사망일·결혼기념일·직업·성별·신용등급·주소·우편번호</td></tr>
+<tr><td><strong>속성정보</strong></td><td>결합해도 식별 어려운 정보</td><td>대출총액·예금총액·보험구좌수·고객고유번호</td></tr>
+<tr><td><strong>특이정보 (민감정보)</strong></td><td>누구든지 쉽게 식별 가능</td><td>특이질환자·초고소득자·초고령연령자·특이직업·이동동선</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: PET는 데이터 활용과 프라이버시 보호의 딜레마를 기술적으로 해결하는 수단으로, 의료·금융 분야의 데이터 공유 활성화의 핵심 기술임</li>
+<li><strong>가명 처리 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th></tr>
+<tr><td><strong>삭제기술</strong></td><td><strong>삭제</strong></td><td>원본정보에서 개인정보 단순 삭제 (부분삭제·로컬삭제·행항목 삭제)</td></tr>
+<tr><td></td><td><strong>마스킹</strong></td><td>특정 항목 일부·전부를 공백 또는 문자로 대체</td></tr>
+<tr><td><strong>통계도구</strong></td><td><strong>총계처리</strong></td><td>평균값·최댓값·최솟값·최빈값·중간값 등으로 처리</td></tr>
+<tr><td></td><td><strong>부분 총계</strong></td><td>오차 범위가 큰 항목을 평균값 등으로 대체</td></tr>
+<tr><td><strong>일반화</strong></td><td><strong>일반 라운딩</strong></td><td>올림·내림·반올림 기준 적용하여 집계 처리</td></tr>
+<tr><td></td><td><strong>랜덤 라운딩</strong></td><td>수치 데이터를 임의 자리 수 기준으로 올림·내림 처리</td></tr>
+<tr><td><strong>암호화</strong></td><td><strong>양방향 암호화</strong></td><td>암호화·복호화 모두 가능 (대칭키·비대칭키)</td></tr>
+<tr><td></td><td><strong>암호학적 해시함수</strong></td><td>단방향 암호화·복호화 불가 (MDC·MAC)</td></tr>
+<tr><td></td><td><strong>동형암호화</strong></td><td>암호화 상태에서 연산 가능한 4세대 암호 기법</td></tr>
+<tr><td></td><td><strong>다형성 암호화</strong></td><td>도메인별 서로 다른 가명처리로 부정 결합 차단</td></tr>
+<tr><td><strong>무작위화</strong></td><td><strong>잡음 추가</strong></td><td>개인정보에 임의의 숫자 등 잡음 추가</td></tr>
+<tr><td></td><td><strong>치환</strong></td><td>열 항목 내 모든 값을 무작위로 순서 변경</td></tr>
+<tr><td></td><td><strong>토큰화</strong></td><td>식별 가능 정보를 토큰으로 변환하여 식별 위험 제거</td></tr>
+<tr><td></td><td><strong>PRNG</strong></td><td>예측 불가·패턴 없는 임의 숫자로 개인정보 대체</td></tr>
+<tr><td><strong>기타 기술</strong></td><td><strong>표본추출 (Sampling)</strong></td><td>전체 모집단 대신 무작위 표본 추출하여 분석 대체</td></tr>
+<tr><td></td><td><strong>해부화 (Anatomization)</strong></td><td>데이터셋을 식별성 有·無 2개 집합으로 분리</td></tr>
+<tr><td></td><td><strong>재현데이터 
+(Synthetic data)</strong></td><td>원본과 유사한 통계적 성질의 가상 데이터 생성</td></tr>
+<tr><td></td><td><strong>동형비밀분산</strong></td><td>식별정보를 2개 이상의 쉐어(share)로 대체</td></tr>
+<tr><td></td><td><strong>차분 프라이버시</strong></td><td>응답값에 잡음 추가로 특정 개인 존재 여부 은닉</td></tr>
+</table></div>
+</li>
+<li><strong>가명 처리 주요 알고리즘:</strong><div class="table-scroll"><table>
+<tr><th>알고리즘</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>k-익명화</strong></td><td>동일 속성값 k개 이상 유지·프라이버시 보호</td><td>동일값 k개 유지</td></tr>
+<tr><td><strong>부분그래프 익명화</strong></td><td>부분 그래프 프라이버시 노출 방지 그래프 수정</td><td>그래프 구조 익명화</td></tr>
+<tr><td><strong>차수 익명화</strong></td><td>k-차수 익명화 위해 간선 추가·삭제</td><td>간선 조정 익명화</td></tr>
+<tr><td><strong>부분그래프 + 차수 익명화</strong></td><td>부분 그래프·차수 동시 배경 지식 프라이버시 보호</td><td>복합 배경지식 대응</td></tr>
+<tr><td><strong>매크로 기법 (Suppression)</strong></td><td>민감 셀·주변 행열 값 동시 감추기</td><td>셀값 감추기</td></tr>
+<tr><td><strong>휴리스틱 익명화</strong></td><td>규칙·판단 기반 준식별자 값 가공·은닉</td><td>규칙 기반 익명화</td></tr>
+</table></div>
+</li>
+<li><strong>가명 처리 평가 기법:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;케익엘다티근&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>평가 기법</th><th>취약점</th><th>설명</th></tr>
+<tr><td><strong>k-익명성</strong></td><td>연결 공격 (Linking Attack)</td><td>준식별자 동일 레코드 K개 이상 존재 보장</td></tr>
+<tr><td>ℓ<strong>-다양성</strong></td><td>동질성 공격</td><td>동일 집합 내 민감값 L개 이상 다양성 보장</td></tr>
+<tr><td><strong>t-근접성</strong></td><td>분포도</td><td>집합 내·전체 민감정보 분포 유사성 보장</td></tr>
+</table></div>
+</li>
+<li><strong>가명정보 처리 절차: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;준위가적안&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>단계</th><th>단계별 활동</th><th>핵심</th></tr>
+<tr><td>① 사전준비</td><td>처리 목적 설정</td><td>목적 선행 확정</td></tr>
+<tr><td></td><td>가명처리 대상 선정</td><td>최소 범위 원칙</td></tr>
+<tr><td></td><td>활용 계획서 작성</td><td>계획서 의무화</td></tr>
+<tr><td></td><td>내부규정 마련·검토</td><td>내부통제 체계</td></tr>
+<tr><td>② 위험성 검토</td><td><u><strong>기본 위험도 판단(신설, 26.3.)</strong></u></td><td><strong>저·중·고 3단계</strong></td></tr>
+<tr><td></td><td>사례별 위험도 조정</td><td>최종 위험도 확정</td></tr>
+<tr><td></td><td>위험성 검토서 작성</td><td>사후 점검 근거</td></tr>
+<tr><td>③ 가명처리</td><td>항목별 계획 수립</td><td>목적 달성 최소화</td></tr>
+<tr><td></td><td>가명처리 수행</td><td>결과서 의무화</td></tr>
+<tr><td>④ 적정성 검토</td><td>처리 결과 적정 검토</td><td>저:담당자, 중:내부심의, 고:위원회</td></tr>
+<tr><td>⑤ 안전한 관리</td><td>재식별 가능성 모니터링</td><td>재식별 방지</td></tr>
+<tr><td></td><td>가명정보 파기</td><td>파기기록 보관</td></tr>
+<tr><td></td><td>활용 기간 연장</td><td>재설정 허용</td></tr>
+</table></div>
+</li>
+<li><strong>가명정보 결합·반출 절차:</strong><div class="table-scroll"><table>
+<tr><th>절차</th><th>활동</th><th>설명</th></tr>
+<tr><td>결합신청</td><td>결합 신청</td><td>목적설정·결합가능정보 탐색·기관협의·신청</td></tr>
+<tr><td>결합 및 추가처리</td><td>결합키 생성</td><td>결합키관리기관과 협의·Salt값 수신</td></tr>
+<tr><td></td><td>모의결합(선택)</td><td>일부 결합·분석으로 결합 유용성 사전 확인</td></tr>
+<tr><td></td><td>결합률 확인(선택)</td><td>결합키·일련번호로 결합률 사전 확인</td></tr>
+<tr><td></td><td>가명정보 추출(선택)</td><td>결합대상 정보 가명처리 후 추출·전송</td></tr>
+<tr><td></td><td>가명처리 및 검토</td><td>결합전문기관이 데이터·가명처리 내역 검토</td></tr>
+<tr><td></td><td>결합</td><td>결합키연계정보·일련번호·결합대상정보로 결합</td></tr>
+<tr><td></td><td>추가처리(필요시)</td><td>보완 필요 시 추가 가명처리 수행</td></tr>
+<tr><td>반출 및 활용</td><td>반출</td><td>결합전문기관 승인 후 결과물·데이터셋 반출</td></tr>
+<tr><td></td><td>활용</td><td>반출심사 시 제출 환경·목적범위 내 활용 원칙</td></tr>
+<tr><td>안전한 관리</td><td>안전한 관리</td><td>재식별 목적 처리 금지·기술적·관리적·물리적 조치</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 가명처리 후 추가 정보가 노출되면 재식별이 가능하므로, 추가 정보는 별도 안전한 저장소에 보관하고 접근을 엄격히 통제해야 함</li>
 </ul>
 
 </body>

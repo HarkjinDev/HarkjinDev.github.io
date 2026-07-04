@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. 빅데이터 플랫폼 아키텍처</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>4. 빅데이터 플랫폼 아키텍처</h4>
+<ul>
+<li><strong>정의</strong>: 빅데이터 수집부터 시각화까지의 전체 처리 흐름을 설계하는 시스템 구조</li>
+<li><strong>키워드</strong>: 수집, 저장, 처리, 분석, 시각화, 람다/카파 아키텍처</li>
+<li><strong>분류</strong>: 시각화/빅데이터</li>
+<li><strong>5계층 구조</strong>:<ul>
+<li><strong>수집 계층</strong>: Kafka, Flume, Sqoop</li>
+<li><strong>저장 계층</strong>: HDFS, HBase, Cassandra</li>
+<li><strong>처리 계층</strong>: MapReduce, Spark, Flink</li>
+<li><strong>분석 계층</strong>: Hive, Pig, Spark SQL</li>
+<li><strong>시각화 계층</strong>: Tableau, Kibana, Superset</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 빅데이터 플랫폼은 수집→저장→처리→분석→시각화의 5계층 구조로 이해. 람다/카파 아키텍처는 배치/실시간 처리 방식의 차이를 나타낸다.</li>
+</ul>
+
+</body>
+</html>

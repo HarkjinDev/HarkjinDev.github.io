@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 사이버 복원력(Cyber Resilience)</title>
+  <title>[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,47 +15,51 @@
   </style>
 </head>
 <body>
-<h4>4. 사이버 복원력(Cyber Resilience)</h4>
+<h4>[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)</h4>
 <ul>
-<li><strong>정의:</strong> 사이버 공격·장애 발생 시 핵심 기능을 유지하고 신속하게 복구하며, 지속적으로 적응·진화하여 비즈니스 연속성을 보장하는 조직의 종합적 대응 역량</li>
-<li><strong>키워드:</strong> 비즈니스 연속성, 사고 대응, 복구 능력, 적응성, NIST CSF, Zero Trust, BCP·DRP, 사전 대비</li>
+<li><strong>정의:</strong> 기존 ISMS-P의 실효성을 강화하기 위한 방안 제시(27년 본격)</li>
+<li><strong>키워드:</strong> 공공·민간 대규모 개인정보처리시스템, 3단계(강화·표준·간편), 강화 인증기준(20개), 위험평가, 4종 취약점 점검도구, 심사중단, 사고기업, 인증취소, 신뢰도 조사, 전문 특화 심사원, 역량/처우 개선</li>
 <li><strong>분류</strong>: 보안관리체계</li>
-<li><strong>사이버 보안 vs 사이버 복원력 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>사이버 보안</th><th>사이버 복원력</th></tr>
-<tr><td><strong>목표</strong></td><td>공격 차단·예방</td><td>차단+지속 운영+신속 복구</td></tr>
-<tr><td><strong>전제</strong></td><td>완벽한 방어 가능</td><td>침해는 불가피·대응이 핵심</td></tr>
-<tr><td><strong>초점</strong></td><td>위협 제거</td><td>영향 최소화·복구 능력</td></tr>
-<tr><td><strong>범위</strong></td><td>기술적 보안 통제</td><td>기술·프로세스·조직·문화 통합</td></tr>
-<tr><td><strong>성공 기준</strong></td><td>침해 발생 여부</td><td>침해 후 복구 속도·범위</td></tr>
+<li><strong>필요성:</strong> 환경 변화(DX/AX), 인증 한계(신기술 환경), 심사 패러다임(서면, 스냅샷)</li>
+<li><strong>문제점:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대심사품&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>1. 대상 및 기준</strong></td><td>자율인증 규제 사각지대</td><td>자율대상 공백 발생</td></tr>
+<tr><td></td><td>범위 설정의 임의성</td><td>기준 획일화</td></tr>
+<tr><td><strong>2. 심사 방식</strong></td><td>서면위주 형식적 점검</td><td>실효성 부족</td></tr>
+<tr><td></td><td>특정시점(스냅샷) 점검 사각지대</td><td>변경사항 점검 불가</td></tr>
+<tr><td><strong>3. 사후 관리</strong></td><td>사고기업 제재 부재</td><td>사후관리 미비</td></tr>
+<tr><td></td><td>사후관리체계 부실</td><td>단순행정절차</td></tr>
+<tr><td><strong>4. 품질 확보</strong></td><td>부실심사 제재</td><td>품질관리 미흡</td></tr>
+<tr><td></td><td>전문 역량 부족</td><td>전문성 부족</td></tr>
 </table></div>
 </li>
-<li><strong>4대 핵심 역량: 예측 (Anticipate), 견딤 (Withstand), 복구 (Recover), 적응 (Adapt)</strong></li>
-<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>준비·예방</strong></td><td><strong>위험 평가</strong></td><td>자산·위협·취약점 식별 및 위험 수준 산정</td><td>위험 기반 접근</td></tr>
-<tr><td></td><td><strong>BCP·DRP</strong></td><td>비즈니스 연속성·재해 복구 계획 수립·훈련</td><td>연속성 계획</td></tr>
-<tr><td></td><td><strong>공격 표면 관리</strong></td><td>노출 자산 지속 식별·최소화로 공격 표면 축소</td><td>노출 최소화</td></tr>
-<tr><td><strong>탐지·대응</strong></td><td><strong>SIEM·SOAR</strong></td><td>실시간 탐지·자동 대응으로 침해 영향 최소화</td><td>탐지-대응 자동화</td></tr>
-<tr><td></td><td><strong>사고 대응 계획</strong></td><td>침해 시 즉각 실행 가능한 대응 플레이북</td><td>신속 대응</td></tr>
-<tr><td></td><td><strong>위협 헌팅</strong></td><td>잠복 위협 능동 탐색으로 피해 확산 사전 차단</td><td>선제적 탐지</td></tr>
-<tr><td><strong>복구</strong></td><td><strong>백업·복원</strong></td><td>3-2-1 백업 원칙 기반 데이터 복구 체계</td><td>데이터 보호</td></tr>
-<tr><td></td><td><strong>재해복구 시스템</strong></td><td>RTO·RPO 기반 시스템 복구 인프라 구축</td><td>복구 목표 달성</td></tr>
-<tr><td></td><td><strong>사후 분석</strong></td><td>침해 원인·경로 분석으로 재발 방지 개선</td><td>학습·개선</td></tr>
-<tr><td><strong>적응·진화</strong></td><td><strong>Zero Trust</strong></td><td>지속 검증 기반 접근 제어로 내부 확산 방지</td><td>신뢰 최소화</td></tr>
-<tr><td></td><td><strong>레드팀·BAS</strong></td><td>정기 공격 시뮬레이션으로 복원력 수준 검증</td><td>실전 검증</td></tr>
-<tr><td></td><td><strong>위협 인텔리전스</strong></td><td>최신 위협 정보 수집·공유로 선제 대응</td><td>정보 기반 대응</td></tr>
+<li><strong>강화방안: </strong><div class="table-scroll"><table>
+<tr><th>강화방안</th><th>추진 과제</th><th>핵심</th></tr>
+<tr><td><strong>1. 인증 의무대상 
+확대 및 기준 강화</strong></td><td><strong>ISMS-P 의무화</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>공공·민간 대규모 개인정보처리시스템</strong></u></span></td></tr>
+<tr><td></td><td><strong>인증 차등화 적용</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>3단계(강화·표준·간편) </strong></u></span>인증 등급 차등</td></tr>
+<tr><td></td><td><strong>강화 인증기준 개발</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>강화 인증기준 20개 추가</strong></u></span></td></tr>
+<tr><td></td><td><strong>인증기준서 개선</strong></td><td>기준서 미비사항 보완</td></tr>
+<tr><td></td><td><strong>인증범위 확대</strong></td><td>외부 인터넷 단계적 의무 포함</td></tr>
+<tr><td></td><td><strong>위험평가 재정비</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>위험수용 가이드라인</strong></u></span></td></tr>
+<tr><td><strong>2. 인증심사 방식 강화</strong></td><td><strong>심사팀 개편</strong></td><td>취약점점검원·점검자산 대폭 확대</td></tr>
+<tr><td></td><td><strong>핵심항목 선검증</strong></td><td>예비심사에서 미 충족 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>본심사 불가</strong></u></span></td></tr>
+<tr><td></td><td><strong>기술심사 강화</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>4종 취약점 점검(CVE·CCE·소스코드·모의침투) 도구</strong></u></span> 활용</td></tr>
+<tr><td></td><td><strong>현장실증 심사</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>실시간 시연</strong></u></span><strong> 확인</strong></td></tr>
+<tr><td><strong>3. 인증 사후관리 강화</strong></td><td><strong>상시 점검체계 확립</strong></td><td>연간 상시 점검 표준화</td></tr>
+<tr><td></td><td><strong>중대사고 심사중단</strong></td><td>중대 침해사고 발생 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>심사 잠정 중단</strong></u></span></td></tr>
+<tr><td></td><td><strong>사고기업 관리강화</strong></td><td>사고기업 집중심사</td></tr>
+<tr><td></td><td><strong>사고이력 관리</strong></td><td>침해사고 이력 관리·심사 강화</td></tr>
+<tr><td></td><td><strong>인증취소 강화</strong></td><td>사후관리 거부·인증기준 미달·중대 법령 위반 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>인증취소</strong></u></span></td></tr>
+<tr><td><strong>4. 심사기관·심사원 
+전문성 강화</strong></td><td><strong>심사품질 개선</strong></td><td><strong>심사기관 </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신뢰도 조사</strong></u></span></td></tr>
+<tr><td></td><td><strong>심사전문성 강화</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>전문분야 특화</strong></u></span> 심사원</td></tr>
+<tr><td></td><td><strong>심사기관 감독강화</strong></td><td>재지정 요건·지정 사후점검<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>(매1년)</strong></u></span><strong> </strong>강화</td></tr>
+<tr><td></td><td><strong>심사원 역량강화</strong></td><td>심사 일관성 확보</td></tr>
+<tr><td></td><td><strong>심사원 처우개선</strong></td><td>심사원 인건비 현실화</td></tr>
 </table></div>
 </li>
-<li><strong>주요 프레임워크:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>NIST CSF 2.0</strong></td><td>식별·보호·탐지·대응·복구·거버넌스 6대 기능</td><td>미국 표준</td></tr>
-<tr><td><strong>NIST SP 800-160</strong></td><td>사이버 복원력 엔지니어링 기술 표준</td><td>기술 표준</td></tr>
-<tr><td><strong>DORA (EU)</strong></td><td>금융기관 디지털 운영 복원력 의무화 규제</td><td>금융 규제</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 사이버 복원력은 "침해를 막는다"에서 "침해 후에도 살아남는다"로의 패러다임 전환으로, 완벽한 방어가 불가능한 현실에서 MTTD·MTTR 최소화와 핵심 기능 지속 운영 능력이 조직 생존의 핵심 역량으로 부상하고 있음. NIST CSF 2.0의 거버넌스 기능 추가와 EU DORA 의무화가 보여주듯 사이버 복원력은 기술을 넘어 경영진 수준의 전략적 의무로 자리잡고 있음</li>
 </ul>
-<hr/>
 
 </body>
 </html>

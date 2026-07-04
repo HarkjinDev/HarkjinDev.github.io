@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. Diffie-Hellman/디피헬만 (DH)</title>
+  <title>5. 스트림 암호화 (Stream Cipher)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,41 @@
   </style>
 </head>
 <body>
-<h4>6. Diffie-Hellman/디피헬만 (DH)</h4>
+<h4>5. 스트림 암호화 (Stream Cipher)</h4>
 <ul>
-<li><strong>정의</strong>: 두 당사자가 안전하지 않은 채널에서 공유 비밀키를 안전하게 교환할 수 있는 키 교환 프로토콜</li>
-<li><strong>키워드</strong>: 이산대수, 키 교환 전용, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>전방향 안전성(PFS)</strong></u></span>, MITM 취약, ECDH</li>
+<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의사 난수(키 스트림)</strong></u></span>를 생성하여 평문 비트/바이트와 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>XOR 연산</strong></u></span>으로 연속적으로 암호화하는 대칭키 암호 방식</li>
+<li><strong>키워드</strong>: 키 스트림, XOR 연산, LFSR, RC4, ChaCha20, 실시간 처리</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>동작 원리</strong>:<ul>
-<li>① 공개 파라미터 합의: 소수 p, 원시근 g 공개</li>
-<li>② Alice: 개인키 x 선택 → 공개값 A = g^x mod p 전송</li>
-<li>③ Bob: 개인키 y 선택 → 공개값 B = g^y mod p 전송</li>
-<li>④ 공유 비밀키 계산: Alice → K = B^x mod p, Bob → K = A^y mod p</li>
-<li>⑤ 두 값이 동일한 K로 일치 → 세션키로 활용( g^xy mod p )</li>
+<li>① 비밀키(K)와 초기화 벡터(IV)로 의사 난수 키 스트림 생성</li>
+<li>② 평문 비트/바이트와 키 스트림을 XOR 연산 → 암호문 생성</li>
+<li>③ 수신자는 동일 키 스트림으로 암호문 XOR → 평문 복원</li>
 </ul>
 </li>
-<li><strong>보안 근거</strong>: 이산대수 문제 — g^x mod p에서 x를 역산하기 계산상 불가능</li>
-<li><strong>DH vs ECDH 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>DH (Diffie-Hellman)</th><th>ECDH (Elliptic Curve DH)</th></tr>
-<tr><td>수학적 기반</td><td>유한체 이산대수</td><td>타원곡선 이산대수</td></tr>
-<tr><td>키 길이</td><td>2048bit 이상 권고</td><td>256bit으로 동등 보안강도</td></tr>
-<tr><td>성능</td><td>상대적으로 느림</td><td>빠름 (모바일·IoT 적합)</td></tr>
-<tr><td>활용</td><td>TLS 키 교환 (레거시)</td><td>TLS 1.3 표준 (ECDHE)</td></tr>
+<li><strong>스트림 암호 분류</strong> (키 스트림을 생성할 때 <strong>이전 평문/암호문에 의존</strong>하는지에 따라 두 가지로 분류):<div class="table-scroll"><table>
+<tr><th>구분</th><th>동기식 스트림 암호 (Synchronous)</th><th>자기 동기식 스트림 암호 (Self-Synchronizing)</th></tr>
+<tr><td>특징</td><td>키 스트림이 평문/암호문과 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>독립</strong></u></span>적임</td><td>키 스트림이 이전 암호문에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의존</strong></u></span>함</td></tr>
+<tr><td>장점</td><td>오류 전파가 없음 (해당 비트만 영향)</td><td>암호문 누락 시 자동 동기화 가능</td></tr>
+<tr><td>단점</td><td>송수신측 동기화 어긋나면 복호화 불가</td><td>오류 전파 발생 (이후 비트에 영향)</td></tr>
+<tr><td>종류</td><td>RC4, One-Time Pad, CTR 모드</td><td>CFB 모드</td></tr>
 </table></div>
 </li>
-<li><strong>전방향 안전성(PFS, Perfect Forward Secrecy)</strong>: 세션마다 임시 키 쌍 생성(DHE/ECDHE) → 장기 개인키 유출 시에도 과거 세션 복호화 불가</li>
-<li><strong>취약점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중간자 공격(MITM) 취약</strong></u></span><strong> </strong>→ 인증서 기반 인증(TLS)과 결합 필요. 소수 p가 충분히 크지 않으면 이산대수 공격에 취약 (Logjam 공격)</li>
-<li><strong>인사이트</strong>: DH는 암호화·서명이 불가능한 순수 키 교환 프로토콜로, 단독 사용 시 MITM에 무방비하므로 반드시 인증 메커니즘과 결합해야 하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TLS 1.3에서는 ECDHE가 필수 적용</strong></u></span>됨</li>
+<li><strong>대표 알고리즘</strong>:<ul>
+<li><strong>RC4</strong>: 과거 WEP·TLS에 사용, 편향된 출력 취약점 발견 → 현재 폐기</li>
+<li><strong>ChaCha20</strong>: 구글 제안, TLS 1.3 표준 지원, 소프트웨어 구현에 최적화</li>
+<li><strong>Salsa20</strong>: ChaCha20의 전신, 고속 스트림 암호</li>
+</ul>
+</li>
+<li><strong>블록 암호 vs 스트림 암호 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>블록 암호</th><th>스트림 암호</th></tr>
+<tr><td>처리 단위</td><td>고정 블록 (64·128bit)</td><td>1비트 또는 1바이트</td></tr>
+<tr><td>속도</td><td>상대적으로 느림</td><td>빠름</td></tr>
+<tr><td>패딩</td><td>필요</td><td>불필요</td></tr>
+<tr><td>에러 전파</td><td>블록 단위 전파</td><td>최소화</td></tr>
+<tr><td>적용</td><td>파일·DB 암호화</td><td>무선통신·실시간 스트리밍</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: RC4는 초기 바이트 편향 문제로 폐기되었으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>현재는 ChaCha20-Poly1305가 스트림 암호의 사실상 표준으로 TLS 1.3에서 ECDHE와 결합하여 사용됨</strong></u></span></li>
 </ul>
 
 </body>

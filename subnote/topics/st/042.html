@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6] 시계열 분석</title>
+  <title>8. 등분산성 (Homoscedasticity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,6 +15,19 @@
   </style>
 </head>
 <body>
-<h3 class="content-editable-leaf-rtl" contenteditable="false" data-content-editable-leaf="true" id=":r109:" placeholder="제목2" spellcheck="true" style='max-width: 100%; width: 100%; white-space: break-spaces; word-break: break-word; caret-color: var(--c-texPri); padding-top: 2px; padding-bottom: 2px; padding-inline: 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; font-weight: 600; font-size: 1.5em; line-height: 1.3; margin: 0px;'>[Part 6] 시계열 분석</h3><div style="position: relative; inset-inline-start: 0px;"></div></div></div></div></div><div class="notion-selectable notion-sub_sub_header-block" data-block-id="3566968f-52c4-80e3-ab34-e10555cef2ac" dir="auto" style="width: 100%; max-width: 1088px;"><div style="display: flex; width: 100%;"><div style="width: 100%; padding-top: 22px; padding-bottom: 6px; padding-inline: 6px;"><div style="color: inherit; fill: inherit; display: flex; border-radius: 6px;">
+<h4>8. 등분산성 (Homoscedasticity)</h4>
+<ul>
+<li><strong>정의</strong>: 회귀 모형에서 잔차의 분산이 독립변수 값에 관계없이 일정한 성질</li>
+<li><strong>키워드</strong>: 잔차플롯, Breusch-Pagan 검정, White test, 이분산</li>
+<li><strong>분류</strong>: 회귀분석</li>
+<li><strong>특징</strong>:<ul>
+<li>등분산성 위반(이분산) → 회귀계수 추정 비효율</li>
+<li>검정: Breusch-Pagan test, White test</li>
+<li>해결: 가중최소제곱(WLS), 로그변환</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 등분산성 위반은 잔차 플롯의 팬(fan) 패턴으로 시각적 탐지 가능. 선형회귀 4가지 가정(선독정등) 중 하나로, 위반 시 검정 방법을 함께 서술할 것.</li>
+</ul>
+
 </body>
 </html>

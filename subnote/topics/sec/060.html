@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6] 위협/공격</title>
+  <title>6. SBOM (Software Bill of Materials)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,39 @@
   </style>
 </head>
 <body>
-<h3>[Part 6] 위협/공격</h3>
+<h4>6. SBOM (Software Bill of Materials)</h4>
+<ul>
+<li><strong>정의:</strong> 소프트웨어를 구성하는 모든 컴포넌트(오픈소스·서드파티 라이브러리·의존성)의 목록을 체계화한 소프트웨어 구성 명세서</li>
+<li><strong>키워드:</strong> SW 구성요소 목록, SPDX(ISO/IEC 5962), CycloneDX, SWID, 오픈소스 관리, 공급망 보안, CVE 매칭, 라이선스 컴플라이언스, EO 14028, EU CRA, SCA</li>
+<li><strong>분류</strong>: 시스템/SW 보안</li>
+<li><strong>SBOM 주요 형식:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>SPDX</strong></td><td>NIST·Linux Foundation 주도 국제 표준 형식 (ISO/IEC 5962)</td><td>국제 표준</td></tr>
+<tr><td><strong>CycloneDX</strong></td><td>OWASP 주도, 보안·취약점 분석에 특화된 형식</td><td>보안 특화</td></tr>
+<tr><td><strong>SWID</strong></td><td>ISO/IEC 19770-2 기반 SW 식별 태그 형식</td><td>자산 식별</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>컴포넌트 식별</strong></td><td>패키지명·버전·공급업체·라이선스 정보 목록화</td><td>구성요소 식별</td></tr>
+<tr><td><strong>의존성 관계</strong></td><td>직접·간접 의존성 트리 구조 표현</td><td>의존성 가시성</td></tr>
+<tr><td><strong>해시·무결성</strong></td><td>컴포넌트 해시값으로 위변조 여부 검증</td><td>무결성 확인</td></tr>
+<tr><td><strong>CVE 연계</strong></td><td>NVD·CVE DB와 매핑하여 취약 컴포넌트 자동 탐지</td><td>취약점 자동화</td></tr>
+</table></div>
+</li>
+<li><strong>활용 분야:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>보안</strong></td><td><strong>CVE 취약점 매칭</strong></td><td>SBOM 기반 취약 컴포넌트 즉시 식별·패치 우선순위 결정</td></tr>
+<tr><td></td><td><strong>공급망 위험 관리</strong></td><td>서드파티·오픈소스 컴포넌트 위험 지속 모니터링</td></tr>
+<tr><td><strong>컴플라이언스</strong></td><td><strong>라이선스 관리</strong></td><td>GPL·MIT 등 라이선스 충돌·위반 자동 탐지</td></tr>
+<tr><td></td><td><strong>규제 준수</strong></td><td>EO 14028·EU CRA 등 SBOM 제출 의무 이행</td></tr>
+<tr><td><strong>운영</strong></td><td><strong>사고 대응</strong></td><td>취약점 발생 시 영향 범위 즉시 파악·대응 속도 향상</td></tr>
+</table></div>
+</li>
+<li><strong>법적 동향</strong>: 미국 EO 14028 SBOM 의무화, EU CRA(사이버복원력법) SBOM 요구</li>
+<li><strong>SBOM 생성 도구: </strong>Syft(컨테이너 특화), FOSSA(라이선스 관리), Black Duck(엔터프라이즈), Dependency-Track(OWASP 기반 지속 모니터링)</li>
+<li><strong>인사이트:</strong> Log4Shell 취약점 대응 시 SBOM 부재로 영향 범위 파악에 수개월이 소요된 교훈으로 SBOM의 필요성이 전 세계적으로 부각되었으며, EO 14028·EU CRA로 법제화가 가속되면서 SBOM은 SW 개발·납품의 필수 보안 산출물로 자리잡고 있음</li>
+</ul>
 
 </body>
 </html>

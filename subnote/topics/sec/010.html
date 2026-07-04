@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 비대칭 암호화 (Asymmetric Encryption)</title>
+  <title>2. 대칭 암호화 (Symmetric Encryption)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. 비대칭 암호화 (Asymmetric Encryption)</h4>
+<h4>2. 대칭 암호화 (Symmetric Encryption)</h4>
 <ul>
-<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>공개키(Public Key)와 개인키(Private Key) 쌍</strong></u></span>을 사용하여 암복호화하는 암호 방식</li>
-<li><strong>키워드</strong>: RSA, ECC, DSA, ElGamal, DH, 공개키/개인키, 기밀성, 인증/부인방지, 전자서명</li>
+<li><strong>정의</strong>: 송수신자가 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동일한 비밀키</strong></u></span>를 사용하여 암복호화하는 암호 방식</li>
+<li><strong>키워드</strong>: AES, DES, 동일 키, 블록/스트림</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>동작 원리</strong>:<ul>
-<li><strong>기밀성 확보</strong>: 수신자 공개키로 암호화 → 수신자 개인키로 복호화</li>
-<li><strong>인증/부인방지</strong>: 송신자 개인키로 서명 → 수신자가 송신자 공개키로 검증</li>
-</ul>
-</li>
-<li><strong>장점</strong>: 키 배송 문제 해결, 전자서명 지원</li>
-<li><strong>단점</strong>: 속도 느림 → 대량 데이터에 부적합</li>
 <li><strong>대표 알고리즘</strong>:<div class="table-scroll"><table>
-<tr><th>알고리즘</th><th>키 길이</th><th>수학적 기반</th><th>특징</th></tr>
-<tr><td>RSA</td><td>1024~4096bit</td><td>소인수분해</td><td>암호화 + 전자서명 모두 지원. 
-현재 가장 널리 사용</td></tr>
-<tr><td>ECC (타원곡선)</td><td>160~521bit</td><td>타원곡선 이산대수</td><td>RSA 대비 짧은 키로 동등한 보안강도. 모바일·IoT에 적합</td></tr>
-<tr><td>DSA</td><td>1024~3072bit</td><td>이산대수</td><td>전자서명 전용 (암호화 불가). 
-FIPS 186 표준</td></tr>
-<tr><td>ElGamal</td><td>1024bit 이상</td><td>이산대수</td><td>확률적 암호화 (동일 평문 → 매번 다른 암호문). 암호문 크기 2배</td></tr>
-<tr><td>Diffie-Hellman</td><td>1024~4096bit</td><td>이산대수</td><td>키 교환 전용 (암호화·서명 불가). 
-TLS 세션키 협상에 사용</td></tr>
+<tr><th>알고리즘</th><th>키 길이</th><th>블록 크기</th><th>특징</th></tr>
+<tr><td>DES</td><td>56bit</td><td>64bit</td><td>현재 취약 (폐기)</td></tr>
+<tr><td>3DES</td><td>168bit</td><td>64bit</td><td>DES 3회 적용, 성능 저하</td></tr>
+<tr><td>AES</td><td>128/192/256bit</td><td>128bit</td><td>현재 표준, NIST 선정</td></tr>
+<tr><td>ARIA</td><td>128/192/256bit</td><td>128bit</td><td>한국 국가 표준 (KS X 1213)</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 비대칭 암호화는 처리 속도가 대칭키 대비 1000배 이상 느리므로 실무에서는 대칭키 교환 목적으로만 활용하며, 하이브리드 방식(SSL/TLS)이 표준임</li>
+<li><strong>장점</strong>: 처리 속도 빠름, 대용량 데이터 암호화에 적합</li>
+<li><strong>단점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>키 배송 문제(Key Distribution Problem)</strong></u></span> — 안전한 키 전달 채널 필요</li>
+<li><strong>인사이트</strong>: 대칭 암호화는 속도가 빠르나 키 관리가 어려워, 실무에서는 데이터 암호화에 대칭키, 키 교환에 비대칭키를 사용하는 하이브리드 방식이 표준임</li>
 </ul>
 
 </body>

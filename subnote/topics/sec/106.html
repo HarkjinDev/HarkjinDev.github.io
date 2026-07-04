@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. IEC 61508 (기능안전 표준)</title>
+  <title>9. 클라우드 보안 (Cloud Security)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,24 @@
   </style>
 </head>
 <body>
-<h4>11. IEC 61508 (기능안전 표준)</h4>
+<h4>9. 클라우드 보안 (Cloud Security)</h4>
 <ul>
-<li><strong>정의</strong>: 전기·전자·프로그래머블 전자 시스템(E/E/PE)의 기능안전 국제 표준</li>
-<li><strong>키워드</strong>: SIL, 안전 요구사항, 안전 생명주기</li>
+<li><strong>정의</strong>: 클라우드 환경에서 데이터와 서비스를 보호하기 위한 보안 활동</li>
+<li><strong>키워드</strong>: 데이터 보호, 접근제어, 가상화 보안, 공유 책임</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>SIL(Safety Integrity Level)</strong>: SIL 1: 저위험, SIL 2: 중위험, SIL 3: 고위험, SIL 4: 초고위험</li>
-<li><strong>파생 표준 비교</strong>:<ul>
-<li><strong>IEC 62443</strong>: 산업제어시스템 보안</li>
-<li><strong>ISO 26262</strong>: 자동차 기능안전</li>
-<li><strong>IEC 62304</strong>: 의료기기 소프트웨어</li>
-<li><strong>DO-178C</strong>: 항공기 소프트웨어</li>
-</ul>
+<li><strong>공유 책임 모델 (Shared Responsibility)</strong>:<div class="table-scroll"><table>
+<tr><th>영역</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
+<tr><td>데이터</td><td>고객</td><td>고객</td><td>고객</td></tr>
+<tr><td>애플리케이션</td><td>고객</td><td>고객</td><td>CSP</td></tr>
+<tr><td>런타임</td><td>고객</td><td>CSP</td><td>CSP</td></tr>
+<tr><td>인프라</td><td>CSP</td><td>CSP</td><td>CSP</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: IEC 61508은 기능안전의 모체 표준으로, 파생 산업별 표준은 각 분야의 위험 특성을 반영하여 세분화된 요구사항을 정의함</li>
+<li><strong>도입 시 보안 요소</strong>: 데이터 암호화, 접근제어(IAM), 가상화 보안, 로그 관리, 규정 준수</li>
+<li><strong>인사이트</strong>: 클라우드 보안 사고의 대부분은 CSP 인프라가 아닌 고객의 잘못된 설정(Misconfiguration)에서 발생하므로, CSPM(Cloud Security Posture Management) 도입이 필수임</li>
 </ul>
+<p>// 키워드 추가 CSPM, CWPP, CNAPP</p>
+<p>// 클라우드 네이티브 보안 추가</p>
 
 </body>
 </html>

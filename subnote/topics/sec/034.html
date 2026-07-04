@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. TPM (Trusted Platform Module)</title>
+  <title>2. 무자각 지속 인증 (Implicit Continuous Authentication)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,32 +15,27 @@
   </style>
 </head>
 <body>
-<h4>3. TPM (Trusted Platform Module)</h4>
+<h4>2. 무자각 지속 인증 (Implicit Continuous Authentication)</h4>
 <ul>
-<li><strong>정의:</strong> 암호키를 안전하게 생성·저장하고 플랫폼 부팅 무결성을 하드웨어 수준에서 검증하는 보안 칩</li>
-<li><strong>키워드:</strong> 보안 칩, PCR, 키 저장, 부팅 무결성, BitLocker, 원격 증명, 봉인(Sealing), HSM, TPM 2.0</li>
+<li><strong>정의</strong>: 사용자의 행위 및 환경정보를 활용하여 사용자의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>명시적 개입 없이 지속적</strong></u></span>으로 신원을 검증하는 신뢰기반의 인증기술</li>
+<li><strong>키워드</strong>: 행위 기반, 생체, 명시적 미고지, 지속적 검증, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무의식, 제로트러스트</strong></u></span></li>
 <li><strong>분류</strong>: 인증/신원관리</li>
-<li><strong>주요 기능:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>키 생성·저장</strong></td><td>암호키를 TPM 내부에서 생성·저장하여 외부 추출 불가</td><td>하드웨어 키 보호</td></tr>
-<tr><td><strong>부팅 무결성 측정</strong></td><td>부팅 과정 각 단계를 PCR에 해시값으로 기록·검증</td><td>신뢰 체인 수립</td></tr>
-<tr><td><strong>디스크 암호화 보호</strong></td><td>BitLocker 암호화 키를 TPM에 봉인하여 무결성 유지 시만 복호화</td><td>디스크 보호</td></tr>
-<tr><td><strong>원격 증명</strong></td><td>TPM이 서명한 PCR 값으로 플랫폼 무결성을 원격 검증</td><td>신뢰 원격 확인</td></tr>
-<tr><td><strong>봉인 (Sealing)</strong></td><td>특정 PCR 상태에서만 데이터 복호화 가능하도록 봉인</td><td>상태 기반 복호화</td></tr>
-<tr><td><strong>난수 생성</strong></td><td>하드웨어 기반 진성 난수 생성으로 암호 연산 강화</td><td>하드웨어 RNG</td></tr>
+<li><strong>특징</strong>: 로그인 후에도 지속적 신원 검증, 사용자 개입 없음, AI/ML 기반 이상 탐지</li>
+<li><strong>인증 절차:</strong><div class="table-scroll"><table>
+<tr><th><strong>인증절차</strong></th><th><strong>기능</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>1. 관찰</strong></td><td>사용자 인증 데이터 수집</td><td>사용자 특화 속성 정보 수집</td></tr>
+<tr><td></td><td>무자각 모니터링</td><td>상호작용 무자각 모니터링</td></tr>
+<tr><td><strong>2. 프로파일 생성·갱신</strong></td><td>신규 사용자 프로파일 생성</td><td>신규 사용자 프로파일 생성</td></tr>
+<tr><td></td><td>기존 사용자 프로파일 갱신</td><td>수집 데이터 기반 프로파일 갱신</td></tr>
+<tr><td><strong>3. 비교</strong></td><td>패턴 매칭</td><td>프로파일 데이터 패턴 비교</td></tr>
+<tr><td></td><td>머신러닝 기반 본인 여부 분석</td><td>ML 기반 본인 여부 분석</td></tr>
+<tr><td><strong>4. 결정</strong></td><td>인증 승인</td><td>결과에 따른 승인 거부 결정</td></tr>
+<tr><td></td><td>재인증 요청</td><td>정책 기반 재인증 및 조치 수행</td></tr>
 </table></div>
 </li>
-<li><strong>신뢰 부팅 체인 (Trusted Boot):</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. UEFI 펌웨어</strong></td><td>TPM이 펌웨어 해시값을 PCR에 기록</td><td>펌웨어 측정</td></tr>
-<tr><td><strong>2. 부트로더</strong></td><td>부트로더 무결성 측정·PCR 확장</td><td>부트로더 검증</td></tr>
-<tr><td><strong>3. OS 커널</strong></td><td>커널·드라이버 측정·PCR 확장</td><td>OS 무결성</td></tr>
-<tr><td><strong>4. 봉인 해제</strong></td><td>PCR 값이 정상이면 BitLocker 키 봉인 해제</td><td>조건부 복호화</td></tr>
-</table></div>
-</li>
-<li><strong>TPM 2.0 vs 1.2</strong>: TPM 2.0은 다양한 알고리즘 지원, 계층적 키 관리, Windows 11 필수 요건</li>
-<li><strong>활용 분야: </strong>디스크 암호화(BitLocker·FileVault TPM 기반 키 보호), Zero Trust, 기밀 컴퓨팅(TEE 환경의 원격 증명), IoT 보안</li>
-<li><strong>인사이트:</strong> TPM은 소프트웨어 기반 키 관리의 구조적 취약점을 하드웨어로 해결하는 엔드포인트 보안의 핵심 신뢰 앵커(Trust Anchor)로, Zero Trust 아키텍처에서 디바이스 신뢰 검증의 기반이 되며 기밀 컴퓨팅·원격 증명과 결합하여 클라우드·IoT 환경의 하드웨어 신뢰 체계의 핵심 구성 요소로 역할이 확대되고 있음</li>
+<li><strong>장점</strong>: 세션 하이재킹 탐지, 비밀번호 없는 사용자 경험</li>
+<li><strong>단점</strong>: 프라이버시 침해 우려, 오탐(False Positive) 가능성</li>
+<li><strong>인사이트</strong>: 무자각 지속 인증은 제로 트러스트 아키텍처의 "지속 검증(Continuous Verification)" 원칙을 구현하는 핵심 기술임</li>
 </ul>
 
 </body>

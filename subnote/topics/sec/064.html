@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</title>
+  <title>2. 포맷 스트링 공격 (Format String Attack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,14 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. TOCTOU (Time Of Check Time Of Use)</h4>
+<h4>2. 포맷 스트링 공격 (Format String Attack)</h4>
 <ul>
-<li><strong>정의</strong>: 자원 검사 시점(TOC)과 사용 시점(TOU) 사이의 시간차를 악용하는 경쟁 조건 취약점</li>
-<li><strong>키워드</strong>: 검사-사용 시간차, 경쟁조건, 심볼릭 링크, 원자성 위반, 파일 디스크립터</li>
+<li><strong>정의</strong>: printf 계열 함수에서 포맷 문자열을 사용자 입력으로 받을 때 발생하는 메모리 조작 공격</li>
+<li><strong>키워드</strong>: printf, %x, %n, 메모리 읽기/쓰기</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>공격 시나리오</strong>:<ul>
-<li>① 프로그램이 파일 권한 검사 (TOC)</li>
-<li>② 공격자가 파일을 심볼릭 링크로 교체 (시간차)</li>
-<li>③ 프로그램이 교체된 파일에 쓰기 (TOU) → 권한 상승</li>
-</ul>
-</li>
-<li><strong>대응 방안</strong>: 원자적 연산(Atomic Operation) 사용, 검사와 사용을 단일 시스템 콜로 처리, 임시 파일 사용 최소화</li>
-<li><strong>인사이트</strong>: TOCTOU는 멀티스레드 환경에서 빈번하게 발생하므로, 파일 작업 시 경로 대신 파일 디스크립터(File Descriptor)를 사용하는 것이 안전함</li>
+<li><strong>공격 원리</strong>: <code>printf(user_input)</code> 형태에서 <code>%x</code>로 스택 메모리 읽기, <code>%n</code>으로 임의 메모리 쓰기 가능</li>
+<li><strong>대응 방안</strong>: <code>printf("%s", user_input)</code> 형태로 포맷 문자열 하드코딩</li>
+<li><strong>인사이트</strong>: 포맷 스트링 취약점은 C/C++ 코드에서 발생하며, 현대 컴파일러(GCC -Wformat)는 경고를 발생시키므로 컴파일러 경고 무시 금지가 중요함</li>
 </ul>
 
 </body>

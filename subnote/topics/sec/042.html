@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 스푸핑 (Spoofing)</title>
+  <title>2. 네트워크 스캐닝 (Network Scanning)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,18 @@
   </style>
 </head>
 <body>
-<h4>4. 스푸핑 (Spoofing)</h4>
+<h4>2. 네트워크 스캐닝 (Network Scanning)</h4>
 <ul>
-<li><strong>정의</strong>: 공격자가 자신의 신원(IP, MAC, DNS, 이메일, 웹 등)을 위장하여 피해 시스템을 속이거나 신뢰 관계를 악용하는 사이버 공격 기법</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신원 위장, </strong></u></span>ARP 스푸핑, IP 스푸핑, DNS 스푸핑, Cache Poisoning, MITM</li>
+<li><strong>정의</strong>: 네트워크의 호스트, 포트, 취약점을 탐색하는 정보 수집 기법</li>
+<li><strong>키워드</strong>: 포트 스캔, 취약점 탐지, Nmap, 정보수집</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>스푸핑 공격 유형</strong>:<div class="table-scroll"><table>
-<tr><th>유형</th><th>개념</th><th>핵심 메커니즘</th><th>대응 방안</th></tr>
-<tr><td><strong>ARP 스푸핑</strong></td><td>MAC 주소 위조</td><td>ARP Cache Poisoning / MAC 주소 변조</td><td>동적 ARP 검사(DAI), Static ARP, ARP Watch</td></tr>
-<tr><td><strong>IP 스푸핑</strong></td><td>출발지 IP 위조</td><td>트러스트 관계 악용 / IP 헤더 위조</td><td>인그레스 필터링(RFC 2827), 역방향 경로 검증</td></tr>
-<tr><td><strong>DNS 스푸핑</strong></td><td>DNS 응답 위조</td><td>DNS Cache Poisoning / 응답 ID 탈취</td><td>DNSSEC 도입, TTL 최소화, 신뢰 DNS 사용</td></tr>
-<tr><td><strong>E-mail 스푸핑</strong></td><td>발신자 주소 위조</td><td>SMTP 취약점 / 사회공학적 기법</td><td>SPF, DKIM, DMARC 발신자 인증 강화</td></tr>
-<tr><td><strong>Web 스푸핑</strong></td><td>가짜 사이트 위장</td><td>URL 변조·피싱 / SSL 인증서 위장</td><td>HTTPS 인증서 검증, EV 인증서, HSTS</td></tr>
-<tr><td><strong>MAC 스푸핑</strong></td><td>MAC 주소 변조</td><td>MAC 인증 우회 / 보안 필터링 무력화</td><td>802.1X 포트 인증, MAC 필터링, 포트 보안</td></tr>
-</table></div>
+<li><strong>스캔 유형</strong>:<ul>
+<li><strong>포트 스캔</strong>: TCP SYN 스캔, TCP Connect 스캔, UDP 스캔</li>
+<li><strong>취약점 스캔</strong>: Nessus, OpenVAS</li>
+<li><strong>OS 핑거프린팅</strong>: TTL, TCP 윈도우 크기로 OS 추정</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 스푸핑 공격은 단독으로 사용되기보다 MITM(중간자 공격), 세션 하이재킹, 피싱 등 후속 공격의 전제 조건으로 활용되는 경우가 많아, 네트워크 계층별 인증·검증 체계의 중첩 적용이 핵심 방어 전략임</li>
+<li><strong>인사이트</strong>: 네트워크 스캐닝은 공격자와 방어자 모두 활용하는 양날의 검으로, 정기적인 자체 스캔을 통한 노출 자산 파악이 보안 관리의 기본임</li>
 </ul>
 
 </body>

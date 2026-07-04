@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>14. 동형암호 (Homomorphic Encryption)</title>
+  <title>13. 이중서명 (Dual Signature)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,39 @@
   </style>
 </head>
 <body>
-<h4>14. 동형암호 (Homomorphic Encryption)</h4>
+<h4>13. 이중서명 (Dual Signature)</h4>
 <ul>
-<li><strong>정의</strong>: 암호화된 상태에서 연산을 수행하여 결과의 기밀성을 유지하는 암호 기술</li>
-<li><strong>키워드</strong>: 암호문 연산, 복호화 없이 처리, 격자기반암호, 프라이버시, 부분/다소/완전, 부트스트래핑, 스쿼싱</li>
+<li><strong>정의</strong>: SET(Secure Electronic Transaction)에서 고객의 구매정보를 보호하기 위해 판매자에게 결제정보를, 금융기관(PG사)에는 구매정보를 각각 비공개로 유지하면서 전자상거래를 수행할 수 있는 서명 기술</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SET, 구매정보/결제정보 분리</strong></u></span>, 메시지 다이제스트, M1M2, 전자봉투, PG</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>유형</strong>:<div class="table-scroll"><table>
-<tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>부분동형암호(PHE)</strong></td><td>덧셈 또는 곱셈 하나만 지원</td><td>단일 연산</td></tr>
-<tr><td><strong>다소동형암호(SHE)</strong></td><td>제한된 횟수의 연산 지원</td><td>제한적 연산</td></tr>
-<tr><td><strong>완전동형암호(FHE)</strong></td><td>임의 연산 무제한 지원</td><td>완전 동형</td></tr>
-<tr><td><strong>Torus FHE(TFHE)</strong></td><td>비트 단위 고속 논리 연산</td><td>불리언 연산</td></tr>
-<tr><td><strong>근사 동형암호(CKKS)</strong></td><td>실수 기반 근사 연산 수행</td><td>근사 연산</td></tr>
+<li><strong>특징</strong>: 지급정보 보안 + 사용자 프라이버시 보안</li>
+<li><strong>주요 기술</strong>:<div class="table-scroll"><table>
+<tr><th>주요기술</th><th>설명</th></tr>
+<tr><td>암호화 기술</td><td>비밀키 암호화 기법</td></tr>
+<tr><td>공개키 암호화 기법</td><td>RSA, DSA</td></tr>
+<tr><td>메시지 다이제스트</td><td>MD2, MD4, MD5, SHA</td></tr>
+<tr><td>전자서명</td><td>공개키 기반으로 문서의 무결성과 인증, 부인방지 보장</td></tr>
+<tr><td>전자봉투</td><td>대칭키 암호화 + 공개키 교환, 기밀성 보장</td></tr>
 </table></div>
 </li>
-<li><strong>원리:</strong><ul>
-<li><strong>부트스트래핑(Bootstrapping):</strong> 노이즈 적은 암호문 재생성(무한연산 가능화)</li>
-<li><strong>스쿼싱(Squashing):</strong> 복호화 회로의 경량화(복호화 알고리즘의 복잡도를 낮추는 기술)</li>
-</ul>
+<li><strong>이중서명 수행 절차</strong>:<div class="table-scroll"><table>
+<tr><th>수행절차</th><th>설명</th></tr>
+<tr><td>이중서명 생성</td><td>① 구매/결제 DP 다이제스트 M1, M2 생성 → 해시 → M
+② M에 사용자 개인키로 전자서명</td></tr>
+<tr><td>전자봉투 생성</td><td>① 비밀키로 결제정보 암호화, PG의 공개키로 비밀키 암호화
+② 구매/암호화 결제정보, M1M2, 전자서명, 전자봉투 전송</td></tr>
+<tr><td>구매정보 확인
+(판매자)</td><td>① 수신 구매정보에 메시지 다이제스트 M1' 생성
+② M1M2의 M1을 M1' 대체 및 M' 생성, 공개키 기반 M 추출
+③ M=M' 검증 후 결제정보/전자봉투/이중서명/M1M2 PG 전송</td></tr>
+<tr><td>결제정보 확인
+(PG사)</td><td>① 개인키를 이용하여 전자봉투 복호화 및 비밀키 획득
+② 비밀키 기반 결제정보/M1M2/서명 값 추출
+③ 결제정보 해시 M2' 생성 및 M1M2의 M2를 M2' 대체
+④ 이중서명에서 사용자 공개키 기반 M 추출하고 M=M' 검증</td></tr>
+</table></div>
 </li>
-<li><strong>활용</strong>: 클라우드 데이터 안전 처리, 의료 데이터 분석, 금융 데이터 연산</li>
-<li><strong>인사이트</strong>: FHE는 개인정보를 공개하지 않고 분석 가능한 이상적 기술이나, 현재 연산 속도가 수천 배 느려 실용화에 한계가 있으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TFHE, CKKS 등 최적화 연구가 진행 중임</strong></u></span></li>
+<li><strong>인사이트</strong>: 이중서명은 판매자와 금융기관이 각각 필요한 정보만 볼 수 있도록 분리하여 고객 프라이버시를 보호하는 SET의 핵심 메커니즘임. 전자봉투와 전자서명을 결합한 구조로, 구매정보와 결제정보를 단일 이중서명으로 묶어 위·변조와 부인방지를 동시에 보장함</li>
 </ul>
 
 </body>

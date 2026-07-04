@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12. CC (Common Criteria)</title>
+  <title>10. CDR (Content Disarm & Reconstruction)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,15 @@
   </style>
 </head>
 <body>
-<h4>12. CC (Common Criteria)</h4>
+<h4>10. CDR (Content Disarm &amp; Reconstruction)</h4>
 <ul>
-<li><strong>정의</strong>: IT 제품의 보안 기능을 국제 표준(ISO/IEC 15408)으로 평가하는 공통평가기준</li>
-<li><strong>키워드</strong>: 국제 보안 평가, EAL 1~7, PP/ST/TOE</li>
-<li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>핵심 개념</strong>:<ul>
-<li><strong>TOE(Target of Evaluation)</strong>: 평가 대상 제품</li>
-<li><strong>PP(Protection Profile)</strong>: 제품 유형별 보안 요구사항 명세</li>
-<li><strong>ST(Security Target)</strong>: 특정 TOE의 보안 주장</li>
-<li><strong>EAL(Evaluation Assurance Level)</strong>: 보증 수준 1~7 (숫자가 높을수록 엄격)</li>
+<li><strong>정의</strong>: 파일 내 잠재적 위협 요소를 제거하고 안전한 형태로 재구성하는 보안 기술</li>
+<li><strong>키워드</strong>: 파일 무해화, 악성코드 제거, 원본 재구성</li>
+<li><strong>분류</strong>: 특수 보안</li>
+<li><strong>동작 원리</strong>: 파일 수신 → 구조 분해(파싱) → 안전한 요소만 추출 → 재조립(무해화 파일 생성)</li>
+<li><strong>인사이트</strong>: CDR은 알려지지 않은 제로데이 악성코드도 구조적으로 제거할 수 있어 시그니처 기반 백신과 상호 보완적이며, 금융·공공 기관의 외부 파일 수신 보안에 핵심임</li>
 </ul>
-</li>
-<li><strong>인사이트</strong>: 국내 공공기관 도입 보안제품은 CC 인증 또는 보안기능확인서가 필요하며, EAL 4이상이 실무 권고 수준임</li>
-</ul>
+<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// DRM 추가</span></p>
 
 </body>
 </html>

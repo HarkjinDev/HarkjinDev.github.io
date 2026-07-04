@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 네트워크 보안 장비</title>
+  <title>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,40 @@
   </style>
 </head>
 <body>
-<h4>1. 네트워크 보안 장비</h4>
+<h4>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크 트래픽을 실시간으로 감시하고 미리 정의된 보안 정책(Policy)에 따라 <strong>트래픽을 필터링, 탐지, 차단, 암호화</strong>하는 통제 지점(Control Point)의 역할을 수행하는 하드웨어 및 소프트웨어 솔루션</li>
-<li><strong>키워드</strong>: NAC, FW, IDS, IPS</li>
-<li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>보안장비 종류: </strong><div class="table-scroll"><table>
-<tr><th>장비</th><th>개념</th><th>핵심</th></tr>
-<tr><td><strong>NAC</strong></td><td>단말 보안 검증·접근 제어</td><td>가시성 확보, 단말 무결성 체크, 비인가 단말 차단·격리</td></tr>
-<tr><td><strong>FW (Firewall)</strong></td><td>규칙 기반 트래픽 차단</td><td>IP/Port 기반 제어, 패킷 필터링, Stateful Inspection</td></tr>
-<tr><td><strong>IDS</strong></td><td>침입 징후 탐지·알림</td><td>사후 대응, 수동적(Passive) 모니터링, 오용·이상 탐지</td></tr>
-<tr><td><strong>IPS</strong></td><td>공격 실시간 탐지·차단</td><td>능동적(Active) 방어, 인라인(In-line) 배치, HIPS/NIPS</td></tr>
-<tr><td><strong>WAF</strong></td><td>웹 공격 특화 방어</td><td>L7 제어, 페이로드 검사, SQL Injection·XSS 방어</td></tr>
+<li><strong>정의:</strong> 증명자(Prover)가 검증자(Verifier)에게 특정 사실의 진실성을 해당 사실에 대한 어떠한 추가 정보도 노출하지 않고 증명할 수 있는 암호학적 프로토콜</li>
+<li><strong>키워드:</strong> Prover·Verifier, 완전성·건전성·영지식성, zk-SNARK·zk-STARK, 프라이버시 보호, DID, 블록체인, 선택적 공개</li>
+<li><strong>분류</strong>: 인증/신원관리</li>
+<li><strong>3대 핵심 속성:</strong><div class="table-scroll"><table>
+<tr><th>속성</th><th>설명</th><th>핵심</th></tr>
+<tr><td>완전성 </td><td>증명자가 사실을 알고 있으면 검증자를 항상 납득시킬 수 있음</td><td>참→참 증명 가능</td></tr>
+<tr><td>건전성</td><td>증명자가 사실을 모르면 검증자를 납득시킬 수 없음</td><td>거짓→거짓 탐지</td></tr>
+<tr><td>영지식성</td><td>검증자는 사실의 진위 외 어떠한 추가 정보도 획득 불가</td><td>정보 노출 없음</td></tr>
 </table></div>
 </li>
+<li><strong>ZKP 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>유형</th><th>설명</th></tr>
+<tr><td>상호작용</td><td>대화형 </td><td>증명자·검증자 간 다수 라운드 메시지 교환</td></tr>
+<tr><td></td><td>비대화형 </td><td>단일 메시지로 증명·CRS(공통 참조 문자열) 활용</td></tr>
+<tr><td>증명 크기</td><td>zk-SNARK</td><td>증명 크기 매우 작음·검증 속도 빠름·신뢰 설정 필요</td></tr>
+<tr><td></td><td>zk-STARK</td><td>신뢰 설정 불필요·양자 내성·증명 크기 큼</td></tr>
+<tr><td></td><td>Bulletproofs</td><td>신뢰 설정 불필요·범위 증명 특화·검증 느림</td></tr>
+<tr><td></td><td>PLONK</td><td>범용 zk-SNARK·단일 신뢰 설정 재사용</td></tr>
+</table></div>
+</li>
+<li><strong>ZKP 동작 원리 (동굴 비유):</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td>1. 설정</td><td>증명자는 비밀(동굴 비밀번호)을 알고 있음</td><td>비밀 보유</td></tr>
+<tr><td>2. 도전</td><td>검증자가 임의 도전값(어느 출구로 나와라) 제시</td><td>무작위 도전</td></tr>
+<tr><td>3. 응답</td><td>증명자가 비밀 없이 불가능한 응답 수행</td><td>비밀 활용 응답</td></tr>
+<tr><td>4. 반복</td><td>다수 라운드 반복으로 우연 성공 확률 최소화</td><td>확률적 완전성</td></tr>
+<tr><td>5. 납득</td><td>검증자가 비밀 내용 모른 채 보유 사실만 확인</td><td>정보 비공개</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 영지식 증명은 "사실 증명과 정보 보호의 양립"이라는 암호학적 혁신으로, 블록체인 확장성(L2 롤업)·DID 선택적 공개·프라이버시 보호 인증의 핵심 기술로 부상하며, zk-SNARK의 효율성과 zk-STARK의 투명성·양자 내성을 상황에 맞게 선택하는 것이 설계의 핵심</li>
 </ul>
+<hr/>
 
 </body>
 </html>

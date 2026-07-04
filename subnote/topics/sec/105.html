@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. CDR (Content Disarm & Reconstruction)</title>
+  <title>8. 퍼듀 모델 (Purdue Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,15 +15,21 @@
   </style>
 </head>
 <body>
-<h4>10. CDR (Content Disarm &amp; Reconstruction)</h4>
+<h4>8. 퍼듀 모델 (Purdue Model)</h4>
 <ul>
-<li><strong>정의</strong>: 파일 내 잠재적 위협 요소를 제거하고 안전한 형태로 재구성하는 보안 기술</li>
-<li><strong>키워드</strong>: 파일 무해화, 악성코드 제거, 원본 재구성</li>
+<li><strong>정의</strong>: 산업제어시스템(ICS/OT)의 보안을 계층적으로 정의한 참조 아키텍처 모델</li>
+<li><strong>키워드</strong>: 레벨 0~5, IT/OT 경계, 산업보안 참조 모델</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>동작 원리</strong>: 파일 수신 → 구조 분해(파싱) → 안전한 요소만 추출 → 재조립(무해화 파일 생성)</li>
-<li><strong>인사이트</strong>: CDR은 알려지지 않은 제로데이 악성코드도 구조적으로 제거할 수 있어 시그니처 기반 백신과 상호 보완적이며, 금융·공공 기관의 외부 파일 수신 보안에 핵심임</li>
+<li><strong>레벨 구조</strong>:<ul>
+<li><strong>Level 0~1</strong>: 물리적 프로세스 및 센서·액추에이터 (필드 장치)</li>
+<li><strong>Level 2</strong>: 제어 시스템 (SCADA, DCS, PLC)</li>
+<li><strong>Level 3</strong>: 생산 운영 관리</li>
+<li><strong>DMZ</strong>: IT/OT 경계 (데이터 다이오드, 방화벽)</li>
+<li><strong>Level 4~5</strong>: 기업 IT 네트워크 및 인터넷</li>
 </ul>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// DRM 추가</span></p>
+</li>
+<li><strong>인사이트</strong>: OT와 IT의 연결(Industry 4.0) 증가로 퍼듀 모델의 경계가 희미해지고 있으며, 제로 트러스트 원칙의 OT 환경 적용이 새로운 트렌드임</li>
+</ul>
 
 </body>
 </html>

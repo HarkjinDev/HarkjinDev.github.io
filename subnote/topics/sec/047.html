@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. SIEM (Security Information & Event Management)</title>
+  <title>6. SSL (Secure Sockets Layer)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,49 @@
   </style>
 </head>
 <body>
-<h4>8. SIEM (Security Information &amp; Event Management)</h4>
+<h4>6. SSL (Secure Sockets Layer)</h4>
 <ul>
-<li><strong>정의</strong>: 보안 로그를 통합 수집·분석하여 위협을 실시간 탐지하는 보안 관리 시스템</li>
-<li><strong>키워드:</strong> 로그 통합, 실시간 상관분석, 이벤트 관리, 정규화, 위협 탐지, 컴플라이언스, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>UEBA</strong></u></span>, SOAR, MTTD</li>
-<li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>구성요소 및 기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>데이터 수집</strong></td><td><strong>로그 수집</strong></td><td>방화벽·IDS·OS·애플리케이션 로그 에이전트·Syslog 수집</td></tr>
-<tr><td></td><td><strong>정규화</strong></td><td>이기종 로그를 공통 포맷으로 변환·파싱</td></tr>
-<tr><td></td><td><strong>인덱싱</strong></td><td>대용량 로그 고속 검색을 위한 인덱스 구성</td></tr>
-<tr><td><strong>탐지·분석</strong></td><td><strong>상관분석 (Correlation)</strong></td><td>복수 이벤트 연관 분석으로 공격 시나리오 탐지</td></tr>
-<tr><td></td><td><strong>실시간 경보</strong></td><td>임계치·룰 기반 이상 이벤트 즉시 알림</td></tr>
-<tr><td></td><td><strong>UEBA</strong></td><td>사용자·엔티티 행위 분석으로 내부자 위협·이상 탐지</td></tr>
-<tr><td></td><td><strong>ML 기반 탐지</strong></td><td>룰 기반 한계 보완, 미지 위협·이상 패턴 자동 탐지</td></tr>
-<tr><td><strong>운영·관리</strong></td><td><strong>대시보드·가시성</strong></td><td>보안 이벤트·KPI·위협 현황 실시간 시각화</td></tr>
-<tr><td></td><td><strong>컴플라이언스 보고</strong></td><td>ISMS·ISO 27001·PCI-DSS 준수 증적 자동 생성</td></tr>
-<tr><td></td><td><strong>로그 보존</strong></td><td>법적·규제 요건에 따른 장기 로그 아카이빙</td></tr>
+<li><strong>정의:</strong> 네트워크 통신에서 데이터 암호화·인증·무결성을 제공하는 보안 프로토콜로, 현재는 보안 취약점으로 폐기되고 TLS로 대체된 프로토콜</li>
+<li><strong>키워드:</strong> 공개키 암호화, 대칭키 암호화, 인증서, CA, 핸드셰이크, HTTPS, TLS 전신, POODLE, BEAST</li>
+<li><strong>분류:</strong> 네트워크 보안</li>
+<li><strong>SSL 버전 변천:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>SSL 2.0</strong></td><td>1995년 출시, DROWN 공격 취약점으로 폐기</td><td>폐기</td></tr>
+<tr><td><strong>SSL 3.0</strong></td><td>1996년 출시, POODLE 공격 취약점으로 폐기</td><td>폐기</td></tr>
+<tr><td><strong>TLS 1.0~1.1</strong></td><td>SSL 3.0 후속, BEAST·POODLE 취약점으로 폐기</td><td>폐기</td></tr>
+<tr><td><strong>TLS 1.2~1.3</strong></td><td>현재 표준, SSL의 완전한 대체</td><td>현행 표준</td></tr>
 </table></div>
 </li>
-<li><strong>SIEM vs SOAR</strong>:<ul>
-<li><strong>SIEM</strong>: 탐지·분석·경보 (분석가 개입 필요)</li>
-<li><strong>SOAR</strong>: SIEM + 자동 대응(Playbook 기반 자동화)</li>
-</ul>
+<li><strong>SSL 프로토콜 스택 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>기능</th><th>핵심</th></tr>
+<tr><td>Handshake Protocol</td><td>협상, 상호인증, 세션 키 생성</td><td>보안 파라미터 협상</td></tr>
+<tr><td>Alert Protocol</td><td>에러 알림</td><td>경고·오류 전달</td></tr>
+<tr><td>Record Protocol</td><td>기밀성·무결성</td><td>데이터 보호·전송</td></tr>
+<tr><td>Change Cipher Spec Protocol</td><td>협상내용 알림</td><td>암호화 전환 알림</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: SIEM의 로그 수집 범위와 규칙(Rule) 품질이 탐지 성능을 결정하며, 현재는 AI/ML 기반 이상 탐지를 결합한 차세대 SIEM이 주류임</li>
+<li><strong>SSL Handshake 동작 절차:</strong><div class="table-scroll"><table>
+<tr><th>메시지</th><th>설명</th></tr>
+<tr><td>1. ClientHello (Client→Server)</td><td>통신 시작 알림</td></tr>
+<tr><td>2. ServerHello (Server→Client)</td><td>지원 가능한 알고리즘 선정 및 전달</td></tr>
+<tr><td>3. ServerKeyExchange (Server→Client)</td><td>공개키 전달</td></tr>
+<tr><td>4. ServerHelloDone (Server→Client)</td><td>전달 완료 알림</td></tr>
+<tr><td>5. ClientKeyExchange (Client→Server)</td><td>서버의 공개키로 비밀키 암호화 전달</td></tr>
+<tr><td>6. ChangeCipherSpec (Client→Server)</td><td>암호화 통신 준비 완료 알림</td></tr>
+<tr><td>7. Finished (Client→Server)</td><td>인증 및 종료</td></tr>
+<tr><td>8. ChangeCipherSpec (Server→Client)</td><td>암호화 통신 준비 완료 알림</td></tr>
+<tr><td>9. Finished (Server→Client)</td><td>인증 및 종료</td></tr>
+</table></div>
+</li>
+<li><strong>주요 취약점:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>POODLE</strong></td><td>SSL 3.0의 CBC 모드 패딩 취약점으로 복호화 가능</td><td>SSL 3.0 폐기 원인</td></tr>
+<tr><td><strong>BEAST</strong></td><td>TLS 1.0 CBC 암호화 취약점, 세션 하이재킹</td><td>TLS 1.0 폐기 원인</td></tr>
+<tr><td><strong>DROWN</strong></td><td>SSL 2.0 서버와 공유 키 사용 시 TLS 복호화 가능</td><td>레거시 서버 위협</td></tr>
+<tr><td><strong>CRIME</strong></td><td>압축 기능 악용 세션 쿠키 탈취</td><td>압축 비활성화</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> SSL은 HTTPS의 기반을 만든 핵심 프로토콜이나 POODLE·BEAST 등 구조적 취약점으로 전면 폐기되었으며, SSL과 TLS는 명칭이 혼용되지만 현재 SSL은 사실상 존재하지 않고 TLS 1.2·1.3만이 유효한 표준으로 레거시 SSL·TLS 1.0·1.1 사용 여부가 보안 진단의 핵심 점검 항목임</li>
 </ul>
 
 </body>

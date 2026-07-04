@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. MITRE ATT&CK (Adversarial Tactics, Techniques & Common Knowledge)</title>
+  <title>12. 사이버 킬 체인 (Cyber Kill Chain)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,29 @@
   </style>
 </head>
 <body>
-<h4>13. MITRE ATT&amp;CK (Adversarial Tactics, Techniques &amp; Common Knowledge)</h4>
+<h4>12. 사이버 킬 체인 (Cyber Kill Chain)</h4>
 <ul>
-<li><strong>정의:</strong> 실제 사이버 공격에서 관찰된 공격자의 전술·기법·절차(TTPs)를 체계적으로 분류한 글로벌 사이버 위협 지식 베이스 프레임워크</li>
-<li><strong>키워드:</strong> TTPs, 전술, 기법, 절차, 위협 인텔리전스, 레드팀, 블루팀, 탐지 룰 매핑, ATT&amp;CK Navigator, 사이버 킬체인</li>
+<li><strong>정의</strong>: 사이버 공격의 7단계 프레임워크 (Lockheed Martin 개발)</li>
+<li><strong>키워드</strong>: 정찰, 무기화, 전달, 악용, 설치, C2, 행동</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>전술 (Tactics)</strong></td><td>공격자가 달성하려는 목표 단계 (Why), 14개</td><td>공격 목적</td></tr>
-<tr><td><strong>기법 (Techniques)</strong></td><td>전술 달성을 위한 구체적 방법 (How)</td><td>공격 방법</td></tr>
-<tr><td><strong>절차 (Procedures)</strong></td><td>특정 공격 그룹의 실제 기법 구현 사례</td><td>실제 사례</td></tr>
-<tr><td><strong>완화 (Mitigations)</strong></td><td>기법별 권장 방어·완화 조치</td><td>대응 방안</td></tr>
-<tr><td><strong>탐지 (Detections)</strong></td><td>기법별 탐지 방법·데이터 소스</td><td>탐지 기준</td></tr>
+<li><strong>7단계</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정무전악/설씨행&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>절차</th><th>핵심</th><th>대응 방안</th></tr>
+<tr><td><strong>1. 정찰 
+(Reconnaissance)</strong></td><td>대상 정보 수집</td><td>외부 노출 정보 최소화, ASM 기반 디지털 발자국 관리</td></tr>
+<tr><td><strong>2. 무기화 
+(Weaponization)</strong></td><td>악성코드 제작</td><td>위협 인텔리전스 기반 신규 악성코드 패턴 선제 탐지</td></tr>
+<tr><td><strong>3. 전달 
+(Delivery)</strong></td><td>이메일·웹·USB 전달</td><td>이메일 필터링·웹 게이트웨이·USB 차단 정책 적용</td></tr>
+<tr><td><strong>4. 악용 
+(Exploitation)</strong></td><td>취약점 실행</td><td>패치 관리·취약점 스캔·ASLR·DEP 등 익스플로잇 방어</td></tr>
+<tr><td><strong>5. 설치 (Installation)</strong></td><td>백도어·RAT 설치</td><td>EDR 기반 악성 프로세스 탐지·차단·격리</td></tr>
+<tr><td><strong>6. C2 
+(Command &amp; Control)</strong></td><td>원격 제어 채널 구축</td><td>아웃바운드 트래픽 필터링·DNS 싱크홀·C2 도메인 차단</td></tr>
+<tr><td><strong>7. 행동 
+(Actions)</strong></td><td>데이터 유출·파괴</td><td>DLP·네트워크 세그멘테이션·백업·사고 대응 계획 수립</td></tr>
 </table></div>
 </li>
-<li><strong>주요 매트릭스:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Enterprise</strong></td><td>Windows·Linux·macOS·클라우드·네트워크 대상</td><td>엔터프라이즈 환경</td></tr>
-<tr><td><strong>Mobile</strong></td><td>iOS·Android 모바일 디바이스 대상</td><td>모바일 환경</td></tr>
-<tr><td><strong>ICS</strong></td><td>산업제어시스템·OT 환경 대상</td><td>산업 환경</td></tr>
-</table></div>
-</li>
-<li><strong>주요 활용:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>레드팀</strong></td><td><strong>침투 테스트</strong></td><td>ATT&amp;CK 기법 기반 실제 공격 시뮬레이션·BAS</td></tr>
-<tr><td></td><td><strong>위협 에뮬레이션</strong></td><td>특정 APT 그룹 TTPs 재현하여 방어 체계 검증</td></tr>
-<tr><td><strong>블루팀</strong></td><td><strong>탐지 룰 매핑</strong></td><td>SIEM·EDR 탐지 룰을 ATT&amp;CK 기법으로 매핑·커버리지 측정</td></tr>
-<tr><td></td><td><strong>탐지 공백 식별</strong></td><td>ATT&amp;CK Navigator로 미탐지 기법 시각화·우선순위 결정</td></tr>
-<tr><td><strong>위협 인텔리전스</strong></td><td><strong>APT 그룹 프로파일링</strong></td><td>공격 그룹별 TTPs 분석·추적</td></tr>
-<tr><td></td><td><strong>IOC 연계</strong></td><td>기법별 침해 지표와 위협 인텔리전스 연계</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> MITRE ATT&amp;CK은 공격자 관점의 TTPs를 표준화하여 레드팀·블루팀·위협 인텔리전스의 공통 언어로 자리잡았으며, ATT&amp;CK 기반 탐지 커버리지 측정이 SOC 성숙도 평가의 핵심 지표로 활용되면서 단순 취약점 관리를 넘어 행위 기반 방어 체계 구축의 표준 프레임워크로 자리잡고 있음</li>
+<li><strong>인사이트</strong>: 킬 체인의 초기 단계에서 차단할수록 방어 비용이 낮아지므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정찰·전달 단계 탐지(이메일 보안, 위협 인텔리전스)가 가장 효율적인 방어임</strong></u></span></li>
 </ul>
 
 </body>

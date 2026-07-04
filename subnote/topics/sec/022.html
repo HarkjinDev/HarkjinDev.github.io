@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 10-1. HMAC (Hash-based Message Authentication Code)</title>
+  <title>10. MAC (Message Authentication Code, 메시지 인증)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,26 @@
   </style>
 </head>
 <body>
-<h4>[하위] 10-1. HMAC (Hash-based Message Authentication Code)</h4>
+<h4>10. MAC (Message Authentication Code, 메시지 인증)</h4>
 <ul>
-<li><strong>정의</strong>: 해시 함수와 공유 비밀키를 결합하여 메시지 인증 코드를 생성하는 기술</li>
-<li><strong>키워드</strong>: 공유 비밀키, 해시 함수, 무결성, 인증</li>
+<li><strong>정의</strong>: 메시지의 무결성과 송신자 인증을 동시에 보장하기 위해 비밀키를 이용해 생성하는 짧은 인증 코드</li>
+<li><strong>키워드</strong>: 비밀키, 무결성, 인증, 해시함수, 위변조 방지, CBC-MAC, HMAC, GMAC</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>동작 원리</strong>:<ul>
-<li>① 키 패딩: 비밀키 K를 해시 함수의 블록 길이에 맞게 패딩 처리</li>
-<li>② ipad XOR: 패딩된 키와 ipad(0x36 반복)를 XOR 수행 → 입력 패딩 키(I padkey) 생성</li>
-<li>③ 메시지 결합: I padkey에 메시지 m을 결합</li>
-<li>④ 내부 해시: H(I padkey || m) 계산 → 일방향 해시 함수 적용</li>
-<li>⑤ opad XOR: 패딩된 키와 opad(0x5C 반복)를 XOR 수행 → 출력 패딩 키(O padkey) 생성</li>
-<li>⑥ 해시값 결합: O padkey에 ④의 내부 해시값을 결합</li>
-<li>⑦ 최종 해시: H(O padkey || 내부해시) 계산 → 최종 HMAC 값 출력</li>
+<li>① 송신자가 비밀키 K와 메시지 m으로 MAC 값 생성: MAC = h(K, m)</li>
+<li>② 수신자가 동일한 비밀키 K로 MAC 재계산 후 수신된 MAC과 비교</li>
+<li>③ 일치하면 메시지 무결성 및 출처 인증 확인</li>
 </ul>
 </li>
-<li><strong>수식</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>HMAC(K, m) = H((K ⊕ opad) || H((K ⊕ ipad) || m))</strong></u></span></li>
-<li><strong>제공 속성</strong>: 무결성(Integrity) + 인증(Authentication) — <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기밀성은 제공하지 않음</strong></u></span></li>
-<li><strong>활용</strong>: JWT 서명, API 인증, TLS MAC</li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>HMAC은 단순 해시와 달리 키가 필요하므로</strong></u></span>, 키를 모르는 공격자가 메시지를 위조해도 HMAC 검증에서 실패함. 단, 기밀성은 제공하지 않으므로 내용 보호가 필요하면 암호화를 병용해야 함</li>
+<li><strong>제공 속성</strong>: 무결성(Integrity) + 인증(Authentication) — <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기밀성·부인방지는 제공하지 않음</strong></u></span></li>
+<li><strong>유형 비교</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>예시</th></tr>
+<tr><td>CBC-MAC</td><td>블록 암호(CBC 모드)로 MAC 생성</td><td>금융 메시지 인증 (ISO 9797)</td></tr>
+<tr><td>HMAC</td><td>해시 함수와 비밀키를 결합하여 MAC 생성</td><td>JWT, TLS, API 인증</td></tr>
+<tr><td>GMAC</td><td>AES-GCM 기반 인증 태그 생성</td><td>TLS 1.3, IPSec</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: MAC은 비밀키를 공유한 당사자 간에만 유효하므로 제3자에 대한 부인방지는 불가능함. 부인방지가 필요한 경우 전자서명을 사용해야 함</li>
 </ul>
 
 </body>

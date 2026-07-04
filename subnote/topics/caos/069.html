@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12. 온디바이스 AI (On-Device AI)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>12. 온디바이스 AI (On-Device AI)</h4>
+<ul>
+<li><strong>정의</strong>: 클라우드 서버의 도움 없이 스마트폰, 가전, 자동차 등 개별 기기 내부에서 직접 AI 연산을 수행하는 기술</li>
+<li><strong>키워드</strong>: 저지연(Low Latency), 개인정보 보호, 보안성, NPU, 모델 경량화</li>
+<li><strong>분류</strong>: AI 컴퓨팅 하드웨어</li>
+<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>모델 
+경량화</strong></td><td><strong>양자화 (Quantization)</strong></td><td>모델 가중치를 변환하여 용량·연산 절감</td><td>정밀도 축소</td></tr>
+<tr><td></td><td><strong>모델 프루닝 (Pruning)</strong></td><td>기여도 낮은 가중치·뉴런을 제거하여 모델 크기 축소</td><td>불필요 제거</td></tr>
+<tr><td></td><td><strong>지식 증류 
+(Knowledge Distillation)</strong></td><td>대형 교사 모델의 지식을 소형 학생 모델로 압축 전달</td><td>성능 압축</td></tr>
+<tr><td></td><td><strong>경량 모델 (sLLM)</strong></td><td>온디바이스 환경에 맞게 파라미터를 축소한 소형 AI 모델</td><td>모델 경량화</td></tr>
+<tr><td><strong>하드웨어</strong></td><td><strong>NPU 
+(Neural Processing Unit)</strong></td><td>AI 연산에 특화된 전용 하드웨어 가속 칩</td><td>AI 전용 연산</td></tr>
+<tr><td></td><td><strong>온디바이스 추론 엔진</strong></td><td>디바이스 환경에 최적화된 경량 추론 런타임</td><td>추론 최적화</td></tr>
+<tr><td></td><td><strong>전력 관리</strong></td><td>배터리 소모를 최소화하는 추론 스케줄링·하드웨어 제어</td><td>전력 효율</td></tr>
+<tr><td><strong>최적화</strong></td><td><strong>모델 캐싱</strong></td><td>자주 사용하는 연산 결과를 저장하여 반복 연산 회피</td><td>연산 재사용</td></tr>
+<tr><td><strong>보안</strong></td><td><strong>연합학습 
+(Federated Learning)</strong></td><td>로컬 데이터로 학습 후 가중치만 서버에 전송하여 개인화</td><td>프라이버시 학습</td></tr>
+<tr><td></td><td><strong>보안 실행 환경 (TEE)</strong></td><td>디바이스 내 격리된 보안 영역에서 AI 연산 수행</td><td>데이터 보안</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 프라이버시가 중요한 개인 비서 서비스나 즉각적 반응이 필요한 자율주행, 로봇 분야의 필수 기술로 자리매김 중</li>
+</ul>
+
+</body>
+</html>

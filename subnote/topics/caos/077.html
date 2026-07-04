@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. AI 데이터센터</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>3. AI 데이터센터</h4>
+<ul>
+<li><strong>정의</strong>: GPU·NPU 등 AI 가속기를 대규모로 집적하여 딥러닝 학습·추론 워크로드를 처리하는 차세대 고집적 데이터센터</li>
+<li><strong>키워드</strong>: GPU 클러스터, InfiniBand, NVLink, 전력밀도(PUE), 액침냉각, RDMA, 스파인-리프, 고대역폭 네트워크</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>핵심 구성요소</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>구성요소</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>컴퓨팅</strong></td><td>GPU/NPU 서버</td><td>NVIDIA HGX, TPU, Gaudi</td></tr>
+<tr><td><strong>네트워크</strong></td><td>초고속 패브릭</td><td>InfiniBand 및 RoCEv2 기반의 저지연·고대역폭 RDMA 네트워크 구성</td></tr>
+<tr><td><strong>냉각</strong></td><td>액체 냉각 시스템</td><td>액침냉각(Immersion) 및 후면도어 냉각(RDHX)</td></tr>
+<tr><td><strong>전력</strong></td><td>고밀도 전력 인프라</td><td>전용 변전설비 및 UPS 이중화로<u><strong> PUE 1.1 이하</strong></u>의 고효율 전력 환경 달성</td></tr>
+<tr><td><strong>스토리지</strong></td><td>병렬 파일 시스템</td><td>대규모 학습 데이터의 빠른 로딩을 위한 All-Flash 기반 병렬 스토리지</td></tr>
+<tr><td><strong>소프트웨어</strong></td><td>AI 오케스트레이션</td><td>Kubernetes, Slurm 기반 플랫폼</td></tr>
+<tr><td><strong>보안</strong></td><td>신뢰 실행 환경(TEE)</td><td>모델 자산 및 개인정보 보호를 위한 기밀 컴퓨팅</td></tr>
+</table></div>
+</li>
+<li><strong>일반 DC vs AI DC 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>일반 데이터센터</th><th>AI 데이터센터</th></tr>
+<tr><td>주요 워크로드</td><td>웹·DB·트랜잭션</td><td>딥러닝 학습·대규모 추론</td></tr>
+<tr><td>주요 가속기</td><td>CPU 중심</td><td>GPU/NPU 중심</td></tr>
+<tr><td>전력 밀도</td><td>5~10 kW/랙</td><td>30~100+ kW/랙</td></tr>
+<tr><td>냉각 방식</td><td>공랭</td><td>수랭·액침냉각</td></tr>
+<tr><td>네트워크</td><td>이더넷 1~25G</td><td>InfiniBand 400G, RoCE</td></tr>
+<tr><td>스토리지</td><td>SAN/NAS</td><td>고속 분산 파일시스템 (GPFS, Lustre)</td></tr>
+<tr><td>전력소비</td><td>중간</td><td>매우 높음(발전소 Near 고려)</td></tr>
+<tr><td>PUE 목표</td><td>1.5~2.0</td><td><u><strong>1.1~1.3(초효율)</strong></u></td></tr>
+</table></div>
+</li>
+<li><strong>주요 이슈</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 이슈</th><th>핵심</th></tr>
+<tr><td><strong>전력·환경</strong></td><td>랙당 100kW+ 전력 밀도로 기존 전력 인프라 한계 초과</td><td>전력 공급 부족</td></tr>
+<tr><td></td><td>AI 데이터센터 급증으로 탄소 배출·전력 과소비 환경 문제</td><td>탄소 배출 급증</td></tr>
+<tr><td><strong>기술·운영</strong></td><td>GPU·HBM 등 핵심 부품의 공급망 불안정·수급 불균형</td><td>공급망 리스크</td></tr>
+<tr><td></td><td>고밀도 발열로 기존 공랭식 냉각 시스템 한계 도달</td><td>냉각 한계</td></tr>
+</table></div>
+</li>
+<li><strong>AI 데이터센터 구축 시 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>고려사항</th><th>핵심</th></tr>
+<tr><td><strong>전력·에너지</strong></td><td>대용량 전력 수급 계획 및 이중화 전원 확보</td><td>전력 안정성</td></tr>
+<tr><td></td><td>RE100·신재생 에너지 연계 탄소중립 달성</td><td>Green AI</td></tr>
+<tr><td><strong>냉각 시스템</strong></td><td>고밀도 GPU 랙 대응 수랭·액침냉각 방식 도입</td><td>초고밀도 냉각</td></tr>
+<tr><td></td><td>PUE 1.2 이하 목표 냉각 효율 최적화</td><td>에너지 효율화</td></tr>
+<tr><td><strong>컴퓨팅 인프라</strong></td><td>워크로드별 GPU·NPU·HBM 최적 선택</td><td>Hyper Scale</td></tr>
+<tr><td></td><td>NVLink·CXL 기반 CPU-GPU 고속 연결</td><td>이기종 고속 연결</td></tr>
+<tr><td><strong>네트워크</strong></td><td>InfiniBand·RoCE v2 기반 AI 패브릭 구성</td><td>초저지연 GPU 통신</td></tr>
+<tr><td></td><td>Fat-Tree·Rail-Optimized 토폴로지 설계</td><td>클러스터 확장성</td></tr>
+<tr><td><strong>스토리지</strong></td><td>Lustre·GPFS 병렬 파일시스템 고속 데이터 공급</td><td>학습 데이터 병렬</td></tr>
+<tr><td></td><td>NVMe→HDD→오브젝트 계층형 스토리지 설계</td><td>비용·성능 균형</td></tr>
+<tr><td><strong>부지·입지</strong></td><td>변전소 근접·대용량 전력·냉각 용수 확보 가능 지역</td><td>전력·용수 우선</td></tr>
+<tr><td></td><td>저온 기후·자연재해 위험 최소 지역 선정</td><td>자연냉각·안전</td></tr>
+<tr><td><strong>보안·컴플라이언스</strong></td><td>제로트러스트·마이크로세그멘테이션·AI 위협 탐지</td><td>AI 보안 내재화</td></tr>
+<tr><td></td><td>소버린 AI 기반 국내 데이터 처리·해외 유출 방지</td><td>데이터 주권</td></tr>
+<tr><td><strong>운영·관리</strong></td><td>DCIM·AIOps 기반 실시간 모니터링·장애 예측</td><td>자율 운영</td></tr>
+<tr><td></td><td>MLOps 연계 AI 수명주기 통합 관리 체계 구축</td><td>AI 파이프라인</td></tr>
+</table></div>
+</li>
+<li><strong>Power-Adjacent DC(발전 인프라 근접 데이터센터):</strong><ul>
+<li><strong>Co-location(발전소 코로케이션)</strong>: 데이터센터를 발전소 부지에 인접 건설</li>
+<li><strong>Behind-the-Meter (BTM)</strong>: 전력망 우회·발전소 직접 연결 전력 공급</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: AI DC 답안의 차별화 포인트는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>전력밀도 급증에 따른 냉각 혁신(액침냉각)과 GPU 간 집합 통신을 위한 초고속 저지연 네트워크(InfiniBand·NVLink)</strong></u></span> 두 축으로 서술하는 것. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Co-location + BTM 조합</strong></u></span>은 전력망 인프라 구축 비용을 크게 절감하고, 송전 용량 부족 문제를 우회하는 동시에 탄소 없는 안정적 전력을 확보할 수 있어 빅테크의 핵심 AI 데이터센터 전력 전략</li>
+</ul>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>19. 마이크로세그멘테이션(Microsegmentation)</title>
+  <title>18. 사이버전 (Cyber Warfare)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,29 +15,27 @@
   </style>
 </head>
 <body>
-<h4>19. 마이크로세그멘테이션(Microsegmentation)</h4>
+<h4>18. 사이버전 (Cyber Warfare)</h4>
 <ul>
-<li><strong>정의:</strong> 데이터센터·클라우드 환경에서 워크로드·애플리케이션·사용자 단위로 네트워크를 세분화하여 동서(East-West) 트래픽을 정밀 통제하는 제로트러스트 핵심 기술</li>
-<li><strong>키워드:</strong> 제로트러스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>East-West 트래픽</strong></u></span>, 정책 기반 격리, SDN, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>소프트웨어 정의 경계(SDP), 측면 이동 차단, 워크로드 격리</strong></u></span></li>
+<li><strong>정의:</strong> 사이버 공간에서 국가·군사 조직이 주도하여 적국의 인프라·정보·군사 시스템을 공격·교란·마비시키는 군사적·정치적 공격 행위</li>
+<li><strong>키워드:</strong> 국가 지원 공격, 인프라 마비, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정보전</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>핵티비즘</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>심리전, 허위정보, 사이버 억지력</strong></u></span></li>
 <li><strong>분류:</strong> 위협/공격</li>
-<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>정책 엔진</strong></td><td>워크로드별 세그먼트 정책 정의·배포·관리</td><td>중앙 정책 관리</td></tr>
-<tr><td><strong>소프트웨어 정의 경계 (SDP)</strong></td><td>SW로 동적 경계 생성·접근 허용</td><td>동적 경계</td></tr>
-<tr><td><strong>에이전트/센서</strong></td><td>워크로드별 트래픽 수집·정책 적용</td><td>엔드포인트 적용</td></tr>
-<tr><td><strong>가시성 엔진</strong></td><td>East-West 트래픽 전체 흐름 모니터링</td><td>내부 가시성</td></tr>
-<tr><td><strong>오케스트레이터</strong></td><td>SDN·클라우드 API 연동 정책 자동 배포</td><td>자동화 배포</td></tr>
+<li><strong>주요 공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>인프라 공격</strong></td><td>전력망·통신망·금융 시스템 마비</td><td>국가 기능 마비</td></tr>
+<tr><td><strong>정보전·심리전</strong></td><td>허위정보·딥페이크로 여론 조작·혼란 유발</td><td>인지 영역 공격</td></tr>
+<tr><td><strong>스파이·정보 탈취</strong></td><td>군사·외교·기술 기밀 장기 잠복 탈취</td><td>국가 기밀 유출</td></tr>
+<tr><td><strong>사이버 무기</strong></td><td>특정 시스템 표적 파괴용 맞춤형 악성코드</td><td>물리적 피해 유발</td></tr>
 </table></div>
 </li>
-<li><strong>NIST SP 800-207 제로트러스트 연계:</strong><div class="table-scroll"><table>
-<tr><th>원칙</th><th>마이크로세그멘테이션 적용</th><th>핵심</th></tr>
-<tr><td>명시적 검증</td><td>모든 워크로드 간 통신 ID·속성 기반 검증</td><td>묵시적 신뢰 제거</td></tr>
-<tr><td>최소 권한</td><td>업무 필요 통신만 허용·나머지 차단</td><td>Least Privilege</td></tr>
-<tr><td>침해 가정</td><td>내부 침해 전제 워크로드 단위 격리</td><td>Assume Breach</td></tr>
-<tr><td>측면 이동 차단</td><td>침해 후 내부 수평 이동 경로 차단</td><td>피해 범위 최소화</td></tr>
+<li><strong>대표 사례:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Stuxnet</strong></td><td>이란 핵시설 원심분리기 물리적 파괴</td><td>ICS 사이버 무기</td></tr>
+<tr><td><strong>BlackEnergy</strong></td><td>우크라이나 전력망 공격·정전 유발</td><td>인프라 마비</td></tr>
+<tr><td><strong>NotPetya</strong></td><td>우크라이나 타겟 랜섬웨어, 글로벌 피해 확산</td><td>와이퍼 공격</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 마이크로세그멘테이션은 제로트러스트의 핵심 구현 기술로, 워크로드 단위 East-West 트래픽 정밀 통제로 측면 이동을 차단하며, 클라우드·컨테이너·하이브리드 환경에서 소프트웨어 정의 정책 기반으로 동적 확장 가능한 차세대 내부 네트워크 보안 아키텍처의 표준으로 자리잡음</li>
+<li><strong>인사이트:</strong> 사이버전은 물리적 전쟁의 사전 공격 또는 동시 수행 전술로 활용되며, EMP·사이버 공격·심리전을 결합한 하이브리드 전쟁으로 진화하고 있고 국제법상 사이버 공격의 무력 사용 기준이 아직 불명확하여 사이버 억지력 확보가 국가 안보의 핵심 과제로 부상하고 있음</li>
 </ul>
 
 </body>

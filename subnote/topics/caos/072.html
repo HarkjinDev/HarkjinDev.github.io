@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. 고가용성 (HA, High Availability)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>1. 고가용성 (HA, High Availability)</h4>
+<ul>
+<li><strong>정의</strong>: 시스템이 장애 상황에서도 서비스를 중단 없이 지속 제공할 수 있도록 설계된 고신뢰 운영 체계</li>
+<li><strong>키워드</strong>: 가용성(Availability), SLA, SPOF, 이중화, Failover, MTBF, MTTR, Five Nines</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>가용성 수식</strong>:<div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th></tr>
+<tr><td>가용성(A)</td><td>A = MTBF / (MTBF + MTTR)</td></tr>
+<tr><td>MTBF</td><td>평균 고장 간격 (Mean Time Between Failures)</td></tr>
+<tr><td>MTTR</td><td>평균 복구 시간 (Mean Time To Repair)</td></tr>
+<tr><td>Five Nines</td><td>가용성 99.999% → 연간 약 5.26분 다운타임 허용</td></tr>
+</table></div>
+</li>
+<li><strong>HA 구성 방식</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구성유형</strong></th><th><strong>내용</strong></th></tr>
+<tr><td><strong>Hot Standby</strong></td><td>가동(Active) 및 대기(Standby) 시스템으로 구성하며, 
+장애 시 대기 시스템이 자원을 인계(Take-over)함</td></tr>
+<tr><td><strong>Mutual Takeover</strong></td><td>2개 시스템이 각각 고유 업무를 수행하다가, 
+한쪽 장애 시 상대 시스템이 해당 업무를 인계하여 동시에 수행함</td></tr>
+<tr><td><strong>Concurrent Access</strong></td><td>여러 시스템이 동시에 업무를 나누어 병렬 처리하며, 
+전체 시스템이 Active 상태로 가용성을 보장함</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 설계 원칙</strong>:<ul>
+<li>SPOF(Single Point of Failure) 제거: 단일 장애점 식별 및 이중화</li>
+<li>자동 Failover: 장애 감지 → 자동 전환으로 인적 개입 최소화</li>
+<li>헬스체크(Health Check): 주기적 상태 모니터링으로 선제적 장애 대응</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: HA 설계의 핵심은 <strong>SPOF 제거와 자동 Failover</strong>이며, 단순 이중화보다 <strong>장애 감지~복구까지의 RTO 최소화</strong> 관점에서 답안을 전개할 것.</li>
+</ul>
+
+</body>
+</html>

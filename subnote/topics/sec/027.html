@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>15. 차분 프라이버시 (Differential Privacy)</title>
+  <title>14. 동형암호 (Homomorphic Encryption)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,27 @@
   </style>
 </head>
 <body>
-<h4>15. 차분 프라이버시 (Differential Privacy)</h4>
+<h4>14. 동형암호 (Homomorphic Encryption)</h4>
 <ul>
-<li><strong>정의:</strong> 통계 질의 결과에 수학적 노이즈를 추가하여 개인을 식별할 수 없도록 보호하는 프라이버시 보존 기법</li>
-<li><strong>키워드:</strong> 노이즈 추가, ε-DP, 프라이버시 예산, 라플라스 메커니즘, 가우시안 메커니즘, DP-SGD, 민감도, 전역·지역 DP</li>
-<li><strong>분류:</strong> 암호학 </li>
-<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>ε (프라이버시 예산)</strong></td><td>허용 가능한 프라이버시 손실 수준 (작을수록 강한 보호)</td><td>보호 수준 조절</td></tr>
-<tr><td><strong>민감도 (Sensitivity)</strong></td><td>특정 개인의 데이터 유무에 따른 질의 결과 최대 변화량</td><td>노이즈 크기 기준</td></tr>
-<tr><td><strong>노이즈 추가</strong></td><td>민감도·ε 기반으로 계산된 노이즈를 질의 결과에 추가</td><td>개인 식별 방지</td></tr>
-<tr><td><strong>프라이버시-유용성 
-트레이드오프</strong></td><td>ε 작을수록 강한 보호·낮은 데이터 유용성, 클수록 반대</td><td>균형 설계 필요</td></tr>
+<li><strong>정의</strong>: 암호화된 상태에서 연산을 수행하여 결과의 기밀성을 유지하는 암호 기술</li>
+<li><strong>키워드</strong>: 암호문 연산, 복호화 없이 처리, 격자기반암호, 프라이버시, 부분/다소/완전, 부트스트래핑, 스쿼싱</li>
+<li><strong>분류</strong>: 암호학</li>
+<li><strong>유형</strong>:<div class="table-scroll"><table>
+<tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>부분동형암호(PHE)</strong></td><td>덧셈 또는 곱셈 하나만 지원</td><td>단일 연산</td></tr>
+<tr><td><strong>다소동형암호(SHE)</strong></td><td>제한된 횟수의 연산 지원</td><td>제한적 연산</td></tr>
+<tr><td><strong>완전동형암호(FHE)</strong></td><td>임의 연산 무제한 지원</td><td>완전 동형</td></tr>
+<tr><td><strong>Torus FHE(TFHE)</strong></td><td>비트 단위 고속 논리 연산</td><td>불리언 연산</td></tr>
+<tr><td><strong>근사 동형암호(CKKS)</strong></td><td>실수 기반 근사 연산 수행</td><td>근사 연산</td></tr>
 </table></div>
 </li>
-<li><strong>주요 메커니즘:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>라플라스 메커니즘</strong></td><td>라플라스 분포 기반 노이즈 추가, 수치형 데이터에 적용</td><td>수치 데이터</td></tr>
-<tr><td><strong>가우시안 메커니즘</strong></td><td>가우시안 분포 기반 노이즈 추가, (ε·δ)-DP 만족</td><td>근사 DP</td></tr>
-<tr><td><strong>지수 메커니즘</strong></td><td>범주형·비수치 데이터의 최적 출력 선택에 적용</td><td>범주 데이터</td></tr>
-<tr><td><strong>무작위 응답</strong></td><td>응답 전 확률적으로 참·거짓 반전하여 개인 응답 보호</td><td>설문 데이터</td></tr>
-</table></div>
+<li><strong>원리:</strong><ul>
+<li><strong>부트스트래핑(Bootstrapping):</strong> 노이즈 적은 암호문 재생성(무한연산 가능화)</li>
+<li><strong>스쿼싱(Squashing):</strong> 복호화 회로의 경량화(복호화 알고리즘의 복잡도를 낮추는 기술)</li>
+</ul>
 </li>
-<li><strong>전역 vs 지역 차분 프라이버시:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>전역 DP (Global DP)</th><th>지역 DP (Local DP)</th></tr>
-<tr><td><strong>노이즈 추가 위치</strong></td><td>중앙 서버에서 집계 후 추가</td><td>개인 기기에서 전송 전 추가</td></tr>
-<tr><td><strong>신뢰 주체</strong></td><td>중앙 서버 신뢰 필요</td><td>서버 신뢰 불필요</td></tr>
-<tr><td><strong>데이터 유용성</strong></td><td>높음</td><td>낮음</td></tr>
-<tr><td><strong>대표 사례</strong></td><td>인구조사·DB 통계</td><td>애플 iOS·구글 RAPPOR</td></tr>
-</table></div>
-</li>
-<li><strong>AI·ML 적용 (DP-SGD):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>DP-SGD</strong></td><td>경사하강법 적용 시 기울기에 노이즈 추가하여 학습 데이터 보호</td><td>ML 학습 프라이버시</td></tr>
-<tr><td><strong>기울기 클리핑</strong></td><td>개별 기울기 크기를 제한하여 민감도 통제</td><td>민감도 제어</td></tr>
-<tr><td><strong>프라이버시 예산 추적</strong></td><td>학습 전 과정의 누적 ε 관리</td><td>예산 소진 관리</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 차분 프라이버시는 집계 통계 공개 시 개인 정보 유출을 수학적으로 보장하는 유일한 기법으로, DP-SGD를 통해 AI 모델 학습 데이터 보호로 적용 범위가 확대되고 있으며 ε 설정이 프라이버시·유용성 균형의 핵심 설계 변수로 실무 적용 시 도메인별 적정 예산 수준 결정이 가장 중요한 과제임</li>
+<li><strong>활용</strong>: 클라우드 데이터 안전 처리, 의료 데이터 분석, 금융 데이터 연산</li>
+<li><strong>인사이트</strong>: FHE는 개인정보를 공개하지 않고 분석 가능한 이상적 기술이나, 현재 연산 속도가 수천 배 느려 실용화에 한계가 있으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TFHE, CKKS 등 최적화 연구가 진행 중임</strong></u></span></li>
 </ul>
 
 </body>

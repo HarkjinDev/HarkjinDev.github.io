@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. Jailbreak (탈옥 공격)</title>
+  <title>3. 프롬프트 인젝션 (Prompt Injection)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,32 @@
   </style>
 </head>
 <body>
-<h4>5. Jailbreak (탈옥 공격)</h4>
+<h4>3. 프롬프트 인젝션 (Prompt Injection)</h4>
 <ul>
-<li><strong>정의:</strong> AI 모델의 안전 제약·가드레일을 다양한 프롬프트 기법으로 우회하여 유해 콘텐츠 생성·금지 정보 획득·정책 위반 출력을 유도하는 공격</li>
-<li><strong>키워드:</strong> 안전장치 우회, 적대적 프롬프트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DAN</strong></u></span>, 롤플레이, 프롬프트 인젝션, 가드레일, AI 레드팀, Constitutional AI</li>
+<li><strong>정의</strong>: 악의적 프롬프트를 삽입하여 LLM의 동작을 조작하는 공격 기법</li>
+<li><strong>키워드</strong>: 직접 인젝션, 간접 인젝션, 가드레일 우회</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>역할·맥락 위장</strong></td><td><strong>롤플레이 우회</strong></td><td>가상 시나리오·페르소나 설정으로 안전 필터 우회</td><td>맥락 위장</td></tr>
-<tr><td></td><td><strong>DAN 공격</strong></td><td>"Do Anything Now" 등 제약 없는 AI 역할 강제 부여</td><td>역할 강제</td></tr>
-<tr><td></td><td><strong>점진적 유도</strong></td><td>무해한 요청부터 단계적으로 금지 내용으로 유도</td><td>단계적 우회</td></tr>
-<tr><td><strong>기술적 우회</strong></td><td><strong>프롬프트 인젝션</strong></td><td>시스템 프롬프트를 무력화하는 악성 입력 삽입</td><td>지시 덮어쓰기</td></tr>
-<tr><td></td><td><strong>인코딩 우회</strong></td><td>Base64·특수문자로 금지 내용 인코딩하여 필터 회피</td><td>인코딩 위장</td></tr>
-<tr><td></td><td><strong>다국어 우회</strong></td><td>안전 필터가 약한 언어로 질의하여 제약 회피</td><td>언어 취약점</td></tr>
-<tr><td><strong>모달리티 악용</strong></td><td><strong>멀티모달 공격</strong></td><td>이미지·음성에 금지 지시 삽입하여 텍스트 필터 우회</td><td>모달리티 악용</td></tr>
+<li><strong>유형</strong>:<ul>
+<li><strong>직접 인젝션</strong>: 사용자가 직접 시스템 프롬프트 덮어쓰기 시도</li>
+<li><strong>간접 인젝션</strong>: 웹페이지·문서 등 외부 콘텐츠에 악성 명령 삽입 → LLM이 처리 시 실행</li>
+</ul>
+</li>
+<li><strong>프롬프트 인젝션 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>유형</th><th>설명</th></tr>
+<tr><td><strong>직접 인젝션</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>프롬프트 레이어링</strong></u></span></td><td>중첩 지시로 원래 시스템 프롬프트 무력화</td></tr>
+<tr><td></td><td><strong>탈옥 (Jailbreak)</strong></td><td>역할극·가상 시나리오로 안전장치 우회</td></tr>
+<tr><td></td><td><strong>시스템 프롬프트 추출</strong></td><td>내부 시스템 프롬프트 내용 노출 유도</td></tr>
+<tr><td><strong>간접 인젝션</strong></td><td><strong>웹 콘텐츠 인젝션</strong></td><td>웹페이지에 숨겨진 악성 지시 AI 에이전트 실행</td></tr>
+<tr><td></td><td><strong>이메일 인젝션</strong></td><td>이메일 본문 숨겨진 지시로 에이전트 원격 조종</td></tr>
+<tr><td></td><td><strong>RAG 데이터 오염</strong></td><td>지식베이스 문서에 악성 지시 삽입·검색 조작</td></tr>
+<tr><td></td><td><strong>문서·파일 인젝션</strong></td><td>PDF·Word 파일 내 숨겨진 악성 지시 삽입</td></tr>
+<tr><td><strong>에이전트 인젝션</strong></td><td><strong>에이전트 목표 탈취</strong></td><td>외부 콘텐츠로 에이전트 목표·행동 경로 변조</td></tr>
+<tr><td></td><td><strong>메모리·컨텍스트 오염</strong></td><td>에이전트 장기 메모리에 악성 지시 지속 삽입</td></tr>
+<tr><td></td><td><strong>도구 호출 조작</strong></td><td>에이전트 도구 호출 과정에 악성 파라미터 주입</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안: </strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>모델 정렬</strong></td><td><strong>RLHF·DPO</strong></td><td>안전 정책 내재화로 탈옥 저항성 향상</td></tr>
-<tr><td></td><td><strong>Constitutional AI</strong></td><td>AI 스스로 원칙 기반 응답 검토·수정</td></tr>
-<tr><td><strong>필터링</strong></td><td><strong>입력 프롬프트 검증</strong></td><td>입력 의도·패턴 사전 분류·차단</td></tr>
-<tr><td></td><td><strong>출력 가드레일</strong></td><td>유해 출력 탐지·차단 레이어 적용</td></tr>
-<tr><td><strong>검증</strong></td><td><strong>AI 레드팀</strong></td><td>지속적 탈옥 시도·취약점 발견·패치 반복</td></tr>
-<tr><td></td><td><strong>탈옥 벤치마크</strong></td><td>모델별 탈옥 저항성 정량 평가·비교</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> Jailbreak는 모델 정렬 기술과 공격 기법이 지속적으로 경쟁하는 구조로, 단일 가드레일로는 방어가 불가능하며 입력 검증·모델 정렬·출력 필터링·AI 레드팀의 다층 방어와 함께 멀티모달·다국어 확장에 따른 공격 표면 증가에 선제적으로 대응하는 지속적 안전성 평가가 AI 서비스 보안의 핵심 과제임</li>
+<li><strong>대응 방안</strong>: 입력값 검증, 프롬프트 캡슐화·정규화, 최소 권한, 신뢰 경계 설정, 가드레일 LLM</li>
+<li><strong>인사이트</strong>: 간접 프롬프트 인젝션은 LLM이 신뢰하는 외부 데이터 소스에 삽입되어 탐지가 어려우며, 에이전트 기반 AI 시스템에서 가장 위험한 공격 벡터임</li>
 </ul>
 
 </body>

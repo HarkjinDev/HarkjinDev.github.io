@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>[하위] 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)</h4>
+<ul>
+<li><strong>비교표:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>후향 복구 (Backward Recovery)</th><th>전향 복구 (Forward Recovery)</th></tr>
+<tr><td><strong>정의</strong></td><td>오류 발생 전 정상 상태로 되돌리는 복구</td><td>오류 상태에서 앞으로 진행하여 정상 복구</td></tr>
+<tr><td><strong>복구 방향</strong></td><td>과거 정상 시점으로 롤백</td><td>현재 상태에서 미래 정상 상태로 진행</td></tr>
+<tr><td><strong>핵심 기법</strong></td><td>롤백 (Rollback)·언두 (Undo)</td><td>롤포워드 (Roll-forward)·리두 (Redo)</td></tr>
+<tr><td><strong>기반 기술</strong></td><td>체크포인트·트랜잭션 로그·저널링</td><td>리두 로그·WAL (Write Ahead Log)</td></tr>
+<tr><td><strong>복구 시점</strong></td><td>오류 발생 이전 체크포인트 시점</td><td>오류 발생 이후 최신 일관된 상태</td></tr>
+<tr><td><strong>데이터 손실</strong></td><td>체크포인트 이후 데이터 손실 가능</td><td>손실 최소화·최신 상태 복구</td></tr>
+<tr><td><strong>적용 대상</strong></td><td>트랜잭션 실패·논리적 오류</td><td>시스템 장애·미디어 장애</td></tr>
+<tr><td><strong>처리 속도</strong></td><td>빠름</td><td>상대적으로 느림</td></tr>
+<tr><td><strong>복구 복잡도</strong></td><td>낮음</td><td>높음</td></tr>
+<tr><td><strong>대표 사례</strong></td><td>DB 트랜잭션 롤백·실행 취소</td><td>DB 미디어 복구·장애 후 로그 재적용</td></tr>
+<tr><td><strong>DB 연계</strong></td><td>UNDO 로그 활용</td><td>REDO 로그 활용</td></tr>
+<tr><td><strong>DBMS 예시</strong></td><td>Oracle Rollback·MySQL Rollback</td><td>Oracle Media Recovery·MySQL Redo</td></tr>
+</table></div>
+</li>
+</ul>
+
+</body>
+</html>

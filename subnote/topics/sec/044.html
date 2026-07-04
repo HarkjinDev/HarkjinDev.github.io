@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. DDoS 사이버대피소</title>
+  <title>4. 스푸핑 (Spoofing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,22 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. DDoS 사이버대피소</h4>
+<h4>4. 스푸핑 (Spoofing)</h4>
 <ul>
-<li><strong>정의</strong>: DDoS 공격 시 트래픽을 우회·차단하여 서비스를 보호하는 중소기업 무료지원 서비스</li>
-<li><strong>키워드</strong>: DDoS 방어, 트래픽 우회, 중소기업 지원</li>
+<li><strong>정의</strong>: 공격자가 자신의 신원(IP, MAC, DNS, 이메일, 웹 등)을 위장하여 피해 시스템을 속이거나 신뢰 관계를 악용하는 사이버 공격 기법</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신원 위장, </strong></u></span>ARP 스푸핑, IP 스푸핑, DNS 스푸핑, Cache Poisoning, MITM</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>서비스 대상:</strong> 중소기업(KISA), 정부/공공기관(국정원)</li>
-<li><strong>서비스 이용기간:</strong> 방어 서비스 적용 후 1개월, 재공격 예상되는 경우 지속적으로 1개월 연장</li>
-<li><strong>리버스 프록시 동작원리</strong>: <ul>
-<li>공격 발생 시 DNS를 대피소 IP로 변경 → 대피소에서 스크러빙 후 원본 서버로 전달</li>
-</ul>
+<li><strong>스푸핑 공격 유형</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>개념</th><th>핵심 메커니즘</th><th>대응 방안</th></tr>
+<tr><td><strong>ARP 스푸핑</strong></td><td>MAC 주소 위조</td><td>ARP Cache Poisoning / MAC 주소 변조</td><td>동적 ARP 검사(DAI), Static ARP, ARP Watch</td></tr>
+<tr><td><strong>IP 스푸핑</strong></td><td>출발지 IP 위조</td><td>트러스트 관계 악용 / IP 헤더 위조</td><td>인그레스 필터링(RFC 2827), 역방향 경로 검증</td></tr>
+<tr><td><strong>DNS 스푸핑</strong></td><td>DNS 응답 위조</td><td>DNS Cache Poisoning / 응답 ID 탈취</td><td>DNSSEC 도입, TTL 최소화, 신뢰 DNS 사용</td></tr>
+<tr><td><strong>E-mail 스푸핑</strong></td><td>발신자 주소 위조</td><td>SMTP 취약점 / 사회공학적 기법</td><td>SPF, DKIM, DMARC 발신자 인증 강화</td></tr>
+<tr><td><strong>Web 스푸핑</strong></td><td>가짜 사이트 위장</td><td>URL 변조·피싱 / SSL 인증서 위장</td><td>HTTPS 인증서 검증, EV 인증서, HSTS</td></tr>
+<tr><td><strong>MAC 스푸핑</strong></td><td>MAC 주소 변조</td><td>MAC 인증 우회 / 보안 필터링 무력화</td><td>802.1X 포트 인증, MAC 필터링, 포트 보안</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 사이버대피소는 중소기업에 무료로 제공되는 국가 차원의 DDoS 대응 인프라로, 자체 대응이 어려운 기업의 핵심 보호 수단임</li>
+<li><strong>인사이트</strong>: 스푸핑 공격은 단독으로 사용되기보다 MITM(중간자 공격), 세션 하이재킹, 피싱 등 후속 공격의 전제 조건으로 활용되는 경우가 많아, 네트워크 계층별 인증·검증 체계의 중첩 적용이 핵심 방어 전략임</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12. 사이버 킬 체인 (Cyber Kill Chain)</title>
+  <title>10. APT (Advanced Persistent Threat)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,29 +15,37 @@
   </style>
 </head>
 <body>
-<h4>12. 사이버 킬 체인 (Cyber Kill Chain)</h4>
+<h4>10. APT (Advanced Persistent Threat)</h4>
 <ul>
-<li><strong>정의</strong>: 사이버 공격의 7단계 프레임워크 (Lockheed Martin 개발)</li>
-<li><strong>키워드</strong>: 정찰, 무기화, 전달, 악용, 설치, C2, 행동</li>
+<li><strong>정의:</strong> 특정 대상을 장기간 지속적으로 공격하는 지능형 위협</li>
+<li><strong>키워드:</strong> 정찰, 침투, 내부 이동, 데이터 유출, 사이버 킬체인, IoC, UEBA, 제로데이, 스피어피싱, C2</li>
 <li><strong>분류</strong>: 위협/공격</li>
-<li><strong>7단계</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정무전악/설씨행&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>절차</th><th>핵심</th><th>대응 방안</th></tr>
-<tr><td><strong>1. 정찰 
-(Reconnaissance)</strong></td><td>대상 정보 수집</td><td>외부 노출 정보 최소화, ASM 기반 디지털 발자국 관리</td></tr>
-<tr><td><strong>2. 무기화 
-(Weaponization)</strong></td><td>악성코드 제작</td><td>위협 인텔리전스 기반 신규 악성코드 패턴 선제 탐지</td></tr>
-<tr><td><strong>3. 전달 
-(Delivery)</strong></td><td>이메일·웹·USB 전달</td><td>이메일 필터링·웹 게이트웨이·USB 차단 정책 적용</td></tr>
-<tr><td><strong>4. 악용 
-(Exploitation)</strong></td><td>취약점 실행</td><td>패치 관리·취약점 스캔·ASLR·DEP 등 익스플로잇 방어</td></tr>
-<tr><td><strong>5. 설치 (Installation)</strong></td><td>백도어·RAT 설치</td><td>EDR 기반 악성 프로세스 탐지·차단·격리</td></tr>
-<tr><td><strong>6. C2 
-(Command &amp; Control)</strong></td><td>원격 제어 채널 구축</td><td>아웃바운드 트래픽 필터링·DNS 싱크홀·C2 도메인 차단</td></tr>
-<tr><td><strong>7. 행동 
-(Actions)</strong></td><td>데이터 유출·파괴</td><td>DLP·네트워크 세그멘테이션·백업·사고 대응 계획 수립</td></tr>
+<li><strong>주요 특징: </strong>지능성 (Advanced), 지속성 (Persistent), 목표성 (Threat), 조직적 배후</li>
+<li><strong>APT 공격 절차:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;침탐수유&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>절차</th><th>핵심</th></tr>
+<tr><td><strong>침입</strong></td><td><strong>1. 정찰</strong> — 대상 조직·인물·인프라 정보 수집 (OSINT·소셜미디어)</td><td>목표 정보 수집</td></tr>
+<tr><td></td><td><strong>2. 초기 침입</strong> — 스피어피싱·제로데이·공급망으로 최초 거점 확보</td><td>초기 접근</td></tr>
+<tr><td></td><td><strong>3. 지속성 확보</strong> — 백도어·RAT·루트킷 설치로 재진입 경로 유지</td><td>장기 거점 유지</td></tr>
+<tr><td><strong>탐지 회피</strong></td><td><strong>4. 권한 상승</strong> — 관리자 권한 획득으로 내부 접근 범위 확대</td><td>권한 확대</td></tr>
+<tr><td></td><td><strong>5. 은닉·잠복</strong> — 정상 프로세스·트래픽으로 위장하여 탐지 회피</td><td>장기 잠복</td></tr>
+<tr><td><strong>수집</strong></td><td><strong>6. 내부 이동</strong> — 자격증명 탈취·Pass-the-Hash로 내부 시스템 횡적 이동</td><td>내부 확산</td></tr>
+<tr><td></td><td><strong>7. 정보 수집</strong> — 목표 데이터·자격증명·기밀 정보 탐색·수집</td><td>목표 자산 수집</td></tr>
+<tr><td><strong>유출</strong></td><td><strong>8. 데이터 유출</strong> — 수집 데이터를 암호화·분할하여 C2 서버로 외부 유출</td><td>목표 달성</td></tr>
+<tr><td></td><td><strong>9. 금전적 이득 취득 —</strong> 다크웹 배포, 기업 협박, 금품 갈취</td><td>이득 취득</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 킬 체인의 초기 단계에서 차단할수록 방어 비용이 낮아지므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정찰·전달 단계 탐지(이메일 보안, 위협 인텔리전스)가 가장 효율적인 방어임</strong></u></span></li>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>탐지</strong></td><td><strong>UEBA</strong></td><td>행위 기반 분석으로 정상 위장 APT 활동 탐지</td></tr>
+<tr><td></td><td><strong>위협 헌팅</strong></td><td>IoC·TTPs 기반 잠복 위협 능동 탐색</td></tr>
+<tr><td></td><td><strong>NDR</strong></td><td>내부 네트워크 트래픽 이상 탐지·C2 통신 식별</td></tr>
+<tr><td><strong>예방</strong></td><td><strong>이메일 보안</strong></td><td>스피어피싱 차단·첨부파일 샌드박스 분석</td></tr>
+<tr><td></td><td><strong>Zero Trust</strong></td><td>내부 이동 차단·지속적 인증·최소 권한 적용</td></tr>
+<tr><td><strong>대응</strong></td><td><strong>SIEM·SOAR</strong></td><td>다단계 공격 상관분석·자동화 대응</td></tr>
+<tr><td></td><td><strong>침해 대응 (IR)</strong></td><td>침해 지표 기반 신속 격리·포렌식·복구</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> APT는 수개월간 정상 행위로 위장하며 잠복하므로 시그니처·IoC 기반 탐지만으로는 한계가 있으며, UEBA 기반 행위 분석·위협 헌팅·Zero Trust를 통합한 다층 방어와 함께 MITRE ATT&amp;CK 프레임워크 기반 TTPs 분석이 APT 대응의 핵심 전략임</li>
 </ul>
 
 </body>

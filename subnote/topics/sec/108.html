@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. FIPS 140-2 (Federal Information Processing Standard)</title>
+  <title>11. IEC 61508 (기능안전 표준)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,20 @@
   </style>
 </head>
 <body>
-<h4>13. FIPS 140-2 (Federal Information Processing Standard)</h4>
+<h4>11. IEC 61508 (기능안전 표준)</h4>
 <ul>
-<li><strong>정의</strong>: 암호 모듈의 보안 요구사항을 4단계로 정의한 미국 연방 표준 (NIST)</li>
-<li><strong>키워드</strong>: 암호모듈 보안 레벨 1~4, 미국 연방표준</li>
-<li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>FIPS 140-2 레벨별 비교</strong>:<div class="table-scroll"><table>
-<tr><th>레벨</th><th>요구사항</th><th>적용 대상</th></tr>
-<tr><td>Level 1</td><td>기본 보안 요구사항</td><td>소프트웨어 암호 모듈</td></tr>
-<tr><td>Level 2</td><td>물리적 탬퍼 증거 요구</td><td>일반 암호 장비</td></tr>
-<tr><td>Level 3</td><td>탬퍼 탐지 및 대응</td><td>고보안 장비</td></tr>
-<tr><td>Level 4</td><td>완전한 물리적 보호, 환경 공격 대응</td><td>최고보안 환경 장비</td></tr>
-</table></div>
+<li><strong>정의</strong>: 전기·전자·프로그래머블 전자 시스템(E/E/PE)의 기능안전 국제 표준</li>
+<li><strong>키워드</strong>: SIL, 안전 요구사항, 안전 생명주기</li>
+<li><strong>분류</strong>: 특수 보안</li>
+<li><strong>SIL(Safety Integrity Level)</strong>: SIL 1: 저위험, SIL 2: 중위험, SIL 3: 고위험, SIL 4: 초고위험</li>
+<li><strong>파생 표준 비교</strong>:<ul>
+<li><strong>IEC 62443</strong>: 산업제어시스템 보안</li>
+<li><strong>ISO 26262</strong>: 자동차 기능안전</li>
+<li><strong>IEC 62304</strong>: 의료기기 소프트웨어</li>
+<li><strong>DO-178C</strong>: 항공기 소프트웨어</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: FIPS 140-2는 미국 연방 조달 필수 요건이며, 국내 금융·공공 분야에서도 사실상 표준으로 참조됨. 현재는 FIPS 140-3(ISO/IEC 19790)으로 전환 중</li>
+<li><strong>인사이트</strong>: IEC 61508은 기능안전의 모체 표준으로, 파생 산업별 표준은 각 분야의 위험 특성을 반영하여 세분화된 요구사항을 정의함</li>
 </ul>
 
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 3-1. DCI (Data Center Interconnect)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>[하위] 3-1. DCI (Data Center Interconnect)</h4>
+<ul>
+<li><strong>정의</strong>: 지리적으로 분산된 복수의 데이터센터를 고대역폭·저지연 광네트워크로 연결하여 데이터·서비스를 연속적으로 운영하는 상호연결 기술</li>
+<li><strong>키워드</strong>: DWDM, 100G/400G 광트랜시버, OTN, SD-WAN, 이중화, 재해복구, 광증폭, ROADM</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>DCI 구성 방식 비교</strong>:<div class="table-scroll"><table>
+<tr><th><strong>방식</strong></th><th><strong>설명</strong></th><th><strong>적용 거리</strong></th></tr>
+<tr><td><strong>Dark Fiber</strong></td><td>전용 광섬유 직접 연결, 최저 지연</td><td>단거리 (Metro)</td></tr>
+<tr><td><strong>DWDM</strong></td><td>파장 분할 다중화, 단일 광섬유로 대용량 전송</td><td>중·장거리</td></tr>
+<tr><td><strong>OTN</strong></td><td>광 전송 계층 표준화, 에러 정정 포함</td><td>장거리</td></tr>
+<tr><td><strong>SD-WAN</strong></td><td>소프트웨어 기반 WAN, 다중 링크 추상화</td><td>인터넷 기반</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 기능</strong>:<ul>
+<li>고대역폭: DWDM 기반 400G~Tbps급 전송으로 AI 학습 데이터 동기화 지원</li>
+<li>저지연: 데이터 미러링·실시간 복제(Synchronous Replication)를 위한 ms 이하 지연</li>
+<li>이중화: 다중 경로(Multi-path) 구성으로 회선 장애 시 자동 우회</li>
+<li>DR 지원: Active-Active DC 간 실시간 데이터 동기화로 RTO/RPO 최소화</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: DCI는 단순 광케이블 연결이 아닌 <strong>DWDM 파장 다중화 + OTN 표준화 + SD-WAN 오케스트레이션</strong>이 결합된 계층 구조이며, AI DC 확산으로 <strong>데이터센터 간 수백 Gbps 동기화 수요</strong>가 급증하고 있음을 강조.</li>
+</ul>
+
+</body>
+</html>

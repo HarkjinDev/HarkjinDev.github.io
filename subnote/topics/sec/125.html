@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12. AI 기반 사이버위협 (AI-based Cyber Threat)</title>
+  <title>10. ML 편향 문제 (Machine Learning Bias)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,62 +15,39 @@
   </style>
 </head>
 <body>
-<h4>12. AI 기반 사이버위협 (AI-based Cyber Threat)</h4>
+<h4>10. ML 편향 문제 (Machine Learning Bias)</h4>
 <ul>
-<li><strong>정의:</strong> 공격자가 AI·ML을 활용하여 탐지 회피·자동화·개인화된 공격을 수행하거나, AI 시스템 자체를 표적으로 삼는 차세대 사이버위협</li>
-<li><strong>키워드:</strong> 생성형 AI, 적대적 공격, 프롬프트 인젝션, Agentic AI, OWASP ASI, 자율 공격, AI 공급망</li>
-<li><strong>분류:</strong> SEC / AI 보안</li>
-<li><strong>AI 기반 사이버위협 등장 배경:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>배경</th><th>핵심</th></tr>
-<tr><td>기술 발전</td><td>생성형 AI·LLM 대중화로 공격 자동화 진입장벽 급락</td><td>비전문가 공격 가능</td></tr>
-<tr><td>공격면 확장</td><td>AI 시스템(모델·데이터·에이전트) 자체가 새로운 공격 대상</td><td>AI가 위협 대상화</td></tr>
-<tr><td>자율화</td><td>Agentic AI의 자율 실행·멀티스텝 워크플로우 확산</td><td>자율 공격 루프</td></tr>
-<tr><td>개인화</td><td>AI 기반 딥페이크·스피어피싱 정교화·대규모 자동 생성</td><td>사회공학 고도화</td></tr>
-<tr><td>규모</td><td>AI로 취약점 탐색·익스플로잇 코드 생성 자동화</td><td>공격 속도·규모 증폭</td></tr>
+<li><strong>정의:</strong> 머신러닝 모델이 학습 데이터·알고리즘·설계 과정의 편향으로 인해 특정 집단·속성에 대해 불공정하거나 차별적인 예측·결정을 내리는 문제</li>
+<li><strong>키워드:</strong> 데이터 편향, 알고리즘 공정성, 대표성 부족, 역사적 편향, 확증 편향, XAI, 공정성 지표, AI 윤리</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>편향 발생 원인:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>샘플링 편향</strong></td><td>특정 집단이 과소·과대 대표된 학습 데이터 수집</td><td>대표성 부족</td></tr>
+<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별·불평등이 반영된 데이터 그대로 학습</td><td>과거 차별 재현</td></tr>
+<tr><td></td><td><strong>레이블 편향</strong></td><td>어노테이터 주관·편견이 레이블링에 반영</td><td>주관적 레이블</td></tr>
+<tr><td></td><td><strong>측정 편향</strong></td><td>집단별 데이터 수집·측정 방식의 불일치</td><td>측정 불일치</td></tr>
+<tr><td><strong>알고리즘</strong></td><td><strong>집계 편향</strong></td><td>전체 집단 최적화 과정에서 소수 집단 성능 저하</td><td>소수 집단 소외</td></tr>
+<tr><td></td><td><strong>평가 편향</strong></td><td>편향된 기준·지표로 모델 성능 평가</td><td>잘못된 평가</td></tr>
+<tr><td></td><td><strong>피드백 루프</strong></td><td>편향된 예측이 데이터로 재입력되어 편향 증폭</td><td>편향 자기 강화</td></tr>
+<tr><td><strong>설계·운영</strong></td><td><strong>확증 편향</strong></td><td>기존 가설을 확인하는 데이터만 선택 활용</td><td>선택적 데이터</td></tr>
+<tr><td></td><td><strong>자동화 편향</strong></td><td>AI 결과를 무비판적으로 수용하는 인간 의존</td><td>맹목적 신뢰</td></tr>
 </table></div>
 </li>
-<li><strong>AI 기반 사이버위협 특징:</strong><div class="table-scroll"><table>
-<tr><th>특징</th><th>설명</th><th>핵심</th></tr>
-<tr><td>자동화·확장성</td><td>AI가 스캐닝·익스플로잇·횡이동 전과정 자율 수행</td><td>인간 개입 없는 공격</td></tr>
-<tr><td>탐지 회피</td><td>AI가 시그니처·행위 기반 탐지 패턴 학습 후 우회</td><td>적응형 스텔스</td></tr>
-<tr><td>초개인화</td><td>표적 SNS·언어·맥락 분석한 맞춤형 피싱 자동 생성</td><td>딥페이크·스피어피싱</td></tr>
-<tr><td>비결정성</td><td>AI 출력 비결정적·동일 입력도 다른 결과·예측 불가</td><td>기존 보안모델 한계</td></tr>
-<tr><td>양방향성</td><td>AI가 공격 도구이자 공격 표적(모델·데이터·에이전트)</td><td>공격자·피공격자 동시</td></tr>
-<tr><td>연쇄성</td><td>멀티에이전트 환경에서 단일 침해가 전체로 전파</td><td>카스케이딩 장애</td></tr>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>데이터 다양성 확보</strong></td><td>소수 집단 포함 균형 있는 학습 데이터 수집</td><td>대표성 확보</td></tr>
+<tr><td></td><td><strong>재샘플링·증강</strong></td><td>과소 표현 집단 데이터 증강·오버샘플링</td><td>데이터 균형화</td></tr>
+<tr><td></td><td><strong>데이터 감사</strong></td><td>학습 데이터 편향 여부 정기 검토·검증</td><td>데이터 품질 관리</td></tr>
+<tr><td><strong>모델</strong></td><td><strong>편향 완화 알고리즘</strong></td><td>학습 단계에서 공정성 제약 조건 추가</td><td>알고리즘 공정화</td></tr>
+<tr><td></td><td><strong>후처리 보정</strong></td><td>모델 출력 후 집단 간 결과 균등화 보정</td><td>출력 보정</td></tr>
+<tr><td></td><td><strong>XAI 적용</strong></td><td>모델 편향 원인·특징 중요도 투명하게 설명</td><td>편향 원인 탐지</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>편향 감사 체계</strong></td><td>정기적 모델 편향·공정성 독립 감사 수행</td><td>주기적 검증</td></tr>
+<tr><td></td><td><strong>다양성 팀 구성</strong></td><td>다양한 배경·관점의 AI 개발팀 구성</td><td>설계 단계 예방</td></tr>
+<tr><td></td><td><strong>규제 준수</strong></td><td>EU AI Act·공정성 가이드라인 준수</td><td>법적 책임 이행</td></tr>
 </table></div>
 </li>
-<li><strong>AI 공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>공격 유형</th><th>설명</th></tr>
-<tr><td>AI 악용</td><td>AI 피싱·소셜엔지니어링</td><td>LLM으로 맞춤형 피싱 메일·딥페이크 대량 생성</td></tr>
-<tr><td></td><td>AI 취약점 탐색</td><td>AI가 코드·시스템 취약점 자동 분석·익스플로잇 생성</td></tr>
-<tr><td></td><td>AI 악성코드</td><td>다형성 악성코드·탐지 회피 코드 자동 변형 생성</td></tr>
-<tr><td>AI 표적</td><td>적대적 공격(Adversarial)</td><td>입력 변형으로 AI 모델 오분류·오판단 유도</td></tr>
-<tr><td></td><td>데이터 포이즈닝</td><td>학습 데이터 오염으로 모델 성능 저하·백도어 삽입</td></tr>
-<tr><td></td><td>모델 역추론</td><td>모델 출력으로 학습 데이터·파라미터 역추출</td></tr>
-<tr><td></td><td>프롬프트 인젝션</td><td>악의적 입력으로 LLM 가드레일 우회·명령 실행</td></tr>
-<tr><td>AI 공급망</td><td>모델 변조</td><td>오픈소스 모델에 백도어·악성코드 삽입</td></tr>
-<tr><td></td><td>MCP 위장</td><td>악의적 MCP 서버로 에이전트 도구 환경 오염</td></tr>
-</table></div>
-</li>
-<li><strong>Agentic AI 활용을 위한 대응 전략:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>대응 전략</th><th>설명</th><th>핵심</th></tr>
-<tr><td>거버넌스</td><td>AI 보안 정책 수립</td><td>AI 수명주기 전반 위험평가·내부통제 체계 구축</td><td>AI 거버넌스</td></tr>
-<tr><td></td><td>HITL 적용</td><td>고위험 에이전트 의사결정에 인간 개입 통제</td><td>자율성 제한</td></tr>
-<tr><td></td><td>Kill Switch</td><td>이상 행동 감지 시 에이전트 즉각 정지 기능 구현</td><td>긴급차단</td></tr>
-<tr><td>접근제어</td><td>최소 에이전시 원칙</td><td>에이전트 권한·자율성을 필요 최소한으로 제한</td><td>Least Agency</td></tr>
-<tr><td></td><td>에이전트 신원 관리</td><td>에이전트별 독립 신원·자격증명 격리 관리</td><td>NHI 관리</td></tr>
-<tr><td></td><td>도구 허용목록</td><td>에이전트가 호출 가능한 도구 화이트리스트 적용</td><td>도구 제한</td></tr>
-<tr><td>입력·출력 통제</td><td>입력 검증·가드레일</td><td>프롬프트 인젝션·간접 조작 탐지·필터링</td><td>입력 무결성</td></tr>
-<tr><td></td><td>출력 모니터링</td><td>에이전트 산출물 실시간 이상 탐지·감사 로그</td><td>행동 가시성</td></tr>
-<tr><td>공급망 보안</td><td>AI-BOM 관리</td><td>모델·데이터·MCP 서버 등 AI 구성요소 전체 인벤토리</td><td>공급망 가시성</td></tr>
-<tr><td></td><td>무결성 검증</td><td>오픈소스 모델·서드파티 도구 서명·해시 검증</td><td>변조 탐지</td></tr>
-<tr><td>탐지·대응</td><td>AI 기반 위협 탐지</td><td>AI로 에이전트 이상 행동·적대적 패턴 실시간 탐지</td><td>AI vs AI 방어</td></tr>
-<tr><td></td><td>레드팀·침투 테스트</td><td>적대적 공격·프롬프트 인젝션 시뮬레이션 정기 수행</td><td>사전 검증</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> AI 기반 사이버위협은 공격 자동화·초개인화·에이전트 자율성이 결합된 차세대 위협으로, 기존 시그니처·행위 기반 방어를 무력화하므로 Least Agency·HITL·AI-BOM·AI 기반 탐지를 결합한 다층 방어체계(Defense-in-Depth) 구축이 필수</li>
+<li><strong>인사이트:</strong> ML 편향은 기술적 문제를 넘어 사회적 차별을 AI가 자동화·증폭시키는 구조적 위험으로, 데이터·알고리즘·거버넌스 3축의 통합적 대응이 필수임. 공정성 지표 간 수학적 상충 관계(Trade-off)가 존재하여 어떤 공정성 기준을 우선할지는 기술이 아닌 사회적 가치 판단의 문제이며, AI 개발 초기부터 다양성 확보와 편향 감사를 설계에 내재화하는 것이 핵심 예방 전략임</li>
 </ul>
-<hr/>
 
 </body>
 </html>

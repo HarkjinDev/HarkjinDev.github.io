@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 2-1. 토러스 (Torus)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>[하위] 2-1. 토러스 (Torus)</h4>
+<ul>
+<li><strong>정의</strong>: 메시(Mesh) 토폴로지에서 각 행·열 끝 노드를 반대편 끝 노드와 추가 연결하여 직경을 단축한 상호연결망 구조</li>
+<li><strong>키워드</strong>: 래핑(Wrapping), 2D/3D Torus, 직경, 차수, 대칭성, Cray, AI 네트워크</li>
+<li><strong>분류</strong>: 고가용성 인프라</li>
+<li><strong>메시와 토러스 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>메시 (Mesh)</th><th>토러스 (Torus)</th></tr>
+<tr><td>경계 노드 처리</td><td>끝 노드 미연결</td><td>끝 노드 래핑(Wrapping) 연결</td></tr>
+<tr><td>직경</td><td>2(√N - 1)</td><td>√N</td></tr>
+<tr><td>차수</td><td>4 (내부 노드)</td><td>4 (균일)</td></tr>
+<tr><td>대칭성</td><td>비대칭</td><td>완전 대칭</td></tr>
+<tr><td>통신 균일성</td><td>위치에 따라 지연 차이</td><td>모든 노드 동일 거리</td></tr>
+</table></div>
+</li>
+<li><strong>특징</strong>:<ul>
+<li>2D Torus: 행·열 양방향 래핑 → 정사각형 격자에서 균일 지연</li>
+<li>3D Torus: 3축 방향 래핑 → Cray XK7, IBM Blue Gene 등 HPC 슈퍼컴퓨터에 적용</li>
+<li>6D Torus: Google TPU Pod 네트워크 연결 토폴로지로 활용</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 토러스는 메시 대비 <strong>직경을 약 절반으로 단축</strong>하면서 차수를 유지하는 효율적 구조로, TPU Pod·HPC 클러스터 등 <strong>AI 학습 인프라의 집합 통신(AllReduce) 최적화</strong>에 적합함을 강조.</li>
+</ul>
+
+</body>
+</html>

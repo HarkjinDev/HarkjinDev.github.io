@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. RSA (Rivest-Shamir-Adleman)</title>
+  <title>6. Diffie-Hellman/디피헬만 (DH)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,28 +15,31 @@
   </style>
 </head>
 <body>
-<h4>7. RSA (Rivest-Shamir-Adleman)</h4>
+<h4>6. Diffie-Hellman/디피헬만 (DH)</h4>
 <ul>
-<li><strong>정의</strong>: 큰 수의 소인수분해 난이도에 기반한 공개키 암호 알고리즘</li>
-<li><strong>키워드</strong>: 소인수 분해, 소수(p,q), C=M^e mod n, M=C^d mod n, 공개키(n,e), 개인키(n, d)</li>
+<li><strong>정의</strong>: 두 당사자가 안전하지 않은 채널에서 공유 비밀키를 안전하게 교환할 수 있는 키 교환 프로토콜</li>
+<li><strong>키워드</strong>: 이산대수, 키 교환 전용, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>전방향 안전성(PFS)</strong></u></span>, MITM 취약, ECDH</li>
 <li><strong>분류</strong>: 암호학</li>
-<li><strong>키 생성 절차</strong>:<ul>
-<li>① 두 소수 p, q 선택 → n = p × q 계산</li>
-<li>② φ(n) = (p-1)(q-1) 계산</li>
-<li>③ e 선택: gcd(e, φ(n)) = 1 (공개 지수)</li>
-<li>④ d 계산: e × d ≡ 1 (mod φ(n)) (비밀 지수)</li>
-<li>공개키: (n, e), 개인키: (n, d)</li>
+<li><strong>동작 원리</strong>:<ul>
+<li>① 공개 파라미터 합의: 소수 p, 원시근 g 공개</li>
+<li>② Alice: 개인키 x 선택 → 공개값 A = g^x mod p 전송</li>
+<li>③ Bob: 개인키 y 선택 → 공개값 B = g^y mod p 전송</li>
+<li>④ 공유 비밀키 계산: Alice → K = B^x mod p, Bob → K = A^y mod p</li>
+<li>⑤ 두 값이 동일한 K로 일치 → 세션키로 활용( g^xy mod p )</li>
 </ul>
 </li>
-<li><strong>RSA vs DSA 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>RSA</th><th>DSA</th><th>ECDSA</th></tr>
-<tr><td>수학적 기반</td><td>소인수분해 난이도</td><td>이산대수 문제</td><td>타원곡선 이산대수 문제</td></tr>
-<tr><td>용도</td><td>암호화 + 전자서명</td><td>암호화 사용 불가, 
-전자서명 전용</td><td>전자서명, 블록체인 트랜잭션 서명, TLS/SSL 인증서</td></tr>
-<tr><td>표준</td><td>PKCS#1</td><td>NIST 전자서명 표준 DSS</td><td>FIPS 186</td></tr>
+<li><strong>보안 근거</strong>: 이산대수 문제 — g^x mod p에서 x를 역산하기 계산상 불가능</li>
+<li><strong>DH vs ECDH 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>DH (Diffie-Hellman)</th><th>ECDH (Elliptic Curve DH)</th></tr>
+<tr><td>수학적 기반</td><td>유한체 이산대수</td><td>타원곡선 이산대수</td></tr>
+<tr><td>키 길이</td><td>2048bit 이상 권고</td><td>256bit으로 동등 보안강도</td></tr>
+<tr><td>성능</td><td>상대적으로 느림</td><td>빠름 (모바일·IoT 적합)</td></tr>
+<tr><td>활용</td><td>TLS 키 교환 (레거시)</td><td>TLS 1.3 표준 (ECDHE)</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 양자컴퓨터의 Shor 알고리즘으로 RSA가 위협받고 있어, NIST는 격자 기반 암호(CRYSTALS-Kyber 등) 양자내성 알고리즘을 표준으로 선정 중임. 현재는 DSA는 더 짧은 키로 동등한 보안을 제공하는 ECDSA가 주류임<strong>.</strong></li>
+<li><strong>전방향 안전성(PFS, Perfect Forward Secrecy)</strong>: 세션마다 임시 키 쌍 생성(DHE/ECDHE) → 장기 개인키 유출 시에도 과거 세션 복호화 불가</li>
+<li><strong>취약점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중간자 공격(MITM) 취약</strong></u></span><strong> </strong>→ 인증서 기반 인증(TLS)과 결합 필요. 소수 p가 충분히 크지 않으면 이산대수 공격에 취약 (Logjam 공격)</li>
+<li><strong>인사이트</strong>: DH는 암호화·서명이 불가능한 순수 키 교환 프로토콜로, 단독 사용 시 MITM에 무방비하므로 반드시 인증 메커니즘과 결합해야 하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TLS 1.3에서는 ECDHE가 필수 적용</strong></u></span>됨</li>
 </ul>
 
 </body>

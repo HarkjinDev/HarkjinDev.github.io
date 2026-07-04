@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 클라우드 보안 (Cloud Security)</title>
+  <title>7. 드론 보안 (Drone Security)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,20 @@
   </style>
 </head>
 <body>
-<h4>9. 클라우드 보안 (Cloud Security)</h4>
+<h4>7. 드론 보안 (Drone Security)</h4>
 <ul>
-<li><strong>정의</strong>: 클라우드 환경에서 데이터와 서비스를 보호하기 위한 보안 활동</li>
-<li><strong>키워드</strong>: 데이터 보호, 접근제어, 가상화 보안, 공유 책임</li>
+<li><strong>정의</strong>: 드론 시스템의 통신, 제어, 데이터 보안 위협과 대응 방안</li>
+<li><strong>키워드</strong>: GPS 스푸핑, 통신 가로채기, 물리적 탈취</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>공유 책임 모델 (Shared Responsibility)</strong>:<div class="table-scroll"><table>
-<tr><th>영역</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
-<tr><td>데이터</td><td>고객</td><td>고객</td><td>고객</td></tr>
-<tr><td>애플리케이션</td><td>고객</td><td>고객</td><td>CSP</td></tr>
-<tr><td>런타임</td><td>고객</td><td>CSP</td><td>CSP</td></tr>
-<tr><td>인프라</td><td>CSP</td><td>CSP</td><td>CSP</td></tr>
-</table></div>
-</li>
-<li><strong>도입 시 보안 요소</strong>: 데이터 암호화, 접근제어(IAM), 가상화 보안, 로그 관리, 규정 준수</li>
-<li><strong>인사이트</strong>: 클라우드 보안 사고의 대부분은 CSP 인프라가 아닌 고객의 잘못된 설정(Misconfiguration)에서 발생하므로, CSPM(Cloud Security Posture Management) 도입이 필수임</li>
+<li><strong>주요 위협</strong>:<ul>
+<li><strong>GPS 스푸핑</strong>: 가짜 GPS 신호로 드론 경로 조작</li>
+<li><strong>통신 재밍(Jamming)</strong>: 제어 신호 방해로 드론 통제 불능</li>
+<li><strong>신호 가로채기(Hijacking)</strong>: 제어권 탈취</li>
 </ul>
-<p>// 키워드 추가 CSPM, CWPP, CNAPP</p>
-<p>// 클라우드 네이티브 보안 추가</p>
+</li>
+<li><strong>대응 방안</strong>: 암호화된 통신, GPS 신호 검증, 지오펜싱(Geofencing), 드론 등록·추적 시스템</li>
+<li><strong>인사이트</strong>: UTM(Unmanned Traffic Management) 시스템과 연계된 드론 보안 체계 구축이 국가 과제로 부상하고 있음</li>
+</ul>
 
 </body>
 </html>
