@@ -147,7 +147,7 @@ def block_html(b, depth=0):
     if t == "quote":
         return f"<blockquote{cs}>{txt}</blockquote>\n"
     if t == "callout":
-        icon = c.get("icon", {})
+        icon  = c.get("icon") or {}   # API가 null 반환 시 {} 로 폴백
         emoji = icon.get("emoji", "💡") if icon.get("type") == "emoji" else "💡"
         return (f'<div class="callout"{cs}>'
                 f'<span class="callout-icon">{emoji}</span>'
@@ -164,7 +164,9 @@ def block_html(b, depth=0):
     if t == "table_of_contents":
         return ""
     if t == "image":
-        url = (c.get("file") or c.get("external") or {}).get("url", "")
+        _f  = c.get("file")   or {}
+        _e  = c.get("external") or {}
+        url = _f.get("url", "") or _e.get("url", "")
         cap = rt_to_html(c.get("caption", []))
         src = img_to_b64(url) if url else ""
         if cap:
@@ -191,7 +193,7 @@ def render_table(b):
     for i, row in enumerate(rows):
         if row.get("type") != "table_row":
             continue
-        cells = row["table_row"].get("cells", [])
+        cells = (row.get("table_row") or {}).get("cells", [])
         row_html = "".join(
             f'<{"th" if (i==0 and has_header) else "td"}>{rt_to_html(cell)}</{"th" if (i==0 and has_header) else "td"}>'
             for cell in cells
@@ -272,7 +274,12 @@ def blocks_to_html(blocks, depth=0):
             continue
 
         # ── heading의 has_children (드문 케이스) ──────
-        frag = block_html(b, depth)
+        try:
+            frag = block_html(b, depth)
+        except Exception as e:
+            print(f"  [WARN] 블록 변환 실패 ({b.get('type','?')}): {e}")
+            i += 1
+            continue
         if frag is None:
             i += 1
             continue
