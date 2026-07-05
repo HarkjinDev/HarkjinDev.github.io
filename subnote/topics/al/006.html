@@ -17,7 +17,7 @@
 <body>
 <h4>4. 동적 프로그래밍 (Dynamic Programming, DP)</h4>
 <ul>
-<li><strong>정의:</strong> 복잡한 문제를 중복되는 부분 문제로 분해하고, 이미 계산한 결과를 저장·재사용하여 불필요한 반복 연산을 제거하는 최적화 알고리즘 설계 패러다임</li>
+<li><strong>정의:</strong> 복잡한 문제를 분해하여, 부분문제 결과를 저장·재사용해 최적해를 구하는 알고리즘 패러다임</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>메모이제이션, 타뷸레이션</strong></u></span>, 최적 부분 구조, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중복 부분 문제</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>점화식</strong></u></span>, 상태 정의, 피보나치, 배낭 문제, LCS</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
 <li><strong>두 가지 구현 방식:</strong><div class="table-scroll"><table>
@@ -29,34 +29,36 @@
 <tr><td><strong>직관성</strong></td><td>점화식에 충실, 직관적</td><td>순서 설계 필요</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 설계 단계:</strong><div class="table-scroll"><table>
+<li><strong>동적 프로그래밍 구현절차:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 상태 정의</strong></td><td>DP 테이블의 각 셀이 의미하는 바를 명확히 정의</td><td>문제 추상화</td></tr>
-<tr><td><strong>2. 점화식 도출</strong></td><td>현재 상태와 이전 상태의 관계식 수립</td><td>관계식 정의</td></tr>
-<tr><td><strong>3. 초기값 설정</strong></td><td>기저 조건(Base Case) 값 설정</td><td>계산 시작점</td></tr>
-<tr><td><strong>4. 계산 순서 결정</strong></td><td>부분 문제가 먼저 계산되도록 순서 설정</td><td>의존성 해결</td></tr>
+<tr><td>1. 부분문제 정의</td><td>큰 문제를 작은 부분문제로 분해</td><td>부분문제 식별</td></tr>
+<tr><td>2. 점화식 도출</td><td>부분문제 간 재귀적 관계식 수립</td><td>점화식 수립</td></tr>
+<tr><td>3. 기저조건 설정</td><td>더 분해 안 되는 최소 단위 정의</td><td>Base Case</td></tr>
+<tr><td>4. 테이블 설계</td><td>계산 결과 저장할 배열·구조 설계</td><td>메모이제이션 구조</td></tr>
+<tr><td>5. 계산 순서 결정</td><td>Top-Down(재귀+메모) 또는 Bottom-Up(반복)</td><td>방향 선택</td></tr>
+<tr><td>6. 최적해 복원</td><td>저장값 역추적해 실제 해 도출(선택)</td><td>역추적</td></tr>
 </table></div>
 </li>
 <li><strong>대표 문제 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>피보나치 수열</strong></td><td>DP의 가장 기본 예제, O(n)으로 최적화</td><td>기본 예제</td></tr>
 <tr><td><strong>배낭 문제 (Knapsack)</strong></td><td>무게 제한 내 최대 가치 선택 최적화</td><td>선택 최적화</td></tr>
-<tr><td><strong>LCS</strong></td><td>두 문자열의 최장 공통 부분 수열 탐색</td><td>문자열 비교</td></tr>
-<tr><td><strong>LIS</strong></td><td>수열에서 가장 긴 증가하는 부분 수열 탐색</td><td>수열 최적화</td></tr>
+<tr><td><strong>LCS(최장공통부분수열)</strong></td><td>두 문자열의 최장 공통 부분 수열 탐색</td><td>문자열 비교</td></tr>
+<tr><td><strong>LIS(부분수열)</strong></td><td>최장 증가하는 부분 수열 탐색</td><td>수열 최적화</td></tr>
 <tr><td><strong>최단 경로 (Floyd-Warshall)</strong></td><td>모든 정점 쌍 간 최단 경로 동시 계산</td><td>전체 최단 경로</td></tr>
 <tr><td><strong>행렬 체인 곱셈</strong></td><td>행렬 곱셈 순서 최적화로 연산 비용 최소화</td><td>연산 최적화</td></tr>
 </table></div>
 </li>
 <li><strong>타 패러다임과 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>동적 프로그래밍</th><th>분할정복</th><th>탐욕 알고리즘</th></tr>
-<tr><td><strong>부분 문제 중복</strong></td><td>✅ 있음</td><td>❌ 없음</td><td>❌ 없음</td></tr>
+<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>부분 문제 중복</strong></u></span></td><td>✅ 있음</td><td>❌ 없음</td><td>❌ 없음</td></tr>
 <tr><td><strong>최적해 보장</strong></td><td>✅ 항상</td><td>✅ 항상</td><td>△ 조건 성립 시</td></tr>
-<tr><td><strong>결과 저장</strong></td><td>✅ 필수</td><td>❌ 불필요</td><td>❌ 불필요</td></tr>
+<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과 저장</strong></u></span></td><td>✅ 필수</td><td>❌ 불필요</td><td>❌ 불필요</td></tr>
 <tr><td><strong>속도</strong></td><td>중간</td><td>빠름</td><td>가장 빠름</td></tr>
 <tr><td><strong>적용 범위</strong></td><td>광범위</td><td>제한적</td><td>제한적</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트: </strong>동적 프로그래밍은 알고리즘 설계 패러다임 중 가장 광범위하게 적용되며, <strong>"상태를 어떻게 정의하느냐"</strong> 가 곧 문제 해결의 핵심이자 시험 답안의 핵심 포인트.분할정복과 구조는 유사하나 <strong>부분 문제의 중복 여부</strong>가 두 패러다임을 가르는 핵심 기준이며, 이 차이를 명확히 설명하는 것이 시험 답안 차별화의 핵심</li>
+<li><strong>인사이트: </strong>동적 프로그래밍은 알고리즘 설계 패러다임 중 가장 광범위하게 적용되며, <strong>"상태를 어떻게 정의하느냐"</strong> 가 곧 문제 해결의 핵심이자 시험 답안의 핵심 포인트. 분할정복과 구조는 유사하나 <strong>부분 문제의 중복 여부</strong>가 두 패러다임을 가르는 핵심 기준이며, 이 차이를 명확히 설명하는 것이 시험 답안 차별화의 핵심</li>
 </ul>
 <hr/>
 
