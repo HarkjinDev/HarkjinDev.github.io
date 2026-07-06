@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 7] 데이터 마이닝</title>
+  <title>4. 지수평활법 (Exponential Smoothing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,43 @@
   </style>
 </head>
 <body>
-<h3>[Part 7] 데이터 마이닝</h3>
+<h4>4. 지수평활법 (Exponential Smoothing)</h4>
+<ul>
+<li><strong>정의:</strong> 최근 관측값에 더 높은 가중치를 부여하고 과거로 갈수록 지수적으로 감소하는 가중치를 적용하여 시계열 데이터를 평활화하고 예측하는 기법</li>
+<li><strong>키워드:</strong> 평활계수(α), 단순지수평활, 이중지수평활, 삼중지수평활, Holt-Winters, 추세, 계절성, 가중 평균</li>
+<li><strong>분류:</strong> 시계열 분석</li>
+<li><strong>평활계수 (α) 의미:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>α → 1</strong></td><td>최근 관측값에 거의 모든 가중치 부여</td><td>변화에 민감</td></tr>
+<tr><td><strong>α → 0</strong></td><td>과거 평균에 가중치가 유지되어 완만한 평활</td><td>변화에 둔감</td></tr>
+<tr><td><strong>α 선택 기준</strong></td><td>데이터 변동성에 따라 MSE 최소화 기준으로 결정</td><td>오차 최소화</td></tr>
+</table></div>
+</li>
+<li><strong>주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>단순지수평활 (SES)</strong></td><td>추세·계절성 없는 정상 시계열에 적용, α 하나로 평활</td><td>수준만 반영</td></tr>
+<tr><td><strong>이중지수평활 (Holt)</strong></td><td>추세 있는 시계열에 적용, α(수준)·β(추세) 두 계수 사용</td><td>추세 반영</td></tr>
+<tr><td><strong>삼중지수평활 
+(Holt-Winters)</strong></td><td>추세·계절성 모두 있는 시계열에 적용, α·β·γ 세 계수 사용</td><td>추세·계절 반영</td></tr>
+</table></div>
+</li>
+<li><strong>Holt-Winters 유형:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>가법형</strong></td><td>계절 변동 폭이 일정할 때 적용</td><td>절대 계절성</td></tr>
+<tr><td><strong>승법형</strong></td><td>계절 변동 폭이 수준에 비례할 때 적용</td><td>상대 계절성</td></tr>
+</table></div>
+</li>
+<li><strong>이동평균법과 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>지수평활법</th><th>이동평균법</th></tr>
+<tr><td><strong>가중치</strong></td><td>최근값 높음·과거값 지수 감소</td><td>모든 관측값 동일</td></tr>
+<tr><td><strong>추세 반영</strong></td><td>✅ Holt·Holt-Winters로 가능</td><td>❌ 어려움</td></tr>
+<tr><td><strong>계절성 반영</strong></td><td>✅ Holt-Winters로 가능</td><td>❌ 불가</td></tr>
+<tr><td><strong>파라미터</strong></td><td>α·β·γ 설정 필요</td><td>윈도우 크기 설정</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 지수평활법은 구현 단순성과 추세·계절성까지 포괄하는 확장성으로 단기 예측의 실무 표준으로 자리잡고 있으며, ARIMA 대비 파라미터 해석이 직관적이어서 비전문가도 적용 가능한 실용적 시계열 예측 기법임</li>
+</ul>
+<hr/>
 
 </body>
 </html>

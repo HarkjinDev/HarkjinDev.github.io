@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 선형회귀분석 (Linear Regression Analysis)</title>
+  <title>2. 인과관계 (Causation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,65 +15,24 @@
   </style>
 </head>
 <body>
-<h4>3. 선형회귀분석 (Linear Regression Analysis)</h4>
+<h4>2. 인과관계 (Causation)</h4>
 <ul>
-<li><strong>정의:</strong> 하나 이상의 독립변수(X)와 연속형 종속변수(Y) 간의 선형 관계를 모델링하여 미래 값을 예측하고 변수 간 영향력을 분석하는 통계적 기법</li>
-<li><strong>키워드:</strong> 회귀계수, 최소제곱법(OLS), 잔차, 결정계수(R²), 다중공선성, 단순회귀, 다중회귀, 정규성, 등분산성, F-검정</li>
+<li><strong>정의</strong>: 한 변수의 변화가 다른 변수의 변화를 직접 유발하는 원인-결과 관계</li>
+<li><strong>키워드</strong>: RCT, 도구변수, 혼재변수(confounder), 자연 실험</li>
 <li><strong>분류</strong>: 회귀분석</li>
-<li><strong>회귀계수: </strong>회귀식(f(x))의 형태를 결정하는 파라미터(a, b)</li>
-<li><strong>선형회귀:</strong> 회귀분석에서 사용하는 회귀식이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>‘파라미터에 관한’ 1차식</strong></u></span>이 될때 선형회귀로 분류</li>
-<li><strong>결정계수(R²)</strong>: 회귀식이 잘 들어맞는지 평가하는 지표(0~1)<ul>
-<li><strong>조정 결정계수(R</strong><strong>’</strong><strong>²): </strong>설명변수 개수 k에 따라 조정한 결정계수</li>
-<li><strong>R^2</strong><strong> = SSR / SST = 1 - (SSE/SST)</strong></li>
-<li><strong>결정계수 수식</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>계산방법</th><th>설명</th><th>핵심</th></tr>
-<tr><td>총 변동 계산</td><td>SST: \sum(Y_i - \bar{Y})^2</td><td>Y 평균과 관측값 차이 제곱합</td><td>전체 변동량</td></tr>
-<tr><td>회귀에 의한 변동 계산</td><td>SSR: \sum(\hat{Y}_i - \bar{Y})^2</td><td>예측값과 평균의 차이 제곱합</td><td>모델 설명 변동</td></tr>
-<tr><td>잔차 변동 계산</td><td>SSE: \sum(Y_i - \hat{Y}_i)^2</td><td>실제값과 예측값 차이 제곱합</td><td>설명 못한 변동</td></tr>
-<tr><td>결정계수 계산</td><td>R^2 = SSR / SST</td><td>회귀변동 / 총변동</td><td>설명력 비율</td></tr>
-<tr><td>결정계수 해석</td><td>결정계수 값 크기 평가</td><td>모델 설명력 수준 평가</td><td>1에 가까울수록 ↑</td></tr>
-</table></div>
-</li>
+<li><strong>특징</strong>:<ul>
+<li>상관→인과 추론 조건: 시간적 선행, 공변관계, 경쟁 가설 배제</li>
+<li>인과관계 발견 어려운 이유: 중첩요인, 선택편향<ul>
+<li>예) 음주가 폐암이 미치는 효과를 알고자 한다면, 음주 이외의 요인을 동일하게 하지 않으면 안됨
+→ 상관: 음주 ↔ 흡연, 인과: 흡연(원인) ↔ 페암(결과)</li>
 </ul>
 </li>
-<li><strong>4가지 가정</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;선독정등&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>선형성</strong></td><td>X와 Y 간의 관계가 선형임</td><td>선형 관계</td></tr>
-<tr><td><strong>독립성</strong></td><td>관측값·잔차가 서로 독립</td><td>Durbin-Watson 검정</td></tr>
-<tr><td><strong>정규성</strong></td><td>잔차가 정규분포를 따름</td><td>Q-Q plot</td></tr>
-<tr><td><strong>등분산성</strong></td><td>X값에 관계없이 잔차의 분산이 일정</td><td>잔차 플롯, 브루쉬-페이건 검정(BP검정)</td></tr>
-</table></div>
+<li>인과 검증 방법: RCT(무작위 대조 실험), 자연 실험, 도구변수법</li>
+<li>통계적 인과 추론: 다중회귀, 층별해석, 경향 점수 짝짓기(PSM), 이중차분법(DiD)</li>
+<li>혼재변수: 상관관계를 허위로 만드는 제3 변수</li>
+</ul>
 </li>
-<li><strong>회귀 모형:  (</strong>Y = a + bx + ε)<div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>단순선형회귀</strong></td><td>Y = β₀ + β₁X + ε (독립변수 1개)</td><td>1개 변수</td></tr>
-<tr><td><strong>다중선형회귀</strong></td><td>Y = β₀ + β₁X₁ + β₂X₂ + … + ε (독립변수 2개 이상)</td><td>다변수</td></tr>
-<tr><td><strong>β₀ (절편)</strong></td><td>X=0일 때 Y의 기댓값</td><td>기준값</td></tr>
-<tr><td><strong>β₁ (회귀계수)</strong></td><td>X 1단위 증가 시 Y의 평균 변화량</td><td>영향력 크기</td></tr>
-<tr><td><strong>ε (오차항)</strong></td><td>모델로 설명되지 않는 무작위 잔차</td><td>설명 불가 변동</td></tr>
-</table></div>
-</li>
-<li><strong>최소제곱법 (least squares, OLS):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>목적</strong></td><td>실제값과 예측값 차이(잔차)의 제곱합을 최소화</td><td>잔차 최소화</td></tr>
-<tr><td><strong>추정</strong></td><td>잔차 제곱합(RSS)을 최소화하는 β 계수 산출</td><td>계수 추정</td></tr>
-<tr><td><strong>가정</strong></td><td>오차항이 평균 0, 등분산, 정규분포, 독립임을 가정</td><td>가우스-마르코프</td></tr>
-</table></div>
-</li>
-<li><strong>회귀분석 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td>선형</td><td>단순 선형회귀</td><td>독립1·종속1 관계 분석</td><td>1:1 선형</td></tr>
-<tr><td></td><td>다중 선형회귀</td><td>독립N·종속1 관계 분석</td><td>N:1 선형</td></tr>
-<tr><td>비선형</td><td>다항 회귀</td><td>비선형 관계 다항식 모델링</td><td>차수 확장</td></tr>
-<tr><td></td><td>곡선 회귀</td><td>지수·로그 곡선 모델링</td><td>비선형 함수</td></tr>
-<tr><td>로지스틱</td><td>단순 로지스틱 회귀</td><td>이항형 종속변수 예측</td><td>이진 분류</td></tr>
-<tr><td></td><td>다중 로지스틱 회귀</td><td>2개 이상 범주 예측</td><td>다범주 분류</td></tr>
-<tr><td>정규화</td><td>리지 (Ridge)</td><td>L2 규제로 계수 조정</td><td>다중공선성 해결</td></tr>
-<tr><td></td><td>라쏘 (Lasso)</td><td>L1 규제로 계수 0화</td><td>변수 선택</td></tr>
-<tr><td></td><td>엘라스틱넷 (ElasticNet)</td><td>L1+L2 규제 동시 적용</td><td>Ridge+Lasso</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트: </strong>선형회귀는 단순하지만 회귀계수의 명확한 해석 가능성 덕분에 의료·경제·사회과학 등 인과 분석이 중요한 분야에서 딥러닝 시대에도 여전히 핵심 기준선(Baseline) 모델로 활용됨. 모형 성능(R²)보다 가정 충족 여부(정규성·등분산성·다중공선성)를 먼저 검토하는 것이 선형회귀 적용의 올바른 순서이며, 가정 위반 시 추정치 자체의 신뢰성이 무너짐</li>
+<li><strong>인사이트</strong>: 상관관계는 인과관계의 필요 조건이지만 충분 조건은 아님. 인과 추론을 위해서는 실험 설계 또는 구조적 인과 모형이 필요하다.</li>
 </ul>
 
 </body>

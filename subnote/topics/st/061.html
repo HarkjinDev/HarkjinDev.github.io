@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. PPDM (Privacy Preserving Data Mining)</title>
+  <title>8. 사회연결망 분석 (SNA, Social Network Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,23 @@
   </style>
 </head>
 <body>
-<h4>9. PPDM (Privacy Preserving Data Mining)</h4>
+<h4>8. 사회연결망 분석 (SNA, Social Network Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 프라이버시를 보호하면서 데이터 마이닝을 수행하는 기법</li>
-<li><strong>키워드</strong>: k-익명성, ℓ-다양성, 차분 프라이버시, 연합학습</li>
+<li><strong>정의</strong>: 개체 간 관계를 네트워크로 모델링하여 구조를 분석하는 기법</li>
+<li><strong>키워드</strong>: 노드, 링크(엣지), 중심성, 군집계수, 소시오그램</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>주요 기법</strong>:<div class="table-scroll"><table>
-<tr><th>기법</th><th>개념</th><th>한계</th></tr>
-<tr><td><strong>k-익명성</strong></td><td>동일 레코드 k개 이상 존재</td><td>동질성 공격에 취약</td></tr>
-<tr><td><strong>ℓ-다양성</strong></td><td>민감 속성 ℓ가지 이상 다양</td><td>근접성 공격 취약</td></tr>
-<tr><td><strong>차분 프라이버시</strong></td><td>노이즈 추가로 개인 식별 차단</td><td>유용성 저하</td></tr>
-<tr><td><strong>연합학습</strong></td><td>원본 데이터 비공유 분산 학습</td><td>통신 비용 증가</td></tr>
-</table></div>
+<li><strong>표현 방법</strong>:<ul>
+<li><strong>소시오그램</strong>: 관계를 시각화한 그래프</li>
+<li><strong>인접행렬</strong>: 노드 간 연결을 행렬로 표현</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 차분 프라이버시(Differential Privacy)는 개인 정보 유출 위험을 수학적으로 보장하는 가장 강력한 프라이버시 보호 기법이다.</li>
+<li><strong>주요 분석</strong>:<ul>
+<li>중심성 분석 (연결·매개·인접)</li>
+<li>군집계수(Clustering Coefficient): 이웃 간 연결 밀도</li>
+<li>구조적 공백(Structural Hole): 브로커 역할 노드 탐색</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: SNA는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인이 아닌 관계와 구조에 초점</strong></u></span>. 마케팅 인플루언서 탐색, 보안 이상 행위 네트워크 탐지에 활용된다.</li>
 </ul>
 
 </body>

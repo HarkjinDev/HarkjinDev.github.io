@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 음성 데이터 마이닝 (Voice Data Mining)</title>
+  <title>5. 오피니언 마이닝 (Opinion Mining)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,27 @@
   </style>
 </head>
 <body>
-<h4>6. 음성 데이터 마이닝 (Voice Data Mining)</h4>
+<h4>5. 오피니언 마이닝 (Opinion Mining)</h4>
 <ul>
-<li><strong>정의</strong>: 음성 데이터에서 패턴, 감성, 의미를 추출하는 분석 기법</li>
-<li><strong>키워드</strong>: STT, 피치, 에너지, 성조, 어조, 음성 감성 분석</li>
+<li><strong>정의</strong>: 텍스트에서 긍정/부정 등 주관적 의견과 감성을 추출하는 분석 기법</li>
+<li><strong>키워드</strong>: 감성 스코어링, 긍정/부정/중립, SNS, 여론 분석</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>주요 기술</strong>:<ul>
-<li><strong>STT(Speech-to-Text)</strong>: 음성 → 텍스트 변환</li>
-<li><strong>음성 특성 분석</strong>: 피치, 에너지, 성조, 어조</li>
-<li><strong>감성 분석</strong>: 음성에서 감정 상태 추출</li>
-<li><strong>화자 인식</strong>: 화자 구분 및 특성 파악</li>
+<li><strong>수행 절차</strong>:<ul>
+<li>① 텍스트 수집 (SNS, 리뷰, 뉴스)</li>
+<li>② 전처리 (토크나이징, 불용어 제거)</li>
+<li>③ 감성 사전 구축 또는 ML 모델 학습</li>
+<li>④ 감성 분류 (긍정/부정/중립)</li>
+<li>⑤ 인사이트 도출 및 시각화</li>
 </ul>
 </li>
-<li><strong>발전 방향</strong>: wav2vec, Whisper 기반 딥러닝 고정밀 STT</li>
-<li><strong>인사이트</strong>: STT를 통한 텍스트 변환 후 텍스트 마이닝과 결합하는 하이브리드 방식이 활용된다. 콜센터 품질 관리, 보안 인증에 적용된다.</li>
+<li><strong>비교</strong> (텍스트 마이닝 vs 오피니언 마이닝):<div class="table-scroll"><table>
+<tr><th>구분</th><th>텍스트 마이닝</th><th>오피니언 마이닝</th></tr>
+<tr><td><strong>목적</strong></td><td>정보/패턴 추출</td><td>감성·의견 분류</td></tr>
+<tr><td><strong>분석 대상</strong></td><td>일반 비정형 텍스트</td><td>리뷰·SNS·댓글</td></tr>
+<tr><td><strong>출력</strong></td><td>키워드·토픽</td><td>긍/부/중립 스코어</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 오피니언 마이닝은 텍스트 마이닝의 하위 분야로, 마케팅 전략·정책 평가·여론 모니터링에 활용된다.</li>
 </ul>
 
 </body>

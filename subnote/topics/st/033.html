@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. ANOVA (Analysis of Variance, 분산분석)</title>
+  <title>4. z-검정 (z-test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,54 +15,31 @@
   </style>
 </head>
 <body>
-<h4>5. ANOVA (Analysis of Variance, 분산분석)</h4>
+<h4>4. z-검정 (z-test)</h4>
 <ul>
-<li><strong>정의:</strong> 세 개 이상의 집단 간 평균 차이가 통계적으로 유의한지를 집단 내 분산과 집단 간 분산의 비율(F-통계량)로 검정하는 통계적 분석 방법론</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>F-통계량, 집단 간 분산(SSB), 집단 내 분산(SSW),</strong></u></span> 귀무가설, 유의수준, 사후검정, 일원분산분석, 이원분산분석, 잔차</li>
+<li><strong>정의</strong>: 모분산이 알려진 대표본에서 모평균을 정규분포로 검정하는 기법</li>
+<li><strong>키워드</strong>: 정규분포, 대표본(n≥30), 모분산 기지, Z통계량</li>
 <li><strong>분류</strong>: 가설검정</li>
-<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>집단 간 분산 (SSB)</strong></td><td>각 집단 평균과 전체 평균 간의 차이에 의한 변동</td><td>처리 효과</td></tr>
-<tr><td><strong>집단 내 분산 (SSW)</strong></td><td>각 집단 내 개별 관측값과 집단 평균 간의 변동</td><td>오차 변동</td></tr>
-<tr><td><strong>F-통계량</strong></td><td>F = SSB / SSW, 클수록 집단 차이 유의</td><td>유의성 척도</td></tr>
-<tr><td><strong>귀무가설 (H₀)</strong></td><td>모든 집단의 평균이 동일함 (μ₁ = μ₂ = μ₃)</td><td>차이 없음</td></tr>
-<tr><td><strong>대립가설 (H₁)</strong></td><td>적어도 하나의 집단 평균이 다름</td><td>차이 존재</td></tr>
-</table></div>
-</li>
-<li><strong>ANOVA 성립 가정:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>정규성</strong></td><td>각 집단의 데이터가 정규분포를 따름</td><td>분포 가정</td></tr>
-<tr><td><strong>등분산성</strong></td><td>모든 집단의 분산이 동일함 (Levene 검정으로 확인)</td><td>분산 동질성</td></tr>
-<tr><td><strong>독립성</strong></td><td>집단 간·집단 내 관측값이 서로 독립</td><td>독립 가정</td></tr>
-</table></div>
-</li>
-<li><strong>유형:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>일원분산분석 (One-way)</strong></td><td>독립변수 1개, 집단 간 평균 차이 검정</td><td>단일 요인</td></tr>
-<tr><td><strong>이원분산분석 (Two-way)</strong></td><td>독립변수 2개, 주효과 및 상호작용 효과 검정</td><td>이중 요인</td></tr>
-<tr><td><strong>반복측정 ANOVA</strong></td><td>동일 대상을 반복 측정한 데이터의 평균 차이 검정</td><td>동일 대상 반복</td></tr>
-<tr><td><strong>MANOVA</strong></td><td>종속변수가 2개 이상인 다변량 분산분석</td><td>다중 종속변수</td></tr>
-</table></div>
-</li>
-<li><strong>분석 절차:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 가정 검토</strong></td><td>정규성·등분산성·독립성 충족 여부 확인</td><td>사전 검증</td></tr>
-<tr><td><strong>2. F-통계량 계산</strong></td><td>SSB/SSW 비율로 F값 산출</td><td>통계량 산출</td></tr>
-<tr><td><strong>3. p-value 판단</strong></td><td>p ≤ α이면 H₀ 기각, 집단 간 차이 유의</td><td>유의성 판단</td></tr>
-<tr><td><strong>4. 사후검정</strong></td><td>어느 집단 간에 차이가 있는지 구체적으로 확인</td><td>집단 쌍 비교</td></tr>
-</table></div>
-</li>
-<li><strong>사후검정 (Post-hoc Test):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Tukey HSD(튜키 검정)</strong></td><td>모든 집단 쌍을 균등하게 비교, 가장 범용적</td><td>범용 사후검정</td></tr>
-<tr><td><strong>Bonferroni(본페로니 교정)</strong></td><td>유의수준을 비교 횟수로 나눠 보수적으로 검정</td><td>보수적 검정</td></tr>
-<tr><td><strong>Scheffe</strong></td><td>모든 가능한 대비를 검정, 가장 엄격</td><td>엄격한 검정</td></tr>
-<tr><td><strong>Duncan</strong></td><td>집단 수에 따라 유의수준을 조정하는 방식</td><td>유연한 검정</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트: </strong>ANOVA는 여러 집단을 반복 t-검정하지 않고 단일 검정으로 비교함으로써 1종 오류 누적 문제를 구조적으로 해결하는 핵심 강점이 있으며, "F값이 크다 = 집단 간 차이가 오차보다 크다"는 직관이 해석의 핵심</li>
+<li><strong>특징</strong>:<ul>
+<li>Z = (X̄ - μ0) / (σ/√n)</li>
+<li>모분산(σ²) 기지 조건 필수</li>
+<li>중심극한정리: n≥30이면 모집단 분포 무관</li>
 </ul>
-<hr/>
+</li>
+<li><strong>t-검정 vs z-검정 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>t-검정</th><th>z-검정</th></tr>
+<tr><td>적용조건</td><td>모분산 모를 때, n&lt;30</td><td>모분산 알 때, n≥30</td></tr>
+<tr><td>사용표준편차</td><td>표본표준편차 s</td><td>모표준편차 σ</td></tr>
+<tr><td>기준분포</td><td>t-분포</td><td>표준정규분포 N(0,1)</td></tr>
+<tr><td>분포형태</td><td>자유도↓ 꼬리 두꺼움</td><td>평균0·분산1 고정 대칭</td></tr>
+<tr><td>검정통계량</td><td>t = \dfrac{\bar{X}-\mu_0}{s/\sqrt{n}}</td><td>Z = \dfrac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}</td></tr>
+<tr><td>자유도(df)</td><td>df = n-1 사용</td><td>사용 안 함</td></tr>
+<tr><td>대표검정</td><td>단일·대응·독립표본 t검정</td><td>모평균·모비율 z검정</td></tr>
+<tr><td>활용</td><td>소규모 실험·파일럿·품질샘플링</td><td>대규모 로그분석·A/B테스트</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: z-검정과 t-검정의 차이는 모분산 기지 여부와 표본 크기. 실제 분석에서 모분산을 아는 경우가 드물어 t-검정을 더 많이 사용한다.</li>
+</ul>
 
 </body>
 </html>

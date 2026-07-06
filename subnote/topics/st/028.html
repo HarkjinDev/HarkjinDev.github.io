@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. t-검정 (t-test)</title>
+  <title>[하위] 1-1. p-해킹 (p-Hacking)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,44 @@
   </style>
 </head>
 <body>
-<h4>2. t-검정 (t-test)</h4>
+<h4>[하위] 1-1. p-해킹 (p-Hacking)</h4>
 <ul>
-<li><strong>정의</strong>: t분포를 이용하여 모평균 또는 두 집단의 평균 차이를 검정하는 통계 기법</li>
-<li><strong>키워드</strong>: t분포, 소표본, 모분산 미지(Unknown), 독립표본, 대응표본</li>
+<li><strong>정의:</strong> 통계적 유의성(p-value ≤ α)을 확보하기 위해 데이터 수집·분석·보고 과정을 의도적 또는 무의식적으로 조작하는 행위</li>
+<li><strong>키워드:</strong> p-value, 재현성 위기, 출판 편향, 다중비교 오류, 다중검정, 유의성 편향, 데이터 마이닝, HARKing, 사전등록, 본페로니 검정, FDR 통제, 효과크기 보고(Cohen's d)</li>
 <li><strong>분류</strong>: 가설검정</li>
-<li><strong>t분포: </strong><ul>
-<li>모집단의 분산을 모를 때, 표본의 크기가 작을 때 (n &lt; 30), 표본 평균을 통해 모집단의 평균을 추정하기 위해 사용하는 확률 분포</li>
-<li>t = \frac{\bar{X} - \mu}{s / \sqrt{n}}</li>
-<li>\bar{X}: 표본 평균, \mu: 모집단 평균, s: 표본 표준편차, n: 표본 크기 (df = n-1)</li>
+<li><strong>p-해킹 발생 구조:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>재현성 위기</strong></td><td>p-해킹으로 인한 연구 결과의 재현 실패 확산</td><td>신뢰성 붕괴</td></tr>
+<tr><td><strong>출판 편향</strong></td><td>유의한 결과만 학술지에 게재되는 구조적 압력</td><td>긍정 결과 선호</td></tr>
+<tr><td><strong>다중비교 오류</strong></td><td>검정 횟수 증가 시 우연히 유의한 결과 도출 확률 증가</td><td>우연적 유의성</td></tr>
+</table></div>
+</li>
+<li><strong>재현성 위기(reproducibility crisis): </strong><ul>
+<li>재현성: 누가 언제 어디서 실험하더라도, 조건이 동일하다면 동일한 결과를 얻을 수 있어야하는 성질</li>
+<li>배경: 이치를 제대로 이해하지 않아도, 선행 연구를 모방하여 가설검정을 시행하여 p&lt;0.05를 얻는 사례</li>
 </ul>
 </li>
-<li><strong>유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>독두대단</strong></span> (독립표본·두 집단 / 대응표본·단일 집단)<ul>
-<li><strong>독립표본 t-검정</strong>: 두 독립 집단 평균 비교</li>
-<li><strong>대응표본 t-검정</strong>: 동일 집단의 사전-사후 비교</li>
-<li><strong>단일표본 t-검정</strong>: 단일 집단을 모집단 평균과 비교</li>
-</ul>
+<li><strong>주요 유형:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>다중검정 반복</strong></td><td>유의한 결과가 나올 때까지 검정을 반복 수행</td><td>1종 오류 누적</td></tr>
+<tr><td><strong>변수 선택 조작(체리피킹)</strong></td><td>유의한 결과를 주는 독립변수만 선택적으로 포함</td><td>변수 취사선택</td></tr>
+<tr><td><strong>데이터 제거</strong></td><td>결과에 불리한 이상치·관측값을 자의적으로 제거</td><td>선택적 삭제</td></tr>
+<tr><td><strong>분석 시점 조정</strong></td><td>유의성이 나타날 때 데이터 수집을 임의로 중단</td><td>조기 종료</td></tr>
+<tr><td><strong>HARKing</strong></td><td>결과를 먼저 보고 사후에 가설을 재구성하는 행위</td><td>사후 가설 설정</td></tr>
+<tr><td><strong>하위 집단 분석</strong></td><td>전체 분석이 유의하지 않으면 하위 집단만 선택 보고</td><td>부분 결과 선택</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: t-검정은 모분산이 알려지지 않은 소표본(n≤30)에서 표준정규분포 대신 t분포 사용. n이 커질수록 t분포는 표준정규분포에 수렴한다.</li>
+<li><strong>대응 방법:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>사전 등록 
+(Pre-registration)</strong></td><td>분석 전에 가설·방법론을 공개 등록하여 사후 조작 방지</td><td>분석 전 공개</td></tr>
+<tr><td><strong>Bonferroni 보정</strong></td><td>유의수준을 검정 횟수로 나눠 다중비교 오류 통제</td><td>α 보정</td></tr>
+<tr><td><strong>FDR 통제</strong></td><td>거짓 발견율(False Discovery Rate)을 기준으로 유의성 보정</td><td>오류율 통제</td></tr>
+<tr><td><strong>효과크기 보고</strong></td><td>p-value 외 Cohen's d 등 효과 크기(Effect-size)를 함께 보고</td><td>실질적 유의성</td></tr>
+<tr><td><strong>교차검증</strong></td><td>독립 데이터셋으로 결과 재현 여부 확인</td><td>재현성 검증</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> p-해킹은 개인의 비윤리적 의도뿐 아니라 "유의한 결과만 출판된다"는 구조적 압력에서 비롯되므로, 사전 등록·효과 크기 보고·재현성 검증을 연구 표준으로 제도화하는 것이 근본적 해결책이며, AI·머신러닝 분야의 성능 과장 문제와도 직결되는 핵심 연구 윤리 이슈임</li>
 </ul>
 
 </body>

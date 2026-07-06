@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. AVL 트리 / 레드-블랙 트리 (Balanced BST)</title>
+  <title>8. 라우팅 테이블 탐색 알고리즘 (Routing Table Lookup Algorithm)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,42 +15,50 @@
   </style>
 </head>
 <body>
-<h4>7. AVL 트리 / 레드-블랙 트리 (Balanced BST)</h4>
+<h4>8. 라우팅 테이블 탐색 알고리즘 (Routing Table Lookup Algorithm)</h4>
 <ul>
-<li><strong>정의:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이진 탐색 트리(BST)의 편향 문제를 해결</strong></u></span>하기 위해 삽입·삭제 시 자동으로 균형을 유지하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자가 균형 이진 탐색 트리</strong></u></span></li>
-<li><strong>키워드:</strong> 균형 인수(Balance Factor), 회전(Rotation), 높이 균형, 레드-블랙 속성, 자가 균형, O(log n), BST 편향</li>
+<li><strong>정의:</strong> 라우터가 목적지 IP에 가장 긴 프리픽스(LPM)를 매칭해 출력 인터페이스를 결정하는 알고리즘</li>
+<li><strong>키워드:</strong> LPM, 트라이, TCAM, 이진 트라이, 경로 압축, Lulea, FIB, 고속 패킷 포워딩</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>AVL 트리:</strong><div class="table-scroll"><table>
+<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>균형 조건</strong></td><td>모든 노드의 좌·우 서브트리 높이 차이가 1 이하</td><td>엄격한 균형</td></tr>
-<tr><td><strong>균형 인수</strong></td><td>BF = 왼쪽 높이 - 오른쪽 높이 (-1, 0, 1만 허용)</td><td>불균형 탐지</td></tr>
-<tr><td><strong>회전 연산</strong></td><td>불균형 발생 시 LL·RR·LR·RL 4가지 회전으로 복구</td><td>균형 복구</td></tr>
-<tr><td><strong>탐색 성능</strong></td><td>엄격한 균형으로 탐색 O(log n) 항상 보장</td><td>탐색 최적</td></tr>
-<tr><td><strong>단점</strong></td><td>삽입·삭제 시 빈번한 회전으로 갱신 비용 높음</td><td>갱신 비용</td></tr>
+<tr><td>LPM (Longest Prefix Match)</td><td>목적지 IP와 가장 길게 일치하는 프리픽스 선택</td><td>최장 일치 우선</td></tr>
+<tr><td>FIB (Forwarding Information Base)</td><td>라우팅 테이블의 포워딩 최적화 테이블</td><td>하드웨어 탐색 기반</td></tr>
+<tr><td>트라이 (Trie)</td><td>비트/문자 트리구조, IP 프리픽스 저장·탐색</td><td>접두사 트리</td></tr>
+<tr><td>TCAM</td><td>삼진 논리(0·1·X)로 병렬 IP 매칭 수행</td><td>하드웨어 고속 탐색</td></tr>
 </table></div>
 </li>
-<li><strong>레드-블랙 트리:</strong><div class="table-scroll"><table>
+<li><strong>라우팅 테이블 탐색 알고리즘 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>알고리즘</th><th>설명</th><th>핵심</th></tr>
+<tr><td>SW</td><td><strong>이진 트라이 (Binary Trie)</strong></td><td>IP 주소 비트를 0·1 단위로 검사하며 자식 노드로 내려가는 방식</td><td>비트별 순차 탐색</td></tr>
+<tr><td></td><td><strong>경로 압축 트라이 </strong></td><td>이진 트라이에서 자식 노드가 하나인 중간 노드를 병합·체인 축소</td><td>노드 수 감소</td></tr>
+<tr><td></td><td><strong>다중 비트 트라이 </strong></td><td>1비트씩 검사 대신 k비트씩 묶어 한 번에 검사하는 방식</td><td>탐색 깊이 감소</td></tr>
+<tr><td></td><td><strong>Lulea 기법</strong></td><td>다중 비트 트라이를 비트맵 압축으로 메모리 획기적 절감</td><td>압축 트라이</td></tr>
+<tr><td>HW</td><td><strong>TCAM (Ternary CAM)</strong></td><td>삼진 논리(0·1·X)로 모든 엔트리 병렬 동시 매칭 수행</td><td>나노초 고속 탐색</td></tr>
+<tr><td>해시</td><td><strong>해시 테이블</strong></td><td>IP 주소 해시 함수로 O(1) 탐색·충돌 처리 필요</td><td>정확 매칭에 적합</td></tr>
+</table></div>
+</li>
+<li><strong>트라이 구조 특성:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>색상 속성</strong></td><td>모든 노드는 Red 또는 Black으로 표시</td><td>색상 기반 균형</td></tr>
-<tr><td><strong>루트 속성</strong></td><td>루트 노드는 항상 Black</td><td>루트 규칙</td></tr>
-<tr><td><strong>Red 속성</strong></td><td>Red 노드의 자식은 반드시 Black (연속 Red 불가)</td><td>연속 Red 금지</td></tr>
-<tr><td><strong>Black 속성</strong></td><td>모든 경로의 Black 노드 수는 동일</td><td>Black 높이 균형</td></tr>
-<tr><td><strong>균형 수준</strong></td><td>AVL보다 느슨한 균형, 회전 횟수 적음</td><td>갱신 효율</td></tr>
+<tr><td>노드 구성</td><td>각 노드가 비트값(0 또는 1) 표현</td><td>이진 분기</td></tr>
+<tr><td>탐색 방향</td><td>Root→Leaf 방향으로 비트 단위 하향 탐색</td><td>상위 비트 우선</td></tr>
+<tr><td>LPM 처리</td><td>탐색 중 마지막으로 매칭된 프리픽스 선택</td><td>최장 일치 기록</td></tr>
+<tr><td>IPv4 최대 깊이</td><td>32비트→최대 32레벨 탐색</td><td>32 홉 최대</td></tr>
+<tr><td>IPv6 확장</td><td>128비트로 깊이 증가→다중 비트 트라이 필수</td><td>128 홉 문제</td></tr>
 </table></div>
 </li>
-<li><strong>AVL vs 레드-블랙 트리 비교: </strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>AVL 트리</th><th>레드-블랙 트리</th></tr>
-<tr><td><strong>균형 엄격도</strong></td><td>엄격 (BF ≤ 1)</td><td>느슨 (Black 높이 동일)</td></tr>
-<tr><td><strong>탐색 성능</strong></td><td>✅ 더 빠름</td><td>△ 약간 느림</td></tr>
-<tr><td><strong>삽입·삭제</strong></td><td>△ 회전 많음</td><td>✅ 회전 적음</td></tr>
-<tr><td><strong>구현 복잡도</strong></td><td>중간</td><td>높음</td></tr>
-<tr><td><strong>주요 활용</strong></td><td>탐색 빈번한 경우</td><td>삽입·삭제 빈번한 경우</td></tr>
-<tr><td><strong>대표 사례</strong></td><td>DB 인덱스</td><td>Linux 커널, Java TreeMap</td></tr>
+<li><strong>TCAM 동작 원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>삼진 논리</td><td>0·1·X(Don't Care) 3가지 상태 저장</td><td>와일드카드 매칭</td></tr>
+<tr><td>병렬 탐색</td><td>모든 엔트리 동시 비교·우선순위 적용</td><td>O(1) 탐색</td></tr>
+<tr><td>우선순위</td><td>가장 긴 프리픽스 엔트리 최상위 배치</td><td>LPM 구현</td></tr>
+<tr><td>단점</td><td>고비용·고전력·용량 제한(수십만 엔트리)</td><td>DRAM 대비 비용</td></tr>
+<tr><td>적용</td><td>코어 라우터·L3 스위치 하드웨어 포워딩</td><td>라인속도 처리</td></tr>
 </table></div>
 </li>
-<li><strong>활용 분야: </strong>MySQL InnoDB의 B-Tree 내부 구현 기반,가상 메모리 영역 관리, Linux 커널 CFS 스케줄러</li>
-<li><strong>인사이트:</strong> AVL과 레드-블랙 트리는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>"얼마나 엄격하게 균형을 유지하느냐"의 트레이드오프</strong></u></span>로 구분되며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>탐색이 주된 경우 AVL, 삽입·삭제가 빈번한 경우 레드-블랙 트리가 유리</strong></u></span>함. 실제 운영체제·언어 표준 라이브러리에서는 갱신 효율이 우수한 레드-블랙 트리가 사실상 표준으로 채택되어 있으며, 시험에서는 두 트리의 균형 조건과 회전 원리의 차이를 명확히 설명하는 것이 핵심 포인트</li>
+<li><strong>인사이트:</strong> 라우팅 테이블 탐색은 LPM을 얼마나 빠르게 수행하느냐가 핵심으로, 소프트웨어는 트라이 압축·다중 비트화로 탐색 깊이를 줄이고, 하드웨어는 TCAM 병렬 탐색으로 라인속도(Line-rate) 포워딩을 실현하는 이중 전략이 현대 라우터 설계의 표준</li>
 </ul>
+<hr/>
 
 </body>
 </html>

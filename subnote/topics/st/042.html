@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 등분산성 (Homoscedasticity)</title>
+  <title>7. 다변량회귀분석 (Multivariate Regression Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,19 @@
   </style>
 </head>
 <body>
-<h4>8. 등분산성 (Homoscedasticity)</h4>
+<h4>7. 다변량회귀분석 (Multivariate Regression Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 회귀 모형에서 잔차의 분산이 독립변수 값에 관계없이 일정한 성질</li>
-<li><strong>키워드</strong>: 잔차플롯, Breusch-Pagan 검정, White test, 이분산</li>
+<li><strong>정의</strong>: 복수의 종속변수를 동시에 예측하는 다차원 회귀 분석 기법</li>
+<li><strong>키워드</strong>: 종속변수 2개 이상, MANOVA, 정준상관분석</li>
 <li><strong>분류</strong>: 회귀분석</li>
-<li><strong>특징</strong>:<ul>
-<li>등분산성 위반(이분산) → 회귀계수 추정 비효율</li>
-<li>검정: Breusch-Pagan test, White test</li>
-<li>해결: 가중최소제곱(WLS), 로그변환</li>
-</ul>
+<li><strong>비교</strong> (다중회귀 vs 다변량회귀):<div class="table-scroll"><table>
+<tr><th>구분</th><th>다중회귀</th><th>다변량회귀</th></tr>
+<tr><td><strong>독립변수</strong></td><td>2개 이상</td><td>2개 이상</td></tr>
+<tr><td><strong>종속변수</strong></td><td>1개</td><td>2개 이상</td></tr>
+<tr><td><strong>활용</strong></td><td>예측/설명</td><td>복수 결과 동시 분석</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 등분산성 위반은 잔차 플롯의 팬(fan) 패턴으로 시각적 탐지 가능. 선형회귀 4가지 가정(선독정등) 중 하나로, 위반 시 검정 방법을 함께 서술할 것.</li>
+<li><strong>인사이트</strong>: 다변량회귀는 종속변수 간 상관관계를 고려하여 개별 분석보다 통계적 효율성이 높다.</li>
 </ul>
 
 </body>

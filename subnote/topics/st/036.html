@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 인과관계 (Causation)</title>
+  <title>1. 상관분석 (Correlation Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,52 @@
   </style>
 </head>
 <body>
-<h4>2. 인과관계 (Causation)</h4>
+<h4>1. 상관분석 (Correlation Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 한 변수의 변화가 다른 변수의 변화를 직접 유발하는 원인-결과 관계</li>
-<li><strong>키워드</strong>: RCT, 도구변수, 혼재변수(confounder), 자연 실험</li>
+<li><strong>정의:</strong> 두 변수 간 선형적 관계의 방향과 강도를 수치로 측정하는 통계 분석 기법</li>
+<li><strong>키워드:</strong> 피어슨, 스피어만, 켄달, 상관계수, 공분산, 산점도, 다중공선성</li>
 <li><strong>분류</strong>: 회귀분석</li>
-<li><strong>특징</strong>:<ul>
-<li>상관→인과 추론 조건: 시간적 선행, 공변관계, 경쟁 가설 배제</li>
-<li>인과관계 발견 어려운 이유: 중첩요인, 선택편향<ul>
-<li>예) 음주가 폐암이 미치는 효과를 알고자 한다면, 음주 이외의 요인을 동일하게 하지 않으면 안됨
-→ 상관: 음주 ↔ 흡연, 인과: 흡연(원인) ↔ 페암(결과)</li>
+<li><strong>분산:</strong> 확률 변수가 기댓값으로부터 얼마나 떨어진 곳에 분포하는지를 가늠하는 값<ul>
+<li>V(X) = E(X²) - {E(X)}² → 제곱의 평균 - 평균의 제곱</li>
 </ul>
 </li>
-<li>인과 검증 방법: RCT(무작위 대조 실험), 자연 실험, 도구변수법</li>
-<li>통계적 인과 추론: 다중회귀, 층별해석, 경향 점수 짝짓기(PSM), 이중차분법(DiD)</li>
-<li>혼재변수: 상관관계를 허위로 만드는 제3 변수</li>
+<li><strong>공분산:</strong> 2개의 확률변수의 상관 정도를 나타내는 값<ul>
+<li>σxy = (1/N)Σ(xi-μx)(yi-μy) → 2변수 상관 정도, 편차곱 평균</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 상관관계는 인과관계의 필요 조건이지만 충분 조건은 아님. 인과 추론을 위해서는 실험 설계 또는 구조적 인과 모형이 필요하다.</li>
+<li><strong>상관계수: </strong>두 변수 사이의 <strong>통계적 선형 관계의 강도와 방향</strong>을 -1에서 +1 사이의 수치로 나타낸 지표<ul>
+<li>방향: 양의 상관(+) / 음의 상관(-) / 무상관(0)</li>
+</ul>
+</li>
+<li><strong>상관계수 종류:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>모수</td><td>피어슨(Pearson)</td><td>연속형·정규분포 가정</td><td>선형관계 측정</td></tr>
+<tr><td>비모수</td><td>스피어만(Spearman)</td><td>순위 기반·비정규</td><td>순위 상관</td></tr>
+<tr><td></td><td>켄달(Kendall)</td><td>순위 쌍 일치도</td><td>소표본 적합</td></tr>
+<tr><td>범주</td><td>파이계수(φ)</td><td>2×2 이진변수</td><td>이진 상관</td></tr>
+<tr><td></td><td>크래머(Cramér's V)</td><td>다범주 명목변수</td><td>범주형 상관</td></tr>
+<tr><td>편</td><td>편상관(Partial)</td><td>제3변수 통제 후</td><td>순수 관계 추출</td></tr>
+</table></div>
+</li>
+<li><strong>상관계수 해석:</strong><div class="table-scroll"><table>
+<tr><th>구간</th><th>해석</th><th>핵심</th></tr>
+<tr><td>±0.9 이상</td><td>매우 강한 상관</td><td>거의 선형</td></tr>
+<tr><td>±0.7~0.9</td><td>강한 상관</td><td>유의미</td></tr>
+<tr><td>±0.4~0.7</td><td>중간 상관</td><td>참고 수준</td></tr>
+<tr><td>±0.2~0.4</td><td>약한 상관</td><td>미약</td></tr>
+<tr><td>±0.2 미만</td><td>무상관에 가까움</td><td>관계 없음</td></tr>
+<tr><td>부호</td><td>양(+): 동반 상승, 음(-): 역방향</td><td>방향성</td></tr>
+</table></div>
+</li>
+<li><strong>피어슨 상관계수 구성:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>공식</td><td>r = Cov(X,Y) / σX·σY</td><td>공분산 정규화</td></tr>
+<tr><td>범위</td><td>-1 ≤ r ≤ +1</td><td>방향+강도</td></tr>
+<tr><td>가정</td><td>정규분포·등분산·선형</td><td>모수 기반</td></tr>
+<tr><td>한계</td><td>비선형 관계 미탐지</td><td>인과≠상관</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 상관관계 ≠ 인과관계. 상관계수는 선형 강도만 측정하므로, 산점도·편상관·비모수 기법을 병행해 허위상관과 인과관계 오류를 차단해야 함</li>
 </ul>
 
 </body>

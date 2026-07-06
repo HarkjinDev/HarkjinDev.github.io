@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 이동평균모형 (MA, Moving Average Model)</title>
+  <title>2. 자기회귀모형 (AR, Autoregressive Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,19 @@
   </style>
 </head>
 <body>
-<h4>3. 이동평균모형 (MA, Moving Average Model)</h4>
+<h4>2. 자기회귀모형 (AR, Autoregressive Model)</h4>
 <ul>
-<li><strong>정의</strong>: 과거 오차항의 가중 합으로 현재값을 예측하는 시계열 분석 모형</li>
-<li><strong>키워드</strong>: MA(q), 과거 오차항, ACF, 평활화</li>
+<li><strong>정의</strong>: 과거 자기 자신의 값에 의존하여 현재값을 예측하는 시계열 모형</li>
+<li><strong>키워드</strong>: AR(p), 과거값 의존, 시차(lag), PACF, 정상성</li>
 <li><strong>분류</strong>: 시계열 분석</li>
 <li><strong>특징</strong>:<ul>
-<li>MA(q): Xt = εt + θ1εt-1 + θ2εt-2 + ... + θqεt-q</li>
-<li>차수 q: ACF(자기상관함수)로 결정</li>
-<li>AR과 달리 유한 기억(finite memory) 구조</li>
+<li>AR(p): Xt = φ1Xt-1 + φ2Xt-2 + ... + φpXt-p + εt</li>
+<li>차수 p: PACF(편자기상관함수)로 결정</li>
+<li>정상성(stationarity) 가정 필요</li>
+<li>ARIMA 모형의 AR 구성요소</li>
 </ul>
 </li>
-<li><strong>비교</strong> (AR vs MA):<div class="table-scroll"><table>
-<tr><th>구분</th><th>AR 모형</th><th>MA 모형</th></tr>
-<tr><td><strong>의존 대상</strong></td><td>과거 자기값 (Xt-p)</td><td>과거 오차항 (εt-q)</td></tr>
-<tr><td><strong>차수 결정</strong></td><td>PACF</td><td>ACF</td></tr>
-<tr><td><strong>기억 구조</strong></td><td>무한 기억</td><td>유한 기억</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: MA 차수 q는 ACF가 유의하게 절단되는 시차로 결정. AR(PACF)과 MA(ACF)의 차수 결정 도구 차이를 반드시 구분하여 기술할 것.</li>
+<li><strong>인사이트</strong>: AR 차수 p는 PACF가 유의하게 절단(cut-off)되는 시차로 결정. ARMA = AR(p)+MA(q), ARIMA = 차분(I) 추가.</li>
 </ul>
 
 </body>

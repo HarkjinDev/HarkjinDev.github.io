@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-1. 독립표본 t-검정 (Independent t-test)</title>
+  <title>2. t-검정 (t-test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,24 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-1. 독립표본 t-검정 (Independent t-test)</h4>
+<h4>2. t-검정 (t-test)</h4>
 <ul>
-<li><strong>정의</strong>: 서로 독립인 두 집단의 평균 차이를 비교하는 t-검정 기법</li>
-<li><strong>키워드</strong>: 두 독립 집단, 평균 차이, 등분산 가정</li>
+<li><strong>정의</strong>: t분포를 이용하여 모평균 또는 두 집단의 평균 차이를 검정하는 통계 기법</li>
+<li><strong>키워드</strong>: t분포, 소표본, 모분산 미지(Unknown), 독립표본, 대응표본</li>
 <li><strong>분류</strong>: 가설검정</li>
-<li><strong>특징</strong>:<ul>
-<li>H0: μ1 = μ2 (두 집단 평균 동일)</li>
-<li>등분산 가정 확인 필요 (Levene's test)</li>
-<li>등분산: pooled t-test / 이분산: Welch's t-test</li>
+<li><strong>t분포: </strong><ul>
+<li>모집단의 분산을 모를 때, 표본의 크기가 작을 때 (n &lt; 30), 표본 평균을 통해 모집단의 평균을 추정하기 위해 사용하는 확률 분포</li>
+<li>t = \frac{\bar{X} - \mu}{s / \sqrt{n}}</li>
+<li>\bar{X}: 표본 평균, \mu: 모집단 평균, s: 표본 표준편차, n: 표본 크기 (df = n-1)</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>독립표본 t-검정 전 등분산성 검정(Levene's test)</strong></u></span>을 반드시 수행하여 pooled vs Welch 방법을 결정해야 함.</li>
+<li><strong>유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>독두대단</strong></span> (독립표본·두 집단 / 대응표본·단일 집단)<ul>
+<li><strong>독립표본 t-검정</strong>: 두 독립 집단 평균 비교</li>
+<li><strong>대응표본 t-검정</strong>: 동일 집단의 사전-사후 비교</li>
+<li><strong>단일표본 t-검정</strong>: 단일 집단을 모집단 평균과 비교</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: t-검정은 모분산이 알려지지 않은 소표본(n≤30)에서 표준정규분포 대신 t분포 사용. n이 커질수록 t분포는 표준정규분포에 수렴한다.</li>
 </ul>
 
 </body>

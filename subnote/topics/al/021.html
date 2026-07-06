@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. 위상정렬 (Topological Sort)</title>
+  <title>4. 이진 탐색 트리 (Binary Search Tree)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,26 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. 위상정렬 (Topological Sort)</h4>
+<h4>4. 이진 탐색 트리 (Binary Search Tree)</h4>
 <ul>
-<li><strong>정의</strong>: DAG에서 선행 관계를 유지하며 노드를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선형 순서로 나열</strong></u></span>하는 알고리즘</li>
-<li><strong>키워드</strong>: DAG, 진입 차수, Kahn’s Algorithm, DFS 후위 순회, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선행 제약(Precedence), 비유일성</strong></u></span></li>
+<li><strong>정의:</strong> 각 노드의 왼쪽 서브트리는 작은값, 오른쪽 서브트리는 큰값을 갖는 트리 탐색 알고리즘</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중위 순회(왼쪽 &lt; 루트 &lt; 오른쪽)</strong></u></span>, 편향 트리, AVL 트리, 레드-블랙 트리</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>알고리즘 비교</strong>:<div class="table-scroll"><table>
-<tr><th>방법</th><th>절차</th><th>복잡도</th></tr>
-<tr><td>Kahn’s (BFS 기반, 직관적)</td><td>진입 차수 0 노드 큐 삽입 → Dequeue → 인접 노드 차수 감소 → 반복</td><td>O(V + E)</td></tr>
-<tr><td>DFS 기반(역방향 출력)</td><td>모든 노드 DFS → 완료 시 스택 push → 역순 출력</td><td>O(V + E)</td></tr>
+<li><strong>연산 복잡도</strong>:<div class="table-scroll"><table>
+<tr><th>연산</th><th>평균</th><th>최악 (편향 트리)</th></tr>
+<tr><td>탐색</td><td>O(log n)</td><td>O(n)</td></tr>
+<tr><td>삽입</td><td>O(log n)</td><td>O(n)</td></tr>
+<tr><td>삭제</td><td>O(log n)</td><td>O(n)</td></tr>
 </table></div>
 </li>
-<li><strong>특징</strong>:<ul>
-<li>위상정렬 결과는 유일하지 않을 수 있음 (진입 차수 0 노드가 복수인 경우)</li>
-<li>사이클 존재 시 위상정렬 불가능: Kahn’s에서 전체 노드가 처리되지 않으면 사이클 감지</li>
-</ul>
+<li><strong>삭제 케이스</strong>:<div class="table-scroll"><table>
+<tr><th>케이스</th><th>처리 방법</th></tr>
+<tr><td>자식 없음 (리프)</td><td>노드 직접 삭제</td></tr>
+<tr><td>자식 1개</td><td>자식 노드로 대체</td></tr>
+<tr><td>자식 2개</td><td>중위 후계자(오른쪽 부트리 최솟값) 또는 중위 전위 노드로 대체</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 위상정렬은 <strong>사이클 감지 알고리즘으로도 활용</strong>되며, Kahn’s는 BFS 기반으로 직관적이고, DFS 기반은 역방향 출력이라는 차이를 명확히 서술. 결과 비유일성도 반드시 언급</li>
+<li><strong>인사이트</strong>: BST 최악 O(n) 문제는 <strong>AVL 트리(회전 연산으로 균형 유지, O(log n) 보장)</strong>나 레드-블랙 트리로 해결하며, 이것이 디스크 기반 B-트리로 확장됨을 언급</li>
 </ul>
 
 </body>

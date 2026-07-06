@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 7]. 형식언어/오토마타</title>
+  <title>1. 정규 표현식 (Regular Expression)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,25 @@
   </style>
 </head>
 <body>
-<h3>[Part 7]. 형식언어/오토마타</h3>
+<h4>1. 정규 표현식 (Regular Expression)</h4>
+<ul>
+<li><strong>정의</strong>: 문자열의 패턴을 메타문자로 정의하여 검색·치환하는 형식 언어</li>
+<li><strong>키워드</strong>: 메타문자, 패턴 매칭, 정규 언어, *, +, ?, [], |, ^, $, 유한 오토마타</li>
+<li><strong>분류</strong>: 형식언어/오토마타</li>
+<li><strong>주요 메타문자</strong>:<div class="table-scroll"><table>
+<tr><th>메타문자</th><th>의미</th><th>예시</th></tr>
+<tr><td>.</td><td>임의의 문자 1개</td><td>a.c → abc, aXc</td></tr>
+<tr><td>*</td><td>0회 이상 반복</td><td>ab* → a, ab, abb</td></tr>
+<tr><td>+</td><td>1회 이상 반복</td><td>ab+ → ab, abb</td></tr>
+<tr><td>?</td><td>0 또는 1회</td><td>ab? → a, ab</td></tr>
+<tr><td>[]</td><td>문자 클래스</td><td>[a-z] → 소문자 알파벳</td></tr>
+<tr><td>^</td><td>시작 앵커 / 부정</td><td>^abc → abc로 시작</td></tr>
+<tr><td>$</td><td>끝 앵커</td><td>abc$ → abc로 끝</td></tr>
+<tr><td>|</td><td>선택 (OR)</td><td>a|b → a 또는 b</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 정규 표현식은 <strong>유한 오토마타(DFA/NFA)와 동치 관계</strong>이며, 정규 언어를 정의하는 세 가지 방법(정규 표현식, 유한 오토마타, 정규 문법)이 상호 변환 가능함을 언급하면 차별화됨</li>
+</ul>
 
 </body>
 </html>

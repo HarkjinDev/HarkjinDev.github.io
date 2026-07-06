@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 연관 규칙 분석 (Association Rule Analysis)</title>
+  <title>2. 데이터 어노테이션 (Data Annotation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,39 +15,34 @@
   </style>
 </head>
 <body>
-<h4>3. 연관 규칙 분석 (Association Rule Analysis)</h4>
+<h4>2. 데이터 어노테이션 (Data Annotation)</h4>
 <ul>
-<li><strong>정의</strong>: 항목 간 동시 발생 패턴을 지지도·신뢰도·향상도로 발견하는 분석 기법</li>
-<li><strong>키워드</strong>: 지지도, 신뢰도, 향상도, Apriori, 빈발 항목집합</li>
+<li><strong>정의:</strong> AI 모델 학습에 필요한 원시 데이터(이미지·텍스트·음성 등)에 레이블·태그·메타데이터를 부착하여 모델이 학습 가능한 형태로 가공하는 작업</li>
+<li><strong>키워드:</strong> 레이블링, 태깅, 바운딩 박스, 시맨틱 세그멘테이션, 크라우드소싱, 품질 관리, RLHF, 휴먼 인 더 루프, 데이터 품질</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>Apriori 알고리즘:</strong>  모든 항목 집합에 대한 지지도를 계산하는 대신, 최소 지지도 이상의 빈발항목집합만을 찾아내서 연관규칙을 계산하는 기법</li>
-<li><strong>연관규칙 탐색 원칙: </strong><ul>
-<li>최소 지지도(minimum support) : 분석자가 정하는 최소한의 지지도</li>
-<li>최소 신뢰도(minimum confidence) : 분석자가 정하는 최소한의 신뢰도</li>
-<li>연관 분석(Association Analysis) 수행 단계<ul>
-<li>단계 1) 빈발항목집합의 생성 (Frequent Item Set Generation): 최소지지도(minimum support)를 만족하는 모든 빈발항목을 찾는 과정</li>
-<li>단계 2) 연관규칙의 생성 (Rule Generation): 단계 1에서 찾은 빈발항목집합을 바탕으로, 최소신뢰도(minimum confidence) 기준을 통과하는 모든 연관 규칙을 도출</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>측도</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;지신향&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>측도</th><th>공식</th><th>의미</th></tr>
-<tr><td><strong>지지도(Support)</strong></td><td>P(A∩B)</td><td>A와 B 동시 발생 비율</td></tr>
-<tr><td><strong>신뢰도(Confidence)</strong></td><td>P(B|A)</td><td>A 발생 시 B 발생 조건부 확률</td></tr>
-<tr><td><strong>향상도(Lift)</strong></td><td>P(B|A)/P(B)</td><td>A,B의 상관관계</td></tr>
+<li><strong>핵심 기법:</strong><div class="table-scroll"><table>
+<tr><th><strong>기법</strong></th><th><strong>특징</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>바운딩 박스</strong></td><td>빠른 데이터 가공</td><td>객체 테두리 사각형 틀 캡처</td></tr>
+<tr><td><strong>폴리곤</strong></td><td>물체 크기 정밀 인식</td><td>객체 외곽선 정밀 지점 표시</td></tr>
+<tr><td><strong>폴리라인</strong></td><td>선형 형태 추적</td><td>직선 및 곡선 다중 점 추적</td></tr>
+<tr><td><strong>포인트</strong></td><td>작업이 간단함</td><td>단일 픽셀 지정 및 개수 산출</td></tr>
+<tr><td><strong>큐보이드</strong></td><td>3D 입체 정보 식별</td><td>3D 육면체 형태 입체 박스</td></tr>
+<tr><td><strong>시맨틱 세그멘테이션</strong></td><td>모든 픽셀 분류</td><td>모든 픽셀 단위 클래스 분류</td></tr>
 </table></div>
 </li>
-<li><strong>연관규칙 도출 과정(Apriori):</strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;빈최후반연&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>기준</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>빈도수 집합 탐색</strong></td><td>대용량 데이터베이스 내의 단위 트랜잭션에서 빈번하게 발생하는 사건의 유형을 발견</td></tr>
-<tr><td><strong>최소 지지도 확인</strong></td><td>트랜잭션을 대상으로 최소지지도 이상을 만족하는 빈발항목 집합을 발견하는 과정</td></tr>
-<tr><td><strong>후보 집합 생성</strong></td><td>빈발항목으로 집합 생성</td></tr>
-<tr><td><strong>반복</strong></td><td>새로운 빈발항목이 생성되지 않을 때까지 반복 수행</td></tr>
-<tr><td><strong>연관 규칙 생성</strong></td><td>발견된 다량 항목 집합 내에 포함된 항목들 중에서 최소 신뢰도 이상을 만족하는 항목들 간의 연관 규칙을 생성하는 단계 (지지도, 신뢰도, 향상도 계산)</td></tr>
+<li><strong>라벨링과의 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>어노테이션 (Annotation)</th><th>레이블링 (Labeling)</th></tr>
+<tr><td><strong>개념 범위</strong></td><td>레이블링을 포함하는 상위 개념</td><td>어노테이션의 하위 개념</td></tr>
+<tr><td><strong>작업 복잡도</strong></td><td>위치·관계·맥락 등 복합 정보 부착</td><td>단순 클래스·태그 부여</td></tr>
+<tr><td><strong>출력 형태</strong></td><td>바운딩 박스·세그멘테이션·키포인트 등</td><td>카테고리·숫자·텍스트 태그</td></tr>
+<tr><td><strong>데이터 유형</strong></td><td>이미지·영상·음성·텍스트 전반</td><td>주로 텍스트·정형 데이터</td></tr>
+<tr><td><strong>작업 난이도</strong></td><td>높음 (전문 지식 필요)</td><td>낮음 (단순 분류 가능)</td></tr>
+<tr><td><strong>비용</strong></td><td>높음</td><td>낮음</td></tr>
+<tr><td><strong>활용 예시</strong></td><td>객체 탐지·세그멘테이션·NER</td><td>스팸 여부·감성 긍부정 분류</td></tr>
+<tr><td><strong>주요 도구</strong></td><td>LabelImg, CVAT, Scale AI</td><td>Excel, Label Studio</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 향상도(Lift)&gt;1이면 A와 B가 독립보다 더 강하게 연관됨을 의미. Apriori 알고리즘은 최소 지지도·신뢰도 이상인 빈발 항목집합을 효율적으로 발견한다.</li>
+<li><strong>인사이트:</strong> "AI의 성능은 데이터 품질에 달려있다"는 원칙 하에, 어노테이션은 AI 개발의 가장 핵심적인 선행 작업으로 자리잡음. 최근 LLM 기반 AI 보조 어노테이션이 확산되며 비용·속도 문제가 완화되고 있으나, 전문 도메인과 RLHF용 선호도 어노테이션에서는 여전히 고품질 인간 판단이 대체 불가한 핵심 요소로 남아 있음</li>
 </ul>
 
 </body>

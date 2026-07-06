@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 이진 탐색 트리 (Binary Search Tree)</title>
+  <title>[하위] 4-1. B-트리 (B-Tree)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,22 @@
   </style>
 </head>
 <body>
-<h4>4. 이진 탐색 트리 (Binary Search Tree)</h4>
+<h4>[하위] 4-1. B-트리 (B-Tree)</h4>
 <ul>
-<li><strong>정의</strong>: 각각의 노드가 왼쪽과 오른쪽에 최대 두 개의 자식 노드를 가지는 트리 자료 구조의 정렬된 데이터 집합에서 값을 빠르게 탐색하기 위한 알고리즘</li>
-<li><strong>키워드</strong>: 왼쪽 &lt; 루트 &lt; 오른쪽, 중위 순회, 편향 트리, AVL 트리, 레드-블랙 트리</li>
+<li><strong>정의:</strong> 노드당 여러 자식을 가지며 삽입·삭제 시 자동으로 균형을 유지하는 탐색 트리 </li>
+<li><strong>키워드</strong>: M-원 탐색 트리, 차수(M), 균형, 디스크 I/O 최소화, B+트리, 페이지 분할</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>연산 복잡도</strong>:<div class="table-scroll"><table>
-<tr><th>연산</th><th>평균</th><th>최악 (편향 트리)</th></tr>
-<tr><td>탐색</td><td>O(log n)</td><td>O(n)</td></tr>
-<tr><td>삽입</td><td>O(log n)</td><td>O(n)</td></tr>
-<tr><td>삭제</td><td>O(log n)</td><td>O(n)</td></tr>
+<li><strong>B-트리 vs B+트리 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>B-트리</th><th>B+트리</th></tr>
+<tr><td>데이터 저장 위치</td><td>내부 노드 + 리프 노드</td><td>리프 노드만</td></tr>
+<tr><td>리프 노드 연결</td><td>없음</td><td>연결 리스트로 연결</td></tr>
+<tr><td>순차 탐색</td><td>트리 전체 순회 필요</td><td>리프 연결로 O(n) 순회</td></tr>
+<tr><td>범위 검색</td><td>비효율</td><td>효율적 (BETWEEN, ORDER BY)</td></tr>
+<tr><td>주요 활용</td><td>파일 시스템 (HFS+)</td><td>DBMS 인덱스 (InnoDB)</td></tr>
 </table></div>
 </li>
-<li><strong>삭제 케이스</strong>:<div class="table-scroll"><table>
-<tr><th>케이스</th><th>처리 방법</th></tr>
-<tr><td>자식 없음 (리프)</td><td>노드 직접 삭제</td></tr>
-<tr><td>자식 1개</td><td>자식 노드로 대체</td></tr>
-<tr><td>자식 2개</td><td>중위 후계자(오른쪽 부트리 최솟값) 또는 중위 전위 노드로 대체</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: BST 최악 O(n) 문제는 <strong>AVL 트리(회전 연산으로 균형 유지, O(log n) 보장)</strong>나 레드-블랙 트리로 해결하며, 이것이 디스크 기반 B-트리로 확장됨을 언급</li>
+<li><strong>삽입 알고리즘</strong>: 리프 노드에 키 삽입 → 오버플로 시 중간 키를 부모로 올리며 분할(Split) → 루트까지 전파</li>
+<li><strong>인사이트</strong>: <strong>DBMS의 인덱스는 대부분 B+트리</strong>로 구현되며, 리프 노드의 연결 리스트 구조가 범위 검색의 효율을 극대화함; M차 B-트리에서 노드당 최대 M-1개의 키와 M개의 자식을 갖는다는 제약 조건도 서술</li>
 </ul>
 
 </body>

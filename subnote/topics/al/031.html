@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 4]. 정렬 알고리즘</title>
+  <title>1. 버블 정렬 (Bubble Sort)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,21 @@
   </style>
 </head>
 <body>
-<h3>[Part 4]. 정렬 알고리즘</h3>
+<h4>1. 버블 정렬 (Bubble Sort)</h4>
+<ul>
+<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>인접 요소를 반복 비교·교환</strong></u></span>하여 정렬하는 O(n²) 시간 복잡도 알고리즘</li>
+<li><strong>키워드</strong>: 인접 비교, 교환(Swap), 패스(Pass), 안정 정렬, 조기 종료 최적화</li>
+<li><strong>분류</strong>: 정렬 알고리즘</li>
+<li><strong>복잡도</strong>:<div class="table-scroll"><table>
+<tr><th>케이스</th><th>시간 복잡도</th><th>조건</th></tr>
+<tr><td>최선</td><td>O(n)</td><td>이미 정렬된 배열 (조기 종료 플래그 적용 시)</td></tr>
+<tr><td>평균/최악</td><td>O(n²)</td><td>역순 정렬된 배열</td></tr>
+<tr><td>공간</td><td>O(1)</td><td>제자리 정렬 (In-place)</td></tr>
+</table></div>
+</li>
+<li><strong>특징</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>안정 정렬(Stable Sort) </strong></u></span>— 동일 키 값의 원소 간 상대 순서 유지</li>
+<li><strong>인사이트</strong>: 버블 정렬은 <strong>구현이 단순하나 성능이 낮아</strong> 실무에서 거의 사용되지 않으며, 조기 종료 플래그(swap이 없으면 정렬 완료로 판단)를 사용한 최적화 버전이 시험 포인트. <strong>안정 정렬</strong>이라는 특성도 반드시 언급</li>
+</ul>
 
 </body>
 </html>

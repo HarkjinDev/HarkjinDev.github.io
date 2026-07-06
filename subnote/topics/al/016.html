@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 대기행렬시스템 (Queue System)</title>
+  <title>[Part 3]. 비선형 자료구조</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,7 @@
   </style>
 </head>
 <body>
-<h4>5. 대기행렬시스템 (Queue System)</h4>
-<ul>
-<li><strong>정의</strong>: 도착률과 서비스율에 기반하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>대기 시간을 분석</strong></u></span>하는 확률적 모델</li>
-<li><strong>키워드</strong>: 도착률(λ), 서비스율(μ), 이용률(ρ), M/M/1 큐, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>리틀의 법칙(Little’s Law)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>포아송 분포(도착 횟수 모델링의 표준)</strong></u></span></li>
-<li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>핵심 지표 (M/M/1 기준)</strong>:<div class="table-scroll"><table>
-<tr><th>지표</th><th>수식</th><th>설명</th></tr>
-<tr><td>이용률 ρ</td><td>λ / μ</td><td>서버 부하율, ρ &lt; 1이어야 안정 상태</td></tr>
-<tr><td>평균 대기 시간 Wq</td><td>λ / (μ(μ-λ))</td><td>큐에서 서비스 시작 전 대기 시간</td></tr>
-<tr><td>리틀의 법칙</td><td>L = λ · W</td><td>시스템 내 평균 고객 수 = 도착률 × 평균 체류 시간</td></tr>
-</table></div>
-</li>
-<li><strong>활용: </strong>네트워크 트래픽 모델링, CPU 스케줄링, 콜센터 설계</li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이용률(ρ)이 1에 근접할수록 대기 시간이 기하급수적으로 증가하는 비선형 관계</strong></u></span>를 강조해야 함</li>
-</ul>
-<hr/>
+<h3>[Part 3]. 비선형 자료구조</h3>
 
 </body>
 </html>

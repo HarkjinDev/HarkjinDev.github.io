@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3] 추정</title>
+  <title>7. 대기행렬시스템 (Queue System)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,41 @@
   </style>
 </head>
 <body>
-<h3>[Part 3] 추정</h3>
+<h4>7. 대기행렬시스템 (Queue System)</h4>
+<ul>
+<li><strong>정의</strong>: 고객 도착·서비스 과정을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>확률모델로 표현</strong></u></span>해 대기시간을 분석하는 수학적 성능분석 이론</li>
+<li><strong>키워드</strong>: 켄달 표기법(A/B/C/K), 도착률(λ), 서비스율(μ), 이용률(ρ), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>M/M/1(단일 서버, 포아송 도착, 지수 서비스)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>리틀의 법칙(Little’s Law)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>포아송 분포(도착 횟수 모델링의 표준)</strong></u></span></li>
+<li><strong>분류</strong>: 확률분포</li>
+<li><strong>켄달 표기법 (A/B/C/K):</strong><div class="table-scroll"><table>
+<tr><th>표기</th><th>의미</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>A</strong></td><td><strong>도착 분포</strong></td><td>고객 도착 패턴</td><td>M=포아송</td></tr>
+<tr><td><strong>B</strong></td><td><strong>서비스 분포</strong></td><td>서비스 시간 패턴</td><td>M=지수분포</td></tr>
+<tr><td><strong>C</strong></td><td><strong>서버 수</strong></td><td>병렬 서버 개수</td><td>1,2,...,∞</td></tr>
+<tr><td><strong>K</strong></td><td><strong>시스템 용량</strong></td><td>최대 수용 고객수</td><td>기본값 ∞</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 지표 (M/M/1 기준):</strong><div class="table-scroll"><table>
+<tr><th>지표</th><th>수식</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>이용률(ρ)</strong></td><td>λ/μ</td><td>서버 부하율 측정</td><td>ρ&lt;1 안정조건</td></tr>
+<tr><td><strong>평균 대기시간(Wq)</strong></td><td>λ/(μ(μ-λ))</td><td>대기 시작전 시간</td><td>큐 대기시간</td></tr>
+<tr><td><strong>평균 체류시간(W)</strong></td><td>Wq+1/μ</td><td>시스템 전체 시간</td><td>대기+서비스</td></tr>
+<tr><td><strong>평균 대기고객수(Lq)</strong></td><td>λ·Wq</td><td>큐 내 고객수</td><td>리틀법칙 적용</td></tr>
+<tr><td><strong>평균 시스템고객수(L)</strong></td><td>λ·W</td><td>시스템 내 고객수</td><td>리틀법칙</td></tr>
+</table></div>
+</li>
+<li><strong>주요 큐잉 모델:</strong><div class="table-scroll"><table>
+<tr><th>모델</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>M/M/1</strong></td><td>단일서버 무한대기열</td><td>기본 모델</td></tr>
+<tr><td><strong>M/M/c</strong></td><td>다중서버(c개) 병렬</td><td>병렬 서버</td></tr>
+<tr><td><strong>M/M/1/K</strong></td><td>단일서버 유한용량</td><td>대기열 제한</td></tr>
+<tr><td><strong>M/G/1</strong></td><td>서비스시간 일반분포</td><td>비지수 서비스</td></tr>
+<tr><td><strong>M/M/∞</strong></td><td>서버수 무한</td><td>대기 없음</td></tr>
+</table></div>
+</li>
+<li><strong>활용: </strong>네트워크 트래픽 모델링, CPU 스케줄링, 콜센터 상담원 배치, 생산라인 병목분석, 클라우드 오토스케일링 임계값 조정</li>
+<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이용률(ρ)이 1에 근접할수록 대기 시간이 기하급수적으로 증가하는 비선형 관계</strong></u></span>를 강조해야 함</li>
+</ul>
+<hr/>
 
 </body>
 </html>

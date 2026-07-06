@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 네트워크 중심성 (Network Centrality)</title>
+  <title>6. 음성 데이터 마이닝 (Voice Data Mining)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,20 @@
   </style>
 </head>
 <body>
-<h4>7. 네트워크 중심성 (Network Centrality)</h4>
+<h4>6. 음성 데이터 마이닝 (Voice Data Mining)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크에서 노드의 중요도를 평가하는 분석 지표</li>
-<li><strong>키워드</strong>: 연결중심성, 매개중심성, 인접중심성</li>
+<li><strong>정의</strong>: 음성 데이터에서 패턴, 감성, 의미를 추출하는 분석 기법</li>
+<li><strong>키워드</strong>: STT, 피치, 에너지, 성조, 어조, 음성 감성 분석</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>3가지 중심성</strong>:<ul>
-<li><strong>연결중심성(Degree)</strong>: 직접 연결된 노드 수 → 영향력 측정</li>
-<li><strong>매개중심성(Betweenness)</strong>: 최단 경로 상 위치 빈도 → 정보 브로커 역할</li>
-<li><strong>인접중심성(Closeness)</strong>: 다른 노드까지 평균 거리의 역수 → 정보 전파 속도</li>
+<li><strong>주요 기술</strong>:<ul>
+<li><strong>STT(Speech-to-Text)</strong>: 음성 → 텍스트 변환</li>
+<li><strong>음성 특성 분석</strong>: 피치, 에너지, 성조, 어조</li>
+<li><strong>감성 분석</strong>: 음성에서 감정 상태 추출</li>
+<li><strong>화자 인식</strong>: 화자 구분 및 특성 파악</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 3가지 중심성은 연결(양), 매개(위치), 인접(거리)로 다른 관점에서 중요도 측정. SNS 인플루언서 분석, 감염병 핵심 노드 탐색에 활용.</li>
+<li><strong>발전 방향</strong>: wav2vec, Whisper 기반 딥러닝 고정밀 STT</li>
+<li><strong>인사이트</strong>: STT를 통한 텍스트 변환 후 텍스트 마이닝과 결합하는 하이브리드 방식이 활용된다. 콜센터 품질 관리, 보안 인증에 적용된다.</li>
 </ul>
 
 </body>

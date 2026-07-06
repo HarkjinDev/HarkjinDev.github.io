@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 점추정 (Point Estimation)</title>
+  <title>1. 추정이론 (Estimation Theory)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,25 @@
   </style>
 </head>
 <body>
-<h4>2. 점추정 (Point Estimation)</h4>
+<h4>1. 추정이론 (Estimation Theory)</h4>
 <ul>
-<li><strong>정의</strong>: 모수를 하나의 특정 값으로 추정하는 통계적 추정 방법</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 추정값</strong></u></span>, 표본평균, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최대우도추정(MLE)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불편성</strong></u></span></li>
+<li><strong>정의</strong>: 표본으로부터 모집단의 모수를 추정하는 통계적 이론 체계</li>
+<li><strong>키워드</strong>: 점추정, 구간추정, 불편추정량, 신뢰구간, 효율성</li>
 <li><strong>분류</strong>: 추정</li>
-<li><strong>최대우도추정 (Maximum Likelihood Estimation, MLE): </strong>"어떤 모수(\theta)일 때 현재 우리가 가진 데이터가 나타날 확률이 가장 높을까?"를 역으로 추적하여 그 값을 모수로 선택하는 최적화 기법</li>
-<li><strong>좋은 추정량 조건</strong>:<ul>
-<li><strong>불편성(Unbiasedness)</strong>: E(θ̂) = θ, 추정량의 기댓값이 실제 모수와 일치하는 성질</li>
-<li><strong>일치성(Consistency)</strong>: n 급가 시 모수에 수렴</li>
-<li><strong>효율성(Efficiency)</strong>: 동일 조건에서 분산 최소</li>
-<li><strong>충분성(Sufficiency)</strong>: 모수에 대한 모든 정보 포함</li>
+<li><strong>추정량:</strong> 모집단의 성질을 추정하는데 사용하는 통계량<ul>
+<li><strong>일치추정량:</strong> 모집단의 성질과 일치하는 추정량</li>
+<li><strong>비편향추정량: </strong>추정량의 평균값(기대값)이 모집단의 성질과 일치할 때의 추정량
+→ 비편향추정량은 매번 얻을 때마다 확률적으로 다른 값이 되지만, 평균으로보면 모집단의 성질을 과대하지도 과소하지도 않게 나타내는 양</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 점추정은 단일 값을 제공하는 반면, 신뢰수준을 반영하지 못한다는 한계로 구간추정과 함께 사용된다.</li>
+<li><strong>핵심 구성요소</strong>:<ul>
+<li>점추정: 단일 값으로 모수 추정</li>
+<li>구간추정: 신뢰구간으로 모수 범위 제시</li>
+<li>불편추정량: E(θ̂)=θ 만족하는 추정량</li>
+<li>효율성: 동일 불편추정량 중 분산이 최소인 것이 효율적</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 추정이론은 점추정·구간추정·불편성·효율성을 포괄하는 상위 개념. 좋은 추정량의 4가지 조건(불편성·일치성·효율성·충분성)을 답안에 명시할 것.</li>
 </ul>
 
 </body>

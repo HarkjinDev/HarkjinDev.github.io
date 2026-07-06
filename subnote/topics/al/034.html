@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 삽입 정렬 (Insertion Sort)</title>
+  <title>4. 트리정렬 (Tree Sort)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. 삽입 정렬 (Insertion Sort)</h4>
+<h4>4. 트리정렬 (Tree Sort)</h4>
 <ul>
-<li><strong>정의</strong>: 정렬된 부분 배열에 새 요소를 적절한 위치에 삽입하는 정렬 알고리즘</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정렬된 부분 배열</strong></u></span>, 비교·이동, 안정 정렬, O(n) 최선, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>온라인 정렬</strong></u></span>, 하이브리드(Introsort)</li>
+<li><strong>정의</strong>: 이진 탐색 트리에 삽입 후 중위 순회로 정렬된 결과를 얻는 알고리즘</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>BST 삽입, 중위 순회(In-order Traversal)</strong></u></span>, O(n log n) 평균, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동적 정렬</strong></u></span></li>
 <li><strong>분류</strong>: 정렬 알고리즘</li>
 <li><strong>복잡도</strong>:<div class="table-scroll"><table>
 <tr><th>케이스</th><th>시간 복잡도</th><th>조건</th></tr>
-<tr><td>최선</td><td>O(n)</td><td>이미 정렬된 배열 (이동 없이 비교만)</td></tr>
-<tr><td>평균/최악</td><td>O(n²)</td><td>역순 정렬된 배열</td></tr>
-<tr><td>공간</td><td>O(1)</td><td>제자리 정렬</td></tr>
+<tr><td>평균</td><td>O(n log n)</td><td>균형 BST 구성 시</td></tr>
+<tr><td>최악</td><td>O(n²)</td><td>편향 BST (정렬된 입력 삽입 시)</td></tr>
+<tr><td>공간</td><td>O(n)</td><td>트리 노드 저장</td></tr>
 </table></div>
 </li>
-<li><strong>특징</strong>: 안정 정렬, 온라인 정렬(데이터를 순차적으로 받으며 정렬 가능)</li>
-<li><strong>인사이트</strong>: 삽입 정렬은 <strong>소규모 데이터 및 거의 정렬된 배열에 최적</strong>이며, 퀵 정렬의 재귀 기저 케이스(소규모 부분 배열)에서 삽입 정렬로 전환하는 <strong>Introsort(하이브리드)</strong> 방식이 실무 표준임을 언급</li>
+<li><strong>특징</strong>: 안정 정렬, 동적으로 요소를 추가하면서 정렬 상태 유지 가능</li>
+<li><strong>인사이트</strong>: 트리정렬은 <strong>동적으로 요소를 추가하면서 정렬 상태를 유지</strong>해야 할 때 유용하며, 편향 트리 문제는 AVL 또는 레드-블랙 트리 적용으로 O(n log n) 보장 가능. 힙 정렬과 달리 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>트리 노드별 메모리가 필요하다는 단점</strong></u></span>도 언급</li>
 </ul>
+<hr/>
 
 </body>
 </html>

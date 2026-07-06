@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. R-트리 (R-Tree)</title>
+  <title>6. 최소신장트리 (MST, Minimum Spanning Tree)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,22 @@
   </style>
 </head>
 <body>
-<h4>5. R-트리 (R-Tree)</h4>
+<h4>6. 최소신장트리 (MST, Minimum Spanning Tree)</h4>
 <ul>
-<li><strong>정의</strong>: 공간 데이터를 효율적으로 인덱싱하는 다차원 트리 구조</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>MBR(Minimum Bounding Rectangle), 공간 인덱스, 중첩(Overlap)</strong></u></span>, R+트리, R*트리</li>
+<li><strong>정의</strong>: 무방향 가중치 그래프에서 사이클 없이 모든 정점을 최소비용으로 연결하는 트리</li>
+<li><strong>키워드</strong>: 탐욕 알고리즘, 크루스칼(Kruskal), 프림(Prim), 솔린(Sollin), Union-Find, 우선순위 큐</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>변형 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>R-트리</th><th>R+트리</th><th>R*트리</th></tr>
-<tr><td>MBR 중첩</td><td>허용</td><td>불허 (분할로 해결)</td><td>최소화</td></tr>
-<tr><td>삽입 전략</td><td>면적 최소 MBR</td><td>MBR 분리 허용</td><td>면적+둘레+중첩 최적화</td></tr>
-<tr><td>검색 성능</td><td>중첩으로 저하 가능</td><td>중첩 없어 빠름</td><td>가장 우수</td></tr>
-<tr><td>삽입 복잡도</td><td>낮음</td><td>중간</td><td>높음</td></tr>
+<li><strong>알고리즘 비교</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;크간프정솔컴&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>크루스칼 (Kruskal)</strong></th><th><strong>프림 (Prim)</strong></th><th><strong>솔린 (Sollin/Boruvka)</strong></th></tr>
+<tr><td><strong>방식</strong></td><td><strong>간선 중심</strong> 탐욕 알고리즘</td><td><strong>정점 중심</strong> 탐욕 알고리즘</td><td><strong>컴포넌트 중심</strong> 병렬 탐욕</td></tr>
+<tr><td><strong>절차</strong></td><td>가중치 정렬 후 사이클 없는 간선 선택</td><td>임의 정점에서 최소 가중치 간선 확장</td><td>모든 정점에서 동시 시작 후 컴포넌트 병합</td></tr>
+<tr><td><strong>자료구조</strong></td><td>Union-Find (서로소 집합)</td><td>우선순위 큐 (Min-heap)</td><td>Union-Find (포레스트 관리)</td></tr>
+<tr><td><strong>복잡도</strong></td><td>O(E log E)</td><td>O(E log V)</td><td>O(E log V)</td></tr>
+<tr><td><strong>적합 그래프</strong></td><td>희소 그래프(E ≪ V²)</td><td>밀집 그래프(E ≈ V²)</td><td>희소 그래프 / 병렬 환경</td></tr>
+<tr><td><strong>핵심 특징</strong></td><td>전체 간선 중 가작 작은 값부터 선택</td><td>현재 트리에서 가장 가까운 정점 선택</td><td>매 단계 여러 간선을 동시에 처리 가능</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: R-트리는 <strong>GIS, 지도 검색, 공간 데이터베이스(PostGIS)</strong>의 공간 인덱스에 사용되며, B+트리가 1차원 탐색의 표준이라면 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>R-트리는 다차원 공간 탐색의 표준</strong></u></span>임을 강조. MBR 개념과 중첩 처리 방식의 차이가 핵심</li>
+<li><strong>인사이트</strong>: MST는 <strong>네트워크 설계, 회로 배선, 클러스터링 알고리즘(DBSCAN 전처리)</strong>에 활용되며, 두 알고리즘 모두 탐욕 기법이지만 크루스칼은 간선, 프림은 정점 중심이라는 접근 차이를 명확히 서술</li>
 </ul>
 
 </body>

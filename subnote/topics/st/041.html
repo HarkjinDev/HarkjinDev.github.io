@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 다변량회귀분석 (Multivariate Regression Analysis)</title>
+  <title>6. 포아송 회귀분석 (Poisson Regression Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,19 @@
   </style>
 </head>
 <body>
-<h4>7. 다변량회귀분석 (Multivariate Regression Analysis)</h4>
+<h4><strong>6. 포아송 회귀분석 (Poisson Regression Analysis)</strong></h4>
 <ul>
-<li><strong>정의</strong>: 복수의 종속변수를 동시에 예측하는 다차원 회귀 분석 기법</li>
-<li><strong>키워드</strong>: 종속변수 2개 이상, MANOVA, 정준상관분석</li>
+<li><strong>정의</strong>: 종속변수가 특정 단위 시간이나 공간에서 발생하는 사건의 횟수(Count)일 때, 그 발생 빈도를 예측하는 회귀 기법</li>
+<li><strong>키워드</strong>: 횟수 데이터, 포아송 분포, 로그 연결 함수(Log Link), 평균=분산, \lambda(람다)</li>
 <li><strong>분류</strong>: 회귀분석</li>
-<li><strong>비교</strong> (다중회귀 vs 다변량회귀):<div class="table-scroll"><table>
-<tr><th>구분</th><th>다중회귀</th><th>다변량회귀</th></tr>
-<tr><td><strong>독립변수</strong></td><td>2개 이상</td><td>2개 이상</td></tr>
-<tr><td><strong>종속변수</strong></td><td>1개</td><td>2개 이상</td></tr>
-<tr><td><strong>활용</strong></td><td>예측/설명</td><td>복수 결과 동시 분석</td></tr>
-</table></div>
+<li><strong>특징</strong>:<ul>
+<li><strong>출력</strong>: E(Y|X) = \lambda = e^z (항상 0보다 큰 양수의 사건 발생 빈도를 예측)</li>
+<li><strong>연결 함수</strong>: \ln(\lambda) = \beta_0 + \beta_1X_1 + \dots (선형 결합과 \lambda를 잇는 Log-link 사용)</li>
+<li><strong>기반 분포</strong>: 일정 시간이나 공간 내에서 발생하는 사건의 개수를 다루는 포아송 분포를 따름</li>
+<li><strong>통계량</strong>: 기댓값과 분산이 모두 \lambda로 동일하다는 수학적 성질을 가짐</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 다변량회귀는 종속변수 간 상관관계를 고려하여 개별 분석보다 통계적 효율성이 높다.</li>
+<li><strong>인사이트</strong>: 포아송 회귀계수 \beta를 지수화한 e^\beta는 독립변수가 1단위 증가할 때 사건 발생 빈도(\lambda)가 몇 배 변화하는지를 나타내는 비율로 해석함. 단, 평균과 분산이 같아야 한다는 제약이 강하므로, 실제 데이터에서 분산이 평균보다 훨씬 큰 <strong>과산포(Overdispersion)</strong> 현상이 나타나면 음이항 회귀분석(Negative Binomial Regression)을 대안으로 검토해야 함.</li>
 </ul>
 
 </body>
