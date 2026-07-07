@@ -18,9 +18,9 @@
 <h4>2. 유전 알고리즘 (Genetic Algorithm)</h4>
 <ul>
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>생물의 진화 원리(선택·교차·돌연변이)를 모방</strong></u></span>하여 최적해를 탐색하는 메타휴리스틱 기반 진화 연산 알고리즘</li>
-<li><strong>키워드</strong>: 염색체(Chromosome), 선택(Selection), 교차(Crossover), 돌연변이(Mutation), 적합도 함수(Fitness Function), 세대(Generation), 메타휴리스틱스</li>
+<li><strong>키워드</strong>: 염색체, 선택(룰렛,토너먼트,엘리트주의), 교차, 돌연변이, 적합도 함수, 세대, 메타휴리틱스</li>
 <li><strong>분류</strong>: 최적화 알고리즘</li>
-<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
+<li><strong>핵심 구성 요소:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;염적선교돌&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>염색체 (Chromosome)</strong></td><td>하나의 해를 인코딩한 문자열·벡터 표현</td><td>해 표현</td></tr>
 <tr><td><strong>적합도 함수 (Fitness)</strong></td><td>염색체의 품질을 수치로 평가하는 목적 함수</td><td>품질 평가</td></tr>
@@ -31,7 +31,7 @@
 </li>
 <li><strong>절차 (6단계)</strong>:<div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 초기 집단 생성</strong></td><td>무작위로 초기 해 집합(염색체 집단) 생성</td><td>무작위 초기화</td></tr>
+<tr><td><strong>1. 염색체 집단 생성</strong></td><td>무작위로 초기 해 집합(염색체 집단) 생성</td><td>무작위 초기화</td></tr>
 <tr><td><strong>2. 적합도 평가</strong></td><td>각 염색체의 문제 해결 적합도를 함수로 평가</td><td>품질 측정</td></tr>
 <tr><td><strong>3. 선택 (Selection)</strong></td><td>적합도 높은 개체를 다음 세대 부모로 선택</td><td><strong>룰렛 휠(비례), 토너먼트(경쟁), 
 엘리트주의(최적해)</strong></td></tr>
@@ -42,9 +42,9 @@
 </li>
 <li><strong>최적화 파라미터</strong>:<div class="table-scroll"><table>
 <tr><th>파라미터</th><th>권장 범위</th><th>역할</th></tr>
-<tr><td>교차율(Crossover Rate)</td><td>80~90%</td><td>해 탐색 속도 결정</td></tr>
-<tr><td>돌연변이율(Mutation Rate)</td><td>1~5%</td><td>다양성 유지, 지역 최적 탈출</td></tr>
-<tr><td>집단 크기(Population Size)</td><td>50~200</td><td>탐색 폭과 수렴 속도 균형</td></tr>
+<tr><td><strong>교차율(Crossover Rate)</strong></td><td>80~90%</td><td>해 탐색 속도 결정</td></tr>
+<tr><td><strong>돌연변이율(Mutation Rate)</strong></td><td>1~5%</td><td>다양성 유지, 지역 최적 탈출</td></tr>
+<tr><td><strong>집단 크기(Population Size)</strong></td><td>50~200</td><td>탐색 폭과 수렴 속도 균형</td></tr>
 </table></div>
 </li>
 <li><strong>활용 분야: </strong>외판원 문제(TSP), 스케줄링, 배낭 문제, 신경망 구조·하이퍼파라미터 자동 탐색 (NAS), NPC 행동 패턴·전략 진화적 학습, 항공·자동차 부품 형상 최적화</li>
