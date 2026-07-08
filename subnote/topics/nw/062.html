@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. MODBUS (산업제어 통신 프로토콜)</title>
+  <title>4. C-V2X (Cellular Vehicle to Everything)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,21 @@
   </style>
 </head>
 <body>
-<h4>6. MODBUS (산업제어 통신 프로토콜)</h4>
+<h4>4. C-V2X (Cellular Vehicle to Everything)</h4>
 <ul>
-<li><strong>정의</strong>: 산업 자동화 환경에서 PLC·센서·RTU 등 장비 간 데이터를 교환하는 마스터-슬레이브 방식의 직렬 통신 프로토콜</li>
-<li><strong>키워드</strong>: 마스터-슬레이브, RTU/ASCII/TCP, 코일, 레지스터, ICS/OT 보안, SCADA</li>
+<li><strong>정의</strong>: LTE/5G 셀룰러 네트워크 인프라를 기반으로 차량과 차량·인프라·보행자·네트워크 간 실시간 통신을 가능하게 하는 기술</li>
+<li><strong>키워드</strong>: V2V/V2I/V2P/V2N, LTE-V2X, 5G NR-V2X, DSRC, PC5 인터페이스, 자율주행</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>MODBUS 변형</strong>:<div class="table-scroll"><table>
-<tr><th>변형</th><th>전송 매체</th><th>인코딩</th><th>특징</th></tr>
-<tr><td>MODBUS RTU</td><td>RS-232/485</td><td>이진</td><td>고효율, 산업 표준</td></tr>
-<tr><td>MODBUS ASCII</td><td>RS-232/485</td><td>ASCII</td><td>가독성, 저효율</td></tr>
-<tr><td>MODBUS TCP</td><td>Ethernet</td><td>TCP/IP</td><td>현대 OT 네트워크</td></tr>
+<li><strong>C-V2X 통신 유형</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>활용</th></tr>
+<tr><td>V2V(Vehicle to Vehicle)</td><td>차량 간 직접 통신</td><td>충돌 방지, 군집 주행</td></tr>
+<tr><td>V2I(Vehicle to Infrastructure)</td><td>신호등·도로 인프라</td><td>교통 최적화</td></tr>
+<tr><td>V2P(Vehicle to Pedestrian)</td><td>보행자 안전</td><td>충돌 경고</td></tr>
+<tr><td>V2N(Vehicle to Network)</td><td>셀룰러 네트워크</td><td>HD맵, OTA 업데이트</td></tr>
 </table></div>
 </li>
-<li><strong>보안 취약점</strong>: 인증·암호화 없음 → ICS/OT 보안에서 주요 위협 (Stuxnet 등 공격 사례)</li>
-<li><strong>인사이트</strong>: MODBUS는 1979년 제정된 <strong>레거시 OT 프로토콜</strong>로 보안 기능이 전무하므로, ICS 환경에서는 네트워크 세그먼테이션·화이트리스트·암호화 게이트웨이로 보완 필수.</li>
+<li><strong>DSRC vs C-V2X</strong>: DSRC(IEEE 802.11p)는 전용 단거리 무선, C-V2X는 기존 셀룰러 인프라 활용으로 커버리지 우위</li>
+<li><strong>인사이트</strong>: 5G NR-V2X는 <strong>1ms 이하 초저지연</strong>으로 레벨 4 이상 자율주행에 필요한 실시간 의사결정을 지원. V2X는 자율주행 인프라의 핵심 통신 기술로 국가 표준화가 진행 중.</li>
 </ul>
 
 </body>

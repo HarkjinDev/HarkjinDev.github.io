@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. Tor (The Onion Router)</title>
+  <title>2. IPSec (Internet Protocol Security)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,76 +15,44 @@
   </style>
 </head>
 <body>
-<h4>4. Tor (The Onion Router)</h4>
+<h4>2. IPSec (Internet Protocol Security)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 다중 암호화해 여러 중계 노드를 경유시켜 발신자를 은닉하는 익명 통신 네트워크</li>
-<li><strong>키워드</strong>: 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 익명성</li>
-<li><strong>분류</strong>: VPN</li>
-<li><strong>Tor vs VPN 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
-<tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
-<tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
-<tr><td>속도</td><td>빠름</td><td>느림(다중 홉)</td></tr>
-<tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
-<tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
+<li><strong>정의:</strong> IP 계층에서 패킷의 인증·암호화·무결성을 보장하는 표준 보안 프로토콜 모음</li>
+<li><strong>키워드:</strong> AH, ESP, IKE, SA, 전송 모드, 터널 모드, 암호화, 무결성, VPN 핵심 프로토콜</li>
+<li><strong>분류:</strong> VPN</li>
+<li><strong>핵심 구성 프로토콜:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>인증</strong></td><td><strong>AH (Authentication Header)</strong></td><td>패킷 출처 인증·무결성 보장, 암호화 미제공</td></tr>
+<tr><td><strong>암호화·인증</strong></td><td><strong>ESP (Encapsulating Security Payload)</strong></td><td>페이로드 암호화·인증·무결성 동시 제공</td></tr>
+<tr><td><strong>키 관리</strong></td><td><strong>IKE (Internet Key Exchange)</strong></td><td>SA 협상·세션키 자동 교환·갱신</td></tr>
+<tr><td></td><td><strong>SA (Security Association)</strong></td><td>통신 양단 간 보안 파라미터 협약 단방향 연결</td></tr>
 </table></div>
 </li>
-<li><strong>익명성 한계</strong>: Exit 노드가 평문 트래픽 감청 가능, 트래픽 분석 공격(상관관계 분석)에 취약</li>
-<li><strong>인사이트</strong>: Tor는 <strong>완전한 익명성을 제공하지 않으며</strong>, Exit 노드 공격과 타이밍 분석에 취약. .onion 주소의 Hidden Service는 서버와 클라이언트 모두 익명성 보장으로 다크웹에 활용.</li>
-</ul>
-<p>4. Tor (The Onion Router)</p>
-<ul>
-<li><strong>정의:</strong> 데이터를 다중 암호화해 여러 중계 노드를 경유시켜 발신자를 은닉하는 익명통신망</li>
-<li><strong>키워드:</strong> 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 트래픽 분석</li>
-<li><strong>분류</strong>: VPN</li>
-<li><strong>Tor 네트워크 구성요소 (3-Hop 릴레이):</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>릴레이</th><th>설명</th><th>핵심</th></tr>
-<tr><td>1홉</td><td>Guard Relay</td><td>클라이언트 직접 연결 노드</td><td>IP 노출 지점</td></tr>
-<tr><td>2홉</td><td>Middle Relay</td><td>중간 데이터 중계 노드</td><td>경로 은닉</td></tr>
-<tr><td>3홉</td><td>Exit Relay</td><td>목적지로 최종 전달</td><td>평문 노출 가능</td></tr>
+<li><strong>동작 모드:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>전송 모드 (Transport)</th><th>터널 모드 (Tunnel)</th></tr>
+<tr><td><strong>암호화 범위</strong></td><td>페이로드만 암호화</td><td>전체 패킷 암호화</td></tr>
+<tr><td><strong>IP 헤더</strong></td><td>원본 IP 헤더 유지</td><td>새 IP 헤더 추가</td></tr>
+<tr><td><strong>주요 용도</strong></td><td>단말 간 직접 통신</td><td>게이트웨이 간 VPN</td></tr>
+<tr><td><strong>적용 환경</strong></td><td>Host-to-Host</td><td>Site-to-Site VPN</td></tr>
 </table></div>
 </li>
-<li><strong>양파 라우팅 동작 원리:</strong><div class="table-scroll"><table>
+<li><strong>IKE 협상 단계:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td>1. 회로 구성</td><td>3개 노드 선택해 경로 설정</td><td>회로 생성</td></tr>
-<tr><td>2. 다중 암호화</td><td>공개키로 계층별 순차 암호화</td><td>양파 껍질 구조</td></tr>
-<tr><td>3. 순차 복호화</td><td>각 노드가 한겹씩 복호화</td><td>경로 정보 분산</td></tr>
-<tr><td>4. 데이터 전달</td><td>Exit가 최종 복호화 전송</td><td>평문 전달</td></tr>
-<tr><td>5. 회로 갱신</td><td>약 10분마다 회로 재구성</td><td>추적 방지</td></tr>
+<tr><td><strong>IKE Phase 1</strong></td><td>안전한 채널 구성을 위한 IKE SA 협상·DH 키 교환</td><td>보안 채널 수립</td></tr>
+<tr><td><strong>IKE Phase 2</strong></td><td>IPSec SA 협상, 실제 데이터 암호화 파라미터 결정</td><td>데이터 보호 협상</td></tr>
 </table></div>
 </li>
-<li><strong>Hidden Service (.onion):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td>개념</td><td>실제 IP 없이 서비스 제공</td><td>서버 익명성</td></tr>
-<tr><td>접속 방식</td><td>양측 모두 Tor 회로 경유</td><td>양방향 익명</td></tr>
-<tr><td>주소 체계</td><td>공개키 기반 자체 생성</td><td>DNS 불필요</td></tr>
-<tr><td>활용</td><td>다크웹·검열우회 서비스</td><td>익명 서비스</td></tr>
+<li><strong>AH vs ESP 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>AH</th><th>ESP</th></tr>
+<tr><td><strong>암호화</strong></td><td>❌</td><td>✅</td></tr>
+<tr><td><strong>인증·무결성</strong></td><td>✅</td><td>✅</td></tr>
+<tr><td><strong>IP 헤더 보호</strong></td><td>✅ 포함</td><td>❌ 미포함</td></tr>
+<tr><td><strong>NAT 통과</strong></td><td>❌ 불가</td><td>✅ NAT-T 지원</td></tr>
+<tr><td><strong>실무 사용</strong></td><td>드묾</td><td>✅ 주로 사용</td></tr>
 </table></div>
 </li>
-<li><strong>Tor vs VPN 비교:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
-<tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
-<tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
-<tr><td>경유 노드 수</td><td>1개 (VPN 서버)</td><td>3개 (Guard·Middle·Exit)</td></tr>
-<tr><td>운영 주체</td><td>단일 사업자</td><td>전세계 자원봉사 릴레이</td></tr>
-<tr><td>속도</td><td>빠름</td><td>느림 (다중 홉)</td></tr>
-<tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
-<tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
-</table></div>
-</li>
-<li><strong>익명성 한계 및 공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>공격 유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td>Exit 노드 감청</td><td>평문 트래픽 감청·조작</td><td>HTTPS 필수</td></tr>
-<tr><td>트래픽 분석</td><td>입출력 패턴 상관분석</td><td>국가급 공격 취약</td></tr>
-<tr><td>Guard 노드 식별</td><td>고정 진입점 장기 노출</td><td>첫 홉 IP 노출</td></tr>
-<tr><td>악성 Exit 노드</td><td>공격자 운영 노드 존재</td><td>데이터 탈취</td></tr>
-<tr><td>브라우저 핑거프린팅</td><td>설정·플러그인 기반 식별</td><td>탈익명화 위험</td></tr>
-<tr><td>DoS 공격</td><td>릴레이 과부하로 저하</td><td>가용성 저하</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> Tor는 완전한 익명성을 제공하지 않으며 Exit 노드 감청과 트래픽 상관관계 분석에 구조적으로 취약하므로 HTTPS 병행이 필수이고, Hidden Service(.onion)는 서버·클라이언트 양방향 익명성을 보장해 다크웹·검열우회에 활용되나 국가급 공격자에게는 탈익명화 가능성이 존재함</li>
+<li><strong>인사이트:</strong> IPSec은 VPN의 핵심 암호화 인프라로 네트워크 계층에서 투명하게 동작하는 강점이 있으나, NAT 환경에서의 AH 비호환·복잡한 설정 구조로 인해 경량·고성능의 WireGuard가 대안으로 부상하고 있으며 ESP+터널 모드 조합이 실무 표준으로 자리잡고 있음</li>
 </ul>
-<hr/>
 
 </body>
 </html>

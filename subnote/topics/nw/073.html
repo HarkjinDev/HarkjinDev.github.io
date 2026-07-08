@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. AI-Native Network (AI 네이티브 네트워크)</title>
+  <title>1. 6G 이동통신</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,21 @@
   </style>
 </head>
 <body>
-<h4>3. AI-Native Network (AI 네이티브 네트워크)</h4>
+<h4>1. 6G 이동통신</h4>
 <ul>
-<li><strong>정의</strong>: AI를 네트워크 설계·운영·최적화에 내재화하여 트래픽 예측, 자원 할당, 장애 자가 치유를 자율적으로 수행하는 차세대 지능형 네트워크</li>
-<li><strong>키워드</strong>: 자율 최적화, 디지털 트윈, AI-RAN, 의도 기반 네트워킹, 폐루프 자동화, Zero-Touch</li>
+<li><strong>정의</strong>: Tbps급 전송속도, 10μs 이하 초저지연, AI 네이티브 설계를 목표로 2030년대 상용화를 목표로 하는 차세대 6세대 이동통신 기술</li>
+<li><strong>키워드</strong>: IMT-2030, 테라헤르츠(THz), AI-Native, 디지털 트윈, 위성-지상 통합, 감지-통신 통합</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>AI-Native 핵심 기능</strong>: 자율 최적화, 디지털 트윈, 자가치유, AI-RAN, Zero-Touch</li>
-<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th><strong>구성 요소</strong></th><th><strong>역할</strong></th><th><strong>핵심 기능 (요약)</strong></th></tr>
-<tr><td><strong>의도 기반 인터페이스 (IBN)</strong></td><td>사용자의 의도 해석</td><td>자연어 명령을 네트워크 설정값으로 자동 변환</td></tr>
-<tr><td><strong>지능형 데이터 평면</strong></td><td>실시간 트래픽 처리</td><td>AI 모델 기반 패킷 경로 최적화 및 이상 탐지</td></tr>
-<tr><td><strong>AI 오케스트레이터</strong></td><td>자원 배치 및 제어</td><td>전역적 자원 최적화 및 자가 복구 명령 하달</td></tr>
-<tr><td><strong>네트워크 데이터 패브릭</strong></td><td>통합 데이터 수집</td><td>NW 전 영역의 데이터를 실시간 수집 및 학습용 정제</td></tr>
-<tr><td><strong>디지털 트윈 (Digital Twin)</strong></td><td>가상 시뮬레이션</td><td>물리 NW 적용 전 변경 사항의 안정성 사전 검증</td></tr>
+<li><strong>6G 성능 요구사항</strong>:<div class="table-scroll"><table>
+<tr><th>항목</th><th>5G(IMT-2020)</th><th>6G(IMT-2030)</th></tr>
+<tr><td>최대 전송속도</td><td>20 Gbps</td><td>1 Tbps</td></tr>
+<tr><td>지연 시간</td><td>1 ms</td><td>10 μs</td></tr>
+<tr><td>연결 밀도</td><td>10⁶/km²</td><td>10⁷/km²</td></tr>
+<tr><td>주파수</td><td>Sub-6G/mmWave</td><td>THz(100~300 GHz)</td></tr>
 </table></div>
 </li>
-<li><strong>발전과정: </strong><div class="table-scroll"><table>
-<tr><th><strong>단계</strong></th><th><strong>명칭</strong></th><th><strong>특징 (요약)</strong></th></tr>
-<tr><td><strong>Level 1</strong></td><td><strong>AI-Assisted</strong></td><td>AI가 분석 리포트 제공, <strong>최종 결정은 운영자</strong>가 수행</td></tr>
-<tr><td><strong>Level 2</strong></td><td><strong>AI-Enhanced</strong></td><td>특정 영역(보안, 가용성)에서 <strong>룰 기반 자동화</strong> 수행</td></tr>
-<tr><td><strong>Level 3</strong></td><td><strong>AI-Native</strong></td><td>설계부터 AI 중심. <strong>Closed-loop 기반 자가 최적화</strong> 달성</td></tr>
-</table></div>
-</li>
-<li><strong>주요 구현 기술:</strong><div class="table-scroll"><table>
-<tr><th><strong>기술명</strong></th><th><strong>메커니즘 (요약)</strong></th></tr>
-<tr><td><strong>연합 학습</strong></td><td>각 에지(Edge)에서 개별 학습 후 모델만 공유하여 <strong>프라이버시 보호</strong></td></tr>
-<tr><td><strong>강화 학습 (Deep RL)</strong></td><td>네트워크 환경과의 상호작용을 통해 <strong>최적의 자원 할당 정책</strong> 도출</td></tr>
-<tr><td><strong>Generative AI</strong></td><td>복잡한 <strong>네트워크 설정 코드 및 장애 복구 스크립트</strong> 자동 생성</td></tr>
-<tr><td><strong>eBPF</strong></td><td>커널 수준에서 <strong>고성능 가시성(Observability)</strong> 확보 및 트래픽 제어</td></tr>
-</table></div>
-</li>
-<li><strong>기존 네트워크 vs AI-Native</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>기존</th><th>AI-Native</th></tr>
-<tr><td>운영 방식</td><td>인간 수동 설정</td><td>AI 자율 운영</td></tr>
-<tr><td>최적화</td><td>정적 정책</td><td>실시간 동적</td></tr>
-<tr><td>장애 대응</td><td>사후 처리</td><td>예측·사전 차단</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: AI-Native는 <strong>6G의 핵심 아키텍처 패러다임</strong>으로, IBN과 결합하여 비즈니스 의도만 입력하면 AI가 전 계층을 자율 운영하는 완전 자율 네트워크를 목표로 함.</li>
+<li><strong>6G 주요 기술</strong>: 테라헤르츠 통신, AI-Native 네트워크, 통신-감지 통합(ISAC), 홀로그래픽 통신, 비지상 네트워크(NTN) 통합</li>
+<li><strong>인사이트</strong>: 6G는 <strong>통신 인프라 자체가 AI로 자율 운영</strong>되는 AI-Native 구조를 지향하며, 테라헤르츠 대역의 짧은 전파 거리 문제는 RIS(재구성 가능 지능 표면)와 초밀집 기지국으로 해결 예정.</li>
 </ul>
 
 </body>

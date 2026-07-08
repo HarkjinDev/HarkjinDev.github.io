@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 7]. VPN</title>
+  <title>3. 오픈플로우 (OpenFlow)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,22 @@
   </style>
 </head>
 <body>
-<h3>[Part 7]. VPN</h3>
+<h4>3. 오픈플로우 (OpenFlow)</h4>
+<ul>
+<li><strong>정의</strong>: SDN 컨트롤러와 스위치 간 통신을 표준화한 사우스바운드 API 프로토콜</li>
+<li><strong>키워드</strong>: ONF, 플로우 테이블, 매치-액션, 컨트롤 채널, TCP 6633/6653, 프로그래밍</li>
+<li><strong>분류</strong>: 네트워크 가상화/SDN</li>
+<li><strong>오픈플로우 동작</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th></tr>
+<tr><td>플로우 테이블</td><td>매치 조건 + 액션(전달/폐기/수정) 저장</td></tr>
+<tr><td>매치 필드</td><td>L2~L4 헤더(MAC, IP, Port 등)</td></tr>
+<tr><td>액션</td><td>Output, Drop, Modify, Flood</td></tr>
+<tr><td>컨트롤 채널</td><td>컨트롤러-스위치 간 TLS/TCP 연결</td></tr>
+</table></div>
+</li>
+<li><strong>패킷 처리</strong>: 플로우 테이블 매치 → 액션 수행 / 미매치 → Packet-In으로 컨트롤러에 문의</li>
+<li><strong>인사이트</strong>: 오픈플로우는 <strong>SDN을 실용화한 최초의 표준 인터페이스</strong>로, 컨트롤러가 전체 네트워크 트래픽 정책을 중앙에서 프로그래밍 가능하게 함. P4 언어는 오픈플로우를 넘어 데이터 평면 자체를 프로그래밍하는 차세대 기술.</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. AI-RAN (AI-based Radio Access Network)</title>
+  <title>2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,35 +15,20 @@
   </style>
 </head>
 <body>
-<h4>4. AI-RAN (AI-based Radio Access Network)</h4>
+<h4>2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)</h4>
 <ul>
-<li><strong>정의</strong>: 무선접속망(RAN)에 AI/ML을 내재화하여 무선 자원 할당, 빔포밍, 간섭 관리, 셀 최적화를 실시간 자율 수행하는 차세대 RAN 기술</li>
-<li><strong>키워드</strong>: O-RAN, xApp/rApp, Near-RT RIC, Non-RT RIC, 빔관리, 자원 스케줄링, 에너지 효율</li>
+<li><strong>정의</strong>: 위성(Satellite), 상공 플랫폼(Aerial/UAV), 지상 네트워크(Terrestrial)를 통합하여 전 지구적 연속 커버리지를 제공하는 3차원 통합 통신 네트워크</li>
+<li><strong>키워드</strong>: LEO/MEO/GEO 위성, HAPS, UAV, NTN, 3차원 커버리지, 재난 통신</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>AI-RAN/O-RAN 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
-<tr><td>RIC</td><td>Non-RT RIC</td><td>1초↑ 주기 AI 모델 학습·정책 생성·rApp 관리</td></tr>
-<tr><td></td><td>Near-RT RIC</td><td>10ms~1초 AI 추론으로 무선자원·빔·간섭 실시간 제어</td></tr>
-<tr><td></td><td>xApp</td><td>Near-RT RIC 위 동작·빔포밍·간섭제어·스케줄링 자동화</td></tr>
-<tr><td></td><td>rApp</td><td>Non-RT RIC 위 동작·트래픽 예측·셀 최적화·슬라이싱</td></tr>
-<tr><td>AI 기능</td><td>무선 자원 자율 할당</td><td>AI가 채널·트래픽 상태 분석→주파수·전력·PRB 실시간 배분</td></tr>
-<tr><td></td><td>AI 빔포밍 최적화</td><td>사용자 위치·이동 예측 기반 빔 방향·폭 실시간 자동 조정</td></tr>
-<tr><td></td><td>AI 간섭 관리</td><td>셀 간 간섭 패턴 학습→간섭 회피·조정 자율 수행</td></tr>
-<tr><td></td><td>AI 셀 최적화</td><td>셀 커버리지·용량·에너지 AI 분석→자율 파라미터 조정</td></tr>
-<tr><td></td><td>자가 치유 
-(Self-Healing)</td><td>장애 자동 감지·원인 AI 분석·복구 조치 자율 수행</td></tr>
-<tr><td></td><td>연합학습 </td><td>기지국 간 데이터 공유 없이 분산 AI 모델 협력 학습</td></tr>
-<tr><td>기지국 </td><td>O-CU (중앙)</td><td>RRC·PDCP 처리·AI 기반 핸드오버·QoS 정책 적용</td></tr>
-<tr><td></td><td>O-DU (분산)</td><td>RLC·MAC 처리·AI 스케줄러로 실시간 자원 배분</td></tr>
-<tr><td></td><td>O-RU (무선)</td><td>PHY·RF 처리·AI 빔포밍·안테나 가중치 실시간 조정</td></tr>
-<tr><td>인터페이스</td><td>E2 인터페이스</td><td>Near-RT RIC↔O-CU·O-DU AI 제어명령 실시간 전달</td></tr>
-<tr><td></td><td>A1 인터페이스</td><td>Non-RT RIC→Near-RT RIC AI 정책·학습모델 하향 배포</td></tr>
-<tr><td>관리·운영</td><td>SMO</td><td>RAN 전체 AI 모델 배포·성능 모니터링·멀티벤더 통합관리</td></tr>
-<tr><td></td><td>O-Cloud</td><td>AI 추론·학습 워크로드를 가상화·컨테이너로 탄력 운용</td></tr>
+<li><strong>SATIN 계층 구조</strong>:<div class="table-scroll"><table>
+<tr><th>계층</th><th>구성</th><th>고도</th><th>특징</th></tr>
+<tr><td>위성(Space)</td><td>LEO/MEO/GEO</td><td>200km~36,000km</td><td>광역 커버리지</td></tr>
+<tr><td>상공(Aerial)</td><td>HAPS, UAV, 드론</td><td>수 km~20km</td><td>재난/임시망</td></tr>
+<tr><td>지상(Terrestrial)</td><td>기지국, Wi-Fi</td><td>지상</td><td>고밀도 서비스</td></tr>
 </table></div>
 </li>
-<li><strong>AI-RAN 주요 응용</strong>: 동적 스펙트럼 관리, 에너지 절감(트래픽 예측 기반 슬립 모드), 안테나 빔 최적화</li>
-<li><strong>인사이트</strong>: AI-RAN은 <strong>O-RAN 오픈 인터페이스</strong>를 기반으로 다양한 벤더의 AI 앱을 RAN에 탑재하는 개방형 생태계를 형성. 에너지 효율과 주파수 효율을 동시에 극대화하는 6G RAN의 핵심 기술.</li>
+<li><strong>활용 시나리오</strong>: 재난 시 지상망 대체, 낙후 지역 통신, UAV 제어 망, 해상·항공 연결</li>
+<li><strong>인사이트</strong>: SATIN은 <strong>6G의 비지상 네트워크(NTN) 통합</strong> 핵심 개념으로, Starlink·OneWeb 같은 LEO 위성 군집과 5G/6G 기지국을 유기적으로 결합하여 어디서나 연결을 보장하는 방향으로 발전.</li>
 </ul>
 
 </body>

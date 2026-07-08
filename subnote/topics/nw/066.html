@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. IoT 프로토콜 (XMPP/CoAP/MQTT)</title>
+  <title>8. 5G 네트워크 슬라이싱 (Network Slicing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,20 @@
   </style>
 </head>
 <body>
-<h4>10. IoT 프로토콜 (XMPP/CoAP/MQTT)</h4>
+<h4>8. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
 <ul>
-<li><strong>정의</strong>: IoT 기기의 제한된 자원과 불안정한 네트워크 환경에서 효율적인 메시지 통신을 지원하는 경량 응용 계층 프로토콜들</li>
-<li><strong>키워드</strong>: MQTT, CoAP, XMPP, Pub/Sub, REST, QoS, 브로커, 경량, M2M</li>
+<li><strong>정의</strong>: 하나의 물리적 5G 네트워크 인프라를 NFV/SDN 기술로 다수의 독립된 가상 네트워크로 분리하여 서비스별 최적 QoS를 제공하는 기술</li>
+<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>MQTT</th><th>CoAP</th><th>XMPP</th></tr>
-<tr><td>전송</td><td>TCP</td><td>UDP</td><td>TCP</td></tr>
-<tr><td>패턴</td><td>Pub/Sub</td><td>요청-응답(REST)</td><td>IM 스타일</td></tr>
-<tr><td>브로커</td><td>필요</td><td>불필요</td><td>서버 필요</td></tr>
-<tr><td>오버헤드</td><td>매우 낮음</td><td>매우 낮음</td><td>중간</td></tr>
-<tr><td>QoS</td><td>0/1/2 레벨</td><td>확인/비확인</td><td>없음</td></tr>
-<tr><td>주요 용도</td><td>센서, IoT 플랫폼</td><td>스마트 에너지</td><td>실시간 메시징</td></tr>
+<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
+<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
+<tr><td>eMBB</td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
+<tr><td>URLLC</td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
+<tr><td>mMTC</td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: <strong>MQTT는 IoT 플랫폼(AWS IoT, Azure IoT)의 사실상 표준</strong>으로 Pub/Sub 모델과 낮은 오버헤드가 장점. CoAP는 HTTP와 유사한 REST 방식으로 웹 생태계와 통합이 용이.</li>
+<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
+<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
 </ul>
 
 </body>

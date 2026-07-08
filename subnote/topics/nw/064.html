@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 5G 네트워크 슬라이싱 (Network Slicing)</title>
+  <title>6. MODBUS (산업제어 통신 프로토콜)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,20 @@
   </style>
 </head>
 <body>
-<h4>8. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
+<h4>6. MODBUS (산업제어 통신 프로토콜)</h4>
 <ul>
-<li><strong>정의</strong>: 하나의 물리적 5G 네트워크 인프라를 NFV/SDN 기술로 다수의 독립된 가상 네트워크로 분리하여 서비스별 최적 QoS를 제공하는 기술</li>
-<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
+<li><strong>정의</strong>: 산업 자동화 환경에서 PLC·센서·RTU 등 장비 간 데이터를 교환하는 마스터-슬레이브 방식의 직렬 통신 프로토콜</li>
+<li><strong>키워드</strong>: 마스터-슬레이브, RTU/ASCII/TCP, 코일, 레지스터, ICS/OT 보안, SCADA</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
-<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
-<tr><td>eMBB</td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
-<tr><td>URLLC</td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
-<tr><td>mMTC</td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
+<li><strong>MODBUS 변형</strong>:<div class="table-scroll"><table>
+<tr><th>변형</th><th>전송 매체</th><th>인코딩</th><th>특징</th></tr>
+<tr><td>MODBUS RTU</td><td>RS-232/485</td><td>이진</td><td>고효율, 산업 표준</td></tr>
+<tr><td>MODBUS ASCII</td><td>RS-232/485</td><td>ASCII</td><td>가독성, 저효율</td></tr>
+<tr><td>MODBUS TCP</td><td>Ethernet</td><td>TCP/IP</td><td>현대 OT 네트워크</td></tr>
 </table></div>
 </li>
-<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
-<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
+<li><strong>보안 취약점</strong>: 인증·암호화 없음 → ICS/OT 보안에서 주요 위협 (Stuxnet 등 공격 사례)</li>
+<li><strong>인사이트</strong>: MODBUS는 1979년 제정된 <strong>레거시 OT 프로토콜</strong>로 보안 기능이 전무하므로, ICS 환경에서는 네트워크 세그먼테이션·화이트리스트·암호화 게이트웨이로 보완 필수.</li>
 </ul>
 
 </body>

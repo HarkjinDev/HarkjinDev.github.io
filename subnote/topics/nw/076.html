@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 자율 네트워크 (Autonomous Network)</title>
+  <title>4. AI-RAN (AI-based Radio Access Network)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,36 @@
   </style>
 </head>
 <body>
-<h4>6. 자율 네트워크 (Autonomous Network)</h4>
+<h4>4. AI-RAN (AI-based Radio Access Network)</h4>
 <ul>
-<li><strong>정의:</strong> AI·ML 기술을 기반으로 네트워크가 사람의 개입 없이 스스로 상태를 감시·분석·최적화·복구하는 자동화 네트워크 운영 패러다임</li>
-<li><strong>키워드:</strong> 자율 운영, 자가 치유(Self-Healing), 자가 최적화, Intent-Based Networking, TM Forum(Level0~5), 자율화 레벨, 디지털 트윈, AIOps</li>
+<li><strong>정의</strong>: 무선접속망(RAN)에 AI/ML을 내재화하여 무선 자원 할당, 빔포밍, 간섭 관리, 셀 최적화를 실시간 자율 수행하는 차세대 RAN 기술</li>
+<li><strong>키워드</strong>: O-RAN, xApp/rApp, Near-RT RIC, Non-RT RIC, 빔관리, 자원 스케줄링, 에너지 효율</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>핵심 기능:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;감최치구보&gt; </strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>자가 감시 (Self-Monitoring)</strong></td><td>네트워크 상태·트래픽·장애를 실시간 자율 감지</td><td>실시간 탐지</td></tr>
-<tr><td><strong>자가 최적화 (Self-Optimization)</strong></td><td>트래픽 부하·QoS에 따라 라우팅·자원 자율 조정</td><td>성능 최적화</td></tr>
-<tr><td><strong>자가 치유 (Self-Healing)</strong></td><td>장애 탐지 후 자동 복구·우회 경로 설정</td><td>자동 복구</td></tr>
-<tr><td><strong>자가 구성 (Self-Configuration)</strong></td><td>신규 장비·서비스 추가 시 자동 설정·배포</td><td>자동 구성</td></tr>
-<tr><td><strong>자가 보호 (Self-Protection)</strong></td><td>사이버 위협·이상 트래픽을 탐지하여 자동 차단</td><td>자율 보안</td></tr>
+<li><strong>AI-RAN/O-RAN 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
+<tr><td>RIC</td><td>Non-RT RIC</td><td>1초↑ 주기 AI 모델 학습·정책 생성·rApp 관리</td></tr>
+<tr><td></td><td>Near-RT RIC</td><td>10ms~1초 AI 추론으로 무선자원·빔·간섭 실시간 제어</td></tr>
+<tr><td></td><td>xApp</td><td>Near-RT RIC 위 동작·빔포밍·간섭제어·스케줄링 자동화</td></tr>
+<tr><td></td><td>rApp</td><td>Non-RT RIC 위 동작·트래픽 예측·셀 최적화·슬라이싱</td></tr>
+<tr><td>AI 기능</td><td>무선 자원 자율 할당</td><td>AI가 채널·트래픽 상태 분석→주파수·전력·PRB 실시간 배분</td></tr>
+<tr><td></td><td>AI 빔포밍 최적화</td><td>사용자 위치·이동 예측 기반 빔 방향·폭 실시간 자동 조정</td></tr>
+<tr><td></td><td>AI 간섭 관리</td><td>셀 간 간섭 패턴 학습→간섭 회피·조정 자율 수행</td></tr>
+<tr><td></td><td>AI 셀 최적화</td><td>셀 커버리지·용량·에너지 AI 분석→자율 파라미터 조정</td></tr>
+<tr><td></td><td>자가 치유 
+(Self-Healing)</td><td>장애 자동 감지·원인 AI 분석·복구 조치 자율 수행</td></tr>
+<tr><td></td><td>연합학습 </td><td>기지국 간 데이터 공유 없이 분산 AI 모델 협력 학습</td></tr>
+<tr><td>기지국 </td><td>O-CU (중앙)</td><td>RRC·PDCP 처리·AI 기반 핸드오버·QoS 정책 적용</td></tr>
+<tr><td></td><td>O-DU (분산)</td><td>RLC·MAC 처리·AI 스케줄러로 실시간 자원 배분</td></tr>
+<tr><td></td><td>O-RU (무선)</td><td>PHY·RF 처리·AI 빔포밍·안테나 가중치 실시간 조정</td></tr>
+<tr><td>인터페이스</td><td>E2 인터페이스</td><td>Near-RT RIC↔O-CU·O-DU AI 제어명령 실시간 전달</td></tr>
+<tr><td></td><td>A1 인터페이스</td><td>Non-RT RIC→Near-RT RIC AI 정책·학습모델 하향 배포</td></tr>
+<tr><td>관리·운영</td><td>SMO</td><td>RAN 전체 AI 모델 배포·성능 모니터링·멀티벤더 통합관리</td></tr>
+<tr><td></td><td>O-Cloud</td><td>AI 추론·학습 워크로드를 가상화·컨테이너로 탄력 운용</td></tr>
 </table></div>
 </li>
-<li><strong>주요 기술:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>IBN</strong></td><td>관리자의 의도(Intent)를 AI가 해석하여 네트워크 자동 설정</td><td>의도 기반 제어</td></tr>
-<tr><td><strong>AIOps</strong></td><td>AI·ML로 네트워크 운영 데이터를 분석하여 장애 예측·자동 대응</td><td>AI 기반 운영</td></tr>
-<tr><td><strong>디지털 트윈</strong></td><td>물리 네트워크를 가상으로 복제하여 변경 사항 사전 시뮬레이션</td><td>가상 검증</td></tr>
-<tr><td><strong>강화학습</strong></td><td>네트워크 환경과 상호작용하며 최적 운영 정책 자율 학습</td><td>정책 자율 학습</td></tr>
-<tr><td><strong>이상 탐지</strong></td><td>비정상 트래픽·장애 패턴을 ML로 실시간 탐지</td><td>실시간 감지</td></tr>
-</table></div>
-</li>
-<li><strong>정보 최신성(Information Freshness):</strong> 네트워크를 통해 전달·처리되는 데이터나 상태 정보가 실제 시스템·단말·서비스의 현재 상태를 얼마나 지연 없이 정확하게 반영하는지를 나타내는 특성<ul>
-<li>차세대 네트워크에서 정보 최신성은 보통 <strong>AoI (Age of Information)</strong> 개념으로 측정<ul>
-<li><strong>AoI(t) = t − u(t)    [현재 시점과 최신 데이터 생성 시점 간 차이]</strong><ul>
-<li><strong>t</strong> : 현재 시간</li>
-<li><strong>u(t)</strong> : 마지막으로 수신한 정보 생성 시점</li>
+<li><strong>AI-RAN 주요 응용</strong>: 동적 스펙트럼 관리, 에너지 절감(트래픽 예측 기반 슬립 모드), 안테나 빔 최적화</li>
+<li><strong>인사이트</strong>: AI-RAN은 <strong>O-RAN 오픈 인터페이스</strong>를 기반으로 다양한 벤더의 AI 앱을 RAN에 탑재하는 개방형 생태계를 형성. 에너지 효율과 주파수 효율을 동시에 극대화하는 6G RAN의 핵심 기술.</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>인사이트:</strong> 자율 네트워크는 5G·6G의 초고밀도·초저지연 환경에서 사람이 수동으로 운영하는 것이 사실상 불가능해짐에 따라 필연적으로 부상하는 패러다임으로, TM Forum의 L5 완전 자율화를 목표로 통신사·장비 벤더 중심의 표준화가 빠르게 진행되고 있으며 IBN·디지털 트윈·AIOps의 통합 수준이 자율화 레벨을 결정하는 핵심 변수임</li>
-</ul>
-<hr/>
-</body>
-</html>
+
 </body>
 </html>

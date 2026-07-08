@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. WebRTC (Web Real-Time Communication)</title>
+  <title>3. NOMA (Non-Orthogonal Multiple Access)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,21 @@
   </style>
 </head>
 <body>
-<h4>5. WebRTC (Web Real-Time Communication)</h4>
+<h4>3. NOMA (Non-Orthogonal Multiple Access)</h4>
 <ul>
-<li><strong>정의</strong>: 웹 브라우저에서 별도 플러그인·앱 설치 없이 JavaScript API만으로 음성·영상·데이터 실시간 통신을 지원하는 오픈 표준</li>
-<li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
+<li><strong>정의</strong>: 동일 시간-주파수 자원에서 전력 수준의 차이를 이용해 다수 사용자를 동시에 다중 접속시키는 비직교 다중 접속 기술</li>
+<li><strong>키워드</strong>: SIC(연속 간섭 제거), 전력 할당, 스펙트럼 효율, 5G/6G, 근거리/원거리 사용자</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
-<tr><th>컴포넌트</th><th>역할</th></tr>
-<tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
-<tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
-<tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
-<tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
-<tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
+<li><strong>NOMA vs OFDMA 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>OFDMA</th><th>NOMA</th></tr>
+<tr><td>자원 분배</td><td>직교(사용자마다 다른 주파수)</td><td>비직교(동일 주파수 중첩)</td></tr>
+<tr><td>스펙트럼 효율</td><td>상대적으로 낮음</td><td>높음</td></tr>
+<tr><td>수신 복잡도</td><td>낮음</td><td>SIC로 높음</td></tr>
+<tr><td>공정성</td><td>낮음(근거리 우선)</td><td>높음(원거리 우선 전력 할당)</td></tr>
 </table></div>
 </li>
-<li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
-<li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>
+<li><strong>SIC(Successive Interference Cancellation)</strong>: 강한 신호부터 순차 복조 후 제거하여 약한 신호 추출</li>
+<li><strong>인사이트</strong>: NOMA는 <strong>셀 가장자리 사용자에게 더 높은 전력을 할당</strong>하여 공정성을 개선하며, 6G 후보 기술로 매시브 MIMO와 결합 시 스펙트럼 효율 극대화 가능.</li>
 </ul>
 
 </body>

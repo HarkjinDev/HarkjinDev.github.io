@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 5G 특화망 (Private 5G Network)</title>
+  <title>2. 프레임릴레이 (Frame Relay)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,23 @@
   </style>
 </head>
 <body>
-<h4>1. 5G 특화망 (Private 5G Network)</h4>
+<h4>2. 프레임릴레이 (Frame Relay)</h4>
 <ul>
-<li><strong>정의</strong>: 특정 기업·산업·구역에 전용 5G 네트워크 인프라를 구축하여 맞춤형 초저지연·고신뢰 서비스를 제공하는 지역 특화 이동통신 서비스</li>
-<li><strong>키워드</strong>: URLLC, 국내 28GHz 대역, 산업 IoT, 스마트팩토리, 간섭 회피, 프라이빗 코어</li>
-<li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>안정성/신뢰성 확보 방안</strong>:<div class="table-scroll"><table>
-<tr><th>방안</th><th>설명</th></tr>
-<tr><td>전용 주파수 할당</td><td>공공망과 간섭 방지</td></tr>
-<tr><td>네트워크 슬라이싱</td><td>산업 서비스별 QoS 보장</td></tr>
-<tr><td>엣지 컴퓨팅 결합</td><td>지연 최소화 (MEC)</td></tr>
-<tr><td>이중화 구성</td><td>코어·기지국 N+1 이중화</td></tr>
+<li><strong>정의</strong>: 고정 회선을 대체하여 가변 길이 프레임과 가상 회선(PVC/SVC)으로 WAN 구간을 연결하는 패킷 스위칭 프로토콜</li>
+<li><strong>키워드</strong>: DLCI, PVC/SVC, CIR, FECN/BECN, LMI, 오류 정정 생략, 1990년대 WAN</li>
+<li><strong>분류</strong>: WAN/전송매체</li>
+<li><strong>주요 구성요소</strong>:<div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th></tr>
+<tr><td>DLCI(Data Link Connection Identifier)</td><td>가상 회선 식별 번호</td></tr>
+<tr><td>PVC(Permanent Virtual Circuit)</td><td>사전 설정 고정 가상 회선</td></tr>
+<tr><td>CIR(Committed Information Rate)</td><td>보장 전송률</td></tr>
+<tr><td>FECN/BECN</td><td>혼잡 알림 비트 (전방향/역방향)</td></tr>
 </table></div>
 </li>
-<li><strong>간섭 회피 방안</strong>: 빔포밍(지향성 안테나), 주파수 조정(FR2/FR1 선택), 전력 제어</li>
-<li><strong>인사이트</strong>: 5G 특화망은 <strong>스마트팩토리·자율주행·원격의료 등 산업 디지털 전환의 핵심 인프라</strong>로, 공공 5G 대비 보안성과 SLA 보장이 강점. 국내는 4.7GHz/28GHz 대역에서 할당 운용.</li>
+<li><strong>특징</strong>: 오류 검출만 수행(오류 정정은 상위 계층 위임), 낮은 지연, X.25 대비 단순화</li>
+<li><strong>인사이트</strong>: 프레임릴레이는 <strong>1980~2000년대 WAN의 주류</strong>였으나 현재는 MPLS, SD-WAN으로 대체됨. DLCI와 PVC 개념은 MPLS 레이블 스위칭의 전신으로 이해할 수 있음.</li>
 </ul>
+<hr/>
 
 </body>
 </html>
