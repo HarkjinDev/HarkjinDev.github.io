@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 거리벡터 라우팅 (Distance Vector Routing)</title>
+  <title>5. OSPF (Open Shortest Path First)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,31 @@
   </style>
 </head>
 <body>
-<h4>6. 거리벡터 라우팅 (Distance Vector Routing)</h4>
+<h4>5. OSPF (Open Shortest Path First)</h4>
 <ul>
-<li><strong>정의</strong>: 인접 라우터 간 목적지까지 거리정보를 주기적 교환해 경로를 결정하는 라우팅 알고리즘</li>
-<li><strong>키워드</strong>: Bellman-Ford, 홉 카운트, 라우팅 루프, 무한 계산, Split Horizon, Poison Reverse</li>
-<li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>문제점 및 해결책</strong>:<div class="table-scroll"><table>
-<tr><th>문제</th><th>원인</th><th>해결책</th></tr>
-<tr><td>라우팅 루프</td><td>느린 수렴</td><td>Split Horizon, Poison Reverse</td></tr>
-<tr><td>무한 계산</td><td>루프로 인한 홉 무한 증가</td><td>최대 홉 수 제한(RIP: 15)</td></tr>
-<tr><td>느린 수렴</td><td>주기적 업데이트</td><td>Triggered Update</td></tr>
+<li><strong>정의:</strong> 링크상태를 플러딩해 SPF 알고리즘으로 최단경로를 계산하는 링크상태 기반 IGP</li>
+<li><strong>키워드:</strong> RFC 2328, LSA, LSDB, SPF·Dijkstra, Area, DR·BDR, Cost, Hello, ABR, ASBR, OSPFv3</li>
+<li><strong>분류:</strong> 라우팅 / 주소체계</li>
+<li><strong>동작 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 인접 관계 수립</strong></td><td>Hello 패킷으로 인접 라우터 발견·Neighbor 관계 형성</td><td>Hello 프로토콜</td></tr>
+<tr><td><strong>2. DR·BDR 선출</strong></td><td>멀티액세스 네트워크에서 대표 라우터 선출
+* DR(지정 라우터), BDR(백업 DR)</td><td>플러딩 최소화</td></tr>
+<tr><td><strong>3. LSA 교환</strong></td><td>Link State Advertisement 교환으로 LSDB 동기화</td><td>토폴로지 공유</td></tr>
+<tr><td><strong>4. SPF 계산</strong></td><td>Dijkstra 알고리즘으로 최단 경로 트리 계산</td><td>최단 경로 산출</td></tr>
+<tr><td><strong>5. 라우팅 테이블 갱신</strong></td><td>계산된 최단 경로를 라우팅 테이블에 반영</td><td>경로 적용</td></tr>
 </table></div>
 </li>
-<li><strong>링크 상태 vs 거리 벡터 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th></tr>
-<tr><td>알고리즘</td><td>Bellman-Ford</td><td>Dijkstra</td></tr>
-<tr><td>정보 교환</td><td>인접 라우터만</td><td>전체 라우터</td></tr>
-<tr><td>수렴 속도</td><td>느림</td><td>빠름</td></tr>
-<tr><td>메모리/CPU</td><td>낮음</td><td>높음</td></tr>
+<li><strong>LSA 유형: </strong>Type 1(Router LSA), Type 2(Network LSA), Type 3(Summary LSA), Type 4(ASBR Summary LSA), Type 5(External LSA)</li>
+<li><strong>Cost 계산:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>공식</strong></td><td>Cost = 10⁸ / 링크 속도(bps)</td><td>속도 반비례</td></tr>
+<tr><td><strong>FastEthernet</strong></td><td>Cost = 10⁸ / 10⁸ = 1</td><td>최저 Cost</td></tr>
+<tr><td><strong>T1 (1.544Mbps)</strong></td><td>Cost = 10⁸ / 1,544,000 ≈ 64</td><td>높은 Cost</td></tr>
+<tr><td><strong>경로 선택</strong></td><td>누적 Cost 합산 최솟값 경로 선택</td><td>최소 Cost 우선</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 거리벡터는 <strong>소규모 네트워크에 적합</strong>하며 구현이 단순하지만 수렴 문제로 대규모 망에서 OSPF 같은 링크 상태 프로토콜이 선호됨.</li>
+<li><strong>인사이트:</strong> OSPF의 Area 설계는 네트워크 확장성의 핵심으로, Area 0은 반드시 존재해야 하며 모든 Area는 Area 0에 직·간접 연결되어야 함. Cost = 10⁸/링크속도로 고속 링크를 선호하며, DR·BDR 선출로 멀티액세스 환경의 LSA 플러딩을 최소화하는 설계가 대규모 네트워크 안정성의 핵심 포인트임</li>
 </ul>
 
 </body>

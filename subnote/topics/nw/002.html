@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 정보이론 (Information Theory)</title>
+  <title>0. RFC</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,23 @@
   </style>
 </head>
 <body>
-<h4>1. 정보이론 (Information Theory)</h4>
-<ul>
-<li><strong>정의</strong>: 정보의 정량적 측정과 효율적 전송 가능성을 수학적으로 연구하는 이론 체계</li>
-<li><strong>키워드</strong>: 엔트로피, 정보량, 샤논, 채널 용량, 부호화, 잡음</li>
-<li><strong>분류</strong>: 네트워크 기초</li>
-<li><strong>핵심 개념</strong>:<div class="table-scroll"><table>
-<tr><th>개념</th><th>설명</th></tr>
-<tr><td>정보량(자기정보)</td><td>I(x) = log₂(1/P(x)) = -log₂P(x) [비트]</td></tr>
-<tr><td>엔트로피(H)</td><td>평균 정보량 H(X) = -Σ P(xᵢ)·log₂P(xᵢ)</td></tr>
-<tr><td>채널 용량(C)</td><td>잡음 채널에서 오류 없이 전송 가능한 최대 속도</td></tr>
+<h4>0. RFC</h4>
+<div class="table-scroll"><table>
+<tr><th>RFC</th><th>항목</th></tr>
+<tr><td>RFC 768</td><td>UDP</td></tr>
+<tr><td>RFC 793</td><td>TCP</td></tr>
+<tr><td>RFC 959</td><td>FTP</td></tr>
+<tr><td>RFC 1058</td><td>RIPv1</td></tr>
+<tr><td>RFC 1633</td><td>IntServ (아키텍처)</td></tr>
+<tr><td>RFC 2210</td><td>RSVP-IntServ 연동 규격</td></tr>
+<tr><td>RFC 2328</td><td>OSPF (v2)</td></tr>
+<tr><td>RFC 2453</td><td>RIPv2</td></tr>
+<tr><td>RFC 2474</td><td>DiffServ</td></tr>
+<tr><td>RFC 4960</td><td>SCTP</td></tr>
+<tr><td>RFC 6455</td><td>WebSocket</td></tr>
+<tr><td>RFC 7348</td><td>VXLAN</td></tr>
+<tr><td>RFC 9114</td><td>HTTP/3</td></tr>
 </table></div>
-</li>
-<li><strong>샤논 3대 정리</strong>:<ul>
-<li><strong>제1정리(소스 코딩)</strong>: 소스 엔트로피 이상의 부호화 필요 → 무손실 압축 이론적 한계</li>
-<li><strong>제2정리(채널 코딩)</strong>: 채널 용량 이하 전송률이면 오류 없는 전송 가능</li>
-<li><strong>샤논-하틀리 정리</strong>: C = B·log₂(1 + S/N), B=대역폭, S/N=신호대잡음비</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 정보이론은 <strong>압축(소스 코딩)과 오류 정정(채널 코딩)</strong>의 이론적 토대를 제공하며, 현대 통신·암호·머신러닝의 핵심 기반으로 시험에서 샤논-하틀리 공식과 엔트로피 식이 자주 출제됨.</li>
-</ul>
 
 </body>
 </html>

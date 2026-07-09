@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. DiffServ (Differentiated Services)</title>
+  <title>2. WFQ (Weighted Fair Queuing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,28 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. DiffServ (Differentiated Services)</h4>
+<h4>2. WFQ (Weighted Fair Queuing)</h4>
 <ul>
-<li><strong>정의</strong>: IP 패킷의 DSCP 필드를 이용하여 트래픽을 클래스별로 분류하고 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>차등적 포워딩</strong></u></span> 처리를 적용하는 QoS 모델</li>
-<li><strong>키워드</strong>: RFC 2474, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DSCP, PHB</strong></u></span>, EF/AF/BE, 토큰 버킷, 폴리싱, 쉐이핑, 에지 라우터</li>
+<li><strong>정의</strong>: 각 트래픽 흐름에 가중치를 부여하여 우선순위별로 공정하게 대역폭을 분배하는 스케줄링 기법</li>
+<li><strong>키워드</strong>: 가중치, 공정 큐잉, 흐름 기반, CBWFQ, LLQ, 선점, 스케줄러</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>PHB(Per-Hop Behavior) 종류</strong>:<div class="table-scroll"><table>
-<tr><th>PHB</th><th>DSCP 값</th><th>설명</th><th>대상 트래픽</th></tr>
-<tr><td>EF(Expedited Forwarding)</td><td>46</td><td>최소 지연/손실 보장</td><td>VoIP, 실시간</td></tr>
-<tr><td>AF(Assured Forwarding)</td><td>12~44</td><td>4클래스×3드롭</td><td>비즈니스 앱</td></tr>
-<tr><td>BE(Best Effort)</td><td>0</td><td>기본 처리</td><td>일반 인터넷</td></tr>
+<li><strong>큐잉 기법 비교</strong>:<div class="table-scroll"><table>
+<tr><th>기법</th><th>원리</th><th>특징</th></tr>
+<tr><td><strong>FIFO</strong></td><td>선착순</td><td>간단, QoS 없음</td></tr>
+<tr><td><strong>PQ(Priority Queuing)</strong></td><td>우선순위 절대 선점</td><td>높은 큐 독점 위험</td></tr>
+<tr><td><strong>WFQ</strong></td><td>가중치 비례 대역폭</td><td>공정성 + 우선순위</td></tr>
+<tr><td><strong>CBWFQ</strong></td><td>클래스 기반 WFQ</td><td>정책 유연성</td></tr>
+<tr><td><strong>LLQ</strong></td><td>CBWFQ + 엄격 우선순위 큐</td><td>VoIP 최적</td></tr>
 </table></div>
 </li>
-<li><strong>DiffServ 동작</strong>: 에지 라우터에서 패킷 분류·마킹 → 코어 라우터는 DSCP 기반 PHB만 적용</li>
-<li><strong>DiffServ vs IntServ 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>IntServ</th><th>DiffServ</th></tr>
-<tr><td>자원 예약</td><td>RSVP per-flow</td><td>없음(클래스 기반)</td></tr>
-<tr><td>확장성</td><td>낮음(상태 유지)</td><td>높음</td></tr>
-<tr><td>보장 수준</td><td>강한 보장</td><td>상대적 보장</td></tr>
-<tr><td>적용 범위</td><td>소규모</td><td>대규모 인터넷</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: DiffServ는 <strong>확장성이 높은 QoS 모델</strong>로 코어 라우터에서 per-flow 상태 유지가 불필요함. IntServ의 RSVP 시그널링 부하 없이 대규모 망에서 실용적으로 적용 가능.</li>
+<li><strong>WFQ 가중치</strong>: 낮은 IP Precedence → 높은 가중치(역비례), 저지연 흐름에 높은 우선순위</li>
+<li><strong>인사이트</strong>: <strong>LLQ(Low Latency Queuing)</strong>는 VoIP 트래픽에 엄격한 우선순위를 부여하고 나머지는 CBWFQ로 처리하는 Cisco 권장 구성. WFQ는 흐름 수가 많을수록 CPU 부하가 증가.</li>
 </ul>
 
 </body>

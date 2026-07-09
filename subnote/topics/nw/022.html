@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 흐름 제어 (Flow Control)</title>
+  <title>[하위] 3-5. 2계층 오류제어와 4계층 오류제어 비교</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,46 +15,28 @@
   </style>
 </head>
 <body>
-<h4>4. 흐름 제어 (Flow Control)</h4>
+<h4>[하위] 3-5. 2계층 오류제어와 4계층 오류제어 비교</h4>
 <ul>
-<li><strong>정의:</strong> 송신측과 수신측 간 처리 속도 차이로 인한 수신 버퍼 오버플로우를 방지하기 위해 송신 속도를 수신 능력에 맞게 동적으로 조절하는 전송 제어 기술</li>
-<li><strong>키워드:</strong> 슬라이딩 윈도우, 수신 윈도우(rwnd), Stop-and-Wait, 버퍼 오버플로우, ACK, TCP, XON/XOFF, 어리석은 윈도우 증후군(payload(1byte) &lt;&lt; header(40byte)), Clark’s(버퍼, MSS), Nalge(버퍼, 일괄전송)</li>
-<li><strong>분류:</strong> 네트워크 / 전송 계층</li>
-<li><strong>흐름 제어 vs 혼잡 제어 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>흐름 제어</th><th>혼잡 제어</th></tr>
-<tr><td><strong>목적</strong></td><td>수신측 버퍼 오버플로우 방지</td><td>네트워크 과부하 방지</td></tr>
-<tr><td><strong>제어 대상</strong></td><td>송신자 ↔ 수신자</td><td>송신자 ↔ 네트워크</td></tr>
-<tr><td><strong>윈도우</strong></td><td>수신 윈도우 (rwnd)</td><td>혼잡 윈도우 (cwnd)</td></tr>
-<tr><td><strong>주체</strong></td><td>수신측 제어</td><td>송신측 판단</td></tr>
-<tr><td><strong>계층</strong></td><td>전송 계층 (L4)</td><td>전송 계층 (L4)</td></tr>
+<li><strong>2계층 오류제어:</strong> 인접 노드 간 단일 프레임의 비트 오류를 CRC로 검출·정정하는 기법</li>
+<li><strong>4계층 오류제어:</strong> 종단 간 메시지의 순서·누락·중복을 제어해 논리적 무결성을 보장하는 기법</li>
+<li><strong>2계층 vs 4계층 오류제어 비교 (ISO 7498):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>2계층 (데이터링크계층)</th><th>4계층 (전송계층)</th></tr>
+<tr><td>적용 범위</td><td>인접 노드 간 (Hop-by-Hop)</td><td>종단간 (End-to-End)</td></tr>
+<tr><td>대상</td><td>물리적 구간 비트 손상</td><td>네트워크 경로간 오류</td></tr>
+<tr><td>중점</td><td>탐지 위주</td><td>복구 위주</td></tr>
+<tr><td>재전송 단위</td><td>프레임 (Frame)</td><td>세그먼트 (Segment)</td></tr>
+<tr><td>오류 검출</td><td>CRC</td><td>TCP Checksum</td></tr>
+<tr><td>오류 정정</td><td>ARQ, FEC</td><td>ARQ</td></tr>
+<tr><td>오류 복구 주체</td><td>인접 노드 (스위치·브리지)</td><td>송수신 호스트</td></tr>
+<tr><td>흐름제어</td><td>슬라이딩 윈도우·XON/XOFF</td><td>슬라이딩 윈도우·수신버퍼 기반</td></tr>
+<tr><td>혼잡제어</td><td>없음</td><td>있음 (AIMD·슬로우스타트)</td></tr>
+<tr><td>ARQ 방식</td><td>Stop-and-Wait·Go-Back-N</td><td>Go-Back-N·Selective Repeat</td></tr>
+<tr><td>순서 보장</td><td>링크 구간 내 순서 보장</td><td>있음 (시퀀스 번호)</td></tr>
+<tr><td>신뢰성 보장</td><td>구간 신뢰성 (부분 보장)</td><td>완전한 종단간 신뢰성</td></tr>
+<tr><td>오버헤드</td><td>상대적으로 낮음</td><td>상대적으로 높음</td></tr>
 </table></div>
 </li>
-<li><strong>주요 기법:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>정지 대기</strong></td><td><strong>Stop-and-Wait</strong></td><td>패킷 1개 전송 후 ACK 수신까지 대기</td><td>단순·비효율</td></tr>
-<tr><td><strong>슬라이딩 윈도우</strong></td><td><strong>Go-Back-N</strong></td><td>오류 이후 전체 윈도우 재전송</td><td>윈도우 순차 재전송</td></tr>
-<tr><td></td><td><strong>Selective Repeat</strong></td><td>오류 패킷만 선택 재전송</td><td>선택 재전송</td></tr>
-<tr><td><strong>버퍼 기반</strong></td><td><strong>XON/XOFF</strong></td><td>버퍼 임계치 도달 시 XOFF 전송·중단 요청</td><td>SW 흐름제어</td></tr>
-<tr><td></td><td><strong>Credit 기반</strong></td><td>수신 가능 크레딧(버퍼 잔량)을 송신측에 통보</td><td>크레딧 기반 조절</td></tr>
-</table></div>
-</li>
-<li><strong>TCP 흐름 제어 동작:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 버퍼 공간 통보</strong></td><td>수신측이 TCP 헤더 Window 필드로 rwnd 값 송신측에 전달</td><td>수신 능력 공지</td></tr>
-<tr><td><strong>2. 전송량 조절</strong></td><td>송신측이 rwnd 초과하지 않는 범위에서 데이터 전송</td><td>전송량 제한</td></tr>
-<tr><td><strong>3. ACK + 윈도우 갱신</strong></td><td>ACK 전송 시 최신 rwnd 값 함께 전달</td><td>동적 조절</td></tr>
-<tr><td><strong>4. Zero Window 처리</strong></td><td>rwnd=0 수신 시 Window Probe로 주기적 상태 확인</td><td>교착 방지</td></tr>
-<tr><td><strong>5. 윈도우 재개</strong></td><td>수신측 버퍼 여유 생기면 rwnd 갱신 ACK 전송</td><td>전송 재개</td></tr>
-</table></div>
-</li>
-<li><strong>Silly Window Syndrome (어리석은 윈도우 증후군): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수클송네&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>개념</strong></td><td>소량 데이터를 반복 전송하여 헤더 오버헤드가 급증하는 현상</td><td>비효율 전송</td></tr>
-<tr><td><strong>수신측 대응</strong></td><td><strong>Clark 해결책</strong> — 윈도우가 충분히 커질 때까지 rwnd=0 유지</td><td>수신 지연 공지</td></tr>
-<tr><td><strong>송신측 대응</strong></td><td><strong>Nagle 알고리즘</strong> — 소량 데이터를 모아 한번에 전송</td><td>데이터 묶음 전송</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 흐름 제어는 수신측 버퍼 보호를 목적으로 하며, TCP에서 rwnd를 통한 동적 윈도우 조절이 핵심 메커니즘임. 혼잡 제어의 cwnd와 결합하여 실제 전송 크기는 min(rwnd, cwnd)로 결정되므로, 두 제어 메커니즘의 상호작용 이해가 TCP 성능 최적화의 핵심 포인트이며 Zero Window·Silly Window Syndrome이 대표적 시험 출제 포인트임</li>
+<li><strong>핵심 차이:</strong> 2계층은 <strong>물리적 인접 구간</strong> 오류만 처리하므로 중간 노드 오류는 미탐지 가능 → 4계층의 종단간 오류제어가 <strong>완전한 신뢰성 보장</strong>의 최종 책임 주체</li>
 </ul>
 
 </body>

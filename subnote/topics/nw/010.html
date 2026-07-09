@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3]. 전송 프로토콜</title>
+  <title>3. HDLC (High-level Data Link Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,29 @@
   </style>
 </head>
 <body>
-<h3>[Part 3]. 전송 프로토콜</h3>
+<h4>3. HDLC (High-level Data Link Control)</h4>
+<ul>
+<li><strong>정의</strong>: 슬라이딩 윈도우 기반 오류 제어를 수행하는 데이터링크 계층의 비트 지향 동기식 프로토콜</li>
+<li><strong>키워드</strong>: ISO 13239, 플래그(01111110), 스터핑, NRM/ABM, 프레임 구조, WAN</li>
+<li><strong>분류</strong>: 데이터링크/LAN</li>
+<li><strong>프레임 구조</strong>:<div class="table-scroll"><table>
+<tr><th>필드</th><th>크기</th><th>설명</th></tr>
+<tr><td>플래그</td><td>8비트</td><td>01111110 — 프레임 시작/끝</td></tr>
+<tr><td>주소</td><td>가변</td><td>수신지 주소</td></tr>
+<tr><td>제어</td><td>8/16비트</td><td>I/S/U 프레임 구분</td></tr>
+<tr><td>데이터</td><td>가변</td><td>상위 계층 데이터</td></tr>
+<tr><td>FCS</td><td>16/32비트</td><td>CRC 오류 검출</td></tr>
+</table></div>
+</li>
+<li><strong>동작 모드</strong>: <ul>
+<li><strong>NRM:</strong> 정상 응답 모드, 주종 관계</li>
+<li><strong>ABM:</strong> 비동기 균형 모드, 피어 투 피어, 가장 널리 사용</li>
+</ul>
+</li>
+<li><strong>비트 스터핑</strong>: 플래그 패턴 방지를 위해 5개 연속 ‘1’ 뒤 ‘0’ 삽입</li>
+<li><strong>인사이트</strong>: HDLC는 PPP, Frame Relay 등 WAN 프로토콜의 기반이 되는 프레임 구조로, <strong>비트 스터핑과 ABM 모드</strong>의 특성을 답안에 명시하면 차별화됨.</li>
+</ul>
+<hr/>
 
 </body>
 </html>

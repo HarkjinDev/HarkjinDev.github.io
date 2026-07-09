@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-4. CRC (Cyclic Redundancy Check)</title>
+  <title>[하위] 3-3. FEC (Forward Error Correction, 전진 오류 정정)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,43 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-4. CRC (Cyclic Redundancy Check)</h4>
+<h4>[하위] 3-3. FEC (Forward Error Correction, 전진 오류 정정)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 생성 다항식으로 나눈 나머지(체크섬)를 프레임에 부가하여 전송 오류를 검출하는 순환 중복 검사 기법</li>
-<li><strong>키워드</strong>: 생성 다항식, 나머지, FCS, 코드워드, GF(2) 나눗셈, 버스트 오류</li>
+<li><strong>정의:</strong> 잉여비트를 추가 전송해 수신측이 재전송 없이 스스로 오류를 정정하는 채널부호화 기술</li>
+<li><strong>키워드:</strong> 채널 부호화, 잉여 비트, 부호율, 해밍 코드, 터보 코드, LDPC, Polar Code, BCH, 리드-솔로몬</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>CRC 계산 절차</strong>:<ul>
-<li>① 데이터 비트열 뒤에 생성 다항식 차수만큼 0 추가</li>
-<li>② GF(2)(XOR) 나눗셈 수행</li>
-<li>③ 나머지 = CRC 체크섬 → FCS 필드에 첨부</li>
-<li>④ 수신측: 동일 나눗셈 후 나머지 = 0이면 정상</li>
-</ul>
-</li>
-<li><strong>주요 표준</strong>:<div class="table-scroll"><table>
-<tr><th>표준</th><th>다항식</th><th>적용</th></tr>
-<tr><td>CRC-16</td><td>x¹⁶+x¹⁵+x²+1</td><td>HDLC, USB</td></tr>
-<tr><td>CRC-32</td><td>32차 다항식</td><td>Ethernet, ZIP</td></tr>
-<tr><td>CRC-CCITT</td><td>x¹⁶+x¹²+x⁵+1</td><td>SDLC, X.25</td></tr>
+<li><strong>핵심 개념:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>부호율 (Code Rate)</strong></td><td>정보 비트 수 / 전체 전송 비트 수 (낮을수록 강한 오류 정정)</td><td>정정 능력 조절</td></tr>
+<tr><td><strong>해밍 거리</strong></td><td>두 코드워드 간 다른 비트 수, 클수록 오류 정정 능력 향상</td><td>정정 능력 기준</td></tr>
+<tr><td><strong>잉여 비트 (Redundancy)</strong></td><td>오류 검출·정정을 위해 추가하는 패리티·체크 비트</td><td>오류 정정 재료</td></tr>
+<tr><td><strong>코드워드</strong></td><td>정보 비트 + 잉여 비트로 구성된 전송 단위</td><td>전송 단위</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: CRC는 <strong>버스트 오류 검출에 탁월</strong>하지만 오류 정정은 불가. Ethernet 프레임의 FCS가 CRC-32를 사용하며, CRC는 검출만 가능하므로 오류 정정은 ARQ/FEC 필요.</li>
+<li><strong>FEC 주요 알고리즘:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>알고리즘</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>블록 코드</strong></td><td>해밍 코드 (Hamming)</td><td>1비트 정정 및 2비트 검출</td><td>단순 1비트 정정</td></tr>
+<tr><td></td><td>BCH 코드</td><td>다중 비트 오류 정정 가능</td><td>다중 비트 정정</td></tr>
+<tr><td></td><td>리드-솔로몬 (RS)</td><td>버스트 오류 정정 특화 부호</td><td>버스트 오류 정정</td></tr>
+<tr><td><strong>컨볼루션 코드</strong></td><td>비터비 알고리즘</td><td>컨볼루션 부호 최적 복호법</td><td>최적 복호</td></tr>
+<tr><td><strong>터보 코드</strong></td><td>터보 코드 (Turbo)</td><td>샤논 한계 도달 반복 복호</td><td>반복 복호</td></tr>
+<tr><td><strong>LDPC</strong></td><td>LDPC 코드</td><td>희소 행렬 기반 5G 부호</td><td>5G 표준 부호</td></tr>
+<tr><td><strong>Polar 코드</strong></td><td>Polar Code</td><td>채널 분극 이론 기반 5G 부호</td><td>5G 제어 채널</td></tr>
+</table></div>
+</li>
+<li><strong>FEC vs BEC 비교표: </strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>FEC (전진오류수정)</th><th>BEC (후진오류수정)</th></tr>
+<tr><td>오류 처리</td><td>수신측 자체 오류 정정</td><td>검출 후 재전송 요청(ARQ기반)</td></tr>
+<tr><td>피드백 채널</td><td>불필요</td><td>필요 (ACK/NAK)</td></tr>
+<tr><td>재전송</td><td>없음</td><td>있음</td></tr>
+<tr><td>지연</td><td>지연 없음</td><td>RTT만큼 지연 발생</td></tr>
+<tr><td>오버헤드</td><td>여분 비트 오버헤드</td><td>재전송 대역폭 소모</td></tr>
+<tr><td>구현 복잡도</td><td>복잡</td><td>상대적 단순</td></tr>
+<tr><td>적합 환경</td><td>단방향·고오류율 링크</td><td>양방향·저오류율 링크</td></tr>
+<tr><td>대표 기술</td><td>Reed-Solomon·터보코드</td><td>TCP·HDLC·ARQ</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> FEC는 재전송 없이 오류를 자체 정정하므로 위성·방송·5G처럼 피드백 채널이 없거나 지연이 허용되지 않는 환경의 필수 기술임. 터보 코드→LDPC→Polar Code로 이어지는 발전은 Shannon 정보 이론의 한계에 점점 근접하는 과정이며, 5G에서 데이터 채널(LDPC)과 제어 채널(Polar)을 구분 적용하는 설계가 이론적 최적 성능 실현의 핵심임</li>
 </ul>
 
 </body>

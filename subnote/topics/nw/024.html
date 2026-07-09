@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 혼잡 제어 (Congestion Control)</title>
+  <title>[하위] 4-1. 슬라이딩 윈도우 (Sliding Window)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,30 @@
   </style>
 </head>
 <body>
-<h4>5. 혼잡 제어 (Congestion Control)</h4>
+<h4>[하위] 4-1. 슬라이딩 윈도우 (Sliding Window)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크 혼잡 발생 시 전송률을 동적으로 조절하여 패킷 손실과 지연을 최소화하는 트래픽 관리 기법</li>
-<li><strong>키워드</strong>: 혼잡 윈도우(cwnd), Slow Start, AIMD, 혼잡 회피, Fast Retransmit, ECN</li>
+<li><strong>정의</strong>: ACK 대기 없이 윈도우 크기만큼 프레임을 연속 전송해 채널효율을 높이는 흐름제어 기법</li>
+<li><strong>키워드</strong>: 윈도우 크기, ACK, 흐름 제어, 버퍼, 수신 윈도우(rwnd), 송신 윈도우</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP 혼잡 제어 단계</strong>:<div class="table-scroll"><table>
-<tr><th>단계</th><th>동작</th><th>설명</th></tr>
-<tr><td>Slow Start</td><td>cwnd 지수 증가</td><td>1→2→4→8… (매 RTT 2배)</td></tr>
-<tr><td>혼잡 회피</td><td>cwnd 선형 증가</td><td>ssthresh 도달 후 +1/RTT</td></tr>
-<tr><td>Fast Retransmit</td><td>3 Dup ACK → 즉시 재전송</td><td>타임아웃 대기 없이 빠른 복구</td></tr>
-<tr><td>Fast Recovery</td><td>ssthresh 재설정 후 혼잡 회피 진입</td><td>cwnd = ssthresh + 3</td></tr>
+<li><strong>동작 원리</strong>: <div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 윈도우 설정</strong></td><td>수신측 rwnd 기반으로 송신 윈도우 크기 결정</td><td>전송 허용 범위 설정</td></tr>
+<tr><td><strong>2. 연속 전송</strong></td><td>ACK 대기 없이 윈도우 크기만큼 프레임 연속 전송</td><td>연속 전송</td></tr>
+<tr><td><strong>3. ACK 수신</strong></td><td>수신측이 정상 수신 확인 후 ACK + 최신 rwnd 전송</td><td>수신 확인·갱신</td></tr>
+<tr><td><strong>4. 윈도우 슬라이드</strong></td><td>ACK 수신 시 윈도우를 오른쪽으로 이동·새 프레임 전송 허용</td><td>윈도우 이동</td></tr>
+<tr><td><strong>5. 윈도우 축소</strong></td><td>수신 버퍼 감소 시 rwnd 축소·송신 속도 제한</td><td>속도 조절</td></tr>
+<tr><td><strong>6. Zero Window</strong></td><td>rwnd=0 수신 시 전송 중단·Window Probe 주기 전송</td><td>교착 방지</td></tr>
+<tr><td><strong>7. 전송 재개</strong></td><td>수신 버퍼 여유 생기면 rwnd 갱신 ACK로 전송 재개</td><td>전송 복구</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: <strong>AIMD(Additive Increase Multiplicative Decrease)</strong>는 공정성을 보장하는 핵심 원리로, 손실 감지 시 cwnd를 절반으로 줄여 빠른 회복을 유도. QUIC/BBR 등 신규 혼잡 제어는 RTT 기반으로 동작하여 대역폭 활용률을 개선.</li>
+<li><strong>윈도우 크기 결정 요소</strong>:<div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th></tr>
+<tr><td><strong>수신 윈도우(rwnd)</strong></td><td>수신 버퍼 여유 공간</td></tr>
+<tr><td><strong>혼잡 윈도우(cwnd)</strong></td><td>네트워크 혼잡 기반 제한</td></tr>
+<tr><td><strong>실효 윈도우</strong></td><td>min(rwnd, cwnd)</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 슬라이딩 윈도우는 <strong>흐름 제어의 핵심 메커니즘</strong>이며, TCP에서는 수신 윈도우(rwnd)와 혼잡 윈도우(cwnd)의 최솟값으로 실효 윈도우를 결정. Zero Window Probe로 rwnd=0 교착 상태 해소.</li>
 </ul>
 
 </body>

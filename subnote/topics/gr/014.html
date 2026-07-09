@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 2] 법/제도</title>
+  <title>12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,76 @@
   </style>
 </head>
 <body>
-<h3>[Part 2] 법/제도</h3>
+<h4>12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</h4>
+<ul>
+<li><strong>AI 안전 (AI Safety)</strong>: AI의 판단으로 시스템이 동작하거나 기능을 수행할 때 사람과 환경에 위험을 줄 가능성이 완화 또는 제거된 상태</li>
+<li><strong>AI 보안 (AI Security)</strong>: AI 시스템에 대한 무단 접근 및 활용을 방지하고 전통적인 정보보호의 요소인 기밀성, 무결성, 가용성을 유지하는 능력</li>
+<li><strong>AI 안전과 AI 보안 비교</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>AI 안전 (AI Safety)</th><th>AI 보안 (AI Security)</th></tr>
+<tr><td>발생요인</td><td>AI 시스템 자체, 인간의 활용 방식에 의해 발생</td><td>악의적 행위자에 의해 발생</td></tr>
+<tr><td>보호대상</td><td>AI 시스템의 외부 (사용자, 사회, 환경)</td><td>AI 시스템 내부 (모델, 데이터, 인프라)</td></tr>
+<tr><td>의도성</td><td>비의도적 (Unintentional)</td><td>대부분 의도적 (Intentional)</td></tr>
+<tr><td>시점</td><td>개발 전·후 발생 (Pre, Post)</td><td>시스템 운영 후 발생 (Post)</td></tr>
+</table></div>
+</li>
+<li><strong>내재적 위협(Intrinsic Threat): </strong>외부 공격자가 부재하더라도 LLM 자체의 학습·정렬·추론 과정에서 비롯되는 결함이 안전성·신뢰성을 훼손하는 위협</li>
+<li><strong>내재적 위협 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;편환정확&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th></tr>
+<tr><td><strong>학습 데이터 편향 </strong></td><td>학습 데이터의 분포 편향이 모델 응답에 그대로 반영되거나, 학습 과정에서 특정 문자열이 모델에 저장되어 추론 시점에 재현되는(기억화) 위협</td></tr>
+<tr><td><strong>환각</strong></td><td>모델이 사실과 무관한 내용을 사실인 것처럼 그럴듯하게 생성하는 위협</td></tr>
+<tr><td><strong>정렬 실패 </strong></td><td>모델 출력이 운영자의 정책·시스템 프롬프트와 어긋나는 위협</td></tr>
+<tr><td><strong>확률적 비결정성 </strong></td><td>동일 입력에 대해 모델 출력이 매번 달라지는 현상</td></tr>
+</table></div>
+</li>
+<li><strong>외재적 위협(Extrinsic Threat):</strong> LLM 시스템의 경계를 구성하는 외부 행위자에 의해 LLM 시스템이 손상되거나 악용되는 위협</li>
+<li><strong>외재적 위협 유형: </strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;탈모공고&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th></tr>
+<tr><td><strong>탈옥 </strong></td><td>모델이 정책상 거부해야 할 요청을 무력화하는 기법. </td></tr>
+<tr><td><strong>모델 추출</strong></td><td>추론 API에 대한 반복 질의로 원본 모델을 복제하여 유출하는 위협. </td></tr>
+<tr><td><strong>공급망·인프라 대상</strong></td><td>  • 모델·라이브러리·의존성·학습데이터·벡터DB 등 공급망과 외부 데이터 경로 오염
+  • MCP 등 외부 도구 연결을 통한 악성코드 주입
+  • 보안 패치 미흡한 추론엔진·서빙스택 취약점
+  • 과도한 도구 권한
+  • 에이전트 하이재킹·메모리 오염
+  • 시스템 프롬프트 유출 및 권한 분리 실패 등 악용</td></tr>
+<tr><td><strong>고성능 모델 위협</strong></td><td>프론티어 AI·고영향 AI·범용 AI 등을 포괄하는 "고성능 모델(High Performance Model)" 자체가 외부 공격자의 도구로 전용되는 위협</td></tr>
+</table></div>
+</li>
+<li><strong>LLM 구성요소: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;데개모애사&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구성 요소</th><th>설명</th></tr>
+<tr><td><strong>데이터 </strong></td><td>LLM 애플리케이션 생명주기의 시작</td></tr>
+<tr><td><strong>모델 개발 </strong></td><td>정제된 데이터를 바탕으로 LLM 모델을 개발하는 단계</td></tr>
+<tr><td><strong>모델 </strong></td><td>LLM 애플리케이션으로부터 다양한 입력을 받아 자연어 처리를 수행</td></tr>
+<tr><td><strong>LLM 애플리케이션</strong></td><td>사용자와 시스템이 실제로 상호작용하는 핵심 지점</td></tr>
+<tr><td><strong>사용자 </strong></td><td>전체 시스템의 출발점이자 최종 목적지</td></tr>
+</table></div>
+</li>
+<li><strong>AI 보안위협 대응방안: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>보안위협</th><th>대응방안</th></tr>
+<tr><td>데이터</td><td><strong>불균형 데이터</strong></td><td>오버·언더샘플링(SMOTE 등), 소수집단 가중치 부여, 공정성 제약 학습</td></tr>
+<tr><td>데이터</td><td><strong>부정확한 데이터</strong></td><td>신뢰출처 확보·교차검증, 모순데이터 제거, 품질검증 파이프라인(HITL)</td></tr>
+<tr><td>데이터</td><td><strong>개인정보 비식별화 미흡</strong></td><td>다층 필터링(패턴·NER·LLM·사람검토), 안전 응답 파인튜닝, 차등정보보호</td></tr>
+<tr><td>모델</td><td><strong>학습 데이터 유출</strong></td><td>개인정보 필터링·마스킹, 차등 프라이버시, 출력 민감패턴 차단</td></tr>
+<tr><td>모델</td><td><strong>벡터DB·임베딩 유출</strong></td><td>이중 접근제어(토큰·tenant필터), RBAC·ABAC 정책엔진, 색인단계 마스킹</td></tr>
+<tr><td>모델</td><td><strong>시스템 프롬프트 유출</strong></td><td>입력·출력 필터, system/user 문맥 분리, 유출요청 거절 재학습</td></tr>
+<tr><td>모델</td><td><strong>모델 유출</strong></td><td>저장소 접근통제(IAM·VPC), API 파라미터 통제(logit_bias 제한), 출력정밀도 축소</td></tr>
+<tr><td>모델</td><td><strong>환각(Hallucination)</strong></td><td>근거문서 기반 응답 제한, 출처 제시, 근거부족시 답변보류, RAG 일치검증</td></tr>
+<tr><td>모델</td><td><strong>탈옥(Jailbreak)</strong></td><td>시스템프롬프트 강화, 가드레일(사전·사후 필터링), HITL, RLHF 재학습</td></tr>
+<tr><td>모델</td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증·파싱·인코딩, 컨텍스트별 이스케이핑(SQL·HTML·쉘 등)</td></tr>
+<tr><td>모델</td><td><strong>모델 DoS</strong></td><td>API 요청 횟수·속도·길이 제한, 이상패턴 모니터링, 특수토큰 필터링</td></tr>
+<tr><td>에이전트</td><td><strong>부적절한 도구 설계</strong></td><td>역할별 도구 제한, 최소권한, 샌드박스 실행, MCP 화이트리스트</td></tr>
+<tr><td>에이전트</td><td><strong>에이전트 하이재킹</strong></td><td>데이터소스 신뢰성 평가, 악성패턴 필터링, 최소권한, 명령·데이터 분리</td></tr>
+<tr><td>에이전트</td><td><strong>에이전트 DoS</strong></td><td>반복횟수·시간 제한(max_iterations), 요청 제한, 재시도 탐지·차단</td></tr>
+<tr><td>에이전트</td><td><strong>에이전트 메모리 오염</strong></td><td>장기메모리 저장 제한, 세션별 메모리 분리, 저장 전 안전성 검증</td></tr>
+<tr><td>공급망</td><td><strong>데이터 포이즈닝</strong></td><td>출처·신뢰성 확인, 변경이력 관리, 이상데이터 탐지·제거, 버전복구</td></tr>
+<tr><td>공급망</td><td><strong>모델 포이즈닝</strong></td><td>신뢰 출처 모델 사용, 파일 검토, 모델 암호화·무결성 검증</td></tr>
+<tr><td>공급망</td><td><strong>취약한 추론엔진 사용</strong></td><td>최신 보안패치 적용, 입력 유효성 검증, SBOM 구성요소 관리</td></tr>
+<tr><td>공급망</td><td><strong>취약한 에이전트 확장요소</strong></td><td>최신 패치 확장요소 사용, 입력 검증, SBOM 관리</td></tr>
+<tr><td>고성능모델</td><td><strong>고도화된 사이버공격 지원</strong></td><td>모델 정렬(거부·안전응답), 입출력 필터링, 이상패턴 모니터링, 단계적 배포</td></tr>
+<tr><td>고성능모델</td><td><strong>자율성 통제 상실</strong></td><td>운영정책 사전정의, 최소권한·허용목록, 로그·이상행위 모니터링</td></tr>
+</table></div>
+</li>
+</ul>
 
 </body>
 </html>

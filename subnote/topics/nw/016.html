@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 오류 제어 (Error Control)</title>
+  <title>[하위] 2-1. TCP 4-way Handshake</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,13 @@
   </style>
 </head>
 <body>
-<h4>3. 오류 제어 (Error Control)</h4>
+<h4>[하위] 2-1. TCP 4-way Handshake</h4>
 <ul>
-<li><strong>정의</strong>: 전송 중 발생한 오류를 검출·재전송·정정해 신뢰성 있는 통신을 보장하는 기법</li>
-<li><strong>키워드</strong>: 오류 검출, 오류 정정, ARQ, FEC, CRC, 해밍코드, 패리티</li>
+<li><strong>정의</strong>: TCP 연결 종료 시 4단계 교환으로 양방향 연결을 정상 종료하는 절차</li>
+<li><strong>키워드</strong>: FIN, ACK, TIME_WAIT, CLOSE_WAIT, FIN_WAIT, 반이중 종료</li>
 <li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>오류 제어 분류</strong>:<div class="table-scroll"><table>
-<tr><th>분류</th><th>오류 검출</th><th>오류 정정</th></tr>
-<tr><td><strong>방식</strong></td><td>재전송 요청</td><td>자체 정정</td></tr>
-<tr><td><strong>기법</strong></td><td>BEC - ARQ(Stop-and-Wait, Go-Back-N, SR)</td><td>FEC (해밍코드, 터보코드, LDPC)</td></tr>
-<tr><td><strong>특징</strong></td><td>수신측이 오류 감지 후 재전송 요청</td><td>수신측이 직접 오류 정정</td></tr>
-</table></div>
-</li>
-<li><strong>오류 검출 기법:</strong><div class="table-scroll"><table>
-<tr><th>기법</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>패리티 비트</strong></td><td>단일 비트 오류 검출·짝수/홀수 패리티</td><td>단순·1비트 검출</td></tr>
-<tr><td><strong>LRC (수평 패리티)</strong></td><td>블록 단위 행·열 패리티 검사</td><td>2차원 오류 검출</td></tr>
-<tr><td><strong>CRC (순환중복검사)</strong></td><td>생성 다항식으로 나머지 비트 검사</td><td>버스트 오류 검출</td></tr>
-<tr><td><strong>Checksum</strong></td><td>데이터 합산 후 보수 값 검증</td><td>TCP·UDP 적용</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: FEC는 <strong>재전송이 불가능한 위성·방송 환경</strong>에서 필수이며, ARQ는 지상 유선망에서 효율적. 5G는 HARQ(Hybrid ARQ = ARQ + FEC 결합)를 채택하여 성능 최적화.</li>
+<li><strong>TIME_WAIT</strong>: 마지막 ACK 손실 대비 및 이전 세그먼트 소멸 대기 (2·MSL = 약 60~120초)</li>
+<li><strong>인사이트</strong>: <strong>TIME_WAIT 상태</strong>는 서버 포트 재사용 문제를 야기할 수 있으며, SO_REUSEADDR 옵션으로 해소 가능. 3-way와 달리 FIN과 ACK가 분리되는 이유는 <strong>수동 종료측의 잔여 데이터 전송</strong> 때문.</li>
 </ul>
 
 </body>

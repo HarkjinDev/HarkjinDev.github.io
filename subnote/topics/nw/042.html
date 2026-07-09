@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. WFQ (Weighted Fair Queuing)</title>
+  <title>1. QoS (Quality of Service)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,20 @@
   </style>
 </head>
 <body>
-<h4>2. WFQ (Weighted Fair Queuing)</h4>
+<h4>1. QoS (Quality of Service)</h4>
 <ul>
-<li><strong>정의</strong>: 각 트래픽 흐름에 가중치를 부여하여 우선순위별로 공정하게 대역폭을 분배하는 스케줄링 기법</li>
-<li><strong>키워드</strong>: 가중치, 공정 큐잉, 흐름 기반, CBWFQ, LLQ, 선점, 스케줄러</li>
+<li><strong>정의</strong>: 네트워크에서 트래픽 유형별로 대역폭·지연·손실을 차등 보장하여 서비스 품질을 관리하는 기술 체계</li>
+<li><strong>키워드</strong>: 대역폭, 지연, 지터, 패킷 손실, IntServ, DiffServ, RSVP, 마킹, 큐잉</li>
 <li><strong>분류</strong>: QoS</li>
-<li><strong>큐잉 기법 비교</strong>:<div class="table-scroll"><table>
-<tr><th>기법</th><th>원리</th><th>특징</th></tr>
-<tr><td>FIFO</td><td>선착순</td><td>간단, QoS 없음</td></tr>
-<tr><td>PQ(Priority Queuing)</td><td>우선순위 절대 선점</td><td>높은 큐 독점 위험</td></tr>
-<tr><td>WFQ</td><td>가중치 비례 대역폭</td><td>공정성 + 우선순위</td></tr>
-<tr><td>CBWFQ</td><td>클래스 기반 WFQ</td><td>정책 유연성</td></tr>
-<tr><td>LLQ</td><td>CBWFQ + 엄격 우선순위 큐</td><td>VoIP 최적</td></tr>
+<li><strong>QoS 4대 요소</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대연터패&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>영향 서비스</th></tr>
+<tr><td><strong>대역폭(Bandwidth)</strong></td><td>단위 시간 전송량</td><td>고화질 스트리밍</td></tr>
+<tr><td><strong>지연(Latency)</strong></td><td>패킷 전달 소요 시간</td><td>VoIP, 게임</td></tr>
+<tr><td><strong>지터(Jitter)</strong></td><td>지연 변동성</td><td>실시간 미디어</td></tr>
+<tr><td><strong>패킷 손실(Loss)</strong></td><td>패킷 폐기 비율</td><td>모든 서비스</td></tr>
 </table></div>
 </li>
-<li><strong>WFQ 가중치</strong>: 낮은 IP Precedence → 높은 가중치(역비례), 저지연 흐름에 높은 우선순위</li>
-<li><strong>인사이트</strong>: <strong>LLQ(Low Latency Queuing)</strong>는 VoIP 트래픽에 엄격한 우선순위를 부여하고 나머지는 CBWFQ로 처리하는 Cisco 권장 구성. WFQ는 흐름 수가 많을수록 CPU 부하가 증가.</li>
+<li><strong>인사이트</strong>: 현대 엔터프라이즈 망은 <strong>DiffServ를 기본으로 하되, 특정 핵심 경로에 RSVP 예약</strong>을 병행하는 하이브리드 방식을 채택. 5G QoS는 QFI(QoS Flow Indicator)로 슬라이스별 SLA를 보장.</li>
 </ul>
 
 </body>
