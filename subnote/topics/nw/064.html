@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. WebRTC (Web Real-Time Communication)</title>
+  <title>5. MODBUS (산업제어 통신 프로토콜)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,20 @@
   </style>
 </head>
 <body>
-<h4>5. WebRTC (Web Real-Time Communication)</h4>
+<h4>5. MODBUS (산업제어 통신 프로토콜)</h4>
 <ul>
-<li><strong>정의</strong>: 웹 브라우저에서 별도 플러그인·앱 설치 없이 JavaScript API만으로 음성·영상·데이터 실시간 통신을 지원하는 오픈 표준</li>
-<li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
+<li><strong>정의</strong>: PLC·센서 등 산업기기 간 마스터-슬레이브 방식으로 통신하는 개방형 프로토콜</li>
+<li><strong>키워드</strong>: 마스터-슬레이브, RTU/ASCII/TCP, 코일, 레지스터, ICS/OT 보안, SCADA</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
-<tr><th>컴포넌트</th><th>역할</th></tr>
-<tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
-<tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
-<tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
-<tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
-<tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
+<li><strong>MODBUS 변형</strong>:<div class="table-scroll"><table>
+<tr><th>변형</th><th>전송 매체</th><th>인코딩</th><th>특징</th></tr>
+<tr><td>MODBUS RTU</td><td>RS-232/485</td><td>이진</td><td>고효율, 산업 표준</td></tr>
+<tr><td>MODBUS ASCII</td><td>RS-232/485</td><td>ASCII</td><td>가독성, 저효율</td></tr>
+<tr><td>MODBUS TCP</td><td>Ethernet</td><td>TCP/IP</td><td>현대 OT 네트워크</td></tr>
 </table></div>
 </li>
-<li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
-<li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>
+<li><strong>보안 취약점</strong>: 인증·암호화 없음 → ICS/OT 보안에서 주요 위협 (Stuxnet 등 공격 사례)</li>
+<li><strong>인사이트</strong>: MODBUS는 1979년 제정된 <strong>레거시 OT 프로토콜</strong>로 보안 기능이 전무하므로, ICS 환경에서는 네트워크 세그먼테이션·화이트리스트·암호화 게이트웨이로 보완 필수.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. IPS (Indoor Positioning System)</title>
+  <title>11. Itinerary Routing</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,24 @@
   </style>
 </head>
 <body>
-<h4>11. IPS (Indoor Positioning System)</h4>
+<h4>11. Itinerary Routing</h4>
 <ul>
-<li><strong>정의</strong>: GPS 신호가 도달하지 않는 실내 환경에서 Wi-Fi·BLE·초음파 등 다양한 측위 기술을 이용하여 위치를 결정하는 시스템</li>
-<li><strong>키워드</strong>: 측위 기술, RSSI, ToA/TDoA, AoA, 핑거프린팅, BLE, UWB, Wi-Fi RTT</li>
+<li><strong>정의</strong>: 이동 에이전트가 지정 경로를 순회하며 센서 데이터를 수집하는 라우팅 기법</li>
+<li><strong>키워드</strong>: 이동 에이전트, 순회 경로, WSN, 에너지 효율, 데이터 집계, 멀티홉 회피</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>측위 기술 비교</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>Wi-Fi RSSI</strong></th><th><strong>BLE</strong></th><th><strong>UWB</strong></th><th><strong>핑거프린팅</strong></th></tr>
-<tr><td><strong>설명</strong></td><td>신호 강도 기반</td><td>신호 강도/AoA</td><td>ToA 정밀 측정</td><td>DB 매칭</td></tr>
-<tr><td><strong>정확도</strong></td><td>2~5m</td><td>1~3m</td><td>10~30cm</td><td>1~3m</td></tr>
-<tr><td><strong>특징</strong></td><td>기존 인프라 활용</td><td>저전력, 소형 비콘</td><td>고정밀, 고비용</td><td>환경 변화에 민감</td></tr>
+<li><strong>특징</strong>:<ul>
+<li>에이전트가 노드에서 노드로 이동하며 데이터 직접 수집</li>
+<li>멀티홉 전송 감소로 에너지 절약</li>
+<li>Itinerary 순서 최적화(TSP 유사)로 경로 효율 극대화</li>
+</ul>
+</li>
+<li><strong>장단점</strong>:<div class="table-scroll"><table>
+<tr><th>장점</th><th>단점</th></tr>
+<tr><td>멀티홉 오버헤드 감소</td><td>에이전트 크기 증가로 대역폭 소모</td></tr>
+<tr><td>집계된 데이터 전송</td><td>노드 장애 시 경로 재계획 필요</td></tr>
 </table></div>
 </li>
-<li><strong>활용 서비스</strong>: 스마트 공항·쇼핑몰 네비게이션, 병원 자산 추적, 물류 창고 관리, 산업 안전</li>
-<li><strong>인사이트</strong>: <strong>UWB는 초정밀 측위</strong>가 필요한 산업 현장과 스마트폰(iPhone 초광대역 기능)에 탑재 확산 중. Wi-Fi RTT(Round Trip Time)는 802.11mc 표준으로 기존 Wi-Fi AP로 서브미터급 측위 가능.</li>
+<li><strong>인사이트</strong>: Itinerary Routing은 <strong>대규모 WSN에서 에너지 효율적인 데이터 수집</strong>이 필요한 환경에서 유효하며, 에이전트 이동 경로의 최적화가 성능의 핵심.</li>
 </ul>
 
 </body>

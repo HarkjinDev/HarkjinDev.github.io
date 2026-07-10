@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. IoT 프로토콜 (XMPP/CoAP/MQTT)</title>
+  <title>10. IPS (Indoor Positioning System)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,20 @@
   </style>
 </head>
 <body>
-<h4>10. IoT 프로토콜 (XMPP/CoAP/MQTT)</h4>
+<h4>10. IPS (Indoor Positioning System)</h4>
 <ul>
-<li><strong>정의</strong>: IoT 기기의 제한된 자원과 불안정한 네트워크 환경에서 효율적인 메시지 통신을 지원하는 경량 응용 계층 프로토콜들</li>
-<li><strong>키워드</strong>: MQTT, CoAP, XMPP, Pub/Sub, REST, QoS, 브로커, 경량, M2M</li>
+<li><strong>정의</strong>: GPS 사각지대인 실내에서 Wi-Fi·BLE 등으로 단말 위치를 결정하는 시스템</li>
+<li><strong>키워드</strong>: 측위 기술, RSSI, ToA/TDoA, AoA, 핑거프린팅, BLE, UWB, Wi-Fi RTT</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>MQTT</th><th>CoAP</th><th>XMPP</th></tr>
-<tr><td>전송</td><td>TCP</td><td>UDP</td><td>TCP</td></tr>
-<tr><td>패턴</td><td>Pub/Sub</td><td>요청-응답(REST)</td><td>IM 스타일</td></tr>
-<tr><td>브로커</td><td>필요</td><td>불필요</td><td>서버 필요</td></tr>
-<tr><td>오버헤드</td><td>매우 낮음</td><td>매우 낮음</td><td>중간</td></tr>
-<tr><td>QoS</td><td>0/1/2 레벨</td><td>확인/비확인</td><td>없음</td></tr>
-<tr><td>주요 용도</td><td>센서, IoT 플랫폼</td><td>스마트 에너지</td><td>실시간 메시징</td></tr>
+<li><strong>측위 기술 비교</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>Wi-Fi RSSI</strong></th><th><strong>BLE</strong></th><th><strong>UWB</strong></th><th><strong>핑거프린팅</strong></th></tr>
+<tr><td><strong>설명</strong></td><td>신호 강도 기반</td><td>신호 강도/AoA</td><td>ToA 정밀 측정</td><td>DB 매칭</td></tr>
+<tr><td><strong>정확도</strong></td><td>2~5m</td><td>1~3m</td><td>10~30cm</td><td>1~3m</td></tr>
+<tr><td><strong>특징</strong></td><td>기존 인프라 활용</td><td>저전력, 소형 비콘</td><td>고정밀, 고비용</td><td>환경 변화에 민감</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: <strong>MQTT는 IoT 플랫폼(AWS IoT, Azure IoT)의 사실상 표준</strong>으로 Pub/Sub 모델과 낮은 오버헤드가 장점. CoAP는 HTTP와 유사한 REST 방식으로 웹 생태계와 통합이 용이.</li>
+<li><strong>활용 서비스</strong>: 스마트 공항·쇼핑몰 네비게이션, 병원 자산 추적, 물류 창고 관리, 산업 안전</li>
+<li><strong>인사이트</strong>: <strong>UWB는 초정밀 측위</strong>가 필요한 산업 현장과 스마트폰(iPhone 초광대역 기능)에 탑재 확산 중. Wi-Fi RTT(Round Trip Time)는 802.11mc 표준으로 기존 Wi-Fi AP로 서브미터급 측위 가능.</li>
 </ul>
 
 </body>

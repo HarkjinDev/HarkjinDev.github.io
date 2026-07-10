@@ -1611,70 +1611,66 @@
       },
       {
         "id": "063",
-        "name": "4. C-V2X (Cellular Vehicle to Everything)"
+        "name": "4. WebRTC (Web Real-Time Communication)"
       },
       {
         "id": "064",
-        "name": "5. WebRTC (Web Real-Time Communication)"
+        "name": "5. MODBUS (산업제어 통신 프로토콜)"
       },
       {
         "id": "065",
-        "name": "6. MODBUS (산업제어 통신 프로토콜)"
+        "name": "6. IEEE 802.11bn (Wi-Fi 8)"
       },
       {
         "id": "066",
-        "name": "7. IEEE 802.11bn (Wi-Fi 8)"
+        "name": "7. 5G 네트워크 슬라이싱 (Network Slicing)"
       },
       {
         "id": "067",
-        "name": "8. 5G 네트워크 슬라이싱 (Network Slicing)"
+        "name": "8. Ad-hoc 네트워크"
       },
       {
         "id": "068",
-        "name": "9. Ad-hoc 네트워크"
+        "name": "9. IoT 프로토콜 (XMPP/CoAP/MQTT)"
       },
       {
         "id": "069",
-        "name": "10. IoT 프로토콜 (XMPP/CoAP/MQTT)"
+        "name": "10. IPS (Indoor Positioning System)"
       },
       {
         "id": "070",
-        "name": "11. IPS (Indoor Positioning System)"
+        "name": "11. Itinerary Routing"
       },
       {
         "id": "071",
-        "name": "13. Itinerary Routing"
+        "name": "12. WLAN 실내 측위 (Indoor Positioning)"
       },
       {
         "id": "072",
-        "name": "14. WLAN 실내 측위 (Indoor Positioning)"
-      },
-      {
-        "id": "073",
         "name": "[Part 10]. 차세대 네트워크"
       },
       {
-        "id": "074",
+        "id": "073",
         "name": "1. 6G 이동통신"
       },
       {
-        "id": "075",
+        "id": "074",
         "name": "2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)"
       },
       {
-        "id": "076",
+        "id": "075",
         "name": "3. AI-Native Network (AI 네이티브 네트워크)"
       },
       {
-        "id": "077",
+        "id": "076",
         "name": "4. AI-RAN (AI-based Radio Access Network)"
       },
       {
-        "id": "078",
+        "id": "077",
         "name": "5. IBN (Intent-Based Networking)"
       },
       {
-        "id": "079",
+        "id": "078",
         "name": "6. 자율 네트워크 (Autonomous Network)"
       }
     ]

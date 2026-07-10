@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. IEEE 802.11bn (Wi-Fi 8)</title>
+  <title>7. 5G 네트워크 슬라이싱 (Network Slicing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,47 +15,20 @@
   </style>
 </head>
 <body>
-<h4>7. IEEE 802.11bn (Wi-Fi 8)</h4>
+<h4>7. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
 <ul>
-<li><strong>정의</strong>: 협업 MIMO, 다중 AP 조정, 광대역 지원을 통해 실제 처리량과 채널 효율을 극대화하는 차세대 무선랜 표준 (예상 2028년)</li>
-<li><strong>키워드</strong>: Wi-Fi 8, 협업 MIMO, 다중 AP 조정, 320MHz 채널, 멀티링크, 6GHz 대역</li>
+<li><strong>정의</strong>: NFV/SDN으로 물리 5G망을 다수의 독립된 가상망으로 분리해 서비스별 QoS를 제공하는 기술</li>
+<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>Wi-Fi 세대 비교</strong>:<div class="table-scroll"><table>
-<tr><th>세대</th><th>표준</th><th>최대 속도</th><th>주파수</th><th>주요 기술</th></tr>
-<tr><td>Wi-Fi 5</td><td>802.11ac</td><td>3.5 Gbps</td><td>5</td><td>MU-MIMO, 5GHz</td></tr>
-<tr><td>Wi-Fi 6/6E</td><td>802.11ax</td><td>9.6 Gbps</td><td>2.4, 5, 6</td><td>OFDMA, TWT, 6GHz</td></tr>
-<tr><td>Wi-Fi 7</td><td>802.11be</td><td>46 Gbps</td><td>2.4, 5, 6</td><td>320MHz, MLO, 4K QAM</td></tr>
-<tr><td>Wi-Fi 8</td><td>802.11bn</td><td>100+ Gbps</td><td>2.4, 5, 6</td><td>협업 MIMO, 다중 AP</td></tr>
+<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
+<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
+<tr><td><strong>eMBB</strong></td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
+<tr><td><strong>URLLC</strong></td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
+<tr><td><strong>mMTC</strong></td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
 </table></div>
 </li>
-<li><strong>Wi-Fi 7 기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
-<tr><td><strong>MAC</strong></td><td><strong>MLO (Multi-Link Operation)</strong></td><td>여러 링크 동시 송수신으로 처리량·신뢰성 향상</td></tr>
-<tr><td></td><td><strong>무선공유기(AP)간 다중협력통신</strong></td><td>AP 간 데이터 공유·제어로 자원 유연성 개선</td></tr>
-<tr><td></td><td><strong>채널당 최대 320MHz 대역폭</strong></td><td>320MHz·비연속 스펙트럼 효율 활용</td></tr>
-<tr><td></td><td><strong>16×16 MIMO</strong></td><td>16 공간 스트림으로 네트워크 용량 증대</td></tr>
-<tr><td></td><td><strong>하이브리드 ARQ</strong></td><td>추가 패리티 기반 재전송 복호화 향상</td></tr>
-<tr><td><strong>PHY</strong></td><td><strong>혼합 빔포밍</strong></td><td>320MHz 광대역 협대역 분할 프리코딩</td></tr>
-<tr><td></td><td><strong>4096 QAM</strong></td><td>12bit 변조로 기존 대비 20% 성능 향상</td></tr>
-</table></div>
-</li>
-<li><strong>Wi-Fi 8 기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>기술 요소</th><th>설명</th></tr>
-<tr><td><strong>MAC</strong></td><td><strong>MAPC (Multi-AP Coordination)</strong></td><td>다중 AP 협력으로 간섭 감소·용량 향상</td></tr>
-<tr><td></td><td><strong>분산 MLO (Distributed MLO)</strong></td><td>다중 링크 협조적 분산 운용·이동성 강화</td></tr>
-<tr><td></td><td><strong>P-EDCA (우선순위 채널접근)</strong></td><td>실시간 트래픽 우선 처리·지연 최소화</td></tr>
-<tr><td></td><td><strong>Co-TDMA·Co-RTWT</strong></td><td>AP 간 시간 조정으로 간섭 제어·저지연</td></tr>
-<tr><td></td><td><strong>DSO·NPCA</strong></td><td>비연속 스펙트럼 동적 운용·채널 유연 활용</td></tr>
-<tr><td></td><td><strong>향상된 심리스 로밍</strong></td><td>이동 중 끊김 없는 AP 간 전환</td></tr>
-<tr><td><strong>PHY</strong></td><td><strong>dRU (분산 자원 단위)</strong></td><td>비연속 부반송파 분산 할당으로 신뢰성 향상</td></tr>
-<tr><td></td><td><strong>ELR (향상된 장거리)</strong></td><td>저신호 환경 장거리 안정 연결 지원</td></tr>
-<tr><td></td><td><strong>4096 QAM 유지</strong></td><td>Wi-Fi 7 변조 방식 유지·실환경 도달률 향상</td></tr>
-<tr><td></td><td><strong>320MHz 대역폭 유지</strong></td><td>Wi-Fi 7 대역폭 유지·신뢰성 중심 운용</td></tr>
-</table></div>
-</li>
-<li><strong>협업 MIMO</strong>: 여러 AP가 협력하여 단일 사용자에게 동시 빔포밍 → 간섭 최소화, 처리량 극대화</li>
-<li><strong>Wi-Fi 8 핵심 목표 (UHR, Ultra-High Reliability):</strong> 처리량 25% 향상·지연 스파이크 25% 감소·패킷 손실 25% 저감을 목표로, 속도보다 신뢰성·안정성 중심으로 설계됨</li>
-<li><strong>인사이트</strong>: Wi-Fi 8의 <strong>다중 AP 협업</strong>은 셀룰러의 CoMP(Coordinated MultiPoint)와 유사한 개념으로, 밀집 환경에서 간섭 문제를 근본적으로 해결하는 방향으로 발전.</li>
+<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
+<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
 </ul>
 
 </body>
