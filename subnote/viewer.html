@@ -410,7 +410,7 @@ function resizeIframe() {
 /* ── topics.json 로드 ── */
 async function init() {
   try {
-    const res  = await fetch('topics.json');
+    const res  = await fetch('topics.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('topics.json 없음');
     const data = await res.json();
     renderNav(data);
@@ -519,7 +519,7 @@ function loadTopic(domain, id, name, label, skipOpen) {
       mainEl.scrollTo({ top: 0 });
     });
   };
-  viewer.src = `topics/${domain}/${id}.html`;
+  viewer.src = `topics/${domain}/${id}.html?v=${Date.now()}`;
 }
 
 init();
