@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. VPN (Virtual Private Network, 가상 사설망)</title>
+  <title>[Part 6]. 네트워크 가상화/SDN</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,39 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. VPN (Virtual Private Network, 가상 사설망)</h4>
-<ul>
-<li><strong>정의:</strong> 공용망 위에 암호화 터널을 구성해 사설망 수준의 보안·기밀성을 제공하는 가상 네트워크 기술</li>
-<li><strong>키워드:</strong> 터널링, 암호화, IPSec, SSL/TLS, L2TP, OpenVPN, 스플릿 터널링, 제로트러스트, Site-to-Site, Remote Access</li>
-<li><strong>분류:</strong> VPN</li>
-<li><strong>VPN 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>접속 방식</strong></td><td><strong>Remote Access VPN</strong></td><td>개인 사용자·재택근무자 사설망 원격 접속</td></tr>
-<tr><td></td><td><strong>Site-to-Site VPN</strong></td><td>거점 간 사설망 연결, 기업 지사·데이터센터 연결</td></tr>
-<tr><td><strong>프로토콜</strong></td><td><strong>IPSec VPN</strong></td><td>네트워크 계층 암호화, AH·ESP 프로토콜 사용</td></tr>
-<tr><td></td><td><strong>SSL/TLS VPN</strong></td><td>애플리케이션 계층, 브라우저 기반 접속 용이</td></tr>
-<tr><td></td><td><strong>L2TP/IPSec</strong></td><td>L2TP 터널링 + IPSec 암호화 결합</td></tr>
-<tr><td></td><td><strong>OpenVPN</strong></td><td>오픈소스, SSL/TLS 기반 높은 호환성</td></tr>
-</table></div>
-</li>
-<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>터널링</strong></td><td><strong>캡슐화</strong></td><td>원본 패킷을 암호화 후 새 패킷으로 감싸 전송</td></tr>
-<tr><td></td><td><strong>터널 프로토콜</strong></td><td>IPSec·L2TP·GRE·WireGuard 등 터널 생성</td></tr>
-<tr><td><strong>암호화</strong></td><td><strong>데이터 암호화</strong></td><td>AES-256 대칭키 암호화로 데이터 기밀성 보장</td></tr>
-<tr><td></td><td><strong>키 교환</strong></td><td>IKE·DH 알고리즘으로 세션키 안전 교환</td></tr>
-<tr><td><strong>인증</strong></td><td><strong>사용자 인증</strong></td><td>ID·PW·인증서·MFA 기반 접속자 신원 확인</td></tr>
-<tr><td></td><td><strong>무결성 검증</strong></td><td>HMAC·SHA로 데이터 변조 여부 확인</td></tr>
-</table></div>
-</li>
-<li><strong>IPSec 동작 모드:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>전송 모드 (Transport)</strong></td><td>페이로드만 암호화, 원본 IP 헤더 유지</td><td>단말 간 통신</td></tr>
-<tr><td><strong>터널 모드 (Tunnel)</strong></td><td>전체 패킷 암호화 후 새 IP 헤더 추가</td><td>게이트웨이 간 통신</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> VPN은 원격 접속 보안의 오랜 표준이나 내부망 묵시적 신뢰·측면 이동 위험으로 인해 Zero Trust Network Access(ZTNA)로 대체되는 전환기에 있으며, 특히 클라우드·하이브리드 환경에서 ZTNA·SDP와의 병행 운용이 현대 네트워크 보안 아키텍처의 실무 표준으로 자리잡고 있음</li>
-</ul>
+<h3>[Part 6]. 네트워크 가상화/SDN</h3>
 
 </body>
 </html>

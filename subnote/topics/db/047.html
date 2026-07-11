@@ -20,14 +20,20 @@
 <li><strong>정의</strong>: 해시 함수를 이용하여 키 값을 버킷 주소로 변환하는 데이터 접근 방법</li>
 <li><strong>키워드</strong>: 해시 함수, 버킷, 오버플로우, 체이닝, 개방 주소법, 확장성 해싱, 정적 해싱</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>정적 해싱 vs 확장성 해싱</strong>:<ul>
+<li><strong>정적 해싱 vs 확장성 해싱</strong>: <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">/</span><span style="background:#fbf3db;border-radius:3px;padding:1px 3px"><strong>/ 수정 필요 - 정적/동적/확장성</strong></span><ul>
 <li><strong>정적 해싱(Static Hashing)</strong>: 고정 크기 해시 테이블. 오버플로우 처리 — 체이닝(Chaining), 개방 주소법(Open Addressing)</li>
 <li><strong>확장성 해싱(Extendible Hashing)</strong>: 디렉토리 크기를 동적으로 2배씩 확장하여 충돌 해결</li>
 </ul>
 </li>
-<li><strong>충돌 회피 기법</strong>:<ul>
-<li><strong>체이닝(Chaining)</strong>: 동일 버킷 충돌 시 연결 리스트로 연결</li>
-<li><strong>개방 주소법(Open Addressing)</strong>: 선형/이차 탐사, 이중 해싱으로 다른 빈 버킷 탐색</li>
+<li><strong>충돌 회피 기법</strong>: <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">/</span><span style="background:#fbf3db;border-radius:3px;padding:1px 3px"><strong>/ 보완 필요</strong></span><ul>
+<li><strong>체이닝(Chaining)</strong>: 동일 버킷 충돌 시 연결 리스트로 연결<ul>
+<li>합병 체인법, 분리 체인법</li>
+</ul>
+</li>
+<li><strong>개방 주소법(Open Addressing)</strong>: 선형/이차 탐사, 이중 해싱으로 다른 빈 버킷 탐색<ul>
+<li>선형 조사법, 이차 조사법, 이중 해싱, 무작위 검색</li>
+</ul>
+</li>
 <li><strong>재해싱(Rehashing)</strong>: 적재율 초과 시 더 큰 해시 테이블로 재구성</li>
 </ul>
 </li>

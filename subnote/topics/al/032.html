@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 퀵 정렬 (Quick Sort)</title>
+  <title>3. 삽입 정렬 (Insertion Sort)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,20 @@
   </style>
 </head>
 <body>
-<h4>2. 퀵 정렬 (Quick Sort)</h4>
+<h4>3. 삽입 정렬 (Insertion Sort)</h4>
 <ul>
-<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>피벗을 기준</strong></u></span>으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분할 정복</strong></u></span>하여 평균 O(n log n)으로 정렬하는 알고리즘</li>
-<li><strong>키워드</strong>: 피벗(Pivot), 분할 정복, 파티션, 재귀, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불안정 정렬</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Median-of-3</strong></u></span></li>
+<li><strong>정의</strong>: 정렬된 부분 배열에 새 요소를 적절한 위치에 삽입하는 정렬 알고리즘</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정렬된 부분 배열</strong></u></span>, 비교·이동, 안정 정렬, O(n) 최선, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>온라인 정렬</strong></u></span>, 하이브리드(Introsort)</li>
 <li><strong>분류</strong>: 정렬 알고리즘</li>
 <li><strong>복잡도</strong>:<div class="table-scroll"><table>
 <tr><th>케이스</th><th>시간 복잡도</th><th>조건</th></tr>
-<tr><td>최선/평균</td><td>O(n log n)</td><td>피벗이 중간값일 때</td></tr>
-<tr><td>최악</td><td>O(n²)</td><td>정렬된 배열에서 첫/마지막 피벗 선택</td></tr>
-<tr><td>공간</td><td>O(log n) 평균</td><td>재귀 스택</td></tr>
+<tr><td>최선</td><td>O(n)</td><td>이미 정렬된 배열 (이동 없이 비교만)</td></tr>
+<tr><td>평균/최악</td><td>O(n²)</td><td>역순 정렬된 배열</td></tr>
+<tr><td>공간</td><td>O(1)</td><td>제자리 정렬</td></tr>
 </table></div>
 </li>
-<li><strong>피벗 선택 전략</strong>:<div class="table-scroll"><table>
-<tr><th>전략</th><th>설명</th></tr>
-<tr><td>첫 번째 요소</td><td>구현 단순, 정렬된 배열에서 최악 성능</td></tr>
-<tr><td>Median-of-3</td><td>첫·중간·마지막 3개의 중앙값 → 최악 케이스 방지</td></tr>
-<tr><td>랜덤 선택</td><td>평균 성능 보장, 예측 불가 입력 대응</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 퀵 정렬은 <strong>캐시 지역성(Cache Locality)</strong> 덕분에 평균 성능이 병합 정렬보다 우수하며, <strong>불안정 정렬</strong>이라는 점과 최악 O(n²) 방지를 위한 피벗 전략이 시험 핵심; Java의 Arrays.sort()는 이중 피벗 퀵 정렬(Dual-Pivot Quicksort) 사용</li>
+<li><strong>특징</strong>: 안정 정렬, 온라인 정렬(데이터를 순차적으로 받으며 정렬 가능)</li>
+<li><strong>인사이트</strong>: 삽입 정렬은 <strong>소규모 데이터 및 거의 정렬된 배열에 최적</strong>이며, 퀵 정렬의 재귀 기저 케이스(소규모 부분 배열)에서 삽입 정렬로 전환하는 <strong>Introsort(하이브리드)</strong> 방식이 실무 표준임을 언급</li>
 </ul>
 
 </body>

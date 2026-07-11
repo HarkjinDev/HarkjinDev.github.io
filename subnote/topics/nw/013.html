@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-1. TCP 소켓 (TCP Socket)</title>
+  <title>[하위] 4-4. CRC (Cyclic Redundancy Check)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,26 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-1. TCP 소켓 (TCP Socket)</h4>
+<h4>[하위] 4-4. CRC (Cyclic Redundancy Check)</h4>
 <ul>
-<li><strong>정의</strong>: 3-way Handshake로 연결 설정 후 신뢰성·순서를 보장하는 연결지향 스트림 소켓</li>
-<li><strong>키워드</strong>: 연결 지향, 스트림, 신뢰성, 순서 보장, 흐름제어, 혼잡제어</li>
-<li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP 소켓 특성</strong>:<ul>
-<li><strong>신뢰성</strong>: ACK 기반 재전송 보장</li>
-<li><strong>순서 보장</strong>: 시퀀스 번호로 재조립</li>
-<li><strong>흐름 제어</strong>: 슬라이딩 윈도우</li>
-<li><strong>혼잡 제어</strong>: Slow Start, AIMD</li>
+<li><strong>정의</strong>: 데이터를 생성 다항식으로 나눈 나머지(체크섬)를 프레임에 부가하여 전송 오류를 검출하는 순환 중복 검사 기법</li>
+<li><strong>키워드</strong>: 생성 다항식, 나머지, FCS, 코드워드, GF(2) 나눗셈, 버스트 오류</li>
+<li><strong>분류</strong>: 네트워크 기초</li>
+<li><strong>CRC 계산 절차</strong>:<ul>
+<li>① 데이터 비트열 뒤에 생성 다항식 차수만큼 0 추가</li>
+<li>② GF(2)(XOR) 나눗셈 수행</li>
+<li>③ 나머지 = CRC 체크섬 → FCS 필드에 첨부</li>
+<li>④ 수신측: 동일 나눗셈 후 나머지 = 0이면 정상</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: TCP 소켓은 <strong>신뢰성-지연 트레이드오프</strong> 구조로, 지연에 민감한 실시간 미디어는 UDP/QUIC를 선택하며 HTTP/3는 TCP 대신 QUIC(UDP 기반)를 채택함.</li>
+<li><strong>주요 표준</strong>:<div class="table-scroll"><table>
+<tr><th>표준</th><th>다항식</th><th>적용</th></tr>
+<tr><td>CRC-16</td><td>x¹⁶+x¹⁵+x²+1</td><td>HDLC, USB</td></tr>
+<tr><td>CRC-32</td><td>32차 다항식</td><td>Ethernet, ZIP</td></tr>
+<tr><td>CRC-CCITT</td><td>x¹⁶+x¹²+x⁵+1</td><td>SDLC, X.25</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: CRC는 <strong>버스트 오류 검출에 탁월</strong>하지만 오류 정정은 불가. Ethernet 프레임의 FCS가 CRC-32를 사용하며, CRC는 검출만 가능하므로 오류 정정은 ARQ/FEC 필요.</li>
 </ul>
 
 </body>

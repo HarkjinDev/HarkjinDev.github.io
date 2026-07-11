@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 4-1. 원형큐 (Circular Queue)</title>
+  <title>4. 큐 (Queue)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,21 @@
   </style>
 </head>
 <body>
-<h4>[하위] 4-1. 원형큐 (Circular Queue)</h4>
+<h4>4. 큐 (Queue)</h4>
 <ul>
-<li><strong>정의</strong>: 배열의 끝과 시작을 연결하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>큐의 공간 낭비를 해결</strong></u></span>한 큐 자료 구조</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>원형 배열, Modulo 연산</strong></u></span>, Front, Rear, (Rear+1) % Size, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>공백·포화 판별</strong></u></span></li>
+<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선입선출(FIFO) 원칙</strong></u></span>으로 한쪽에서 삽입, 반대쪽에서 삭제하는 자료 구조</li>
+<li><strong>키워드</strong>: FIFO, Enqueue, Dequeue, Front(삭제), Rear(삽입), 원형큐, 우선순위 큐,<u><strong> </strong></u><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>BFS, 앞 공간 낭비</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>일반 큐 vs 원형큐 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>일반 큐</th><th>원형큐</th></tr>
-<tr><td>공간 낭비</td><td>Dequeue 후 앞 공간 미활용</td><td>Modulo 연산으로 공간 재활용</td></tr>
-<tr><td>포화 조건</td><td>Rear = MAX-1</td><td>(Rear+1) % Size = Front</td></tr>
-<tr><td>공백 조건</td><td>Front = Rear</td><td>Front = Rear</td></tr>
-<tr><td>실제 용량</td><td>MAX개</td><td>MAX-1개 (한 칸 비움)</td></tr>
+<li><strong>주요 연산</strong>:<div class="table-scroll"><table>
+<tr><th>연산</th><th>설명</th><th>시간 복잡도</th></tr>
+<tr><td><strong>Enqueue</strong></td><td>Rear에 데이터 삽입</td><td>O(1)</td></tr>
+<tr><td><strong>Dequeue</strong></td><td>Front에서 데이터 삭제</td><td>O(1)</td></tr>
+<tr><td><strong>Peek/Front</strong></td><td>Front 데이터 조회 (삭제 없음)</td><td>O(1)</td></tr>
+<tr><td><strong>isEmpty</strong></td><td>공백 여부 확인</td><td>O(1)</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 원형큐는 <strong>공백과 포화 구분을 위해 한 칸을 항상 비워두는 방식</strong>을 사용하며, 임베디드 시스템의 링 버퍼(Ring Buffer)나 OS의 인터럽트 처리 큐 구현에 핵심적으로 활용됨</li>
+<li><strong>적용</strong>: 프로세스 스케줄링, BFS 탐색, 프린터 스풀링, 네트워크 패킷 처리</li>
+<li><strong>인사이트</strong>: 일반 배열 기반 큐는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Dequeue 후 앞 공간 낭비 문제가 발생</strong></u></span>하므로 원형큐(Circular Queue)로 해결하고, 우선순위 큐는 이진 힙으로 구현해 O(log n) 연산을 달성함을 언급</li>
 </ul>
 
 </body>

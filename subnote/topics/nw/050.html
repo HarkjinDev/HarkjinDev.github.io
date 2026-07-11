@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. SDDC (Software-Defined Data Center)</title>
+  <title>5. DiffServ (Differentiated Services)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,29 @@
   </style>
 </head>
 <body>
-<h4>4. SDDC (Software-Defined Data Center)</h4>
+<h4>5. DiffServ (Differentiated Services)</h4>
 <ul>
-<li><strong>정의</strong>: 컴퓨팅·스토리지·네트워킹을 모두 소프트웨어로 정의·자동화한 차세대 데이터센터 패러다임</li>
-<li><strong>키워드</strong>: 서버 가상화, SDS, SDN, NFV, 오케스트레이션, 자동화, 클라우드 인프라</li>
-<li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>SDDC 구성 요소</strong>:<div class="table-scroll"><table>
-<tr><th>레이어</th><th>기술</th><th>설명</th></tr>
-<tr><td>컴퓨팅</td><td>서버 가상화(VMware/KVM)</td><td>vCPU, vRAM 동적 할당</td></tr>
-<tr><td>스토리지</td><td>SDS(Ceph, VSAN)</td><td>스토리지 풀 추상화</td></tr>
-<tr><td>네트워킹</td><td>SDN + NFV</td><td>가상 네트워크 구성</td></tr>
-<tr><td>관리</td><td>오케스트레이션(OpenStack)</td><td>통합 자동화 플랫폼</td></tr>
+<li><strong>정의</strong>: IP 패킷의 DSCP 필드를 이용하여 트래픽을 클래스별로 분류하고 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>차등적 포워딩</strong></u></span> 처리를 적용하는 QoS 모델</li>
+<li><strong>키워드</strong>: RFC 2474, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DSCP, PHB</strong></u></span>, EF/AF/BE, 토큰 버킷, 폴리싱, 쉐이핑, 에지 라우터</li>
+<li><strong>분류</strong>: QoS</li>
+<li><strong>PHB(Per-Hop Behavior) 종류</strong>:<div class="table-scroll"><table>
+<tr><th>PHB</th><th>DSCP 값</th><th>설명</th><th>대상 트래픽</th></tr>
+<tr><td>EF(Expedited Forwarding)</td><td>46</td><td>최소 지연/손실 보장</td><td>VoIP, 실시간</td></tr>
+<tr><td>AF(Assured Forwarding)</td><td>12~44</td><td>4클래스×3드롭</td><td>비즈니스 앱</td></tr>
+<tr><td>BE(Best Effort)</td><td>0</td><td>기본 처리</td><td>일반 인터넷</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: SDDC는 <strong>하이브리드 클라우드의 기반 인프라</strong>로, 온프레미스와 퍼블릭 클라우드를 동일한 소프트웨어 정의 방식으로 관리하여 일관된 운영 효율성을 제공.</li>
+<li><strong>DiffServ 동작</strong>: 에지 라우터에서 패킷 분류·마킹 → 코어 라우터는 DSCP 기반 PHB만 적용</li>
+<li><strong>DiffServ vs IntServ 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>IntServ</th><th>DiffServ</th></tr>
+<tr><td>자원 예약</td><td>RSVP per-flow</td><td>없음(클래스 기반)</td></tr>
+<tr><td>확장성</td><td>낮음(상태 유지)</td><td>높음</td></tr>
+<tr><td>보장 수준</td><td>강한 보장</td><td>상대적 보장</td></tr>
+<tr><td>적용 범위</td><td>소규모</td><td>대규모 인터넷</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: DiffServ는 <strong>확장성이 높은 QoS 모델</strong>로 코어 라우터에서 per-flow 상태 유지가 불필요함. IntServ의 RSVP 시그널링 부하 없이 대규모 망에서 실용적으로 적용 가능.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

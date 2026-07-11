@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. RIP (Routing Information Protocol)</title>
+  <title>3. EGP (Exterior Gateway Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,21 @@
   </style>
 </head>
 <body>
-<h4>7. RIP (Routing Information Protocol)</h4>
+<h4>3. EGP (Exterior Gateway Protocol)</h4>
 <ul>
-<li><strong>정의</strong>: 홉 카운트(최대 15)를 메트릭으로 사용하는 거리벡터 기반의 소규모 네트워크용 IGP 프로토콜</li>
-<li><strong>키워드</strong>: RFC 2453, 홉 카운트, 30초 주기, 최대 15홉, Bellman-Ford, RIPv1/v2</li>
-<li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>RIPv1 vs RIPv2 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>RIPv1</th><th>RIPv2</th></tr>
-<tr><td><strong>서브넷 정보</strong></td><td>미포함</td><td>✅ 포함 (CIDR 지원)</td></tr>
-<tr><td><strong>주소 체계</strong></td><td>클래스풀</td><td>클래스리스</td></tr>
-<tr><td><strong>VLSM 지원</strong></td><td>❌</td><td>✅</td></tr>
-<tr><td><strong>전송 방식</strong></td><td>브로드캐스트</td><td>멀티캐스트 (224.0.0.9)</td></tr>
-<tr><td><strong>인증</strong></td><td>❌ 없음</td><td>✅ 평문·MD5 인증</td></tr>
-<tr><td><strong>RFC</strong></td><td>RFC 1058</td><td>RFC 2453</td></tr>
+<li><strong>정의:</strong> 서로 다른 자율 시스템(AS) 간 라우팅 정보를 교환하여 인터넷 전체의 경로를 관리하는 외부 게이트웨이 프로토콜</li>
+<li><strong>키워드:</strong> AS 간 라우팅, BGP-4, 정책 라우팅, AS 번호, AS-PATH, 피어링, eBGP, iBGP, NLRI</li>
+<li><strong>분류:</strong> 라우팅 / 주소체계</li>
+<li><strong>IGP vs EGP 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>IGP</th><th>EGP</th></tr>
+<tr><td><strong>적용 범위</strong></td><td>AS 내부 라우팅</td><td>AS 간 라우팅</td></tr>
+<tr><td><strong>목적</strong></td><td>최적 경로 탐색</td><td>정책 기반 경로 제어</td></tr>
+<tr><td><strong>대표 프로토콜</strong></td><td>OSPF, RIP, EIGRP</td><td>BGP-4</td></tr>
+<tr><td><strong>경로 선택 기준</strong></td><td>메트릭(홉·대역폭)</td><td>정책·속성 기반</td></tr>
 </table></div>
 </li>
-<li><strong>제한사항:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>최대 15홉</strong></td><td>홉 16 = 도달 불가(Unreachable), 대규모 망 부적합</td><td>확장성 한계</td></tr>
-<tr><td><strong>느린 수렴</strong></td><td>30초 주기 업데이트로 장애 감지·수렴 속도 느림</td><td>수렴 지연</td></tr>
-<tr><td><strong>Counting-to-Infinity</strong></td><td>루프 발생 시 홉 카운트가 무한 증가하는 문제</td><td>루프 문제</td></tr>
-<tr><td><strong>대역폭 낭비</strong></td><td>전체 라우팅 테이블을 주기적으로 전송</td><td>비효율 전송</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: RIP는 <strong>소규모 단순 망에서만 적합</strong>하며, 현대 기업망에서는 OSPF/EIGRP로 대체. 15홉 제한과 Counting-to-Infinity 문제가 대표적 단점으로 시험 단골 출제.</li>
+<li><strong>활용 분야: </strong>ISP 간 연결, 멀티호밍, IX (인터넷 교환 포인트)</li>
+<li><strong>인사이트:</strong> BGP-4는 현재 인터넷의 유일한 EGP로, 전 세계 10만 개 이상의 AS 경로를 관리하는 인터넷의 핵심 라우팅 프로토콜임. 최적 경로가 아닌 정책 기반 경로를 선택하는 특성상 BGP 설정 오류·하이재킹이 대규모 인터넷 장애로 이어질 수 있어 RPKI 기반 경로 검증이 보안 표준으로 부상하고 있음</li>
 </ul>
 
 </body>

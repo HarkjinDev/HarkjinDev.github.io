@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. IGP (Interior Gateway Protocol)</title>
+  <title>4. FTP/FTPS/SFTP</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,30 @@
   </style>
 </head>
 <body>
-<h4>2. IGP (Interior Gateway Protocol)</h4>
+<h4>4. FTP/FTPS/SFTP</h4>
 <ul>
-<li><strong>정의</strong>: 단일 자율 시스템(AS) 내부에서 라우터 간 라우팅 정보를 교환하여 최적 경로를 결정하는 내부 게이트웨이 프로토콜</li>
-<li><strong>키워드</strong>: AS(자율 시스템), 링크 상태, 거리 벡터, OSPF, RIP, EIGRP, 수렴</li>
-<li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>IGP 분류</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>거리 벡터</th><th>링크 상태</th><th>하이브리드</th></tr>
-<tr><td><strong>프로토콜</strong></td><td>RIP</td><td>OSPF, IS-IS</td><td>EIGRP</td></tr>
-<tr><td><strong>알고리즘</strong></td><td>Bellman-Ford</td><td>Dijkstra</td><td>DUAL</td></tr>
-<tr><td><strong>특징</strong></td><td>홉 카운트, 소규모 망</td><td>토폴로지 DB, 대규모 망</td><td>Cisco 전용, 빠른 수렴</td></tr>
+<li><strong>정의</strong>: 파일 전송을 위한 프로토콜 및 보안이 강화된 확장 버전들의 집합</li>
+<li><strong>키워드</strong>: RFC 959, 포트 21/22, 능동/수동 모드, TLS, SSH, 제어 채널, 데이터 채널</li>
+<li><strong>분류:</strong> 프로토콜</li>
+<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>FTP</th><th>FTPS</th><th>SFTP</th></tr>
+<tr><td>보안</td><td>없음(평문)</td><td>SSL/TLS 암호화</td><td>SSH 기반 암호화</td></tr>
+<tr><td>제어 포트</td><td>21</td><td>21(또는 990)</td><td>22</td></tr>
+<tr><td>채널 구조</td><td>제어+데이터 분리</td><td>제어+데이터 분리</td><td>단일 채널</td></tr>
+<tr><td>기반 프로토콜</td><td>TCP</td><td>TCP + TLS</td><td>SSH</td></tr>
+<tr><td>방화벽 통과</td><td>어려움(수동모드)</td><td>어려움</td><td>용이(포트 22)</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: IGP는 <strong>AS 내부 최적 경로 계산</strong>을 담당하며, 기업망에서는 OSPF가 표준. 수렴 속도와 확장성이 프로토콜 선택의 핵심 기준이며 OSPF는 링크 상태 변화 시 LSA(Link State Advertisement)로 빠르게 수렴.</li>
+<li><strong>FTP 모드</strong>: <div class="table-scroll"><table>
+<tr><th>항목</th><th>능동 모드 (Active)</th><th>수동 모드 (Passive)</th></tr>
+<tr><td><strong>제어 연결</strong></td><td>클라이언트 → 서버 21번 포트</td><td>클라이언트 → 서버 21번 포트</td></tr>
+<tr><td><strong>데이터 연결</strong></td><td>서버(20번) → 클라이언트 임시 포트</td><td>클라이언트 → 서버 임시 포트</td></tr>
+<tr><td><strong>연결 주체</strong></td><td>서버가 클라이언트로 데이터 연결 요청</td><td>클라이언트가 서버 데이터 포트로 연결</td></tr>
+<tr><td><strong>방화벽 문제</strong></td><td>❌ 클라이언트 방화벽 차단 위험</td><td>✅ 방화벽 통과 용이</td></tr>
+<tr><td><strong>주요 사용</strong></td><td>내부 네트워크 환경</td><td>NAT·방화벽 환경</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 보안 요구 환경에서는 FTP 사용을 금지하고 <strong>SFTP(SSH 기반)를 권장</strong>. FTPS는 기존 FTP 인프라를 유지하며 TLS를 추가하는 방식. SFTP는 파일 전송 외 원격 파일 관리도 지원.</li>
 </ul>
 
 </body>

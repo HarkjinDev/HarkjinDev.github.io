@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-1. 연결 리스트 (Linked List)</title>
+  <title>2. 리스트 (List)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,26 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-1. 연결 리스트 (Linked List)</h4>
+<h4>2. 리스트 (List)</h4>
 <ul>
-<li><strong>정의</strong>: 노드와 포인터로 연결되어 동적 삽입·삭제가 가능한 선형 자료구조</li>
-<li><strong>키워드</strong>: 노드, Head, next 포인터, 동적 메모리, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ordered_insert(정렬 삽입)</strong></u></span></li>
+<li><strong>정의</strong>: 포인터로 노드를 연결하여 동적으로 크기가 변하는 선형 자료 구조</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>노드(Node), 포인터,</strong></u></span> 단순 연결, 이중 연결, 원형 연결, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>동적 메모리 할당</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>ordered_insert 절차 (정렬 삽입)</strong>:<div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th></tr>
-<tr><td>1. 위치 탐색</td><td>Head부터 순회하며 새 값이 현재 노드보다 작은 위치 탐색</td></tr>
-<tr><td>2. 이전 노드 저장</td><td>삽입 위치 바로 앞 노드의 포인터 저장</td></tr>
-<tr><td>3. 새 노드 생성</td><td>새 노드의 next를 현재 노드에 연결</td></tr>
-<tr><td>4. 포인터 갱신</td><td>이전 노드의 next를 새 노드로 갱신</td></tr>
+<li><strong>유형 비교</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>포인터 구성</th><th>특징</th></tr>
+<tr><td><strong>단순 연결 리스트</strong></td><td>next 포인터</td><td>단방향 순회, 구현 단순</td></tr>
+<tr><td><strong>이중 연결 리스트</strong></td><td>prev + next 포인터</td><td>양방향 순회, 삭제 O(1)</td></tr>
+<tr><td><strong>원형 연결 리스트</strong></td><td>마지막→첫 노드 연결</td><td>순환 탐색, 큐·덱 구현</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: ordered_insert는 <strong>정렬 상태를 유지하며 삽입</strong>하는 알고리즘으로 O(n)이며, 이중 연결 리스트로 구현 시 이전 노드 탐색 없이 삭제 O(1) 보장. 대용량 삽입이 잦을 경우 BST나 스킵 리스트(Skip List)로 O(log n) 개선 가능</li>
+<li><strong>배열 vs 연결 리스트</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>배열</th><th>연결 리스트</th></tr>
+<tr><td>탐색</td><td>O(1) (인덱스)</td><td>O(n) (순차)</td></tr>
+<tr><td>삽입·삭제</td><td>O(n) (이동 필요)</td><td>O(1) (위치 알 때)</td></tr>
+<tr><td>메모리</td><td>연속 할당</td><td>동적 분산 할당</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 연결 리스트는 <strong>삽입·삭제 O(1)</strong>이나 <strong>탐색 O(n)</strong>으로 배열과 상호 보완적 관계이며, 데이터 변경이 잦은 경우 연결 리스트, 탐색이 잦은 경우 배열을 선택함을 서술</li>
 </ul>
 
 </body>

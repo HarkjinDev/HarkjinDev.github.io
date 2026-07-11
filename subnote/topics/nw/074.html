@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)</title>
+  <title>3. AI-Native Network (AI 네이티브 네트워크)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,44 @@
   </style>
 </head>
 <body>
-<h4>2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)</h4>
+<h4>3. AI-Native Network (AI 네이티브 네트워크)</h4>
 <ul>
-<li><strong>정의</strong>: 위성(Satellite), 상공 플랫폼(Aerial/UAV), 지상 네트워크(Terrestrial)를 통합하여 전 지구적 연속 커버리지를 제공하는 3차원 통합 통신 네트워크</li>
-<li><strong>키워드</strong>: LEO/MEO/GEO 위성, HAPS, UAV, NTN, 3차원 커버리지, 재난 통신</li>
+<li><strong>정의</strong>: AI를 설계단계부터 내재화해 트래픽예측·자원할당·자가치유를 자율수행하는 차세대 지능형 네트워크</li>
+<li><strong>키워드</strong>: 자율 최적화, 디지털 트윈, AI-RAN, 의도 기반 네트워킹, 폐루프 자동화, Zero-Touch</li>
 <li><strong>분류</strong>: 차세대 네트워크</li>
-<li><strong>SATIN 계층 구조</strong>:<div class="table-scroll"><table>
-<tr><th>계층</th><th>구성</th><th>고도</th><th>특징</th></tr>
-<tr><td>위성(Space)</td><td>LEO/MEO/GEO</td><td>200km~36,000km</td><td>광역 커버리지</td></tr>
-<tr><td>상공(Aerial)</td><td>HAPS, UAV, 드론</td><td>수 km~20km</td><td>재난/임시망</td></tr>
-<tr><td>지상(Terrestrial)</td><td>기지국, Wi-Fi</td><td>지상</td><td>고밀도 서비스</td></tr>
+<li><strong>AI-Native 핵심 기능</strong>: 자율 최적화, 디지털 트윈, 자가치유, AI-RAN, Zero-Touch</li>
+<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
+<tr><th><strong>구성 요소</strong></th><th><strong>역할</strong></th><th><strong>핵심 기능 (요약)</strong></th></tr>
+<tr><td><strong>의도 기반 인터페이스 (IBN)</strong></td><td>사용자의 의도 해석</td><td>자연어 명령을 네트워크 설정값으로 자동 변환</td></tr>
+<tr><td><strong>지능형 데이터 평면</strong></td><td>실시간 트래픽 처리</td><td>AI 모델 기반 패킷 경로 최적화 및 이상 탐지</td></tr>
+<tr><td><strong>AI 오케스트레이터</strong></td><td>자원 배치 및 제어</td><td>전역적 자원 최적화 및 자가 복구 명령 하달</td></tr>
+<tr><td><strong>네트워크 데이터 패브릭</strong></td><td>통합 데이터 수집</td><td>NW 전 영역의 데이터를 실시간 수집 및 학습용 정제</td></tr>
+<tr><td><strong>디지털 트윈 (Digital Twin)</strong></td><td>가상 시뮬레이션</td><td>물리 NW 적용 전 변경 사항의 안정성 사전 검증</td></tr>
 </table></div>
 </li>
-<li><strong>활용 시나리오</strong>: 재난 시 지상망 대체, 낙후 지역 통신, UAV 제어 망, 해상·항공 연결</li>
-<li><strong>인사이트</strong>: SATIN은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>6G의 비지상 네트워크(NTN) 통합</strong></u></span> 핵심 개념으로, Starlink·OneWeb 같은 LEO 위성 군집과 5G/6G 기지국을 유기적으로 결합하여 어디서나 연결을 보장하는 방향으로 발전.</li>
+<li><strong>발전과정: </strong><div class="table-scroll"><table>
+<tr><th><strong>단계</strong></th><th><strong>명칭</strong></th><th><strong>특징 (요약)</strong></th></tr>
+<tr><td><strong>Level 1</strong></td><td><strong>AI-Assisted</strong></td><td>AI가 분석 리포트 제공, <strong>최종 결정은 운영자</strong>가 수행</td></tr>
+<tr><td><strong>Level 2</strong></td><td><strong>AI-Enhanced</strong></td><td>특정 영역(보안, 가용성)에서 <strong>룰 기반 자동화</strong> 수행</td></tr>
+<tr><td><strong>Level 3</strong></td><td><strong>AI-Native</strong></td><td>설계부터 AI 중심. <strong>Closed-loop 기반 자가 최적화</strong> 달성</td></tr>
+</table></div>
+</li>
+<li><strong>주요 구현 기술:</strong><div class="table-scroll"><table>
+<tr><th><strong>기술명</strong></th><th><strong>메커니즘 (요약)</strong></th></tr>
+<tr><td><strong>연합 학습</strong></td><td>각 에지(Edge)에서 개별 학습 후 모델만 공유하여 <strong>프라이버시 보호</strong></td></tr>
+<tr><td><strong>강화 학습 (Deep RL)</strong></td><td>네트워크 환경과의 상호작용을 통해 <strong>최적의 자원 할당 정책</strong> 도출</td></tr>
+<tr><td><strong>Generative AI</strong></td><td>복잡한 <strong>네트워크 설정 코드 및 장애 복구 스크립트</strong> 자동 생성</td></tr>
+<tr><td><strong>eBPF</strong></td><td>커널 수준에서 <strong>고성능 가시성(Observability)</strong> 확보 및 트래픽 제어</td></tr>
+</table></div>
+</li>
+<li><strong>기존 네트워크 vs AI-Native</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>기존</th><th>AI-Native</th></tr>
+<tr><td>운영 방식</td><td>인간 수동 설정</td><td>AI 자율 운영</td></tr>
+<tr><td>최적화</td><td>정적 정책</td><td>실시간 동적</td></tr>
+<tr><td>장애 대응</td><td>사후 처리</td><td>예측·사전 차단</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: AI-Native는 <strong>6G의 핵심 아키텍처 패러다임</strong>으로, IBN과 결합하여 비즈니스 의도만 입력하면 AI가 전 계층을 자율 운영하는 완전 자율 네트워크를 목표로 함.</li>
 </ul>
 
 </body>

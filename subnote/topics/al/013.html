@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 큐 (Queue)</title>
+  <title>3. 스택 (Stack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,25 @@
   </style>
 </head>
 <body>
-<h4>4. 큐 (Queue)</h4>
+<h4>3. 스택 (Stack)</h4>
 <ul>
-<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선입선출(FIFO) 원칙</strong></u></span>으로 한쪽에서 삽입, 반대쪽에서 삭제하는 자료 구조</li>
-<li><strong>키워드</strong>: FIFO, Enqueue, Dequeue, Front(삭제), Rear(삽입), 원형큐, 우선순위 큐,<u><strong> </strong></u><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>BFS, 앞 공간 낭비</strong></u></span></li>
+<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>후입선출(LIFO) 원칙</strong></u></span>으로 삽입과 삭제가 한쪽 끝에서 이루어지는 자료 구조</li>
+<li><strong>키워드</strong>: LIFO, Push, Pop, Top, Overflow, Underflow, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재귀 호출, 콜스택</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>주요 연산</strong>:<div class="table-scroll"><table>
-<tr><th>연산</th><th>설명</th><th>시간 복잡도</th></tr>
-<tr><td><strong>Enqueue</strong></td><td>Rear에 데이터 삽입</td><td>O(1)</td></tr>
-<tr><td><strong>Dequeue</strong></td><td>Front에서 데이터 삭제</td><td>O(1)</td></tr>
-<tr><td><strong>Peek/Front</strong></td><td>Front 데이터 조회 (삭제 없음)</td><td>O(1)</td></tr>
-<tr><td><strong>isEmpty</strong></td><td>공백 여부 확인</td><td>O(1)</td></tr>
+<li><strong>주요 연산 및 예외 상태</strong>:<div class="table-scroll"><table>
+<tr><th>연산/상태</th><th>설명</th></tr>
+<tr><td>Push</td><td>Top에 데이터 삽입; <strong>Overflow</strong>: Top = MAX-1일 때 추가 시도</td></tr>
+<tr><td>Pop</td><td>Top에서 데이터 삭제; <strong>Underflow</strong>: Top = -1일 때 삭제 시도</td></tr>
+<tr><td>Peek</td><td>Top 데이터 조회 (삭제 없음)</td></tr>
 </table></div>
 </li>
-<li><strong>적용</strong>: 프로세스 스케줄링, BFS 탐색, 프린터 스풀링, 네트워크 패킷 처리</li>
-<li><strong>인사이트</strong>: 일반 배열 기반 큐는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Dequeue 후 앞 공간 낭비 문제가 발생</strong></u></span>하므로 원형큐(Circular Queue)로 해결하고, 우선순위 큐는 이진 힙으로 구현해 O(log n) 연산을 달성함을 언급</li>
+<li><strong>적용</strong>: 재귀 알고리즘, 함수 호출 스택(콜스택), 수식 변환(중위→후위), 괄호 검사, DFS 탐색, 브라우저 뒤로가기</li>
+<li><strong>Push/Pop 알고리즘 요약</strong>:<ul>
+<li>Push: <code>if top == MAX-1 → overflow; else stack[++top] = data</code></li>
+<li>Pop: <code>if top == -1 → underflow; else return stack[top--]</code></li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: <strong>재귀 알고리즘의 내부 구현이 스택</strong>이며, 컴파일러의 수식 파싱(중위→후위 변환)과 실행 시 콜스택 관리에 핵심 역할을 한다는 점이 시험 차별화 포인트</li>
 </ul>
 
 </body>

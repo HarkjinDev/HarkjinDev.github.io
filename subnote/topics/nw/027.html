@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. SCTP (Stream Control Transmission Protocol)</title>
+  <title>[하위] 1-2. 웹소켓 (WebSocket)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,26 @@
   </style>
 </head>
 <body>
-<h4>6. SCTP (Stream Control Transmission Protocol)</h4>
+<h4>[하위] 1-2. 웹소켓 (WebSocket)</h4>
 <ul>
-<li><strong>정의</strong>: 멀티스트리밍(여러 독립 스트림)과 멀티호밍(다중 경로)을 지원하여 신뢰성과 가용성을 높인 전송 계층 프로토콜</li>
-<li><strong>키워드</strong>: RFC 4960, 멀티스트리밍, 멀티호밍, 4-way Handshake, COOKIE, 청크, 시그널링</li>
-<li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>TCP vs UDP vs SCTP 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>TCP</th><th>UDP</th><th>SCTP</th></tr>
-<tr><td>RFC</td><td>RFC 793</td><td>RFC 768</td><td>RFC 4960</td></tr>
-<tr><td>연결 방식</td><td>연결지향</td><td>비연결</td><td>연결지향 (Association)</td></tr>
-<tr><td>연결 설정</td><td>3-way Handshake</td><td>없음</td><td>4-way Handshake 
-(INIT·INIT-ACK·COOKIE-ECHO·COOKIE-ACK)</td></tr>
-<tr><td>연결 종료</td><td>4-way Handshake</td><td>없음</td><td>4-way Shutdown</td></tr>
-<tr><td>스트림</td><td>단일 스트림</td><td>없음</td><td>멀티 스트림 (HOL 블로킹 없음)</td></tr>
-<tr><td>HOL 블로킹</td><td>있음</td><td>없음</td><td>없음</td></tr>
-<tr><td>다중 경로</td><td>미지원</td><td>미지원</td><td>멀티호밍 지원</td></tr>
-<tr><td>신뢰성</td><td>보장 (ACK·재전송)</td><td>미보장</td><td>보장 (청크 단위)</td></tr>
-<tr><td>순서 보장</td><td>보장</td><td>미보장</td><td>스트림별 보장</td></tr>
-<tr><td>흐름제어</td><td>슬라이딩 윈도우</td><td>없음</td><td>슬라이딩 윈도우</td></tr>
-<tr><td>혼잡제어</td><td>있음</td><td>없음</td><td>있음</td></tr>
-<tr><td>오류 검출</td><td>Checksum (의사헤더)</td><td>Checksum (선택)</td><td>Checksum (CRC-32c)</td></tr>
-<tr><td>SYN 공격 방어</td><td>취약</td><td>해당 없음</td><td>COOKIE 메커니즘 방어</td></tr>
-<tr><td>메시지 경계</td><td>없음 (바이트 스트림)</td><td>있음</td><td>있음 (청크 단위)</td></tr>
-<tr><td>헤더 크기</td><td>20~60byte</td><td>8byte</td><td>12byte + 청크</td></tr>
-<tr><td>전송 단위</td><td>세그먼트</td><td>데이터그램</td><td>청크 (Chunk)</td></tr>
-<tr><td>부분 신뢰성</td><td>미지원</td><td>미지원</td><td>PR-SCTP로 지원</td></tr>
-<tr><td>적합 환경</td><td>파일전송·HTTP·이메일</td><td>실시간·DNS·스트리밍</td><td>VoIP·SS7·통신 시그널링</td></tr>
-<tr><td>대표 활용</td><td>HTTP/HTTPS·FTP</td><td>DNS·DHCP·RTP</td><td>이동통신 코어망·WebRTC</td></tr>
+<li><strong>정의</strong>: HTTP 핸드셰이크 후 단일 TCP 연결로 전이중 실시간 통신하는 프로토콜</li>
+<li><strong>키워드</strong>: RFC 6455, HTTP Upgrade, ws/wss, 전이중, Upgrade 헤더, 실시간</li>
+<li><strong>분류:</strong> 프로토콜</li>
+<li><strong>연결 수립 절차</strong>:<ol>
+<li>클라이언트 → HTTP GET + Upgrade: websocket 요청</li>
+<li>서버 → 101 Switching Protocols 응답</li>
+<li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
+</ol>
+</li>
+<li><strong>HTTP Polling vs WebSocket 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>HTTP Polling</th><th>WebSocket</th></tr>
+<tr><td>연결 방식</td><td>반복 요청-응답</td><td>단일 연결 유지</td></tr>
+<tr><td>지연</td><td>높음</td><td>낮음</td></tr>
+<tr><td>오버헤드</td><td>HTTP 헤더 매번</td><td>최초 1회만</td></tr>
+<tr><td>용도</td><td>단순 갱신</td><td>채팅, 주식, 게임</td></tr>
 </table></div>
 </li>
-<li><strong>프로토콜 구조</strong>: 공통 헤더 + 복수 청크(DATA/SACK/HEARTBEAT/ERROR 등)</li>
-<li><strong>활용</strong>: SS7 시그널링 over IP(SIGTRAN), VoIP, 이동통신 코어 네트워크</li>
-<li><strong>인사이트</strong>: SCTP는 TCP의 <strong>HOL(Head-of-Line) 블로킹 문제를 멀티스트리밍으로 해결</strong>하며, 멀티호밍으로 링크 장애 시 자동 경로 전환. HTTP/3의 QUIC도 유사한 멀티스트림 개념을 UDP 위에서 구현.</li>
+<li><strong>인사이트</strong>: 웹소켓은 <strong>HTTP와 호환되는 포트(80/443)</strong>를 사용하여 방화벽 우회가 용이하며, wss://는 TLS 기반 보안 웹소켓으로 도청 방지.</li>
 </ul>
 
 </body>

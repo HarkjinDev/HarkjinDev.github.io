@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. 다중연결리스트 (Multi-Linked List)</title>
+  <title>[하위] 2-1. 연결 리스트 (Linked List)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,20 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. 다중연결리스트 (Multi-Linked List)</h4>
+<h4>[하위] 2-1. 연결 리스트 (Linked List)</h4>
 <ul>
-<li><strong>정의</strong>: 하나의 노드가 다수의 포인터를 갖는 연결 리스트 자료구조</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>다중 포인터, 희소 행렬(Sparse Matrix)</strong></u></span>, 행 헤더, 열 헤더, 다차원 접근</li>
+<li><strong>정의</strong>: 노드와 포인터로 연결되어 동적 삽입·삭제가 가능한 선형 자료구조</li>
+<li><strong>키워드</strong>: 노드, Head, next 포인터, 동적 메모리, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ordered_insert(정렬 삽입)</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
-<li><strong>특징</strong>: 하나의 노드에서 여러 방향으로 연결이 가능하여 행·열 방향 모두 순회 가능</li>
-<li><strong>적용</strong>:<div class="table-scroll"><table>
-<tr><th>적용 분야</th><th>설명</th></tr>
-<tr><td>희소 행렬(Sparse Matrix)</td><td>0이 아닌 원소만 노드로 저장하여 메모리 절약</td></tr>
-<tr><td>다차원 연결 구조</td><td>행 헤더·열 헤더로 2차원 방향 임의 접근</td></tr>
-<tr><td>스파스 텐서(Sparse Tensor)</td><td>딥러닝에서 희소 가중치 행렬 저장</td></tr>
+<li><strong>ordered_insert 절차 (정렬 삽입)</strong>:<div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th></tr>
+<tr><td>1. 위치 탐색</td><td>Head부터 순회하며 새 값이 현재 노드보다 작은 위치 탐색</td></tr>
+<tr><td>2. 이전 노드 저장</td><td>삽입 위치 바로 앞 노드의 포인터 저장</td></tr>
+<tr><td>3. 새 노드 생성</td><td>새 노드의 next를 현재 노드에 연결</td></tr>
+<tr><td>4. 포인터 갱신</td><td>이전 노드의 next를 새 노드로 갱신</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 다중연결리스트는 <strong>희소 행렬의 효율적 표현</strong>에 핵심적으로 사용되며, 전체 원소 대비 비영(非零) 원소 비율이 낮을수록 배열 대비 공간 절약 효과가 극대화됨을 언급</li>
+<li><strong>인사이트</strong>: ordered_insert는 <strong>정렬 상태를 유지하며 삽입</strong>하는 알고리즘으로 O(n)이며, 이중 연결 리스트로 구현 시 이전 노드 탐색 없이 삭제 O(1) 보장. 대용량 삽입이 잦을 경우 BST나 스킵 리스트(Skip List)로 O(log n) 개선 가능</li>
 </ul>
 
 </body>

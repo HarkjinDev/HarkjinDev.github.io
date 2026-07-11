@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6]. 네트워크 가상화/SDN</title>
+  <title>1. QoS (Quality of Service)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,21 @@
   </style>
 </head>
 <body>
-<h3>[Part 6]. 네트워크 가상화/SDN</h3>
+<h4>1. QoS (Quality of Service)</h4>
+<ul>
+<li><strong>정의</strong>: 네트워크에서 트래픽 유형별로 대역폭·지연·손실을 차등 보장하여 서비스 품질을 관리하는 기술 체계</li>
+<li><strong>키워드</strong>: 대역폭, 지연, 지터, 패킷 손실, IntServ, DiffServ, RSVP, 마킹, 큐잉</li>
+<li><strong>분류</strong>: QoS</li>
+<li><strong>QoS 4대 요소</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대연터패&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>영향 서비스</th></tr>
+<tr><td><strong>대역폭(Bandwidth)</strong></td><td>단위 시간 전송량</td><td>고화질 스트리밍</td></tr>
+<tr><td><strong>지연(Latency)</strong></td><td>패킷 전달 소요 시간</td><td>VoIP, 게임</td></tr>
+<tr><td><strong>지터(Jitter)</strong></td><td>지연 변동성</td><td>실시간 미디어</td></tr>
+<tr><td><strong>패킷 손실(Loss)</strong></td><td>패킷 폐기 비율</td><td>모든 서비스</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 현대 엔터프라이즈 망은 <strong>DiffServ를 기본으로 하되, 특정 핵심 경로에 RSVP 예약</strong>을 병행하는 하이브리드 방식을 채택. 5G QoS는 QFI(QoS Flow Indicator)로 슬라이스별 SLA를 보장.</li>
+</ul>
 
 </body>
 </html>

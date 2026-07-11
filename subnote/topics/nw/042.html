@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. QoS (Quality of Service)</title>
+  <title>8. 슈퍼네팅 (Supernetting)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,24 @@
   </style>
 </head>
 <body>
-<h4>1. QoS (Quality of Service)</h4>
+<h4>8. 슈퍼네팅 (Supernetting)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크에서 트래픽 유형별로 대역폭·지연·손실을 차등 보장하여 서비스 품질을 관리하는 기술 체계</li>
-<li><strong>키워드</strong>: 대역폭, 지연, 지터, 패킷 손실, IntServ, DiffServ, RSVP, 마킹, 큐잉</li>
-<li><strong>분류</strong>: QoS</li>
-<li><strong>QoS 4대 요소</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대연터패&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>요소</th><th>설명</th><th>영향 서비스</th></tr>
-<tr><td><strong>대역폭(Bandwidth)</strong></td><td>단위 시간 전송량</td><td>고화질 스트리밍</td></tr>
-<tr><td><strong>지연(Latency)</strong></td><td>패킷 전달 소요 시간</td><td>VoIP, 게임</td></tr>
-<tr><td><strong>지터(Jitter)</strong></td><td>지연 변동성</td><td>실시간 미디어</td></tr>
-<tr><td><strong>패킷 손실(Loss)</strong></td><td>패킷 폐기 비율</td><td>모든 서비스</td></tr>
+<li><strong>정의</strong>: 연속된 여러 서브넷을 더 짧은 서브넷 마스크로 하나의 큰 네트워크로 결합하여 라우팅 테이블을 축소하는 기법</li>
+<li><strong>키워드</strong>: CIDR, 경로 집약, 라우팅 테이블 축소, 애그리게이션, 연속된 네트워크, /N</li>
+<li><strong>분류</strong>: 라우팅/주소체계</li>
+<li><strong>슈퍼네팅 예시</strong>:<ul>
+<li>192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24</li>
+<li>→ 슈퍼넷: 192.168.0.0/22 (4개 네트워크를 1개로 집약)</li>
+</ul>
+</li>
+<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>서브네팅</th><th>슈퍼네팅</th></tr>
+<tr><td>방향</td><td>큰 네트워크 → 작게 분할</td><td>작은 네트워크 → 크게 결합</td></tr>
+<tr><td>마스크</td><td>길어짐(비트 증가)</td><td>짧아짐(비트 감소)</td></tr>
+<tr><td>목적</td><td>주소 효율화, 트래픽 분리</td><td>라우팅 테이블 축소</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 현대 엔터프라이즈 망은 <strong>DiffServ를 기본으로 하되, 특정 핵심 경로에 RSVP 예약</strong>을 병행하는 하이브리드 방식을 채택. 5G QoS는 QFI(QoS Flow Indicator)로 슬라이스별 SLA를 보장.</li>
+<li><strong>인사이트</strong>: 슈퍼네팅(CIDR)은 <strong>BGP 경로 집약</strong>에 핵심적으로 적용되어 인터넷 라우팅 테이블 폭발을 방지함. 연속 네트워크 블록이 2의 거듭제곱 정렬이어야 집약 가능.</li>
 </ul>
 
 </body>

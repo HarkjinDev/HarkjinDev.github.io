@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. TCP 혼잡제어 (TCP Congestion Control)</title>
+  <title>[하위] 1-1. TCP 소켓 (TCP Socket)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,19 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. TCP 혼잡제어 (TCP Congestion Control)</h4>
+<h4>[하위] 1-1. TCP 소켓 (TCP Socket)</h4>
 <ul>
-<li><strong>정의</strong>: 혼잡 윈도우(cwnd)와 ssthresh를 동적 조절해 TCP 네트워크 혼잡을 감지·제어하는 메커니즘</li>
-<li><strong>키워드</strong>: cwnd, ssthresh, Slow Start, AIMD, Reno, Cubic, BBR, 혼잡 감지</li>
-<li><strong>분류</strong>: 전송 프로토콜</li>
-<li><strong>혼잡 감지 방법</strong>:<div class="table-scroll"><table>
-<tr><th>감지 방법</th><th>판단 기준</th><th>반응</th></tr>
-<tr><td><strong>타임아웃</strong></td><td>RTO 만료</td><td>cwnd=1, ssthresh=cwnd/2, Slow Start</td></tr>
-<tr><td><strong>3중복 ACK </strong></td><td>3 Dup ACK</td><td>ssthresh=cwnd/2, Fast Recovery</td></tr>
-</table></div>
+<li><strong>정의</strong>: 3-way Handshake로 연결 설정 후 신뢰성·순서를 보장하는 연결지향 스트림 소켓</li>
+<li><strong>키워드</strong>: 연결 지향, 스트림, 신뢰성, 순서 보장, 흐름제어, 혼잡제어</li>
+<li><strong>분류:</strong> 프로토콜</li>
+<li><strong>TCP 소켓 특성</strong>:<ul>
+<li><strong>신뢰성</strong>: ACK 기반 재전송 보장</li>
+<li><strong>순서 보장</strong>: 시퀀스 번호로 재조립</li>
+<li><strong>흐름 제어</strong>: 슬라이딩 윈도우</li>
+<li><strong>혼잡 제어</strong>: Slow Start, AIMD</li>
+</ul>
 </li>
-<li><strong>주요 알고리즘 비교</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>TCP Reno</strong></th><th><strong>TCP Cubic</strong></th><th><strong>BBR</strong></th></tr>
-<tr><td><strong>특징</strong></td><td>3 Dup ACK 시 cwnd 절반</td><td>시간 기반 3차함수 증가</td><td>RTT·대역폭 기반 모델링</td></tr>
-<tr><td><strong>환경</strong></td><td>유선망 표준</td><td>고속 대용량 망</td><td>고지연·무선망</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: <strong>Cubic은 리눅스 기본값</strong>으로 고속 환경에 최적화되어 있으며, 구글의 BBR은 손실 기반이 아닌 대역폭 모델 기반으로 위성·LTE 환경에서 효과적.</li>
+<li><strong>인사이트</strong>: TCP 소켓은 <strong>신뢰성-지연 트레이드오프</strong> 구조로, 지연에 민감한 실시간 미디어는 UDP/QUIC를 선택하며 HTTP/3는 TCP 대신 QUIC(UDP 기반)를 채택함.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 술어 논리 (Predicate Logic)</title>
+  <title>2. 유한 오토마타 (Finite Automata)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,29 +15,23 @@
   </style>
 </head>
 <body>
-<h4>3. 술어 논리 (Predicate Logic)</h4>
+<h4>2. 유한 오토마타 (Finite Automata)</h4>
 <ul>
-<li><strong>정의:</strong> 명제논리를 확장해 양화사와 술어로 대상의 성질·관계까지 표현하는 논리 체계</li>
-<li><strong>키워드</strong>: 전칭 양화사(∀), 존재 양화사(∃), 술어(Predicate), 변수, 항(Term), 1차 논리(FOL)</li>
+<li><strong>정의:</strong> 유한 개의 상태와 전이 규칙만으로 입력을 처리해 언어를 인식하는 추상 계산 모델</li>
+<li><strong>키워드</strong>: DFA, NFA, 상태(State), 전이 함수(δ), 초기 상태, 수락 상태, 정규 언어</li>
 <li><strong>분류</strong>: 형식언어/오토마타</li>
-<li><strong>주요 구성요소</strong>:<div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th><th>예시</th></tr>
-<tr><td>술어(Predicate)</td><td>변수에 대해 참/거짓을 반환하는 함수</td><td>P(x): x는 짝수</td></tr>
-<tr><td>전칭 양화사 ∀</td><td>모든 원소에 대해 성립</td><td>∀x P(x): 모든 x는 짝수</td></tr>
-<tr><td>존재 양화사 ∃</td><td>적어도 하나에 대해 성립</td><td>∃x P(x): 짝수인 x가 존재</td></tr>
-<tr><td>부정·양화사</td><td>¬∀x P(x) ≡ ∃x ¬P(x)</td><td>드모르간 법칙의 양화사 확장</td></tr>
+<li><strong>DFA vs NFA 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>DFA (결정적)</th><th>NFA (비결정적)</th></tr>
+<tr><td>전이 함수</td><td>각 상태·입력에 전이 유일</td><td>복수 전이 가능</td></tr>
+<tr><td>ε-전이</td><td>불허</td><td>허용</td></tr>
+<tr><td>구현</td><td>직접 구현 용이</td><td>상태 수 적음</td></tr>
+<tr><td>인식 언어</td><td>정규 언어</td><td>정규 언어 (동등)</td></tr>
+<tr><td>변환</td><td>NFA를 DFA로 변환 가능</td><td>부분집합 구성법 사용</td></tr>
 </table></div>
 </li>
-<li><strong>명제 논리 vs 술어 논리</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>명제 논리</th><th>술어 논리</th></tr>
-<tr><td>표현 단위</td><td>명제(참/거짓)</td><td>술어 + 개체 + 양화사</td></tr>
-<tr><td>표현력</td><td>낮음 (개체 관계 불가)</td><td>높음 (개체 관계 표현 가능)</td></tr>
-<tr><td>활용</td><td>논리 회로</td><td>AI 지식 표현, Prolog</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 술어 논리는 명제 논리보다 <strong>표현력이 강하며</strong>, AI의 지식 베이스 표현, 추론 엔진, Prolog 언어의 이론적 기반이 됨을 언급하면 차별화됨</li>
+<li><strong>특징</strong>: DFA와 NFA는 인식할 수 있는 언어의 표현력이 동일하며 상호 변환 가능</li>
+<li><strong>인사이트</strong>: <strong>DFA ≡ NFA ≡ 정규 표현식 ≡ 정규 문법</strong>이 모두 동등하다는 점을 강조하고, 푸시다운 오토마타(PDA)는 문맥자유언어, 튜링 기계는 재귀 가산 언어까지 인식함을 촘스키 계층과 함께 비교하면 차별화됨</li>
 </ul>
-</body>
-</html>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 워크플로우 관리 (Workflow Management)</title>
+  <title>5. 로드밸런싱 (Load Balancing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,28 +15,29 @@
   </style>
 </head>
 <body>
-<h4>6. 워크플로우 관리 (Workflow Management)</h4>
+<h4>5. 로드밸런싱 (Load Balancing)</h4>
 <ul>
-<li><strong>정의</strong>: 업무 프로세스의 단계·조건·참여자·자동화 규칙을 정의하고 실행·모니터링하는 시스템</li>
-<li><strong>키워드</strong>: DAG(Directed Acyclic Graph), 오케스트레이션, Apache Airflow, 태스크 의존성, 스케줄링, 재시도</li>
+<li><strong>정의</strong>: 서버 클러스터에 유입되는 트래픽을 여러 서버에 분산하여 가용성과 성능을 향상시키는 기법</li>
+<li><strong>키워드</strong>: L4/L7 로드밸런서, 라운드 로빈, 가중치, 최소 연결, IP 해시, 세션 어피니티, 헬스체크</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>워크플로우 관리 핵심 개념</strong>:<div class="table-scroll"><table>
-<tr><th><strong>개념</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>DAG</strong></td><td>태스크 간 방향성 있는 비순환 의존 그래프</td></tr>
-<tr><td><strong>오케스트레이션</strong></td><td>중앙 조율자가 태스크 실행 순서·조건 제어</td></tr>
-<tr><td><strong>코레오그래피</strong></td><td>각 서비스가 이벤트로 자율적으로 반응</td></tr>
-<tr><td><strong>스케줄링</strong></td><td>시간·이벤트 기반 워크플로우 자동 트리거</td></tr>
+<li><strong>로드밸런싱 알고리즘</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>알고리즘</strong></th><th><strong>설명</strong></th><th><strong>적합 상황</strong></th></tr>
+<tr><td><strong>RR</strong></td><td><strong>라운드 로빈 (Round Robin)</strong></td><td>순서대로 균등 분산</td><td>서버 동일 사양</td></tr>
+<tr><td></td><td><strong>가중 라운드 로빈</strong></td><td>서버 성능 비율로 분산</td><td>서버 이기종 환경</td></tr>
+<tr><td><strong>최소</strong></td><td><strong>최소 연결 </strong></td><td>현재 연결 수 가장 적은 서버 선택</td><td>요청 처리 시간 편차 큼</td></tr>
+<tr><td></td><td><strong>최소 응답시간</strong></td><td>응답 빠른 서버 우선 선택</td><td>응답시간 편차 큼</td></tr>
+<tr><td><strong>고정</strong></td><td><strong>IP 해시 (IP Hash)</strong></td><td>클라이언트 IP 기반 고정 서버</td><td>세션 유지 필요</td></tr>
 </table></div>
 </li>
-<li><strong>주요 워크플로우 관리 도구</strong>:<div class="table-scroll"><table>
-<tr><th>도구</th><th>특징</th></tr>
-<tr><td>Apache Airflow</td><td>Python DAG 기반, 데이터 파이프라인</td></tr>
-<tr><td>Prefect</td><td>현대적 Python 워크플로우, 동적 구성</td></tr>
-<tr><td>Argo Workflows</td><td>Kubernetes 네이티브 컨테이너 워크플로우</td></tr>
-<tr><td>AWS Step Functions</td><td>서버리스 시각적 워크플로우</td></tr>
+<li><strong>L4 vs L7 로드밸런서 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>L4 (전송 계층)</th><th>L7 (응용 계층)</th></tr>
+<tr><td>기준</td><td>IP·포트</td><td>URL·헤더·쿠키·콘텐츠</td></tr>
+<tr><td>속도</td><td>빠름</td><td>상대적으로 느림</td></tr>
+<tr><td>스마트 라우팅</td><td>불가</td><td>가능 (컨텐츠 기반)</td></tr>
+<tr><td>SSL 종료</td><td>불가</td><td>가능</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 오케스트레이션과 코레오그래피는 <strong>MSA 내 서비스 협력 방식의 두 축</strong>으로, 오케스트레이션은 중앙 제어로 가시성이 높고 코레오그래피는 분산 자율로 결합도가 낮음.</li>
+<li><strong>인사이트</strong>: <strong>L7 로드밸런서는 API Gateway 기능과 중첩</strong>되는 부분이 있으며, MSA에서는 서비스 경로·버전 기반 스마트 라우팅이 필요하므로 L7 또는 서비스 메쉬(Envoy)를 함께 활용.</li>
 </ul>
 
 </body>

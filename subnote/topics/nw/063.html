@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. WebRTC (Web Real-Time Communication)</title>
+  <title>5. Tor (The Onion Router)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,59 @@
   </style>
 </head>
 <body>
-<h4>4. WebRTC (Web Real-Time Communication)</h4>
+<h4>5. Tor (The Onion Router)</h4>
 <ul>
-<li><strong>정의</strong>: 브라우저가 플러그인 없이 JS API만으로 실시간 음성·영상 통신을 지원하는 오픈 표준</li>
-<li><strong>키워드</strong>: W3C/IETF, ICE, STUN, TURN, SDP, P2P, getUserMedia, DataChannel</li>
-<li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>WebRTC 핵심 컴포넌트</strong>:<div class="table-scroll"><table>
-<tr><th>컴포넌트</th><th>역할</th></tr>
-<tr><td>getUserMedia</td><td>마이크·카메라 접근</td></tr>
-<tr><td>RTCPeerConnection</td><td>P2P 미디어 스트림 연결</td></tr>
-<tr><td>RTCDataChannel</td><td>임의 데이터 P2P 전송</td></tr>
-<tr><td>ICE/STUN/TURN</td><td>NAT 통과 및 연결 설정</td></tr>
-<tr><td>SDP(Session Description Protocol)</td><td>미디어 협상</td></tr>
+<li><strong>정의:</strong> 데이터를 다중 암호화해 여러 중계 노드를 경유시켜 발신자를 은닉하는 익명통신망</li>
+<li><strong>키워드:</strong> 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 트래픽 분석</li>
+<li><strong>분류</strong>: VPN</li>
+<li><strong>Tor 네트워크 구성요소 (3-Hop 릴레이):</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>릴레이</th><th>설명</th><th>핵심</th></tr>
+<tr><td>1홉</td><td>Guard Relay</td><td>클라이언트 직접 연결 노드</td><td>IP 노출 지점</td></tr>
+<tr><td>2홉</td><td>Middle Relay</td><td>중간 데이터 중계 노드</td><td>경로 은닉</td></tr>
+<tr><td>3홉</td><td>Exit Relay</td><td>목적지로 최종 전달</td><td>평문 노출 가능</td></tr>
 </table></div>
 </li>
-<li><strong>NAT 통과</strong>: STUN(공인 IP 확인) → 실패 시 TURN(릴레이 서버) 경유</li>
-<li><strong>인사이트</strong>: WebRTC는 <strong>브라우저 기반 화상회의·실시간 협업</strong>을 플러그인 없이 구현할 수 있어, Zoom·Google Meet 등의 기반 기술로 활용됨. DTLS-SRTP로 미디어 암호화가 의무화.</li>
+<li><strong>양파 라우팅 동작 원리:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td>1. 회로 구성</td><td>3개 노드 선택해 경로 설정</td><td>회로 생성</td></tr>
+<tr><td>2. 다중 암호화</td><td>공개키로 계층별 순차 암호화</td><td>양파 껍질 구조</td></tr>
+<tr><td>3. 순차 복호화</td><td>각 노드가 한겹씩 복호화</td><td>경로 정보 분산</td></tr>
+<tr><td>4. 데이터 전달</td><td>Exit가 최종 복호화 전송</td><td>평문 전달</td></tr>
+<tr><td>5. 회로 갱신</td><td>약 10분마다 회로 재구성</td><td>추적 방지</td></tr>
+</table></div>
+</li>
+<li><strong>Hidden Service (.onion):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>개념</td><td>실제 IP 없이 서비스 제공</td><td>서버 익명성</td></tr>
+<tr><td>접속 방식</td><td>양측 모두 Tor 회로 경유</td><td>양방향 익명</td></tr>
+<tr><td>주소 체계</td><td>공개키 기반 자체 생성</td><td>DNS 불필요</td></tr>
+<tr><td>활용</td><td>다크웹·검열우회 서비스</td><td>익명 서비스</td></tr>
+</table></div>
+</li>
+<li><strong>Tor vs VPN 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
+<tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
+<tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
+<tr><td>경유 노드 수</td><td>1개 (VPN 서버)</td><td>3개 (Guard·Middle·Exit)</td></tr>
+<tr><td>운영 주체</td><td>단일 사업자</td><td>전세계 자원봉사 릴레이</td></tr>
+<tr><td>속도</td><td>빠름</td><td>느림 (다중 홉)</td></tr>
+<tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
+<tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
+</table></div>
+</li>
+<li><strong>익명성 한계 및 공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>공격 유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td>Exit 노드 감청</td><td>평문 트래픽 감청·조작</td><td>HTTPS 필수</td></tr>
+<tr><td>트래픽 분석</td><td>입출력 패턴 상관분석</td><td>국가급 공격 취약</td></tr>
+<tr><td>Guard 노드 식별</td><td>고정 진입점 장기 노출</td><td>첫 홉 IP 노출</td></tr>
+<tr><td>악성 Exit 노드</td><td>공격자 운영 노드 존재</td><td>데이터 탈취</td></tr>
+<tr><td>브라우저 핑거프린팅</td><td>설정·플러그인 기반 식별</td><td>탈익명화 위험</td></tr>
+<tr><td>DoS 공격</td><td>릴레이 과부하로 저하</td><td>가용성 저하</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> Tor는 완전한 익명성을 제공하지 않으며 Exit 노드 감청과 트래픽 상관관계 분석에 구조적으로 취약하므로 HTTPS 병행이 필수이고, Hidden Service(.onion)는 서버·클라이언트 양방향 익명성을 보장해 다크웹·검열우회에 활용되나 국가급 공격자에게는 탈익명화 가능성이 존재함</li>
 </ul>
+<hr/>
 
 </body>
 </html>

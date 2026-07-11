@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 슈퍼네팅 (Supernetting)</title>
+  <title>4. BGP (Border Gateway Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,40 @@
   </style>
 </head>
 <body>
-<h4>8. 슈퍼네팅 (Supernetting)</h4>
+<h4>4. BGP (Border Gateway Protocol)</h4>
 <ul>
-<li><strong>정의</strong>: 연속된 여러 서브넷을 더 짧은 서브넷 마스크로 하나의 큰 네트워크로 결합하여 라우팅 테이블을 축소하는 기법</li>
-<li><strong>키워드</strong>: CIDR, 경로 집약, 라우팅 테이블 축소, 애그리게이션, 연속된 네트워크, /N</li>
-<li><strong>분류</strong>: 라우팅/주소체계</li>
-<li><strong>슈퍼네팅 예시</strong>:<ul>
-<li>192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24</li>
-<li>→ 슈퍼넷: 192.168.0.0/22 (4개 네트워크를 1개로 집약)</li>
-</ul>
-</li>
-<li><strong>서브네팅 vs 슈퍼네팅 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>서브네팅</th><th>슈퍼네팅</th></tr>
-<tr><td>방향</td><td>큰 네트워크 → 작게 분할</td><td>작은 네트워크 → 크게 결합</td></tr>
-<tr><td>마스크</td><td>길어짐(비트 증가)</td><td>짧아짐(비트 감소)</td></tr>
-<tr><td>목적</td><td>주소 효율화, 트래픽 분리</td><td>라우팅 테이블 축소</td></tr>
+<li><strong>정의:</strong> 다양한 속성의 정책을 통한 AS 간 경로 정보 전달하는 인터넷 표준 경로벡터 기반 EGP 프로토콜</li>
+<li><strong>키워드:</strong> AS, eBGP·iBGP, 경로속성, AS-Path, BGP 테이블, 정책기반 라우팅, TCP 179</li>
+<li><strong>분류:</strong> 라우팅 / 주소체계</li>
+<li><strong>BGP 핵심 특징:</strong><div class="table-scroll"><table>
+<tr><th>특징</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>경로벡터 방식</strong></td><td>거리(홉수) 대신 AS 경로 정보로 판단</td><td>AS-Path 기반</td></tr>
+<tr><td><strong>신뢰성 전송</strong></td><td>TCP 179번 포트 사용</td><td>연결지향 전송</td></tr>
+<tr><td><strong>정책기반 라우팅</strong></td><td>다양한 속성으로 세밀한 정책 적용</td><td>정책 중심</td></tr>
+<tr><td><strong>루프 방지</strong></td><td>자신의 AS번호 포함 시 경로 폐기</td><td>AS-Path 검사</td></tr>
+<tr><td><strong>증분 업데이트</strong></td><td>변경분만 전송·주기적 갱신 없음</td><td>트리거 업데이트</td></tr>
+<tr><td><strong>대규모 확장성</strong></td><td>인터넷 전체 라우팅 테이블 처리</td><td>90만+ 경로 처리</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 슈퍼네팅(CIDR)은 <strong>BGP 경로 집약</strong>에 핵심적으로 적용되어 인터넷 라우팅 테이블 폭발을 방지함. 연속 네트워크 블록이 2의 거듭제곱 정렬이어야 집약 가능.</li>
+<li><strong>BGP 동작 방식:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>eBGP</strong></td><td>서로 다른 AS 간 BGP 세션</td><td>외부 AS 연결</td></tr>
+<tr><td><strong>iBGP</strong></td><td>동일 AS 내부 BGP 세션</td><td>내부 경로 전파</td></tr>
+<tr><td><strong>피어링 (Peering)</strong></td><td>BGP 라우터 간 TCP 179 포트로 세션 수립</td><td>세션 기반 연결</td></tr>
+<tr><td><strong>NLRI</strong></td><td>도달 가능한 네트워크 정보를 포함한 경로 광고</td><td>경로 정보 교환</td></tr>
+</table></div>
+</li>
+<li><strong>BGP 경로 속성:</strong><div class="table-scroll"><table>
+<tr><th>속성</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>AS-PATH</strong></td><td>경로가 통과한 AS 번호 목록, 루프 방지에 활용</td><td>루프 방지</td></tr>
+<tr><td><strong>NEXT-HOP</strong></td><td>다음 라우터의 IP 주소</td><td>다음 홉 지정</td></tr>
+<tr><td><strong>LOCAL-PREF</strong></td><td>AS 내부에서 선호 경로 결정 (높을수록 우선)</td><td>내부 선호도</td></tr>
+<tr><td><strong>MED</strong></td><td>외부 AS에 선호 진입 경로 전달 (낮을수록 우선)</td><td>외부 선호도</td></tr>
+<tr><td><strong>COMMUNITY</strong></td><td>경로 태깅으로 그룹 정책 적용</td><td>정책 그룹화</td></tr>
+<tr><td><strong>ORIGIN</strong></td><td>경로 정보 출처 (IGP·EGP·Incomplete)</td><td>경로 출처</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> BGP는 홉수 대신 AS-Path·Local Preference·MED 등 다양한 경로속성으로 정책기반 라우팅을 수행하는 유일한 EGP로, eBGP는 AS 간, iBGP는 AS 내부 전파를 담당하며 Route Reflector로 Full-Mesh 확장성 한계를 극복하는 것이 핵심</li>
 </ul>
 
 </body>

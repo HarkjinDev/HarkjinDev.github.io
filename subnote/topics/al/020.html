@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. 위상정렬 (Topological Sort)</title>
+  <title>3. 방향성 비순환 그래프 (Directed Acyclic Graph, DAG)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,32 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. 위상정렬 (Topological Sort)</h4>
+<h4>3. 방향성 비순환 그래프 (Directed Acyclic Graph, DAG)</h4>
 <ul>
-<li><strong>정의</strong>: DAG에서 선행 관계를 유지하며 노드를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선형 순서로 나열</strong></u></span>하는 알고리즘</li>
-<li><strong>키워드</strong>: DAG, 진입 차수, Kahn’s Algorithm, DFS 후위 순회, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선행 제약(Precedence), 비유일성</strong></u></span></li>
+<li><strong>정의</strong>: 정점을 방향 간선으로 연결하되 순환 경로가 존재하지 않는 그래프 자료구조</li>
+<li><strong>키워드</strong>: 방향 그래프, 비순환, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>위상정렬</strong></u></span>, 진입 차수(In-degree), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의존성 분석</strong></u></span></li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>알고리즘 비교</strong>:<div class="table-scroll"><table>
-<tr><th>알고리즘</th><th>방식</th><th>시간복잡도</th><th>핵심</th></tr>
-<tr><td>Kahn's Algorithm</td><td>진입차수 0 정점 큐 처리(BFS)</td><td>O(V+E)</td><td>반복적 접근</td></tr>
-<tr><td>DFS 기반 정렬</td><td>후위순회 후 역순 배치</td><td>O(V+E)</td><td>재귀적 접근</td></tr>
+<li><strong>주요 특징:</strong><div class="table-scroll"><table>
+<tr><th>특징</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>비순환성</strong></td><td>임의 정점에서 출발해 자신으로 돌아오는 경로 없음</td><td>사이클 부재</td></tr>
+<tr><td><strong>위상정렬 가능</strong></td><td>DAG일 때만 위상정렬 수행 가능</td><td>정렬 필요충분조건</td></tr>
+<tr><td><strong>소스 존재</strong></td><td>진입차수 0인 정점 1개 이상 존재</td><td>시작점 보장</td></tr>
+<tr><td><strong>싱크 존재</strong></td><td>진출차수 0인 정점 1개 이상 존재</td><td>종료점 보장</td></tr>
+<tr><td><strong>부분순서 표현</strong></td><td>정점 간 선후관계만 정의·전체순서 아님</td><td>의존성 표현</td></tr>
 </table></div>
 </li>
-<li><strong>특징</strong>:<ul>
-<li>위상정렬 결과는 유일하지 않을 수 있음 (진입 차수 0 노드가 복수인 경우)</li>
-<li>사이클 존재 시 위상정렬 불가능: Kahn’s에서 전체 노드가 처리되지 않으면 사이클 감지</li>
-</ul>
+<li><strong>Kahn's Algorithm 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 진입차수 계산</strong></td><td>모든 정점의 진입차수 산출</td><td>초기화</td></tr>
+<tr><td><strong>2. 큐 초기화</strong></td><td>진입차수 0인 정점 큐에 삽입</td><td>시작점 수집</td></tr>
+<tr><td><strong>3. 정점 제거</strong></td><td>큐에서 정점 꺼내 결과에 추가</td><td>순서 확정</td></tr>
+<tr><td><strong>4. 차수 감소</strong></td><td>인접 정점 진입차수 1 감소</td><td>의존성 해소</td></tr>
+<tr><td><strong>5. 반복</strong></td><td>차수 0 되면 큐 삽입, 큐 빌 때까지 반복</td><td>종료조건</td></tr>
+<tr><td><strong>6. 사이클 검사</strong></td><td>처리 정점 수 &lt; V면 사이클 존재</td><td>사이클 검출</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 위상정렬은 <strong>사이클 감지 알고리즘으로도 활용</strong>되며, Kahn’s는 BFS 기반으로 직관적이고, DFS 기반은 역방향 출력이라는 차이를 명확히 서술. 결과 비유일성도 반드시 언급</li>
+<li><strong>적용</strong>: 작업 스케줄링(PERT/CPM), 컴파일러 의존성 분석, 데이터 파이프라인, Git 커밋 그래프, Makefile</li>
+<li><strong>인사이트:</strong> DAG는 <strong>위상정렬의 필요충분조건</strong>이며 Kahn's Algorithm으로 위상정렬과 사이클 검출을 동시에 수행 가능해, 작업 스케줄링·빌드 시스템·데이터 파이프라인 등 의존성 기반 시스템 설계의 핵심 자료구조로 활용됨</li>
 </ul>
 
 </body>

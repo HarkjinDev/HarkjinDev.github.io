@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SDR (Software Defined Radio)</title>
+  <title>3. SSL VPN (Secure Socket Layer VPN)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,19 @@
   </style>
 </head>
 <body>
-<h4>2. SDR (Software Defined Radio)</h4>
+<h4>3. SSL VPN (Secure Socket Layer VPN)</h4>
 <ul>
-<li><strong>정의</strong>: 변조·복조 등 무선통신 하드웨어 기능을 소프트웨어로 구현해 유연성을 높인 기술</li>
-<li><strong>키워드</strong>: ADC/DAC, FPGA, DSP, 재구성 가능, 인지 무선(Cognitive Radio), 다중 표준</li>
-<li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>SDR 구성</strong>:<div class="table-scroll"><table>
-<tr><th>구성요소</th><th>역할</th></tr>
-<tr><td>안테나</td><td>RF 신호 수신</td></tr>
-<tr><td>ADC/DAC</td><td>아날로그-디지털 변환</td></tr>
-<tr><td>FPGA/DSP</td><td>소프트웨어 기반 신호 처리</td></tr>
-<tr><td>SW 모듈</td><td>변조/복조/프로토콜 처리</td></tr>
+<li><strong>정의</strong>: SSL/TLS 기반으로 브라우저·경량클라이언트가 내부자원에 접근하는 응용계층 VPN</li>
+<li><strong>키워드</strong>: TLS, 443 포트, 클라이언트리스, 원격 접속, HTTPS, BYOD, 세션 기반</li>
+<li><strong>분류</strong>: VPN</li>
+<li><strong>SSL VPN 접속 방식</strong>:<div class="table-scroll"><table>
+<tr><th>방식</th><th>설명</th><th>특징</th></tr>
+<tr><td><strong>클라이언트리스(Portal)</strong></td><td>웹 브라우저만 사용</td><td>추가 SW 불필요</td></tr>
+<tr><td><strong>씬 클라이언트</strong></td><td>경량 플러그인 설치</td><td>특정 앱 터널링</td></tr>
+<tr><td><strong>풀 터널</strong></td><td>VPN 클라이언트 설치</td><td>전체 트래픽 터널링</td></tr>
 </table></div>
 </li>
-<li><strong>장점</strong>: 단일 하드웨어로 다중 표준(LTE/5G/Wi-Fi) 지원, 펌웨어 업데이트로 기능 변경</li>
-<li><strong>인지 무선(CR) 연계</strong>: SDR 기반으로 주파수 사용 환경을 감지하여 동적으로 주파수 선택</li>
-<li><strong>인사이트</strong>: SDR은 <strong>주파수 유연성과 다중 표준 지원</strong>이 핵심으로, 군사통신·재난망·5G 기지국 가상화(vRAN)에 적용됨. GNU Radio 등 오픈소스 SDR 플랫폼이 연구·교육에 활용.</li>
+<li><strong>인사이트</strong>: SSL VPN은 <strong>방화벽 443 포트를 활용</strong>하여 어떤 환경에서도 접속 가능해 재택근무·BYOD 환경에 최적. 단, 브라우저 취약점이 공격 경로가 될 수 있으므로 MFA와 결합 필수.</li>
 </ul>
 
 </body>

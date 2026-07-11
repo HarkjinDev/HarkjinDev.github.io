@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-2. 벨만-포드 (Bellman-Ford Algorithm)</title>
+  <title>[하위] 3-1. 다익스트라 (Dijkstra's Algorithm)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,24 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-2. 벨만-포드 (Bellman-Ford Algorithm)</h4>
+<h4>[하위] 3-1. 다익스트라 (Dijkstra's Algorithm)</h4>
 <ul>
-<li><strong>정의:</strong> 음수 가중치 간선을 허용하며 최단경로와 음수 사이클 존재 여부를 탐지하는 알고리즘</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>음수 가중치, 음수 사이클 탐지</strong></u></span>, 완화(Relaxation), 동적 프로그래밍, 단일 출발점, V-1 반복</li>
+<li><strong>정의:</strong> 음수 가중치 없는 그래프에서 출발점부터 모든 정점까지 탐욕적으로 최단경로를 구하는 알고리즘</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최단 경로, 양수 가중치, 우선순위 큐(Min-Heap), 탐욕 알고리즘</strong></u></span>, 거리 테이블, 완화(Relaxation), 단일 출발점</li>
 <li><strong>분류:</strong> 그래프 탐색</li>
-<li><strong>특성: </strong>음수 허용, 음수 사이클 탐지 가능, DP 기반, 시간복잡도: O(V x E)</li>
+<li><strong>특성: </strong>우선순위 큐(Min-Heap), 시간복잡도: O((V + E) log V), 양수 가중치 조건, 단일 출발</li>
 <li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>초기화</strong></td><td>출발 정점 거리 0, 나머지 정점 거리 ∞ 설정</td><td>거리 초기화</td></tr>
-<tr><td><strong>완화 반복</strong></td><td>모든 간선에 대해 완화 연산을 V-1회 반복 수행</td><td>V-1회 반복</td></tr>
-<tr><td><strong>음수 사이클 탐지</strong></td><td>V번째 반복에서도 갱신 발생 시 음수 사이클 존재</td><td>사이클 탐지</td></tr>
+<tr><td><strong>1. 초기화</strong></td><td>출발 정점 거리 0, 나머지 정점 거리 ∞ 설정</td><td>거리 초기화</td></tr>
+<tr><td><strong>2. 정점 선택</strong></td><td>미방문 정점 중 현재 거리가 최소인 정점 선택</td><td>탐욕적 선택</td></tr>
+<tr><td><strong>3. 완화 (Relaxation)</strong></td><td>선택 정점 경유 시 인접 정점 거리가 단축되면 갱신</td><td>최단 거리 갱신</td></tr>
+<tr><td><strong>4. 방문 처리</strong></td><td>선택 정점을 방문 완료로 처리 후 반복</td><td>확정 처리</td></tr>
+<tr><td><strong>5. 종료</strong></td><td>모든 정점 방문 완료 시 종료</td><td>종료 조건</td></tr>
 </table></div>
 </li>
-<li><strong>다익스트라와 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>벨만-포드</th><th>다익스트라</th></tr>
-<tr><td><strong>음수 가중치</strong></td><td>✅ 처리 가능</td><td>❌ 불가</td></tr>
-<tr><td><strong>음수 사이클 탐지</strong></td><td>✅ 가능</td><td>❌ 불가</td></tr>
-<tr><td><strong>시간복잡도</strong></td><td>O(V × E)</td><td>O((V+E) log V)</td></tr>
-<tr><td><strong>속도</strong></td><td>느림</td><td>빠름</td></tr>
-<tr><td><strong>설계 기반</strong></td><td>동적 프로그래밍</td><td>탐욕 알고리즘</td></tr>
-<tr><td><strong>적합한 경우</strong></td><td>음수 가중치·사이클 탐지 필요 시</td><td>양수 가중치 고속 탐색</td></tr>
-</table></div>
-</li>
-<li><strong>활용 분야: </strong>네트워크 라우팅(RIP 프로토콜 기반 라우팅 경로 결정), 금융(환율 차익 거래 탐지)</li>
-<li><strong>인사이트:</strong> 벨만-포드는 다익스트라가 처리하지 못하는 음수 가중치·음수 사이클 문제를 해결하는 보완적 알고리즘으로, 두 알고리즘의 적용 조건 차이를 명확히 이해하는 것이 시험 핵심. 특히 V-1회 반복의 의미(최단 경로는 최대 V-1개의 간선을 포함)와 V번째 반복의 음수 사이클 탐지 원리가 답안 차별화의 핵심 포인트</li>
+<li><strong>활용 분야:</strong> 내비게이션(출발지~목적지 최단 경로 탐색), 네트워크 라우팅(OSPF 프로토콜) </li>
+<li><strong>인사이트:</strong> 다익스트라는 BFS의 가중치 확장 버전으로, 탐욕적 선택의 정당성이 양수 가중치 조건 하에서 보장됨. 음수 가중치 처리 불가라는 한계를 벨만-포드와의 비교로 명확히 이해하는 것이 시험 핵심 포인트이며, 실무에서는 OSPF·내비게이션 등 핵심 라우팅 알고리즘의 기반으로 광범위하게 활용됨</li>
 </ul>
-<hr/>
 
 </body>
 </html>

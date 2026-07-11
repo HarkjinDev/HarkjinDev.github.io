@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 5G 네트워크 슬라이싱 (Network Slicing)</title>
+  <title>2. SDR (Software Defined Radio)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,22 @@
   </style>
 </head>
 <body>
-<h4>7. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
+<h4>2. SDR (Software Defined Radio)</h4>
 <ul>
-<li><strong>정의</strong>: NFV/SDN으로 물리 5G망을 다수의 독립된 가상망으로 분리해 서비스별 QoS를 제공하는 기술</li>
-<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
+<li><strong>정의</strong>: 변조·복조 등 무선통신 하드웨어 기능을 소프트웨어로 구현해 유연성을 높인 기술</li>
+<li><strong>키워드</strong>: ADC/DAC, FPGA, DSP, 재구성 가능, 인지 무선(Cognitive Radio), 다중 표준</li>
 <li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
-<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
-<tr><td><strong>eMBB</strong></td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
-<tr><td><strong>URLLC</strong></td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
-<tr><td><strong>mMTC</strong></td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
+<li><strong>SDR 구성</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>역할</th></tr>
+<tr><td>안테나</td><td>RF 신호 수신</td></tr>
+<tr><td>ADC/DAC</td><td>아날로그-디지털 변환</td></tr>
+<tr><td>FPGA/DSP</td><td>소프트웨어 기반 신호 처리</td></tr>
+<tr><td>SW 모듈</td><td>변조/복조/프로토콜 처리</td></tr>
 </table></div>
 </li>
-<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
-<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
+<li><strong>장점</strong>: 단일 하드웨어로 다중 표준(LTE/5G/Wi-Fi) 지원, 펌웨어 업데이트로 기능 변경</li>
+<li><strong>인지 무선(CR) 연계</strong>: SDR 기반으로 주파수 사용 환경을 감지하여 동적으로 주파수 선택</li>
+<li><strong>인사이트</strong>: SDR은 <strong>주파수 유연성과 다중 표준 지원</strong>이 핵심으로, 군사통신·재난망·5G 기지국 가상화(vRAN)에 적용됨. GNU Radio 등 오픈소스 SDR 플랫폼이 연구·교육에 활용.</li>
 </ul>
 
 </body>
