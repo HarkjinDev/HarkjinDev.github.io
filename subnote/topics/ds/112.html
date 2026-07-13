@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 온톨로지(Ontology)</title>
+  <title>2. 관측가능성 (Observability)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,40 +15,41 @@
   </style>
 </head>
 <body>
-<h4>3. 온톨로지(Ontology)</h4>
+<h4><strong>2. 관측가능성 (Observability)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 실세계 개념과 속성, 데이터의 관계를 구조화하고 시멘틱웹으로 표현하는 지식 베이스</li>
-<li><strong>키워드:</strong> 개념 체계화, 의미 명세화, 추론기반, 클래스, 인스턴스, 속성, 관계, 제약조건, 공리, RDFS, OWL, XTM, SPARQL 쿼리, 추론엔진, 지식 그래프, 시멘틱웹, 대화형 AI, 로보틱스, XAI</li>
+<li><strong>정의:</strong> 시스템의 문제 해결 및 자동화를 위해 외부 출력값인 메트릭(<strong>Metric</strong>), 추적(<strong>Trace</strong>), 로그(<strong>Log</strong>) 등을 분석하여 시스템의 내부 상태를 이해하고 예측할 수 있는 속성</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>MELT-메트릭(Metric), 이벤트(Event), 추적(Trace), 로그(Log)</strong></u></span>, <strong>SRE</strong>, <strong>SLO</strong>, 외부 출력값, 내부 상태 파악, <strong>AIOps</strong></li>
 <li><strong>분류:</strong> 신기술/동향</li>
-<li><strong>구성요소:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개속관계공&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>핵심 역할</strong></th></tr>
-<tr><td><strong>개념(Concepts/Instances)</strong></td><td>객체, 개념 및 개별 인스턴스</td><td>지식 표현의 기본 단위</td></tr>
-<tr><td><strong>속성(Properties)</strong></td><td>개체가 가지는 고유 특성 정보</td><td>객체의 세부 특징 기술</td></tr>
-<tr><td><strong>관계(Relationships)</strong></td><td>개체 간의 연관성 및 상호작용</td><td>지식 간의 연결 고리 형성</td></tr>
-<tr><td><strong>계층구조(Taxonomy)</strong></td><td>개념 간의 상하위 계층 체계</td><td>지식의 체계적 분류</td></tr>
-<tr><td><strong>공리(Axioms)</strong></td><td>관계의 제약조건 및 추론 규칙</td><td>지식의 정당성 및 논리 검증</td></tr>
+<li><strong>관측가능성과 모니터링의 비교:</strong><div class="table-scroll"><table>
+<tr><th><strong>비교 항목</strong></th><th><strong>관측가능성 (Observability)</strong></th><th><strong>모니터링 (Monitoring)</strong></th></tr>
+<tr><td><strong>사용 목적</strong></td><td>복잡한 오류를 추적</td><td>발생한 오류를 발견</td></tr>
+<tr><td><strong>측정 값 활용</strong></td><td>시스템 오작동 원인을 확인</td><td>시스템 영향도를 식별</td></tr>
+<tr><td><strong>데이터 상관관계</strong></td><td>데이터의 상관관계 파악이 용이</td><td>데이터의 상관관계 파악이 어려움</td></tr>
+<tr><td><strong>분석 대상</strong></td><td>여러 시스템을 연관 분석</td><td>독립형 시스템을 분석</td></tr>
+<tr><td><strong>분석 결과</strong></td><td>원인 및 과정을 도출</td><td>시점 및 종류를 도출</td></tr>
 </table></div>
 </li>
-<li><strong>온톨로지 프리미티브: </strong>도메인을 일관된 의미(semantics)로 표현하기위해 사용하는 최소단위 모델링 요소<ul>
-<li><strong>구성요소:</strong> RACI(관계, 속성, 클래스, 인스턴스), 로직(공리, 계층구조)</li>
-<li>계층 구조[(클래스) → (공리) (클래스) → (인스턴스) ↔ (관계) ↔ (인스턴스)]</li>
-</ul>
-</li>
-<li><strong>지식그래프:</strong> 개체-관계-속성을 그래프 구조(노드, 엣지, 속성)로 정리하여 정보를 의미상으로 구조화적으로 표현한 그래프 기반 지식 구조<ul>
-<li><strong>특징: </strong>의미 계층, 관계 중심 질의, 맥락 유지</li>
-<li><strong>구성요소: </strong>노드(Node), 엣지(Edge), 속성(Property)</li>
-<li><strong>기술요소:</strong> 그래프 데이터 모델링, 지식 추론, 지식 그래프 임베딩(KGE), RDF, SPARQL</li>
-</ul>
-</li>
-<li><strong>온톨로지 언어 및 표현 기술: </strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>비고</strong></th></tr>
-<tr><td><strong>OWL(Web Ontology Language)</strong></td><td>W3C 표준 온톨로지 저작 언어</td><td>복잡한 논리 표현 가능</td></tr>
-<tr><td><strong>RDF(Resource Description Framework)</strong></td><td>자원 표현용 기본 데이터 모델</td><td>주어-서술어-목적어 구조</td></tr>
-<tr><td><strong>SPARQL(Standard Query Language)</strong></td><td>RDF 데이터용 표준 질의 언어</td><td>그래프 데이터베이스 조회</td></tr>
-<tr><td><strong>XTM(XML Topic Maps)</strong></td><td>ISO 표준 기반 지식 표현 체계</td><td>의미적 상호 연결 강조</td></tr>
+<li><strong>관측가능성 핵심 구성 요소(MLT/MELT):</strong><div class="table-scroll"><table>
+<tr><th><strong>구성 요소</strong></th><th><strong>역할 및 메커니즘 (요약)</strong></th><th><strong>주요 출력 형태</strong></th></tr>
+<tr><td><strong>메트릭 (Metric)</strong></td><td>가용성 신호의 <strong>수치화 및 집계</strong></td><td>CPU/메모리 사용량, 메시지 개수</td></tr>
+<tr><td><strong>이벤트 (Event)</strong></td><td>특정 시점에 발생한 <strong>상태 변화·행위 기록</strong></td><td>배포 이벤트·알람 발생·사용자 클릭</td></tr>
+<tr><td><strong>로그 (Log)</strong></td><td>실행 시 발생하는 <strong>텍스트/JSON 기록</strong></td><td>에러, 경고, 디버깅 정보</td></tr>
+<tr><td><strong>추적 (Tracing)</strong></td><td>트랜잭션의 <strong>이동 경로 및 지연 시간</strong> 분석</td><td>시스템 이동 경로, 처리 대기 시간</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 온톨로지는 단순한 데이터 저장 구조를 넘어 <strong>기계가 의미를 이해하고 추론</strong>할 수 있도록 지식을 형식화하는 핵심 기반 기술로, 시맨틱웹의 근간을 형성함. LLM의 할루시네이션 문제해결방법으로 <strong>AI 신뢰성 확보의 보완 수단</strong>으로 주목받고 있음. 또한, <strong>설명가능한 AI 구현의 기반 인프라</strong>로 역할이 확대되고 있음.</li>
+<li><strong>기반 기술 및 세부 구현 기술:</strong><div class="table-scroll"><table>
+<tr><th><strong>기반 기술</strong></th><th><strong>세부 기술</strong></th><th><strong>핵심 메커니즘 (요약)</strong></th></tr>
+<tr><td><strong>트래픽 관리</strong></td><td><strong>eBPF</strong></td><td>커널 내 샌드박스 실행 및 Hook 활용 모니터링</td></tr>
+<tr><td></td><td><strong>복원성 패턴</strong></td><td>서비스 메시·서킷브레이커 기반 수평 확장 배포</td></tr>
+<tr><td><strong>오토 스케일링</strong></td><td><strong>메트릭 측정</strong></td><td> 요청 수, 요청 기간, 동시 요청 등</td></tr>
+<tr><td></td><td><strong>HPA</strong></td><td>메트릭 선정, 스래싱 방지, 지연 반응</td></tr>
+<tr><td><strong>운영 프로세스</strong></td><td><strong>관측가능성 운영</strong></td><td>메트릭 → 추적 ↔ 로그 순서의 연계 분석</td></tr>
+<tr><td><strong>장애 프로세스</strong></td><td><strong>장애 대응</strong></td><td>장애 발생 → 알람 전송 → 추적 분석 → 로그 분석</td></tr>
+<tr><td><strong>마이크로서비스</strong></td><td><strong>CQRS</strong></td><td>읽기/쓰기 모델 분리를 통한 독립적 최적화</td></tr>
+<tr><td><strong>파티셔닝</strong></td><td><strong>샤딩</strong></td><td>키 기반 데이터 분산 및 특정 샤드 부하 해소</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트: </strong>관측가능성은 외부 출력값을 분석하여 시스템 내부 상태를 파악한다는 점에서 단순 모니터링과 차별화되며, <strong>SRE</strong>를 통해 <strong>SLO</strong>를 정의하고 보호하는 효율적인 운영을 실현함. 향후 IT 운영 문제를 자동 파악하여 해결하는 <strong>AIOps</strong>를 적용함으로써 운영 자동화 체계로 발전할 것으로 예상됨.</li>
 </ul>
 
 </body>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. OT 환경의 제로트러스트 적용 안내서(25.12.)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>4. OT 환경의 제로트러스트 적용 안내서(25.12.)</h4>
+<ul>
+<li><strong>정의:</strong> OT(운영기술) 환경의 가용성·실시간성을 보장하면서 암묵적 신뢰를 배제하는 보안 아키텍처</li>
+<li><strong>키워드:</strong> OT, Zero Trust, Purdue모델, PEP/PDP, 마이크로세그멘테이션, 6대 핵심요소</li>
+<li><strong>분류:</strong> 보안</li>
+<li><strong>OT 보안 위협:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>물리적 피해 위험</strong></td><td>침해가 물리적 피해·혼란으로 확산</td><td>고위험 사이버위협</td></tr>
+<tr><td><strong>낮은 보안 성숙도</strong></td><td>성숙도 낮을수록 침해사고 빈번</td><td>망분리 미흡</td></tr>
+<tr><td><strong>국가배후 공격</strong></td><td>국가지원 해킹조직의 전략적 공격</td><td>사이버전 심화</td></tr>
+</table></div>
+</li>
+<li><strong>OT 환경 특성 및 고유 취약점:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>망분리 의존</strong></td><td>내부신뢰·외부접점 사각지대 존재</td><td>경계보안 한계</td></tr>
+<tr><td><strong>가용성 우선 구조</strong></td><td>패치·암호화·인증 적용 제한</td><td>보안대응 어려움</td></tr>
+<tr><td><strong>낮은 자산 가시성</strong></td><td>위협 탐지·대응 지연 발생</td><td>탐지 지연</td></tr>
+<tr><td><strong>비공개 프로토콜</strong></td><td>범용 IT보안 솔루션 적용 제한</td><td>전용 프로토콜</td></tr>
+</table></div>
+</li>
+<li><strong>적용 필요성:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>경계보안 한계</strong></td><td>IT→OT 횡적이동·랜섬웨어 대응 한계</td><td>기반시설 위협 대응</td></tr>
+<tr><td><strong>IT형 ZT 적용 한계</strong></td><td>지연·가용성·레거시 제약 존재</td><td>OT특화 설계 필요</td></tr>
+</table></div>
+</li>
+<li><strong>OT 특화 제로트러스트 핵심 원칙: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;실독전지&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>핵심원칙</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>실시간성·가용성 유지</strong></td><td>인증·패치 지연없이 이중화 구조</td><td>무중단 안전장치</td></tr>
+<tr><td><strong>OT 장비 독립성 유지</strong></td><td>외부상태 무관 자율 신뢰판단</td><td>자율적 신뢰결정</td></tr>
+<tr><td><strong>OT·IT 전역 침해 가정</strong></td><td>내부침해 전제, 마이크로세그멘·DPI</td><td>횡적이동 차단</td></tr>
+<tr><td><strong>지속적 모니터링</strong></td><td>트래픽 기준선 기반 이상탐지</td><td>중앙 로그·SIEM</td></tr>
+</table></div>
+</li>
+<li><strong>OT 특화 제로트러스트 적용 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>고려사항</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>레거시 장비 제약</strong></td><td>암호화·인증 미지원 단계적 확대</td><td>게이트웨이 보완</td></tr>
+<tr><td><strong>장비 기능 중심 보안</strong></td><td>기능단위 정상범위 기반 신뢰판단</td><td>기능 중심 통제</td></tr>
+<tr><td><strong>망분리·접점 관리</strong></td><td>USB·원격접속 등 전경로 통제</td><td>전접점 통제</td></tr>
+<tr><td><strong>문화적 요소</strong></td><td>보안인식 제고·정책준수 의무화</td><td>조직문화 정착</td></tr>
+</table></div>
+</li>
+<li><strong>OT 특화 제로트러스트 적용 방안:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Purdue 모델 기반</strong></td><td>Level 0~4 전 계층 포괄 설계</td><td>전계층 포괄</td></tr>
+<tr><td><strong>6대 핵심요소 기반</strong></td><td>제로트러스트 가이드라인 2.0 반영</td><td>단계적 성숙도</td></tr>
+<tr><td><strong>PEP/PDP 설계</strong></td><td>접근주체·대상 정의 후 배치설계</td><td>정책시행·결정점</td></tr>
+</table></div>
+</li>
+<li><strong>OT 환경 제로트러스트 도입 로드맵:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1.자산식별 및 대상정의</strong></td><td>보호할 핵심자산 목록화·평가</td><td>자산 목록화</td></tr>
+<tr><td><strong>2.트래픽 및 흐름가시화</strong></td><td>보호표면 트랜잭션 흐름 파악</td><td>흐름 파악</td></tr>
+<tr><td><strong>3.ZT 아키텍처설계</strong></td><td>보호표면 기반 ZT 아키텍처 설계</td><td>아키텍처 설계</td></tr>
+<tr><td><strong>4.정책 수립 및 구현</strong></td><td>5W1H 기법 기반 접근권한 정의</td><td>정책 구현</td></tr>
+<tr><td><strong>5.모니터링 및 유지관리</strong></td><td>전트래픽 점검·로그화, 인사이트 도출</td><td>지속적 모니터링</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> OT 제로트러스트는 IT식 통제를 그대로 이식하는 대신, 가용성·실시간성을 보존하며 단계적 성숙도로 접근·모니터링 체계를 고도화하는 전략</li>
+</ul>
+<hr/>
+
+</body>
+</html>

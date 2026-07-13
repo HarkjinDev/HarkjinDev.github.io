@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. MCP 보안 (Model Context Protocol Security)</title>
+  <title>5. Jailbreak (탈옥 공격)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,33 @@
   </style>
 </head>
 <body>
-<h4>7. MCP 보안 (Model Context Protocol Security)</h4>
+<h4>5. Jailbreak (탈옥 공격)</h4>
 <ul>
-<li><strong>정의</strong>: MCP(Model Context Protocol) 기반 AI 서비스 구축 시 발생 가능한 보안 취약점과 대응 방안</li>
-<li><strong>키워드</strong>: 프롬프트 인젝션, 도구 오염 공격, CVE-2025-6514(mcp-remote 취약점)</li>
+<li><strong>정의:</strong> AI 모델의 가드레일을 우회하여 유해 콘텐츠 생성·금지 정보 획득·정책 위반 출력을 유도하는 공격</li>
+<li><strong>키워드:</strong> 안전장치 우회, 적대적 프롬프트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>DAN</strong></u></span>, 롤플레이, 프롬프트 인젝션, 가드레일, AI 레드팀, Constitutional AI</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>주요 취약점</strong>:<ul>
-<li><strong>프롬프트 인젝션</strong>: 외부 도구/리소스를 통한 간접 인젝션</li>
-<li><strong>도구 오염 공격(Tool Poisoning)</strong>: 악의적 MCP 서버가 안전한 도구처럼 위장</li>
-<li><strong>권한 상승</strong>: MCP 통해 과도한 권한 획득</li>
-<li><strong>CVE-2025-6514</strong>: mcp-remote의 원격 코드 실행 취약점</li>
-</ul>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>역할·맥락 위장</strong></td><td><strong>롤플레이 우회</strong></td><td>가상 시나리오·페르소나 설정으로 안전 필터 우회</td><td>맥락 위장</td></tr>
+<tr><td></td><td><strong>DAN 공격</strong></td><td>"Do Anything Now" 등 제약 없는 AI 역할 강제 부여</td><td>역할 강제</td></tr>
+<tr><td></td><td><strong>점진적 유도</strong></td><td>무해한 요청부터 단계적으로 금지 내용으로 유도</td><td>단계적 우회</td></tr>
+<tr><td><strong>기술적 우회</strong></td><td><strong>프롬프트 인젝션</strong></td><td>시스템 프롬프트를 무력화하는 악성 입력 삽입</td><td>지시 덮어쓰기</td></tr>
+<tr><td></td><td><strong>인코딩 우회</strong></td><td>Base64·특수문자로 금지 내용 인코딩하여 필터 회피</td><td>인코딩 위장</td></tr>
+<tr><td></td><td><strong>다국어 우회</strong></td><td>안전 필터가 약한 언어로 질의하여 제약 회피</td><td>언어 취약점</td></tr>
+<tr><td><strong>모달리티 악용</strong></td><td><strong>멀티모달 공격</strong></td><td>이미지·음성에 금지 지시 삽입하여 텍스트 필터 우회</td><td>모달리티 악용</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: MCP 서버 출처 검증과 샌드박스 실행이 핵심 보안 원칙임</li>
+<li><strong>대응 방안: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>모델 정렬</strong></td><td><strong>RLHF·DPO</strong></td><td>안전 정책 내재화로 탈옥 저항성 향상</td></tr>
+<tr><td></td><td><strong>Constitutional AI</strong></td><td>AI 스스로 원칙 기반 응답 검토·수정</td></tr>
+<tr><td><strong>필터링</strong></td><td><strong>입력 프롬프트 검증</strong></td><td>입력 의도·패턴 사전 분류·차단</td></tr>
+<tr><td></td><td><strong>출력 가드레일</strong></td><td>유해 출력 탐지·차단 레이어 적용</td></tr>
+<tr><td><strong>검증</strong></td><td><strong>AI 레드팀</strong></td><td>지속적 탈옥 시도·취약점 발견·패치 반복</td></tr>
+<tr><td></td><td><strong>탈옥 벤치마크</strong></td><td>모델별 탈옥 저항성 정량 평가·비교</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> Jailbreak는 모델 정렬 기술과 공격 기법이 지속적으로 경쟁하는 구조로, 단일 가드레일로는 방어가 불가능하며 입력 검증·모델 정렬·출력 필터링·AI 레드팀의 다층 방어와 함께 멀티모달·다국어 확장에 따른 공격 표면 증가에 선제적으로 대응하는 지속적 안전성 평가가 AI 서비스 보안의 핵심 과제임</li>
 </ul>
 
 </body>

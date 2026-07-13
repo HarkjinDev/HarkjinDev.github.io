@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. AI-DLC (AI-Driven Development Life Cycle)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>2. AI-DLC (AI-Driven Development Life Cycle)</h4>
+<ul>
+<li><strong>정의:</strong> AI가 요구사항부터 운영까지 전 과정을 주도하고 인간이 검증·승인하는 개발방법론</li>
+<li><strong>키워드:</strong> AWS, Bolt, Mob Elaboration, Mob Construction, Unit of Work, Persistent Context, Amazon Q Developer</li>
+<li><strong>분류</strong>: 개발 방법론</li>
+<li><strong>핵심 철학: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>"AI proposes, human approves"</strong></u></span></li>
+<li><strong>3대 Phase 구조:</strong><div class="table-scroll"><table>
+<tr><th>Phase</th><th>활동</th><th>핵심</th></tr>
+<tr><td><strong>1. Inception</strong></td><td>비즈니스 의도→요구사항·User Story 변환</td><td>요구사항 확정</td></tr>
+<tr><td><strong>2. Construction</strong></td><td>아키텍처·도메인모델·코드 제안</td><td>설계·구현</td></tr>
+<tr><td><strong>3. Operations</strong></td><td>인프라·배포 설정 생성, 운영 관리</td><td>배포·운영</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 용어 (전통 SDLC 대비):</strong><div class="table-scroll"><table>
+<tr><th>AI-DLC 용어</th><th>전통 SDLC 대응</th><th>핵심</th></tr>
+<tr><td><strong>Intent</strong></td><td>비즈니스 목표·비전</td><td>상위 목표</td></tr>
+<tr><td><strong>Unit of Work</strong></td><td>Epic</td><td>분해된 작업단위</td></tr>
+<tr><td><strong>Bolt</strong></td><td>Sprint</td><td>시간~일 단위 초단기 주기</td></tr>
+<tr><td><strong>Mob Elaboration</strong></td><td>요구사항 정의 회의</td><td>Inception 협업</td></tr>
+<tr><td><strong>Mob Construction</strong></td><td>기술 설계 회의</td><td>Construction 협업</td></tr>
+<tr><td><strong>Persistent Context</strong></td><td>(개념 부재)</td><td>세션간 컨텍스트 유지</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> AI-DLC는 "AI가 제안, 인간이 승인"하는 구조화된 거버넌스로 완전자율·완전수동의 양극단을 지양하며, Bolt·Mob세션·품질게이트로 속도와 통제를 동시에 추구하는 방법론이나, 생산성 수치는 벤더 발표 벤치마크임을 유의해 해석해야 함</li>
+</ul>
+
+</body>
+</html>

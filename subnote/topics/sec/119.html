@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 모델 전도 공격 (Model Inversion Attack)</title>
+  <title>1. 적대적 공격 (Adversarial Attack)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,19 @@
   </style>
 </head>
 <body>
-<h4>2. 모델 전도 공격 (Model Inversion Attack)</h4>
+<h4>1. 적대적 공격 (Adversarial Attack)</h4>
 <ul>
-<li><strong>정의</strong>: AI 모델의 출력(예측값)을 역추적하여 학습에 사용된 민감한 데이터를 복원하는 공격</li>
-<li><strong>키워드</strong>: 모델 출력 → 학습 데이터 복원, 프라이버시 침해</li>
+<li><strong>정의</strong>: 입력 데이터에 인간이 인지하기 어려운 미세한 교란을 가하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AI 모델의 오분류를 유도</strong></u></span>하는 공격 기법</li>
+<li><strong>키워드</strong>: 적대적 예제, 오분류 유도, 회피 공격, 데이터 오염</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>방어 방안</strong>: <div class="table-scroll"><table>
-<tr><th><strong>방안</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>차분 프라이버시</strong></td><td>노이즈를 추가해 데이터 보호</td><td>수학적 익명성</td></tr>
-<tr><td><strong>출력 가공</strong></td><td>출력값을 반올림해 역추적 방지</td><td>정보 노출 제한</td></tr>
-<tr><td><strong>연합학습</strong></td><td>데이터 전송 없이 모델만 공유</td><td>원본 데이터 보호</td></tr>
-</table></div>
+<li><strong>학습 과정 기반 적대적 공격 4가지</strong>:<ul>
+<li><strong>데이터 오염 공격(Poisoning Attack)</strong>: 학습 데이터에 악성 샘플 삽입 → 모델 성능 저하</li>
+<li><strong>회피 공격(Evasion Attack)</strong>: 추론 시 입력 교란으로 오분류 유도</li>
+<li><strong>추출 공격(Extraction Attack)</strong>: 모델의 예측값으로 내부 모델 역설계</li>
+<li><strong>추론 공격(Inference Attack)</strong>: 모델 출력으로 학습 데이터 프라이버시 추론</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 모델 전도 공격은 GDPR의 '프라이버시 침해'에 해당할 수 있어, AI 시스템 설계 시 PbD(Privacy by Design) 원칙 적용이 필수임</li>
+<li><strong>인사이트</strong>: 자율주행·의료 AI에서 적대적 공격은 인명 피해로 직결될 수 있어, AI 시스템 인증에 적대적 견고성 검증이 필수 요건으로 논의되고 있음</li>
 </ul>
 
 </body>

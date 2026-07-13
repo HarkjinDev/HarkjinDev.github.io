@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 8-2. 오용탐지 vs 이상탐지</title>
+  <title>[하위] 8-1. UEBA(User and Entity Behavior Analytics)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,16 @@
   </style>
 </head>
 <body>
-<h4>[하위] 8-2. 오용탐지 vs 이상탐지</h4>
+<h4>[하위] 8-1. UEBA(<strong>User and Entity Behavior Analytics)</strong></h4>
 <ul>
-<li><strong>오용탐지 vs 이상탐지 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>오용탐지 (Misuse Detection)</th><th>이상탐지 (Anomaly Detection)</th></tr>
-<tr><td>별칭</td><td>시그니처 기반 탐지</td><td>행위 기반 탐지</td></tr>
-<tr><td>탐지 원리</td><td>알려진 공격 패턴·시그니처와 비교</td><td>정상 행위 프로파일 기준 이상 탐지</td></tr>
-<tr><td>탐지 기준</td><td>사전 정의된 규칙·패턴 DB</td><td>정상 행위 기준선 (Baseline)</td></tr>
-<tr><td>알려진 공격</td><td>탐지 가능</td><td>탐지 가능</td></tr>
-<tr><td>미지 공격 (Zero-day)</td><td>탐지 불가</td><td>탐지 가능</td></tr>
-<tr><td>오탐율 (False Positive)</td><td>낮음</td><td>높음</td></tr>
-<tr><td>미탐율 (False Negative)</td><td>높음 (신종 공격)</td><td>낮음</td></tr>
-<tr><td>패턴 DB 업데이트</td><td>지속적 필요</td><td>불필요</td></tr>
-<tr><td>처리 속도</td><td>빠름</td><td>상대적 느림</td></tr>
-<tr><td>구현 복잡도</td><td>낮음</td><td>높음</td></tr>
-<tr><td>암호화 트래픽</td><td>탐지 어려움</td><td>행위 기반 탐지 가능</td></tr>
-<tr><td>주요 기술</td><td>시그니처·룰·정규표현식</td><td>통계·ML·AI·딥러닝</td></tr>
-<tr><td>대표 도구</td><td>Snort·Suricata</td><td>Darktrace·AI 기반 IDS</td></tr>
-<tr><td>적합 환경</td><td>알려진 위협 많은 환경</td><td>APT·내부자 위협·신종 공격</td></tr>
-<tr><td>관리 부담</td><td>시그니처 DB 관리</td><td>프로파일 학습·튜닝</td></tr>
+<li><strong>정의: </strong>사용자와 시스템의 행동을 실시간으로 분석하여 정상적인 패턴을 학습하고, 이상 징후를 탐지하여 사이버 위협에 대응하는 고급 보안 기술</li>
+<li><strong>주요 탐지 시나리오:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>내부자 위협</strong></td><td>권한 남용·데이터 유출·비정상 접근 시도 탐지</td><td>내부 위협</td></tr>
+<tr><td><strong>계정 탈취</strong></td><td>비정상 시간대·위치·디바이스 로그인 탐지</td><td>크리덴셜 도용</td></tr>
+<tr><td><strong>횡적 이동</strong></td><td>침해 후 내부 시스템 간 비정상 이동 탐지</td><td>내부 확산 탐지</td></tr>
+<tr><td><strong>권한 상승</strong></td><td>일반 계정의 관리자 권한 획득 시도 탐지</td><td>권한 오용</td></tr>
+<tr><td><strong>데이터 유출</strong></td><td>대량 파일 다운로드·외부 전송 이상 행위 탐지</td><td>유출 탐지</td></tr>
 </table></div>
 </li>
 </ul>

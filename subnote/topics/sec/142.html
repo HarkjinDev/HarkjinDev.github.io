@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. PET (Privacy Enhancing Technology)</title>
+  <title>6. k-익명성 (k-anonymity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,19 @@
   </style>
 </head>
 <body>
-<h4>7. PET (Privacy Enhancing Technology)</h4>
+<h4>6. k-익명성 (k-anonymity)</h4>
 <ul>
-<li><strong>정의</strong>: 개인정보 보호를 기술적으로 강화하는 프라이버시 보호 강화 기술의 총칭</li>
-<li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습</li>
+<li><strong>정의</strong>: 동일한 준식별자 속성값을 가진 레코드가 k개 이상 존재하도록 보장하는 프라이버시 모델</li>
+<li><strong>키워드</strong>: 준식별자, 일반화, 삭제, 재식별 방지</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>PET 기술 분류</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동차합영/연다신&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>기술</th><th>설명</th><th>활용</th></tr>
-<tr><td><strong>동형암호(HE)</strong></td><td>암호화 상태에서 연산</td><td>클라우드 안전 처리</td></tr>
-<tr><td><strong>차분 프라이버시(DP)</strong></td><td>통계에 노이즈 추가</td><td>집계 데이터 공개</td></tr>
-<tr><td><strong>합성데이터</strong></td><td>원본 특성 모방 가상 데이터</td><td>AI 학습 데이터</td></tr>
-<tr><td><strong>영지식 증명(ZKP)</strong></td><td>정보 공개 없이 사실 증명</td><td>블록체인, 인증</td></tr>
-<tr><td><strong>연합학습(FL)</strong></td><td>데이터 이동 없이 분산 학습</td><td>의료·금융 AI</td></tr>
-<tr><td><strong>다자간 연산(MPC)</strong></td><td>각자 데이터 비공개 연산</td><td>공동 분석</td></tr>
-<tr><td><strong>신뢰실행환경(TEE)</strong></td><td>하드웨어 격리 실행</td><td>안전한 데이터 처리</td></tr>
-</table></div>
+<li><strong>구현 기법</strong>: 일반화(Generalization: 35세 → 30대), 억제(Suppression: 특이값 삭제)</li>
+<li><strong>취약점</strong>:<ul>
+<li><strong>동질성 공격</strong>: 동일 그룹 내 민감 속성이 균일한 경우 유추 가능</li>
+<li><strong>배경 지식 공격</strong>: 외부 정보와 결합하여 재식별</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: PET는 데이터 활용과 프라이버시 보호의 딜레마를 기술적으로 해결하는 수단으로, 의료·금융 분야의 데이터 공유 활성화의 핵심 기술임</li>
+<li><strong>확장 모델</strong>: ℓ-다양성(l-diversity), t-근접성(t-closeness)</li>
+<li><strong>인사이트</strong>: k-익명성은 단독으로는 충분한 보호를 제공하지 못하므로, ℓ-다양성·t-근접성과 결합하여 적용하는 것이 권장됨</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. OWASP (Open Web Application Security Project)</title>
+  <title>2. 시큐어 코딩 (Secure Coding)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. OWASP (Open Web Application Security Project)</h4>
+<h4>2. 시큐어 코딩 (Secure Coding)</h4>
 <ul>
-<li><strong>정의</strong>: 웹 애플리케이션의 주요 보안 취약점을 발표하는 국제 오픈 보안 프로젝트</li>
-<li><strong>키워드</strong>: 웹 보안 Top 10, 취약점 가이드</li>
+<li><strong>정의</strong>: 보안 취약점을 예방하는 안전한 소프트웨어 코딩 기법</li>
+<li><strong>키워드</strong>: 입력값 검증, SQL 인젝션 방지, XSS 방지</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>OWASP Top 10 (2025)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;접보공암/인불인무/로예&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>핵심</th><th>대응 방안</th></tr>
-<tr><td><strong>A01. 접근 제어 취약점 
-(Broken Access Control)</strong></td><td>권한 외 접근</td><td>최소 권한 원칙, IDOR·SSRF 방어, 접근 제어 정책 서버 측 강제 적용</td></tr>
-<tr><td><strong>A02. 보안 설정 오류 
-(Security Misconfiguration)</strong></td><td>설정 미흡</td><td>기본 계정·불필요 기능 제거, 보안 설정 자동화·검증, 클라우드 설정 감사</td></tr>
-<tr><td><strong>A03. 공급망 실패 (Software Supply Chain Failures)</strong></td><td>오픈소스 취약점</td><td>SCA 도구 적용, CI/CD 파이프라인 무결성 검증, SBOM 관리</td></tr>
-<tr><td><strong>A04. 암호화 실패 
-(Cryptographic Failures)</strong></td><td>민감 데이터 노출</td><td>강력한 암호 알고리즘(AES-256) 적용, 키 관리 체계 수립, TLS 강제 적용</td></tr>
-<tr><td><strong>A05. 인젝션 (Injection)</strong></td><td>악성 명령어 실행</td><td>입력값 검증·이스케이프, PreparedStatement 사용, WAF 적용</td></tr>
-<tr><td><strong>A06. 불안전한 설계 
-(Insecure Design)</strong></td><td>설계 단계 보안 누락</td><td>위협 모델링(STRIDE), 보안 요구사항 설계 반영, SDL 프로세스 도입</td></tr>
-<tr><td><strong>A07. 인증 실패 (Authentication Failures)</strong></td><td>인증 체계 취약</td><td>MFA 적용, 강력한 패스워드 정책, 세션 타임아웃·무차별 대입 방어</td></tr>
-<tr><td><strong>A08. 무결성 실패 (Software and Data Integrity Failures)</strong></td><td>무결성 검증 누락</td><td>디지털 서명·체크섬 검증, 안전한 직렬화 라이브러리 사용, 업데이트 서명 검증</td></tr>
-<tr><td><strong>A09. 로깅·모니터링 실패(Security Logging and Monitoring Failures)</strong></td><td>침해 탐지 불가</td><td>중앙화 로그 수집(SIEM), 경보 임계치 설정, 로그 보존 정책 수립</td></tr>
-<tr><td><strong>A10. 예외 처리 미흡 (Mishandling of Exceptional Conditions)</strong></td><td>오류 정보 노출</td><td>에러 메시지 최소화, 예외 처리 표준화, 스택 트레이스 외부 노출 차단</td></tr>
-</table></div>
+<li><strong>7대 보안 약점 분류 (행안부)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;입보시에/코캡아&gt;</strong></span><ul>
+<li><strong>입력 데이터 검증 및 표현</strong>: SQL 인젝션, XSS, 버퍼 오버플로우</li>
+<li><strong>보안 기능</strong>: 적절한 인증, 암호화 사용</li>
+<li><strong>시간 및 상태</strong>: TOCTOU, 경쟁 조건</li>
+<li><strong>에러 처리</strong>: 민감 정보 노출, 부적절한 예외 처리</li>
+<li><strong>코드 품질</strong>: 사용되지 않는 코드, 복잡도</li>
+<li><strong>캡슐화</strong>: 민감 데이터 노출</li>
+<li><strong>API 오용</strong>: 안전하지 않은 API 사용</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 클라우드 네이티브 환경과 오픈소스 활용이 보편화되면서 공급망 보호가 최우선 과제로 부상, 인프라가 복잡해지면서 코드로 관리하는 인프라나 클라우드 설정 오류가 주요 공격 경로가 됨.</li>
+<li><strong>인사이트</strong>: SAST(정적 분석)와 DAST(동적 분석)를 CI/CD 파이프라인에 통합하여 자동화된 보안 검증 체계(DevSecOps)를 구축하는 것이 현대적 시큐어 코딩의 실천 방법임</li>
 </ul>
 
 </body>

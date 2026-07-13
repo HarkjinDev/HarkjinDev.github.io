@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. SDD (Spec-Driven Development, 명세 주도 개발)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>1. SDD (Spec-Driven Development, 명세 주도 개발)</h4>
+<ul>
+<li><strong>정의:</strong> 실행 가능한 명세를 단일 진실공급원으로 삼아 AI가 코드를 생성하는 개발방법론</li>
+<li><strong>배경:</strong><ul>
+<li>Vibe Coding의 실패모드(의도이탈·API환각·규모확장시 붕괴) 대응</li>
+<li>LLM이 벤치마크상 9.8~42.1% 비율로 취약한 코드 생성</li>
+</ul>
+</li>
+<li><strong>SDD 핵심 워크플로우:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>활동</th><th>핵심</th></tr>
+<tr><td><strong>1. Spec 작성</strong></td><td>시스템 동작을 구조화·버전관리된 명세로 상세 기술</td><td>설계와 구현 분리</td></tr>
+<tr><td><strong>2. Plan 도출</strong></td><td>Spec 기반 구현계획 수립</td><td>계획 자동생성</td></tr>
+<tr><td><strong>3. Task 분해</strong></td><td>계획을 원자적(atomic) 작업단위로 분할</td><td>세분화된 작업</td></tr>
+<tr><td><strong>4. 코드 생성</strong></td><td>AI 에이전트가 Task별 코드·테스트 생성</td><td>AI 실행</td></tr>
+<tr><td><strong>5. 재생성 순환</strong></td><td>요구사항 변경 시 Spec 수정→해당 코드 재생성</td><td>Spec이 항상 최신</td></tr>
+</table></div>
+</li>
+<li><strong>Spec의 적용 범위:</strong><div class="table-scroll"><table>
+<tr><th>산출물</th><th>Spec으로부터 생성</th></tr>
+<tr><td>코드</td><td>구현 로직</td></tr>
+<tr><td>UI 컴포넌트</td><td>화면 구성요소</td></tr>
+<tr><td>DB 스키마</td><td>데이터 모델</td></tr>
+<tr><td>테스트 케이스·데이터</td><td>검증 자산</td></tr>
+<tr><td>환경설정·배포 아티팩트</td><td>인프라 구성</td></tr>
+</table></div>
+</li>
+</ul>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. SSL (Secure Sockets Layer)</title>
+  <title>[하위] 5-1. DDoS 사이버대피소</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,49 +15,18 @@
   </style>
 </head>
 <body>
-<h4>6. SSL (Secure Sockets Layer)</h4>
+<h4>[하위] 5-1. DDoS 사이버대피소</h4>
 <ul>
-<li><strong>정의:</strong> 네트워크 통신에서 데이터 암호화·인증·무결성을 제공하는 보안 프로토콜로, 현재는 보안 취약점으로 폐기되고 TLS로 대체된 프로토콜</li>
-<li><strong>키워드:</strong> 공개키 암호화, 대칭키 암호화, 인증서, CA, 핸드셰이크, HTTPS, TLS 전신, POODLE, BEAST</li>
-<li><strong>분류:</strong> 네트워크 보안</li>
-<li><strong>SSL 버전 변천:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>SSL 2.0</strong></td><td>1995년 출시, DROWN 공격 취약점으로 폐기</td><td>폐기</td></tr>
-<tr><td><strong>SSL 3.0</strong></td><td>1996년 출시, POODLE 공격 취약점으로 폐기</td><td>폐기</td></tr>
-<tr><td><strong>TLS 1.0~1.1</strong></td><td>SSL 3.0 후속, BEAST·POODLE 취약점으로 폐기</td><td>폐기</td></tr>
-<tr><td><strong>TLS 1.2~1.3</strong></td><td>현재 표준, SSL의 완전한 대체</td><td>현행 표준</td></tr>
-</table></div>
+<li><strong>정의</strong>: DDoS 공격 시 트래픽을 우회·차단하여 서비스를 보호하는 중소기업 무료지원 서비스</li>
+<li><strong>키워드</strong>: DDoS 방어, 트래픽 우회, 중소기업 지원</li>
+<li><strong>분류</strong>: 네트워크 보안</li>
+<li><strong>서비스 대상:</strong> 중소기업(KISA), 정부/공공기관(국정원)</li>
+<li><strong>서비스 이용기간:</strong> 방어 서비스 적용 후 1개월, 재공격 예상되는 경우 지속적으로 1개월 연장</li>
+<li><strong>리버스 프록시 동작원리</strong>: <ul>
+<li>공격 발생 시 DNS를 대피소 IP로 변경 → 대피소에서 스크러빙 후 원본 서버로 전달</li>
+</ul>
 </li>
-<li><strong>SSL 프로토콜 스택 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>기능</th><th>핵심</th></tr>
-<tr><td>Handshake Protocol</td><td>협상, 상호인증, 세션 키 생성</td><td>보안 파라미터 협상</td></tr>
-<tr><td>Alert Protocol</td><td>에러 알림</td><td>경고·오류 전달</td></tr>
-<tr><td>Record Protocol</td><td>기밀성·무결성</td><td>데이터 보호·전송</td></tr>
-<tr><td>Change Cipher Spec Protocol</td><td>협상내용 알림</td><td>암호화 전환 알림</td></tr>
-</table></div>
-</li>
-<li><strong>SSL Handshake 동작 절차:</strong><div class="table-scroll"><table>
-<tr><th>메시지</th><th>설명</th></tr>
-<tr><td>1. ClientHello (Client→Server)</td><td>통신 시작 알림</td></tr>
-<tr><td>2. ServerHello (Server→Client)</td><td>지원 가능한 알고리즘 선정 및 전달</td></tr>
-<tr><td>3. ServerKeyExchange (Server→Client)</td><td>공개키 전달</td></tr>
-<tr><td>4. ServerHelloDone (Server→Client)</td><td>전달 완료 알림</td></tr>
-<tr><td>5. ClientKeyExchange (Client→Server)</td><td>서버의 공개키로 비밀키 암호화 전달</td></tr>
-<tr><td>6. ChangeCipherSpec (Client→Server)</td><td>암호화 통신 준비 완료 알림</td></tr>
-<tr><td>7. Finished (Client→Server)</td><td>인증 및 종료</td></tr>
-<tr><td>8. ChangeCipherSpec (Server→Client)</td><td>암호화 통신 준비 완료 알림</td></tr>
-<tr><td>9. Finished (Server→Client)</td><td>인증 및 종료</td></tr>
-</table></div>
-</li>
-<li><strong>주요 취약점:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>POODLE</strong></td><td>SSL 3.0의 CBC 모드 패딩 취약점으로 복호화 가능</td><td>SSL 3.0 폐기 원인</td></tr>
-<tr><td><strong>BEAST</strong></td><td>TLS 1.0 CBC 암호화 취약점, 세션 하이재킹</td><td>TLS 1.0 폐기 원인</td></tr>
-<tr><td><strong>DROWN</strong></td><td>SSL 2.0 서버와 공유 키 사용 시 TLS 복호화 가능</td><td>레거시 서버 위협</td></tr>
-<tr><td><strong>CRIME</strong></td><td>압축 기능 악용 세션 쿠키 탈취</td><td>압축 비활성화</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> SSL은 HTTPS의 기반을 만든 핵심 프로토콜이나 POODLE·BEAST 등 구조적 취약점으로 전면 폐기되었으며, SSL과 TLS는 명칭이 혼용되지만 현재 SSL은 사실상 존재하지 않고 TLS 1.2·1.3만이 유효한 표준으로 레거시 SSL·TLS 1.0·1.1 사용 여부가 보안 진단의 핵심 점검 항목임</li>
+<li><strong>인사이트</strong>: 사이버대피소는 중소기업에 무료로 제공되는 국가 차원의 DDoS 대응 인프라로, 자체 대응이 어려운 기업의 핵심 보호 수단임</li>
 </ul>
 
 </body>

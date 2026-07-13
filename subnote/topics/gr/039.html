@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. 에이전틱 커머스 (Agentic Commerce)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>3. 에이전틱 커머스 (Agentic Commerce)</h4>
+<ul>
+<li><strong>정의:</strong> AI 에이전트가 상품을 탐색·평가·결제까지 자율 수행하는 차세대 상거래 방식</li>
+<li><strong>키워드:</strong> ACP, AP2, UCP, MCP, Verifiable Credentials, Mandate, Shared Payment Token, x402</li>
+<li><strong>3계층 프로토콜 모델 (경쟁 아닌 계층 분업):</strong><div class="table-scroll"><table>
+<tr><th>계층</th><th>프로토콜</th><th>역할</th><th>핵심</th></tr>
+<tr><td>발견·도구계층</td><td>MCP</td><td>에이전트가 무엇을 읽고·호출할 수 있는지 정의</td><td>Tool Discovery</td></tr>
+<tr><td>실행계층</td><td>ACP</td><td>OpenAI + Stripe </td><td>체크아웃 실행</td></tr>
+<tr><td></td><td>UCP</td><td>Google + Shopify</td><td>셀프서비스화</td></tr>
+<tr><td>인증계층</td><td>AP2</td><td>사용자 의도와 결제 승인을 암호학적으로 증명</td><td>권한 위임 증명</td></tr>
+</table></div>
+</li>
+<li><strong>보조 프로토콜:</strong><div class="table-scroll"><table>
+<tr><th>프로토콜</th><th>역할</th></tr>
+<tr><td>x402 (Coinbase)</td><td>기계 간(M2M) API 결제를 스테이블코인으로 정산</td></tr>
+<tr><td>Visa TAP(Trusted Agent Protocol)</td><td>거래시점 에이전트 신원 검증·카드소지자 대리결제 승인</td></tr>
+<tr><td>A2A(Agent-to-Agent)</td><td>에이전트 간 통신·조정·작업위임 정의</td></tr>
+</table></div>
+</li>
+</ul>
+
+</body>
+</html>

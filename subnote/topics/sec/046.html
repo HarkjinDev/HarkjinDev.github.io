@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. DDoS 사이버대피소</title>
+  <title>5. DDoS (Distributed Denial of Service)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,38 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. DDoS 사이버대피소</h4>
+<h4>5. DDoS (Distributed Denial of Service)</h4>
 <ul>
-<li><strong>정의</strong>: DDoS 공격 시 트래픽을 우회·차단하여 서비스를 보호하는 중소기업 무료지원 서비스</li>
-<li><strong>키워드</strong>: DDoS 방어, 트래픽 우회, 중소기업 지원</li>
-<li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>서비스 대상:</strong> 중소기업(KISA), 정부/공공기관(국정원)</li>
-<li><strong>서비스 이용기간:</strong> 방어 서비스 적용 후 1개월, 재공격 예상되는 경우 지속적으로 1개월 연장</li>
-<li><strong>리버스 프록시 동작원리</strong>: <ul>
-<li>공격 발생 시 DNS를 대피소 IP로 변경 → 대피소에서 스크러빙 후 원본 서버로 전달</li>
-</ul>
+<li><strong>정의:</strong> 다수의 좀비 PC·서버(봇넷)를 이용하여 비정상적 대규모 트래픽을 유발해 서비스를 마비시키는 분산 서비스 거부 공격</li>
+<li><strong>키워드:</strong> 봇넷, 대역폭 소진, 자원 소진, 스크러빙 센터, CDN, 앰플리피케이션, Anycast, L7 공격, ISP 필터링</li>
+<li><strong>분류:</strong> 네트워크 보안</li>
+<li><strong>공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>볼륨메트릭 공격</strong></td><td><strong>UDP Flood</strong></td><td>대량 UDP 패킷으로 대역폭 소진</td></tr>
+<tr><td></td><td><strong>ICMP Flood</strong></td><td>Ping 패킷 대량 전송으로 네트워크 마비</td></tr>
+<tr><td></td><td><strong>DNS 증폭</strong></td><td>소량 요청으로 대량 응답 유발, 증폭 공격</td></tr>
+<tr><td></td><td><strong>NTP 증폭</strong></td><td>NTP 프로토콜 악용 트래픽 수십 배 증폭</td></tr>
+<tr><td><strong>프로토콜 공격</strong></td><td><strong>SYN Flood</strong></td><td>TCP 연결 미완료로 서버 자원(소켓) 소진</td></tr>
+<tr><td></td><td><strong>Ping of Death</strong></td><td>비정상 대형 패킷으로 시스템 충돌 유발</td></tr>
+<tr><td></td><td><strong>Smurf Attack</strong></td><td>브로드캐스트 ICMP로 다수 응답 유발</td></tr>
+<tr><td><strong>애플리케이션 공격</strong></td><td><strong>HTTP Flood</strong></td><td>대량 HTTP 요청으로 웹 서버 자원 소진</td></tr>
+<tr><td></td><td><strong>Slowloris</strong></td><td>연결을 천천히 유지하여 웹 서버 스레드 고갈</td></tr>
+<tr><td></td><td><strong>SSL 재협상 공격</strong></td><td>반복 SSL 핸드셰이크로 서버 연산 자원 소진</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 사이버대피소는 중소기업에 무료로 제공되는 국가 차원의 DDoS 대응 인프라로, 자체 대응이 어려운 기업의 핵심 보호 수단임</li>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>트래픽 정제</strong></td><td><strong>스크러빙 센터</strong></td><td>정상·비정상 트래픽 분리 후 정상만 전달</td></tr>
+<tr><td></td><td><strong>Anycast 라우팅</strong></td><td>공격 트래픽을 전 세계 분산 노드로 흡수</td></tr>
+<tr><td><strong>트래픽 분산</strong></td><td><strong>CDN 활용</strong></td><td>전 세계 엣지 서버로 트래픽 분산·부하 감소</td></tr>
+<tr><td></td><td><strong>로드 밸런서</strong></td><td>서버 간 트래픽 분배로 단일 장애점 제거</td></tr>
+<tr><td><strong>필터링</strong></td><td><strong>ISP 업스트림 필터링</strong></td><td>공격 트래픽을 ISP 레벨에서 조기 차단</td></tr>
+<tr><td></td><td><strong>BCP38</strong></td><td>출발지 IP 위조(스푸핑) 방지 필터링 표준</td></tr>
+<tr><td><strong>탐지·완화</strong></td><td><strong>이상 트래픽 탐지</strong></td><td>ML 기반 정상 트래픽 패턴 대비 이상 탐지</td></tr>
+<tr><td></td><td><strong>Rate Limiting</strong></td><td>출발지 IP별 요청 속도 임계치 제한</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> DDoS는 Botnet-as-a-Service로 진입 장벽이 낮아지고 공격 규모가 Tbps급으로 증가하면서 단일 대응 수단으로는 방어가 불가능해졌으며, CDN+스크러빙 센터+ISP 업스트림 필터링의 다층 방어 체계와 함께 AI 기반 실시간 이상 탐지가 현대 DDoS 대응의 필수 아키텍처로 자리잡고 있음</li>
 </ul>
 
 </body>

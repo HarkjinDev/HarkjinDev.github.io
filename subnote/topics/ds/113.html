@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)</title>
+  <title>3. 온톨로지(Ontology)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,45 +15,40 @@
   </style>
 </head>
 <body>
-<h4>4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)</h4>
+<h4>3. 온톨로지(Ontology)</h4>
 <ul>
-<li><strong>정의:</strong> 뇌의 전기적 신호를 감지·해석하여 외부 장치(컴퓨터·로봇·보조기기)를 직접 제어하거나, 반대로 외부 자극을 뇌에 전달하는 인간-기계 직접 연결 기술</li>
-<li><strong>키워드:</strong> EEG, 뉴럴 임플란트, 침습·비침습, 신호 처리, 뉴럴링크, 운동 피질, BMI, 신경 디코딩</li>
+<li><strong>정의:</strong> 실세계 개념과 속성, 데이터의 관계를 구조화하고 시멘틱웹으로 표현하는 지식 베이스</li>
+<li><strong>키워드:</strong> 개념 체계화, 의미 명세화, 추론기반, 클래스, 인스턴스, 속성, 관계, 제약조건, 공리, RDFS, OWL, XTM, SPARQL 쿼리, 추론엔진, 지식 그래프, 시멘틱웹, 대화형 AI, 로보틱스, XAI</li>
 <li><strong>분류:</strong> 신기술/동향</li>
-<li><strong>BCI 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>침습도</strong></td><td><strong>침습형 (Invasive)</strong></td><td>두개골 내 전극 이식, 고해상도 신호 획득</td><td>고정밀·수술 필요</td></tr>
-<tr><td></td><td><strong>반침습형 (Semi-invasive)</strong></td><td>뇌 표면(피질) 전극 배치, 수술 최소화</td><td>중간 정밀도</td></tr>
-<tr><td></td><td><strong>비침습형 (Non-invasive)</strong></td><td>두피 외부 신호 측정, 착용형 기기</td><td>저정밀·편의성</td></tr>
-<tr><td><strong>신호 방향</strong></td><td><strong>구심성 (Afferent)</strong></td><td>외부 장치→뇌로 자극 전달</td><td>감각 복원</td></tr>
-<tr><td></td><td><strong>원심성 (Efferent)</strong></td><td>뇌 신호→외부 장치 제어</td><td>운동 제어</td></tr>
-<tr><td></td><td><strong>양방향 (Bidirectional)</strong></td><td>뇌↔외부 장치 쌍방향 신호 교환</td><td>완전 상호작용</td></tr>
+<li><strong>구성요소:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개속관계공&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>핵심 역할</strong></th></tr>
+<tr><td><strong>개념(Concepts/Instances)</strong></td><td>객체, 개념 및 개별 인스턴스</td><td>지식 표현의 기본 단위</td></tr>
+<tr><td><strong>속성(Properties)</strong></td><td>개체가 가지는 고유 특성 정보</td><td>객체의 세부 특징 기술</td></tr>
+<tr><td><strong>관계(Relationships)</strong></td><td>개체 간의 연관성 및 상호작용</td><td>지식 간의 연결 고리 형성</td></tr>
+<tr><td><strong>계층구조(Taxonomy)</strong></td><td>개념 간의 상하위 계층 체계</td><td>지식의 체계적 분류</td></tr>
+<tr><td><strong>공리(Axioms)</strong></td><td>관계의 제약조건 및 추론 규칙</td><td>지식의 정당성 및 논리 검증</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>신호 획득</strong></td><td><strong>EEG (뇌파)</strong></td><td>두피 전극 기반 전기 신호 비침습 측정</td><td>비침습 표준</td></tr>
-<tr><td></td><td><strong>ECoG</strong></td><td>뇌 표면 전극 배치 고해상도 피질 신호</td><td>반침습 측정</td></tr>
-<tr><td></td><td><strong>뉴럴 임플란트</strong></td><td>뇌 내부 삽입 전극 배열 초고해상도 신호</td><td>침습 정밀 신호</td></tr>
-<tr><td></td><td><strong>fMRI·fNIRS</strong></td><td>뇌 혈류 변화 기반 활성 영역 이미징</td><td>공간 해상도 우수</td></tr>
-<tr><td><strong>신호 처리</strong></td><td><strong>전처리</strong></td><td>잡음 제거·필터링·아티팩트 제거</td><td>신호 정제</td></tr>
-<tr><td></td><td><strong>특징 추출</strong></td><td>주파수·시간 도메인 특징 벡터 추출</td><td>패턴 식별</td></tr>
-<tr><td></td><td><strong>신경 디코딩</strong></td><td>AI·ML로 뇌 신호→의도·명령 변환</td><td>의도 해석</td></tr>
-<tr><td><strong>출력·제어</strong></td><td><strong>보조기기 제어</strong></td><td>의수·의족·휠체어 등 직접 제어</td><td>운동 보조</td></tr>
-<tr><td></td><td><strong>커뮤니케이션</strong></td><td>타이핑·스피치 생성으로 의사소통</td><td>언어 대체</td></tr>
+<li><strong>온톨로지 프리미티브: </strong>도메인을 일관된 의미(semantics)로 표현하기위해 사용하는 최소단위 모델링 요소<ul>
+<li><strong>구성요소:</strong> RACI(관계, 속성, 클래스, 인스턴스), 로직(공리, 계층구조)</li>
+<li>계층 구조[(클래스) → (공리) (클래스) → (인스턴스) ↔ (관계) ↔ (인스턴스)]</li>
+</ul>
+</li>
+<li><strong>지식그래프:</strong> 개체-관계-속성을 그래프 구조(노드, 엣지, 속성)로 정리하여 정보를 의미상으로 구조화적으로 표현한 그래프 기반 지식 구조<ul>
+<li><strong>특징: </strong>의미 계층, 관계 중심 질의, 맥락 유지</li>
+<li><strong>구성요소: </strong>노드(Node), 엣지(Edge), 속성(Property)</li>
+<li><strong>기술요소:</strong> 그래프 데이터 모델링, 지식 추론, 지식 그래프 임베딩(KGE), RDF, SPARQL</li>
+</ul>
+</li>
+<li><strong>온톨로지 언어 및 표현 기술: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>비고</strong></th></tr>
+<tr><td><strong>OWL(Web Ontology Language)</strong></td><td>W3C 표준 온톨로지 저작 언어</td><td>복잡한 논리 표현 가능</td></tr>
+<tr><td><strong>RDF(Resource Description Framework)</strong></td><td>자원 표현용 기본 데이터 모델</td><td>주어-서술어-목적어 구조</td></tr>
+<tr><td><strong>SPARQL(Standard Query Language)</strong></td><td>RDF 데이터용 표준 질의 언어</td><td>그래프 데이터베이스 조회</td></tr>
+<tr><td><strong>XTM(XML Topic Maps)</strong></td><td>ISO 표준 기반 지식 표현 체계</td><td>의미적 상호 연결 강조</td></tr>
 </table></div>
 </li>
-<li><strong>대표 기술·기업: </strong>Neuralink, Synchron, BrainGate, OpenBCI</li>
-<li><strong>활용 분야: </strong>의료·재활, 보조기기, 신경 치료, HCI 혁신, 군사·항공</li>
-<li><strong>주요 과제:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>신호 안정성</strong></td><td>장기 이식 전극의 신호 품질 저하·면역 반응</td><td>장기 안정성</td></tr>
-<tr><td><strong>개인 차이</strong></td><td>사람마다 다른 뇌파 패턴으로 범용화 어려움</td><td>개인화 한계</td></tr>
-<tr><td><strong>윤리·프라이버시</strong></td><td>뇌 데이터 수집·해석의 신경 프라이버시 침해</td><td>뇌 데이터 보안</td></tr>
-<tr><td><strong>규제</strong></td><td>침습형 의료기기로 FDA·식약처 승인 절차 복잡</td><td>임상 규제</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> BCI는 인간과 디지털 세계의 경계를 허무는 궁극적 인터페이스 기술로, Neuralink의 인간 임상 성공과 Synchron의 최소 침습 접근이 상용화 가능성을 높이고 있음. AI 신경 디코딩 정밀도 향상으로 언어·운동 신호 해석 수준이 급격히 발전하고 있으나, 뇌 데이터라는 가장 민감한 개인정보의 보호·윤리·규제 체계 구축이 기술 발전과 함께 반드시 선행되어야 할 핵심 과제임</li>
+<li><strong>인사이트:</strong> 온톨로지는 단순한 데이터 저장 구조를 넘어 <strong>기계가 의미를 이해하고 추론</strong>할 수 있도록 지식을 형식화하는 핵심 기반 기술로, 시맨틱웹의 근간을 형성함. LLM의 할루시네이션 문제해결방법으로 <strong>AI 신뢰성 확보의 보완 수단</strong>으로 주목받고 있음. 또한, <strong>설명가능한 AI 구현의 기반 인프라</strong>로 역할이 확대되고 있음.</li>
 </ul>
 
 </body>

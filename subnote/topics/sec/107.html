@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 클라우드 보안 (Cloud Security)</title>
+  <title>8. 퍼듀 모델 (Purdue Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,21 @@
   </style>
 </head>
 <body>
-<h4>9. 클라우드 보안 (Cloud Security)</h4>
+<h4>8. 퍼듀 모델 (Purdue Model)</h4>
 <ul>
-<li><strong>정의</strong>: 클라우드 환경에서 데이터와 서비스를 보호하기 위한 보안 활동</li>
-<li><strong>키워드</strong>: 데이터 보호, 접근제어, 가상화 보안, 공유 책임</li>
+<li><strong>정의</strong>: 산업제어시스템(ICS/OT)의 보안을 계층적으로 정의한 참조 아키텍처 모델</li>
+<li><strong>키워드</strong>: 레벨 0~5, IT/OT 경계, 산업보안 참조 모델, IEC 62443</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>공유 책임 모델 (Shared Responsibility)</strong>:<div class="table-scroll"><table>
-<tr><th>영역</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
-<tr><td>데이터</td><td>고객</td><td>고객</td><td>고객</td></tr>
-<tr><td>애플리케이션</td><td>고객</td><td>고객</td><td>CSP</td></tr>
-<tr><td>런타임</td><td>고객</td><td>CSP</td><td>CSP</td></tr>
-<tr><td>인프라</td><td>CSP</td><td>CSP</td><td>CSP</td></tr>
-</table></div>
-</li>
-<li><strong>도입 시 보안 요소</strong>: 데이터 암호화, 접근제어(IAM), 가상화 보안, 로그 관리, 규정 준수</li>
-<li><strong>인사이트</strong>: 클라우드 보안 사고의 대부분은 CSP 인프라가 아닌 고객의 잘못된 설정(Misconfiguration)에서 발생하므로, CSPM(Cloud Security Posture Management) 도입이 필수임</li>
+<li><strong>레벨 구조</strong>:<ul>
+<li><strong>Level 4~5</strong>: 기업 IT 네트워크 및 인터넷</li>
+<li><strong>DMZ</strong>: IT/OT 경계 (데이터 다이오드, 방화벽)</li>
+<li><strong>Level 3</strong>: 생산 운영 관리</li>
+<li><strong>Level 2</strong>: 제어 시스템 (SCADA, DCS, PLC)</li>
+<li><strong>Level 0~1</strong>: 물리적 프로세스 및 센서·액추에이터 (필드 장치)</li>
 </ul>
-<p>// 키워드 추가 CSPM, CWPP, CNAPP</p>
-<p>// 클라우드 네이티브 보안 추가</p>
+</li>
+<li><strong>인사이트</strong>: OT와 IT의 연결(Industry 4.0) 증가로 퍼듀 모델의 경계가 희미해지고 있으며, 제로 트러스트 원칙의 OT 환경 적용이 새로운 트렌드임</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 스푸핑 (Spoofing)</title>
+  <title>3. 네트워크 스니핑 (Network Sniffing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,30 @@
   </style>
 </head>
 <body>
-<h4>4. 스푸핑 (Spoofing)</h4>
+<h4>3. 네트워크 스니핑 (Network Sniffing)</h4>
 <ul>
-<li><strong>정의</strong>: 공격자가 자신의 신원(IP, MAC, DNS, 이메일, 웹 등)을 위장하여 피해 시스템을 속이거나 신뢰 관계를 악용하는 사이버 공격 기법</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신원 위장, </strong></u></span>ARP 스푸핑, IP 스푸핑, DNS 스푸핑, Cache Poisoning, MITM</li>
+<li><strong>정의</strong>: 네트워크 상에서 흐르는 패킷을 무차별적으로 캡처·분석하여 민감 정보를 탈취하는 공격 기법</li>
+<li><strong>키워드</strong>: 패킷 캡처, 무차별 모드(Promiscuous Mode), Wireshark, 수동적 공격</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
-<li><strong>스푸핑 공격 유형</strong>:<div class="table-scroll"><table>
-<tr><th>유형</th><th>개념</th><th>핵심 메커니즘</th><th>대응 방안</th></tr>
-<tr><td><strong>ARP 스푸핑</strong></td><td>MAC 주소 위조</td><td>ARP Cache Poisoning / MAC 주소 변조</td><td>동적 ARP 검사(DAI), Static ARP, ARP Watch</td></tr>
-<tr><td><strong>IP 스푸핑</strong></td><td>출발지 IP 위조</td><td>트러스트 관계 악용 / IP 헤더 위조</td><td>인그레스 필터링(RFC 2827), 역방향 경로 검증</td></tr>
-<tr><td><strong>DNS 스푸핑</strong></td><td>DNS 응답 위조</td><td>DNS Cache Poisoning / 응답 ID 탈취</td><td>DNSSEC 도입, TTL 최소화, 신뢰 DNS 사용</td></tr>
-<tr><td><strong>E-mail 스푸핑</strong></td><td>발신자 주소 위조</td><td>SMTP 취약점 / 사회공학적 기법</td><td>SPF, DKIM, DMARC 발신자 인증 강화</td></tr>
-<tr><td><strong>Web 스푸핑</strong></td><td>가짜 사이트 위장</td><td>URL 변조·피싱 / SSL 인증서 위장</td><td>HTTPS 인증서 검증, EV 인증서, HSTS</td></tr>
-<tr><td><strong>MAC 스푸핑</strong></td><td>MAC 주소 변조</td><td>MAC 인증 우회 / 보안 필터링 무력화</td><td>802.1X 포트 인증, MAC 필터링, 포트 보안</td></tr>
+<li><strong>동작 원리</strong>: NIC를 무차별 모드(Promiscuous Mode)로 설정 → 자신에게 오지 않는 패킷도 모두 수신 → 평문 프로토콜(HTTP, FTP, Telnet 등)에서 ID/PW·세션 쿠키 추출</li>
+<li><strong>스니핑 유형</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
+<tr><td>수동적 스니핑</td><td>허브 기반 네트워크에서 브로드캐스트 패킷을 그냥 수신</td><td>공유 허브 환경</td></tr>
+<tr><td>능동적 스니핑</td><td>스위치 환경에서 ARP 스푸핑 등으로 트래픽을 강제 우회 후 캡처</td><td>ARP Poisoning + 스니핑</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 스푸핑 공격은 단독으로 사용되기보다 MITM(중간자 공격), 세션 하이재킹, 피싱 등 후속 공격의 전제 조건으로 활용되는 경우가 많아, 네트워크 계층별 인증·검증 체계의 중첩 적용이 핵심 방어 전략임</li>
+<li><strong>스니핑 공격 기법</strong>:<div class="table-scroll"><table>
+<tr><th>공격 기법</th><th>설명</th><th>동작 원리</th><th>대응 방안</th></tr>
+<tr><td><strong>미러링 포트</strong></td><td>포트 트래픽 복사 스니핑</td><td>SPAN 포트 설정 → 트래픽 복제·캡처</td><td>포트 미러링 접근 제한, 물리적 보안</td></tr>
+<tr><td><strong>Switch Jamming</strong></td><td>CAM Table 가득 채워 허브화</td><td>가짜 MAC 플러딩 → CAM Overflow → 브로드캐스트</td><td>Port Security, MAC 수 제한, VLAN 분리</td></tr>
+<tr><td><strong>ARP Redirect</strong></td><td>ARP 위조로 트래픽 경유 유도</td><td>가짜 ARP Reply → ARP 테이블 오염 → 트래픽 경유</td><td>DAI, Static ARP, ARP Watch</td></tr>
+<tr><td><strong>ICMP Redirect</strong></td><td>ICMP 위조로 경로 공격자 변경</td><td>ICMP Type 5 위조 → 라우팅 테이블 변경 → 트래픽 우회</td><td>ICMP Redirect 차단, 정적 라우팅</td></tr>
+</table></div>
+</li>
+<li><strong>주요 도구</strong>: Wireshark, tcpdump, ettercap, dsniff</li>
+<li><strong>탐지 방법</strong>: ARP 테이블 모니터링, 무차별 모드 감지(ARP Watch), 비정상 트래픽 패턴 탐지</li>
+<li><strong>대응 방안</strong>: 전송 구간 암호화(TLS/HTTPS/SSH), 스위치 기반 네트워크 구성, VPN 적용, 802.1X 포트 인증</li>
+<li><strong>인사이트</strong>: 스니핑은 평문 프로토콜이 사용되는 환경에서 치명적이므로 암호화가 근본적 대응책이며, 현대 환경에서 HTTP·FTP·Telnet은 반드시 암호화 버전(HTTPS·SFTP·SSH)으로 대체해야 함</li>
 </ul>
 
 </body>

@@ -36,12 +36,15 @@
 <li><strong>등록 해지:</strong> 저장된 개인키를 삭제하여 등록을 해지하는 과정</li>
 </ul>
 </li>
-<li><strong>기술요소: </strong><ul>
-<li><strong>UAF(Universal Authentication Framework)</strong>: 생체인증 기반 비밀번호 대체</li>
-<li><strong>U2F(Universal 2nd Factor)</strong>: 보안키(USB/NFC) 기반 2차 인증</li>
-<li><strong>WebAuthn</strong>: W3C 표준, 브라우저에서 FIDO2 인증 지원</li>
-<li><strong>CTAP(Client to Authenticator Protocol)</strong>: 인증기와 플랫폼 간 통신 프로토콜</li>
-</ul>
+<li><strong>FIDO2 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>WebAuthn(W3C)</strong></td><td>공개키 인증 API·자격증명 등록/검증</td><td>앱 계층 표준</td></tr>
+<tr><td><strong>CTAP2(FIDO Alliance)</strong></td><td>신규 정의된 패스워드리스·다중요소 지원 프로토콜</td><td>FIDO2 핵심 신규</td></tr>
+<tr><td><strong>U2F</strong></td><td>기존 U2F 보안키의 하위호환용 프로토콜</td><td>2차인증 전용·레거시 지원</td></tr>
+<tr><td><strong>Authenticator</strong></td><td>키쌍 생성·서명 수행(플랫폼형·로밍형)</td><td>실제 인증 수행체</td></tr>
+<tr><td><strong>Relying Party</strong></td><td>인증을 요구·공개키 검증하는 서비스</td><td>검증 주체</td></tr>
+<tr><td><strong>UAF(FIDO 1.0)</strong></td><td>생체인증 기반 비밀번호 대체</td><td>생체인증</td></tr>
+</table></div>
 </li>
 <li><strong>버전 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>FIDO 1.0</th><th>FIDO 2.0</th></tr>
