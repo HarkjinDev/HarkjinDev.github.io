@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 쉐이빙</title>
+  <title>3. 트래픽 폴리싱/쉐이핑 (Traffic Policing/Shaping)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,42 @@
   </style>
 </head>
 <body>
-<h4>4. 쉐이빙</h4>
+<h4>3. 트래픽 폴리싱/쉐이핑 (Traffic Policing/Shaping)</h4>
+<ul>
+<li><strong>정의:</strong> 기준 초과 트래픽을 폐기·버퍼링해 대역폭을 제어하는 QoS 기술</li>
+<li><strong>키워드:</strong> Drop, Buffer, Meter, Mark, RED, WRED, Leaky/Token/Hybrid Bucket, Inbound/Outbound</li>
+<li><strong>분류</strong>: QoS</li>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>폴리싱</strong></td><td><strong>Meter</strong></td><td>패킷 유입률 측정</td></tr>
+<tr><td></td><td><strong>Drop</strong></td><td>대역폭 초과 시 패킷 제거</td></tr>
+<tr><td></td><td><strong>Mark</strong></td><td>대역폭 이하 시 마킹 후 포워딩</td></tr>
+<tr><td><strong>쉐이핑</strong></td><td><strong>CBS (Committed Burst Size)</strong></td><td>허용 버스트 크기</td></tr>
+<tr><td></td><td><strong>CIR (Committed Information Rate)</strong></td><td>허용 정보율</td></tr>
+<tr><td></td><td><strong>EBS (Excess Burst Size)</strong></td><td>초과 버스트 크기</td></tr>
+</table></div>
+</li>
+<li><strong>알고리즘:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>폴리싱</strong></td><td><strong>RED</strong></td><td>임계값 구간별로 확률적 드롭</td><td>확률적 드롭</td></tr>
+<tr><td></td><td><strong>WRED</strong></td><td>패킷 가중치 따라 드롭률 차등</td><td>가중치 드롭</td></tr>
+<tr><td></td><td><strong>Tail Drop</strong></td><td>큐 초과 시 트래픽 전부 드롭</td><td>전량 드롭</td></tr>
+<tr><td><strong>쉐이핑</strong></td><td><strong>Leaky Bucket</strong></td><td>유입 패킷 저장 후 일정 속도 방출</td><td>용량 제어</td></tr>
+<tr><td></td><td><strong>Token Bucket</strong></td><td>토큰 할당받아 전송, 소진 시 대기</td><td>속도 제어</td></tr>
+<tr><td></td><td><strong>Hybrid Bucket</strong></td><td>버스트 허용하며 일정 속도 방출</td><td>용량+속도 제어</td></tr>
+</table></div>
+</li>
+<li><strong>비교표:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>트래픽 폴리싱</th><th>트래픽 쉐이핑</th></tr>
+<tr><td><strong>개념</strong></td><td>초과 트래픽을 폐기(Drop)해 대역폭 제어</td><td>버퍼링으로 유입·유출 트래픽 속도 조절</td></tr>
+<tr><td><strong>트래픽 처리</strong></td><td>버스트 트래픽 허용하지 않음</td><td>버스트 트래픽 일정 범위 내 허용</td></tr>
+<tr><td><strong>적용 방향</strong></td><td>주로 Inbound에 적용</td><td>주로 Outbound에 적용</td></tr>
+<tr><td><strong>프로토콜</strong></td><td>UDP에 우수</td><td>TCP에 우수</td></tr>
+<tr><td><strong>알고리즘</strong></td><td>RED, WRED, Tail Drop</td><td>Leaky/Token/Hybrid Bucket</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 폴리싱은 즉시 Drop으로 실시간성 확보, 쉐이핑은 버퍼링으로 손실은 줄이되 지연이 증가</li>
+</ul>
 
 </body>
 </html>

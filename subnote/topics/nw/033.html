@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. HTTP/3</title>
+  <title>4. FTP/FTPS/SFTP</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,48 +15,31 @@
   </style>
 </head>
 <body>
-<h4>5. HTTP/3</h4>
+<h4>4. FTP/FTPS/SFTP</h4>
 <ul>
-<li><strong>정의:</strong> TCP 한계를 극복하기 위해 UDP 기반 QUIC 위에서 동작하는 차세대 HTTP 표준</li>
-<li><strong>키워드:</strong> <strong>RFC 9114,</strong> QUIC, UDP, 0-RTT, 멀티플렉싱, HOL Blocking 해소, TLS 1.3 내장, 연결 마이그레이션, 스트림</li>
+<li><strong>정의</strong>: 파일 전송을 위한 프로토콜 및 보안이 강화된 확장 버전들의 집합</li>
+<li><strong>키워드</strong>: RFC 959, 포트 21/22, 능동/수동 모드, TLS, SSH, 제어 채널, 데이터 채널</li>
 <li><strong>분류:</strong> 프로토콜</li>
-<li><strong>HTTP 버전 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>HTTP/1.1</th><th>HTTP/2</th><th>HTTP/3</th></tr>
-<tr><td><strong>전송 프로토콜</strong></td><td>TCP</td><td>TCP</td><td>UDP (QUIC)</td></tr>
-<tr><td><strong>HOL Blocking</strong></td><td>❌ 발생</td><td>△ 스트림 레벨 해소</td><td>✅ 완전 해소</td></tr>
-<tr><td><strong>멀티플렉싱</strong></td><td>❌</td><td>✅</td><td>✅</td></tr>
-<tr><td><strong>헤더 압축</strong></td><td>❌</td><td>HPACK</td><td>QPACK</td></tr>
-<tr><td><strong>TLS</strong></td><td>별도 적용</td><td>별도 적용</td><td>✅ 기본 내장</td></tr>
-<tr><td><strong>연결 수립</strong></td><td>3-Way Handshake</td><td>3-Way + TLS</td><td>0-RTT·1-RTT</td></tr>
-<tr><td><strong>연결 마이그레이션</strong></td><td>❌</td><td>❌</td><td>✅</td></tr>
+<li><strong>3가지 프로토콜 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>FTP</th><th>FTPS</th><th>SFTP</th></tr>
+<tr><td>보안</td><td>없음(평문)</td><td>SSL/TLS 암호화</td><td>SSH 기반 암호화</td></tr>
+<tr><td>제어 포트</td><td>21</td><td>21(또는 990)</td><td>22</td></tr>
+<tr><td>채널 구조</td><td>제어+데이터 분리</td><td>제어+데이터 분리</td><td>단일 채널</td></tr>
+<tr><td>기반 프로토콜</td><td>TCP</td><td>TCP + TLS</td><td>SSH</td></tr>
+<tr><td>방화벽 통과</td><td>어려움(수동모드)</td><td>어려움</td><td>용이(포트 22)</td></tr>
 </table></div>
 </li>
-<li><strong>QUIC 핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>전송 기반</strong></td><td><strong>UDP 기반</strong></td><td>TCP 대신 UDP 위 애플리케이션 레벨 구현</td><td>전송 계층 혁신</td></tr>
-<tr><td><strong>성능</strong></td><td><strong>0-RTT 연결</strong></td><td>이전 연결 캐싱으로 즉시 데이터 전송</td><td>지연 최소화</td></tr>
-<tr><td></td><td><strong>독립 스트림</strong></td><td>스트림별 독립 흐름 제어·손실 미영향</td><td>HOL Blocking 해소</td></tr>
-<tr><td></td><td><strong>연결 마이그레이션</strong></td><td>IP 변경 시에도 연결 유지</td><td>끊김 없는 연결</td></tr>
-<tr><td><strong>보안</strong></td><td><strong>TLS 1.3 내장</strong></td><td>암호화 프로토콜 기본 내장</td><td>보안 기본화</td></tr>
-<tr><td><strong>압축</strong></td><td><strong>QPACK</strong></td><td>HTTP/3 전용 헤더 압축 방식</td><td>헤더 압축</td></tr>
+<li><strong>FTP 모드</strong>: <div class="table-scroll"><table>
+<tr><th>항목</th><th>능동 모드 (Active)</th><th>수동 모드 (Passive)</th></tr>
+<tr><td><strong>제어 연결</strong></td><td>클라이언트 → 서버 21번 포트</td><td>클라이언트 → 서버 21번 포트</td></tr>
+<tr><td><strong>데이터 연결</strong></td><td>서버(20번) → 클라이언트 임시 포트</td><td>클라이언트 → 서버 임시 포트</td></tr>
+<tr><td><strong>연결 주체</strong></td><td>서버가 클라이언트로 데이터 연결 요청</td><td>클라이언트가 서버 데이터 포트로 연결</td></tr>
+<tr><td><strong>방화벽 문제</strong></td><td>❌ 클라이언트 방화벽 차단 위험</td><td>✅ 방화벽 통과 용이</td></tr>
+<tr><td><strong>주요 사용</strong></td><td>내부 네트워크 환경</td><td>NAT·방화벽 환경</td></tr>
 </table></div>
 </li>
-<li><strong>HOL Blocking 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>HTTP/2</th><th>HTTP/3</th></tr>
-<tr><td><strong>애플리케이션 레벨</strong></td><td>✅ 멀티플렉싱으로 해소</td><td>✅ 해소</td></tr>
-<tr><td><strong>전송 레벨 (TCP)</strong></td><td>❌ TCP 패킷 손실 시 전체 스트림 블로킹</td><td>✅ UDP 독립 스트림으로 해소</td></tr>
-</table></div>
-</li>
-<li><strong>0-RTT vs 1-RTT:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>0-RTT</th><th>1-RTT</th></tr>
-<tr><td><strong>조건</strong></td><td>이전 연결 세션 정보 보유</td><td>최초 연결</td></tr>
-<tr><td><strong>속도</strong></td><td>핸드셰이크 없이 즉시 전송</td><td>1회 왕복 후 전송</td></tr>
-<tr><td><strong>보안</strong></td><td>재전송 공격(Replay Attack) 위험</td><td>상대적으로 안전</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> HTTP/3는 TCP의 구조적 한계인 HOL Blocking을 UDP 기반 QUIC으로 근본적으로 해결하며, 0-RTT·연결 마이그레이션으로 모바일·불안정 네트워크 환경에서 체감 성능을 크게 향상시킴. TLS 1.3 기본 내장으로 보안이 프로토콜 수준에서 보장되어 웹 표준의 새로운 기준으로 빠르게 자리잡고 있음</li>
+<li><strong>인사이트</strong>: 보안 요구 환경에서는 FTP 사용을 금지하고 <strong>SFTP(SSH 기반)를 권장</strong>. FTPS는 기존 FTP 인프라를 유지하며 TLS를 추가하는 방식. SFTP는 파일 전송 외 원격 파일 관리도 지원.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

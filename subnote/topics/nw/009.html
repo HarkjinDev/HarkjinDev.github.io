@@ -28,10 +28,11 @@
 <tr><td><strong>특징</strong></td><td>수신측이 오류 감지 후 재전송 요청</td><td>수신측이 직접 오류 정정</td></tr>
 </table></div>
 </li>
-<li><strong>오류 검출 기법:</strong><div class="table-scroll"><table>
+<li><strong>오류 검출 기법(BEC): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;패엘블씨첵&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>기법</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>패리티 비트</strong></td><td>단일 비트 오류 검출·짝수/홀수 패리티</td><td>단순·1비트 검출</td></tr>
 <tr><td><strong>LRC (수평 패리티)</strong></td><td>블록 단위 행·열 패리티 검사</td><td>2차원 오류 검출</td></tr>
+<tr><td><strong>블록합검사</strong></td><td>이차원 패리티 검사</td><td>가로/세로 두번</td></tr>
 <tr><td><strong>CRC (순환중복검사)</strong></td><td>생성 다항식으로 나머지 비트 검사</td><td>버스트 오류 검출</td></tr>
 <tr><td><strong>Checksum</strong></td><td>데이터 합산 후 보수 값 검증</td><td>TCP·UDP 적용</td></tr>
 </table></div>

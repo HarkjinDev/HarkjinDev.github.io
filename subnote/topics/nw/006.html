@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. Datalink 계층</title>
+  <title>3. 데이터링크 계층 (Datalink Layer, L2)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,27 @@
   </style>
 </head>
 <body>
-<h4>3. Datalink 계층 </h4>
+<h4>3. 데이터링크 계층 (Datalink Layer, L2)</h4>
+<ul>
+<li><strong>정의:</strong> 인접 노드 간 프레임 단위로 신뢰성 있는 전송을 담당하는 OSI 2계층</li>
+<li><strong>키워드:</strong> MAC, LLC, Frame, CRC, ARQ, CSMA/CD, 흐름제어, 오류제어</li>
+<li><strong>분류:</strong> 네트워크</li>
+<li><strong>서브 계층:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>상위 (LLC)</strong></td><td>논리 링크 제어</td><td>흐름제어, 오류제어</td></tr>
+<tr><td><strong>하위 (MAC)</strong></td><td>매체 접근 제어</td><td>주소 지정, 충돌 제어</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 기능:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>회선제어</strong></td><td>회선 사용권 결정 및 순서 제어</td><td>ENQ/ACK, Polling/Selection</td></tr>
+<tr><td><strong>흐름제어</strong></td><td>수신 노드 버퍼 오버플로우 방지</td><td>Stop-and-Wait, Sliding Window</td></tr>
+<tr><td><strong>오류제어</strong></td><td>프레임 오류 탐지·재전송</td><td>CRC, 하드웨어 기반 ARQ</td></tr>
+<tr><td><strong>접근제어</strong></td><td>공유 매체 접근 조율</td><td>CSMA/CD, CSMA/CA</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> LLC·MAC 이원 구조로 인접 노드 간 신뢰성 있는 전달과 매체 접근 제어를 동시에 수행</li>
+</ul>
 
 </body>
 </html>

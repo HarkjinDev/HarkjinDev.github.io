@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 오픈플로우 (OpenFlow)</title>
+  <title>3. SD-WAN (Software-Defined Wide Area Network)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,40 @@
   </style>
 </head>
 <body>
-<h4>3. 오픈플로우 (OpenFlow)</h4>
+<h4>3. SD-WAN (Software-Defined Wide Area Network)</h4>
 <ul>
-<li><strong>정의</strong>: SDN 컨트롤러와 스위치 간 통신을 표준화한 사우스바운드 API 프로토콜</li>
-<li><strong>키워드</strong>: ONF, 플로우 테이블, 매치-액션, 컨트롤 채널, TCP 6633/6653, 프로그래밍</li>
-<li><strong>분류</strong>: 네트워크 가상화/SDN</li>
-<li><strong>오픈플로우 동작</strong>:<div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th></tr>
-<tr><td>플로우 테이블</td><td>매치 조건 + 액션(전달/폐기/수정) 저장</td></tr>
-<tr><td>매치 필드</td><td>L2~L4 헤더(MAC, IP, Port 등)</td></tr>
-<tr><td>액션</td><td>Output, Drop, Modify, Flood</td></tr>
-<tr><td>컨트롤 채널</td><td>컨트롤러-스위치 간 TLS/TCP 연결</td></tr>
+<li><strong>정의:</strong> 소프트웨어로 여러 WAN 회선을 중앙 제어·최적화하는 가상 네트워크 기술</li>
+<li><strong>키워드:</strong> Overlay, Control/Data Plane 분리, ZTP, Orchestrator, SASE, MPLS/Internet 결합</li>
+<li><strong>분류:</strong> 네트워크</li>
+<li><strong>SD-WAN 특징</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>WAN 회선 비용 절감</strong></td><td>저렴한 회선 추가로 비용 절감</td><td>회선 비용 절감</td></tr>
+<tr><td><strong>어플리케이션 관리</strong></td><td>Layer 7 기반 QoS 수행</td><td>L7 기반 QoS</td></tr>
+<tr><td><strong>네트워크 가상화</strong></td><td>NFV로 다양한 기능 가상화 수행</td><td>NFV 기능 가상화</td></tr>
+<tr><td><strong>중앙 집중형 제어</strong></td><td>중앙 제어로 QoS·토폴로지 관리</td><td>중앙 집중 제어</td></tr>
 </table></div>
 </li>
-<li><strong>패킷 처리</strong>: 플로우 테이블 매치 → 액션 수행 / 미매치 → Packet-In으로 컨트롤러에 문의</li>
-<li><strong>인사이트</strong>: 오픈플로우는 <strong>SDN을 실용화한 최초의 표준 인터페이스</strong>로, 컨트롤러가 전체 네트워크 트래픽 정책을 중앙에서 프로그래밍 가능하게 함. P4 언어는 오픈플로우를 넘어 데이터 평면 자체를 프로그래밍하는 차세대 기술.</li>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>관리</strong></td><td>Orchestrator</td><td>중앙 정책·구성 관리</td></tr>
+<tr><td><strong>제어</strong></td><td>SD-Controller</td><td>라우팅 정책 제어</td></tr>
+<tr><td><strong>전달</strong></td><td>SD-Edge</td><td>지사 트래픽 전달 처리</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 기능:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>최적화 기술</strong></td><td>중앙집중 WAN 경로제어·부하분산</td><td>경로 최적화</td></tr>
+<tr><td><strong>가상화 기술</strong></td><td>SD-Edge·Core 동적 가상화</td><td>동적 가상화</td></tr>
+<tr><td><strong>가시화 기술</strong></td><td>트래픽·대역폭 등 실시간 가시화</td><td>실시간 가시화</td></tr>
+<tr><td><strong>제어 안정화 기술</strong></td><td>시스템 장애·보안 신뢰성 제공</td><td>신뢰성 제공</td></tr>
+<tr><td><strong>다중 계층 제어 자동화</strong></td><td>다양한 계층·벤더 장비 통합 제어</td><td>통합 자동 구성</td></tr>
+<tr><td><strong>서비스 오케스트레이션</strong></td><td>이종 Edge망 연동 연결·관리</td><td>Edge망 연동</td></tr>
+<tr><td><strong>SDX</strong></td><td>복수 SDN 도메인 교환 제어</td><td>도메인 간 교환</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> Control/Data Plane 분리와 중앙 오케스트레이션으로 다중 회선을 애플리케이션 단위로 최적화</li>
 </ul>
+<hr/>
 
 </body>
 </html>

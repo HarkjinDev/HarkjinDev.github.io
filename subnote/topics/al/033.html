@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 선택 정렬</title>
+  <title>4. 선택 정렬 (Selection Sort)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,28 @@
   </style>
 </head>
 <body>
-<h4>4. 선택 정렬</h4>
+<h4>4. 선택 정렬 (Selection Sort)</h4>
+<ul>
+<li><strong>정의:</strong> 배열에서 최솟값(또는 최댓값)을 찾아 맨 앞과 교환하는 과정을 반복하는 정렬 알고리즘</li>
+<li><strong>키워드:</strong> 비교, 교환, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>제자리정렬, 불안정정렬</strong></u></span>, O(n²)</li>
+<li><strong>분류</strong>: 정렬 알고리즘</li>
+<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>탐색</strong></td><td>미정렬 구간에서 최솟값 탐색</td><td>선형 탐색</td></tr>
+<tr><td><strong>교환(Swap)</strong></td><td>최솟값을 구간 맨 앞과 교환</td><td>1회전 1교환</td></tr>
+<tr><td><strong>구간분리</strong></td><td>정렬/미정렬 구간으로 분할</td><td>경계 이동</td></tr>
+<tr><td><strong>반복</strong></td><td>구간을 줄여가며 n-1회 반복</td><td>순차적 확정</td></tr>
+</table></div>
+</li>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>비교 연산</strong></td><td>모든 원소를 순차 비교</td><td>총 n(n-1)/2회</td></tr>
+<tr><td><strong>교환 연산</strong></td><td>라운드당 최대 1회 교환</td><td>총 n-1회</td></tr>
+<tr><td><strong>제자리 정렬</strong></td><td>추가 메모리 없이 정렬</td><td>O(1) 공간</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 선택 정렬은 비교 횟수는 많지만 교환 횟수가 적어, 쓰기(Write) 비용이 큰 환경에서 상대적으로 유리</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. Tor (The Onion Router)</title>
+  <title>1. 5G 특화망 (Private 5G Network)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,59 +15,41 @@
   </style>
 </head>
 <body>
-<h4>5. Tor (The Onion Router)</h4>
+<h4>1. 5G 특화망 (Private 5G Network)</h4>
 <ul>
-<li><strong>정의:</strong> 데이터를 다중 암호화해 여러 중계 노드를 경유시켜 발신자를 은닉하는 익명통신망</li>
-<li><strong>키워드:</strong> 양파 라우팅, 회로, Guard/Middle/Exit 릴레이, Hidden Service, .onion, 트래픽 분석</li>
-<li><strong>분류</strong>: VPN</li>
-<li><strong>Tor 네트워크 구성요소 (3-Hop 릴레이):</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>릴레이</th><th>설명</th><th>핵심</th></tr>
-<tr><td>1홉</td><td>Guard Relay</td><td>클라이언트 직접 연결 노드</td><td>IP 노출 지점</td></tr>
-<tr><td>2홉</td><td>Middle Relay</td><td>중간 데이터 중계 노드</td><td>경로 은닉</td></tr>
-<tr><td>3홉</td><td>Exit Relay</td><td>목적지로 최종 전달</td><td>평문 노출 가능</td></tr>
+<li><strong>정의</strong>: 특정 기업·구역에 전용 인프라를 구축해 맞춤형 초저지연 서비스를 제공하는 5G 망</li>
+<li><strong>키워드</strong>: 국내 28GHz 대역, 산업 IoT, 스마트팩토리, 독립형, 공유형, 간섭 회피, 프라이빗 코어</li>
+<li><strong>분류</strong>: 이동통신/무선</li>
+<li><strong>특징:</strong><div class="table-scroll"><table>
+<tr><th>특징</th><th>설명</th></tr>
+<tr><td><strong>전용 주파수 할당</strong></td><td>28GHZ 대역, 600MHZ 폭의 광대역 주파수</td></tr>
+<tr><td><strong>지역 참여자</strong></td><td>로컬 5G 사업자를 서비스 제공 참여자로 허용</td></tr>
+<tr><td><strong>네트워크 슬라이싱</strong></td><td>산업 서비스별 QoS 보장</td></tr>
+<tr><td><strong>엣지 컴퓨팅 결합</strong></td><td>지연 최소화 (MEC)</td></tr>
 </table></div>
 </li>
-<li><strong>양파 라우팅 동작 원리:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td>1. 회로 구성</td><td>3개 노드 선택해 경로 설정</td><td>회로 생성</td></tr>
-<tr><td>2. 다중 암호화</td><td>공개키로 계층별 순차 암호화</td><td>양파 껍질 구조</td></tr>
-<tr><td>3. 순차 복호화</td><td>각 노드가 한겹씩 복호화</td><td>경로 정보 분산</td></tr>
-<tr><td>4. 데이터 전달</td><td>Exit가 최종 복호화 전송</td><td>평문 전달</td></tr>
-<tr><td>5. 회로 갱신</td><td>약 10분마다 회로 재구성</td><td>추적 방지</td></tr>
+<li><strong>5G 특화망 구축방식:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>독립형</strong></td><td>기업 자가구축형 5G LAN</td><td>5G 전체 장비(gNB~MEC) 자가구축, Local 5G 주파수 필요 (일본·독일·미국 등 가능)</td><td>완전 자가구축</td></tr>
+<tr><td></td><td>이동통신사 구축형 5G LAN</td><td>이통사 면허주파수로 구축·운영 대행, 주파수 미할당국도 가능</td><td>이통사 구축대행</td></tr>
+<tr><td><strong>공유형</strong></td><td>기지국만 공유형 (RAN Sharing)</td><td>UPF·5GC CP·UDM·MEC는 별도 구축, gNB만 공중망과 공유</td><td>RAN만 공유</td></tr>
+<tr><td></td><td>RAN+Control Plane 공유형</td><td>기업전용 UPF·MEC 구축, gNB·5GC CP·UDM은 공중망과 논리적 공유</td><td>RAN+CP 공유</td></tr>
+<tr><td></td><td>RAN+Core 공유형 
+(E2E Network Slicing)</td><td>gNB만 구축, UPF·MEC는 이통사 엣지클라우드 사용, 전체 논리적 분리</td><td>E2E 슬라이싱</td></tr>
 </table></div>
 </li>
-<li><strong>Hidden Service (.onion):</strong><div class="table-scroll"><table>
+<li><strong>5G 특화망 간섭 회피 방안</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td>개념</td><td>실제 IP 없이 서비스 제공</td><td>서버 익명성</td></tr>
-<tr><td>접속 방식</td><td>양측 모두 Tor 회로 경유</td><td>양방향 익명</td></tr>
-<tr><td>주소 체계</td><td>공개키 기반 자체 생성</td><td>DNS 불필요</td></tr>
-<tr><td>활용</td><td>다크웹·검열우회 서비스</td><td>익명 서비스</td></tr>
+<tr><td><strong>빔포밍 (지향성 안테나)</strong></td><td>특정 방향 신호 집중해 간섭 감소</td><td>지향성 집중</td></tr>
+<tr><td><strong>주파수 조정 (FR2/FR1 선택)</strong></td><td>상황별 주파수 대역 전환 회피</td><td>대역 전환</td></tr>
+<tr><td><strong>전력 제어</strong></td><td>송신 전력 동적 조절해 완화</td><td>전력 동적 제어</td></tr>
+<tr><td><strong>Guard Band 설정</strong></td><td>인접 대역간 보호대역 확보</td><td>보호대역 확보</td></tr>
+<tr><td><strong>TDD 프레임 동기화</strong></td><td>상하향 링크 타이밍 동기화</td><td>타이밍 동기화</td></tr>
+<tr><td><strong>셀 격리 (지리적 이격)</strong></td><td>기지국 간 물리적 거리 확보</td><td>물리적 이격</td></tr>
 </table></div>
 </li>
-<li><strong>Tor vs VPN 비교:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>VPN</th><th>Tor</th></tr>
-<tr><td>목적</td><td>보안 터널 + 우회</td><td>익명성 극대화</td></tr>
-<tr><td>신뢰 요구</td><td>VPN 제공자 신뢰 필요</td><td>신뢰 노드 불필요</td></tr>
-<tr><td>경유 노드 수</td><td>1개 (VPN 서버)</td><td>3개 (Guard·Middle·Exit)</td></tr>
-<tr><td>운영 주체</td><td>단일 사업자</td><td>전세계 자원봉사 릴레이</td></tr>
-<tr><td>속도</td><td>빠름</td><td>느림 (다중 홉)</td></tr>
-<tr><td>추적 가능성</td><td>VPN 로그 존재 가능</td><td>매우 어려움</td></tr>
-<tr><td>합법성</td><td>대부분 합법</td><td>국가별 차이</td></tr>
-</table></div>
-</li>
-<li><strong>익명성 한계 및 공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>공격 유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td>Exit 노드 감청</td><td>평문 트래픽 감청·조작</td><td>HTTPS 필수</td></tr>
-<tr><td>트래픽 분석</td><td>입출력 패턴 상관분석</td><td>국가급 공격 취약</td></tr>
-<tr><td>Guard 노드 식별</td><td>고정 진입점 장기 노출</td><td>첫 홉 IP 노출</td></tr>
-<tr><td>악성 Exit 노드</td><td>공격자 운영 노드 존재</td><td>데이터 탈취</td></tr>
-<tr><td>브라우저 핑거프린팅</td><td>설정·플러그인 기반 식별</td><td>탈익명화 위험</td></tr>
-<tr><td>DoS 공격</td><td>릴레이 과부하로 저하</td><td>가용성 저하</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> Tor는 완전한 익명성을 제공하지 않으며 Exit 노드 감청과 트래픽 상관관계 분석에 구조적으로 취약하므로 HTTPS 병행이 필수이고, Hidden Service(.onion)는 서버·클라이언트 양방향 익명성을 보장해 다크웹·검열우회에 활용되나 국가급 공격자에게는 탈익명화 가능성이 존재함</li>
+<li><strong>인사이트</strong>: 5G 특화망은 <strong>스마트팩토리·자율주행·원격의료 등 산업 디지털 전환의 핵심 인프라</strong>로, 공공 5G 대비 보안성과 SLA 보장이 강점. 국내는 4.7GHz/28GHz 대역에서 할당 운용.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

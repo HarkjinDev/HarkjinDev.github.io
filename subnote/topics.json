@@ -1375,15 +1375,15 @@
       },
       {
         "id": "004",
-        "name": "[하위] 1-1. OSI"
+        "name": "[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)"
       },
       {
         "id": "005",
-        "name": "2. 전송 계층"
+        "name": "2.전송 계층 (Transport Layer, L4)"
       },
       {
         "id": "006",
-        "name": "3. Datalink 계층"
+        "name": "3. 데이터링크 계층 (Datalink Layer, L2)"
       },
       {
         "id": "007",
@@ -1399,15 +1399,15 @@
       },
       {
         "id": "010",
-        "name": "[하위] 4-1. ARQ (Automatic Repeat reQuest)"
+        "name": "[하위] 4-1. FEC (Forward Error Correction, 전진 오류 정정)"
       },
       {
         "id": "011",
-        "name": "[하위] 4-2. HARQ (Hybrid Automatic Repeat reQuest)"
+        "name": "[하위] 4-2. ARQ (Automatic Repeat reQuest)"
       },
       {
         "id": "012",
-        "name": "[하위] 4-3. FEC (Forward Error Correction, 전진 오류 정정)"
+        "name": "[하위] 4-3. HARQ (Hybrid Automatic Repeat reQuest)"
       },
       {
         "id": "013",
@@ -1447,123 +1447,123 @@
       },
       {
         "id": "022",
-        "name": "3. Switch"
+        "name": "3. Switch (스위치)"
       },
       {
         "id": "023",
-        "name": "4. IPv6"
+        "name": "[하위] 3-1.L4 스위치 vs L7 스위치"
       },
       {
         "id": "024",
-        "name": "[Part 3]. 프로토콜"
+        "name": "4. IPv6 (Internet Protocol version 6)"
       },
       {
         "id": "025",
-        "name": "1. 소켓 통신 (Socket Communication)"
+        "name": "[Part 3]. 프로토콜"
       },
       {
         "id": "026",
-        "name": "[하위] 1-1. TCP 소켓 (TCP Socket)"
+        "name": "1. 소켓 통신 (Socket Communication)"
       },
       {
         "id": "027",
-        "name": "[하위] 1-2. 웹소켓 (WebSocket)"
+        "name": "[하위] 1-1. TCP 소켓 (TCP Socket)"
       },
       {
         "id": "028",
-        "name": "2. TCP"
+        "name": "[하위] 1-2. 웹소켓 (WebSocket)"
       },
       {
         "id": "029",
-        "name": "[하위] 2-1. TCP 3-way Handshake"
+        "name": "2. TCP"
       },
       {
         "id": "030",
-        "name": "[하위] 2-2. TCP 4-way Handshake"
+        "name": "[하위] 2-1. TCP 3-way Handshake"
       },
       {
         "id": "031",
-        "name": "3. SCTP (Stream Control Transmission Protocol)"
+        "name": "[하위] 2-2. TCP 4-way Handshake"
       },
       {
         "id": "032",
-        "name": "4. FTP/FTPS/SFTP"
+        "name": "3. SCTP (Stream Control Transmission Protocol)"
       },
       {
         "id": "033",
-        "name": "5. HTTP/3"
+        "name": "4. FTP/FTPS/SFTP"
       },
       {
         "id": "034",
-        "name": "[Part 4]. 라우팅/주소체계"
+        "name": "5. HTTP/3"
       },
       {
         "id": "035",
-        "name": "1. 라우터/라우팅 (Router / Routing)"
+        "name": "[Part 4]. 라우팅/주소체계"
       },
       {
         "id": "036",
-        "name": "2. IGP (Interior Gateway Protocol)"
+        "name": "1. 라우터/라우팅 (Router / Routing)"
       },
       {
         "id": "037",
-        "name": "3. EGP (Exterior Gateway Protocol)"
+        "name": "2. IGP (Interior Gateway Protocol)"
       },
       {
         "id": "038",
-        "name": "4. BGP (Border Gateway Protocol)"
+        "name": "3. EGP (Exterior Gateway Protocol)"
       },
       {
         "id": "039",
-        "name": "5. OSPF (Open Shortest Path First)"
+        "name": "4. BGP (Border Gateway Protocol)"
       },
       {
         "id": "040",
-        "name": "6. 거리벡터 라우팅 (Distance Vector Routing)"
+        "name": "5. OSPF (Open Shortest Path First)"
       },
       {
         "id": "041",
-        "name": "7. RIP (Routing Information Protocol)"
+        "name": "6. 거리벡터 라우팅 (Distance Vector Routing)"
       },
       {
         "id": "042",
-        "name": "8. 슈퍼네팅 (Supernetting)"
+        "name": "7. RIP (Routing Information Protocol)"
       },
       {
         "id": "043",
-        "name": "9. 서브네팅 (Subnetting)"
+        "name": "8. 슈퍼네팅 (Supernetting)"
       },
       {
         "id": "044",
-        "name": "[하위] 9-1. 서브네팅 문제(139회)"
+        "name": "9. 서브네팅 (Subnetting)"
       },
       {
         "id": "045",
-        "name": "[Part 5]. QoS"
+        "name": "[하위] 9-1. 서브네팅 문제(139회)"
       },
       {
         "id": "046",
-        "name": "1. QoS (Quality of Service)"
+        "name": "[Part 5]. QoS"
       },
       {
         "id": "047",
-        "name": "2. WFQ (Weighted Fair Queuing)"
+        "name": "1. QoS (Quality of Service)"
       },
       {
         "id": "048",
-        "name": "3. 폴리싱"
+        "name": "2. WFQ (Weighted Fair Queuing)"
       },
       {
         "id": "049",
-        "name": "4. 쉐이빙"
+        "name": "3. 트래픽 폴리싱/쉐이핑 (Traffic Policing/Shaping)"
       },
       {
         "id": "050",
-        "name": "5. DiffServ (Differentiated Services)"
+        "name": "4. DiffServ (Differentiated Services)"
       },
       {
         "id": "051",
-        "name": "6. IntServ (Integrated Services)"
+        "name": "5. IntServ (Integrated Services)"
       },
       {
         "id": "052",
@@ -1579,99 +1579,91 @@
       },
       {
         "id": "055",
-        "name": "3. 오픈플로우 (OpenFlow)"
+        "name": "3. SD-WAN (Software-Defined Wide Area Network)"
       },
       {
         "id": "056",
-        "name": "4. SDDC (Software-Defined Data Center)"
-      },
-      {
-        "id": "057",
-        "name": "5. SD-WAN"
-      },
-      {
-        "id": "058",
         "name": "[Part 7]. VPN"
       },
       {
-        "id": "059",
+        "id": "057",
         "name": "1. VPN (Virtual Private Network, 가상 사설망)"
       },
       {
-        "id": "060",
+        "id": "058",
         "name": "2. IPSec (Internet Protocol Security)"
       },
       {
-        "id": "061",
+        "id": "059",
         "name": "3. SSL VPN (Secure Socket Layer VPN)"
       },
       {
-        "id": "062",
-        "name": "4. MPLS VPN"
+        "id": "060",
+        "name": "4. MPLS VPN (Multi-Protocol Label Switching VPN)"
       },
       {
-        "id": "063",
+        "id": "061",
         "name": "5. Tor (The Onion Router)"
       },
       {
-        "id": "064",
+        "id": "062",
         "name": "[Part 8]. 이동통신/무선"
       },
       {
-        "id": "065",
+        "id": "063",
         "name": "1. 5G 특화망 (Private 5G Network)"
       },
       {
-        "id": "066",
+        "id": "064",
         "name": "2. SDR (Software Defined Radio)"
       },
       {
-        "id": "067",
+        "id": "065",
         "name": "3. IEEE 802.11bn (Wi-Fi 8)"
       },
       {
-        "id": "068",
+        "id": "066",
         "name": "4. 5G 네트워크 슬라이싱 (Network Slicing)"
       },
       {
-        "id": "069",
+        "id": "067",
         "name": "5. Ad-hoc 네트워크"
       },
       {
-        "id": "070",
-        "name": "6. 저궤도 위성(LEO)"
+        "id": "068",
+        "name": "6. 저궤도 위성 (LEO, Low Earth Orbit Satellite)"
       },
       {
-        "id": "071",
+        "id": "069",
         "name": "[Part 9]. 차세대 네트워크"
       },
       {
-        "id": "072",
+        "id": "070",
         "name": "1. 6G 이동통신"
       },
       {
-        "id": "073",
+        "id": "071",
         "name": "2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)"
       },
       {
-        "id": "074",
+        "id": "072",
         "name": "3. AI-Native Network (AI 네이티브 네트워크)"
       },
       {
-        "id": "075",
+        "id": "073",
         "name": "4. AI-RAN (AI-based Radio Access Network)"
       },
       {
-        "id": "076",
+        "id": "074",
         "name": "5. IBN (Intent-Based Networking)"
       },
       {
-        "id": "077",
+        "id": "075",
         "name": "6. 자율 네트워크 (Autonomous Network)"
       },
       {
-        "id": "078",
-        "name": "7. Matter"
+        "id": "076",
+        "name": "7. Matter (Matter Standard)"
       }
     ]
   },
@@ -2263,7 +2255,7 @@
       },
       {
         "id": "007",
-        "name": "5. 백트레킹"
+        "name": "5. 백트래킹 (Backtracking)"
       },
       {
         "id": "008",
@@ -2323,7 +2315,7 @@
       },
       {
         "id": "022",
-        "name": "4. 이진 탐색 트리 (Binary Search Tree)"
+        "name": "3. 이진트리 (Binary Tree)"
       },
       {
         "id": "023",
@@ -2367,7 +2359,7 @@
       },
       {
         "id": "033",
-        "name": "4. 선택 정렬"
+        "name": "4. 선택 정렬 (Selection Sort)"
       },
       {
         "id": "034",

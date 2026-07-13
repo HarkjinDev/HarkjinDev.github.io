@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. IPSec (Internet Protocol Security)</title>
+  <title>4. MPLS VPN (Multi-Protocol Label Switching VPN)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,43 +15,30 @@
   </style>
 </head>
 <body>
-<h4>2. IPSec (Internet Protocol Security)</h4>
+<h4>4. MPLS VPN (Multi-Protocol Label Switching VPN)</h4>
 <ul>
-<li><strong>정의:</strong> IP 계층에서 패킷의 인증·암호화·무결성을 보장하는 표준 보안 프로토콜 모음</li>
-<li><strong>키워드:</strong> AH, ESP, IKE, SA, 전송 모드, 터널 모드, 암호화, 무결성, VPN 핵심 프로토콜</li>
-<li><strong>분류:</strong> VPN</li>
-<li><strong>핵심 구성 프로토콜:</strong><div class="table-scroll"><table>
+<li><strong>정의:</strong> 4바이트 레이블 기반 2계층 스위칭으로 고속 전달과 VPN을 구현하는 기술</li>
+<li><strong>키워드:</strong> Label, LER, LSR, FEC, LSP, LDP, LIB, CoS, Traffic Engineering</li>
+<li><strong>분류:</strong> 네트워크</li>
+<li><strong>특징:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>고속 전송</strong></td><td>3계층 라우팅을 2계층 스위칭으로 대체</td><td>2계층 스위칭</td></tr>
+<tr><td><strong>QoS 지원</strong></td><td>CoS별 차등적 우선순위 서비스 제공</td><td>CoS 차등 서비스</td></tr>
+<tr><td><strong>VPN</strong></td><td>Label로 VPN 구분해 보안 제공</td><td>Label 기반 VPN</td></tr>
+<tr><td><strong>Traffic Engineering</strong></td><td>장애 시 대체경로 설정해 망 복구</td><td>대체경로 복구</td></tr>
+</table></div>
+</li>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>인증</strong></td><td><strong>AH (Authentication Header)</strong></td><td>패킷 출처 인증·무결성 보장, 암호화 미제공</td></tr>
-<tr><td><strong>암호화·인증</strong></td><td><strong>ESP (Encapsulating Security Payload)</strong></td><td>페이로드 암호화·인증·무결성 동시 제공</td></tr>
-<tr><td><strong>키 관리</strong></td><td><strong>IKE (Internet Key Exchange)</strong></td><td>SA 협상·세션키 자동 교환·갱신</td></tr>
-<tr><td></td><td><strong>SA (Security Association)</strong></td><td>통신 양단 간 보안 파라미터 협약 단방향 연결</td></tr>
+<tr><td><strong>네트워크 장비</strong></td><td><strong>LER (Label Edge Router)</strong></td><td>목적지 분류·Label 부착</td></tr>
+<tr><td></td><td><strong>LSR (Label Switch Router)</strong></td><td>Label 스위칭으로 패킷 전달</td></tr>
+<tr><td><strong>프로토콜</strong></td><td><strong>FEC (Forwarding Equivalence Class)</strong></td><td>동일 경로로 매핑되는 패킷 그룹</td></tr>
+<tr><td></td><td><strong>LSP (Label Switched Paths)</strong></td><td>FEC 기반 사전결정된 전송경로</td></tr>
+<tr><td></td><td><strong>LDP (Label Distribution Protocol)</strong></td><td>LSR간 Label 정보 분배</td></tr>
+<tr><td></td><td><strong>LIB (Label Information Base)</strong></td><td>Label 바인딩 정보 저장 DB</td></tr>
 </table></div>
 </li>
-<li><strong>동작 모드:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>전송 모드 (Transport)</th><th>터널 모드 (Tunnel)</th></tr>
-<tr><td><strong>암호화 범위</strong></td><td>페이로드만 암호화</td><td>전체 패킷 암호화</td></tr>
-<tr><td><strong>IP 헤더</strong></td><td>원본 IP 헤더 유지</td><td>새 IP 헤더 추가</td></tr>
-<tr><td><strong>주요 용도</strong></td><td>단말 간 직접 통신</td><td>게이트웨이 간 VPN</td></tr>
-<tr><td><strong>적용 환경</strong></td><td>Host-to-Host</td><td>Site-to-Site VPN</td></tr>
-</table></div>
-</li>
-<li><strong>IKE 협상 단계:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>IKE Phase 1</strong></td><td>안전한 채널 구성을 위한 IKE SA 협상·DH 키 교환</td><td>보안 채널 수립</td></tr>
-<tr><td><strong>IKE Phase 2</strong></td><td>IPSec SA 협상, 실제 데이터 암호화 파라미터 결정</td><td>데이터 보호 협상</td></tr>
-</table></div>
-</li>
-<li><strong>AH vs ESP 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>AH</th><th>ESP</th></tr>
-<tr><td><strong>암호화</strong></td><td>❌</td><td>✅</td></tr>
-<tr><td><strong>인증·무결성</strong></td><td>✅</td><td>✅</td></tr>
-<tr><td><strong>IP 헤더 보호</strong></td><td>✅ 포함</td><td>❌ 미포함</td></tr>
-<tr><td><strong>NAT 통과</strong></td><td>❌ 불가</td><td>✅ NAT-T 지원</td></tr>
-<tr><td><strong>실무 사용</strong></td><td>드묾</td><td>✅ 주로 사용</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> IPSec은 VPN의 핵심 암호화 인프라로 네트워크 계층에서 투명하게 동작하는 강점이 있으나, NAT 환경에서의 AH 비호환·복잡한 설정 구조로 인해 경량·고성능의 WireGuard가 대안으로 부상하고 있으며 ESP+터널 모드 조합이 실무 표준으로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> Label 기반 2계층 스위칭으로 고속 전달, QoS, VPN, 장애복구를 동시에 지원</li>
 </ul>
 
 </body>

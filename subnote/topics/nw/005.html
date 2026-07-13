@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 전송 계층</title>
+  <title>2.전송 계층 (Transport Layer, L4)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,34 @@
   </style>
 </head>
 <body>
-<h4>2. 전송 계층</h4>
+<h4>2. <strong>전송 계층 (Transport Layer, L4)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 종단 간 신뢰성 있는 데이터 전송을 담당하는 OSI 4계층</li>
+<li><strong>키워드:</strong> TCP, UDP, 포트 번호, 세그먼트, 흐름제어, 혼잡제어, 오류제어, 멀티플렉싱</li>
+<li><strong>분류:</strong> 네트워크</li>
+<li><strong>전송 계층의 역할 및 특징:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>역할</strong></td><td>흐름제어 (Sliding Window)</td><td>종단 간 전송 속도를 조절해 제어</td><td>슬라이딩 윈도우</td></tr>
+<tr><td><strong>역할</strong></td><td>혼잡제어 (TCP 혼잡제어)</td><td>4단계로 네트워크 혼잡을 제어</td><td>TCP 혼잡제어</td></tr>
+<tr><td><strong>역할</strong></td><td>오류제어 (Sequence Number)</td><td>순서번호로 오류 없이 전달 보장</td><td>순서번호 검증</td></tr>
+<tr><td><strong>특징</strong></td><td>데이터 전송 신뢰성</td><td>흐름·혼잡·오류제어와 QoS 보장</td><td>신뢰성 보장</td></tr>
+<tr><td><strong>특징</strong></td><td>Segment</td><td>하위계층 패킷들을 조합한 단위</td><td>패킷 조합 단위</td></tr>
+<tr><td><strong>특징</strong></td><td>L4 스위치</td><td>서버 단위로 로드 밸런싱 수행</td><td>로드 밸런싱</td></tr>
+<tr><td><strong>특징</strong></td><td>통신 프로토콜</td><td>TCP와 UDP로 통신 수행</td><td>TCP, UDP</td></tr>
+</table></div>
+</li>
+<li><strong>전송 계층 vs 데이터링크 계층 비교</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>2계층 (Data Link Layer)</th><th>4계층 (Transport Layer)</th></tr>
+<tr><td><strong>통신 범위</strong></td><td>인접 노드 간 </td><td>종단 호스트 간 </td></tr>
+<tr><td><strong>데이터 단위</strong></td><td>프레임 </td><td>세그먼트 </td></tr>
+<tr><td><strong>흐름 제어</strong></td><td>수신 노드 버퍼 오버플로우 방지 
+(Stop-and-Wait, Sliding Window)</td><td>수신 애플리케이션 버퍼 오버플로우 방지 (TCP Sliding Window)</td></tr>
+<tr><td><strong>오류 제어</strong></td><td>프레임 단위 오류 탐지·재전송 
+(CRC, 하드웨어 기반 ARQ)</td><td>세그먼트 단위 오류 탐지·재전송 (Checksum, 소프트웨어 기반 ARQ)</td></tr>
+<tr><td><strong>혼잡 제어</strong></td><td>X</td><td>O</td></tr>
+</table></div>
+</li>
+</ul>
 
 </body>
 </html>

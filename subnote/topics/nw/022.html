@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. Switch</title>
+  <title>3. Switch (스위치)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,11 +15,61 @@
   </style>
 </head>
 <body>
-<h4>3. Switch</h4>
+<h4>3. Switch (스위치)</h4>
 <ul>
-<li>L2 스위치 기능:</li>
-<li>L4/L7 Switch</li>
-<li>부하분산 알고리즘: </li>
+<li><strong>정의:</strong> 수신 프레임·패킷을 목적지 주소 기반으로 해당 포트로 전달하는 네트워크 장비</li>
+<li><strong>키워드:</strong> L2/L4 스위치, MAC Table, VLAN, Load Balancing, QoS, cut-through, SDN</li>
+<li><strong>분류</strong>: LAN</li>
+<li><strong>L2 스위치 기능:</strong><div class="table-scroll"><table>
+<tr><th>기능</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>learning</strong></td><td>출발지 MAC 없으면 학습 저장</td><td>MAC 학습</td></tr>
+<tr><td><strong>flooding</strong></td><td>목적지 없으면 전체 포트 전달</td><td>전체 포트 전송</td></tr>
+<tr><td><strong>forwarding</strong></td><td>목적지 있으면 해당 포트만 전달</td><td>단일 포트 전달</td></tr>
+<tr><td><strong>filtering</strong></td><td>동일 세그먼트면 전달 차단</td><td>세그먼트 차단</td></tr>
+<tr><td><strong>aging</strong></td><td>일정시간 지나면 주소 삭제</td><td>주소 자동 삭제</td></tr>
+</table></div>
+</li>
+<li><strong>L2 전송방식:</strong><div class="table-scroll"><table>
+<tr><th>전송방식</th><th>설명</th><th>특징</th></tr>
+<tr><td><strong>cut-through</strong></td><td>목적지 주소만 확인 후 즉시 전달</td><td>속도 빠름, 에러감지 어려움</td></tr>
+<tr><td><strong>store-and-forward</strong></td><td>전체 프레임 수신·검사 후 전달</td><td>속도 느림, 에러감지 용이</td></tr>
+<tr><td><strong>fragment free</strong></td><td>앞 64바이트만 확인 후 전달</td><td>속도·에러감지 절충</td></tr>
+</table></div>
+</li>
+<li><strong>L2 부가기능:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>VLAN</strong></td><td>포트를 가상 LAN으로 그룹핑</td><td>802.1q</td></tr>
+<tr><td><strong>Link Aggregation</strong></td><td>포트 여러 개 묶어 대역폭 확장</td><td>802.3ad</td></tr>
+<tr><td><strong>STP</strong></td><td>루프 방지, 단일 경로만 사용</td><td>802.1d</td></tr>
+<tr><td><strong>Port Mirroring</strong></td><td>특정 포트 트래픽 복사 분석</td><td>SPAN</td></tr>
+</table></div>
+</li>
+<li><strong>L4 스위치 기능:</strong><div class="table-scroll"><table>
+<tr><th>기능</th><th>설명</th><th>특징</th></tr>
+<tr><td><strong>부하분산</strong></td><td>서버 트래픽을 여러 대에 분산</td><td>서버 가상화</td></tr>
+<tr><td><strong>캐싱 서비스</strong></td><td>투명한 캐싱 서비스 제공</td><td>사용자 설정 불필요</td></tr>
+<tr><td><strong>서비스 연결</strong></td><td>트래픽 종류별 다른 서비스 연결</td><td>포트 기반 인식</td></tr>
+<tr><td><strong>QoS</strong></td><td>우선순위에 따라 대역폭 차등 할당</td><td>서비스 포트 이용</td></tr>
+</table></div>
+</li>
+<li><strong>L4 서버 감시 방식:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>감시방식</th><th>핵심</th></tr>
+<tr><td><strong>ICMP 이용</strong></td><td>Ping Request/Response 확인</td><td>가장 단순</td></tr>
+<tr><td><strong>TCP Connection 이용</strong></td><td>SYN 전송 후 SYN-ACK 확인</td><td>ICMP보다 정확</td></tr>
+<tr><td><strong>HTTP Request 이용</strong></td><td>Request 후 Response 상태 확인</td><td>가장 확실</td></tr>
+</table></div>
+</li>
+<li><strong>L4 스위치 부하분산 알고리즘:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정적기반</strong></td><td><strong>Round Robin</strong></td><td>요청을 순서대로 균등 분배</td><td>순차 균등 분배</td></tr>
+<tr><td></td><td><strong>Hashing</strong></td><td>IP 조합 해시값으로 노드 선택</td><td>해시값 기반 선택</td></tr>
+<tr><td></td><td><strong>Fixed</strong></td><td>소스 IP 주소로 서버 결정</td><td>소스IP 고정</td></tr>
+<tr><td><strong>동적기반</strong></td><td><strong>Weighted Round Robin</strong></td><td>가중치 부여해 트래픽 차등 할당</td><td>가중치 차등 분배</td></tr>
+<tr><td></td><td><strong>Least Connection</strong></td><td>연결 수 최소 서버로 연결</td><td>최소 연결 우선</td></tr>
+<tr><td></td><td><strong>Weighted Least Connection</strong></td><td>가중치와 연결수 고려해 분산</td><td>가중치+연결수</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> L2는 MAC 기반 프레임 스위칭, L4는 포트·세션 기반 부하분산·QoS로 계층별 역할이 분리됨</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 5G 네트워크 슬라이싱 (Network Slicing)</title>
+  <title>6. 저궤도 위성 (LEO, Low Earth Orbit Satellite)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,48 @@
   </style>
 </head>
 <body>
-<h4>4. 5G 네트워크 슬라이싱 (Network Slicing)</h4>
+<h4>6. 저궤도 위성 (LEO, Low Earth Orbit Satellite)</h4>
 <ul>
-<li><strong>정의</strong>: 물리적망을 다수의 독립된 가상망으로 논리적으로 분리해 서비스별 QoS를 제공하는 기술</li>
-<li><strong>키워드</strong>: NSI, NSSF, S-NSSAI, eMBB/URLLC/mMTC, E2E 슬라이싱, 자원 격리</li>
-<li><strong>분류</strong>: 이동통신/무선</li>
-<li><strong>5G 3대 서비스와 슬라이싱</strong>:<div class="table-scroll"><table>
-<tr><th>서비스</th><th>슬라이스 특성</th><th>예시</th></tr>
-<tr><td><strong>eMBB</strong></td><td>고대역폭, 중간 지연</td><td>4K 스트리밍, AR/VR</td></tr>
-<tr><td><strong>URLLC</strong></td><td>초저지연(&lt;1ms), 고신뢰</td><td>자율주행, 원격 수술</td></tr>
-<tr><td><strong>mMTC</strong></td><td>저전력, 대량 연결</td><td>IoT 센서, 스마트미터</td></tr>
+<li><strong>정의:</strong> 지상 300~1,500km 저고도 궤도를 도는 통신위성</li>
+<li><strong>키워드:</strong> Starlink, OneWeb, Constellation, Handover, 저지연, Gateway</li>
+<li><strong>분류:</strong> 네트워크</li>
+<li><strong>핵심 특징:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>저지연</strong></td><td>낮은 고도로 왕복지연 20~40ms 수준</td><td>저지연 통신</td></tr>
+<tr><td><strong>광역 커버리지</strong></td><td>다수 위성 군집으로 전지구 커버</td><td>Constellation</td></tr>
+<tr><td><strong>짧은 가시시간</strong></td><td>위성 빠른 이동으로 접속시간 짧음</td><td>짧은 가시시간</td></tr>
+<tr><td><strong>빈번한 Handover</strong></td><td>위성 이동으로 잦은 핸드오버 필요</td><td>빈번한 전환</td></tr>
 </table></div>
 </li>
-<li><strong>구성요소:</strong><span style="background:#fbf3db;border-radius:3px;padding:1px 3px"><strong> // 추가 필요</strong></span></li>
-<li><strong>E2E 슬라이싱</strong>: RAN → 코어 네트워크 → 엣지 클라우드 전체 경로 가상화</li>
-<li><strong>인사이트</strong>: 네트워크 슬라이싱은 <strong>하나의 인프라로 완전히 다른 SLA를 동시에 만족</strong>시키는 5G의 핵심 차별점. 슬라이스 간 자원 격리(security isolation)가 보안의 핵심 과제.</li>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>우주 세그먼트</strong></td><td>Satellite</td><td>신호 중계·처리</td></tr>
+<tr><td><strong>지상 세그먼트</strong></td><td>Gateway</td><td>위성-지상망 연동</td></tr>
+<tr><td></td><td>사용자 단말</td><td>사용자 접속 안테나</td></tr>
+<tr><td><strong>제어 세그먼트</strong></td><td>위성 관제센터</td><td>궤도·자세 제어</td></tr>
+</table></div>
+</li>
+<li><strong>저궤도 위성통신 기술 동향:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>탑재체 기술</strong></td><td>사용자 링크 안테나</td><td>빔 수 확보 위해 위상배열 안테나</td><td>위상배열 안테나</td></tr>
+<tr><td></td><td>피더 링크 안테나</td><td>모터기반 반사판 안테나 추정</td><td>반사판 안테나</td></tr>
+<tr><td></td><td>위성간 링크 통신장치</td><td>레이저통신 위주, SpaceX만 탑재</td><td>레이저 통신</td></tr>
+<tr><td></td><td>디지털 중계 장치</td><td>자체개발·공급 중계기 사용</td><td>중계기 사용</td></tr>
+<tr><td><strong>표준기술</strong></td><td>DVB 표준</td><td>DVB-S2x 등 물리계층 표준화</td><td>물리계층 표준화</td></tr>
+<tr><td></td><td>3GPP 표준</td><td>비지상망 연결 위한 표준화 진행</td><td>비지상망 표준화</td></tr>
+</table></div>
+</li>
+<li><strong>비교표 (궤도별 비교):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>GEO</th><th>MEO</th><th>LEO</th></tr>
+<tr><td><strong>고도</strong></td><td>약 36,000km</td><td>2,000~36,000km</td><td>300~1,500km</td></tr>
+<tr><td><strong>지연시간</strong></td><td>약 240ms</td><td>약 100ms</td><td>약 20~40ms</td></tr>
+<tr><td><strong>위성 수</strong></td><td>소수 (3기로 전지구)</td><td>중간 규모</td><td>다수 (수천기 군집)</td></tr>
+<tr><td><strong>용도</strong></td><td>방송, 기상</td><td>GPS 등 항법</td><td>초고속 인터넷</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 낮은 고도로 지연은 줄었지만 커버리지 유지를 위해 대규모 군집과 잦은 핸드오버가 필수</li>
 </ul>
+<hr/>
 
 </body>
 </html>

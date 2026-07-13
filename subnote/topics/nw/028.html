@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. TCP</title>
+  <title>[하위] 1-2. 웹소켓 (WebSocket)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,13 +15,26 @@
   </style>
 </head>
 <body>
-<h4>2. TCP</h4>
+<h4>[하위] 1-2. 웹소켓 (WebSocket)</h4>
 <ul>
-<li><strong>주요 기능: </strong></li>
-<li><strong>제어 플래그(Control Flag, 6bit):</strong><ul>
-<li>URG, ACK, PSH, RST, SYN, FIN</li>
-</ul>
+<li><strong>정의</strong>: HTTP 핸드셰이크 후 단일 TCP 연결로 전이중 실시간 통신하는 프로토콜</li>
+<li><strong>키워드</strong>: RFC 6455, HTTP Upgrade, ws/wss, 전이중, Upgrade 헤더, 실시간</li>
+<li><strong>분류:</strong> 프로토콜</li>
+<li><strong>연결 수립 절차</strong>:<ol>
+<li>클라이언트 → HTTP GET + Upgrade: websocket 요청</li>
+<li>서버 → 101 Switching Protocols 응답</li>
+<li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
+</ol>
 </li>
+<li><strong>HTTP Polling vs WebSocket 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>HTTP Polling</th><th>WebSocket</th></tr>
+<tr><td>연결 방식</td><td>반복 요청-응답</td><td>단일 연결 유지</td></tr>
+<tr><td>지연</td><td>높음</td><td>낮음</td></tr>
+<tr><td>오버헤드</td><td>HTTP 헤더 매번</td><td>최초 1회만</td></tr>
+<tr><td>용도</td><td>단순 갱신</td><td>채팅, 주식, 게임</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 웹소켓은 <strong>HTTP와 호환되는 포트(80/443)</strong>를 사용하여 방화벽 우회가 용이하며, wss://는 TLS 기반 보안 웹소켓으로 도청 방지.</li>
 </ul>
 
 </body>

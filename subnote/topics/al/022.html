@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 이진 탐색 트리 (Binary Search Tree)</title>
+  <title>3. 이진트리 (Binary Tree)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,49 @@
   </style>
 </head>
 <body>
-<h4>4. 이진 탐색 트리 (Binary Search Tree)</h4>
+<h4>3. 이진트리 (Binary Tree)</h4>
 <ul>
-<li><strong>정의:</strong> 각 노드의 왼쪽 서브트리는 작은값, 오른쪽 서브트리는 큰값을 갖는 트리 탐색 알고리즘</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중위 순회(왼쪽 &lt; 루트 &lt; 오른쪽)</strong></u></span>, 편향 트리, AVL 트리, 레드-블랙 트리</li>
+<li><strong>정의:</strong> 각 노드가 최대 2개의 자식(좌/우)을 갖는 계층적 비선형 자료구조</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중위 순회(왼쪽 &lt; 루트 &lt; 오른쪽), </strong></u></span>노드, 루트, 리프, 서브트리, 순회, BST, 균형</li>
 <li><strong>분류</strong>: 비선형 자료구조</li>
-<li><strong>연산 복잡도</strong>:<div class="table-scroll"><table>
-<tr><th>연산</th><th>평균</th><th>최악 (편향 트리)</th></tr>
-<tr><td>탐색</td><td>O(log n)</td><td>O(n)</td></tr>
-<tr><td>삽입</td><td>O(log n)</td><td>O(n)</td></tr>
-<tr><td>삭제</td><td>O(log n)</td><td>O(n)</td></tr>
+<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>노드(Node)</strong></td><td>데이터와 좌우 포인터 보유</td><td>구성 단위</td></tr>
+<tr><td><strong>루트(Root)</strong></td><td>최상위 시작 노드</td><td>트리 진입점</td></tr>
+<tr><td><strong>리프(Leaf)</strong></td><td>자식이 없는 말단 노드</td><td>종단 노드</td></tr>
+<tr><td><strong>서브트리</strong></td><td>특정 노드 기준 하위 트리</td><td>재귀적 구조</td></tr>
+<tr><td><strong>높이(Height)</strong></td><td>루트~최하단 리프 거리</td><td>트리 깊이</td></tr>
+<tr><td><strong>차수(Degree)</strong></td><td>노드당 자식 최대 2개</td><td>이진 제약</td></tr>
 </table></div>
 </li>
-<li><strong>삭제 케이스</strong>:<div class="table-scroll"><table>
-<tr><th>케이스</th><th>처리 방법</th></tr>
-<tr><td>자식 없음 (리프)</td><td>노드 직접 삭제</td></tr>
-<tr><td>자식 1개</td><td>자식 노드로 대체</td></tr>
-<tr><td>자식 2개</td><td>중위 후계자(오른쪽 부트리 최솟값) 또는 중위 전위 노드로 대체</td></tr>
+<li><strong>유형·분류:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정이진트리(Full)</strong></td><td>자식이 0개 또는 2개만 존재</td><td>0 or 2 규칙</td></tr>
+<tr><td><strong>포화이진트리(Perfect)</strong></td><td>모든 리프의 깊이가 동일</td><td>완전 대칭</td></tr>
+<tr><td><strong>완전이진트리(Complete)</strong></td><td>마지막 레벨 왼쪽부터 채움</td><td>배열 표현 용이</td></tr>
+<tr><td><strong>균형이진트리(Balanced)</strong></td><td>좌우 서브트리 높이차 최소</td><td>AVL·RB트리</td></tr>
+<tr><td><strong>편향이진트리(Skewed)</strong></td><td>한쪽으로 치우친 형태</td><td>성능 O(n) 저하</td></tr>
+<tr><td><strong>이진탐색트리(BST)</strong></td><td>왼쪽&lt;루트&lt;오른쪽 규칙</td><td>탐색 효율화</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: BST 최악 O(n) 문제는 <strong>AVL 트리(회전 연산으로 균형 유지, O(log n) 보장)</strong>나 레드-블랙 트리로 해결하며, 이것이 디스크 기반 B-트리로 확장됨을 언급</li>
+<li><strong>주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>전위순회(Preorder)</strong></td><td>루트→좌→우 순서 방문</td><td>루트 우선 처리</td></tr>
+<tr><td><strong>중위순회(Inorder)</strong></td><td>좌→루트→우 순서 방문</td><td>BST 정렬 출력</td></tr>
+<tr><td><strong>후위순회(Postorder)</strong></td><td>좌→우→루트 순서 방문</td><td>삭제 연산 활용</td></tr>
+<tr><td><strong>레벨순회(Level-order)</strong></td><td>너비 우선(BFS) 방문</td><td>큐(Queue) 활용</td></tr>
+</table></div>
+</li>
+<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>저장방식</strong></td><td>배열 기반</td><td>완전이진트리에 효율적</td></tr>
+<tr><td></td><td>연결리스트 기반</td><td>포인터 기반 유연 구조</td></tr>
+<tr><td><strong>균형유지</strong></td><td>AVL 트리</td><td>회전(Rotation) 연산</td></tr>
+<tr><td></td><td>Red-Black 트리</td><td>색상 규칙 기반 균형</td></tr>
+<tr><td><strong>응용구조</strong></td><td>힙(Heap)</td><td>우선순위 큐 구현</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 이진트리는 탐색·정렬·우선순위 처리의 근간 구조로, 균형 유지가 O(log n) 성능 확보의 핵심이다.</li>
 </ul>
 
 </body>
