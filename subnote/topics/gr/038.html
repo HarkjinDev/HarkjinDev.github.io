@@ -21,11 +21,15 @@
 <li><strong>키워드:</strong> AWS, Bolt, Mob Elaboration, Mob Construction, Unit of Work, Persistent Context, Amazon Q Developer</li>
 <li><strong>분류</strong>: 개발 방법론</li>
 <li><strong>핵심 철학: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>"AI proposes, human approves"</strong></u></span></li>
-<li><strong>3대 Phase 구조:</strong><div class="table-scroll"><table>
-<tr><th>Phase</th><th>활동</th><th>핵심</th></tr>
-<tr><td><strong>1. Inception</strong></td><td>비즈니스 의도→요구사항·User Story 변환</td><td>요구사항 확정</td></tr>
-<tr><td><strong>2. Construction</strong></td><td>아키텍처·도메인모델·코드 제안</td><td>설계·구현</td></tr>
-<tr><td><strong>3. Operations</strong></td><td>인프라·배포 설정 생성, 운영 관리</td><td>배포·운영</td></tr>
+<li><strong>절차: </strong><div class="table-scroll"><table>
+<tr><th>Phase</th><th>절차</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Inception</strong></td><td>1. Intent(의도 입력)</td><td>비즈니스 목표를 AI에 입력</td><td>목표 입력</td></tr>
+<tr><td><strong>Construction</strong></td><td>2. Plan(AI 계획 수립)</td><td>AI가 실행 계획 자동 수립</td><td>AI 자동계획</td></tr>
+<tr><td></td><td>3. Clarify(질의&amp;확인)</td><td>불명확 사항 질의로 확인</td><td>요구 명확화</td></tr>
+<tr><td></td><td>4. Approve(사람 승인)</td><td>사람이 계획·결과 최종 승인</td><td>휴먼인더루프</td></tr>
+<tr><td></td><td>5. Execute(AI 실행)</td><td>승인된 계획을 AI가 실행</td><td>AI 자동실행</td></tr>
+<tr><td><strong>Operation</strong></td><td>6. Review(검증&amp;리뷰)</td><td>실행 결과 검증 및 리뷰</td><td>결과 검증</td></tr>
+<tr><td></td><td>7. Feedback(피드백&amp;개선)</td><td>피드백 반영해 지속 개선</td><td>지속적 개선</td></tr>
 </table></div>
 </li>
 <li><strong>핵심 용어 (전통 SDLC 대비):</strong><div class="table-scroll"><table>
@@ -36,6 +40,14 @@
 <tr><td><strong>Mob Elaboration</strong></td><td>요구사항 정의 회의</td><td>Inception 협업</td></tr>
 <tr><td><strong>Mob Construction</strong></td><td>기술 설계 회의</td><td>Construction 협업</td></tr>
 <tr><td><strong>Persistent Context</strong></td><td>(개념 부재)</td><td>세션간 컨텍스트 유지</td></tr>
+</table></div>
+</li>
+<li><strong>AI-DLC 핵심 원칙:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>① Plan First</strong></td><td>AI가 코드 작성 전 작업계획을 먼저 생성</td><td>계획 선행</td></tr>
+<tr><td><strong>② Clarification First</strong></td><td>요구사항 모호 시 AI가 먼저 질문</td><td>질문으로 모호성 제거</td></tr>
+<tr><td><strong>③ Human Approval Gate</strong></td><td>중요 단계마다 사람의 승인 필수</td><td>승인 없이 실행 없음</td></tr>
+<tr><td><strong>④ Persistent Context</strong></td><td>요구사항·설계·결정사항을 저장소에 지속 기록</td><td>세션 간 동일 문맥 유지</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> AI-DLC는 "AI가 제안, 인간이 승인"하는 구조화된 거버넌스로 완전자율·완전수동의 양극단을 지양하며, Bolt·Mob세션·품질게이트로 속도와 통제를 동시에 추구하는 방법론이나, 생산성 수치는 벤더 발표 벤치마크임을 유의해 해석해야 함</li>

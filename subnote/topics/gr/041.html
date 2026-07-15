@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. AI Alignment (AI 정렬)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>5. AI Alignment (AI 정렬)</h4>
+<ul>
+<li><strong>정의:</strong> AI 시스템의 목표와 행동을 인간의 가치·의도에 부합하도록 만드는 기술 분야</li>
+<li><strong>키워드:</strong> RLHF, 헌법적 AI, DPO, AI 토론, Scalable Oversight, Outer·Inner Alignment, 보상해킹</li>
+<li><strong>분류:</strong> AI / AI 안전성·정렬</li>
+<li><strong>핵심 도전과제 (2대 정렬 문제):</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Outer Alignment</strong></td><td>시스템의 목적을 인간 의도대로 정확히 명시하는 문제</td><td>목표 명세의 정확성</td></tr>
+<tr><td><strong>Inner Alignment</strong></td><td>명시된 목표를 시스템이 견고하게 실제로 추구하도록 하는 문제</td><td>명세-행동 간 간극</td></tr>
+<tr><td><strong>보상해킹(Reward Hacking)</strong></td><td>Outer Alignment 실패 시 발생·명세의 허점을 악용</td><td>명세 자체의 결함</td></tr>
+<tr><td><strong>메사최적화(Mesa-Optimization)</strong></td><td>Inner Alignment 실패 시 발생·학습된 목표가 원목표와 괴리</td><td>학습결과의 왜곡</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 원칙: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>핵심원칙</th><th>핵심</th></tr>
+<tr><td><strong>기본 정렬 </strong></td><td><strong>Helpful(유용성)</strong></td><td>목적 부합성</td></tr>
+<tr><td></td><td><strong>Honest(정직성)</strong></td><td>진실성 유지</td></tr>
+<tr><td></td><td><strong>Harmless(무해성)</strong></td><td>위해 방지</td></tr>
+<tr><td><strong>기술적</strong></td><td><strong>Robustness(견고성)</strong></td><td>안정적 작동</td></tr>
+<tr><td></td><td><strong>Interpretability(해석가능성)</strong></td><td>논리 추적가능</td></tr>
+<tr><td></td><td><strong>Controllability(제어가능성)</strong></td><td>인간 개입가능</td></tr>
+<tr><td></td><td><strong>Ethicality(윤리성)</strong></td><td>도덕·법 준수</td></tr>
+<tr><td><strong>운영·윤리적</strong></td><td><strong>Fairness(공정성)</strong></td><td>편향·차별방지</td></tr>
+<tr><td></td><td><strong>Accountability(책임성)</strong></td><td>책임소재 명확화</td></tr>
+<tr><td></td><td><strong>Transparency(투명성)</strong></td><td>AI여부 고지</td></tr>
+<tr><td></td><td><strong>Privacy(프라이버시 보호)</strong></td><td>개인정보 보호</td></tr>
+</table></div>
+</li>
+<li><strong>AI Alignment 주요 기법: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>설명</th></tr>
+<tr><td>선호도</td><td><strong>RLHF</strong></td><td>인간 선호도로 보상모델 학습 후 강화학습 미세조정</td></tr>
+<tr><td></td><td><strong>DPO</strong></td><td>별도 보상모델 없이 선호데이터로 정책 직접 최적화</td></tr>
+<tr><td></td><td><strong>헌법적 AI(RLAIF)</strong></td><td>성문화된 원칙으로 모델이 자기비판·자기수정 후 재학습</td></tr>
+<tr><td>AI 통제</td><td><strong>AI 토론(Debate)</strong></td><td>다수의 AI가 토론을 통해서 최적화</td></tr>
+<tr><td></td><td><strong>Scalable Oversight</strong></td><td>인간평가 한계를 넘는 감독기법</td></tr>
+<tr><td></td><td><strong>Recursive Reward Modeling</strong></td><td>AI가 AI를 평가하는 재귀적 보상모델링</td></tr>
+<tr><td>검증·해석</td><td><strong>프로세스기반 감독</strong></td><td>최종답이 아닌 추론단계 자체를 감독·훈련</td></tr>
+<tr><td></td><td><strong>Red-teaming</strong></td><td>적대적 프롬프트로 위험행동 유도·발견</td></tr>
+<tr><td></td><td><strong>기계적 해석가능성</strong></td><td>모델 내부 회로 분석으로 정렬상태 검증</td></tr>
+</table></div>
+</li>
+<li><strong>AI Alignment vs AI Safety 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>AI Alignment</th><th>AI Safety</th></tr>
+<tr><td>범위</td><td>AI Safety의 핵심 하위 기술과제</td><td>Alignment를 포함하는 상위 포괄분야</td></tr>
+<tr><td>초점</td><td>AI가 무엇을 목표로 하는가(목표·가치 부합)</td><td>위해방지 전반(강건성·보안·정책·사회영향 포함)</td></tr>
+<tr><td>다루는 문제</td><td>목표명세·보상학습·가치정렬</td><td>정렬+오용방지·강건성·거버넌스·평가·사고대응</td></tr>
+<tr><td>대표 산출물</td><td>RLHF·CAI로 학습된 모델 자체</td><td>가드레일·평가벤치마크·인시던트대응·정책 전체</td></tr>
+<tr><td>관계</td><td>Safety 목표달성의 핵심 수단 중 하나</td><td>Alignment 외 배포·운영단계 위험까지 포괄</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> AI Alignment는 AI Safety라는 포괄적 분야 내에서 "AI의 목표를 인간 가치에 부합시킨다"는 핵심 기술과제를 담당하며, 2022~2025년 RLHF 단일기법 중심에서 2026년 Constitutional AI·DPO·Scalable Oversight를 결합한 하이브리드 정렬로 진화 중이나, 수학적으로 안전함을 증명하는 정렬 검증(Alignment Verification)은 아직 요원한 과제로 남아있음</li>
+</ul>
+</body>
+</html>
+</body>
+</html>

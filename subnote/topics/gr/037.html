@@ -17,19 +17,24 @@
 <body>
 <h4>1. SDD (Spec-Driven Development, 명세 주도 개발)</h4>
 <ul>
-<li><strong>정의:</strong> 실행 가능한 명세를 단일 진실공급원으로 삼아 AI가 코드를 생성하는 개발방법론</li>
+<li><strong>정의:</strong> 코드보다 명세를 먼저 작성하고 그 명세를 충족하는 코드를 개발하는 방법론</li>
 <li><strong>배경:</strong><ul>
 <li>Vibe Coding의 실패모드(의도이탈·API환각·규모확장시 붕괴) 대응</li>
 <li>LLM이 벤치마크상 9.8~42.1% 비율로 취약한 코드 생성</li>
 </ul>
 </li>
-<li><strong>SDD 핵심 워크플로우:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>활동</th><th>핵심</th></tr>
-<tr><td><strong>1. Spec 작성</strong></td><td>시스템 동작을 구조화·버전관리된 명세로 상세 기술</td><td>설계와 구현 분리</td></tr>
-<tr><td><strong>2. Plan 도출</strong></td><td>Spec 기반 구현계획 수립</td><td>계획 자동생성</td></tr>
-<tr><td><strong>3. Task 분해</strong></td><td>계획을 원자적(atomic) 작업단위로 분할</td><td>세분화된 작업</td></tr>
-<tr><td><strong>4. 코드 생성</strong></td><td>AI 에이전트가 Task별 코드·테스트 생성</td><td>AI 실행</td></tr>
-<tr><td><strong>5. 재생성 순환</strong></td><td>요구사항 변경 시 Spec 수정→해당 코드 재생성</td><td>Spec이 항상 최신</td></tr>
+<li><strong>핵심 원리</strong><ul>
+<li>문서/정의 우선(Documentation First), 구현의 기준(Source of Truth), 기계 가독성(Machine-Readable), AI와의 협업</li>
+</ul>
+</li>
+<li><strong>SDD 핵심 사이클 (6단계, github spec-kit)</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. Constitution</strong></td><td>프로젝트 전체 불변원칙 정의</td><td>원칙 사전고정</td></tr>
+<tr><td><strong>2.Specify</strong></td><td>What·Why 관점만 요구사항 작성</td><td>How는 배제</td></tr>
+<tr><td><strong>3. Clarify</strong></td><td>애매한 부분 명시적 태그 표시</td><td>AI추측 차단</td></tr>
+<tr><td><strong>4. Plan</strong></td><td>헌법·스펙 기반 기술계획 수립</td><td>게이트로 검증</td></tr>
+<tr><td><strong>5. Tasks</strong></td><td>실행가능 작은단위로 분할</td><td>병렬처리 표시</td></tr>
+<tr><td><strong>6. Implement</strong></td><td>축적맥락 기반 코드 작성</td><td>맥락기반 생성</td></tr>
 </table></div>
 </li>
 <li><strong>Spec의 적용 범위:</strong><div class="table-scroll"><table>
