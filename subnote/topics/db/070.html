@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 데이터 표준화 (Data Standardization)</title>
+  <title>4. DA & DBA 역할</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,23 @@
   </style>
 </head>
 <body>
-<h4>5. 데이터 표준화 (Data Standardization)</h4>
+<h4>4. DA &amp; DBA 역할</h4>
 <ul>
-<li><strong>정의</strong>: 데이터의 명칭, 정의, 형식, 규칙을 전사적으로 통일하여 일관성을 확보하는 활동입니다.</li>
-<li><strong>키워드</strong>: 명칭/정의/형식/규칙 4원칙, ISO 8000, DRM, 데이터 사일로, 메타데이터</li>
-<li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>데이터 표준화 4원칙</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;명정형규&gt;</strong></span><ul>
-<li><strong>명칭 표준화</strong>: 데이터 항목의 이름을 전사적으로 통일 (예: 고객ID vs 고객번호 → 단일화)</li>
-<li><strong>정의 표준화</strong>: 각 데이터 항목의 의미와 범위를 명확하게 정의</li>
-<li><strong>형식 표준화</strong>: 날짜, 코드, 숫자 등 데이터 형식을 통일 (예: YYYYMMDD)</li>
-<li><strong>규칙 표준화</strong>: 데이터 생성·변경·삭제에 관한 업무 규칙 통일</li>
+<li><strong>정의</strong>:<ul>
+<li><strong>DA(Data Architect)</strong>: 데이터 구조, 표준, 정책을 설계하고 전사 데이터 전략을 수립하는 전문가</li>
+<li><strong>DBA(Database Administrator)</strong>: 데이터베이스의 설치, 운영, 성능관리, 보안, 백업을 담당하는 관리자</li>
 </ul>
 </li>
-<li><strong>관련 표준 및 도구</strong>: ISO 8000, DRM(데이터 참조 모델), 메타데이터 관리 시스템</li>
-<li><strong>인사이트</strong>: 데이터 표준화는 단순한 네이밍 규칙이 아니라 조직 전체의 데이터 소통 언어를 통일하는 작업이며, 표준화 미흡 시 시스템 통합·연계 시 데이터 불일치와 사일로 현상이 반복적으로 발생함</li>
+<li><strong>키워드</strong>: DA, DBA, 데이터 표준, 모델링, 데이터 전략, DB 운영, 성능관리, 보안</li>
+<li><strong>분류</strong>: 데이터 거버넌스/품질</li>
+<li><strong>역할 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>DA</th><th>DBA</th></tr>
+<tr><td>주요 역할</td><td>데이터 표준화, 모델링, 전략</td><td>DB 설치/운영, 백업, 성능관리</td></tr>
+<tr><td>관점</td><td>비즈니스/논리적</td><td>기술/물리적</td></tr>
+<tr><td>산출물</td><td>ERD, 데이터 표준</td><td>DBA 스크립트, 백업 정책</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 대규모 조직에서는 DA와 DBA 역할이 분리되지만, 중소 규모에서는 DBA가 두 역할을 겸하는 경우가 많으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>디지털 전환 시대에 데이터 거버넌스를 이끄는 CDO(Chief Data Officer) 역할이 부상</strong></u></span>하고 있음</li>
 </ul>
 
 </body>

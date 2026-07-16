@@ -253,58 +253,62 @@
       },
       {
         "id": "063",
-        "name": "[하위] 4-2. 델타 레이크(Delta Lake)"
+        "name": "5. 데이터 레이크하우스 (Data Lakehouse)"
       },
       {
         "id": "064",
-        "name": "5. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
+        "name": "[하위] 5-2. 델타 레이크(Delta Lake)"
       },
       {
         "id": "065",
-        "name": "[Part 11] 데이터 거버넌스/품질"
+        "name": "6. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
       },
       {
         "id": "066",
-        "name": "1. 데이터 거버넌스 (Data Governance)"
+        "name": "[Part 11] 데이터 거버넌스/품질"
       },
       {
         "id": "067",
-        "name": "2. 데이터 품질관리 (Data Quality Management)"
+        "name": "1. 데이터 거버넌스 (Data Governance)"
       },
       {
         "id": "068",
-        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
+        "name": "2. 데이터 품질관리 (Data Quality Management)"
       },
       {
         "id": "069",
-        "name": "4. DA & DBA 역할"
+        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
       },
       {
         "id": "070",
-        "name": "5. 데이터 표준화 (Data Standardization)"
+        "name": "4. DA & DBA 역할"
       },
       {
         "id": "071",
-        "name": "6. 데이터 프로파일링 (Data Profiling)"
+        "name": "5. 데이터 표준화 (Data Standardization)"
       },
       {
         "id": "072",
-        "name": "7. 데이터 스페이스(Data Space)"
+        "name": "6. 데이터 프로파일링 (Data Profiling)"
       },
       {
         "id": "073",
-        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
+        "name": "7. 데이터 스페이스(Data Space)"
       },
       {
         "id": "074",
-        "name": "[Part 12] 마이그레이션"
+        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
       },
       {
         "id": "075",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "[Part 12] 마이그레이션"
       },
       {
         "id": "076",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "077",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]

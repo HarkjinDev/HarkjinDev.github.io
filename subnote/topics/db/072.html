@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 데이터 스페이스(Data Space)</title>
+  <title>6. 데이터 프로파일링 (Data Profiling)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,19 @@
   </style>
 </head>
 <body>
-<h4>7. 데이터 스페이스(Data Space)</h4>
+<h4>6. 데이터 프로파일링 (Data Profiling)</h4>
 <ul>
-<li><strong>정의:</strong> 참여자 간 데이터 주권을 보장하면서 안전하게 데이터를 공유·거래할 수 있는 분산형 데이터 공유 인프라</li>
+<li><strong>정의</strong>: 데이터의 구조, 값, 관계를 분석하여 품질 이슈를 사전에 진단하는 기법</li>
+<li><strong>키워드</strong>: 값/구조/관계 분석, 이상값, 결측값, 참조 무결성, 데이터 품질 진단</li>
 <li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>데이터 스페이스 핵심 원칙:</strong><div class="table-scroll"><table>
-<tr><th>원칙</th><th>설명</th><th>핵심</th></tr>
-<tr><td>데이터 주권</td><td>데이터 제공자가 사용 조건·목적·범위 직접 통제</td><td>제공자 통제권 보장</td></tr>
-<tr><td>분산성</td><td>중앙 저장소 없이 참여자 간 직접 데이터 교환</td><td>탈중앙화</td></tr>
-<tr><td>신뢰 프레임워크</td><td>참여자 신원 인증·데이터 계약·감사 체계</td><td>Trust Framework</td></tr>
-<tr><td>상호운용성</td><td>표준 기반 이기종 시스템 간 데이터 교환</td><td>개방 표준</td></tr>
-<tr><td>공정한 가치 배분</td><td>데이터 제공·활용에 따른 공정한 보상 체계</td><td>데이터 경제</td></tr>
-</table></div>
+<li><strong>분석 유형 3가지</strong>:<ul>
+<li><strong>값 분석(Value Analysis)</strong>: 최솟값/최댓값/평균/분포 등 데이터 값 자체의 통계적 특성 분석 → 이상값·결측값 탐지</li>
+<li><strong>구조 분석(Structure Analysis)</strong>: 형식·길이·데이터 타입 위반 여부 분석 → 스키마 불일치 탐지</li>
+<li><strong>관계 분석(Relationship Analysis)</strong>: 테이블 간 참조 무결성 위반, 중복 데이터 탐지 → 정합성 검증</li>
+</ul>
 </li>
-<li><strong>데이터 스페이스 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td>데이터 제공자 (Provider)</td><td>데이터를 공유·제공하는 참여자</td><td>사용 조건 설정</td></tr>
-<tr><td>데이터 소비자 (Consumer)</td><td>데이터를 활용·분석하는 참여자</td><td>계약 기반 접근</td></tr>
-<tr><td>커넥터 (Connector)</td><td>참여자 간 데이터 교환 표준 인터페이스</td><td>IDS Connector</td></tr>
-<tr><td>메타데이터 브로커</td><td>데이터 카탈로그·검색·발견 서비스</td><td>데이터 탐색</td></tr>
-<tr><td>신원 제공자 (Identity Provider)</td><td>참여자 신원 인증·인가 서비스</td><td>PKI·DID 기반</td></tr>
-<tr><td>앱 스토어</td><td>데이터 처리·분석 앱 제공 마켓플레이스</td><td>서비스 생태계</td></tr>
-<tr><td>클리어링 하우스</td><td>데이터 거래 로그·감사·분쟁 해결</td><td>거래 투명성</td></tr>
-<tr><td>데이터 계약 (Data Contract)</td><td>사용 조건, 과금 모델 등 명시</td><td>데이터 표준 계약</td></tr>
-<tr><td>표준 프로토콜</td><td>DCAT, ODRL(정책), GAIA-X표준</td><td>표준 준수</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 데이터 스페이스는 중앙집중형 플랫폼의 데이터 독점 한계를 극복하고 데이터 주권·신뢰·상호운용성을 보장하는 분산형 데이터 공유 생태계로, EU Gaia-X·IDSA 표준을 중심으로 산업·공공·의료 등 전 분야로 확산되는 차세대 데이터 거버넌스 패러다임</li>
+<li><strong>수행 시점</strong>: 데이터 마이그레이션 前, 데이터 웨어하우스 구축 前, 정기 품질 점검 시</li>
+<li><strong>인사이트</strong>: 데이터 마이그레이션 전 프로파일링을 통해 품질 이슈를 사전에 탐지하면 마이그레이션 실패 위험을 대폭 낮출 수 있으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>프로파일링 결과는 데이터 표준화·정제 우선순위 결정의 근거 자료</strong></u></span>로 활용됨</li>
 </ul>
 
 </body>

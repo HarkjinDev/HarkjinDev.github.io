@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 국가 데이터 카탈로그 (National Data Catalog)</title>
+  <title>7. 데이터 스페이스(Data Space)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,49 +15,34 @@
   </style>
 </head>
 <body>
-<h4>8. 국가 데이터 카탈로그 (National Data Catalog)</h4>
+<h4>7. 데이터 스페이스(Data Space)</h4>
 <ul>
-<li><strong>정의:</strong> 공공·민간이 보유한 데이터셋의 소재·품질·접근조건·라이선스 등 메타데이터를 표준화하여 등록·검색·연계할 수 있는 범국가 데이터 목록 체계</li>
-<li><strong>키워드:</strong> DCAT, 메타데이터, ODRL, 데이터 스페이스, 탐색성, DQS, IDS Connector, One-윈도우</li>
+<li><strong>정의:</strong> 참여자 간 데이터 주권을 보장하면서 안전하게 데이터를 공유·거래할 수 있는 분산형 데이터 공유 인프라</li>
 <li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>개요:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>내용</th></tr>
-<tr><td>목적</td><td>데이터 탐색성(Findability) 향상·중복 수집 방지·공공데이터 개방 촉진·데이터 스페이스 참여 기반 제공</td></tr>
-<tr><td>법적 근거</td><td>데이터산업진흥법 제19조(국가데이터맵 구축)·공공데이터법 제17조(공공데이터 목록 제공 의무)</td></tr>
-<tr><td>국내 현황</td><td>과기정통부 주관 국가 데이터 카탈로그 표준 v1.0(2024) 제정·공공 52개 기관 1차 연계·One-윈도우 포털(data.go.kr) 고도화 추진</td></tr>
-<tr><td>핵심 특성</td><td>데이터 자체가 아닌 <strong>메타데이터</strong>를 표준화·등록하여 데이터 발견·접근·활용 원활화</td></tr>
+<li><strong>데이터 스페이스 핵심 원칙:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>설명</th><th>핵심</th></tr>
+<tr><td>데이터 주권</td><td>데이터 제공자가 사용 조건·목적·범위 직접 통제</td><td>제공자 통제권 보장</td></tr>
+<tr><td>분산성</td><td>중앙 저장소 없이 참여자 간 직접 데이터 교환</td><td>탈중앙화</td></tr>
+<tr><td>신뢰 프레임워크</td><td>참여자 신원 인증·데이터 계약·감사 체계</td><td>Trust Framework</td></tr>
+<tr><td>상호운용성</td><td>표준 기반 이기종 시스템 간 데이터 교환</td><td>개방 표준</td></tr>
+<tr><td>공정한 가치 배분</td><td>데이터 제공·활용에 따른 공정한 보상 체계</td><td>데이터 경제</td></tr>
 </table></div>
 </li>
-<li><strong>국가 데이터 카탈로그 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>역할</th><th>설명</th></tr>
-<tr><td>메타데이터 표준 
-(DCAT 기반)</td><td>데이터셋 설명 표준화</td><td>W3C DCAT 3.0 준용</td></tr>
-<tr><td>데이터 등록 체계</td><td>데이터 목록 수집·등록</td><td>데이터 등록 체계 품질 검증 4단계</td></tr>
-<tr><td>검색·탐색 엔진</td><td>사용자 데이터 발견 지원</td><td>전문 검색(Full-text)·분류 검색·태그 검색 지원·연관 데이터셋 추천(유사도 기반)·API 제공</td></tr>
-<tr><td>접근정책 관리 (ODRL)</td><td>데이터 이용조건 표준화</td><td>라이선스·이용조건·금지사항 기계가독형 표현·자동화된 정책 협상·계약 체결 지원</td></tr>
-<tr><td>데이터 품질 관리</td><td>카탈로그 신뢰성 확보</td><td>메타데이터 완전성·정확성·최신성 자동 검증·품질 점수(DQS) 부여·부적합 데이터 반려·개선 요청</td></tr>
-<tr><td>연계·상호운용 계층</td><td>이종 카탈로그 연결</td><td>기관 카탈로그·지자체·민간 플랫폼과 API 연계·IDS Connector·GAIA-X 상호운용 프로토콜 지원</td></tr>
+<li><strong>데이터 스페이스 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td>데이터 제공자 (Provider)</td><td>데이터를 공유·제공하는 참여자</td><td>사용 조건 설정</td></tr>
+<tr><td>데이터 소비자 (Consumer)</td><td>데이터를 활용·분석하는 참여자</td><td>계약 기반 접근</td></tr>
+<tr><td>커넥터 (Connector)</td><td>참여자 간 데이터 교환 표준 인터페이스</td><td>IDS Connector</td></tr>
+<tr><td>메타데이터 브로커</td><td>데이터 카탈로그·검색·발견 서비스</td><td>데이터 탐색</td></tr>
+<tr><td>신원 제공자 (Identity Provider)</td><td>참여자 신원 인증·인가 서비스</td><td>PKI·DID 기반</td></tr>
+<tr><td>앱 스토어</td><td>데이터 처리·분석 앱 제공 마켓플레이스</td><td>서비스 생태계</td></tr>
+<tr><td>클리어링 하우스</td><td>데이터 거래 로그·감사·분쟁 해결</td><td>거래 투명성</td></tr>
+<tr><td>데이터 계약 (Data Contract)</td><td>사용 조건, 과금 모델 등 명시</td><td>데이터 표준 계약</td></tr>
+<tr><td>표준 프로토콜</td><td>DCAT, ODRL(정책), GAIA-X표준</td><td>표준 준수</td></tr>
 </table></div>
 </li>
-<li><strong>데이터 등록 체계 품질 검증 4단계:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>검증 내용</th><th>핵심</th></tr>
-<tr><td>등록 검증</td><td>필수 메타데이터 항목 누락 여부 확인</td><td>필수 항목 완전성</td></tr>
-<tr><td>표준 검증</td><td>DCAT 표준 형식·어휘 준수 여부 확인</td><td>표준 준수</td></tr>
-<tr><td>중복 검증</td><td>기존 등록 데이터셋과 중복 여부 탐지</td><td>중복 방지</td></tr>
-<tr><td>형식 검증</td><td>접근 URL·파일 형식·인코딩 유효성 확인</td><td>접근 가능성</td></tr>
-</table></div>
-</li>
-<li><strong>데이터 이용자 유형별 접근:</strong><div class="table-scroll"><table>
-<tr><th>이용자</th><th>접근 방식</th><th>핵심</th></tr>
-<tr><td>일반 국민</td><td>검색·탐색·시각화·미리보기</td><td>데이터 발견</td></tr>
-<tr><td>기업·연구자</td><td>정책 기반 접근 요청·API 활용</td><td>연구·분석</td></tr>
-<tr><td>공무원</td><td>통제된 데이터 접근·업무 활용</td><td>정책 기반 접근</td></tr>
-<tr><td>개발자·시스템</td><td>API 호출·데이터 활용·연계</td><td>시스템 연동</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 국가 데이터 카탈로그는 DCAT 기반 메타데이터 표준·등록 체계·검색 엔진·ODRL 정책 관리·품질 보증·연계 계층의 6대 구성요소가 유기적으로 작동하여 데이터 탐색성과 상호운용성을 실현하는 데이터 스페이스 구현의 핵심 전제 인프라</li>
+<li><strong>인사이트:</strong> 데이터 스페이스는 중앙집중형 플랫폼의 데이터 독점 한계를 극복하고 데이터 주권·신뢰·상호운용성을 보장하는 분산형 데이터 공유 생태계로, EU Gaia-X·IDSA 표준을 중심으로 산업·공공·의료 등 전 분야로 확산되는 차세대 데이터 거버넌스 패러다임</li>
 </ul>
-<hr/>
 
 </body>
 </html>

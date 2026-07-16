@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 인메모리 데이터베이스 (IMDB, In-Memory Database)</title>
+  <title>[하위] 5-2. 델타 레이크(Delta Lake)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,42 +15,36 @@
   </style>
 </head>
 <body>
-<h4>5. 인메모리 데이터베이스 (IMDB, In-Memory Database)</h4>
+<h4>[하위] 5-2. 델타 레이크(Delta Lake)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 디스크 대신 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>메인 메모리(RAM)에 상주</strong></u></span>시켜 초고속 실시간 데이터 처리를 수행하는 데이터베이스 시스템</li>
-<li><strong>키워드</strong>: 메인 메모리,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> I/O비용 없음</strong></u></span>, 고속 처리, WAL, 스냅샷, 영속성, IMDG, SAP HANA, Redis, VoltDB</li>
-<li><strong>분류</strong>: 특수 DB</li>
-<li><strong>등장 배경</strong>:<ul>
-<li>기존 디스크 기반 DBMS는 I/O 병목이 성능 한계 → 메모리 가격 하락 및 대용량화로 IMDB 실용화</li>
-<li>실시간 분석·초저지연 응답이 요구되는 환경에서 필수 기술로 부상</li>
-</ul>
-</li>
-<li><strong>인메모리 DB vs 디스크 기반 DB 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>인메모리 DB (IMDB)</th><th>디스크 기반 DB</th></tr>
-<tr><td>저장 위치</td><td>메인 메모리(RAM)</td><td>디스크(HDD/SSD)</td></tr>
-<tr><td>응답 속도</td><td>마이크로초(μsec) 수준</td><td>밀리초(msec) 수준</td></tr>
-<tr><td>I/O 비용</td><td>없음 (메모리 직접 접근)</td><td>디스크 I/O 발생</td></tr>
-<tr><td>영속성</td><td>휘발성 → WAL·스냅샷으로 보완</td><td>기본 보장</td></tr>
-<tr><td>용량</td><td>메모리 용량에 제한</td><td>대용량 저장 가능</td></tr>
-<tr><td>비용</td><td>메모리 단가 높음</td><td>상대적으로 저렴</td></tr>
+<li><strong>정의: </strong>데이터 레이크의 단점을 보완, ACID 보장 및 메타데이터 관리를 통한 데이터 레이크하우스의 핵심 기술</li>
+<li><strong>Delta Lake 주요 기능:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 기능</th><th>설명</th></tr>
+<tr><td>신뢰성</td><td>ACID Transaction</td><td>추가·수정·삭제 시 원자성·일관성·격리성·지속성 보장</td></tr>
+<tr><td></td><td>Time Travel</td><td>특정 시점 데이터 조회·복구·감사·이력 추적 지원</td></tr>
+<tr><td>품질 관리</td><td>Schema Enforcement</td><td>정의된 스키마 외 데이터 저장 방지·품질 확보</td></tr>
+<tr><td></td><td>Schema Evolution</td><td>변경되는 데이터 구조 유연하게 반영·운영 편의성 향상</td></tr>
+<tr><td>운영 효율화</td><td>MERGE·UPDATE·DELETE</td><td>CDC·Upsert 등 데이터 변경 작업 효율적 처리</td></tr>
+<tr><td></td><td>Batch &amp; Streaming</td><td>실시간·배치 데이터를 동일 저장 계층에서 통합 처리</td></tr>
+<tr><td>성능 최적화</td><td>Compaction</td><td>다수 작은 파일 통합·저장·조회 성능 향상</td></tr>
+<tr><td></td><td>Z-Ordering</td><td>조회 빈도 높은 컬럼 기준 저장·검색 성능 향상</td></tr>
+<tr><td>활용성 향상</td><td>Bronze 계층</td><td>원천 데이터 저장·재처리·이력 추적 기반 제공</td></tr>
+<tr><td></td><td>Silver 계층</td><td>정제·검증된 데이터 저장·분석 신뢰성 확보</td></tr>
+<tr><td></td><td>Gold 계층</td><td>집계·가공 데이터 제공·AI·BI 분석 활용도 극대화</td></tr>
+<tr><td></td><td>Time Travel</td><td>특정 시점 데이터 조회·복구·감사·이력 추적 지원</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 기술</strong>:<ul>
-<li><strong>WAL(Write Ahead Logging)</strong>: 데이터 변경 전 로그를 먼저 기록하여 장애 시 복구</li>
-<li><strong>스냅샷(Snapshot)</strong>: 특정 시점의 메모리 상태를 디스크에 주기적으로 저장</li>
-<li><strong>IMDG(In-Memory Data Grid)</strong>: 분산 메모리 환경에서 데이터를 그리드 형태로 공유 및 처리</li>
-</ul>
+<li><strong>Delta Lake 특징:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>특징</th><th>설명</th></tr>
+<tr><td>Lakehouse</td><td>DL + DW 통합</td><td>데이터 저장·분석 기능을 단일 플랫폼에서 제공</td></tr>
+<tr><td>데이터 신뢰성</td><td>정합성 보장·버전 관리</td><td>분석 가능한 수준의 신뢰성 있는 데이터 제공</td></tr>
+<tr><td>데이터 확장성</td><td>대용량 분산 처리 지원</td><td>클라우드·빅데이터 환경에서 유연하게 확장 가능</td></tr>
+<tr><td>실시간 처리성</td><td>Batch·Streaming 통합 처리</td><td>실시간·배치 데이터를 동시에 처리 가능</td></tr>
+<tr><td>분석 활용성</td><td>AI·BI 친화적 구조</td><td>Bronze·Silver·Gold 계층으로 분석용 데이터 제공</td></tr>
+<tr><td>운영 효율성</td><td>데이터 파이프라인 단순화</td><td>데이터 관리·운영 복잡도 감소</td></tr>
+</table></div>
 </li>
-<li><strong>대표 제품</strong>:<ul>
-<li><strong>SAP HANA</strong>: 컬럼 기반 인메모리 DB, OLTP+OLAP 동시 지원 (HTAP)</li>
-<li><strong>Redis</strong>: Key-Value 기반 인메모리 DB, 캐시·세션 관리에 특화</li>
-<li><strong>VoltDB</strong>: ACID 보장 인메모리 RDBMS, 고속 트랜잭션 처리</li>
 </ul>
-</li>
-<li><strong>적용 분야</strong>: 실시간 사기 탐지, 주식·금융 거래 처리, 세션 관리, 실시간 대시보드</li>
-<li><strong>인사이트</strong>: 인메모리 DB는 초저지연 응답이 필수인 환경에서 탁월하나, 메모리 휘발성 문제를 WAL·스냅샷·복제(Replication)로 반드시 보완해야 하며, 메모리 비용과 데이터 볼륨을 고려한 하이브리드 설계(핫데이터는 IMDB, 콜드데이터는 디스크 DB)가 현실적 대안임</li>
-</ul>
-<hr/>
 
 </body>
 </html>

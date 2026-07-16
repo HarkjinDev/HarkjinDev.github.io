@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. DA & DBA 역할</title>
+  <title>3. 마스터 데이터 관리 (MDM, Master Data Management)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,14 @@
   </style>
 </head>
 <body>
-<h4>4. DA &amp; DBA 역할</h4>
+<h4>3. 마스터 데이터 관리 (MDM, Master Data Management)</h4>
 <ul>
-<li><strong>정의</strong>:<ul>
-<li><strong>DA(Data Architect)</strong>: 데이터 구조, 표준, 정책을 설계하고 전사 데이터 전략을 수립하는 전문가</li>
-<li><strong>DBA(Database Administrator)</strong>: 데이터베이스의 설치, 운영, 성능관리, 보안, 백업을 담당하는 관리자</li>
-</ul>
-</li>
-<li><strong>키워드</strong>: DA, DBA, 데이터 표준, 모델링, 데이터 전략, DB 운영, 성능관리, 보안</li>
+<li><strong>정의</strong>: 조직의 핵심 비즈니스 엔터티(고객, 제품, 공급업체 등)에 대한 마스터 데이터를 단일화하고 일관성 있게 관리하는 체계</li>
+<li><strong>키워드</strong>: 마스터 데이터, 단일 뷰(Golden Record), 데이터 허브, 정합성, 데이터 사일로</li>
 <li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>역할 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>DA</th><th>DBA</th></tr>
-<tr><td>주요 역할</td><td>데이터 표준화, 모델링, 전략</td><td>DB 설치/운영, 백업, 성능관리</td></tr>
-<tr><td>관점</td><td>비즈니스/논리적</td><td>기술/물리적</td></tr>
-<tr><td>산출물</td><td>ERD, 데이터 표준</td><td>DBA 스크립트, 백업 정책</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 대규모 조직에서는 DA와 DBA 역할이 분리되지만, 중소 규모에서는 DBA가 두 역할을 겸하는 경우가 많으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>디지털 전환 시대에 데이터 거버넌스를 이끄는 CDO(Chief Data Officer) 역할이 부상</strong></u></span>하고 있음</li>
+<li><strong>구성 요소</strong>: 데이터 허브(단일 마스터 저장소), MDM 아키텍처 유형(레지스트리/공유/통합/집중), 데이터 스튜어드십</li>
+<li><strong>필요성</strong>: 동일 고객을 시스템마다 다르게 관리하는 <strong>데이터 사일로(Data Silo)</strong> 현상 해결</li>
+<li><strong>인사이트</strong>: MDM 구축 시 조직 간 데이터 오너십 분쟁이 가장 큰 장벽이며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>거버넌스 조직과 데이터 스튜어드 역할 정의가 기술 구현보다 선행</strong></u></span>되어야 함</li>
 </ul>
 
 </body>

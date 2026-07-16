@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 데이터 프로파일링 (Data Profiling)</title>
+  <title>5. 데이터 표준화 (Data Standardization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,20 @@
   </style>
 </head>
 <body>
-<h4>6. 데이터 프로파일링 (Data Profiling)</h4>
+<h4>5. 데이터 표준화 (Data Standardization)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터의 구조, 값, 관계를 분석하여 품질 이슈를 사전에 진단하는 기법</li>
-<li><strong>키워드</strong>: 값/구조/관계 분석, 이상값, 결측값, 참조 무결성, 데이터 품질 진단</li>
+<li><strong>정의</strong>: 데이터의 명칭, 정의, 형식, 규칙을 전사적으로 통일하여 일관성을 확보하는 활동입니다.</li>
+<li><strong>키워드</strong>: 명칭/정의/형식/규칙 4원칙, ISO 8000, DRM, 데이터 사일로, 메타데이터</li>
 <li><strong>분류</strong>: 데이터 거버넌스/품질</li>
-<li><strong>분석 유형 3가지</strong>:<ul>
-<li><strong>값 분석(Value Analysis)</strong>: 최솟값/최댓값/평균/분포 등 데이터 값 자체의 통계적 특성 분석 → 이상값·결측값 탐지</li>
-<li><strong>구조 분석(Structure Analysis)</strong>: 형식·길이·데이터 타입 위반 여부 분석 → 스키마 불일치 탐지</li>
-<li><strong>관계 분석(Relationship Analysis)</strong>: 테이블 간 참조 무결성 위반, 중복 데이터 탐지 → 정합성 검증</li>
+<li><strong>데이터 표준화 4원칙</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;명정형규&gt;</strong></span><ul>
+<li><strong>명칭 표준화</strong>: 데이터 항목의 이름을 전사적으로 통일 (예: 고객ID vs 고객번호 → 단일화)</li>
+<li><strong>정의 표준화</strong>: 각 데이터 항목의 의미와 범위를 명확하게 정의</li>
+<li><strong>형식 표준화</strong>: 날짜, 코드, 숫자 등 데이터 형식을 통일 (예: YYYYMMDD)</li>
+<li><strong>규칙 표준화</strong>: 데이터 생성·변경·삭제에 관한 업무 규칙 통일</li>
 </ul>
 </li>
-<li><strong>수행 시점</strong>: 데이터 마이그레이션 前, 데이터 웨어하우스 구축 前, 정기 품질 점검 시</li>
-<li><strong>인사이트</strong>: 데이터 마이그레이션 전 프로파일링을 통해 품질 이슈를 사전에 탐지하면 마이그레이션 실패 위험을 대폭 낮출 수 있으며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>프로파일링 결과는 데이터 표준화·정제 우선순위 결정의 근거 자료</strong></u></span>로 활용됨</li>
+<li><strong>관련 표준 및 도구</strong>: ISO 8000, DRM(데이터 참조 모델), 메타데이터 관리 시스템</li>
+<li><strong>인사이트</strong>: 데이터 표준화는 단순한 네이밍 규칙이 아니라 조직 전체의 데이터 소통 언어를 통일하는 작업이며, 표준화 미흡 시 시스템 통합·연계 시 데이터 불일치와 사일로 현상이 반복적으로 발생함</li>
 </ul>
 
 </body>
