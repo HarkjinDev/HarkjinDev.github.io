@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
-MNEMONIC_RE  = re.compile(r'[<＜〈]([가-힣A-Za-z·,\s]{1,20})[>＞〉]')
+MNEMONIC_RE  = re.compile(r'[<＜〈]([가-힣A-Za-z0-9·,/\-~\s]{1,40})[>＞〉]')
 HEADING_TAGS = ["h1", "h2", "h3", "h4"]
 
 DOMAINS = [
@@ -123,6 +123,16 @@ def extract_mnemonics(html_path: str, domain_label: str):
     results = []
     seen    = set()
 
+    # &lt;...&gt; 로 이스케이프된 두음도 탐지 (notion_to_html.py 생성 HTML 대응)
+    MNEMONIC_ESC = re.compile(r'&lt;([가-힣A-Za-z0-9·,/\-~\s]{1,40})&gt;')
+    
+    # raw HTML에서 이스케이프 패턴 직접 탐지 후 치환
+    raw_html = str(soup)
+    if MNEMONIC_ESC.search(raw_html):
+        # &lt;두음&gt; → <두음> 로 치환 후 재파싱
+        fixed_html = MNEMONIC_ESC.sub(lambda m: f'<{m.group(1)}>', raw_html)
+        soup = BeautifulSoup(fixed_html, "html.parser")
+
     for text_node in soup.find_all(string=lambda t: t and MNEMONIC_RE.search(t)):
         match = MNEMONIC_RE.search(str(text_node))
         if not match:
@@ -172,6 +182,9 @@ def generate_mem_html(subnote_dir: str = "subnote"):
         with_content    = sum(1 for _, _, c in items if c)
         without_content = len(items) - with_content
         print(f"[{label}] 두음 {len(items)}개 (콘텐츠 있음: {with_content}, 없음: {without_content})")
+        if without_content:
+            no_content = [m for _, m, c in items if not c]
+            print(f"  └ 콘텐츠 없는 두음: {no_content[:5]}")
         total_count += len(items)
 
         topic_map: dict = {}
