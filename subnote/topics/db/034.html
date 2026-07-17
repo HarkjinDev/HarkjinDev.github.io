@@ -17,7 +17,7 @@
 <body>
 <h4>[하위] 3-2. 2PL (2-Phase Locking)</h4>
 <ul>
-<li><strong>정의</strong>: 트랜잭션의 Lock 연산을 확장 단계와 축소 단계로 엄격히 구분하여 직렬 가능성을 보장하는 병행제어 기법</li>
+<li><strong>정의</strong>: Lock 연산을 확장·축소 단계로 구분해 직렬성을 보장하는 병행제어기법</li>
 <li><strong>키워드</strong>: 확장/축소 단계, 직렬 가능성, Strict 2PL, Rigorous 2PL, 교착 상태</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
 <li><strong>2단계 구조</strong>:<ul>
@@ -27,7 +27,7 @@
 </li>
 <li><strong>변형 유형</strong>:<ul>
 <li><strong>기본 2PL</strong>: 위 원칙 준수. 교착 상태 발생 가능</li>
-<li><strong>엄격 2PL(Strict 2PL)</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>COMMIT/ROLLBACK 시점까지 모든 배타 락 유지</strong></u></span> → 연쇄 복귀 방지</li>
+<li><strong>엄격 2PL(Strict 2PL)</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>COMMIT/ROLLBACK 시점까지 모든 배타 락(X) 유지</strong></u></span> → 연쇄 복귀 방지</li>
 <li><strong>강한 2PL(Rigorous 2PL)</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>COMMIT/ROLLBACK 시까지 모든 락(S+X) 유지</strong></u></span> → 가장 안전</li>
 </ul>
 </li>
