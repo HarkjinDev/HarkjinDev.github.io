@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 컨텍스트 엔지니어링 (Context Engineering)</title>
+  <title>3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,41 +15,56 @@
   </style>
 </head>
 <body>
-<h4>4. 컨텍스트 엔지니어링 (Context Engineering)</h4>
+<h4>3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)</h4>
 <ul>
-<li><strong>정의:</strong> LLM·AI 에이전트가 최적의 응답을 생성하도록 컨텍스트 윈도우에 제공되는 정보의 구조·선택·흐름을 체계적으로 설계·관리하는 엔지니어링 방법론</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>컨텍스트 윈도우</strong></u></span>, 메모리 관리, RAG, 정보 아키텍처, 에이전트, 토큰 최적화, 컨텍스트 오버로드, 프롬프트 엔지니어링 진화</li>
-<li><strong>분류:</strong> 생성형 AI / LLM / 에이전트 시스템</li>
-<li><strong>컨텍스트 구성 요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>지시</strong></td><td><strong>시스템 프롬프트</strong></td><td>에이전트 역할·규칙·제약 정의</td><td>행동 기준 설정</td></tr>
-<tr><td></td><td><strong>태스크 지시</strong></td><td>현재 수행할 작업 명확화</td><td>목표 명시</td></tr>
-<tr><td><strong>메모리</strong></td><td><strong>단기 메모리</strong></td><td>현재 대화·세션 내 컨텍스트 유지</td><td>대화 흐름</td></tr>
-<tr><td></td><td><strong>장기 메모리</strong></td><td>외부 DB에 영구 저장·필요 시 검색</td><td>지속 기억</td></tr>
-<tr><td></td><td><strong>에피소딕 메모리</strong></td><td>과거 상호작용 이력·결과 저장</td><td>경험 활용</td></tr>
-<tr><td><strong>지식</strong></td><td><strong>RAG 검색 결과</strong></td><td>외부 지식 베이스 실시간 검색·주입</td><td>최신 지식</td></tr>
-<tr><td></td><td><strong>도메인 데이터</strong></td><td>업무 특화 문서·DB·API 결과</td><td>도메인 맥락</td></tr>
-<tr><td><strong>도구</strong></td><td><strong>툴 정의·결과</strong></td><td>호출 가능한 툴 스펙·실행 결과</td><td>행동 확장</td></tr>
-<tr><td></td><td><strong>에이전트 상태</strong></td><td>이전 단계 추론·행동·관찰 이력</td><td>추론 연속성</td></tr>
+<li><strong>정의:</strong> AI에이전트의 실행환경·도구연결·안전제어를 통합 설계·관리하는 엔지니어링 방법론</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에이전트 루프</strong></u></span>, 툴 호출(Tool Calling), 오케스트레이션, 샌드박스, 평가 프레임워크, 가드레일, 멀티에이전트, 메모리 관리, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>관찰 가능성(Observability)</strong></u></span></li>
+<li><strong>분류</strong>: AI 응용/트렌드</li>
+<li><strong>하네스(Harness): </strong>소프트웨어 테스트에서 코드를 자동으로 실행·검증하는 <strong>테스트 인프라</strong></li>
+<li><strong>구성 요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>Guides(행동지침계층)</strong></td><td><strong>시스템 프롬프트</strong></td><td>에이전트 역할·행동규칙 정의</td></tr>
+<tr><td></td><td><strong>AGENTS.md/문서</strong></td><td>프로젝트별 행동가이드 문서화</td></tr>
+<tr><td></td><td><strong>가드레일</strong></td><td>허용된 행동범위 명시</td></tr>
+<tr><td><strong>Sensors(감지·검증계층)</strong></td><td><strong>평가 스위트</strong></td><td>에이전트 출력 품질 테스트</td></tr>
+<tr><td></td><td><strong>검증 루프</strong></td><td>커밋 전 출력 검증</td></tr>
+<tr><td></td><td><strong>드리프트 탐지기</strong></td><td>행동 이탈 모니터링</td></tr>
+<tr><td><strong>실행·도구계층(Execution)</strong></td><td><strong>툴 레지스트리</strong></td><td>외부시스템·API 호출</td></tr>
+<tr><td></td><td><strong>샌드박스</strong></td><td>격리된 안전 실행환경</td></tr>
+<tr><td></td><td><strong>권한관리</strong></td><td>도구별 접근권한 제어</td></tr>
+<tr><td><strong>오케스트레이션계층</strong></td><td><strong>워크플로우 오케스트레이션</strong></td><td>태스크 순서·흐름 제어</td></tr>
+<tr><td></td><td><strong>멀티에이전트 시스템(MAS)</strong></td><td>서브에이전트 위임·협업</td></tr>
+<tr><td><strong>메모리계층</strong></td><td><strong>단기 메모리(컨텍스트)</strong></td><td>대화·세션 상태 유지</td></tr>
+<tr><td></td><td><strong>장기 메모리</strong></td><td>이력·지식 영속 저장</td></tr>
+<tr><td><strong>관측·운영계층</strong></td><td><strong>Observability</strong></td><td>실행 이력 추적</td></tr>
+<tr><td></td><td><strong>피드백 루프</strong></td><td>결과 반영 지속개선</td></tr>
+<tr><td><strong>주요 패턴</strong></td><td><strong>ReAct</strong></td><td>추론 → 행동 → 관찰 반복</td></tr>
+<tr><td></td><td><strong>Plan &amp; Execute</strong></td><td>전체 계획 수립 후 단계별 실행 분리</td></tr>
+<tr><td></td><td><strong>Human-in-the-Loop</strong></td><td>사람이 개입하여 승인·수정</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 4대 전략:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Write (저장)</strong></td><td>중요 정보를 외부에 영구 저장하여 컨텍스트 의존 탈피</td><td>외부 메모리화</td></tr>
-<tr><td><strong>Select (선택)</strong></td><td>현재 태스크에 관련성 높은 정보만 선별하여 주입</td><td>관련 정보 선별</td></tr>
-<tr><td><strong>Compress (압축)</strong></td><td>토큰 효율 위해 요약·필터링으로 정보 압축</td><td>토큰 최적화</td></tr>
-<tr><td><strong>Isolate (격리)</strong></td><td>서브에이전트·모듈로 컨텍스트를 분리하여 오염 방지</td><td>컨텍스트 격리</td></tr>
+<li><strong>에이전트 루프 (Agent Loop) 동작 구조:</strong><div class="table-scroll"><table>
+<tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>사용자 입력 / 태스크</strong></td><td>해결해야 할 목표(Goal)를 수용함</td><td>사용자 의도 및 최종 목적지 설정</td></tr>
+<tr><td><strong>오케스트레이터</strong></td><td>복잡한 태스크를 하위 단계로 분해 및 할당</td><td>전체적인 실행 계획(Planning) 수립</td></tr>
+<tr><td><strong>추론 (Reasoning)</strong></td><td>LLM이 현재 상태를 분석하고 다음 행동 결정</td><td><strong>ReAct</strong> 또는 <strong>CoT</strong> 방식 활용</td></tr>
+<tr><td><strong>툴 호출 
+(Tool Calling)</strong></td><td>외부 도구(API, 코드, 검색 등)를 실행함</td><td>외부 세계와의 상호작용 및 실무 수행</td></tr>
+<tr><td><strong>결과 수신 및 관찰</strong></td><td>도구 실행 결과를 확인하고 컨텍스트에 기록</td><td>실행 데이터의 피드백 및 지식 반영</td></tr>
+<tr><td><strong>종료 조건 판단</strong></td><td>목표 달성 여부를 확인하여 루프 지속 결정</td><td>조건 미충족 시 <strong>추론</strong> 단계로 재순환</td></tr>
+<tr><td><strong>최종 결과 반환</strong></td><td>최종 완성된 결과물을 사용자에게 전달</td><td>태스크 완결 및 루프 종료</td></tr>
 </table></div>
 </li>
-<li><strong>에이전트 시스템에서의 역할:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>단계별 컨텍스트 구성</strong></td><td>에이전트 루프 매 단계마다 최적 컨텍스트 동적 구성</td><td>동적 컨텍스트</td></tr>
-<tr><td><strong>멀티에이전트 컨텍스트 분리</strong></td><td>에이전트별 독립 컨텍스트로 오염·간섭 방지</td><td>에이전트 격리</td></tr>
-<tr><td><strong>메모리 계층 설계</strong></td><td>단기·장기·에피소딕 메모리 계층적 통합 설계</td><td>메모리 아키텍처</td></tr>
-<tr><td><strong>동적 RAG 연계</strong></td><td>태스크 맥락에 따라 검색 쿼리·범위 동적 조정</td><td>적응형 검색</td></tr>
+<li><strong>주요 리스크 및 대응:</strong><div class="table-scroll"><table>
+<tr><th>리스크</th><th>설명</th><th>대응 방법</th></tr>
+<tr><td><strong>무한 루프</strong></td><td>종료 조건 미충족으로 에이전트가 반복 실행</td><td>최대 스텝 수 제한, 타임아웃 설정</td></tr>
+<tr><td><strong>툴 오남용</strong></td><td>불필요하거나 위험한 툴을 잘못 호출</td><td>툴 권한 최소화(최소 권한 원칙)</td></tr>
+<tr><td><strong>컨텍스트 오염</strong></td><td>이전 실행 결과가 후속 추론에 오류 전파</td><td>메모리 초기화, 세션 격리</td></tr>
+<tr><td><strong>프롬프트 인젝션</strong></td><td>외부 입력을 통해 에이전트 행동을 악의적으로 유도</td><td>입력 검증, 샌드박스 격리</td></tr>
+<tr><td><strong>비용 폭주</strong></td><td>반복 루프로 인한 LLM API 호출 비용 급증</td><td>토큰 예산 제한, 캐싱 적용</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 컨텍스트 엔지니어링은 2025년 중반 프롬프트 엔지니어링의 진화적 후계자로 부상했으며, 대부분의 에이전트 실패는 모델 자체의 문제가 아닌 컨텍스트 설계 실패에서 비롯된다는 인식이 확산되면서 AI 에이전트 개발자의 핵심 역량으로 자리잡고 있음. 프롬프트 한 줄이 아닌 정보 아키텍처 전체를 설계하는 역량이 프로덕션 AI 시스템의 품질을 결정하는 시대로 전환되고 있음</li>
+<li><strong>인사이트: </strong>LLM을 '도구'에서 '자율 실행 시스템'으로 전환하는 핵심 인프라이며, 단순 프롬프트 엔지니어링의 상위 개념으로 부상 중. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에이전트 성능의 병목은 LLM 자체보다 툴 설계·메모리 관리·평가 체계에서 주로 발생</strong></u></span>하며, 하네스 품질이 전체 시스템 신뢰도를 결정함. 관찰 가능성(Observability) 확보 없이는 멀티에이전트 시스템의 디버깅이 사실상 불가능하므로, 로깅·추적 인프라는 선택이 아닌 필수 설계 요소. Human-in-the-Loop 설계는 초기에는 자율성을 제한하는 것처럼 보이지만, 고위험 도메인(금융·의료·법률)에서는 오히려 신뢰성과 채택률을 높이는 전략적 선택</li>
 </ul>
 
 </body>

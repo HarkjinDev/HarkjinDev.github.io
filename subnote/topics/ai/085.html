@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 양자 머신러닝 (QML, Quantum Machine Learning)</title>
+  <title>6. Physical AI (피지컬 AI)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,51 @@
   </style>
 </head>
 <body>
-<h4>7. 양자 머신러닝 (QML, Quantum Machine Learning)</h4>
+<h4>6. Physical AI (피지컬 AI)</h4>
 <ul>
-<li><strong>정의:</strong> 양자 컴퓨팅의 중첩·얽힘·양자 간섭 특성을 활용하여 머신러닝 알고리즘의 학습·최적화·추론 속도를 기하급수적으로 향상시키는 양자-고전 융합 컴퓨팅 기술</li>
-<li><strong>키워드:</strong> 양자 중첩, 양자 얽힘, 큐비트, VQC, 양자 어드밴티지, PQC, 양자 커널, NISQ, HHL 알고리즘</li>
+<li><strong>정의:</strong> 로봇·드론 등 물리적 실체를 통해 실세계를 인식·판단·행동하는 AI패러다임임</li>
+<li><strong>키워드:</strong> 로보틱스, 자율주행, 구현된 AI(Embodied AI), 멀티모달 센서, 시뮬레이션, 디지털 트윈, 액추에이터, 실시간 추론, Robotics Foundation Model</li>
 <li><strong>분류:</strong> AI 응용 / 트렌드</li>
-<li><strong>양자 컴퓨팅 핵심 원리:</strong><div class="table-scroll"><table>
+<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
+<tr><th>Layer</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>인지 (Perception)</strong></td><td><strong>카메라·비전</strong></td><td>주변 환경 시각 정보 실시간 수집</td><td>시각 인식</td></tr>
+<tr><td></td><td><strong>라이다 (LiDAR)</strong></td><td>3D 공간 거리·형상 정밀 측정</td><td>공간 인식</td></tr>
+<tr><td></td><td><strong>IMU·센서 퓨전</strong></td><td>가속도·자이로·복합 센서 통합</td><td>복합 인식</td></tr>
+<tr><td></td><td><strong>LMM 
+(대형 멀티모달 모델)</strong></td><td>이미지·음성·텍스트 통합 환경 이해</td><td>멀티모달 인식</td></tr>
+<tr><td><strong>판단 (Decision)</strong></td><td><strong>AI 추론 엔진</strong></td><td>인식 데이터 기반 행동 실시간 판단</td><td>실시간 판단</td></tr>
+<tr><td></td><td><strong>World Model</strong></td><td>환경 변화·인과관계 내부 예측·시뮬레이션</td><td>환경 예측 모델</td></tr>
+<tr><td></td><td><strong>VLA (Vision-Language-Action)</strong></td><td>시각·언어 이해를 행동 명령으로 직접 변환</td><td>언어→행동 변환</td></tr>
+<tr><td></td><td><strong>강화학습 (RL)</strong></td><td>환경 상호작용으로 최적 행동 정책 학습</td><td>행동 최적화</td></tr>
+<tr><td><strong>제어 (Action)</strong></td><td><strong>액추에이터</strong></td><td>판단 결과를 물리적 동작으로 변환·실행</td><td>행동 실행</td></tr>
+<tr><td></td><td><strong>모터·서보 제어</strong></td><td>관절·이동 장치의 정밀 동작 제어</td><td>정밀 제어</td></tr>
+<tr><td></td><td><strong>NPU·AI 가속칩</strong></td><td>AI 연산 전용 하드웨어 가속 처리</td><td>연산 가속</td></tr>
+<tr><td></td><td><strong>엣지 컴퓨팅</strong></td><td>디바이스 내 즉각 추론·저지연 처리</td><td>저지연 처리</td></tr>
+<tr><td><strong>시뮬레이션 (Simulation)</strong></td><td><strong>Sim-to-Real Transfer</strong></td><td>시뮬레이션 학습 결과를 실세계 전이</td><td>안전 학습</td></tr>
+<tr><td></td><td><strong>디지털 트윈</strong></td><td>물리 환경 가상 복제·시뮬레이션 학습</td><td>가상 복제</td></tr>
+<tr><td></td><td><strong>합성 데이터 생성</strong></td><td>다양한 시나리오 합성 데이터로 학습 강화</td><td>학습 다양성</td></tr>
+<tr><td></td><td><strong>5G·클라우드 연계</strong></td><td>대규모 학습·업데이트·원격 관제 지원</td><td>클라우드 지원</td></tr>
+</table></div>
+</li>
+<li><strong>주요 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>중첩 (Superposition)</strong></td><td>큐비트가 0과 1을 동시에 존재하는 상태</td><td>병렬 계산 가능</td></tr>
-<tr><td><strong>얽힘 (Entanglement)</strong></td><td>두 큐비트가 거리에 상관없이 상태를 공유</td><td>초고속 상관 계산</td></tr>
-<tr><td><strong>간섭 (Interference)</strong></td><td>정답 경로 강화·오답 경로 소거로 최적해 탐색</td><td>확률 조작</td></tr>
-<tr><td><strong>측정 (Measurement)</strong></td><td>중첩 상태를 0 또는 1로 확정하는 관측 행위</td><td>결과 추출</td></tr>
+<tr><td><strong>휴머노이드 로봇</strong></td><td>인간 형태의 로봇이 범용 작업 자율 수행</td><td>범용 로봇</td></tr>
+<tr><td><strong>자율주행</strong></td><td>차량이 환경 인식·판단·주행을 자율 수행</td><td>무인 이동</td></tr>
+<tr><td><strong>산업용 로봇</strong></td><td>제조·물류 환경에서 AI 기반 자율 작업 수행</td><td>스마트 팩토리</td></tr>
+<tr><td><strong>드론·UAM</strong></td><td>자율 비행·배송·측량 등 공중 작업 수행</td><td>공중 자율화</td></tr>
+<tr><td><strong>의료 로봇</strong></td><td>AI 기반 수술 보조·재활·진단 로봇</td><td>의료 정밀화</td></tr>
 </table></div>
 </li>
 <li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>양자 모델</strong></td><td><strong>VQC (변분 양자 회로)</strong></td><td>파라미터화된 양자 회로로 ML 모델 구현</td><td>양자 신경망</td></tr>
-<tr><td></td><td><strong>QNN (양자 신경망)</strong></td><td>양자 회로 기반 신경망 레이어 구성</td><td>양자 딥러닝</td></tr>
-<tr><td></td><td><strong>양자 커널 방법</strong></td><td>양자 특징 공간에서 SVM 커널 계산 가속</td><td>양자 SVM</td></tr>
-<tr><td><strong>양자 알고리즘</strong></td><td><strong>HHL 알고리즘</strong></td><td>선형방정식 지수적 가속 풀이</td><td>선형계산 가속</td></tr>
-<tr><td></td><td><strong>양자 PCA</strong></td><td>고차원 데이터 주성분 분석 양자 가속</td><td>차원 축소 가속</td></tr>
-<tr><td></td><td><strong>QSVM</strong></td><td>양자 커널로 분류 문제 고속 처리</td><td>분류 가속</td></tr>
-<tr><td></td><td><strong>양자 볼츠만 머신</strong></td><td>양자 터널링 기반 확률 분포 학습</td><td>생성 모델</td></tr>
-<tr><td><strong>하이브리드</strong></td><td><strong>하이브리드 양자-고전</strong></td><td>양자 회로 + 고전 최적화 반복 결합</td><td>현실적 구현</td></tr>
-<tr><td></td><td><strong>NISQ 알고리즘</strong></td><td>현재 노이즈 있는 중간 규모 양자 장치 활용</td><td>현재 적용 가능</td></tr>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Embodied AI</strong></td><td>물리적 몸체를 통해 환경과 상호작용하며 학습</td><td>체화 학습</td></tr>
+<tr><td><strong>Robotics Foundation Model </strong></td><td>대규모 사전학습 모델을 로봇 제어에 적용</td><td>범용 로봇 모델</td></tr>
+<tr><td><strong>Sim-to-Real Transfer</strong></td><td>시뮬레이션 학습 결과를 실세계에 전이</td><td>안전 학습</td></tr>
+<tr><td><strong>SLAM</strong></td><td>미지 환경에서 동시에 지도 작성·위치 추정 수행</td><td>자율 항법</td></tr>
+<tr><td><strong>강화학습 (RL)</strong></td><td>실환경 상호작용을 통한 최적 행동 정책 학습</td><td>행동 최적화</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> QML은 양자 컴퓨팅과 ML의 융합으로 특정 계산 문제에서 고전 ML의 한계를 초월하는 잠재력을 지니나, NISQ 시대의 오류율·큐비트 수 한계로 실질적 양자 어드밴티지 입증은 아직 초기 단계임. 하이브리드 양자-고전 접근이 현재의 현실적 구현 경로이며, 오류 정정 기술 발전과 큐비트 확장이 QML 실용화의 핵심 선결 과제로 2030년대 본격 부상이 전망됨</li>
+<li><strong>인사이트:</strong> Physical AI는 "소프트웨어 AI"의 한계를 넘어 AI가 실세계에서 직접 가치를 창출하는 단계로의 전환을 의미하며, NVIDIA의 Cosmos·Figure AI·Tesla Optimus 등의 부상으로 휴머노이드 로봇이 핵심 전장으로 급부상하고 있음. Foundation Model의 로보틱스 적용으로 특정 태스크에 종속되지 않는 범용 로봇 시대가 열리고 있으며, Sim-to-Real Transfer와 디지털 트윈 기술의 성숙도가 Physical AI 상용화의 핵심 변수로 작용할 전망</li>
 </ul>
 
 </body>

@@ -18,7 +18,7 @@
 <h4>[하위] 3-3. 타임스탬프 (Timestamp Ordering)</h4>
 <ul>
 <li><strong>정의</strong>: 트랜잭션 시작 시 부여된 타임스탬프를 기준으로 트랜잭션 간 접근 순서를 결정하여 직렬 가능성을 보장하는 비잠금 기반 병행제어 기법</li>
-<li><strong>키워드</strong>: 타임스탬프, 논리적 계수, 시스템 시계, Read-TS, Write-TS, 롤백 재시작, 교착 상태 없음, 기아 발생</li>
+<li><strong>키워드</strong>: 타임스탬프, 논리적 계수, 시스템 시계, Read-TS, Write-TS, 롤백 재시작, 교착 상태 없음, 기아 발생, 토마스 기록 규칙</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
 <li><strong>구성요소:</strong><ul>
 <li><strong>논리적 계수(Logical Counter):</strong> 하나씩 증가시켜 타임스탬프값으로 부여</li>
@@ -48,6 +48,7 @@
 </li>
 <li><strong>장점</strong>: Lock 불필요 → 교착 상태 발생 없음</li>
 <li><strong>단점</strong>: 잦은 롤백 및 재시작으로 기아(Starvation) 발생 가능</li>
+<li><strong>토마스 기록 규칙:</strong> 타임스탬프 기법에서, 후행 트랜잭션에서 선행 트랜잭션의 데이터를 덮어썼을 경우<strong> 쓰기연산 거부를 방지하여 동시성을 향상하는 규칙</strong></li>
 <li><strong>인사이트</strong>: 타임스탬프 기법은 교착 상태를 원천 차단하지만, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>충돌이 잦은 환경에서는 반복 롤백으로 인한 처리량 저하가 심각해 낙관적 검증이나 MVCC와 함께 비교 검토</strong></u></span>가 필요함</li>
 </ul>
 

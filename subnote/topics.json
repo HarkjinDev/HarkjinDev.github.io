@@ -607,134 +607,142 @@
       },
       {
         "id": "073",
-        "name": "3. AI 모델 테스트 기법 (소프트웨어 테스트의 확장)"
+        "name": "[하위] 2-1. 엘보우 기법(Elbow 기법)"
       },
       {
         "id": "074",
-        "name": "[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)"
+        "name": "3. AI 모델 테스트 기법 (소프트웨어 테스트의 확장)"
       },
       {
         "id": "075",
-        "name": "[하위] 3-2. 뉴런 커버리지 테스트 (Neuron Coverage Testing)"
+        "name": "[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)"
       },
       {
         "id": "076",
-        "name": "[하위] 3-3. 안전변경 최대화 테스트 (Maximum Safe Radius Testing)"
+        "name": "[하위] 3-2. 뉴런 커버리지 테스트 (Neuron Coverage Testing)"
       },
       {
         "id": "077",
-        "name": "4. AI 레드 티밍 (AI Red Teaming)"
+        "name": "[하위] 3-3. 안전변경 최대화 테스트 (Maximum Safe Radius Testing)"
       },
       {
         "id": "078",
-        "name": "[Part 9] AI 응용 및 최신 기술 트렌드"
+        "name": "4. AI 레드 티밍 (AI Red Teaming)"
       },
       {
         "id": "079",
-        "name": "1. XAI (eXplainable AI, 설명 가능한 인공지능)"
+        "name": "[Part 9] AI 응용 및 최신 기술 트렌드"
       },
       {
         "id": "080",
-        "name": "2. 에이전틱 AI (Agentic AI)"
+        "name": "1. XAI (eXplainable AI, 설명 가능한 인공지능)"
       },
       {
         "id": "081",
-        "name": "3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)"
+        "name": "2. 에이전틱 AI (Agentic AI)"
       },
       {
         "id": "082",
-        "name": "4. 컨텍스트 엔지니어링 (Context Engineering)"
+        "name": "3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)"
       },
       {
         "id": "083",
-        "name": "5. 연합학습 (Federated Learning)"
+        "name": "4. 컨텍스트 엔지니어링 (Context Engineering)"
       },
       {
         "id": "084",
-        "name": "6. Physical AI (피지컬 AI)"
+        "name": "5. 연합학습 (Federated Learning)"
       },
       {
         "id": "085",
-        "name": "7. 양자 머신러닝 (QML, Quantum Machine Learning)"
+        "name": "6. Physical AI (피지컬 AI)"
       },
       {
         "id": "086",
-        "name": "8. 터보퀀트 (TurboQuant)"
+        "name": "7. 양자 머신러닝 (QML, Quantum Machine Learning)"
       },
       {
         "id": "087",
-        "name": "9. Affective AI (감성 AI)"
+        "name": "8. 터보퀀트 (TurboQuant)"
       },
       {
         "id": "088",
-        "name": "[Part 10] AI 운영 및 실무 응용"
+        "name": "9. Affective AI (감성 AI)"
       },
       {
         "id": "089",
-        "name": "1. 머신러닝 모델링 & 파이프라인"
+        "name": "10. 추론 모델"
       },
       {
         "id": "090",
-        "name": "2. MLOps (Machine Learning Operations)"
+        "name": "[Part 10] AI 운영 및 실무 응용"
       },
       {
         "id": "091",
-        "name": "3. AI 실무 응용 (산업별 특화 토픽)"
+        "name": "1. 머신러닝 모델링 & 파이프라인"
       },
       {
         "id": "092",
-        "name": "4. AX(AI Transformer)"
+        "name": "2. MLOps (Machine Learning Operations)"
       },
       {
         "id": "093",
-        "name": "[Part 11] AI 윤리, 거버넌스 및 법제도"
+        "name": "3. AI 실무 응용 (산업별 특화 토픽)"
       },
       {
         "id": "094",
-        "name": "1. AI 윤리 (AI Ethics) 및 신뢰성"
+        "name": "4. AX(AI Transformer)"
       },
       {
         "id": "095",
-        "name": "[하위] 1-1. 인공지능신뢰성(Trustworthiness)"
+        "name": "[Part 11] AI 윤리, 거버넌스 및 법제도"
       },
       {
         "id": "096",
-        "name": "[하위] 1-2. AI 신뢰성 인증제도(Certification of AI Trustworthiness, CAT)"
+        "name": "1. AI 윤리 (AI Ethics) 및 신뢰성"
       },
       {
         "id": "097",
-        "name": "2. AI 거버넌스 (AI Governance)"
+        "name": "[하위] 1-1. 인공지능신뢰성(Trustworthiness)"
       },
       {
         "id": "098",
-        "name": "[하위] 2-1. ISO/IEC 42001 (인공지능 경영시스템)"
+        "name": "[하위] 1-2. AI 신뢰성 인증제도(Certification of AI Trustworthiness, CAT)"
       },
       {
         "id": "099",
-        "name": "[하위] 2-2. AI RMF (AI Risk Management Framework)"
+        "name": "2. AI 거버넌스 (AI Governance)"
       },
       {
         "id": "100",
-        "name": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)"
+        "name": "[하위] 2-1. ISO/IEC 42001 (인공지능 경영시스템)"
       },
       {
         "id": "101",
-        "name": "3. AI 법적 이슈"
+        "name": "[하위] 2-2. AI RMF (AI Risk Management Framework)"
       },
       {
         "id": "102",
-        "name": "[하위] 3-1. 인공지능 저작권 이슈"
+        "name": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)"
       },
       {
         "id": "103",
-        "name": "4. EU AI Act (유럽연합 인공지능법)"
+        "name": "3. AI 법적 이슈"
       },
       {
         "id": "104",
-        "name": "5. AI 생성물 워터마크 (AI-Generated Content Watermark)"
+        "name": "[하위] 3-1. 인공지능 저작권 이슈"
       },
       {
         "id": "105",
+        "name": "4. EU AI Act (유럽연합 인공지능법)"
+      },
+      {
+        "id": "106",
+        "name": "5. AI 생성물 워터마크 (AI-Generated Content Watermark)"
+      },
+      {
+        "id": "107",
         "name": "6. 인공지능 영향평가"
       }
     ]
@@ -4206,6 +4214,10 @@
       {
         "id": "041",
         "name": "5. AI Alignment (AI 정렬)"
+      },
+      {
+        "id": "042",
+        "name": "6. FDE(Forward Deployed Engineer)"
       }
     ]
   }

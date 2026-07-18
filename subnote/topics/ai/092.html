@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. AX(AI Transformer)</title>
+  <title>2. MLOps (Machine Learning Operations)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,34 +15,32 @@
   </style>
 </head>
 <body>
-<h4>4. AX(AI Transformer)</h4>
+<h4>2. MLOps (Machine Learning Operations)</h4>
 <ul>
-<li><strong>AX 3요소 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>3요소</th><th>구성요소</th><th>설명</th></tr>
-<tr><td>AX 대상·서비스</td><td>고객 경험</td><td>AI 기반 맞춤화·개인화 서비스 제공</td></tr>
-<tr><td></td><td>운영 및 생산성</td><td>프로세스 자동화·공급망 최적화</td></tr>
-<tr><td></td><td>제품 및 서비스</td><td>AI 기능 내재화·비즈니스 모델 창출</td></tr>
-<tr><td>AX 구현</td><td>AI as a Service</td><td>AI 기능·자원 클라우드 On-Demand 제공</td></tr>
-<tr><td></td><td>AI Infra</td><td>고성능 컴퓨팅·병렬 스토리지·클라우드 운영</td></tr>
-<tr><td></td><td>AI Governance</td><td>윤리·투명성·안전성·책임성·법규 준수</td></tr>
-<tr><td>AX 운영·거버넌스</td><td>Active Learning</td><td>가치 데이터 선별·레이블링·전문가 피드백</td></tr>
-<tr><td></td><td>MLOps</td><td>개발~모니터링 전과정 자동화·안정성 확보</td></tr>
-<tr><td></td><td>Compliance</td><td>법률·윤리·편향성 검사·설명가능성 확보</td></tr>
-</table></div>
-</li>
-<li><strong>AX 방법론 도입단계(7D) 및 접근 전략:</strong><div class="table-scroll"><table>
-<tr><th>도입단계</th><th>접근전략</th><th>설명</th></tr>
-<tr><td>목표 정의 (Define)</td><td>서비스·기능 발굴·목표 명확화</td><td>Vertical AI 집중·sLLM 검토</td></tr>
-<tr><td>Data 정립 (Discover)</td><td>메타데이터 중심 데이터 설계·관리</td><td>비식별화·암호화·법규 대응</td></tr>
-<tr><td>Data 운영 방안 설계 (Develop)</td><td>데이터 아키텍처·Knowledge Base 구조화</td><td>자주성·품질·보호 확보</td></tr>
-<tr><td>AX 투자 모델 수립 (Design)</td><td>AX 특성 고려 유연한 방식 채택</td><td>OPEX 중심 동적투자·FinOps</td></tr>
-<tr><td>AI Full Stack 구성 (Deploy)</td><td>공공 AI Full Stack 체계 정립</td><td>5계층 참조 아키텍처·LLMOps</td></tr>
-<tr><td>서비스 채널 선택 (Deliver)</td><td>옴니채널 통합·포용적 채널 접근</td><td>사용자 경험 일관성 유지</td></tr>
-<tr><td>AX 활용 진단·모니터링 (Diagnose)</td><td>환류 거버넌스·상시 진단체계 구축</td><td>성능·비용·준법·윤리 상시진단</td></tr>
-</table></div>
-</li>
+<li><strong>정의</strong>: ML모델의 개발과 운영을 통합해 학습·배포·모니터링을 자동화하는 관리체계</li>
+<li><strong>키워드</strong>: 파이프라인 자동화, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>피쳐 스토어</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>모델 서빙(Serving), 데이터 드리프트</strong></u></span>, 기술 부채 해소</li>
+<li><strong>분류</strong>: AI 운영/실무</li>
+<li><strong>핵심 기능</strong>:<ul>
+<li><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>CI/CD/CT</strong></u></span>: 지속적 통합, 배포, 그리고 AI만의 특징인 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><strong>지속적 학습(Continuous Training)</strong></span></li>
+<li><strong>Model Monitoring</strong>: 모델의 성능 저하(Drift) 감지 및 재학습 트리거</li>
 </ul>
-<hr/>
+</li>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>데이터 파이프라인</strong></td><td>데이터 수집·전처리·검증을 자동화하는 워크플로우</td><td>데이터 자동화</td></tr>
+<tr><td><strong>데이터</strong></td><td><strong>피처 스토어</strong></td><td>학습·서빙에 사용되는 피처를 중앙 저장·재사용 관리</td><td>피처 재사용</td></tr>
+<tr><td><strong>개발</strong></td><td><strong>실험 관리</strong></td><td>하이퍼파라미터·메트릭·결과를 버전별로 기록·비교</td><td>재현성 확보</td></tr>
+<tr><td><strong>개발</strong></td><td><strong>모델 레지스트리</strong></td><td>학습된 모델을 버전별로 등록·관리·승인하는 저장소</td><td>모델 버전관리</td></tr>
+<tr><td><strong>배포·서빙</strong></td><td><strong>CI/CD 파이프라인</strong></td><td>코드·데이터·모델 변경 시 자동 학습·테스트·배포 수행</td><td>배포 자동화</td></tr>
+<tr><td><strong>배포·서빙</strong></td><td><strong>모델 서빙</strong></td><td>학습된 모델을 API 형태로 실시간·배치 추론에 제공</td><td>추론 제공</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>모델 모니터링</strong></td><td>운영 중 모델의 성능·데이터 드리프트를 지속 감시</td><td>품질 유지</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>데이터 드리프트 감지</strong></td><td>학습·운영 데이터 분포 변화를 탐지하여 재학습 트리거</td><td>분포 변화감지</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>오케스트레이션</strong></td><td>파이프라인 전체 워크플로우 스케줄링·실행 관리</td><td>워크플로우 관리</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>인프라 관리</strong></td><td>학습·서빙 환경의 컨테이너·클러스터 자원 관리</td><td>자원 관리</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: MLOps의 구성요소는 데이터→학습→배포→모니터링의 전체 ML 라이프사이클을 자동화·체계화하는 데 초점을 두며, 단순 배포를 넘어 데이터의 변화(Concept Drift)를 실시간 감지하여 모델의 생명주기(Lifecycle)읲 모니터링이 운영 안정성의 핵심 축</li>
+</ul>
 
 </body>
 </html>

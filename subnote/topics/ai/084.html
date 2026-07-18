@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. Physical AI (피지컬 AI)</title>
+  <title>5. 연합학습 (Federated Learning)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,51 +15,46 @@
   </style>
 </head>
 <body>
-<h4>6. Physical AI (피지컬 AI)</h4>
+<h4>5. 연합학습 (Federated Learning)</h4>
 <ul>
-<li><strong>정의:</strong> 로봇·자율주행·드론 등 물리적 embodiment를 통해 실세계 환경을 인식·판단·행동하는 AI 패러다임</li>
-<li><strong>키워드:</strong> 로보틱스, 자율주행, 구현된 AI(Embodied AI), 멀티모달 센서, 시뮬레이션, 디지털 트윈, 액추에이터, 실시간 추론, Robotics Foundation Model</li>
-<li><strong>분류:</strong> AI 응용 / 트렌드</li>
-<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
-<tr><th>Layer</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>인지 (Perception)</strong></td><td><strong>카메라·비전</strong></td><td>주변 환경 시각 정보 실시간 수집</td><td>시각 인식</td></tr>
-<tr><td></td><td><strong>라이다 (LiDAR)</strong></td><td>3D 공간 거리·형상 정밀 측정</td><td>공간 인식</td></tr>
-<tr><td></td><td><strong>IMU·센서 퓨전</strong></td><td>가속도·자이로·복합 센서 통합</td><td>복합 인식</td></tr>
-<tr><td></td><td><strong>LMM 
-(대형 멀티모달 모델)</strong></td><td>이미지·음성·텍스트 통합 환경 이해</td><td>멀티모달 인식</td></tr>
-<tr><td><strong>판단 (Decision)</strong></td><td><strong>AI 추론 엔진</strong></td><td>인식 데이터 기반 행동 실시간 판단</td><td>실시간 판단</td></tr>
-<tr><td></td><td><strong>World Model</strong></td><td>환경 변화·인과관계 내부 예측·시뮬레이션</td><td>환경 예측 모델</td></tr>
-<tr><td></td><td><strong>VLA (Vision-Language-Action)</strong></td><td>시각·언어 이해를 행동 명령으로 직접 변환</td><td>언어→행동 변환</td></tr>
-<tr><td></td><td><strong>강화학습 (RL)</strong></td><td>환경 상호작용으로 최적 행동 정책 학습</td><td>행동 최적화</td></tr>
-<tr><td><strong>제어 (Action)</strong></td><td><strong>액추에이터</strong></td><td>판단 결과를 물리적 동작으로 변환·실행</td><td>행동 실행</td></tr>
-<tr><td></td><td><strong>모터·서보 제어</strong></td><td>관절·이동 장치의 정밀 동작 제어</td><td>정밀 제어</td></tr>
-<tr><td></td><td><strong>NPU·AI 가속칩</strong></td><td>AI 연산 전용 하드웨어 가속 처리</td><td>연산 가속</td></tr>
-<tr><td></td><td><strong>엣지 컴퓨팅</strong></td><td>디바이스 내 즉각 추론·저지연 처리</td><td>저지연 처리</td></tr>
-<tr><td><strong>시뮬레이션 (Simulation)</strong></td><td><strong>Sim-to-Real Transfer</strong></td><td>시뮬레이션 학습 결과를 실세계 전이</td><td>안전 학습</td></tr>
-<tr><td></td><td><strong>디지털 트윈</strong></td><td>물리 환경 가상 복제·시뮬레이션 학습</td><td>가상 복제</td></tr>
-<tr><td></td><td><strong>합성 데이터 생성</strong></td><td>다양한 시나리오 합성 데이터로 학습 강화</td><td>학습 다양성</td></tr>
-<tr><td></td><td><strong>5G·클라우드 연계</strong></td><td>대규모 학습·업데이트·원격 관제 지원</td><td>클라우드 지원</td></tr>
+<li><strong>정의</strong>: 데이터를 중앙 서버로 수집하지 않고, 개별 기기(로컬)에서 모델을 학습시킨 후 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>학습된 '가중치'값만 서버에 공유</strong></u></span>하여 개인정보를 보호하며 학습하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분산 학습 기법</strong></u></span></li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인정보 보호</strong></u></span>, 데이터 비식별화, 가중치 평균, 분산 학습, 프라이버시 보존, 가중치 집계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>FedSGD, FedAvg, 차등 프라이버시,</strong></u></span> 통신 효율, Non-IID, 온디바이스 학습</li>
+<li><strong>분류</strong>: AI 응용/트렌드</li>
+<li><strong>특징</strong>: 데이터 주권 확보, 프라이버시 보호, 통신 비용 절감</li>
+<li><strong>동작 원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 모델 배포</strong></td><td>서버가 전역 모델을 각 클라이언트에 배포</td><td>초기 배포</td></tr>
+<tr><td><strong>2. 로컬 학습</strong></td><td>클라이언트가 자신의 로컬 데이터로 모델 학습</td><td>분산 학습</td></tr>
+<tr><td><strong>3. 가중치 업로드</strong></td><td>데이터 대신 학습된 가중치(기울기)만 서버에 전송</td><td>프라이버시 보존</td></tr>
+<tr><td><strong>4. 집계 (Aggregation)</strong></td><td>서버가 각 클라이언트 가중치를 FedAvg 등으로 통합</td><td>전역 모델 갱신</td></tr>
+<tr><td><strong>5. 반복</strong></td><td>갱신된 전역 모델을 재배포하며 위 과정 반복</td><td>수렴까지 반복</td></tr>
 </table></div>
 </li>
 <li><strong>주요 유형:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>휴머노이드 로봇</strong></td><td>인간 형태의 로봇이 범용 작업 자율 수행</td><td>범용 로봇</td></tr>
-<tr><td><strong>자율주행</strong></td><td>차량이 환경 인식·판단·주행을 자율 수행</td><td>무인 이동</td></tr>
-<tr><td><strong>산업용 로봇</strong></td><td>제조·물류 환경에서 AI 기반 자율 작업 수행</td><td>스마트 팩토리</td></tr>
-<tr><td><strong>드론·UAM</strong></td><td>자율 비행·배송·측량 등 공중 작업 수행</td><td>공중 자율화</td></tr>
-<tr><td><strong>의료 로봇</strong></td><td>AI 기반 수술 보조·재활·진단 로봇</td><td>의료 정밀화</td></tr>
+<tr><td><strong>수평 연합학습</strong></td><td>클라이언트 간 동일한 특징, 다른 샘플 데이터 보유</td><td>샘플 분산</td></tr>
+<tr><td><strong>수직 연합학습</strong></td><td>클라이언트 간 동일한 샘플, 다른 특징 데이터 보유</td><td>특징 분산</td></tr>
+<tr><td><strong>연합 전이학습</strong></td><td>데이터·특징 모두 다를 때 전이학습과 결합</td><td>이종 도메인</td></tr>
 </table></div>
 </li>
 <li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Embodied AI</strong></td><td>물리적 몸체를 통해 환경과 상호작용하며 학습</td><td>체화 학습</td></tr>
-<tr><td><strong>Robotics Foundation Model </strong></td><td>대규모 사전학습 모델을 로봇 제어에 적용</td><td>범용 로봇 모델</td></tr>
-<tr><td><strong>Sim-to-Real Transfer</strong></td><td>시뮬레이션 학습 결과를 실세계에 전이</td><td>안전 학습</td></tr>
-<tr><td><strong>SLAM</strong></td><td>미지 환경에서 동시에 지도 작성·위치 추정 수행</td><td>자율 항법</td></tr>
-<tr><td><strong>강화학습 (RL)</strong></td><td>실환경 상호작용을 통한 최적 행동 정책 학습</td><td>행동 최적화</td></tr>
+<tr><td><strong>FedSGD</strong></td><td>클라이언트 가중치를 서버가 집계하여 전역모델 갱신</td><td>기본 연합학습 방식</td></tr>
+<tr><td><strong>FedAvg</strong></td><td>클라이언트 가중치를 데이터 비율로 가중 평균 집계</td><td>표준 집계 알고리즘</td></tr>
+<tr><td><strong>차등 프라이버시 (DP)</strong></td><td>가중치에 노이즈를 추가하여 개인정보 역추론 방지</td><td>프라이버시 강화</td></tr>
+<tr><td><strong>보안 집계 (Secure Aggregation)</strong></td><td>암호화 기반으로 개별 가중치 노출 없이 집계 수행</td><td>암호화 집계</td></tr>
+<tr><td><strong>통신 압축</strong></td><td>가중치 양자화·희소화로 통신 비용 절감</td><td>통신 효율화</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> Physical AI는 "소프트웨어 AI"의 한계를 넘어 AI가 실세계에서 직접 가치를 창출하는 단계로의 전환을 의미하며, NVIDIA의 Cosmos·Figure AI·Tesla Optimus 등의 부상으로 휴머노이드 로봇이 핵심 전장으로 급부상하고 있음. Foundation Model의 로보틱스 적용으로 특정 태스크에 종속되지 않는 범용 로봇 시대가 열리고 있으며, Sim-to-Real Transfer와 디지털 트윈 기술의 성숙도가 Physical AI 상용화의 핵심 변수로 작용할 전망</li>
+<li><strong>주요 문제점:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Non-IID 문제</strong></td><td>클라이언트 간 데이터 분포 불균일로 모델 수렴 저하</td><td>데이터 이질성</td></tr>
+<tr><td><strong>통신 비용</strong></td><td>반복적인 가중치 송수신으로 네트워크 부하 발생</td><td>통신 병목</td></tr>
+<tr><td><strong>무임승차 공격</strong></td><td>일부 클라이언트가 학습 기여 없이 전역 모델만 수신</td><td>신뢰성 문제</td></tr>
+<tr><td><strong>적대적 공격</strong></td><td>악의적 클라이언트가 오염된 가중치로 모델 훼손</td><td>보안 취약성</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 연합학습은 데이터 프라이버시 규제가 강화되는 환경에서 '데이터는 모으지 않고 지식만 모으는' 현실적 대안으로 부상함. 특히 의료·금융 등 데이터 민감도가 높은 산업에서 AI 도입의 핵심 enabler로 주목받고 있으며, 차등 프라이버시·보안 집계와의 결합으로 프라이버시 보존 수준이 지속적으로 강화되는 추세</li>
 </ul>
 
 </body>

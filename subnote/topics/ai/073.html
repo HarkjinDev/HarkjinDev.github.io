@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. AI 모델 테스트 기법 (소프트웨어 테스트의 확장)</title>
+  <title>[하위] 2-1. 엘보우 기법(Elbow 기법)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,12 +15,24 @@
   </style>
 </head>
 <body>
-<h4>3. AI 모델 테스트 기법 (소프트웨어 테스트의 확장)</h4>
+<h4>[하위] 2-1. 엘보우 기법(Elbow 기법)</h4>
 <ul>
-<li><strong>정의</strong>: 결정론적이지 않은 AI 모델의 특성을 고려하여, 모델의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>강건성(Robustness)과 안전성</strong></u></span>을 검증하기 위한 특화된 테스팅 기법</li>
-<li><strong>키워드</strong>: 테스트 오라클, 화이트박스 테스팅, 강건성 검증, 적대적 공격(Adversarial Attack)</li>
-<li><strong>분류</strong>: 성능평가/테스트</li>
-<li><strong>인사이트</strong>: AI 모델은 전통적 SW와 달리 모든 경로를 예측하기 어려우므로, 통계적 검증과 적대적 사례(Edge Case) 테스트 병행이 필수적임</li>
+<li><strong>정의: </strong>군집화 알고리즘에서 군집 수(K)를 정해야 하는데, 적절한 값을 찾기 위해 사용되는 기법</li>
+<li><strong>특징: </strong>적절한 K 값을 찾기 위해 SSE(Sum of Squared Errors, 오차 제곱합) 감소 추이를 분석</li>
+<li><strong>수식: </strong><ul>
+<li><strong>SSE = ΣᵢΣ_{x∈Cᵢ} ||x−μᵢ||²</strong></li>
+<li>k:클러스터수, Ci: i번째클러스터, μi: 중심, x: 데이터점</li>
+</ul>
+</li>
+<li><strong>동작원리 : </strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>1. K-means 수행</td><td>클러스터 개수를 1부터 증가시키며 수행</td><td>클러스터 증가수행</td></tr>
+<tr><td>2. SSE 계산</td><td>SSE가 작을수록 데이터가 잘 군집됨</td><td>군집도 평가</td></tr>
+<tr><td>3. 그래프 그리기</td><td>X축 K, Y축 SSE값으로 그래프 출력</td><td>SSE 그래프화</td></tr>
+<tr><td>4. Elbow Point 찾기</td><td>SSE 감소속도 둔화지점을 최적 K로 결정</td><td>최적 K 결정</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: Elbow Point가 명확하지 않을 경우, 실루엣 분석 기법으로 최적 K를 보완 결정</li>
 </ul>
 
 </body>
