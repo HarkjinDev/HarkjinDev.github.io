@@ -23,6 +23,7 @@
       --content-bg:  #ffffff;
       --font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; overflow: hidden; font-family: var(--font); }
     body { display: flex; flex-direction: column; background: var(--bg); color: var(--text); }
@@ -31,56 +32,44 @@
     header {
       height: var(--header-h); flex-shrink: 0;
       background: var(--sidebar-bg);
-      display: flex; align-items: center; padding: 0 12px; gap: 8px;
+      display: flex; align-items: center; padding: 0 16px; gap: 12px;
       border-bottom: 1px solid rgba(255,255,255,.05);
     }
-    .logo { font-size: .92rem; font-weight: 700; color: #e0ddd6; letter-spacing: -.01em; white-space: nowrap; }
+    .logo { font-size: .93rem; font-weight: 700; color: #e0ddd6; letter-spacing: -.01em; }
     .logo em { color: var(--accent); font-style: normal; }
+
     .btn-menu {
       display: none; background: none; border: none; color: #888; cursor: pointer;
       padding: 5px 7px; font-size: 1rem; border-radius: 5px; line-height: 1;
     }
     .btn-menu:hover { background: rgba(255,255,255,.08); color: #ccc; }
-    .header-mid { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; }
-    .breadcrumb {
-      font-size: .74rem; color: #888;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
-      padding: 4px 11px; border-radius: 20px;
-      max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .header-right { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
 
-    /* 공통 헤더 버튼 */
-    .hbtn {
+    .breadcrumb {
+      margin-left: auto;
+      font-size: .75rem; color: #888;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      padding: 4px 12px; border-radius: 20px;
+      max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 6px; }
+
+    .nav-btn {
       background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
-      color: #bbb; cursor: pointer; border-radius: 7px;
-      height: 34px; min-width: 34px; padding: 0 8px;
-      font-size: .82rem; font-family: var(--font);
-      display: flex; align-items: center; justify-content: center; gap: 4px;
-      transition: all .15s; white-space: nowrap; flex-shrink: 0;
+      color: #ccc; cursor: pointer; border-radius: 8px;
+      width: 40px; height: 40px; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background .15s, color .15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .hbtn:hover:not(:disabled) { background: rgba(255,255,255,.14); color: #fff; }
-    .hbtn:active:not(:disabled) { background: rgba(255,255,255,.2); }
-    .hbtn:disabled { opacity: .25; cursor: default; }
-    .hbtn.icon-only { padding: 0; }
+    .nav-btn:hover:not(:disabled) { background: rgba(255,255,255,.14); color: #fff; }
+    .nav-btn:active:not(:disabled) { background: rgba(255,255,255,.2); }
+    .nav-btn:disabled { opacity: .25; cursor: default; }
 
-    /* 회독 버튼 */
-    #btnReview.reviewed { background: rgba(193,117,80,.3); color: var(--accent); border-color: rgba(193,117,80,.6); }
-    #btnReview:hover:not(:disabled) { background: rgba(193,117,80,.35); color: #f0a070; border-color: var(--accent); }
-
-    /* 대시보드 토글 */
-    #btnDash.active { background: rgba(193,117,80,.25); color: var(--accent); border-color: rgba(193,117,80,.5); }
-
-    /* 동기화 상태 dot */
-    .sync-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #444; flex-shrink: 0; transition: background .4s;
+    @media (max-width: 680px) {
+      .nav-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+      .breadcrumb { max-width: 120px; font-size: .7rem; }
     }
-    .sync-dot.syncing { background: #f0a040; animation: pulse .8s infinite; }
-    .sync-dot.ok      { background: #3da85e; }
-    .sync-dot.err     { background: #c0392b; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     /* ── 레이아웃 ── */
     .layout { display: flex; flex: 1; min-height: 0; }
@@ -102,6 +91,7 @@
     }
     .domain-btn:hover { background: var(--hover); }
     .domain-btn.open  { background: var(--domain-bg); }
+
     .domain-tag {
       background: var(--tag-bg); color: var(--tag-text);
       font-size: .67rem; font-weight: 700; padding: 2px 7px;
@@ -115,21 +105,14 @@
     .topic-list.open { display: block; }
 
     .topic-item {
-      display: flex; align-items: center; gap: 4px;
-      padding: 5px 12px 5px 32px;
-      cursor: pointer; color: #747068; font-size: .76rem; line-height: 1.45;
+      display: block; padding: 5px 14px 5px 34px;
+      cursor: pointer; color: #747068; font-size: .76rem; line-height: 1.5;
       transition: background .1s, color .1s; user-select: none;
     }
     .topic-item:hover  { background: var(--hover); color: #bdb7ae; }
     .topic-item.active { background: var(--active-bg); color: var(--active-text); font-weight: 500; }
-    .topic-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-    /* 사이드바 회독 뱃지 */
-    .topic-badge { display: flex; gap: 2px; align-items: center; flex-shrink: 0; }
-    .badge-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .22; }
-    .badge-dot.on { opacity: 1; }
-
-    /* ── 메인 콘텐츠 ── */
+    /* ── 메인 (스크롤 컨테이너) ── */
     main {
       flex: 1; min-width: 0; min-height: 0;
       overflow-y: auto; overflow-x: hidden;
@@ -155,135 +138,13 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    iframe#viewer { width: 100%; border: none; display: none; background: var(--content-bg); border-top: 1px solid var(--border); }
+    iframe#viewer {
+      width: 100%; border: none; display: none;
+      background: var(--content-bg); border-top: 1px solid var(--border);
+    }
     iframe#viewer.show { display: block; }
 
-    /* ── 대시보드 패널 ── */
-    #dashboard {
-      flex: 1; min-width: 0; min-height: 0;
-      overflow-y: auto; -webkit-overflow-scrolling: touch;
-      background: var(--bg); padding: 20px 24px;
-      display: none;
-    }
-    #dashboard.show { display: block; }
-
-    .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    .dash-title { font-size: 1.05rem; font-weight: 700; color: #37352f; }
-    .dash-total { font-size: .8rem; color: #999; }
-
-    .dash-card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 10px; padding: 16px 18px; margin-bottom: 12px;
-    }
-    .dash-card-title { font-size: .75rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
-
-    /* 전체 진행 */
-    .dash-overall-nums { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
-    .dash-big { font-size: 2rem; font-weight: 700; color: #37352f; line-height: 1; }
-    .dash-sub { font-size: .85rem; color: #999; }
-
-    /* 진행 바 */
-    .prog-wrap { background: #eee; border-radius: 20px; height: 7px; overflow: hidden; }
-    .prog-bar  { height: 100%; border-radius: 20px; background: var(--accent); transition: width .5s ease; }
-
-    /* 도메인 행 */
-    .dash-domain-row {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 0; border-bottom: 1px solid #f0eeec;
-    }
-    .dash-domain-row:last-child { border-bottom: none; }
-    .dash-dtag {
-      background: var(--tag-bg); color: var(--tag-text);
-      font-size: .67rem; font-weight: 700; padding: 2px 7px;
-      border-radius: 3px; flex-shrink: 0; width: 52px; text-align: center;
-    }
-    .dash-dbar-wrap { flex: 1; }
-    .dash-dbar-bg { background: #eee; border-radius: 20px; height: 5px; overflow: hidden; }
-    .dash-dbar    { height: 100%; border-radius: 20px; background: var(--accent); }
-    .dash-dcnt    { font-size: .72rem; color: #999; flex-shrink: 0; min-width: 44px; text-align: right; }
-
-    /* 최근 회독 목록 */
-    .dash-recent-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 0; border-bottom: 1px solid #f0eeec;
-      cursor: pointer; transition: background .1s; border-radius: 4px;
-    }
-    .dash-recent-item:last-child { border-bottom: none; }
-    .dash-recent-item:hover { background: #faf9f7; }
-    .dash-rtag { background: #f0eeec; color: #666; font-size: .67rem; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
-    .dash-rname { flex: 1; font-size: .8rem; color: #444; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .dash-rcnt  { font-size: .72rem; font-weight: 700; color: var(--accent); flex-shrink: 0; }
-    .dash-rdate { font-size: .7rem; color: #bbb; flex-shrink: 0; }
-
-    .dash-empty { text-align: center; padding: 30px; color: #bbb; font-size: .85rem; }
-
-    /* ── 설정 모달 ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,.5); z-index: 300;
-      align-items: center; justify-content: center;
-    }
-    .modal-overlay.show { display: flex; }
-    .modal-box {
-      background: #fff; border-radius: 12px; padding: 24px;
-      width: 360px; max-width: 92vw; max-height: 90vh; overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,.3);
-    }
-    .modal-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #333; }
-    .modal-desc  { font-size: .76rem; color: #999; margin-bottom: 16px; }
-    .modal-label { font-size: .76rem; color: #555; margin-bottom: 4px; margin-top: 14px; font-weight: 500; }
-    .modal-input {
-      width: 100%; border: 1px solid #ddd; border-radius: 7px;
-      padding: 9px 11px; font-size: .84rem; outline: none;
-      font-family: monospace; color: #333;
-    }
-    .modal-input:focus { border-color: var(--accent); }
-    .modal-hint { font-size: .7rem; color: #bbb; margin-top: 4px; }
-    .modal-btns { display: flex; gap: 8px; margin-top: 18px; }
-    .modal-btn {
-      flex: 1; padding: 9px; border-radius: 7px; border: none;
-      cursor: pointer; font-size: .84rem; font-family: var(--font);
-      transition: opacity .15s;
-    }
-    .modal-btn:hover { opacity: .85; }
-    .modal-btn-primary   { background: var(--accent); color: #fff; }
-    .modal-btn-secondary { background: #f0eeec; color: #555; }
-    .modal-btn-create    { background: #2d3748; color: #fff; font-size: .76rem; margin-top: 8px; width: 100%; padding: 8px; border-radius: 7px; border: none; cursor: pointer; font-family: var(--font); }
-    .modal-btn-create:hover { opacity: .85; }
-    .modal-status { font-size: .76rem; margin-top: 10px; min-height: 18px; padding: 6px 10px; border-radius: 6px; display: none; }
-    .modal-status.ok  { display: block; background: #edfaf3; color: #2d8a4e; }
-    .modal-status.err { display: block; background: #fdf0ef; color: #c0392b; }
-
-    /* ── 회독 초기화 확인 모달 ── */
-    .reset-modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,.5); z-index: 400;
-      align-items: center; justify-content: center;
-    }
-    .reset-modal-overlay.show { display: flex; }
-    .reset-modal-box {
-      background: #fff; border-radius: 12px; padding: 24px;
-      width: 300px; max-width: 90vw;
-      box-shadow: 0 20px 60px rgba(0,0,0,.3);
-      text-align: center;
-    }
-    .reset-modal-icon { font-size: 2rem; margin-bottom: 10px; }
-    .reset-modal-title { font-size: .95rem; font-weight: 700; color: #333; margin-bottom: 6px; }
-    .reset-modal-desc  { font-size: .78rem; color: #888; margin-bottom: 18px; line-height: 1.5; }
-    .reset-modal-btns  { display: flex; gap: 8px; }
-    .reset-modal-cancel { flex: 1; padding: 9px; border-radius: 7px; border: none; background: #f0eeec; color: #555; cursor: pointer; font-size: .84rem; font-family: var(--font); }
-    .reset-modal-confirm { flex: 1; padding: 9px; border-radius: 7px; border: none; background: #e74c3c; color: #fff; cursor: pointer; font-size: .84rem; font-family: var(--font); }
-    .reset-modal-cancel:hover  { opacity: .85; }
-    .reset-modal-confirm:hover { opacity: .85; }
-
-    /* 길게 누르기 시각 피드백 */
-    #btnReview.pressing { animation: pressGrow .7s ease forwards; }
-    @keyframes pressGrow {
-      0%   { transform: scale(1);    box-shadow: none; }
-      100% { transform: scale(1.08); box-shadow: 0 0 0 4px rgba(193,117,80,.35); }
-    }
-
-    /* ── 오버레이 ── */
+    /* ── 오버레이 (모바일) ── */
     .overlay {
       display: none; position: fixed; inset: 0; top: var(--header-h);
       background: rgba(0,0,0,.45); z-index: 99;
@@ -294,8 +155,7 @@
     @media (max-width: 680px) {
       :root { --sidebar-w: 240px; }
       .btn-menu { display: block; }
-      .breadcrumb { max-width: 110px; font-size: .7rem; }
-      #btnReview .rev-label { display: none; }
+
       aside {
         position: fixed; top: var(--header-h); left: 0; bottom: 0; z-index: 100;
         transform: translateX(-100%); transition: transform .25s ease;
@@ -303,8 +163,6 @@
       }
       aside.open { transform: translateX(0); }
       .content-wrap { max-width: 100%; }
-      #dashboard { padding: 14px; }
-      .hbtn { height: 36px; min-width: 36px; }
     }
   </style>
 </head>
@@ -313,31 +171,23 @@
 <header>
   <button class="btn-menu" id="btnMenu">☰</button>
   <div class="logo">📚 <em>서브노트</em></div>
-  <div class="header-mid">
-    <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
-  </div>
+  <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
   <div class="header-right">
-    <button class="hbtn" id="btnReview" title="회독 체크" disabled>
-      ☆ <span class="rev-label" id="revLabel">회독</span>
-    </button>
-    <button class="hbtn icon-only" id="btnDash" title="대시보드">📊</button>
-    <button class="hbtn icon-only" id="btnRand" title="랜덤 토픽">🎲</button>
-    <button class="hbtn icon-only" id="btnPrev" title="이전 토픽" disabled>⬆</button>
-    <button class="hbtn icon-only" id="btnNext" title="다음 토픽" disabled>⬇</button>
-    <button class="hbtn icon-only" id="btnSettings" title="Gist 동기화 설정">⚙️</button>
-    <div class="sync-dot" id="syncDot" title="동기화 상태"></div>
+    <button class="nav-btn" id="btnRand" title="랜덤 토픽">🎲</button>
+    <button class="nav-btn" id="btnPrev" title="이전 토픽" disabled>⬆</button>
+    <button class="nav-btn" id="btnNext" title="다음 토픽" disabled>⬇</button>
   </div>
 </header>
 
 <div class="layout">
   <aside id="sidebar">
     <nav id="nav">
-      <div style="padding:18px 14px;color:#555;font-size:.76rem;">불러오는 중…</div>
+      <div style="padding:20px 14px;color:#444;font-size:.76rem;">불러오는 중…</div>
     </nav>
   </aside>
+
   <div class="overlay" id="overlay"></div>
 
-  <!-- 콘텐츠 뷰 -->
   <main id="mainEl">
     <div class="content-wrap">
       <div class="placeholder" id="placeholder">
@@ -348,331 +198,109 @@
       <iframe id="viewer" title="토픽 뷰어" scrolling="no"></iframe>
     </div>
   </main>
-
-  <!-- 대시보드 뷰 -->
-  <div id="dashboard"></div>
-</div>
-
-<!-- 회독 초기화 확인 모달 -->
-<div class="reset-modal-overlay" id="resetModal">
-  <div class="reset-modal-box">
-    <div class="reset-modal-icon">🔄</div>
-    <div class="reset-modal-title">회독 초기화</div>
-    <div class="reset-modal-desc" id="resetModalDesc">이 토픽의 회독 기록을<br>초기화할까요?</div>
-    <div class="reset-modal-btns">
-      <button class="reset-modal-cancel"  id="btnResetCancel">취소</button>
-      <button class="reset-modal-confirm" id="btnResetConfirm">초기화</button>
-    </div>
-  </div>
-</div>
-
-<!-- 설정 모달 -->
-<div class="modal-overlay" id="settingsModal">
-  <div class="modal-box">
-    <div class="modal-title">⚙️ Gist 동기화 설정</div>
-    <div class="modal-desc">회독 데이터를 GitHub Gist에 저장해 여러 기기에서 공유합니다.</div>
-
-    <div class="modal-label">GitHub Personal Access Token (gist 권한)</div>
-    <input class="modal-input" type="password" id="inputPat" placeholder="github_pat_xxx 또는 ghp_xxx">
-    <div class="modal-hint">Settings → Developer settings → Fine-grained tokens → gist 권한 부여</div>
-
-    <div class="modal-label">Gist ID</div>
-    <input class="modal-input" type="text" id="inputGistId" placeholder="Gist ID (자동 생성 또는 직접 입력)">
-    <div class="modal-hint">PAT 입력 후 아래 버튼으로 자동 생성 가능</div>
-    <button class="modal-btn-create" id="btnCreateGist">🆕 새 Secret Gist 자동 생성</button>
-
-    <div class="modal-status" id="modalStatus"></div>
-
-    <div class="modal-btns">
-      <button class="modal-btn modal-btn-secondary" id="btnCancelSettings">취소</button>
-      <button class="modal-btn modal-btn-primary"   id="btnSaveSettings">저장 및 동기화</button>
-    </div>
-  </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════
-   1. 상태 변수
-═══════════════════════════════════════════ */
-let reviews      = {};   // { "db/001": { count, last, topic, domain } }
+const nav        = document.getElementById('nav');
+const viewer     = document.getElementById('viewer');
+const placeholder = document.getElementById('placeholder');
+const loading    = document.getElementById('loading');
+const breadcrumb = document.getElementById('breadcrumb');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('overlay');
+const btnMenu    = document.getElementById('btnMenu');
+const mainEl     = document.getElementById('mainEl');
+
+let activeItem   = null;
 let allTopics    = [];
 let currentIndex = -1;
-let currentDomain = '', currentId = '', currentName = '', currentLabel = '';
-let topicsData   = {};   // renderNav 후 원본 data 보관
-let activeItem   = null;
-let saveTimer    = null;
 
-let pat    = localStorage.getItem('snb_pat')     || '';
-let gistId = localStorage.getItem('snb_gist_id') || '';
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const btnRand = document.getElementById('btnRand');
 
-// 캐시 복원
-try { reviews = JSON.parse(localStorage.getItem('snb_reviews_cache') || '{}'); } catch(e) {}
+btnPrev.addEventListener('click', () => {
+  if (currentIndex > 0) goToIndex(currentIndex - 1);
+});
+btnNext.addEventListener('click', () => {
+  if (currentIndex < allTopics.length - 1) goToIndex(currentIndex + 1);
+});
+btnRand.addEventListener('click', () => {
+  if (!allTopics.length) return;
+  let idx;
+  do { idx = Math.floor(Math.random() * allTopics.length); }
+  while (allTopics.length > 1 && idx === currentIndex);
+  goToIndex(idx);
+});
 
-/* ═══════════════════════════════════════════
-   2. Gist API
-═══════════════════════════════════════════ */
-const GIST_API  = 'https://api.github.com/gists';
-const FILE_NAME = 'subnote_reviews.json';
-
-function gistHdrs(token) {
-  return {
-    'Authorization': `Bearer ${token || pat}`,
-    'Accept':        'application/vnd.github+json',
-    'X-GitHub-Api-Version': '2022-11-28',
-    'Content-Type':  'application/json',
-  };
-}
-
-function setSyncDot(state) {
-  const el = document.getElementById('syncDot');
-  el.className = `sync-dot${state ? ' '+state : ''}`;
-  el.title = { syncing:'동기화 중…', ok:'동기화 완료', err:'동기화 실패', '':'연결 안 됨' }[state||''] || '';
-}
-
-async function loadFromGist() {
-  if (!pat || !gistId) return;
-  setSyncDot('syncing');
-  try {
-    const res  = await fetch(`${GIST_API}/${gistId}`, { headers: gistHdrs() });
-    if (!res.ok) throw new Error(res.status);
-    const data = await res.json();
-    const raw  = data.files?.[FILE_NAME]?.content || '{}';
-    reviews    = JSON.parse(raw);
-    localStorage.setItem('snb_reviews_cache', JSON.stringify(reviews));
-    setSyncDot('ok');
-    updateAllBadges();
-    updateReviewBtn();
-  } catch(e) {
-    console.warn('Gist load:', e);
-    setSyncDot('err');
-  }
-}
-
-async function saveToGist() {
-  localStorage.setItem('snb_reviews_cache', JSON.stringify(reviews));
-  if (!pat || !gistId) return;
-  setSyncDot('syncing');
-  try {
-    const res = await fetch(`${GIST_API}/${gistId}`, {
-      method: 'PATCH', headers: gistHdrs(),
-      body: JSON.stringify({ files: { [FILE_NAME]: { content: JSON.stringify(reviews, null, 2) } } })
-    });
-    if (!res.ok) throw new Error(res.status);
-    setSyncDot('ok');
-  } catch(e) {
-    console.warn('Gist save:', e);
-    setSyncDot('err');
-  }
-}
-
-function scheduleSave() {
-  localStorage.setItem('snb_reviews_cache', JSON.stringify(reviews));
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(saveToGist, 1500);
-}
-
-async function createGist(token) {
-  const res = await fetch(GIST_API, {
-    method: 'POST', headers: gistHdrs(token),
-    body: JSON.stringify({
-      description: '서브노트 회독 데이터',
-      public: false,
-      files: { [FILE_NAME]: { content: '{}' } }
-    })
-  });
-  if (!res.ok) throw new Error(res.status);
-  return (await res.json()).id;
-}
-
-/* ═══════════════════════════════════════════
-   3. 회독 로직
-═══════════════════════════════════════════ */
-function markReview() {
-  if (!currentDomain || !currentId) return;
-  const key = `${currentDomain}/${currentId}`;
-  if (!reviews[key]) reviews[key] = { count:0, last:'', topic: currentName, domain: currentLabel };
-  reviews[key].count++;
-  reviews[key].last  = new Date().toISOString().slice(0,10);
-  reviews[key].topic  = currentName;
-  reviews[key].domain = currentLabel;
-  updateReviewBtn();
-  updateBadge(currentDomain, currentId, reviews[key].count);
-  scheduleSave();
-}
-
-function getCount(domain, id) {
-  return reviews[`${domain}/${id}`]?.count || 0;
-}
-
-/* ═══════════════════════════════════════════
-   4. UI 업데이트
-═══════════════════════════════════════════ */
-function updateReviewBtn() {
-  const btn   = document.getElementById('btnReview');
-  const label = document.getElementById('revLabel');
-  if (!currentDomain) return;
-  const cnt = getCount(currentDomain, currentId);
-  btn.disabled = false;
-  btn.querySelector('span:first-child') || null;
-  // icon + label 갱신
-  btn.innerHTML = `${cnt > 0 ? '✓' : '☆'} <span class="rev-label">${cnt > 0 ? cnt+'회' : '회독'}</span>`;
-  btn.className = `hbtn${cnt > 0 ? ' reviewed' : ''}`;
-  btn.disabled = false;
-}
-
-function renderBadge(container, count) {
-  container.innerHTML = '';
-  if (count === 0) return;
-  const filled = Math.min(count, 3);
-  for (let i = 0; i < 3; i++) {
-    const d = document.createElement('span');
-    d.className = 'badge-dot' + (i < filled ? ' on' : '');
-    container.appendChild(d);
-  }
-}
-
-function updateBadge(domain, id, count) {
-  const badge = document.querySelector(`.topic-badge[data-key="${domain}/${id}"]`);
-  if (badge) renderBadge(badge, count);
-}
-
-function updateAllBadges() {
-  document.querySelectorAll('.topic-badge[data-key]').forEach(el => {
-    const [d, i] = el.dataset.key.split('/');
-    renderBadge(el, getCount(d, i));
-  });
+function goToIndex(idx) {
+  const t = allTopics[idx];
+  if (t) loadTopic(t.domain, t.id, t.name, t.label, false);
 }
 
 function updateNavBtns() {
-  document.getElementById('btnPrev').disabled = currentIndex <= 0;
-  document.getElementById('btnNext').disabled = currentIndex < 0 || currentIndex >= allTopics.length - 1;
+  btnPrev.disabled = currentIndex <= 0;
+  btnNext.disabled = currentIndex < 0 || currentIndex >= allTopics.length - 1;
 }
 
-/* ═══════════════════════════════════════════
-   5. 대시보드
-═══════════════════════════════════════════ */
-let dashOpen = false;
-
-function toggleDashboard() {
-  dashOpen = !dashOpen;
-  document.getElementById('btnDash').classList.toggle('active', dashOpen);
-  document.getElementById('mainEl').style.display    = dashOpen ? 'none' : '';
-  const dash = document.getElementById('dashboard');
-  dash.classList.toggle('show', dashOpen);
-  if (dashOpen) renderDashboard();
+/* ── 사이드바 토글 (모바일) ── */
+btnMenu.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+});
+overlay.addEventListener('click', closeSidebar);
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
 }
 
-function renderDashboard() {
-  const dash  = document.getElementById('dashboard');
-  const total = allTopics.length;
-  const done  = Object.values(reviews).filter(r => r.count > 0).length;
-  const pct   = total > 0 ? Math.round(done / total * 100) : 0;
-
-  // 도메인별 통계
-  const domainRows = Object.entries(topicsData).map(([fname, info]) => {
-    const t = info.topics.length;
-    const d = info.topics.filter(tp => getCount(fname, tp.id) > 0).length;
-    const p = t > 0 ? Math.round(d/t*100) : 0;
-    return { fname, label: info.label, total: t, done: d, pct: p };
-  });
-
-  // 최근 회독 (날짜 역순 10개)
-  const recent = Object.entries(reviews)
-    .filter(([,v]) => v.count > 0 && v.last)
-    .sort((a,b) => b[1].last.localeCompare(a[1].last))
-    .slice(0, 10);
-
-  dash.innerHTML = `
-    <div class="dash-header">
-      <div class="dash-title">📊 회독 대시보드</div>
-      <div class="dash-total">${new Date().toLocaleDateString('ko-KR')} 기준</div>
-    </div>
-
-    <!-- 전체 진행 -->
-    <div class="dash-card">
-      <div class="dash-card-title">전체 진행률</div>
-      <div class="dash-overall-nums">
-        <div class="dash-big">${pct}<small style="font-size:1rem;font-weight:400">%</small></div>
-        <div class="dash-sub">${done} / ${total} 토픽</div>
-      </div>
-      <div class="prog-wrap"><div class="prog-bar" style="width:${pct}%"></div></div>
-    </div>
-
-    <!-- 도메인별 -->
-    <div class="dash-card">
-      <div class="dash-card-title">도메인별 진행</div>
-      ${domainRows.map(r => `
-        <div class="dash-domain-row">
-          <div class="dash-dtag">${r.label}</div>
-          <div class="dash-dbar-wrap">
-            <div class="dash-dbar-bg"><div class="dash-dbar" style="width:${r.pct}%"></div></div>
-          </div>
-          <div class="dash-dcnt">${r.done}/${r.total}</div>
-        </div>
-      `).join('')}
-    </div>
-
-    <!-- 최근 회독 -->
-    <div class="dash-card">
-      <div class="dash-card-title">최근 회독</div>
-      ${recent.length === 0
-        ? '<div class="dash-empty">아직 회독 기록이 없습니다</div>'
-        : recent.map(([key, r]) => {
-            const [dom, id] = key.split('/');
-            return `<div class="dash-recent-item" onclick="jumpToTopic('${dom}','${id}')">
-              <span class="dash-rtag">${r.domain||dom.toUpperCase()}</span>
-              <span class="dash-rname">${r.topic || key}</span>
-              <span class="dash-rcnt">${r.count}회</span>
-              <span class="dash-rdate">${r.last}</span>
-            </div>`;
-          }).join('')
-      }
-    </div>
-  `;
+/* ── iframe 높이 조정 ── */
+function resizeIframe() {
+  try {
+    const doc  = viewer.contentDocument;
+    const win  = viewer.contentWindow;
+    const body = doc.body;
+    viewer.style.height = '1px';
+    const cs = win.getComputedStyle(body);
+    const pb = parseFloat(cs.paddingBottom) || 0;
+    let maxBottom = 0;
+    for (const child of body.children) {
+      const r  = child.getBoundingClientRect();
+      const mb = parseFloat(win.getComputedStyle(child).marginBottom) || 0;
+      if (r.height > 0) maxBottom = Math.max(maxBottom, r.bottom + mb);
+    }
+    const h = Math.ceil(maxBottom + pb);
+    viewer.style.height = (h > 50 ? h : body.scrollHeight) + 'px';
+  } catch(e) {
+    viewer.style.height = '80vh';
+  }
 }
 
-function jumpToTopic(domain, id) {
-  // 대시보드 닫고 해당 토픽 이동
-  if (dashOpen) toggleDashboard();
-  const t = (topicsData[domain]?.topics || []).find(tp => tp.id === id);
-  if (t) loadTopic(domain, id, t.name, topicsData[domain].label, false);
-}
-
-/* ═══════════════════════════════════════════
-   6. 네비게이션 & 토픽 로드
-═══════════════════════════════════════════ */
+/* ── topics.json 로드 ── */
 async function init() {
-  // 캐시된 reviews 로 뱃지 먼저 그리고 (Gist load 후 갱신)
   try {
     const res  = await fetch('topics.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('topics.json 없음');
-    topicsData = await res.json();
-    renderNav(topicsData);
+    const data = await res.json();
+    renderNav(data);
 
-    // URL 해시 복원
     const hash = location.hash.slice(1);
     if (hash) {
-      const [d, i] = hash.split('/');
-      if (d && i && topicsData[d]) {
-        const t = topicsData[d].topics.find(tp => tp.id === i);
-        if (t) loadTopic(d, i, t.name, topicsData[d].label, true);
+      const [domain, id] = hash.split('/');
+      if (domain && id && data[domain]) {
+        const t = data[domain].topics.find(t => t.id === id);
+        if (t) loadTopic(domain, id, t.name, data[domain].label, true);
       }
     }
   } catch(e) {
-    document.getElementById('nav').innerHTML =
-      `<div style="padding:14px;color:#f87;font-size:.76rem;">⚠ 로드 실패: ${e.message}</div>`;
+    nav.innerHTML = `<div style="padding:14px;color:#f87;font-size:.76rem;">⚠ 로드 실패: ${e.message}</div>`;
   }
-
-  // Gist 에서 최신 데이터 로드 (비동기)
-  if (pat && gistId) loadFromGist();
-  else if (!pat) setSyncDot('');
 }
 
+/* ── 네비게이션 렌더링 ── */
 function renderNav(data) {
-  const nav = document.getElementById('nav');
   nav.innerHTML = '';
   allTopics = [];
-
   Object.entries(data).forEach(([fname, info]) => {
     info.topics.forEach(t => {
       allTopics.push({ domain: fname, id: t.id, name: t.name, label: info.label });
@@ -691,21 +319,9 @@ function renderNav(data) {
     info.topics.forEach(topic => {
       const li = document.createElement('li');
       li.className   = 'topic-item';
+      li.textContent = topic.name;
       li.dataset.domain = fname;
-      li.dataset.id  = topic.id;
-      li.dataset.key = `${fname}/${topic.id}`;
-
-      const nameSpan = document.createElement('span');
-      nameSpan.className   = 'topic-name';
-      nameSpan.textContent = topic.name;
-
-      const badge = document.createElement('span');
-      badge.className      = 'topic-badge';
-      badge.dataset.key    = `${fname}/${topic.id}`;
-      renderBadge(badge, getCount(fname, topic.id));
-
-      li.appendChild(nameSpan);
-      li.appendChild(badge);
+      li.dataset.id     = topic.id;
       li.addEventListener('click', () => {
         loadTopic(fname, topic.id, topic.name, info.label, false);
         closeSidebar();
@@ -727,17 +343,10 @@ function renderNav(data) {
   });
 }
 
+/* ── 토픽 로드 ── */
 function loadTopic(domain, id, name, label, skipOpen) {
-  // 대시보드 열려있으면 닫기
-  if (dashOpen) toggleDashboard();
-
-  currentDomain = domain;
-  currentId     = id;
-  currentName   = name;
-  currentLabel  = label;
-
   if (activeItem) activeItem.classList.remove('active');
-  const item = document.querySelector(`.topic-item[data-domain="${domain}"][data-id="${id}"]`);
+  const item = nav.querySelector(`.topic-item[data-domain="${domain}"][data-id="${id}"]`);
   if (item) {
     item.classList.add('active');
     activeItem = item;
@@ -755,221 +364,28 @@ function loadTopic(domain, id, name, label, skipOpen) {
     item.scrollIntoView({ block: 'nearest' });
   }
 
-  document.getElementById('breadcrumb').textContent = `${label} / ${name}`;
+  breadcrumb.textContent = `${label} / ${name}`;
   history.replaceState(null, '', `#${domain}/${id}`);
 
   currentIndex = allTopics.findIndex(t => t.domain === domain && t.id === id);
   updateNavBtns();
-  updateReviewBtn();
 
-  // iframe 로드
-  const viewer  = document.getElementById('viewer');
-  const loading = document.getElementById('loading');
-  const ph      = document.getElementById('placeholder');
-  ph.style.display = 'none';
+  placeholder.style.display = 'none';
   viewer.classList.remove('show');
   viewer.style.height = 'auto';
   loading.classList.add('show');
 
   viewer.onload = () => {
     loading.classList.remove('show');
-    resizeIframe();
-    viewer.classList.add('show');
-    document.getElementById('mainEl').scrollTo({ top: 0 });
+    requestAnimationFrame(() => {
+      resizeIframe();
+      viewer.classList.add('show');
+      mainEl.scrollTo({ top: 0 });
+    });
   };
   viewer.src = `topics/${domain}/${id}.html?v=${Date.now()}`;
 }
 
-function resizeIframe() {
-  const viewer = document.getElementById('viewer');
-  try {
-    const doc  = viewer.contentDocument;
-    const win  = viewer.contentWindow;
-    const body = doc.body;
-    viewer.style.height = '1px';
-    const cs = win.getComputedStyle(body);
-    const pb = parseFloat(cs.paddingBottom) || 0;
-    let maxBottom = 0;
-    for (const child of body.children) {
-      const r  = child.getBoundingClientRect();
-      const mb = parseFloat(win.getComputedStyle(child).marginBottom) || 0;
-      if (r.height > 0) maxBottom = Math.max(maxBottom, r.bottom + mb);
-    }
-    const h = Math.ceil(maxBottom + pb);
-    viewer.style.height = (h > 50 ? h : body.scrollHeight) + 'px';
-  } catch(e) {
-    viewer.style.height = '80vh';
-  }
-}
-
-/* ═══════════════════════════════════════════
-   7. 설정 모달
-═══════════════════════════════════════════ */
-function openSettings() {
-  document.getElementById('inputPat').value    = pat;
-  document.getElementById('inputGistId').value = gistId;
-  document.getElementById('modalStatus').className = 'modal-status';
-  document.getElementById('modalStatus').textContent = '';
-  document.getElementById('settingsModal').classList.add('show');
-}
-function closeSettings() {
-  document.getElementById('settingsModal').classList.remove('show');
-}
-function setModalStatus(msg, type) {
-  const el = document.getElementById('modalStatus');
-  el.textContent = msg;
-  el.className   = `modal-status ${type}`;
-}
-
-document.getElementById('btnCreateGist').addEventListener('click', async () => {
-  const token = document.getElementById('inputPat').value.trim();
-  if (!token) return setModalStatus('PAT를 먼저 입력하세요.', 'err');
-  setModalStatus('Gist 생성 중…', '');
-  try {
-    const id = await createGist(token);
-    document.getElementById('inputGistId').value = id;
-    setModalStatus('✅ Gist 생성 완료!', 'ok');
-  } catch(e) {
-    setModalStatus(`❌ 생성 실패: ${e.message} (PAT 권한 확인)`, 'err');
-  }
-});
-
-document.getElementById('btnSaveSettings').addEventListener('click', async () => {
-  const newPat    = document.getElementById('inputPat').value.trim();
-  const newGistId = document.getElementById('inputGistId').value.trim();
-  if (!newPat)    return setModalStatus('PAT를 입력하세요.', 'err');
-  if (!newGistId) return setModalStatus('Gist ID를 입력하거나 자동 생성하세요.', 'err');
-
-  pat    = newPat;
-  gistId = newGistId;
-  localStorage.setItem('snb_pat',     pat);
-  localStorage.setItem('snb_gist_id', gistId);
-
-  setModalStatus('동기화 중…', '');
-  await loadFromGist();
-  updateAllBadges();
-  updateReviewBtn();
-  setModalStatus('✅ 저장 완료! 데이터를 불러왔습니다.', 'ok');
-  setTimeout(closeSettings, 1200);
-});
-
-document.getElementById('btnCancelSettings').addEventListener('click', closeSettings);
-document.getElementById('settingsModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('settingsModal')) closeSettings();
-});
-
-/* ═══════════════════════════════════════════
-   8. 버튼 이벤트
-═══════════════════════════════════════════ */
-const btnMenu = document.getElementById('btnMenu');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-
-btnMenu.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-  overlay.classList.toggle('show');
-});
-overlay.addEventListener('click', closeSidebar);
-function closeSidebar() {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('show');
-}
-
-document.getElementById('btnDash').addEventListener('click', toggleDashboard);
-document.getElementById('btnSettings').addEventListener('click', openSettings);
-
-/* ── 회독 초기화 (길게 누르기 0.7초) ── */
-(function() {
-  const btn = document.getElementById('btnReview');
-  let pressTimer = null;
-
-  function startPress() {
-    if (btn.disabled) return;
-    btn.classList.add('pressing');
-    pressTimer = setTimeout(() => {
-      pressTimer = null;
-      btn.classList.remove('pressing');
-      openResetModal();
-    }, 700);
-  }
-
-  function cancelPress() {
-    if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
-    btn.classList.remove('pressing');
-  }
-
-  // 마우스
-  btn.addEventListener('mousedown',  startPress);
-  btn.addEventListener('mouseup',    cancelPress);
-  btn.addEventListener('mouseleave', cancelPress);
-
-  // 터치 (모바일)
-  btn.addEventListener('touchstart', e => { e.preventDefault(); startPress(); }, { passive: false });
-  btn.addEventListener('touchend',   cancelPress);
-  btn.addEventListener('touchcancel',cancelPress);
-
-  // 짧게 클릭 → 회독 +1
-  btn.addEventListener('click', () => {
-    if (pressTimer !== null || btn.disabled) return; // 길게 누르기 진행 중이면 무시
-    markReview();
-  });
-})();
-
-/* ── 초기화 모달 ── */
-function openResetModal() {
-  if (!currentDomain) return;
-  const cnt = getCount(currentDomain, currentId);
-  document.getElementById('resetModalDesc').innerHTML =
-    `<strong>${currentLabel} / ${currentName}</strong><br><br>` +
-    `현재 ${cnt}회 회독 기록을<br>초기화할까요?`;
-  document.getElementById('resetModal').classList.add('show');
-}
-
-function closeResetModal() {
-  document.getElementById('resetModal').classList.remove('show');
-}
-
-function confirmReset() {
-  const key = \`\${currentDomain}/\${currentId}\`;
-  if (reviews[key]) {
-    reviews[key].count = 0;
-    reviews[key].last  = '';
-  }
-  updateReviewBtn();
-  updateBadge(currentDomain, currentId, 0);
-  scheduleSave();
-  closeResetModal();
-}
-
-document.getElementById('btnResetConfirm').addEventListener('click', confirmReset);
-document.getElementById('btnResetCancel').addEventListener('click', closeResetModal);
-document.getElementById('resetModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('resetModal')) closeResetModal();
-});
-
-document.getElementById('btnRand').addEventListener('click', () => {
-  if (!allTopics.length) return;
-  let idx;
-  do { idx = Math.floor(Math.random() * allTopics.length); }
-  while (allTopics.length > 1 && idx === currentIndex);
-  const t = allTopics[idx];
-  loadTopic(t.domain, t.id, t.name, t.label, false);
-});
-
-document.getElementById('btnPrev').addEventListener('click', () => {
-  if (currentIndex > 0) {
-    const t = allTopics[currentIndex - 1];
-    loadTopic(t.domain, t.id, t.name, t.label, false);
-  }
-});
-document.getElementById('btnNext').addEventListener('click', () => {
-  if (currentIndex < allTopics.length - 1) {
-    const t = allTopics[currentIndex + 1];
-    loadTopic(t.domain, t.id, t.name, t.label, false);
-  }
-});
-
-/* ── 초기화 ── */
 init();
 </script>
 </body>
