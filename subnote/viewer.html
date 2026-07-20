@@ -254,6 +254,35 @@
     .modal-status.ok  { display: block; background: #edfaf3; color: #2d8a4e; }
     .modal-status.err { display: block; background: #fdf0ef; color: #c0392b; }
 
+    /* ── 회독 초기화 확인 모달 ── */
+    .reset-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.5); z-index: 400;
+      align-items: center; justify-content: center;
+    }
+    .reset-modal-overlay.show { display: flex; }
+    .reset-modal-box {
+      background: #fff; border-radius: 12px; padding: 24px;
+      width: 300px; max-width: 90vw;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+      text-align: center;
+    }
+    .reset-modal-icon { font-size: 2rem; margin-bottom: 10px; }
+    .reset-modal-title { font-size: .95rem; font-weight: 700; color: #333; margin-bottom: 6px; }
+    .reset-modal-desc  { font-size: .78rem; color: #888; margin-bottom: 18px; line-height: 1.5; }
+    .reset-modal-btns  { display: flex; gap: 8px; }
+    .reset-modal-cancel { flex: 1; padding: 9px; border-radius: 7px; border: none; background: #f0eeec; color: #555; cursor: pointer; font-size: .84rem; font-family: var(--font); }
+    .reset-modal-confirm { flex: 1; padding: 9px; border-radius: 7px; border: none; background: #e74c3c; color: #fff; cursor: pointer; font-size: .84rem; font-family: var(--font); }
+    .reset-modal-cancel:hover  { opacity: .85; }
+    .reset-modal-confirm:hover { opacity: .85; }
+
+    /* 길게 누르기 시각 피드백 */
+    #btnReview.pressing { animation: pressGrow .7s ease forwards; }
+    @keyframes pressGrow {
+      0%   { transform: scale(1);    box-shadow: none; }
+      100% { transform: scale(1.08); box-shadow: 0 0 0 4px rgba(193,117,80,.35); }
+    }
+
     /* ── 오버레이 ── */
     .overlay {
       display: none; position: fixed; inset: 0; top: var(--header-h);
@@ -322,6 +351,19 @@
 
   <!-- 대시보드 뷰 -->
   <div id="dashboard"></div>
+</div>
+
+<!-- 회독 초기화 확인 모달 -->
+<div class="reset-modal-overlay" id="resetModal">
+  <div class="reset-modal-box">
+    <div class="reset-modal-icon">🔄</div>
+    <div class="reset-modal-title">회독 초기화</div>
+    <div class="reset-modal-desc" id="resetModalDesc">이 토픽의 회독 기록을<br>초기화할까요?</div>
+    <div class="reset-modal-btns">
+      <button class="reset-modal-cancel"  id="btnResetCancel">취소</button>
+      <button class="reset-modal-confirm" id="btnResetConfirm">초기화</button>
+    </div>
+  </div>
 </div>
 
 <!-- 설정 모달 -->
@@ -475,7 +517,6 @@ function updateReviewBtn() {
   // icon + label 갱신
   btn.innerHTML = `${cnt > 0 ? '✓' : '☆'} <span class="rev-label">${cnt > 0 ? cnt+'회' : '회독'}</span>`;
   btn.className = `hbtn${cnt > 0 ? ' reviewed' : ''}`;
-  btn.onclick = markReview;
   btn.disabled = false;
 }
 
@@ -836,6 +877,75 @@ function closeSidebar() {
 
 document.getElementById('btnDash').addEventListener('click', toggleDashboard);
 document.getElementById('btnSettings').addEventListener('click', openSettings);
+
+/* ── 회독 초기화 (길게 누르기 0.7초) ── */
+(function() {
+  const btn = document.getElementById('btnReview');
+  let pressTimer = null;
+
+  function startPress() {
+    if (btn.disabled) return;
+    btn.classList.add('pressing');
+    pressTimer = setTimeout(() => {
+      pressTimer = null;
+      btn.classList.remove('pressing');
+      openResetModal();
+    }, 700);
+  }
+
+  function cancelPress() {
+    if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
+    btn.classList.remove('pressing');
+  }
+
+  // 마우스
+  btn.addEventListener('mousedown',  startPress);
+  btn.addEventListener('mouseup',    cancelPress);
+  btn.addEventListener('mouseleave', cancelPress);
+
+  // 터치 (모바일)
+  btn.addEventListener('touchstart', e => { e.preventDefault(); startPress(); }, { passive: false });
+  btn.addEventListener('touchend',   cancelPress);
+  btn.addEventListener('touchcancel',cancelPress);
+
+  // 짧게 클릭 → 회독 +1
+  btn.addEventListener('click', () => {
+    if (pressTimer !== null || btn.disabled) return; // 길게 누르기 진행 중이면 무시
+    markReview();
+  });
+})();
+
+/* ── 초기화 모달 ── */
+function openResetModal() {
+  if (!currentDomain) return;
+  const cnt = getCount(currentDomain, currentId);
+  document.getElementById('resetModalDesc').innerHTML =
+    `<strong>${currentLabel} / ${currentName}</strong><br><br>` +
+    `현재 ${cnt}회 회독 기록을<br>초기화할까요?`;
+  document.getElementById('resetModal').classList.add('show');
+}
+
+function closeResetModal() {
+  document.getElementById('resetModal').classList.remove('show');
+}
+
+function confirmReset() {
+  const key = \`\${currentDomain}/\${currentId}\`;
+  if (reviews[key]) {
+    reviews[key].count = 0;
+    reviews[key].last  = '';
+  }
+  updateReviewBtn();
+  updateBadge(currentDomain, currentId, 0);
+  scheduleSave();
+  closeResetModal();
+}
+
+document.getElementById('btnResetConfirm').addEventListener('click', confirmReset);
+document.getElementById('btnResetCancel').addEventListener('click', closeResetModal);
+document.getElementById('resetModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('resetModal')) closeResetModal();
+});
 
 document.getElementById('btnRand').addEventListener('click', () => {
   if (!allTopics.length) return;
