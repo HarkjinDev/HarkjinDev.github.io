@@ -55,6 +55,79 @@
       letter-spacing: 0.05em; white-space: nowrap;
     }
 
+    /* ── 보기 버튼 ── */
+    .view-btn {
+      background: #e8f4fd; border: 1px solid #93c7e7;
+      color: #2563a8; border-radius: 5px;
+      padding: 2px 8px; font-size: .75rem;
+      cursor: pointer; margin-left: 8px;
+      vertical-align: middle; transition: all .15s;
+      white-space: nowrap;
+    }
+    .view-btn:hover { background: #bde3f5; }
+    .view-btn.active { background: #93c7e7; color: #fff; border-color: #5aacd4; }
+
+    /* ── 하단 패널 오버레이 ── */
+    .bp-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.3); z-index: 100;
+    }
+    .bp-overlay.show { display: block; }
+
+    /* ── 하단 패널 ── */
+    .bottom-panel {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 0;
+      background: #fff;
+      border-radius: 14px 14px 0 0;
+      border-top: 2px solid #e0e0e0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.13);
+      z-index: 101;
+      transition: height .3s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .bottom-panel.open { height: 55vh; }
+
+    .bp-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-bottom: 1px solid #eee;
+      background: #f7f9fc; flex-shrink: 0;
+    }
+    .bp-domain-tag {
+      background: #2d3748; color: #fff;
+      font-size: .7rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+    }
+    .bp-title {
+      flex: 1; font-size: .88rem; font-weight: 600;
+      color: #333; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+    .bp-close {
+      background: none; border: none; font-size: 1.1rem;
+      color: #999; cursor: pointer; padding: 4px 8px;
+      border-radius: 6px; flex-shrink: 0; line-height: 1;
+    }
+    .bp-close:hover { background: #eee; color: #333; }
+
+    .bp-body { flex: 1; position: relative; overflow: hidden; }
+    .bp-loading {
+      display: none; position: absolute; inset: 0;
+      align-items: center; justify-content: center; background: #fff; z-index: 1;
+    }
+    .bp-loading.show { display: flex; }
+    .bp-spinner {
+      width: 24px; height: 24px; border: 3px solid #eee;
+      border-top-color: #93c7e7; border-radius: 50%;
+      animation: bpspin .7s linear infinite;
+    }
+    @keyframes bpspin { to { transform: rotate(360deg); } }
+    #bpFrame { width: 100%; height: 100%; border: none; }
+
+    /* ── 본문 패딩 보정 (패널 열릴 때 가림 방지) ── */
+    body.panel-open { padding-bottom: 55vh; }
+
     @media (max-width: 640px) {
       body { padding: 12px; }
       h1 { font-size: 1.3rem; }
@@ -62,13 +135,15 @@
       .domain-table { font-size: 0.82rem; }
       .domain-table td, .domain-table th { padding: 6px 10px; }
       span.mnemonic { font-size: 0.88rem; padding: 2px 8px; }
+      .bottom-panel.open { height: 65vh; }
+      body.panel-open { padding-bottom: 65vh; }
     }
   </style>
 </head>
 <body>
   <h1>📝 두음 모음</h1>
   <p class="meta">
-    총 249개 항목 &nbsp;|&nbsp; 마지막 업데이트: 2026-07-21 02:02 KST
+    총 250개 항목 &nbsp;|&nbsp; 마지막 업데이트: 2026-07-21 06:16 KST
     &nbsp;|&nbsp; <a href="index.html">← 목록으로</a>
   </p>
   
@@ -88,139 +163,377 @@
   <tbody>
           <tr>
             <td class="col-topic">2. 데이터베이스 Key</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유최대></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유최대></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. 데이터베이스 Key"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 데이터베이스 Key</td>
-            <td class="col-mnemonic"><span class="mnemonic"><슈후기대외></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><슈후기대외></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. 데이터베이스 Key"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 데이터베이스 Key</td>
-            <td class="col-mnemonic"><span class="mnemonic"><결슈후기/유최대></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><결슈후기/유최대></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. 데이터베이스 Key"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 데이터 모델링 (Data Modeling)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><요개논물, 주후핵관, 속엔이, 물논반></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><요개논물, 주후핵관, 속엔이, 물논반></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 데이터 모델링 (Data Modeling)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. ERD (Entity Relationship Diagram)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유개사/기중행></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유개사/기중행></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. ERD (Entity Relationship Diagram)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. CRUD 매트릭스 (CRUD Matrix)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><엔단></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><엔단></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="4. CRUD 매트릭스 (CRUD Matrix)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><단서타></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><단서타></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 암스트롱 공리 (Armstrong's Axioms)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><폐정완></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><폐정완></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="7. 암스트롱 공리 (Armstrong's Axioms)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 암스트롱 공리 (Armstrong's Axioms)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><반확이/재부이></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><반확이/재부이></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="7. 암스트롱 공리 (Armstrong's Axioms)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 암스트롱 공리 (Armstrong's Axioms)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><분합의></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><분합의></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="7. 암스트롱 공리 (Armstrong's Axioms)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. 연결 함정 (Connection Trap)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><부모균미></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><부모균미></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="8. 연결 함정 (Connection Trap)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. SQL (Structured Query Language)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구실인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구실인></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. SQL (Structured Query Language)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 정규화 (Normalization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><무중분></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><무중분></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 정규화 (Normalization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 정규화 (Normalization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><삽삭갱></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><삽삭갱></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 정규화 (Normalization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 정규화 (Normalization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><도부이결다조></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><도부이결다조></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 정규화 (Normalization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 역정규화/반정규화 (De-normalization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><대다적/범대통조/뷰클인응></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><대다적/범대통조/뷰클인응></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. 역정규화/반정규화 (De-normalization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 역정규화/반정규화 (De-normalization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><테컬관/병분추/중파이피/중></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><테컬관/병분추/중파이피/중></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="2. 역정규화/반정규화 (De-normalization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 데이터 무결성 (Data Integrity)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><개참속/사키도></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><개참속/사키도></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 데이터 무결성 (Data Integrity)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-2. 릴레이션 무결성 제약 (Relation Integrity Constraint)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><상과집튜즉지></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><상과집튜즉지></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 2-2. 릴레이션 무결성 제약 (Relation Integrity Constraint)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 트랜잭션 (Transaction)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><활부완실철></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><활부완실철></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 트랜잭션 (Transaction)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 병행제어 (Concurrency Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><갱현모연></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><갱현모연></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="3. 병행제어 (Concurrency Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><판검기></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><판검기></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 데이터베이스 회복기법 (Database Recovery)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><즉언지리/첵그아></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><즉언지리/첵그아></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="4. 데이터베이스 회복기법 (Database Recovery)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 인덱스 (Index)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><트해비/함조도/정동/클논밀희고비></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><트해비/함조도/정동/클논밀희고비></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 인덱스 (Index)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 인덱스 (Index)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><렌풀유스디패></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><렌풀유스디패></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 인덱스 (Index)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. CBO (Cost Based Optimizer)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><질비실></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><질비실></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 2-1. CBO (Cost Based Optimizer)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. CBO (Cost Based Optimizer)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><파최행실></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><파최행실></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 2-1. CBO (Cost Based Optimizer)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. CBO (Cost Based Optimizer)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><테인컬시></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><테인컬시></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 2-1. CBO (Cost Based Optimizer)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 분산 데이터베이스 (Distributed Database)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><위복병분장></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><위복병분장></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="3. 분산 데이터베이스 (Distributed Database)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. NoSQL 모델링</td>
-            <td class="col-mnemonic"><span class="mnemonic"><비집프원인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><비집프원인></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 1-1. NoSQL 모델링"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. NoSQL 모델링</td>
-            <td class="col-mnemonic"><span class="mnemonic"><도쿼패/기후디></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><도쿼패/기후디></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="[하위] 1-1. NoSQL 모델링"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. OLAP (On-Line Analytical Processing)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><슬다드롤피></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><슬다드롤피></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. OLAP (On-Line Analytical Processing)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 데이터 거버넌스 (Data Governance)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><원조프></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><원조프></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="1. 데이터 거버넌스 (Data Governance)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 데이터 표준화 (Data Standardization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><명정형규></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><명정형규></span>
+              <button class="view-btn"
+                data-domain="DB"
+                data-fname="db"
+                data-topic="5. 데이터 표준화 (Data Standardization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -243,47 +556,124 @@
   <tbody>
           <tr>
             <td class="col-topic">2. 과적합 (Overfitting)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><드규교조></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><드규교조></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="2. 과적합 (Overfitting)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 3-1. 배깅 (Bagging, Bootstrap Aggregating)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><분하회평></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><분하회평></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="[하위] 3-1. 배깅 (Bagging, Bootstrap Aggregating)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. SOM (Self-Organizing Map)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><초경이가반></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><초경이가반></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="1. SOM (Self-Organizing Map)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 군집화 (Clustering) 알고리즘</td>
-            <td class="col-mnemonic"><span class="mnemonic"><거절수신></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><거절수신></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="2. 군집화 (Clustering) 알고리즘"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 3-1. PCA (Principal Component Analysis, 주성분 분석)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><공고주투></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><공고주투></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="[하위] 3-1. PCA (Principal Component Analysis, 주성분 분석)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 프롬프트 엔지니어링 (Prompt Engineering)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><역지맥예출></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><역지맥예출></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="5. 프롬프트 엔지니어링 (Prompt Engineering)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. XAI (eXplainable AI, 설명 가능한 인공지능)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><설희누가></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><설희누가></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="1. XAI (eXplainable AI, 설명 가능한 인공지능)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. AI 윤리 (AI Ethics) 및 신뢰성</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인사기/준공합></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인사기/준공합></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="1. AI 윤리 (AI Ethics) 및 신뢰성"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. AI 윤리 (AI Ethics) 및 신뢰성</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인프다침/공연데책/안투></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인프다침/공연데책/안투></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="1. AI 윤리 (AI Ethics) 및 신뢰성"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-2. AI RMF (AI Risk Management Framework)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><거식측관></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><거식측관></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="[하위] 2-2. AI RMF (AI Risk Management Framework)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><오편환통></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><오편환통></span>
+              <button class="view-btn"
+                data-domain="AI"
+                data-fname="ai"
+                data-topic="[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -306,119 +696,322 @@
   <tbody>
           <tr>
             <td class="col-topic">1. 정보보안 정책 (Information Security Policy)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><정표절지></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><정표절지></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="1. 정보보안 정책 (Information Security Policy)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 정보보안 정책 (Information Security Policy)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><지소존행></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><지소존행></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="1. 정보보안 정책 (Information Security Policy)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 접근제어/통제 (Access Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><정모메></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><정모메></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="2. 접근제어/통제 (Access Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">11. 전자봉투 (Digital Envelope)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><봉수공암></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><봉수공암></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="11. 전자봉투 (Digital Envelope)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. 전자서명 (Digital Signature)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><서송개암></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><서송개암></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="12. 전자서명 (Digital Signature)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수탐조대복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수탐조대복></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 시큐어 코딩 (Secure Coding)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><입보시에/코캡아></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><입보시에/코캡아></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="2. 시큐어 코딩 (Secure Coding)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. OWASP (Open Web Application Security Project)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><접보공암/인불인무/로예></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><접보공암/인불인무/로예></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="3. OWASP (Open Web Application Security Project)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. XSS (Cross-Site Scripting)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><·></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><·></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="5. XSS (Cross-Site Scripting)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. 공격 벡터 (Attack Vector)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><거식보/탐대복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><거식보/탐대복></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="8. 공격 벡터 (Attack Vector)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 9-1. CTEM (Continuous Threat Exposure Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><범발우/검완></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><범발우/검완></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="[하위] 9-1. CTEM (Continuous Threat Exposure Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">10. APT (Advanced Persistent Threat)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><침탐수유></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><침탐수유></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="10. APT (Advanced Persistent Threat)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. 사이버 킬 체인 (Cyber Kill Chain)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><정무전악/설씨행></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><정무전악/설씨행></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="12. 사이버 킬 체인 (Cyber Kill Chain)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 12-1. STRIDE 위협 모델링(Microsoft)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><위변부/정서권></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><위변부/정서권></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="[하위] 12-1. STRIDE 위협 모델링(Microsoft)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 디지털 포렌식 (Digital Forensics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><정재신연무></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><정재신연무></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="1. 디지털 포렌식 (Digital Forensics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 안티포렌식 (Anti-Forensics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><삭은변암></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><삭은변암></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="5. 안티포렌식 (Anti-Forensics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 양자내성 암호 (Post-Quantum Cryptography, PQC)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><격다해코아></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><격다해코아></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="2. 양자내성 암호 (Post-Quantum Cryptography, PQC)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">11. 다크패턴 (Dark Pattern)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><오압방편></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><오압방편></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="11. 다크패턴 (Dark Pattern)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 정보보호 거버넌스 (Information Security Governance)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><책전획/성적인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><책전획/성적인></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="1. 정보보호 거버넌스 (Information Security Governance)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. ISMS-P (개인정보보호 관리체계 인증)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><아아병정></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><아아병정></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="2. ISMS-P (개인정보보호 관리체계 인증)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. ISMS-P (개인정보보호 관리체계 인증)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><관보개, 기위운점, 정인외물/인접안정/운보사재, 수이제파권></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><관보개, 기위운점, 정인외물/인접안정/운보사재, 수이제파권></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="2. ISMS-P (개인정보보호 관리체계 인증)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><대심사품></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><대심사품></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 사이버 복원력(Cyber Resilience)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><예견복적></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><예견복적></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="4. 사이버 복원력(Cyber Resilience)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 개인정보 비식별조치 (De-identification)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><가총삭범마></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><가총삭범마></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="3. 개인정보 비식별조치 (De-identification)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 가명처리 (Pseudonymization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><케익엘다티근></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><케익엘다티근></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="5. 가명처리 (Pseudonymization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 가명처리 (Pseudonymization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><준위가적안></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><준위가적안></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="5. 가명처리 (Pseudonymization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. PET (Privacy Enhancing Technology)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><동차합영/연다신></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><동차합영/연다신></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="7. PET (Privacy Enhancing Technology)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. PbD (Privacy by Design)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><사초내균/생가존></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><사초내균/생가존></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="8. PbD (Privacy by Design)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. PbD (Privacy by Design)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><최숨분총/정통집입></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><최숨분총/정통집입></span>
+              <button class="view-btn"
+                data-domain="SEC"
+                data-fname="sec"
+                data-topic="8. PbD (Privacy by Design)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -441,43 +1034,113 @@
   <tbody>
           <tr>
             <td class="col-topic">[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계동방파></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계동방파></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><요지응확></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><요지응확></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 오류 제어 (Error Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><패엘블씨첵></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><패엘블씨첵></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="4. 오류 제어 (Error Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 오류 제어 (Error Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><훼손중순확></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><훼손중순확></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="4. 오류 제어 (Error Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 흐름 제어 (Flow Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수클송네></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수클송네></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="5. 흐름 제어 (Flow Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. IPv6 (Internet Protocol version 6)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><버트플렌/넥홉소데></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><버트플렌/넥홉소데></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="4. IPv6 (Internet Protocol version 6)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 거리벡터 라우팅 (Distance Vector Routing)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><거벨링다></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><거벨링다></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="6. 거리벡터 라우팅 (Distance Vector Routing)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. QoS (Quality of Service)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><대연터패></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><대연터패></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="1. QoS (Quality of Service)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 6G 이동통신</td>
-            <td class="col-mnemonic"><span class="mnemonic"><성대현/지정공></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><성대현/지정공></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="1. 6G 이동통신"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 자율 네트워크 (Autonomous Network)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><감최치구보></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><감최치구보></span>
+              <button class="view-btn"
+                data-domain="NW"
+                data-fname="nw"
+                data-topic="6. 자율 네트워크 (Autonomous Network)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -500,179 +1163,498 @@
   <tbody>
           <tr>
             <td class="col-topic">1. 소프트웨어 공학 (Software Engineering)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><비복변/무순제></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><비복변/무순제></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 공학 (Software Engineering)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 소프트웨어 품질관리</td>
-            <td class="col-mnemonic"><span class="mnemonic"><확실/예평내외></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><확실/예평내외></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="2. 소프트웨어 품질관리"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. 소프트웨어 품질통제(Quality Control)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><체히파특/산흐관, 친연계매/데피애></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><체히파특/산흐관, 친연계매/데피애></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-1. 소프트웨어 품질통제(Quality Control)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-3. 소프트웨어 품질 특성 (Software Quality Characteristics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기신상효/유연보호안></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기신상효/유연보호안></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-3. 소프트웨어 품질 특성 (Software Quality Characteristics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 소프트웨어 기술 부채 (Technical Debt)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><설코테/문인보></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><설코테/문인보></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="5. 소프트웨어 기술 부채 (Technical Debt)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 소프트웨어 유지보수 (Software Maintenance)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수적예완></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수적예완></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="7. 소프트웨어 유지보수 (Software Maintenance)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 소프트웨어 유지보수 (Software Maintenance)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><프문수/유이폐></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><프문수/검이폐></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="7. 소프트웨어 유지보수 (Software Maintenance)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><캡추다정상></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><캡추다정상></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><클객메인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><클객메인></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">0. 개발 방법론(SW Development Methodology)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><절방산관기도></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><절방산관기도></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="0. 개발 방법론(SW Development Methodology)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 폭포수 모델 (Waterfall Model)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><요설구테유></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><요설구테유></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="4. 폭포수 모델 (Waterfall Model)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 애자일 (Agile)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><개동고변></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><개동고변></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="5. 애자일 (Agile)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 5-3. XP(eXtreme Programming)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><용단커피존></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><용단커피존></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 5-3. XP(eXtreme Programming)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 개발방법론 테일러링 (Tailoring)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><정선상세문></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><정선상세문></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="6. 개발방법론 테일러링 (Tailoring)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">9. 도메인 주도 설계 (Domain Driven Design, DDD)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><략보바컨/술엔벨애리></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><략보바컨/술엔벨애리></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="9. 도메인 주도 설계 (Domain Driven Design, DDD)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">9. 도메인 주도 설계 (Domain Driven Design, DDD)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유도서/바컨모></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유도서/바컨모></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="9. 도메인 주도 설계 (Domain Driven Design, DDD)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 요구공학 (Requirements Engineering)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><추분명검></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><추분명검></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 요구공학 (Requirements Engineering)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 요구공학 (Requirements Engineering)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><협기변확></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><협기변확></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 요구공학 (Requirements Engineering)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 요구사항 도출 (Requirements Elicitation)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인설워포/유컨벤브/관프사자></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인설워포/유컨벤브/관프사자></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="2. 요구사항 도출 (Requirements Elicitation)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 요구사항명세서 (SRS, Software Requirements Specification)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><완일명검/추수이></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><완일명검/추수이></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="3. 요구사항명세서 (SRS, Software Requirements Specification)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 소프트웨어 모듈 (Software Module)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><응하결로></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><응하결로></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="2. 소프트웨어 모듈 (Software Module)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. 응집도 (Cohesion)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기순교절시논우></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기순교절시논우></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-1. 응집도 (Cohesion)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-2. 결합도 (Coupling)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><자료구조제어는외부공통내용이다></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><자료구조제어는외부공통내용이다></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-2. 결합도 (Coupling)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-3. fan-in / fan-out</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인상아하></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인상아하></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-3. fan-in / fan-out"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 디자인 패턴 (Design Pattern)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><패문해결></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><패문해결></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="3. 디자인 패턴 (Design Pattern)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 디자인 패턴 (Design Pattern)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><생구행></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><생구행></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="3. 디자인 패턴 (Design Pattern)"
+                title="내용 보기">↓</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-topic">4. 리팩토링 (Refactoring)</td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><메클조/상데의></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="4. 리팩토링 (Refactoring)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 아키텍처</td>
-            <td class="col-mnemonic"><span class="mnemonic"><요참모프배></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><요참모프배></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 아키텍처"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 소프트웨어 아키텍처 모델</td>
-            <td class="col-mnemonic"><span class="mnemonic"><논개프물유></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><논개프물유></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 1-1. 소프트웨어 아키텍처 모델"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 소프트웨어 아키텍처 모델</td>
-            <td class="col-mnemonic"><span class="mnemonic"><텍테포코></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><텍테포코></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 1-1. 소프트웨어 아키텍처 모델"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 테스트 원리</td>
-            <td class="col-mnemonic"><span class="mnemonic"><결완초집/살정오></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><결완초집/살정오></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 테스트 원리"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 테스트 원리</td>
-            <td class="col-mnemonic"><span class="mnemonic"><데프도테키></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><데프도테키></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 테스트 원리"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 테스트 원리</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계모설실완></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계모설실완></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 테스트 원리"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 테스트 원리</td>
-            <td class="col-mnemonic"><span class="mnemonic"><식항입출/환특의></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><식항입출/환특의></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 소프트웨어 테스트 원리"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. V-Model</td>
-            <td class="col-mnemonic"><span class="mnemonic"><요시상구/단통시인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><요시상구/단통시인></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 1-1. V-Model"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. V-Model</td>
-            <td class="col-mnemonic"><span class="mnemonic"><모프최></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><모프최></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 1-1. V-Model"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반</td>
-            <td class="col-mnemonic"><span class="mnemonic"><동분경구랜/모페이베/결원상시></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><동분경구랜/모페이베/결원상시></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구분결/분건합변/정계선사/정사></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구분결/분건합변/정계선사/정사></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-3. 경험기반 테스트</td>
-            <td class="col-mnemonic"><span class="mnemonic"><에탐체></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><에탐체></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-3. 경험기반 테스트"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 테스트 커버리지 (Test Coverage)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구결조/결조/변조결/경></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구결조/결조/변조결/경></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="6. 테스트 커버리지 (Test Coverage)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 테스트 오라클(Test Oracle)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><참샘휴일></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><참샘휴일></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="7. 테스트 오라클(Test Oracle)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">16. 소프트웨어 성능테스트(Performance Test)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><단복임/루스티확가></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><단복임/루스티확가></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="16. 소프트웨어 성능테스트(Performance Test)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 형상관리 (Configuration Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><식통감기></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><식통감기></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="1. 형상관리 (Configuration Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 기준선 (Baseline)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기분설/시제운></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기분설/시제운></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 1-1. 기준선 (Baseline)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><지트오포></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><지트오포></span>
+              <button class="view-btn"
+                data-domain="SW"
+                data-fname="sw"
+                data-topic="[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -695,15 +1677,36 @@
   <tbody>
           <tr>
             <td class="col-topic">5. 최소신장트리 (MST, Minimum Spanning Tree)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><크간프정솔컴></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><크간프정솔컴></span>
+              <button class="view-btn"
+                data-domain="AL"
+                data-fname="al"
+                data-topic="5. 최소신장트리 (MST, Minimum Spanning Tree)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 메타휴리스틱스 (Metaheuristics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유모개입타></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유모개입타></span>
+              <button class="view-btn"
+                data-domain="AL"
+                data-fname="al"
+                data-topic="1. 메타휴리스틱스 (Metaheuristics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 유전 알고리즘 (Genetic Algorithm)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><염적선교돌></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><염적선교돌></span>
+              <button class="view-btn"
+                data-domain="AL"
+                data-fname="al"
+                data-topic="2. 유전 알고리즘 (Genetic Algorithm)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -726,55 +1729,146 @@
   <tbody>
           <tr>
             <td class="col-topic">1. 통계 자료</td>
-            <td class="col-mnemonic"><span class="mnemonic"><범명순/수등비/횡종></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><범명순/수등비/횡종></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="1. 통계 자료"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 기술통계 (Descriptive Statistics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><중평중최 / 분산표 / 분왜첨></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><중평중최 / 분산표 / 분왜첨></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="2. 기술통계 (Descriptive Statistics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 추론통계 (Inferential Statistics)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><점구가차관></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><점구가차관></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="4. 추론통계 (Inferential Statistics)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. 타당도 (Validity)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><내구기></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><내구기></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="8. 타당도 (Validity)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 확률분포(Probability distribution)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><이질연밀 / 베이기다포 / 정지균티카프></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><이질연밀 / 베이기다포 / 정지균티카프></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="1. 확률분포(Probability distribution)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 선형회귀분석 (Linear Regression Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><선독정등></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><선독정등></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="3. 선형회귀분석 (Linear Regression Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 시계열 분석 (Time Series Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><추순계불></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><추순계불></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="1. 시계열 분석 (Time Series Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수시패인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수시패인></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><가수통증></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><가수통증></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 연관 규칙 분석 (Association Rule Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><지신향></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><지신향></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="3. 연관 규칙 분석 (Association Rule Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 연관 규칙 분석 (Association Rule Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><빈최후반연></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><빈최후반연></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="3. 연관 규칙 분석 (Association Rule Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 데이터 시각화 (Data Visualization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구시표></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구시표></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="2. 데이터 시각화 (Data Visualization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 데이터 시각화 (Data Visualization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><시분관비공></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><시분관비공></span>
+              <button class="view-btn"
+                data-domain="ST"
+                data-fname="st"
+                data-topic="2. 데이터 시각화 (Data Visualization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -797,91 +1891,245 @@
   <tbody>
           <tr>
             <td class="col-topic">[하위] 1-3. 파이프라인 (Pipeline)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구데제></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구데제></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 1-3. 파이프라인 (Pipeline)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 캐시 메모리 (Cache Memory)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><공시순></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><공시순></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="3. 캐시 메모리 (Cache Memory)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 캐시 메모리 (Cache Memory)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><직연집></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><직연집></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="3. 캐시 메모리 (Cache Memory)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 3-2. MESI 프로토콜 (MESI Protocol)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수베공무></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수베공무></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 3-2. MESI 프로토콜 (MESI Protocol)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><상모하기></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><상모하기></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-2. 문맥교환</td>
-            <td class="col-mnemonic"><span class="mnemonic"><저복저복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><저복저복></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 1-2. 문맥교환"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 스레드 (Thread)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인블동칩></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인블동칩></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="2. 스레드 (Thread)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 교착상태(Mutual Exclusion)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><상진한></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><상진한></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="3. 교착상태(Mutual Exclusion)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 교착상태(Mutual Exclusion)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><테스인/데피램></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><테스인/데피램></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="3. 교착상태(Mutual Exclusion)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 교착 상태 (Deadlock)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><상점비환></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><상점비환></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="4. 교착 상태 (Deadlock)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 교착 상태 (Deadlock)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><예회발복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><예회발복></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="4. 교착 상태 (Deadlock)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 프로세스 동기화 (Process Synchronization)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><세뮤스모></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><세뮤스모></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="5. 프로세스 동기화 (Process Synchronization)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 5-5. Race Condition (경쟁 상태)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><데피램/테스인></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><데피램/테스인></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 5-5. Race Condition (경쟁 상태)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 인터럽트 (Interrupt)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><전기외입 / 명프스></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><전기외입 / 명프스></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="6. 인터럽트 (Interrupt)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 인터럽트 (Interrupt)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><직병풀></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><직병풀></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="6. 인터럽트 (Interrupt)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 가상 메모리 (Virtual Memory)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><할배인교></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><할배인교></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="1. 가상 메모리 (Virtual Memory)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 가상 메모리 (Virtual Memory)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><통압관풀슬버></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><통압관풀슬버></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="1. 가상 메모리 (Virtual Memory)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 페이징 (Paging)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><페고내 / 세가외></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><페고내 / 세가외></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 1-1. 페이징 (Paging)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. UNIX 파일 시스템 (UNIX File System)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><부슈아데></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><부슈아데></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="6. UNIX 파일 시스템 (UNIX File System)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">11. 큐비트 (Qubit) & 양자 컴퓨팅</td>
-            <td class="col-mnemonic"><span class="mnemonic"><중얽불비></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><중얽불비></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="11. 큐비트 (Qubit) & 양자 컴퓨팅"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. FTS (Fault Tolerant System)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><티와체리/오페롤></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><티와체리/오페롤></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 1-1. FTS (Fault Tolerant System)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-3. 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><후과전미></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><후과전미></span>
+              <button class="view-btn"
+                data-domain="CA/OS"
+                data-fname="caos"
+                data-topic="[하위] 1-3. 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -904,215 +2152,586 @@
   <tbody>
           <tr>
             <td class="col-topic">2. ISP (Information Strategy Planning)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><사실디규/필시중/사기/클국하에민></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><사실디규/필시중/사기/클국하에민></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. ISP (Information Strategy Planning)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. ISP (Information Strategy Planning)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><환현정목통 / 경법아 / 업아벤차이 / 개업정데기 / 통총효></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><환현정목통 / 경법아 / 업아벤차이 / 개업정데기 / 통총효></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. ISP (Information Strategy Planning)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. 소규모 정보시스템 구축 사업</td>
-            <td class="col-mnemonic"><span class="mnemonic"><연시타클적></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><연시타클적></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 2-1. 소규모 정보시스템 구축 사업"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. ISMP (Information System Master Plan)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. ISMP (Information System Master Plan)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. BPR (Business Process Reengineering)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><현비투갭/계구측></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><현비투갭/계구측></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. BPR (Business Process Reengineering)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-4. 7S Model</td>
-            <td class="col-mnemonic"><span class="mnemonic"><전조제/공역구스></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><전조제/공역구스></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 2-4. 7S Model"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-7. BCG Matrix</td>
-            <td class="col-mnemonic"><span class="mnemonic"><물별개현></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><물별개현></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 2-7. BCG Matrix"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. BSC (Balanced Score Card)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><재고내학></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><재고내학></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. BSC (Balanced Score Card)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. BSC (Balanced Score Card)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><비사운미></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><비사운미></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. BSC (Balanced Score Card)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 기술수용모델 (TAM, Technology Acceptance Model)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유용의사></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유용의사></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="5. 기술수용모델 (TAM, Technology Acceptance Model)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 디자인 싱킹 (Design Thinking)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><공정아프테></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><공정아프테></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="6. 디자인 싱킹 (Design Thinking)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. SCM (Supply Chain Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><제수유운/주생유역></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><제수유운/주생유역></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. SCM (Supply Chain Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. SCM (Supply Chain Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계조생배회></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계조생배회></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. SCM (Supply Chain Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-1. 수요 예측 (Demand Forecasting)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기자요방/실검활></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기자요방/실검활></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 2-1. 수요 예측 (Demand Forecasting)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 2-2. 안전재고/적정재고 산정</td>
-            <td class="col-mnemonic"><span class="mnemonic"><서수공/주평공안></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><서수공/주평공안></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 2-2. 안전재고/적정재고 산정"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. IT 거버넌스 (IT Governance)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><전가위자성></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><전가위자성></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="1. IT 거버넌스 (IT Governance)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. IT 투자관리 (IT Investment Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><사중후/타용과></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><사중후/타용과></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. IT 투자관리 (IT Investment Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. AHP (Analytic Hierarchy Process)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계우일></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계우일></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. AHP (Analytic Hierarchy Process)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. AHP (Analytic Hierarchy Process)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계쌍가일우></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계쌍가일우></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. AHP (Analytic Hierarchy Process)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 정량적 위험분석 (Quantitative Risk Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><의금몬민></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><의금몬민></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="5. 정량적 위험분석 (Quantitative Risk Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><변무시결></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><변무시결></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. 기술 가치 평가</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기권시사></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기권시사></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="12. 기술 가치 평가"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. 기술 가치 평가</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수시비></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수시비></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="12. 기술 가치 평가"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. ISO 21500 (프로젝트관리 지침)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><통이범자/시원리/품조의></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><통이범자/시원리/품조의></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 1-1. ISO 21500 (프로젝트관리 지침)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. ISO 21500 (프로젝트관리 지침)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><착계실통종></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><착계실통종></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 1-1. ISO 21500 (프로젝트관리 지침)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 프로젝트 범위관리(Scope Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계요정W확통></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계요정W확통></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. 프로젝트 범위관리(Scope Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><프피자></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><프피자></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 4-3. PERT (Program Evaluation and Review Technique)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><낙최비></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><낙최비></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 4-3. PERT (Program Evaluation and Review Technique)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 갈등관리 (Conflict Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><해타철수강></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><해타철수강></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="5. 갈등관리 (Conflict Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 갈등관리 (Conflict Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><매이엑욕/기목공스></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><매이엑욕/기목공스></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="5. 갈등관리 (Conflict Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 5-1. 터크만 모델 (Tuckman Ladder Model)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><형격규성해></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><형격규성해></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 5-1. 터크만 모델 (Tuckman Ladder Model)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 프로젝트 위험관리 (Project Risk Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><계식성량/대실감></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><계식성량/대실감></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="7. 프로젝트 위험관리 (Project Risk Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 7-1. 리스크 대응 (Risk Response)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><회전완수></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><회전완수></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 7-1. 리스크 대응 (Risk Response)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 7-1. 리스크 대응 (Risk Response)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><활공강수></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><활공강수></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 7-1. 리스크 대응 (Risk Response)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">10. 프로젝트 이해관계자 관리(Stakeholder Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><권합긴></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><권합긴></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="10. 프로젝트 이해관계자 관리(Stakeholder Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. 소프트웨어 비용 산정 (Software Cost Estimation)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><하상수></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><하상수></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="1. 소프트웨어 비용 산정 (Software Cost Estimation)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 기능 점수(FP, Function Point)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><논연/입출조/규연성운보></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><논연/입출조/규연성운보></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 1-1. 기능 점수(FP, Function Point)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 1-1. 기능 점수(FP, Function Point)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유범데트/미보후></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유범데트/미보후></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 1-1. 기능 점수(FP, Function Point)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 5-2. 분할 발주제도</td>
-            <td class="col-mnemonic"><span class="mnemonic"><공기부></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><공기부></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 5-2. 분할 발주제도"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. 공공SW사업 영향평가제</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기운민사종></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기운민사종></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="8. 공공SW사업 영향평가제"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. ITSM (IT Service Management)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인조기프></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인조기프></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="1. ITSM (IT Service Management)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. ITIL 4.0(IT Infrastructure Library)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><조정파가></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><조정파가></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. ITIL 4.0(IT Infrastructure Library)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. ITIL 4.0(IT Infrastructure Library)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><지거서지실></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><지거서지실></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. ITIL 4.0(IT Infrastructure Library)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><핵필중국></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><핵필중국></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. BCP (Business Continuity Planning)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><티재/피손></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><티재/피손></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="1. BCP (Business Continuity Planning)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. BCP (Business Continuity Planning)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><조리계지/운수개></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><조리계지/운수개></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="1. BCP (Business Continuity Planning)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. BIA(Business Impact Analysis)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><식발손우복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><식발손우복></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. BIA(Business Impact Analysis)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. DRS (Disaster Recovery System)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><상공외독></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><상공외독></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. DRS (Disaster Recovery System)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. DRS (Disaster Recovery System)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><관디지></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><관디지></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="3. DRS (Disaster Recovery System)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 지식 재산권(Intellectual Property Rights)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><산저신 / 특실디상 / 저인 / 산첨정></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><산저신 / 특실디상 / 저인 / 산첨정></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. 지식 재산권(Intellectual Property Rights)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 지식 재산권(Intellectual Property Rights)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><공타비></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><공타비></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="4. 지식 재산권(Intellectual Property Rights)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 전자정부 평가(EGDI)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><온정인/제참결></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><온정인/제참결></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="5. 전자정부 평가(EGDI)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 그로스 해킹 (Growth Hacking)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><획활유추수></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><획활유추수></span>
+              <button class="view-btn"
+                data-domain="BIZ/PM"
+                data-fname="bizpm"
+                data-topic="2. 그로스 해킹 (Growth Hacking)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -1135,27 +2754,69 @@
   <tbody>
           <tr>
             <td class="col-topic">8. 클라우드 서비스 (Cloud Service)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><가응확신/지지고></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><가응확신/지지고></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="8. 클라우드 서비스 (Cloud Service)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 인더스트리 5.0 (Industry 5.0)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><인지복></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><인지복></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="2. 인더스트리 5.0 (Industry 5.0)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 메타버스 (Metaverse)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><증라거가></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><증라거가></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="4. 메타버스 (Metaverse)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 4-1. 메타버스 윤리원칙</td>
-            <td class="col-mnemonic"><span class="mnemonic"><온안지></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><온안지></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="[하위] 4-1. 메타버스 윤리원칙"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 4-1. 메타버스 윤리원칙</td>
-            <td class="col-mnemonic"><span class="mnemonic"><진자호사 공개포책></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><진자호사 공개포책></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="[하위] 4-1. 메타버스 윤리원칙"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 온톨로지(Ontology)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><개속관계공></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><개속관계공></span>
+              <button class="view-btn"
+                data-domain="DS"
+                data-fname="ds"
+                data-topic="3. 온톨로지(Ontology)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
@@ -1178,104 +2839,375 @@
   <tbody>
           <tr>
             <td class="col-topic">1. 생성형 인공지능 투명성 확보 가이드라인(26.1.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><사표딥></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><사표딥></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="1. 생성형 인공지능 투명성 확보 가이드라인(26.1.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 제로트러스트(Zero Trust) 가이드라인(2.0 / 24.12.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기초향최></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기초향최></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="2. 제로트러스트(Zero Trust) 가이드라인(2.0 / 24.12.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><준등위/대적보></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><준등위/대적보></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><위주객></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><위주객></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 생체정보 보호 가이드라인(21.9.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><비적목/투안통></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><비적목/투안통></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="4. 생체정보 보호 가이드라인(21.9.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><준완유/적다구의/알유></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><준완유/적다구의/알유></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><준구운/계수정가학운></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><준구운/계수정가학운></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">6. 소프트웨어 대가산정 가이드(25.8.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><유시모></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><유시모></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="6. 소프트웨어 대가산정 가이드(25.8.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">[하위] 6-1. 인공지능(AI) 서비스 도입 대가산정</td>
-            <td class="col-mnemonic"><span class="mnemonic"><단커시/기데모></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><단커시/기데모></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="[하위] 6-1. 인공지능(AI) 서비스 도입 대가산정"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. 정보시스템 운영 성과측정 메뉴얼(25.11.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><운유비/기업공고></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><운유비/기업공고></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="7. 정보시스템 운영 성과측정 메뉴얼(25.11.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">8. 생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드(26. 5.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><원전후가/프실기외></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><원전후가/프실기외></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="8. 생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드(26. 5.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><편환정확></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><편환정확></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><탈모공고></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><탈모공고></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><데개모애사></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><데개모애사></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 정보보호 공시제도</td>
-            <td class="col-mnemonic"><span class="mnemonic"><아아병씨></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><아아병씨></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="4. 정보보호 공시제도"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. 정보보호 공시제도</td>
-            <td class="col-mnemonic"><span class="mnemonic"><투인평활></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><투인평활></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="4. 정보보호 공시제도"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">5. 소프트웨어 영향평가</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기운침필종></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기운침필종></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="5. 소프트웨어 영향평가"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">7. ISO/IEC 25059:2023</td>
-            <td class="col-mnemonic"><span class="mnemonic"><기신상효/유연보호안></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><기신상효/유연보호안></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="7. ISO/IEC 25059:2023"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><전차누/온오/파디></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><전차누/온오/파디></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><수참시></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><수참시></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><구기참가></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><구기참가></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><국대행일></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><국대행일></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><국사파대></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><국사파대></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
           <tr>
             <td class="col-topic">4. OT 환경의 제로트러스트 적용 안내서(25.12.)</td>
-            <td class="col-mnemonic"><span class="mnemonic"><실독전모></span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic"><실독전모></span>
+              <button class="view-btn"
+                data-domain="GR"
+                data-fname="gr"
+                data-topic="4. OT 환경의 제로트러스트 적용 안내서(25.12.)"
+                title="내용 보기">↓</button>
+            </td>
           </tr>
   </tbody>
 </table>
 </section>
 <hr>
 
+</div>
+
+<!-- ── 하단 패널 ── -->
+<div class="bp-overlay" id="bpOverlay"></div>
+<div class="bottom-panel" id="bottomPanel">
+  <div class="bp-header">
+    <span class="bp-domain-tag" id="bpDomainTag">-</span>
+    <span class="bp-title" id="bpTitle">-</span>
+    <button class="bp-close" id="bpClose">✕</button>
+  </div>
+  <div class="bp-body">
+    <div class="bp-loading" id="bpLoading"><div class="bp-spinner"></div></div>
+    <iframe id="bpFrame" title="토픽 내용"></iframe>
+  </div>
+</div>
+
+<script>
+let topicsData  = null;
+let activeBtn   = null;
+
+/* topics.json 로드 */
+async function loadTopics() {
+  try {
+    const res = await fetch('topics.json', { cache: 'no-cache' });
+    topicsData = await res.json();
+  } catch(e) { console.warn('topics.json 로드 실패', e); }
+}
+
+/* 토픽명 → 파일 경로 매핑 */
+function findFile(fname, topicName) {
+  if (!topicsData || !topicsData[fname]) return null;
+  const topics = topicsData[fname].topics;
+
+  // 1. 완전 일치
+  let t = topics.find(t => t.name === topicName);
+  // 2. 포함 관계
+  if (!t) t = topics.find(t => t.name.includes(topicName) || topicName.includes(t.name));
+  // 3. 앞 10자 비교
+  if (!t) t = topics.find(t => t.name.slice(0,10) === topicName.slice(0,10));
+
+  return t ? `topics/${fname}/${t.id}.html` : null;
+}
+
+/* 패널 열기 */
+function openPanel(btn) {
+  const domain = btn.dataset.domain;
+  const fname  = btn.dataset.fname;
+  const topic  = btn.dataset.topic;
+  const file   = findFile(fname, topic);
+
+  // 이전 활성 버튼 해제
+  if (activeBtn && activeBtn !== btn) activeBtn.classList.remove('active');
+  btn.classList.toggle('active');
+
+  // 같은 버튼 재클릭 → 패널 닫기
+  if (activeBtn === btn && !document.getElementById('bottomPanel').classList.contains('open')) {
+    activeBtn = btn;
+  } else if (activeBtn === btn) {
+    closePanel(); return;
+  }
+  activeBtn = btn;
+
+  const panel   = document.getElementById('bottomPanel');
+  const overlay = document.getElementById('bpOverlay');
+  const frame   = document.getElementById('bpFrame');
+  const loading = document.getElementById('bpLoading');
+
+  document.getElementById('bpDomainTag').textContent = domain;
+  document.getElementById('bpTitle').textContent     = topic;
+  document.body.classList.add('panel-open');
+  panel.classList.add('open');
+  overlay.classList.add('show');
+
+  if (!file) {
+    loading.classList.remove('show');
+    frame.srcdoc = '<div style="padding:24px;color:#999;text-align:center;font-family:sans-serif">토픽 파일을 찾을 수 없습니다</div>';
+    return;
+  }
+
+  loading.classList.add('show');
+  frame.onload = () => loading.classList.remove('show');
+  frame.src = file + '?v=' + Date.now();
+}
+
+/* 패널 닫기 */
+function closePanel() {
+  document.getElementById('bottomPanel').classList.remove('open');
+  document.getElementById('bpOverlay').classList.remove('show');
+  document.body.classList.remove('panel-open');
+  if (activeBtn) { activeBtn.classList.remove('active'); activeBtn = null; }
+}
+
+document.getElementById('bpClose').addEventListener('click', closePanel);
+document.getElementById('bpOverlay').addEventListener('click', closePanel);
+
+/* 보기 버튼 이벤트 */
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', e => { e.stopPropagation(); openPanel(btn); });
+});
+
+/* 초기화 */
+loadTopics();
+</script>
 </body>
 </html>
