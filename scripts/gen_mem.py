@@ -191,14 +191,23 @@ def generate_mem_html(subnote_dir: str = "subnote"):
         for topic, mnemonic, content_html in items:
             topic_map.setdefault(topic, []).append((mnemonic, content_html))
 
-        # 도메인별 요약 표 생성: 토픽명 | 두음
+        # 도메인별 요약 표 생성: 토픽명 | 두음 | 보기
         rows_html = ""
         for topic, mnemonics in topic_map.items():
             for mnemonic, _ in mnemonics:
+                safe_topic    = topic.replace('"', '&quot;')
+                safe_mnemonic = mnemonic.replace('"', '&quot;')
                 rows_html += f"""
           <tr>
             <td class="col-topic">{topic}</td>
-            <td class="col-mnemonic"><span class="mnemonic">{mnemonic}</span></td>
+            <td class="col-mnemonic">
+              <span class="mnemonic">{mnemonic}</span>
+              <button class="view-btn"
+                data-domain="{label}"
+                data-fname="{fname}"
+                data-topic="{safe_topic}"
+                title="내용 보기">↓</button>
+            </td>
           </tr>"""
 
         domain_table = f"""
@@ -281,6 +290,79 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       letter-spacing: 0.05em; white-space: nowrap;
     }}
 
+    /* ── 보기 버튼 ── */
+    .view-btn {{
+      background: #e8f4fd; border: 1px solid #93c7e7;
+      color: #2563a8; border-radius: 5px;
+      padding: 2px 8px; font-size: .75rem;
+      cursor: pointer; margin-left: 8px;
+      vertical-align: middle; transition: all .15s;
+      white-space: nowrap;
+    }}
+    .view-btn:hover {{ background: #bde3f5; }}
+    .view-btn.active {{ background: #93c7e7; color: #fff; border-color: #5aacd4; }}
+
+    /* ── 하단 패널 오버레이 ── */
+    .bp-overlay {{
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.3); z-index: 100;
+    }}
+    .bp-overlay.show {{ display: block; }}
+
+    /* ── 하단 패널 ── */
+    .bottom-panel {{
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 0;
+      background: #fff;
+      border-radius: 14px 14px 0 0;
+      border-top: 2px solid #e0e0e0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.13);
+      z-index: 101;
+      transition: height .3s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }}
+    .bottom-panel.open {{ height: 55vh; }}
+
+    .bp-header {{
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-bottom: 1px solid #eee;
+      background: #f7f9fc; flex-shrink: 0;
+    }}
+    .bp-domain-tag {{
+      background: #2d3748; color: #fff;
+      font-size: .7rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+    }}
+    .bp-title {{
+      flex: 1; font-size: .88rem; font-weight: 600;
+      color: #333; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }}
+    .bp-close {{
+      background: none; border: none; font-size: 1.1rem;
+      color: #999; cursor: pointer; padding: 4px 8px;
+      border-radius: 6px; flex-shrink: 0; line-height: 1;
+    }}
+    .bp-close:hover {{ background: #eee; color: #333; }}
+
+    .bp-body {{ flex: 1; position: relative; overflow: hidden; }}
+    .bp-loading {{
+      display: none; position: absolute; inset: 0;
+      align-items: center; justify-content: center; background: #fff; z-index: 1;
+    }}
+    .bp-loading.show {{ display: flex; }}
+    .bp-spinner {{
+      width: 24px; height: 24px; border: 3px solid #eee;
+      border-top-color: #93c7e7; border-radius: 50%;
+      animation: bpspin .7s linear infinite;
+    }}
+    @keyframes bpspin {{ to {{ transform: rotate(360deg); }} }}
+    #bpFrame {{ width: 100%; height: 100%; border: none; }}
+
+    /* ── 본문 패딩 보정 (패널 열릴 때 가림 방지) ── */
+    body.panel-open {{ padding-bottom: 55vh; }}
+
     @media (max-width: 640px) {{
       body {{ padding: 12px; }}
       h1 {{ font-size: 1.3rem; }}
@@ -288,6 +370,8 @@ def generate_mem_html(subnote_dir: str = "subnote"):
       .domain-table {{ font-size: 0.82rem; }}
       .domain-table td, .domain-table th {{ padding: 6px 10px; }}
       span.mnemonic {{ font-size: 0.88rem; padding: 2px 8px; }}
+      .bottom-panel.open {{ height: 65vh; }}
+      body.panel-open {{ padding-bottom: 65vh; }}
     }}
   </style>
 </head>
@@ -298,6 +382,109 @@ def generate_mem_html(subnote_dir: str = "subnote"):
     &nbsp;|&nbsp; <a href="index.html">← 목록으로</a>
   </p>
   {sections_html}
+</div>
+
+<!-- ── 하단 패널 ── -->
+<div class="bp-overlay" id="bpOverlay"></div>
+<div class="bottom-panel" id="bottomPanel">
+  <div class="bp-header">
+    <span class="bp-domain-tag" id="bpDomainTag">-</span>
+    <span class="bp-title" id="bpTitle">-</span>
+    <button class="bp-close" id="bpClose">✕</button>
+  </div>
+  <div class="bp-body">
+    <div class="bp-loading" id="bpLoading"><div class="bp-spinner"></div></div>
+    <iframe id="bpFrame" title="토픽 내용"></iframe>
+  </div>
+</div>
+
+<script>
+let topicsData  = null;
+let activeBtn   = null;
+
+/* topics.json 로드 */
+async function loadTopics() {{
+  try {{
+    const res = await fetch('topics.json', {{ cache: 'no-cache' }});
+    topicsData = await res.json();
+  }} catch(e) {{ console.warn('topics.json 로드 실패', e); }}
+}}
+
+/* 토픽명 → 파일 경로 매핑 */
+function findFile(fname, topicName) {{
+  if (!topicsData || !topicsData[fname]) return null;
+  const topics = topicsData[fname].topics;
+
+  // 1. 완전 일치
+  let t = topics.find(t => t.name === topicName);
+  // 2. 포함 관계
+  if (!t) t = topics.find(t => t.name.includes(topicName) || topicName.includes(t.name));
+  // 3. 앞 10자 비교
+  if (!t) t = topics.find(t => t.name.slice(0,10) === topicName.slice(0,10));
+
+  return t ? `topics/${{fname}}/${{t.id}}.html` : null;
+}}
+
+/* 패널 열기 */
+function openPanel(btn) {{
+  const domain = btn.dataset.domain;
+  const fname  = btn.dataset.fname;
+  const topic  = btn.dataset.topic;
+  const file   = findFile(fname, topic);
+
+  // 이전 활성 버튼 해제
+  if (activeBtn && activeBtn !== btn) activeBtn.classList.remove('active');
+  btn.classList.toggle('active');
+
+  // 같은 버튼 재클릭 → 패널 닫기
+  if (activeBtn === btn && !document.getElementById('bottomPanel').classList.contains('open')) {{
+    activeBtn = btn;
+  }} else if (activeBtn === btn) {{
+    closePanel(); return;
+  }}
+  activeBtn = btn;
+
+  const panel   = document.getElementById('bottomPanel');
+  const overlay = document.getElementById('bpOverlay');
+  const frame   = document.getElementById('bpFrame');
+  const loading = document.getElementById('bpLoading');
+
+  document.getElementById('bpDomainTag').textContent = domain;
+  document.getElementById('bpTitle').textContent     = topic;
+  document.body.classList.add('panel-open');
+  panel.classList.add('open');
+  overlay.classList.add('show');
+
+  if (!file) {{
+    loading.classList.remove('show');
+    frame.srcdoc = '<div style="padding:24px;color:#999;text-align:center;font-family:sans-serif">토픽 파일을 찾을 수 없습니다</div>';
+    return;
+  }}
+
+  loading.classList.add('show');
+  frame.onload = () => loading.classList.remove('show');
+  frame.src = file + '?v=' + Date.now();
+}}
+
+/* 패널 닫기 */
+function closePanel() {{
+  document.getElementById('bottomPanel').classList.remove('open');
+  document.getElementById('bpOverlay').classList.remove('show');
+  document.body.classList.remove('panel-open');
+  if (activeBtn) {{ activeBtn.classList.remove('active'); activeBtn = null; }}
+}}
+
+document.getElementById('bpClose').addEventListener('click', closePanel);
+document.getElementById('bpOverlay').addEventListener('click', closePanel);
+
+/* 보기 버튼 이벤트 */
+document.querySelectorAll('.view-btn').forEach(btn => {{
+  btn.addEventListener('click', e => {{ e.stopPropagation(); openPanel(btn); }});
+}});
+
+/* 초기화 */
+loadTopics();
+</script>
 </body>
 </html>"""
 
