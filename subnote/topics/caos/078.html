@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. DCI (Data Center Interconnect)</title>
+  <title>[하위] 2-1. 토러스 (Torus)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,27 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. DCI (Data Center Interconnect)</h4>
+<h4>[하위] 2-1. 토러스 (Torus)</h4>
 <ul>
-<li><strong>정의</strong>: 지리적으로 분산된 복수의 데이터센터를 고대역폭·저지연 광네트워크로 연결하여 데이터·서비스를 연속적으로 운영하는 상호연결 기술</li>
-<li><strong>키워드</strong>: DWDM, 100G/400G 광트랜시버, OTN, SD-WAN, 이중화, 재해복구, 광증폭, ROADM</li>
+<li><strong>정의</strong>: 메시 토폴로지에서 각 행·열 끝 노드를 반대편 끝 노드와 추가 연결하여 직경을 단축한 상호연결망 구조</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>래핑(Wrapping)</strong></u></span>, 2D/3D Torus, 직경, 차수, 대칭성, Cray, AI 네트워크</li>
 <li><strong>분류</strong>: 고가용성 인프라</li>
-<li><strong>DCI 구성 방식 비교</strong>:<div class="table-scroll"><table>
-<tr><th><strong>방식</strong></th><th><strong>설명</strong></th><th><strong>적용 거리</strong></th></tr>
-<tr><td><strong>Dark Fiber</strong></td><td>전용 광섬유 직접 연결, 최저 지연</td><td>단거리 (Metro)</td></tr>
-<tr><td><strong>DWDM</strong></td><td>파장 분할 다중화, 단일 광섬유로 대용량 전송</td><td>중·장거리</td></tr>
-<tr><td><strong>OTN</strong></td><td>광 전송 계층 표준화, 에러 정정 포함</td><td>장거리</td></tr>
-<tr><td><strong>SD-WAN</strong></td><td>소프트웨어 기반 WAN, 다중 링크 추상화</td><td>인터넷 기반</td></tr>
+<li><strong>메시와 토러스 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>메시 (Mesh)</th><th>토러스 (Torus)</th></tr>
+<tr><td>경계 노드 처리</td><td>끝 노드 미연결</td><td>끝 노드 래핑(Wrapping) 연결</td></tr>
+<tr><td>직경</td><td>2(√N - 1)</td><td>√N</td></tr>
+<tr><td>차수</td><td>4 (내부 노드)</td><td>4 (균일)</td></tr>
+<tr><td>대칭성</td><td>비대칭</td><td>완전 대칭</td></tr>
+<tr><td>통신 균일성</td><td>위치에 따라 지연 차이</td><td>모든 노드 동일 거리</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 기능</strong>:<ul>
-<li>고대역폭: DWDM 기반 400G~Tbps급 전송으로 AI 학습 데이터 동기화 지원</li>
-<li>저지연: 데이터 미러링·실시간 복제(Synchronous Replication)를 위한 ms 이하 지연</li>
-<li>이중화: 다중 경로(Multi-path) 구성으로 회선 장애 시 자동 우회</li>
-<li>DR 지원: Active-Active DC 간 실시간 데이터 동기화로 RTO/RPO 최소화</li>
+<li><strong>특징</strong>:<ul>
+<li>2D Torus: 행·열 양방향 래핑 → 정사각형 격자에서 균일 지연</li>
+<li>3D Torus: 3축 방향 래핑 → Cray XK7, IBM Blue Gene 등 HPC 슈퍼컴퓨터에 적용</li>
+<li>6D Torus: Google TPU Pod 네트워크 연결 토폴로지로 활용</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: DCI는 단순 광케이블 연결이 아닌 <strong>DWDM 파장 다중화 + OTN 표준화 + SD-WAN 오케스트레이션</strong>이 결합된 계층 구조이며, AI DC 확산으로 <strong>데이터센터 간 수백 Gbps 동기화 수요</strong>가 급증하고 있음을 강조.</li>
+<li><strong>인사이트</strong>: 토러스는 메시 대비 <strong>직경을 약 절반으로 단축</strong>하면서 차수를 유지하는 효율적 구조로, TPU Pod·HPC 클러스터 등 <strong>AI 학습 인프라의 집합 통신(AllReduce) 최적화</strong>에 적합함을 강조.</li>
 </ul>
 
 </body>

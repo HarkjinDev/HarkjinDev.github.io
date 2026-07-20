@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 스레싱 (Thrashing)</title>
+  <title>2. 페이지 교체 알고리즘 (Page Replacement Algorithm)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,35 +15,22 @@
   </style>
 </head>
 <body>
-<h4>3. 스레싱 (Thrashing)</h4>
+<h4>2. 페이지 교체 알고리즘 (Page Replacement Algorithm)</h4>
 <ul>
-<li><strong>정의</strong>: 과도한 페이지 교체로 인해 실제 프로세스 실행보다 페이지 교환에 더 많은 시간을 소비하여 CPU 이용률이 급격히 저하되는 현상</li>
-<li><strong>키워드</strong>: Page Fault 과다, 워킹셋(Working Set), PFF(Page Fault Frequency), 벨라디 변이</li>
+<li><strong>정의</strong>: 메모리 부족 시 교체할 페이지를 선택하여 스왑 공간으로 내보내는 알고리즘</li>
+<li><strong>키워드</strong>: FIFO, LRU, LFU, 최적(Optimal), 클럭(Clock), 페이지 폴트, 벨라디 이상</li>
 <li><strong>분류</strong>: 메모리 관리</li>
-<li><strong>발생 원인</strong>:  <div class="table-scroll"><table>
-<tr><th><strong>발생 원인</strong></th><th><strong>세부 원인</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>리소스 부족</strong></td><td>저사양 CPU</td><td>CPU 코어 수 및 연산 속도 리소스 부족</td></tr>
-<tr><td></td><td>메모리 용량 부족</td><td>메모리 부족으로 인한 가상메모리 스왑 발생 증가</td></tr>
-<tr><td><strong>부적절한 페이지 교체 정책</strong></td><td>Locality 미고려</td><td>구역성(Locality)을 고려하지 않아 교체 효율성 저하</td></tr>
-<tr><td></td><td>페이지 빈도 미고려</td><td>잦은 페이지 교체로 인한 심각한 지연 시간 발생</td></tr>
-<tr><td><strong>과도한 멀티프로그래밍</strong></td><td>다중 프로세스 수용 초과</td><td>멀티프로그래밍 정도 과다로 잦은 페이지 부재 발생</td></tr>
-<tr><td></td><td>페이지 교체 수용 초과</td><td>수용 범위를 넘어서는 페이지 요구로 부재 빈도 급증</td></tr>
+<li><strong>페이지 교체 알고리즘: </strong><div class="table-scroll"><table>
+<tr><th>알고리즘</th><th>기준</th><th>특징</th><th>비고</th></tr>
+<tr><td><strong>FIFO</strong></td><td>가장 먼저 들어온 페이지</td><td>구현 간단</td><td>벨라디 이상(Belady’s Anomaly) 발생 가능</td></tr>
+<tr><td><strong>LRU</strong></td><td>가장 오래 전에 사용된 페이지</td><td>시간적 지역성 활용, 성능 우수</td><td>구현 비용 높음 (타임스탬프 필요)</td></tr>
+<tr><td><strong>LFU</strong></td><td>사용 빈도가 가장 낮은 페이지</td><td>빈도 기반</td><td>초기 페이지에 불리, 최근 패턴 반영 어려움</td></tr>
+<tr><td><strong>최적 (OPT)</strong></td><td>앞으로 가장 오래 사용되지 않을 페이지</td><td>이론적 최적</td><td>미래 예측 불가 → 성능 비교 기준(Benchmark)으로만 활용</td></tr>
+<tr><td><strong>클럭 (Clock/NRU)</strong></td><td>참조 비트 기반 LRU 근사</td><td>LRU 근사, 구현 효율적</td><td>실제 OS에서 가장 많이 채택</td></tr>
 </table></div>
 </li>
-<li><strong>해결 방법: </strong><div class="table-scroll"><table>
-<tr><th>방법</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>워킹셋 (Working Set)</strong></td><td>참조 페이지 집합에 충분한 프레임 보장</td><td>페이지 집합 보장</td></tr>
-<tr><td><strong>PFF (Page Fault Frequency)</strong></td><td>페이지 폴트 빈도로 프레임 수(상한/하한) 조절</td><td>빈도 기반 조절</td></tr>
-<tr><td><strong>다중 프로그래밍 정도 조절</strong></td><td>동시 프로세스 수 줄여 프레임 확보</td><td>프로세스 수 감소</td></tr>
-</table></div>
-</li>
-<li><strong>밸라디 변이(Belady’s Anomaly):</strong> <ul>
-<li>프로세스에 페이지 프레임을 더 할당하였음에도 페이지 부재율이 증가하는 현상</li>
-<li>원인: Locality를 고려하지 않은 FIFO의 한계로 인한 page fault 증가 발생</li>
-<li>영향: 페이지 부재율 증가로 인한 성능 저하 및 스레싱 발생</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 스레싱은 단순히 메모리를 추가하는 것으로 해결되지 않으며, 프로세스별 워킹셋 크기를 분석하여 적절한 메모리 할당이 근본적 해결책. 현대 시스템에서는 OOM(Out-Of-Memory) Killer가 스레싱 상황에서 일부 프로세스를 강제 종료함</li>
+<li><strong>벨라디 이상(Belady’s Anomaly)</strong>: FIFO에서 프레임 수를 늘려도 페이지 폴트가 증가하는 현상</li>
+<li><strong>인사이트</strong>: Linux의 페이지 교체는 Active/Inactive 리스트 기반의 2-pass LRU 변형을 채택함</li>
 </ul>
 
 </body>

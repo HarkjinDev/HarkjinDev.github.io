@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 메모리 누수 (Memory Leak)</title>
+  <title>3. 스레싱 (Thrashing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,35 @@
   </style>
 </head>
 <body>
-<h4>4. 메모리 누수 (Memory Leak)</h4>
+<h4>3. 스레싱 (Thrashing)</h4>
 <ul>
-<li><strong>정의</strong>: 프로그램이 할당한 메모리를 더 이상 사용하지 않음에도 해제하지 않아 가용 메모리가 점진적으로 감소하는 현상</li>
-<li><strong>키워드</strong>: 참조 카운팅, 가비지 컬렉터, 순환 참조, 힙 메모리 고갈</li>
+<li><strong>정의</strong>: 과도한 페이지 교체로 인해 실제 프로세스 실행보다 페이지 교환에 더 많은 시간을 소비하여 CPU 이용률이 급격히 저하되는 현상</li>
+<li><strong>키워드</strong>: Page Fault 과다, 워킹셋(Working Set), PFF(Page Fault Frequency), 벨라디 변이</li>
 <li><strong>분류</strong>: 메모리 관리</li>
-<li><strong>언어별 메모리 관리: </strong><div class="table-scroll"><table>
-<tr><th>언어</th><th>메모리 관리 방식</th><th>메모리 누수 대응</th></tr>
-<tr><td>C/C++</td><td>수동 관리 (malloc/free, new/delete)</td><td>스마트 포인터(unique_ptr, shared_ptr), RAII 패턴</td></tr>
-<tr><td>Java</td><td>가비지 컬렉터(GC) 자동 관리</td><td>정적 컬렉션의 순환 참조 주의, WeakReference 활용</td></tr>
-<tr><td>Python</td><td>참조 카운팅 + GC</td><td>순환 참조는 GC가 처리, gc.collect() 명시 호출</td></tr>
-<tr><td>Rust</td><td>소유권(Ownership) 시스템</td><td>컴파일 타임에 메모리 누수 방지 (GC 불필요)</td></tr>
+<li><strong>발생 원인</strong>:  <div class="table-scroll"><table>
+<tr><th><strong>발생 원인</strong></th><th><strong>세부 원인</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>리소스 부족</strong></td><td>저사양 CPU</td><td>CPU 코어 수 및 연산 속도 리소스 부족</td></tr>
+<tr><td></td><td>메모리 용량 부족</td><td>메모리 부족으로 인한 가상메모리 스왑 발생 증가</td></tr>
+<tr><td><strong>부적절한 페이지 교체 정책</strong></td><td>Locality 미고려</td><td>구역성(Locality)을 고려하지 않아 교체 효율성 저하</td></tr>
+<tr><td></td><td>페이지 빈도 미고려</td><td>잦은 페이지 교체로 인한 심각한 지연 시간 발생</td></tr>
+<tr><td><strong>과도한 멀티프로그래밍</strong></td><td>다중 프로세스 수용 초과</td><td>멀티프로그래밍 정도 과다로 잦은 페이지 부재 발생</td></tr>
+<tr><td></td><td>페이지 교체 수용 초과</td><td>수용 범위를 넘어서는 페이지 요구로 부재 빈도 급증</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 가비지 컬렉터가 있는 언어도 순환 참조나 정적 캐시 미관리로 논리적 메모리 누수가 발생할 수 있음. 장기 실행 서버에서 메모리 사용량 모니터링과 힙 덤프 분석은 필수 운영 역량임</li>
+<li><strong>해결 방법: </strong><div class="table-scroll"><table>
+<tr><th>방법</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>워킹셋 (Working Set)</strong></td><td>참조 페이지 집합에 충분한 프레임 보장</td><td>페이지 집합 보장</td></tr>
+<tr><td><strong>PFF (Page Fault Frequency)</strong></td><td>페이지 폴트 빈도로 프레임 수(상한/하한) 조절</td><td>빈도 기반 조절</td></tr>
+<tr><td><strong>다중 프로그래밍 정도 조절</strong></td><td>동시 프로세스 수 줄여 프레임 확보</td><td>프로세스 수 감소</td></tr>
+</table></div>
+</li>
+<li><strong>밸라디 변이(Belady’s Anomaly):</strong> <ul>
+<li>프로세스에 페이지 프레임을 더 할당하였음에도 페이지 부재율이 증가하는 현상</li>
+<li>원인: Locality를 고려하지 않은 FIFO의 한계로 인한 page fault 증가 발생</li>
+<li>영향: 페이지 부재율 증가로 인한 성능 저하 및 스레싱 발생</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 스레싱은 단순히 메모리를 추가하는 것으로 해결되지 않으며, 프로세스별 워킹셋 크기를 분석하여 적절한 메모리 할당이 근본적 해결책. 현대 시스템에서는 OOM(Out-Of-Memory) Killer가 스레싱 상황에서 일부 프로세스를 강제 종료함</li>
 </ul>
 
 </body>

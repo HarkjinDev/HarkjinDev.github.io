@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 인터미턴트 컴퓨팅 (Intermittent Computing)</title>
+  <title>[하위] 3-2. 침지냉각(Immersion Cooling)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,34 +15,20 @@
   </style>
 </head>
 <body>
-<h4>5. 인터미턴트 컴퓨팅 (Intermittent Computing)</h4>
+<h4>[하위] 3-2. 침지냉각(Immersion Cooling)</h4>
 <ul>
-<li><strong>정의</strong>: 에너지 수확(Energy Harvesting) 기반 장치가 전력 공급이 불연속적·간헐적인 환경에서도 연산을 완료할 수 있도록 하는 컴퓨팅 기법</li>
-<li><strong>키워드</strong>: 에너지 하베스팅, 체크포인팅, 비휘발성 메모리, FRAM, 태양광·RF 에너지, 배터리리스, 진행 보장</li>
-<li><strong>분류</strong>: 고가용성 인프라</li>
-<li><strong>등장 배경 및 특성</strong>:<div class="table-scroll"><table>
-<tr><th>항목</th><th>내용</th></tr>
-<tr><td>등장 배경</td><td>IoT 극소형 기기의 배터리 교체 불가 환경 (의료 삽입형, 환경 센서 등)</td></tr>
-<tr><td>전원 특성</td><td>태양광·RF·진동 등 주변 에너지 수확 → 간헐적·불규칙 전력 공급</td></tr>
-<tr><td>핵심 문제</td><td>연산 중 전력 중단(Power Failure) → 메모리 상태 손실, 연산 미완료</td></tr>
+<li><strong>정의: </strong>전기가 통하지 않는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비전도성 액채</strong></u></span>에 직접 담가 열을 식히는 냉각 기술</li>
+<li><strong>침지냉각 기술요소: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>기술요소</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>냉각 매체</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>유전체 액체(Dielectric Fluid)</strong></u></span></td><td>비전도성, 저점도, 고열전도성을 가진 합성유 또는 불소계 냉각재</td></tr>
+<tr><td><strong>시스템 구성</strong></td><td><strong>침전조(Tank/Bath)</strong></td><td>서버가 수직으로 안착되는 수조형 구조체로 기밀 및 유지보수 고려</td></tr>
+<tr><td><strong>순환 제어</strong></td><td><strong>CDU(Cooling Distribution Unit)</strong></td><td>냉각유체를 순환시키고 펌프·여과기를 통해 적정 온도를 유지하는 장치</td></tr>
+<tr><td><strong>열교환</strong></td><td><strong>열교환기(Heat Exchanger)</strong></td><td>유체가 흡수한 서버의 열을 외부 냉각수나 대기로 전달하는 장치</td></tr>
+<tr><td><strong>운영 최적화</strong></td><td><strong>열 계층화 제어</strong></td><td>수조 내 온도 차를 이용해 뜨거운 유체는 상단, 차가운 유체는 하단 배치</td></tr>
+<tr><td><strong>호환성</strong></td><td><strong>소재 적합성(Material Compatibility)</strong></td><td>냉각액에 의한 서버 부품(케이블, 씰링 등)의 부식 및 변형 방지 기술</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
-<tr><th>기술</th><th>설명</th></tr>
-<tr><td><strong>체크포인팅 (Checkpointing)</strong></td><td>연산 상태를 비휘발성 메모리(FRAM/NVM)에 저장, 전력 복구 후 재개</td></tr>
-<tr><td><strong>원자적 섹션 (Atomic Section)</strong></td><td>전력 중단이 허용되지 않는 임계 코드 구간 보호</td></tr>
-<tr><td><strong>작업 분할 (Task Decomposition)</strong></td><td>긴 연산을 에너지 예산 내 실행 가능한 소단위로 분해</td></tr>
-<tr><td><strong>진행 보장 (Progress Guarantee)</strong></td><td>시스템이 결국 완료됨을 보장하는 프로그래밍 모델</td></tr>
-</table></div>
-</li>
-<li><strong>엣지/IoT와의 관계</strong>:<ul>
-<li>엣지 컴퓨팅이 안정적 전원을 전제하는 반면, 인터미턴트 컴퓨팅은 <strong>전원 자체가 불안정한 극한 환경</strong>을 대상</li>
-<li>배터리리스(Batteryless) IoT 실현을 위한 핵심 기반 기술</li>
 </ul>
-</li>
-<li><strong>인사이트</strong>: 인터미턴트 컴퓨팅의 차별점은 <strong>전력 중단을 예외가 아닌 정상 조건으로 설계</strong>한다는 점이며, 비휘발성 메모리 기반 <strong>체크포인팅과 진행 보장 프로그래밍 모델</strong>이 핵심 해결 수단임을 강조.</li>
-</ul>
-</body>
-</html>
+
 </body>
 </html>

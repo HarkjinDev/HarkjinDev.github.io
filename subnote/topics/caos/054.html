@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 스토리지 계층 (블록 / 파일 / 오브젝트 스토리지)</title>
+  <title>1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,21 @@
   </style>
 </head>
 <body>
-<h4>2. 스토리지 계층 (블록 / 파일 / 오브젝트 스토리지)</h4>
+<h4>1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 저장하고 접근하는 방식에 따른 스토리지 유형 분류</li>
-<li><strong>키워드</strong>: 블록, 파일, 오브젝트, LUN, 계층 구조, 키-값, REST API, S3</li>
-<li><strong>분류</strong>: 스토리지</li>
-<li><strong>비교: </strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>블록 스토리지</th><th>파일 스토리지</th><th>오브젝트 스토리지</th></tr>
-<tr><td>접근 단위</td><td>고정 크기 블록</td><td>파일 및 디렉토리</td><td>오브젝트 (키-값)</td></tr>
-<tr><td>접근 방식</td><td>LUN/볼륨 마운트</td><td>파일 경로</td><td>REST API / HTTP</td></tr>
-<tr><td>성능</td><td>최고 (낮은 레이턴시)</td><td>중간</td><td>높은 처리량, 높은 레이턴시</td></tr>
-<tr><td>확장성</td><td>제한적</td><td>중간</td><td>무제한 (수평 확장)</td></tr>
-<tr><td>적합 용도</td><td>DB, VM 디스크</td><td>파일 공유, NAS</td><td>미디어, 백업, 빅데이터, 클라우드 스토리지</td></tr>
-<tr><td>대표 제품</td><td>AWS EBS, SAN</td><td>NFS, AWS EFS</td><td>AWS S3, Azure Blob</td></tr>
+<li><strong>정의</strong>: 서버와 스토리지를 연결하는 방식에 따른 스토리지 아키텍처 분류</li>
+<li><strong>키워드</strong>: DAS, NAS, SAN, 블록/파일 수준, 전용 네트워크, 공유 스토리지</li>
+<li><strong>분류</strong>: 스토리지<div class="table-scroll"><table>
+<tr><th>구분</th><th>DAS</th><th>NAS</th><th>SAN</th></tr>
+<tr><td>연결 방식</td><td>서버 직접 연결 (SCSI/SATA/SAS)</td><td>이더넷 네트워크 (NFS/CIFS)</td><td>전용 광채널 네트워크 (FC/iSCSI)</td></tr>
+<tr><td>공유 수준</td><td>단일 서버 전용</td><td>파일 수준 공유</td><td>블록 수준 공유</td></tr>
+<tr><td>성능</td><td>가장 빠름</td><td>보통</td><td>매우 빠름</td></tr>
+<tr><td>확장성</td><td>낮음</td><td>높음</td><td>매우 높음</td></tr>
+<tr><td>비용</td><td>낮음</td><td>중간</td><td>높음</td></tr>
+<tr><td>적합 용도</td><td>단일 서버 로컬 스토리지</td><td>파일 공유, 백업, 소규모 환경</td><td>데이터베이스, 가상화, 엔터프라이즈</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 클라우드 네이티브 환경에서 오브젝트 스토리지가 빠르게 성장하고 있으며, 이머지블(Immutable) 특성과 무제한 확장성으로 AI/ML 데이터 레이크의 표준 저장소로 자리잡음</li>
+<li><strong>인사이트</strong>: 클라우드 환경에서는 오브젝트 스토리지(S3 등)가 대안으로 부상하였으며, DAS/NAS/SAN의 경계가 소프트웨어 정의 스토리지(SDS)로 추상화되는 추세임</li>
 </ul>
 
 </body>

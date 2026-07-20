@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. 추론 모델</title>
+  <title>10. 추론 모델 (Reasoning Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,27 @@
   </style>
 </head>
 <body>
-<h4>10. 추론 모델</h4>
+<h4>10. 추론 모델 (Reasoning Model)</h4>
+<ul>
+<li><strong>정의:</strong> 복잡한 문제를 단계적·논리적 사고과정으로 분해해 추론하는 LLM 유형</li>
+<li><strong>키워드:</strong> 딥시크, CoT, Test-time Compute, System2 Thinking, 강화학습기반 추론</li>
+<li><strong>분류:</strong> AI 응용 / 트렌드</li>
+<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>학습</strong></td><td><strong>강화학습(RLVR)</strong></td><td>정답 검증가능 보상으로 추론경로 학습</td></tr>
+<tr><td></td><td><strong>Process Reward Model(PRM)</strong></td><td>추론 각 단계별 정답여부 보상</td></tr>
+<tr><td></td><td><strong>Outcome Reward Model(ORM)</strong></td><td>최종 결과만 평가하는 보상모델</td></tr>
+<tr><td></td><td><strong>Distillation</strong></td><td>대형 추론모델의 사고패턴 경량모델 전이</td></tr>
+<tr><td><strong>탐색</strong></td><td><strong>Chain-of-Thought(CoT)</strong></td><td>단계별 중간추론 생성</td></tr>
+<tr><td></td><td><strong>Tree-of-Thought(ToT)</strong></td><td>다중 추론경로 트리형 탐색</td></tr>
+<tr><td></td><td><strong>Monte Carlo Tree Search(MCTS)</strong></td><td>무작위 시뮬레이션 기반 탐색트리 확장</td></tr>
+<tr><td></td><td><strong>Best-of-N Sampling</strong></td><td>N개 후보 중 최적답 선택</td></tr>
+<tr><td><strong>추론심화</strong></td><td><strong>Test-time Compute</strong></td><td>추론시점에 연산량을 늘려 정확도향상</td></tr>
+<tr><td></td><td><strong>System 2 Thinking</strong></td><td>빠른직관 아닌 느리고 신중한 추론</td></tr>
+<tr><td></td><td><strong>자기검증(Self-verification)</strong></td><td>생성한 답을 스스로 재검토·수정</td></tr>
+</table></div>
+</li>
+</ul>
 <hr/>
 
 </body>

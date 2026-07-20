@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)</title>
+  <title>[Part 5] 스토리지</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)</h4>
-<ul>
-<li><strong>정의</strong>: 서버와 스토리지를 연결하는 방식에 따른 스토리지 아키텍처 분류</li>
-<li><strong>키워드</strong>: DAS, NAS, SAN, 블록/파일 수준, 전용 네트워크, 공유 스토리지</li>
-<li><strong>분류</strong>: 스토리지<div class="table-scroll"><table>
-<tr><th>구분</th><th>DAS</th><th>NAS</th><th>SAN</th></tr>
-<tr><td>연결 방식</td><td>서버 직접 연결 (SCSI/SATA/SAS)</td><td>이더넷 네트워크 (NFS/CIFS)</td><td>전용 광채널 네트워크 (FC/iSCSI)</td></tr>
-<tr><td>공유 수준</td><td>단일 서버 전용</td><td>파일 수준 공유</td><td>블록 수준 공유</td></tr>
-<tr><td>성능</td><td>가장 빠름</td><td>보통</td><td>매우 빠름</td></tr>
-<tr><td>확장성</td><td>낮음</td><td>높음</td><td>매우 높음</td></tr>
-<tr><td>비용</td><td>낮음</td><td>중간</td><td>높음</td></tr>
-<tr><td>적합 용도</td><td>단일 서버 로컬 스토리지</td><td>파일 공유, 백업, 소규모 환경</td><td>데이터베이스, 가상화, 엔터프라이즈</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 클라우드 환경에서는 오브젝트 스토리지(S3 등)가 대안으로 부상하였으며, DAS/NAS/SAN의 경계가 소프트웨어 정의 스토리지(SDS)로 추상화되는 추세임</li>
-</ul>
+<h3>[Part 5] 스토리지</h3>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 뉴로모픽 칩 (Neuromorphic Chip)</title>
+  <title>2. NPU (Neural Processing Unit)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,43 +15,39 @@
   </style>
 </head>
 <body>
-<h4>3. 뉴로모픽 칩 (Neuromorphic Chip)</h4>
+<h4>2. NPU (Neural Processing Unit)</h4>
 <ul>
-<li><strong>정의</strong>: 생물학적 뉴런과 시냅스 구조를 하드웨어로 모사한 저전력 인공지능 전용 칩</li>
-<li><strong>키워드</strong>: 폰노이만 병목 해결, 시냅스, Spike, SNN(Spiking Neural Network), 인메모리, 저전력, 학습 능력</li>
-<li><strong>분류</strong>: AI 연산 하드웨어</li>
-<li><strong>기존 폰노이만 구조 한계</strong>: CPU와 메모리 분리로 인한 <strong>메모리 벽(Memory Wall)</strong> 문제 / 데이터 이동에 많은 에너지 소비</li>
-<li><strong>특징: </strong><div class="table-scroll"><table>
-<tr><th>특징</th><th>설명</th></tr>
-<tr><td>스파이크 기반 연산(SNN)</td><td>뉴런이 임계값 초과 시만 스파이크(신호) 발생 → 희소 연산, 저전력</td></tr>
-<tr><td>인메모리 컴퓨팅</td><td>시냅스(메모리)에서 직접 연산 → 데이터 이동 최소화</td></tr>
-<tr><td>저전력</td><td>GPU 대비 수십~수천 배 낮은 전력 소비</td></tr>
-<tr><td>온라인 학습</td><td>추론과 동시에 실시간 학습 가능 (엣지 AI에 유리)</td></tr>
+<li><strong>정의</strong>: 인공신경망 연산을 하드웨어 수준에서 고속·저전력으로 처리하는 전용프로세서</li>
+<li><strong>키워드</strong>: MAC 어레이, 시스토릭 어레이, 온칩 메모리(SRAM), 데이터 재사용, 양자화, 희소성 가속, 에지 AI, on-device AI</li>
+<li><strong>분류</strong>: AI 컴퓨팅 하드웨어</li>
+<li><strong>핵심 구성요소</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th></tr>
+<tr><td><strong>MAC 어레이 (Multiply-Accumulate)</strong></td><td>곱셈-누산 연산을 병렬로 수행하는 핵심 연산 유닛</td></tr>
+<tr><td><strong>시스토릭 어레이 (Systolic Array)</strong></td><td>PE(Processing Element) 간 데이터를 파이프라인 방식으로 흘려 행렬 연산 효율 극대화</td></tr>
+<tr><td><strong>온칩 SRAM 버퍼</strong></td><td>가중치·활성화값을 칩 내부에 캐싱해 DRAM 접근 최소화</td></tr>
+<tr><td><strong>활성화 함수 유닛</strong></td><td>ReLU, Sigmoid, Softmax 등을 하드웨어 회로로 직접 구현</td></tr>
+<tr><td><strong>DMA 컨트롤러</strong></td><td>외부 메모리와 온칩 버퍼 간 대용량 데이터 전송 자동화</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>연산</strong></td><td><strong>SNN (스파이킹 신경망)</strong></td><td>임계값 초과 시만 스파이크 발생·희소 연산</td><td>이벤트 기반 연산</td></tr>
-<tr><td></td><td><strong>인메모리 컴퓨팅</strong></td><td>시냅스 메모리에서 직접 연산·데이터 이동 최소화</td><td>메모리 벽 해소</td></tr>
-<tr><td></td><td><strong>이벤트 기반 처리</strong></td><td>신호 변화 있을 때만 연산 수행·유휴 시 전력 0</td><td>초저전력</td></tr>
-<tr><td><strong>학습</strong></td><td><strong>STDP 
-(스파이크 타이밍 의존 가소성)</strong></td><td>뉴런 발화 시간 차이 기반 시냅스 가중치 조정</td><td>생물학적 학습</td></tr>
-<tr><td></td><td><strong>온라인 학습</strong></td><td>추론과 동시에 실시간 학습·적응 가능</td><td>엣지 학습</td></tr>
-<tr><td><strong>소자</strong></td><td><strong>멤리스터 (Memristor)</strong></td><td>저항 변화로 시냅스 가중치 모사하는 소자</td><td>시냅스 구현 소자</td></tr>
-<tr><td></td><td><strong>RRAM·PCM</strong></td><td>비휘발성 저항·상변화 메모리 기반 시냅스 구현</td><td>비휘발 시냅스</td></tr>
+<li><strong>주요 최적화 기법</strong>:<div class="table-scroll"><table>
+<tr><th>기법</th><th>설명</th></tr>
+<tr><td><strong>양자화 (Quantization)</strong></td><td>FP32 → INT8/INT4로 비트폭 축소하여 연산량·메모리 절감</td></tr>
+<tr><td><strong>가지치기 (Pruning)</strong></td><td>가중치 0에 가까운 뉴런 제거로 희소 행렬 연산 가속</td></tr>
+<tr><td><strong>데이터 재사용 (Data Reuse)</strong></td><td>가중치·입력 데이터를 온칩 버퍼에서 반복 활용해 메모리 대역폭 절감</td></tr>
+<tr><td><strong>희소성 가속 (Sparsity)</strong></td><td>0값 가중치 연산을 건너뛰어 실질 연산량 감소</td></tr>
+<tr><td><strong>연산자 융합 (Op Fusion)</strong></td><td>Conv+BN+ReLU 등 연속 연산을 하나의 하드웨어 패스로 통합</td></tr>
 </table></div>
 </li>
-<li><strong>기존 AI 칩과의 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>GPU</th><th>NPU</th><th>뉴로모픽 칩</th></tr>
-<tr><td><strong>연산 방식</strong></td><td>병렬 행렬 연산</td><td>DNN 가속</td><td>스파이크 이벤트 기반</td></tr>
-<tr><td><strong>전력 소비</strong></td><td>매우 높음</td><td>중간</td><td>매우 낮음</td></tr>
-<tr><td><strong>학습</strong></td><td>오프라인</td><td>오프라인</td><td>온라인 실시간</td></tr>
-<tr><td><strong>생태계</strong></td><td>✅ 성숙</td><td>△ 성장 중</td><td>❌ 초기 단계</td></tr>
-<tr><td><strong>적합 환경</strong></td><td>데이터센터</td><td>온디바이스</td><td>초저전력 엣지</td></tr>
+<li><strong>주요 제품 및 적용 분야</strong>:<div class="table-scroll"><table>
+<tr><th>제품</th><th>제조사</th><th>탑재 환경</th></tr>
+<tr><td>Apple Neural Engine</td><td>Apple</td><td>iPhone·Mac (on-device AI)</td></tr>
+<tr><td>Hexagon NPU</td><td>Qualcomm</td><td>스냅드래곤 SoC, 스마트폰</td></tr>
+<tr><td>Ethos NPU</td><td>Arm</td><td>IoT·임베디드 SoC</td></tr>
+<tr><td>Myriad X VPU</td><td>Intel</td><td>에지 추론 (드론, 산업용 카메라)</td></tr>
+<tr><td>Google Edge TPU</td><td>Google</td><td>Coral 에지 보드</td></tr>
 </table></div>
 </li>
-<li><strong>대표 칩</strong>: Intel Loihi, IBM TrueNorth, BrainScaleS</li>
-<li><strong>인사이트</strong>: 뉴로모픽 칩은 IoT 엣지 디바이스의 초저전력 AI 추론에 유망하나, 프로그래밍 모델이 기존과 달라 생태계 성숙까지 시간이 필요함. 현재는 연구 단계로 상용화는 초기 수준임</li>
+<li><strong>인사이트</strong>: NPU는 <strong>AI 연산에 특화된 ASIC의 일종</strong>으로, 시스토릭 어레이 구조와 온칩 데이터 재사용 전략이 전력 효율의 핵심임을 답안에서 강조할 것. 에지 AI 맥락에서는 GPU와의 전력 대비 성능(TOPS/W) 비교, 클라우드 AI 맥락에서는 TPU·GPU와의 역할 분담 관점으로 서술하면 차별화 가능.</li>
 </ul>
 
 </body>

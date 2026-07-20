@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. GPGPU (General-Purpose computing on GPU)</title>
+  <title>[하위] 2-1. 멀티 GPU (Multi-GPU)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,28 +15,30 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. GPGPU (General-Purpose computing on GPU)</h4>
+<h4>[하위] 2-1. 멀티 GPU (Multi-GPU)</h4>
 <ul>
-<li><strong>정의</strong>: GPU의 병렬 처리 능력을 그래픽 외 범용 연산에 활용하는 기술</li>
-<li><strong>키워드</strong>: SP, SM, TPC, SIMD, 부동소수점연산(FLOPs), CUDA, OpenCL, C++AMP, OpenACC</li>
+<li><strong>정의</strong>: 다수의 GPU를 활용하여 대규모 신경망을 분산 병렬로 작동하기 위해 사용하는 기술</li>
+<li><strong>키워드</strong>: 데이터 병렬화, 모델 병렬화, 텐서 병렬화, NVLink, PCIe, Infinity Fabric, PSU, 침지냉각</li>
 <li><strong>분류</strong>: 컴퓨터 구조</li>
-<li><strong>GPU 계층 구조</strong>:<ul>
-<li><strong>SP (Shader Processor)</strong>: 기본 연산 단위</li>
-<li><strong>SM (Streaming Multiprocessor)</strong>: 다수의 SP를 묶은 처리 단위</li>
-<li><strong>TPC (Texture/Processor Cluster)</strong>: 다수의 SM을 묶은 클러스터</li>
-<li><strong>PCI express bus:</strong> CPU와 메모리 접근위한 버스</li>
-<li><strong>SIMD 코어:</strong> 병렬 연산 처리를 위한 스레드 프로세서들 집합</li>
-</ul>
-</li>
-<li><strong>GPGPU 프레임워크:</strong><div class="table-scroll"><table>
-<tr><th><strong>프레임워크</strong></th><th><strong>제조사</strong></th><th><strong>특징</strong></th></tr>
-<tr><td><strong>CUDA</strong></td><td>NVIDIA</td><td>NVIDIA GPU 전용, 높은 성숙도와 생태계</td></tr>
-<tr><td><strong>OpenCL</strong></td><td>Khronos (개방형)</td><td>이기종 플랫폼 지원, 벤더 독립적</td></tr>
-<tr><td><strong>C++AMP</strong></td><td>Microsoft</td><td>C++ 표준 기반, Windows 환경 최적화</td></tr>
-<tr><td><strong>OpenACC</strong></td><td>개방형</td><td>지시문 기반, 포트란/C/C++ 지원</td></tr>
+<li><strong>유형: </strong><div class="table-scroll"><table>
+<tr><th>전략</th><th>설명</th><th>적합 상황</th></tr>
+<tr><td><strong>데이터 병렬화 </strong></td><td>동일 모델 복사본에 다른 데이터 배치 분배</td><td>모델이 GPU 메모리에 수용 가능할 때</td></tr>
+<tr><td><strong>모델 병렬화 </strong></td><td>모델을 여러 GPU에 분할 배치</td><td>모델이 단일 GPU 메모리 초과 시</td></tr>
+<tr><td><strong>텐서 병렬화 </strong></td><td>개별 텐서 연산을 GPU에 분할</td><td>대형 LLM (GPT, LLaMA 등)</td></tr>
+<tr><td><strong>파이프라인 병렬화 </strong></td><td>레이어 그룹을 GPU에 순서대로 배치</td><td>매우 깊은 신경망</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: GPGPU는 딥러닝의 부상으로 AI 핵심 인프라가 되었으며, CUDA 생태계의 독점적 지위가 NVIDIA의 경쟁 우위의 원천임. 에너지 효율 관점에서 TPU/NPU 등 특화 칩이 도전하는 구도임. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>CPU와 GPU를 하나의 연산체 추상계층을 생성하여 GPU를 연산 보조용으로 사용하는 이기종 아키텍처인 HAS</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u> </u></span>언급</li>
+<li><strong>멀티 GPU 구성 요소</strong>:<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th></tr>
+<tr><td><strong>NVLink / NVSwitch</strong></td><td>NVIDIA GPU 간 고대역폭 직접 연결. PCIe 대비 10배 이상 대역폭 제공</td></tr>
+<tr><td><strong>Infinity Fabric</strong></td><td>AMD GPU·CPU 간 고속 인터커넥트</td></tr>
+<tr><td><strong>PCIe 스위치</strong></td><td>표준 인터페이스 기반 GPU 연결. 비용 저렴, 대역폭 상대적으로 낮음</td></tr>
+<tr><td><strong>PSU (Power Supply Unit)</strong></td><td>다수 GPU의 전력 공급 관리. 고전력 소비 대비 충분한 용량 확보 필요</td></tr>
+<tr><td><strong>냉각 시스템</strong></td><td>공랭(Air) / 수랭(Liquid) / 침지냉각(Immersion) 방식</td></tr>
+</table></div>
+</li>
+<li><strong>고려사항</strong>: GPU 간 통신 대역폭(Bandwidth), 동기화 오버헤드, 전원 공급(PSU), 냉각</li>
+<li><strong>인사이트</strong>: LLM 학습에는 수백~수천 GPU가 필요하며, GPU 간 통신 대역폭이 학습 효율을 결정하는 핵심 병목이 됨. NVIDIA NVLink/NVSwitch 기반 DGX 시스템이 대형 모델 학습의 표준 플랫폼으로 자리잡음</li>
 </ul>
 
 </body>

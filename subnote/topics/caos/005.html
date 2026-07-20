@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-3. 파이프라인 (Pipeline)</title>
+  <title>[하위] 1-2. 엔디언 (Endianness)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,23 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-3. 파이프라인 (Pipeline)</h4>
+<h4>[하위] 1-2. 엔디언 (Endianness)</h4>
 <ul>
-<li><strong>정의</strong>: 명령어 처리 단계를 중첩하여 CPU 처리 성능을 향상시키는 기법</li>
-<li><strong>키워드</strong>: IF/ID/EX/WB, 처리시간 비교, m단계 n명령어, 해저드, 데이터 해저드, 제어 해저드</li>
-<li><strong>분류</strong>: 컴퓨터 구조</li>
-<li><strong>처리 시간 비교</strong>:      <ul>
-<li><strong>비파이프라인</strong>: m단계 × n개 명령어 = m×n 클럭</li>
-<li><strong>파이프라인</strong>: m + (n-1) 클럭 (이상적 경우)</li>
-</ul>
-</li>
-<li><strong>파이프라인 해저드:</strong> 명령어 간 의존성·자원 충돌로 파이프라인이 정상 실행되지 못하고 지연(Stall)되는 현상</li>
-<li><strong>해저드 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구데제&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>종류</th><th>원인</th></tr>
-<tr><td><strong>구조 해저드 (Structural)</strong></td><td>동일 하드웨어 자원 충돌</td></tr>
-<tr><td><strong>데이터 해저드 (Data)</strong></td><td>RAW(Read After Write) , WAR(Write After Read), WAW(Write After Write)</td></tr>
-<tr><td><strong>제어 해저드 (Control)</strong></td><td>분기(Branch) 명령으로 흐름 변경</td></tr>
+<li><strong>정의</strong>: 다중 바이트 데이터를 메모리에 저장할 때의 바이트 순서 방식</li>
+<li><strong>키워드</strong>: MSB, LSB, 빅 엔디언, 리틀 엔디언, 네트워크 바이트 순서, x86 아키텍처</li>
+<li><strong>분류</strong>: 컴퓨터 구조<div class="table-scroll"><table>
+<tr><th>구분</th><th>빅 엔디언 (Big Endian)</th><th>리틀 엔디언 (Little Endian)</th></tr>
+<tr><td>정의</td><td>최상위 바이트(MSB)를 낮은 주소에 먼저 저장</td><td>최하위 바이트(LSB)를 낮은 주소에 먼저 저장</td></tr>
+<tr><td>예시 (0x12345678)</td><td>주소 0: 0x12 / 1: 0x34 / 
+2: 0x56 / 3: 0x78</td><td>주소 0: 0x78 / 1: 0x56 
+/ 2: 0x34 / 3: 0x12</td></tr>
+<tr><td>사용 환경</td><td>네트워크 프로토콜(TCP/IP), 
+SPARC, PowerPC</td><td>x86, x86-64 (Intel/AMD), 
+ARM(기본)</td></tr>
+<tr><td>가독성</td><td>메모리 덤프 시 직관적</td><td>산술 연산 처리 용이</td></tr>
 </table></div>
 </li>
-<li><strong>해저드 해결방안: </strong><div class="table-scroll"><table>
-<tr><th><strong>해저드 유형</strong></th><th><strong>해결방안</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>해저드 공통</strong></td><td>Stall or Bubble Cycle</td><td>1명령어 구간에 Stall을 추가하여 유효 수행 시까지 지연</td></tr>
-<tr><td><strong>구조적 해저드</strong></td><td>하드웨어 구조 변경</td><td>하버드 아키텍처 사용 및 하드웨어 구조 변경으로 해결</td></tr>
-<tr><td><strong>데이터 해저드</strong></td><td>자원 추가</td><td>ALU, FPU, 메모리 등 자원을 추가하여 중복 설계</td></tr>
-<tr><td></td><td>메모리 인터리빙</td><td>메모리 모듈별 병렬 접근을 통해 동시 접근 수행</td></tr>
-<tr><td></td><td>Forwarding</td><td>연산 결과를 다음 스테이지에 직접 전달하여 지연 최소화</td></tr>
-<tr><td></td><td>Reordering</td><td>Reservation Table 등을 이용해 명령어 실행 순서 조정</td></tr>
-<tr><td></td><td>Restrict S/W</td><td>컴파일러에서 nop 삽입 또는 영향 없는 범위 내 순서 변경</td></tr>
-<tr><td><strong>제어 해저드</strong></td><td>Delayed Branch(순서변경)</td><td>컴파일러 코드 순서 변경을 통해 분기를 지연시켜 손실 최소화</td></tr>
-<tr><td></td><td>Predict Branch(분기예측)</td><td>로컬/글로벌/Gshare 등 다양한 기법을 활용한 분기 예측</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 파이프라인 단계 수가 많을수록 해저드 발생 시 플러시(Flush) 비용도 커지므로 단계 수와 분기 예측 정확도의 균형이 핵심</li>
+<li><strong>인사이트</strong>: 네트워크 통신 시 서로 다른 엔디언 시스템 간 데이터 교환을 위해 htons()/ntohl() 같은 바이트 순서 변환 함수를 반드시 사용해야 하며, <strong>네트워크 바이트 순서는 빅 엔디언이 표준</strong>임</li>
 </ul>
 
 </body>

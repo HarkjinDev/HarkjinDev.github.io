@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3] 스케줄링</title>
+  <title>7. IPC (Inter-Process Communication)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,25 @@
   </style>
 </head>
 <body>
-<h3>[Part 3] 스케줄링</h3>
+<h4>7. IPC (Inter-Process Communication)</h4>
+<ul>
+<li><strong>정의</strong>: 프로세스 간 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>데이터 교환과 동기화</strong></u></span>를 위한 통신 메커니즘</li>
+<li><strong>키워드</strong>: 파이프, 공유메모리, 메시지큐, 메모리맵, 소켓, RPC, FIFO</li>
+<li><strong>분류</strong>: 프로세스 관리</li>
+<li><strong>IPC(프로세스 간 통신) 유형:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>기법</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>파일 기반</strong></td><td><strong>파일 공유 </strong></td><td>파일 읽기·쓰기로 프로세스 간 데이터 교환</td><td>영속성·느림</td></tr>
+<tr><td></td><td><strong>FIFO </strong></td><td>이름 있는 파이프·비관련 프로세스 간 통신</td><td>단방향·영속</td></tr>
+<tr><td></td><td><strong>Pipe </strong></td><td>부모·자식 프로세스 간 단방향 익명 통신</td><td>단방향·임시</td></tr>
+<tr><td><strong>메모리 기반</strong></td><td><strong>공유 메모리 </strong></td><td>동일 메모리 영역 공유·가장 빠른 IPC</td><td>동기화 필수</td></tr>
+<tr><td></td><td><strong>메시지 큐 </strong></td><td>커널 큐에 메시지 저장·비동기 송수신</td><td>비동기·순서 보장</td></tr>
+<tr><td></td><td><strong>메모리 맵 </strong></td><td>파일을 메모리에 매핑·파일처럼 접근</td><td>대용량 데이터</td></tr>
+<tr><td><strong>네트워크 기반</strong></td><td><strong>소켓 </strong></td><td>IP·Port 기반 프로세스 간 양방향 통신</td><td>원격·범용</td></tr>
+<tr><td></td><td><strong>RPC </strong></td><td>원격 함수 호출·네트워크 투명성 제공</td><td>분산 시스템</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 공유 메모리는 가장 빠른 IPC 방식이지만 동기화 없이 사용하면 Race Condition이 발생하므로 세마포어/뮤텍스와 반드시 함께 사용해야 함. 마이크로서비스 아키텍처에서는 소켓/RPC 기반 IPC가 표준</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. GPU(Graphics Processing Unit)</title>
+  <title>[하위] 1-3. 파이프라인 (Pipeline)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,38 @@
   </style>
 </head>
 <body>
-<h4>2. GPU<strong>(Graphics Processing Unit)</strong></h4>
+<h4>[하위] 1-3. 파이프라인 (Pipeline)</h4>
 <ul>
-<li><strong>정의</strong>: 수천 개의 소형 코어로 대규모 병렬 연산을 수행하는 그래픽 처리 장치</li>
-<li><strong>키워드</strong>: 병렬 연산, CUDA, 행렬 연산, 학습 가속, ASIC, 추론/학습, 전력 효율</li>
+<li><strong>정의</strong>: 명령어 처리 단계를 중첩하여 CPU 처리 성능을 향상시키는 기법</li>
+<li><strong>키워드</strong>: IF/ID/EX/WB, 처리시간 비교, m단계xn명령어, 구조 해저드, 데이터 해저드, 제어 해저드</li>
 <li><strong>분류</strong>: 컴퓨터 구조</li>
-<li><strong>GPU 구성 요소</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>주요 요소</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>연산 장치 (Processing)</strong></td><td><strong>코어 (CUDA/Stream)</strong></td><td>수천 개의 ALU로 구성되어 실제 부동 소수점 연산을 병렬로 수행</td></tr>
-<tr><td></td><td><strong>Tensor Core</strong></td><td>AI 및 딥러닝 가속을 위한 행렬 연산(Matrix Multiplication) 특화 코어</td></tr>
-<tr><td></td><td><strong>RT Core</strong></td><td>레이 트레이싱(Ray Tracing) 등 고사양 그래픽 렌더링 가속 코어</td></tr>
-<tr><td><strong>제어 및 스케줄링</strong></td><td><strong>스케줄러 (Scheduler)</strong></td><td>수만 개의 스레드를 관리하고 연산 장치에 작업을 배분(Warp Scheduler)</td></tr>
-<tr><td></td><td><strong>디스패처 (Dispatcher)</strong></td><td>스케줄링된 명령어를 실제 실행 유닛으로 전달</td></tr>
-<tr><td><strong>메모리 계층 (Memory)</strong></td><td><strong>레지스터 (Register)</strong></td><td>각 스레드에 할당된 가장 빠른 기억 공간</td></tr>
-<tr><td></td><td><strong>L1/L2 캐시</strong></td><td>데이터 재사용성 향상을 위한 내부 캐시 메모리</td></tr>
-<tr><td></td><td><strong>비디오 메모리 (VRAM)</strong></td><td>GDDR6/GDDR7 또는 고대역폭 메모리인 <strong>HBM</strong>을 사용하여 대용량 데이터 저장</td></tr>
-<tr><td><strong>인터페이스 (Bus)</strong></td><td><strong>PCI Express (PCIe)</strong></td><td>호스트 CPU와 GPU 간의 데이터 전송 통로</td></tr>
-<tr><td></td><td><strong>NVLink / CXL</strong></td><td>GPU 간 직접 통신을 통해 병목 현상을 제거하는 고속 인터페이스</td></tr>
+<li><strong>처리 시간 비교</strong>:      <ul>
+<li><strong>비파이프라인</strong>: m단계 × n개 명령어 = m×n 클럭</li>
+<li><strong>파이프라인</strong>: m + (n-1) 클럭 (이상적 경우)</li>
+</ul>
+</li>
+<li><strong>파이프라인 해저드:</strong> 명령어 간 의존성·자원 충돌로 파이프라인이 정상 실행되지 못하고 지연(Stall)되는 현상</li>
+<li><strong>해저드 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구데제&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>종류</th><th>원인</th></tr>
+<tr><td><strong>구조 해저드 (Structural)</strong></td><td>동일 하드웨어 자원 충돌</td></tr>
+<tr><td><strong>데이터 해저드 (Data)</strong></td><td>RAW(Read After Write) , WAR(Write After Read), WAW(Write After Write)</td></tr>
+<tr><td><strong>제어 해저드 (Control)</strong></td><td>분기(Branch) 명령으로 흐름 변경</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: GPU는 유연성과 생태계(CUDA)로 AI 표준 플랫폼이 되었으나, LLM 추론 서비스에서 비용 대비 성능을 위해 TPU나 자체 NPU를 도입하는 하이퍼스케일러들이 늘고 있음</li>
+<li><strong>해저드 해결방안: </strong><div class="table-scroll"><table>
+<tr><th><strong>해저드 유형</strong></th><th><strong>해결방안</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>해저드 공통</strong></td><td>Stall or Bubble Cycle</td><td>1명령어 구간에 Stall을 추가하여 유효 수행 시까지 지연</td></tr>
+<tr><td><strong>구조적 해저드</strong></td><td>하드웨어 구조 변경</td><td>하버드 아키텍처 사용 및 하드웨어 구조 변경으로 해결</td></tr>
+<tr><td><strong>데이터 해저드</strong></td><td>자원 추가</td><td>ALU, FPU, 메모리 등 자원을 추가하여 중복 설계</td></tr>
+<tr><td></td><td>메모리 인터리빙</td><td>메모리 모듈별 병렬 접근을 통해 동시 접근 수행</td></tr>
+<tr><td></td><td>Forwarding</td><td>연산 결과를 다음 스테이지에 직접 전달하여 지연 최소화</td></tr>
+<tr><td></td><td>Reordering</td><td>Reservation Table 등을 이용해 명령어 실행 순서 조정</td></tr>
+<tr><td></td><td>Restrict S/W</td><td>컴파일러에서 nop 삽입 또는 영향 없는 범위 내 순서 변경</td></tr>
+<tr><td><strong>제어 해저드</strong></td><td>Delayed Branch(순서변경)</td><td>컴파일러 코드 순서 변경을 통해 분기를 지연시켜 손실 최소화</td></tr>
+<tr><td></td><td>Predict Branch(분기예측)</td><td>로컬/글로벌/Gshare 등 다양한 기법을 활용한 분기 예측</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 파이프라인 단계 수가 많을수록 해저드 발생 시 플러시(Flush) 비용도 커지므로 단계 수와 분기 예측 정확도의 균형이 핵심</li>
 </ul>
 
 </body>

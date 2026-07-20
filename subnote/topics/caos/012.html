@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 메모리 구조 및 고대역폭 메모리</title>
+  <title>[하위] 3-2. MESI 프로토콜 (MESI Protocol)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,30 @@
   </style>
 </head>
 <body>
-<h4>4. 메모리 구조 및 고대역폭 메모리</h4>
+<h4>[하위] 3-2. MESI 프로토콜 (MESI Protocol)</h4>
 <ul>
-<li><strong>정의</strong>: CPU와 함께 동작하는 다양한 메모리의 물리적 구조 및 배치 방식에 대한 종합</li>
-<li><strong>키워드</strong>: 메모리 계층, 메모리 인터리빙, 메모리 영역, HBM, Bank, 3D TSV</li>
-<li><strong>분류</strong>: 컴퓨터 구조<div class="table-scroll"><table>
-<tr><th><strong>계층</strong></th><th><strong>종류</strong></th><th><strong>속도</strong></th><th><strong>용량</strong></th></tr>
-<tr><td>1계층</td><td><strong>레지스터</strong></td><td>가장 빠름</td><td>수십~수백 바이트</td></tr>
-<tr><td>2계층</td><td><strong>캐시 메모리 (L1/L2/L3)</strong></td><td>매우 빠름</td><td>수KB~수MB</td></tr>
-<tr><td>3계층</td><td><strong>주기억장치 (DRAM)</strong></td><td>보통</td><td>수GB~수백GB</td></tr>
-<tr><td>4계층</td><td><strong>보조기억장치 (SSD/HDD)</strong></td><td>느림</td><td>수TB</td></tr>
+<li><strong>정의</strong>: 멀티프로세서에서 각 CPU 캐시의 블록 상태를 4가지로 관리하여 캐시 일관성을 보장하는 프로토콜</li>
+<li><strong>키워드</strong>: Modified, Exclusive, Shared, Invalid, 스누피 버스, 디렉토리 기반, False Sharing, Padding</li>
+<li><strong>분류</strong>: 컴퓨터 구조</li>
+<li><strong>MESI 상태</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;수베공무&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>상태</strong></th><th><strong>설명</strong></th><th><strong>메모리 일치</strong></th><th><strong>타 캐시 보유</strong></th></tr>
+<tr><td><strong>Modified(수정)</strong></td><td>해당 캐시만 수정·메모리 불일치 (Dirty)</td><td><strong>X</strong></td><td><strong>X</strong></td></tr>
+<tr><td><strong>Exclusive(베타)</strong></td><td>해당 캐시만 보유·메모리 일치</td><td><strong>O</strong></td><td><strong>X</strong></td></tr>
+<tr><td><strong>Shared(공유)</strong></td><td>여러 캐시 공유·메모리 일치</td><td><strong>O</strong></td><td><strong>O</strong></td></tr>
+<tr><td><strong>Invalid(무효)</strong></td><td>타 캐시 수정으로 블록 무효화</td><td>-</td><td>-</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 메모리 계층 구조는 속도와 비용의 트레이드오프이며, 데이터 지역성(Locality)을 최대한 활용하여 상위 계층의 적중률을 높이는 것이 시스템 성능 최적화의 핵심</li>
+<li><strong>상태 전이</strong>:<div class="table-scroll"><table>
+<tr><th><strong>현재 상태</strong></th><th><strong>동작 (Action)</strong></th><th><strong>전이 후 상태</strong></th><th><strong>핵심 설명</strong></th></tr>
+<tr><td><strong>M, E, S</strong></td><td>읽기 (Read Hit)</td><td>현 상태 유지</td><td>이미 가진 데이터를 그대로 사용</td></tr>
+<tr><td><strong>I</strong></td><td>읽기 (Read Miss)</td><td>E 또는 S</td><td>남들이 안 갖고 있으면 <strong>E</strong>, 갖고 있으면 <strong>S</strong>로 다시 읽어옴</td></tr>
+<tr><td><strong>E</strong></td><td>쓰기 (Write Hit)</td><td>M</td><td>나만 갖고 있으므로 즉시 수정</td></tr>
+<tr><td><strong>S</strong></td><td>쓰기 (Write Hit)</td><td>M</td><td>내 데이터를 수정하고, 남들의 복사본은 무효화(I) 시킴</td></tr>
+<tr><td><strong>I</strong></td><td>쓰기 (Write Miss)</td><td>M</td><td>데이터를 새로 읽어와서 수정하고, 남들은 무효화(I) 시킴</td></tr>
+</table></div>
+</li>
+<li><strong>False Sharing</strong>: 다른 변수가 같은 캐시 라인에 있어 불필요한 일관성 트래픽 발생 → 패딩(Padding)으로 완화</li>
+<li><strong>인사이트</strong>: MESI는 스누피 프로토콜의 표준이며, AMD MOESI/Intel MESIF등으로 확장됨. False Sharing은 멀티코어 프로그래밍 성능 튜닝의 가장 합정 이슈임</li>
 </ul>
 
 </body>

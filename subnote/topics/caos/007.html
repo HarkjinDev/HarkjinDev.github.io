@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-1. 멀티 GPU (Multi-GPU)</title>
+  <title>2. GPU(Graphics Processing Unit)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,26 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-1. 멀티 GPU (Multi-GPU)</h4>
+<h4>2. GPU<strong>(Graphics Processing Unit)</strong></h4>
 <ul>
-<li><strong>정의</strong>: 다수의 GPU를 활용하여 대규모 신경망을 분산 병렬로 작동하기 위해 사용하는 기술</li>
-<li><strong>키워드</strong>: 데이터 병렬화, 모델 병렬화, 텐서 병렬화, NVLink, PCIe, Infinity Fabric, PSU, 침지냉각</li>
+<li><strong>정의</strong>: 수천개 소형코어로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>부동소수점 기반의 대규모 행렬 병렬 연산</strong></u></span>을 수행하는 처리 장치</li>
+<li><strong>키워드</strong>: 부동소수점연산(FLOPs), 병렬 연산, CUDA, 행렬 연산, 학습 가속, ASIC, 추론/학습, 전력 효율</li>
 <li><strong>분류</strong>: 컴퓨터 구조</li>
-<li><strong>유형: </strong><div class="table-scroll"><table>
-<tr><th>전략</th><th>설명</th><th>적합 상황</th></tr>
-<tr><td><strong>데이터 병렬화 </strong></td><td>동일 모델 복사본에 다른 데이터 배치 분배</td><td>모델이 GPU 메모리에 수용 가능할 때</td></tr>
-<tr><td><strong>모델 병렬화 </strong></td><td>모델을 여러 GPU에 분할 배치</td><td>모델이 단일 GPU 메모리 초과 시</td></tr>
-<tr><td><strong>텐서 병렬화 </strong></td><td>개별 텐서 연산을 GPU에 분할</td><td>대형 LLM (GPT, LLaMA 등)</td></tr>
-<tr><td><strong>파이프라인 병렬화 </strong></td><td>레이어 그룹을 GPU에 순서대로 배치</td><td>매우 깊은 신경망</td></tr>
+<li><strong>GPU 구성 요소</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>주요 요소</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>연산 장치 (Processing)</strong></td><td><strong>코어 (CUDA/Stream)</strong></td><td>수천 개의 ALU로 구성되어 실제 부동 소수점 연산을 병렬로 수행</td></tr>
+<tr><td></td><td><strong>Tensor Core</strong></td><td>AI 및 딥러닝 가속을 위한 행렬 연산(Matrix Multiplication) 특화 코어</td></tr>
+<tr><td></td><td><strong>RT Core</strong></td><td>레이 트레이싱(Ray Tracing) 등 고사양 그래픽 렌더링 가속 코어</td></tr>
+<tr><td><strong>제어 및 스케줄링</strong></td><td><strong>스케줄러 (Scheduler)</strong></td><td>수만 개의 스레드를 관리하고 연산 장치에 작업을 배분(Warp Scheduler)</td></tr>
+<tr><td></td><td><strong>디스패처 (Dispatcher)</strong></td><td>스케줄링된 명령어를 실제 실행 유닛으로 전달</td></tr>
+<tr><td><strong>메모리 계층 (Memory)</strong></td><td><strong>레지스터 (Register)</strong></td><td>각 스레드에 할당된 가장 빠른 기억 공간</td></tr>
+<tr><td></td><td><strong>L1/L2 캐시</strong></td><td>데이터 재사용성 향상을 위한 내부 캐시 메모리</td></tr>
+<tr><td></td><td><strong>비디오 메모리 (VRAM)</strong></td><td>GDDR6/GDDR7 또는 고대역폭 메모리인 <strong>HBM</strong>을 사용하여 대용량 데이터 저장</td></tr>
+<tr><td><strong>인터페이스 (Bus)</strong></td><td><strong>PCI Express (PCIe)</strong></td><td>호스트 CPU와 GPU 간의 데이터 전송 통로</td></tr>
+<tr><td></td><td><strong>NVLink / CXL</strong></td><td>GPU 간 직접 통신을 통해 병목 현상을 제거하는 고속 인터페이스</td></tr>
 </table></div>
 </li>
-<li><strong>멀티 GPU 구성 요소</strong>:<div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th></tr>
-<tr><td><strong>NVLink / NVSwitch</strong></td><td>NVIDIA GPU 간 고대역폭 직접 연결. PCIe 대비 10배 이상 대역폭 제공</td></tr>
-<tr><td><strong>Infinity Fabric</strong></td><td>AMD GPU·CPU 간 고속 인터커넥트</td></tr>
-<tr><td><strong>PCIe 스위치</strong></td><td>표준 인터페이스 기반 GPU 연결. 비용 저렴, 대역폭 상대적으로 낮음</td></tr>
-<tr><td><strong>PSU (Power Supply Unit)</strong></td><td>다수 GPU의 전력 공급 관리. 고전력 소비 대비 충분한 용량 확보 필요</td></tr>
-<tr><td><strong>냉각 시스템</strong></td><td>공랭(Air) / 수랭(Liquid) / 침지냉각(Immersion) 방식</td></tr>
-</table></div>
-</li>
-<li><strong>고려사항</strong>: GPU 간 통신 대역폭(Bandwidth), 동기화 오버헤드, 전원 공급(PSU), 냉각</li>
-<li><strong>인사이트</strong>: LLM 학습에는 수백~수천 GPU가 필요하며, GPU 간 통신 대역폭이 학습 효율을 결정하는 핵심 병목이 됨. NVIDIA NVLink/NVSwitch 기반 DGX 시스템이 대형 모델 학습의 표준 플랫폼으로 자리잡음</li>
+<li><strong>인사이트</strong>: GPU는 유연성과 생태계(CUDA)로 AI 표준 플랫폼이 되었으나, LLM 추론 서비스에서 비용 대비 성능을 위해 TPU나 자체 NPU를 도입하는 하이퍼스케일러들이 늘고 있음</li>
 </ul>
 
 </body>

@@ -17,8 +17,8 @@
 <body>
 <h4>[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)</h4>
 <ul>
-<li><strong>정의:</strong> Google이 창안한 소프트웨어 엔지니어링 기법을 운영에 적용하여 대규모 시스템의 신뢰성·확장성·성능을 자동화 기반으로 유지·개선하는 DevOps 실천 방법론</li>
-<li><strong>키워드:</strong> SLO·SLA·SLI, 에러 버짓, 토일(Toil), 4대 황금 지표, 사후 분석(Postmortem), CRE, 자동화, 신뢰성</li>
+<li><strong>정의:</strong> 대규모 시스템의 신뢰성·확장성·성능을 자동화 기반으로 유지·개선하는 구글의 DevOps 실천 방법론</li>
+<li><strong>키워드:</strong> SLO·SLA·SLI, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에러 버짓, 번다운, 토일(Toil)</strong></u></span>, 4대 황금 지표, 사후 분석(Postmortem), 블라메리스 분석, CRE, 자동화, 신뢰성</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
 <li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
@@ -31,12 +31,12 @@
 <tr><td></td><td><strong>Toil 한계</strong></td><td>운영 업무 중 토일 50% 이하 유지 원칙</td><td>50% 원칙</td></tr>
 </table></div>
 </li>
-<li><strong>4대 황금 지표 (Four Golden Signals):</strong><div class="table-scroll"><table>
-<tr><th>지표</th><th>설명</th><th>핵심</th><th>예시</th></tr>
-<tr><td><strong>지연 시간 (Latency)</strong></td><td>요청 처리 소요 시간 측정</td><td>응답 속도 측정</td><td>API 응답 시간·DB 쿼리</td></tr>
-<tr><td><strong>트래픽 (Traffic)</strong></td><td>시스템에 가해지는 수요 수준</td><td>부하 측정</td><td>RPS·네트워크 I/O</td></tr>
-<tr><td><strong>오류 (Errors)</strong></td><td>요청 실패율·오류 발생 비율</td><td>품질 측정</td><td>HTTP 5xx 비율</td></tr>
-<tr><td><strong>포화도 (Saturation)</strong></td><td>시스템 자원 사용 포화 수준</td><td>용량 측정</td><td>CPU·메모리·디스크</td></tr>
+<li><strong>4대 황금 지표 (Four Golden Signals): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;지트오포&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>지표</th><th>설명</th><th>핵심</th><th>SLI 예시</th><th>SLO 예시</th></tr>
+<tr><td><strong>지연시간(Latency)</strong></td><td>요청 처리 소요시간 측정</td><td>응답속도 측정</td><td>API 요청의 p95 응답시간</td><td>요청의 99%가 300ms 이내 응답</td></tr>
+<tr><td><strong>트래픽(Traffic)</strong></td><td>시스템에 가해지는 수요수준</td><td>부하 측정</td><td>초당 요청수(RPS)</td><td>피크시간대 RPS 1만건 이하 유지</td></tr>
+<tr><td><strong>오류(Errors)</strong></td><td>요청 실패율·오류 발생비율</td><td>품질 측정</td><td>HTTP 5xx 오류율</td><td>월간 오류율 0.1% 이하(가용성99.9%)</td></tr>
+<tr><td><strong>포화도(Saturation)</strong></td><td>시스템 자원 사용 포화수준</td><td>용량 측정</td><td>CPU·메모리 사용률</td><td>CPU 사용률 80% 이하 유지</td></tr>
 </table></div>
 </li>
 <li><strong>SRE 핵심 실천 원칙:</strong><div class="table-scroll"><table>

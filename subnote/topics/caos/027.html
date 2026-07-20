@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. 세마포어 (Semaphore)</title>
+  <title>5. 프로세스 동기화 (Process Synchronization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,33 +15,21 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. 세마포어 (Semaphore)</h4>
+<h4>5. 프로세스 동기화 (Process Synchronization)</h4>
 <ul>
-<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>P/V 연산</strong></u></span>으로 공유 자원의 접근을 제어하는 프로세스 동기화 도구</li>
-<li><strong>키워드</strong>: P(Wait, 진입 전 S–), V(Signal, 사용 후 S++), 이진, 카운팅, S&gt;0(자원 사용 가능), S≤0(대기)</li>
+<li><strong>정의</strong>: 여러 프로세스/스레드가 공유 자원에 접근할 때 데이터 일관성을 보장하기 위한 제어 메커니즘</li>
+<li><strong>키워드</strong>: 임계영역, 상호배제, 세마포어, 모니터, 스핀락, Race Condition</li>
 <li><strong>분류</strong>: 프로세스 관리</li>
-<li><strong>세마포어 종류: </strong><div class="table-scroll"><table>
-<tr><th><strong>종류</strong></th><th><strong>값 범위</strong></th><th><strong>용도</strong></th></tr>
-<tr><td><strong>이진 세마포어 (Binary)</strong></td><td>0 또는 1</td><td>상호배제 (뮤텍스와 유사)</td></tr>
-<tr><td><strong>카운팅 세마포어 (Count)</strong></td><td>0 이상의 정수</td><td>자원 개수 관리 (N개 자원에 N개 프로세스 허용)</td></tr>
+<li><strong>임계영역 문제 해결 조건</strong>: 상호배제(Mutual Exclusion) / 진행(Progress) / 한정 대기(Bounded Waiting)</li>
+<li><strong>동기화 기법: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;세뮤스모&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>기법</strong></th><th><strong>수준</strong></th><th><strong>특징</strong></th></tr>
+<tr><td><strong>세마포어 (Semaphore)</strong></td><td>저수준</td><td>P/V 연산, 이진/카운팅 세마포어</td></tr>
+<tr><td><strong>뮤텍스 (Mutex)</strong></td><td>저수준</td><td>Lock/Unlock 동시성 제어 기법</td></tr>
+<tr><td><strong>스핀 락 (Spin Lock)</strong></td><td>하드웨어 수준</td><td>바쁜 대기(Busy Wait), 단기 임계영역에 적합</td></tr>
+<tr><td><strong>모니터 (Monitor)</strong></td><td>고수준</td><td>언어 수준 추상화, 상호배제 자동 보장</td></tr>
 </table></div>
 </li>
-<li><strong>세마포어 연산</strong>:<div class="table-scroll"><table>
-<tr><th><strong>연산</strong></th><th><strong>동작</strong></th><th><strong>의사코드</strong></th></tr>
-<tr><td><strong>P 연산 (Wait/Down)</strong></td><td>S &gt; 0이면 S-- (자원 사용). S = 0이면 프로세스 대기 큐에 삽입후 블록</td><td>if S &gt; 0: S--; 
-else: wait();</td></tr>
-<tr><td><strong>V 연산 (Signal/Up)</strong></td><td>S++ (자원 반납). 
-대기 중인 프로세스 있으면 깨움</td><td>S++; 
-if (waiting): wakeup();</td></tr>
-</table></div>
-</li>
-<li><strong>S 값 해석</strong>:<ul>
-<li>S &gt; 0: 사용 가능한 자원 수</li>
-<li>S = 0: 모든 자원 사용 중 (대기 필요)</li>
-<li>S &lt; 0: |S|는 현재 대기 중인 프로세스 수 (카운팅 세마포어)</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 세마포어는 강력하지만 P/V 연산 누락 시 교착 상태나 무한 대기가 발생할 수 있음. 이를 보완한 고수준 추상화가 모니터임</li>
+<li><strong>인사이트</strong>: 동기화 기법 선택 시 임계영역 진입 시간의 길이가 핵심 기준 — 짧은 임계영역은 스핀락, 긴 임계영역은 세마포어/뮤텍스가 효율적</li>
 </ul>
 
 </body>

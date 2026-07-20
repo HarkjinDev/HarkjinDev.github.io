@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6] AI 연산 하드웨어 (신기술)</title>
+  <title>4. 스토리지 가상화 (Storage Virtualization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,22 @@
   </style>
 </head>
 <body>
-<h3>[Part 6] AI 연산 하드웨어 (신기술)</h3>
+<h4>4. 스토리지 가상화 (Storage Virtualization)</h4>
+<ul>
+<li><strong>정의</strong>: 물리적 스토리지를 소프트웨어로 추상화하여 단일 논리적 스토리지 풀로 관리하는 기술</li>
+<li><strong>키워드</strong>: 호스트 기반, 네트워크 기반, 어레이 기반, 블록/파일/객체 가상화, SDS</li>
+<li><strong>분류</strong>: 스토리지</li>
+<li><strong>유형: </strong><div class="table-scroll"><table>
+<tr><th><strong>구현 계층</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
+<tr><td><strong>호스트 기반</strong></td><td>서버 OS/HBA에서 가상화</td><td>LVM (Linux), Windows Storage Spaces</td></tr>
+<tr><td><strong>네트워크 기반</strong></td><td>SAN 스위치/어플라이언스에서 가상화</td><td>IBM SVC, EMC Invista</td></tr>
+<tr><td><strong>어레이 기반</strong></td><td>스토리지 어레이 내부에서 가상화</td><td>EMC VMAX, NetApp ONTAP</td></tr>
+</table></div>
+</li>
+<li><strong>소프트웨어 정의 스토리지 (SDS)</strong>: 스토리지 기능을 소프트웨어로 완전히 구현 — Ceph, VMware vSAN</li>
+<li><strong>인사이트</strong>: 스토리지 가상화는 이기종 스토리지 통합 관리와 비용 절감이 핵심 가치이며, 클라우드 환경에서는 SDS가 하이퍼컨버지드 인프라(HCI)의 핵심 구성 요소로 자리잡음</li>
+</ul>
+<hr/>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 연관 규칙 분석 (Association Rule Analysis)</title>
+  <title>[하위] 2-1. 데이터 라벨링</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,39 +15,26 @@
   </style>
 </head>
 <body>
-<h4>3. 연관 규칙 분석 (Association Rule Analysis)</h4>
+<h4>[하위] 2-1. 데이터 라벨링</h4>
 <ul>
-<li><strong>정의</strong>: 항목 간 동시 발생 패턴을 지지도·신뢰도·향상도로 발견하는 분석 기법</li>
-<li><strong>키워드</strong>: 지지도, 신뢰도, 향상도, Apriori, 빈발 항목집합</li>
-<li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>Apriori 알고리즘:</strong>  모든 항목 집합에 대한 지지도를 계산하는 대신, 최소 지지도 이상의 빈발항목집합만을 찾아내서 연관규칙을 계산하는 기법</li>
-<li><strong>연관규칙 탐색 원칙: </strong><ul>
-<li>최소 지지도(minimum support) : 분석자가 정하는 최소한의 지지도</li>
-<li>최소 신뢰도(minimum confidence) : 분석자가 정하는 최소한의 신뢰도</li>
-<li>연관 분석(Association Analysis) 수행 단계<ul>
-<li>단계 1) 빈발항목집합의 생성 (Frequent Item Set Generation): 최소지지도(minimum support)를 만족하는 모든 빈발항목을 찾는 과정</li>
-<li>단계 2) 연관규칙의 생성 (Rule Generation): 단계 1에서 찾은 빈발항목집합을 바탕으로, 최소신뢰도(minimum confidence) 기준을 통과하는 모든 연관 규칙을 도출</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>측도</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;지신향&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>측도</th><th>공식</th><th>의미</th></tr>
-<tr><td><strong>지지도(Support)</strong></td><td>P(A∩B)</td><td>A와 B 동시 발생 비율</td></tr>
-<tr><td><strong>신뢰도(Confidence)</strong></td><td>P(B|A)</td><td>A 발생 시 B 발생 조건부 확률</td></tr>
-<tr><td><strong>향상도(Lift)</strong></td><td>P(B|A)/P(B)</td><td>A,B의 상관관계</td></tr>
+<li><strong>라벨링 기법: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>텍스트</strong></td><td>텍스트 분류</td><td>문장·문서에 의미적 클래스 부여</td><td>텍스트 분류</td></tr>
+<tr><td></td><td>개체명 인식(NER)</td><td>사람·조직·장소 등 개체 식별</td><td>개체명 식별</td></tr>
+<tr><td></td><td>관계-의존성 정의</td><td>단어·개체 간 의미관계 정의</td><td>관계 정의</td></tr>
+<tr><td><strong>이미지</strong></td><td>이미지 분류</td><td>이미지 전체에 클래스 라벨 부여</td><td>이미지 분류</td></tr>
+<tr><td></td><td>객체 인식</td><td>바운딩박스로 위치·종류 라벨링</td><td>위치 라벨링</td></tr>
+<tr><td></td><td>영역 구분</td><td>픽셀단위로 정밀 영역 구분</td><td>픽셀 영역구분</td></tr>
+<tr><td><strong>동영상</strong></td><td>동영상 분류</td><td>구간별로 의미적 클래스 부여</td><td>동영상 분류</td></tr>
+<tr><td></td><td>객체 인식</td><td>프레임별 객체 탐지·위치라벨링</td><td>프레임 객체탐지</td></tr>
+<tr><td></td><td>객체 추적</td><td>프레임간 동일객체 경로 연결</td><td>이동경로 추적</td></tr>
+<tr><td><strong>오디오</strong></td><td>오디오 분류</td><td>클립단위로 소리유형 분류</td><td>소리유형 분류</td></tr>
+<tr><td></td><td>오디오 세그멘테이션</td><td>시간구간별 오디오 분할·라벨링</td><td>구간별 분할</td></tr>
+<tr><td></td><td>음성인식</td><td>음성을 텍스트로 전사</td><td>음성→텍스트</td></tr>
+<tr><td><strong>기타</strong></td><td>시계열 세그멘테이션</td><td>상태변화·패턴구간을 식별·라벨링</td><td>패턴구간 식별</td></tr>
+<tr><td></td><td>HTML 문서 분류</td><td>HTML 문서를 구조·목적별로 분류</td><td>문서 구조분류</td></tr>
 </table></div>
 </li>
-<li><strong>연관규칙 도출 과정(Apriori):</strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;빈최후반연&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>기준</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>빈도수 집합 탐색</strong></td><td>대용량 데이터베이스 내의 단위 트랜잭션에서 빈번하게 발생하는 사건의 유형을 발견</td></tr>
-<tr><td><strong>최소 지지도 확인</strong></td><td>트랜잭션을 대상으로 최소지지도 이상을 만족하는 빈발항목 집합을 발견하는 과정</td></tr>
-<tr><td><strong>후보 집합 생성</strong></td><td>빈발항목으로 집합 생성</td></tr>
-<tr><td><strong>반복</strong></td><td>새로운 빈발항목이 생성되지 않을 때까지 반복 수행</td></tr>
-<tr><td><strong>연관 규칙 생성</strong></td><td>발견된 다량 항목 집합 내에 포함된 항목들 중에서 최소 신뢰도 이상을 만족하는 항목들 간의 연관 규칙을 생성하는 단계 (지지도, 신뢰도, 향상도 계산)</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 향상도(Lift)&gt;1이면 A와 B가 독립보다 더 강하게 연관됨을 의미. Apriori 알고리즘은 최소 지지도·신뢰도 이상인 빈발 항목집합을 효율적으로 발견한다.</li>
 </ul>
 
 </body>

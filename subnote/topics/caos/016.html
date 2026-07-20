@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 프로세스 (Process)</title>
+  <title>[Part 2] 프로세스 관리</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. 프로세스 (Process)</h4>
-<ul>
-<li><strong>정의</strong>: 실행 중인 프로그램의 인스턴스. 독립적인 메모리 공간(Code/Data/Heap/Stack)과 PCB(Process Control Block)를 보유하는 실행 단위</li>
-<li><strong>키워드</strong>: PCB, 메모리 격리, 컨텍스트 스위칭, IPC, 프로세스 생성/종료</li>
-<li><strong>분류</strong>: 프로세스 관리</li>
-<li><strong>프로세스와 스레드 비교: </strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>프로세스 (Process)</strong></th><th><strong>스레드 (Thread)</strong></th></tr>
-<tr><td>메모리</td><td>독립적 주소 공간 (Code/Data/Heap/Stack)</td><td>Code/Data/Heap 공유, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Stack만 독립</strong></u></span></td></tr>
-<tr><td>컨텍스트 스위칭</td><td>비용 높음 (메모리 맵 전환)</td><td>비용 낮음 (같은 프로세스 내)</td></tr>
-<tr><td>통신 방식</td><td>IPC (파이프, 소켓, 공유메모리 등)</td><td>공유 메모리 직접 접근</td></tr>
-<tr><td>장애 격리</td><td>하나가 죽어도 다른 프로세스 무영향</td><td>하나의 스레드 오류가 전체 프로세스에 영향</td></tr>
-<tr><td>생성 비용</td><td>높음</td><td>낮음</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 멀티스레딩은 응답성 향상에 유리하지만 공유 자원 접근 시 동기화가 필수이며, <strong>Lock Contention이 성능 병목</strong>이 될 수 있음</li>
-</ul>
+<h3>[Part 2] 프로세스 관리</h3>
 
 </body>
 </html>

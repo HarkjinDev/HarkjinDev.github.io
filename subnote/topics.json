@@ -671,7 +671,7 @@
       },
       {
         "id": "089",
-        "name": "10. 추론 모델"
+        "name": "10. 추론 모델 (Reasoning Model)"
       },
       {
         "id": "090",
@@ -2669,58 +2669,62 @@
       },
       {
         "id": "056",
-        "name": "3. 연관 규칙 분석 (Association Rule Analysis)"
+        "name": "[하위] 2-1. 데이터 라벨링"
       },
       {
         "id": "057",
-        "name": "4. 텍스트 마이닝 (Text Mining)"
+        "name": "3. 연관 규칙 분석 (Association Rule Analysis)"
       },
       {
         "id": "058",
-        "name": "5. 오피니언 마이닝 (Opinion Mining)"
+        "name": "4. 텍스트 마이닝 (Text Mining)"
       },
       {
         "id": "059",
-        "name": "6. 음성 데이터 마이닝 (Voice Data Mining)"
+        "name": "5. 오피니언 마이닝 (Opinion Mining)"
       },
       {
         "id": "060",
-        "name": "7. 네트워크 중심성 (Network Centrality)"
+        "name": "6. 음성 데이터 마이닝 (Voice Data Mining)"
       },
       {
         "id": "061",
-        "name": "8. 사회연결망 분석 (SNA, Social Network Analysis)"
+        "name": "7. 네트워크 중심성 (Network Centrality)"
       },
       {
         "id": "062",
-        "name": "9. PPDM (Privacy Preserving Data Mining)"
+        "name": "8. 사회연결망 분석 (SNA, Social Network Analysis)"
       },
       {
         "id": "063",
-        "name": "10. 필터링/추천시스템 (Filtering)"
+        "name": "9. PPDM (Privacy Preserving Data Mining)"
       },
       {
         "id": "064",
-        "name": "[Part 8] 시각화/빅데이터"
+        "name": "10. 필터링/추천시스템 (Filtering)"
       },
       {
         "id": "065",
-        "name": "1. 데이터 사이언스 (Data Science)"
+        "name": "[Part 8] 시각화/빅데이터"
       },
       {
         "id": "066",
-        "name": "2. 데이터 시각화 (Data Visualization)"
+        "name": "1. 데이터 사이언스 (Data Science)"
       },
       {
         "id": "067",
-        "name": "3. 빅데이터 분석도구"
+        "name": "2. 데이터 시각화 (Data Visualization)"
       },
       {
         "id": "068",
-        "name": "4. 빅데이터 플랫폼 아키텍처"
+        "name": "3. 빅데이터 분석도구"
       },
       {
         "id": "069",
+        "name": "4. 빅데이터 플랫폼 아키텍처"
+      },
+      {
+        "id": "070",
         "name": "5. 빅데이터 프로세싱 아키텍처"
       }
     ]
@@ -2735,322 +2739,330 @@
       },
       {
         "id": "002",
-        "name": "1. CPU (Central Processing Unit)"
+        "name": "0. CPU/GPU/TPU/NPU"
       },
       {
         "id": "003",
-        "name": "[하위] 1-1. 폰 노이만 아키텍처 (Von Neumann Architecture)"
+        "name": "1. CPU (Central Processing Unit)"
       },
       {
         "id": "004",
-        "name": "[하위] 1-2. 엔디언 (Endianness)"
+        "name": "[하위] 1-1. 폰 노이만 아키텍처 (Von Neumann Architecture)"
       },
       {
         "id": "005",
-        "name": "[하위] 1-3. 파이프라인 (Pipeline)"
+        "name": "[하위] 1-2. 엔디언 (Endianness)"
       },
       {
         "id": "006",
-        "name": "2. GPU(Graphics Processing Unit)"
+        "name": "[하위] 1-3. 파이프라인 (Pipeline)"
       },
       {
         "id": "007",
-        "name": "[하위] 2-1. 멀티 GPU (Multi-GPU)"
+        "name": "2. GPU(Graphics Processing Unit)"
       },
       {
         "id": "008",
-        "name": "[하위] 2-2. GPGPU (General-Purpose computing on GPU)"
+        "name": "[하위] 2-1. 멀티 GPU (Multi-GPU)"
       },
       {
         "id": "009",
-        "name": "3. 캐시 메모리 (Cache Memory)"
+        "name": "[하위] 2-2. GPGPU (General-Purpose computing on GPU)"
       },
       {
         "id": "010",
-        "name": "[하위] 3-1. 캐시 일관성 (Cache Coherence)"
+        "name": "3. 캐시 메모리 (Cache Memory)"
       },
       {
         "id": "011",
-        "name": "[하위] 3-2. MESI 프로토콜 (MESI Protocol)"
+        "name": "[하위] 3-1. 캐시 일관성 (Cache Coherence)"
       },
       {
         "id": "012",
-        "name": "4. 메모리 구조 및 고대역폭 메모리"
+        "name": "[하위] 3-2. MESI 프로토콜 (MESI Protocol)"
       },
       {
         "id": "013",
-        "name": "[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)"
+        "name": "4. 메모리 구조 및 고대역폭 메모리"
       },
       {
         "id": "014",
-        "name": "[하위] 4-2. 메모리 영역 (코드/데이터/힙/스택)"
+        "name": "[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)"
       },
       {
         "id": "015",
-        "name": "[Part 2] 프로세스 관리"
+        "name": "[하위] 4-2. 메모리 영역 (코드/데이터/힙/스택)"
       },
       {
         "id": "016",
-        "name": "1. 프로세스 (Process)"
+        "name": "[Part 2] 프로세스 관리"
       },
       {
         "id": "017",
-        "name": "[하위] 1-1. PCB"
+        "name": "1. 프로세스 (Process)"
       },
       {
         "id": "018",
-        "name": "[하위] 1-2. 문맥교환"
+        "name": "[하위] 1-1. PCB"
       },
       {
         "id": "019",
-        "name": "[하위] 1-3. 프로세스 상태 전이 (Process State Transition)"
+        "name": "[하위] 1-2. 문맥교환"
       },
       {
         "id": "020",
-        "name": "2. 스레드 (Thread)"
+        "name": "[하위] 1-3. 프로세스 상태 전이 (Process State Transition)"
       },
       {
         "id": "021",
-        "name": "3. 교착상태(Mutual Exclusion)"
+        "name": "2. 스레드 (Thread)"
       },
       {
         "id": "022",
-        "name": "4. 교착 상태 (Deadlock)"
+        "name": "3. 교착상태(Mutual Exclusion)"
       },
       {
         "id": "023",
-        "name": "[하위] 4-1. 은행가 알고리즘 (Banker’s Algorithm)"
+        "name": "4. 교착 상태 (Deadlock)"
       },
       {
         "id": "024",
-        "name": "[하위] 4-2. Wait-Die, Wound-Wait"
+        "name": "[하위] 4-1. 은행가 알고리즘 (Banker’s Algorithm)"
       },
       {
         "id": "025",
-        "name": "[하위] 6-3. 자원할당 그래프(Resource allocation graph)"
+        "name": "[하위] 4-2. Wait-Die, Wound-Wait"
       },
       {
         "id": "026",
-        "name": "5. 프로세스 동기화 (Process Synchronization)"
+        "name": "[하위] 6-3. 자원할당 그래프(Resource allocation graph)"
       },
       {
         "id": "027",
-        "name": "[하위] 5-1. 세마포어 (Semaphore)"
+        "name": "5. 프로세스 동기화 (Process Synchronization)"
       },
       {
         "id": "028",
-        "name": "[하위] 5-2. 뮤텍스(Mutex)"
+        "name": "[하위] 5-1. 세마포어 (Semaphore)"
       },
       {
         "id": "029",
-        "name": "[하위] 5-3. 모니터 (Monitor)"
+        "name": "[하위] 5-2. 뮤텍스(Mutex)"
       },
       {
         "id": "030",
-        "name": "[하위] 5-4. 스핀 락 (Spin Lock)"
+        "name": "[하위] 5-3. 모니터 (Monitor)"
       },
       {
         "id": "031",
-        "name": "[하위] 5-5. Race Condition (경쟁 상태)"
+        "name": "[하위] 5-4. 스핀 락 (Spin Lock)"
       },
       {
         "id": "032",
-        "name": "6. 인터럽트 (Interrupt)"
+        "name": "[하위] 5-5. Race Condition (경쟁 상태)"
       },
       {
         "id": "033",
-        "name": "7. IPC (Inter-Process Communication)"
+        "name": "6. 인터럽트 (Interrupt)"
       },
       {
         "id": "034",
-        "name": "[Part 3] 스케줄링"
+        "name": "7. IPC (Inter-Process Communication)"
       },
       {
         "id": "035",
-        "name": "1. CPU 스케줄링 (CPU Scheduling)"
+        "name": "[Part 3] 스케줄링"
       },
       {
         "id": "036",
-        "name": "[하위] 1-1. 기아현상(Starvation Effect) / 호위현상(Convey Effect)"
+        "name": "1. CPU 스케줄링 (CPU Scheduling)"
       },
       {
         "id": "037",
-        "name": "[하위] 1-2. 멀티프로세서 스케줄링"
+        "name": "[하위] 1-1. 기아현상(Starvation Effect) / 호위현상(Convey Effect)"
       },
       {
         "id": "038",
-        "name": "[하위] 1-3. 실시간 스케줄링(Real-Time Scheduling)"
+        "name": "[하위] 1-2. 멀티프로세서 스케줄링"
       },
       {
         "id": "039",
-        "name": "2. 우선순위 역전(Priority Inversion)"
+        "name": "[하위] 1-3. 실시간 스케줄링(Real-Time Scheduling)"
       },
       {
         "id": "040",
-        "name": "3. 디스크 스케줄링 (Disk Scheduling)"
+        "name": "2. 우선순위 역전(Priority Inversion)"
       },
       {
         "id": "041",
-        "name": "[Part 4] 메모리 관리"
+        "name": "3. 디스크 스케줄링 (Disk Scheduling)"
       },
       {
         "id": "042",
-        "name": "1. 가상 메모리 (Virtual Memory)"
+        "name": "[Part 4] 메모리 관리"
       },
       {
         "id": "043",
-        "name": "[하위] 1-1. 페이징 (Paging)"
+        "name": "1. 가상 메모리 (Virtual Memory)"
       },
       {
         "id": "044",
-        "name": "[하위] 1-2. 세그멘테이션 (Segmentation)"
+        "name": "[하위] 1-1. 페이징 (Paging)"
       },
       {
         "id": "045",
-        "name": "2. 페이지 교체 알고리즘 (Page Replacement Algorithm)"
+        "name": "[하위] 1-2. 세그멘테이션 (Segmentation)"
       },
       {
         "id": "046",
-        "name": "3. 스레싱 (Thrashing)"
+        "name": "2. 페이지 교체 알고리즘 (Page Replacement Algorithm)"
       },
       {
         "id": "047",
-        "name": "4. 메모리 누수 (Memory Leak)"
+        "name": "3. 스레싱 (Thrashing)"
       },
       {
         "id": "048",
-        "name": "5. 세그멘테이션 오류 (Segmentation Fault)"
+        "name": "4. 메모리 누수 (Memory Leak)"
       },
       {
         "id": "049",
-        "name": "6. UNIX 파일 시스템 (UNIX File System)"
+        "name": "5. 세그멘테이션 오류 (Segmentation Fault)"
       },
       {
         "id": "050",
-        "name": "[하위] 6-1. UNIX i-node"
+        "name": "6. UNIX 파일 시스템 (UNIX File System)"
       },
       {
         "id": "051",
-        "name": "7. 메모리 벽(Memeory Wall)"
+        "name": "[하위] 6-1. UNIX i-node"
       },
       {
         "id": "052",
-        "name": "[Part 5] 스토리지"
+        "name": "7. 메모리 벽(Memeory Wall)"
       },
       {
         "id": "053",
-        "name": "1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)"
+        "name": "[Part 5] 스토리지"
       },
       {
         "id": "054",
-        "name": "2. 스토리지 계층 (블록 / 파일 / 오브젝트 스토리지)"
+        "name": "1. 스토리지 연결 아키텍처 (DAS / NAS / SAN)"
       },
       {
         "id": "055",
-        "name": "3. RAID (Redundant Array of Independent Disks)"
+        "name": "2. 스토리지 계층 (블록 / 파일 / 오브젝트 스토리지)"
       },
       {
         "id": "056",
-        "name": "4. 스토리지 가상화 (Storage Virtualization)"
+        "name": "3. RAID (Redundant Array of Independent Disks)"
       },
       {
         "id": "057",
-        "name": "[Part 6] AI 연산 하드웨어 (신기술)"
+        "name": "4. 스토리지 가상화 (Storage Virtualization)"
       },
       {
         "id": "058",
-        "name": "1. TPU (Tensor Processing Unit)"
+        "name": "[Part 6] AI 연산 하드웨어 (신기술)"
       },
       {
         "id": "059",
-        "name": "2. NPU (Neural Processing Unit)"
+        "name": "1. TPU (Tensor Processing Unit)"
       },
       {
         "id": "060",
-        "name": "3. 뉴로모픽 칩 (Neuromorphic Chip)"
+        "name": "2. NPU (Neural Processing Unit)"
       },
       {
         "id": "061",
-        "name": "4. CXL (Compute Express Link)"
+        "name": "3. 뉴로모픽 칩 (Neuromorphic Chip)"
       },
       {
         "id": "062",
-        "name": "5. HBM (High Bandwidth Memory)"
+        "name": "4. CXL (Compute Express Link)"
       },
       {
         "id": "063",
-        "name": "6. HBF (High Bandwidth Flush)"
+        "name": "5. HBM (High Bandwidth Memory)"
       },
       {
         "id": "064",
-        "name": "7. PNM (Processing Near Memory)"
+        "name": "6. HBF (High Bandwidth Flush)"
       },
       {
         "id": "065",
-        "name": "8. PIM (Processing In Memory)"
+        "name": "7. PNM (Processing Near Memory)"
       },
       {
         "id": "066",
-        "name": "9. FPGA (Field Programmable Gate Array)"
+        "name": "8. PIM (Processing In Memory)"
       },
       {
         "id": "067",
-        "name": "10. ASIC (Application Specific Integrated Circuit)"
+        "name": "9. FPGA (Field Programmable Gate Array)"
       },
       {
         "id": "068",
-        "name": "11. 큐비트 (Qubit) & 양자 컴퓨팅"
+        "name": "10. ASIC (Application Specific Integrated Circuit)"
       },
       {
         "id": "069",
-        "name": "12. 온디바이스 AI (On-Device AI)"
+        "name": "11. 큐비트 (Qubit) & 양자 컴퓨팅"
       },
       {
         "id": "070",
-        "name": "13. 터보퀀트(TurboQuant)"
+        "name": "12. 온디바이스 AI (On-Device AI)"
       },
       {
         "id": "071",
-        "name": "[Part 7] 고가용성 인프라"
+        "name": "13. 터보퀀트(TurboQuant)"
       },
       {
         "id": "072",
-        "name": "1. 고가용성 (HA, High Availability)"
+        "name": "[Part 7] 고가용성 인프라"
       },
       {
         "id": "073",
-        "name": "[하위] 1-1. FTS (Fault Tolerant System)"
+        "name": "1. 고가용성 (HA, High Availability)"
       },
       {
         "id": "074",
-        "name": "[하위] 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)"
+        "name": "[하위] 1-1. FTS (Fault Tolerant System)"
       },
       {
         "id": "075",
-        "name": "2. 상호연결망 (Interconnection Network)"
+        "name": "[하위] 1-2. Watchdog Timer (WDT)"
       },
       {
         "id": "076",
-        "name": "[하위] 2-1. 토러스 (Torus)"
+        "name": "[하위] 1-3. 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)"
       },
       {
         "id": "077",
-        "name": "3. AI 데이터센터"
+        "name": "2. 상호연결망 (Interconnection Network)"
       },
       {
         "id": "078",
-        "name": "[하위] 3-1. DCI (Data Center Interconnect)"
+        "name": "[하위] 2-1. 토러스 (Torus)"
       },
       {
         "id": "079",
-        "name": "[하위] 3-2. 침지냉각(Immersion Cooling)"
+        "name": "3. AI 데이터센터"
       },
       {
         "id": "080",
-        "name": "4. 엣지 컴퓨팅 (Edge Computing)"
+        "name": "[하위] 3-1. DCI (Data Center Interconnect)"
       },
       {
         "id": "081",
+        "name": "[하위] 3-2. 침지냉각(Immersion Cooling)"
+      },
+      {
+        "id": "082",
+        "name": "4. 엣지 컴퓨팅 (Edge Computing)"
+      },
+      {
+        "id": "083",
         "name": "5. 인터미턴트 컴퓨팅 (Intermittent Computing)"
       }
     ]
@@ -4217,7 +4229,7 @@
       },
       {
         "id": "042",
-        "name": "6. FDE(Forward Deployed Engineer)"
+        "name": "신기술/개념"
       }
     ]
   }

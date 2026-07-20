@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 페이지 교체 알고리즘 (Page Replacement Algorithm)</title>
+  <title>[하위] 1-2. 세그멘테이션 (Segmentation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,17 @@
   </style>
 </head>
 <body>
-<h4>2. 페이지 교체 알고리즘 (Page Replacement Algorithm)</h4>
+<h4>[하위] 1-2. 세그멘테이션 (Segmentation)</h4>
 <ul>
-<li><strong>정의</strong>: 메모리 부족 시 교체할 페이지를 선택하여 스왑 공간으로 내보내는 알고리즘</li>
-<li><strong>키워드</strong>: FIFO, LRU, LFU, 최적(Optimal), 클럭(Clock), 페이지 폴트, 벨라디 이상</li>
+<li><strong>정의</strong>: 프로세스를 논리적 단위인 세그먼트로 분할하여 메모리에 할당하는 기법</li>
+<li><strong>키워드</strong>: 가변 크기, 논리적 단위, 세그먼트 테이블, 외부 단편화, 보호 용이</li>
 <li><strong>분류</strong>: 메모리 관리</li>
-<li><strong>페이지 교체 알고리즘: </strong><div class="table-scroll"><table>
-<tr><th>알고리즘</th><th>기준</th><th>특징</th><th>비고</th></tr>
-<tr><td><strong>FIFO</strong></td><td>가장 먼저 들어온 페이지</td><td>구현 간단</td><td>벨라디 이상(Belady’s Anomaly) 발생 가능</td></tr>
-<tr><td><strong>LRU</strong></td><td>가장 오래 전에 사용된 페이지</td><td>시간적 지역성 활용, 성능 우수</td><td>구현 비용 높음 (타임스탬프 필요)</td></tr>
-<tr><td><strong>LFU</strong></td><td>사용 빈도가 가장 낮은 페이지</td><td>빈도 기반</td><td>초기 페이지에 불리, 최근 패턴 반영 어려움</td></tr>
-<tr><td><strong>최적 (OPT)</strong></td><td>앞으로 가장 오래 사용되지 않을 페이지</td><td>이론적 최적</td><td>미래 예측 불가 → 성능 비교 기준(Benchmark)으로만 활용</td></tr>
-<tr><td><strong>클럭 (Clock/NRU)</strong></td><td>참조 비트 기반 LRU 근사</td><td>LRU 근사, 구현 효율적</td><td>실제 OS에서 가장 많이 채택</td></tr>
-</table></div>
-</li>
-<li><strong>벨라디 이상(Belady’s Anomaly)</strong>: FIFO에서 프레임 수를 늘려도 페이지 폴트가 증가하는 현상</li>
-<li><strong>인사이트</strong>: Linux의 페이지 교체는 Active/Inactive 리스트 기반의 2-pass LRU 변형을 채택함</li>
+<li><strong>특징</strong>: 각 세그먼트는 코드, 데이터, 스택 등 논리적 의미를 가짐. </li>
+<li><strong>세그먼트:</strong> 특정 길이를 가지는 연속적인 주소 공간을 나타내며 일반적으로는 코드, 스택 및 힙 등과 같이 프로그램이나 데이터의 논리적인 부분</li>
+<li><strong>세그먼트 테이블:</strong> 기저 주소(Base)와 한계값(Limit) 보관</li>
+<li><strong>세그먼트 폴트: </strong>프로세스가 접근한 메모리 주소가 메모리 세그먼트의 범위를 벗어났을 때 발생</li>
+<li><strong>단편화</strong>: 가변 크기 할당으로 외부 단편화 발생 → 주기적 압축(Compaction) 필요</li>
+<li><strong>인사이트</strong>: 64비트 모드에서는 세그멘테이션이 거의 무력화되고 페이징 중심으로 전환됨</li>
 </ul>
 
 </body>

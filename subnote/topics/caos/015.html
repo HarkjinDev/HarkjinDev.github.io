@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 2] 프로세스 관리</title>
+  <title>[하위] 4-2. 메모리 영역 (코드/데이터/힙/스택)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,23 @@
   </style>
 </head>
 <body>
-<h3>[Part 2] 프로세스 관리</h3>
+<h4>[하위] 4-2. 메모리 영역 (코드/데이터/힙/스택)</h4>
+<ul>
+<li><strong>정의</strong>: 프로세스 실행 시 운영체제가 코드, 데이터, 힙, 스택으로 분할하는 메모리 구조</li>
+<li><strong>키워드</strong>: 코드, 데이터, BSS, 힙, 스택, 프로세스 메모리 구조, 정적/동적 할당</li>
+<li><strong>분류</strong>: 컴퓨터 구조</li>
+<li><strong>메모리 영역: </strong><div class="table-scroll"><table>
+<tr><th><strong>영역</strong></th><th><strong>내용</strong></th><th><strong>특징</strong></th></tr>
+<tr><td><strong>코드(Text) 영역</strong></td><td>실행 가능한 프로그램 기계어 코드</td><td>읽기 전용(Read-Only), 공유 가능</td></tr>
+<tr><td><strong>데이터(Data) 영역</strong></td><td>초기화된 전역 변수, 정적 변수</td><td>프로그램 시작 시 할당, 종료 시 해제</td></tr>
+<tr><td><strong>BSS 영역</strong></td><td>초기화되지 않은 전역/정적 변수</td><td>실행 시 0으로 초기화</td></tr>
+<tr><td><strong>힙(Heap) 영역</strong></td><td>동적으로 할당되는 메모리 (malloc/new)</td><td>런타임 결정, 낮은 주소→높은 주소 방향 성장</td></tr>
+<tr><td><strong>스택(Stack) 영역</strong></td><td>지역 변수, 함수 매개변수, 복귀 주소</td><td>LIFO 구조, 높은 주소→낮은 주소 방향 성장</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 힙과 스택은 서로를 향해 성장하므로, 힙/스택 오버플로우가 심각한 충돌을 유발할 수 있음. Stack Canary, ASLR이 스택 기반 공격을 방어하는 보안 메커니즘임</li>
+</ul>
+<hr/>
 
 </body>
 </html>

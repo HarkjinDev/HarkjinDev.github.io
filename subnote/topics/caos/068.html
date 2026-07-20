@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. 큐비트 (Qubit) & 양자 컴퓨팅</title>
+  <title>10. ASIC (Application Specific Integrated Circuit)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,29 +15,41 @@
   </style>
 </head>
 <body>
-<h4>11. 큐비트 (Qubit) &amp; 양자 컴퓨팅</h4>
+<h4>10. ASIC (Application Specific Integrated Circuit)</h4>
 <ul>
-<li><strong>정의</strong>: 0과 1을 동시에 중첩 상태로 표현하는 양자 컴퓨팅의 기본 정보 단위</li>
-<li><strong>키워드</strong>: 중첩, 얽힘, 불확정성, 비가역성, 양자 알고리즘, QML, 초전도 큐비트, 이온트랩</li>
-<li><strong>분류</strong>: AI 연산 하드웨어</li>
-<li><strong>양자 컴퓨팅 핵심 개념</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;중얽불비&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>개념</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>중첩 (Superposition)</strong></td><td>0과 1을 동시에 가지는 특성</td><td>동시 다중 상태</td></tr>
-<tr><td><strong>얽힘 (Entanglement)</strong></td><td>거리 무관 두 큐비트 상태 연결</td><td>원격 상태 연동</td></tr>
-<tr><td><strong>불확정성 (Uncertainty)</strong></td><td>측정 전까지 상태 미확정</td><td>측정 전 미결정</td></tr>
-<tr><td><strong>비가역성 (Irreversibility)</strong></td><td>측정 시 양자 상태 즉시 붕괴</td><td>측정이 상태 파괴</td></tr>
-</table></div>
-<blockquote><strong>쉬운 비유:</strong> 중첩은 "동전이 공중에 있을 때 앞·뒤 동시 존재", 얽힘은 "서울 동전과 부산 동전이 한 쌍으로 연결", 불확정성은 "손으로 잡는 순간 비로소 앞·뒤 결정", 비가역성은 "한 번 잡으면 다시 공중 상태로 못 돌아감"</blockquote>
-</li>
-<li><strong>양자 활용 분야: </strong><div class="table-scroll"><table>
-<tr><th>분야</th><th>알고리즘/기법</th><th>활용 예시</th></tr>
-<tr><td>최적화</td><td>양자 어닐링(QAOA)</td><td>물류 경로 최적화, 금융 포트폴리오</td></tr>
-<tr><td>암호학</td><td>Shor’s Algorithm</td><td>RSA 암호 해독 (양자 내성 암호 필요성)</td></tr>
-<tr><td>머신러닝</td><td>QML (QNN, QSVM, QGAN)</td><td>양자 신경망, 양자 강화학습</td></tr>
-<tr><td>시뮬레이션</td><td>양자 역학 시뮬레이션</td><td>신약 개발, 재료 과학</td></tr>
+<li><strong>정의</strong>: 특정 애플리케이션 또는 워크로드에 최적화된 기능만을 수행하도록 설계·제조된 주문형 집적회로</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>주문형 반도체</strong></u></span>, 풀커스텀 설계, 하드와이어드, TPU, NPU, 테이프아웃, RTL, 마스크 비용</li>
+<li><strong>분류</strong>: AI 컴퓨팅 하드웨어</li>
+<li><strong>설계 흐름 (Design Flow)</strong>:<div class="table-scroll"><table>
+<tr><th>단계</th><th>내용</th></tr>
+<tr><td>① 아키텍처 설계</td><td>목표 기능·성능·전력 사양 정의</td></tr>
+<tr><td>② RTL 설계</td><td>Verilog/VHDL로 레지스터 전송 수준 회로 기술</td></tr>
+<tr><td>③ 논리 합성 (Synthesis)</td><td>RTL을 게이트 레벨 넷리스트로 변환</td></tr>
+<tr><td>④ 배치·배선 (P&amp;R)</td><td>게이트를 실리콘 위에 물리적으로 배치하고 금속선 연결</td></tr>
+<tr><td>⑤ 검증 (DRC/LVS)</td><td>설계 규칙 검사 및 레이아웃·회로도 일치 확인</td></tr>
+<tr><td>⑥ 테이프아웃 (Tape-out)</td><td>마스크 데이터 파운드리 제출 → 웨이퍼 제조 시작</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 현재 NISQ(Noisy Intermediate-Scale Quantum) 시대로, 오류 허용 양자 컴퓨팅(Fault-Tolerant QC)까지는 수십 년이 필요할 수 있음. Shor 알고리즘이 RSA를 위협하므로 NIST는 <strong>양자 내성 암호(Post-Quantum Cryptography) 표준화를 2024년 완료</strong>함</li>
+<li><strong>AI 분야 주요 ASIC 사례</strong>:<div class="table-scroll"><table>
+<tr><th>제품</th><th>제조사</th><th>특화 기능</th></tr>
+<tr><td>TPU (Tensor Processing Unit)</td><td>Google</td><td>DNN 행렬 연산(MXU), 학습·추론</td></tr>
+<tr><td>Trainium / Inferentia</td><td>AWS</td><td>클라우드 AI 학습·추론 전용</td></tr>
+<tr><td>Gaudi</td><td>Intel (Habana)</td><td>대규모 LLM 학습 가속</td></tr>
+<tr><td>Ethos NPU</td><td>Arm</td><td>모바일·에지 AI 추론</td></tr>
+<tr><td>화웨이 Ascend</td><td>Huawei</td><td>데이터센터 AI 가속</td></tr>
+</table></div>
+</li>
+<li><strong>장단점</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td>장점</td><td>특정 연산에 최적화된 회로로 전력 효율·성능 최고 수준 달성</td></tr>
+<tr><td></td><td>대량 생산 시 단가 절감 효과가 GPU·FPGA 대비 월등</td></tr>
+<tr><td></td><td>불필요한 범용 회로 미포함으로 칩 면적·발열 최소화</td></tr>
+<tr><td>단점</td><td>테이프아웃 마스크 비용이 수십억 원 이상으로 초기 투자 부담 극대</td></tr>
+<tr><td></td><td>설계 완료 후 기능 변경 불가 — 스펙 변경 시 재설계 필요</td></tr>
+<tr><td></td><td>설계~양산까지 1~2년 소요로 빠른 시장 변화 대응 어려움</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: ASIC은 <strong>대량 생산·고정 워크로드</strong> 환경에서 전력 효율과 단가 경쟁력이 극대화되며, Google TPU처럼 AI 가속 ASIC이 범용 GPU를 특정 워크로드에서 압도하는 사례가 증가하고 있음. 답안에서 FPGA와의 선택 기준 비교표 및 테이프아웃 비용·재설계 불가라는 <strong>핵심 트레이드오프</strong>를 명시하면 고득점 가능.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 4-1. 은행가 알고리즘 (Banker’s Algorithm)</title>
+  <title>4. 교착 상태 (Deadlock)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,34 @@
   </style>
 </head>
 <body>
-<h4>[하위] 4-1. 은행가 알고리즘 (Banker’s Algorithm)</h4>
+<h4>4. 교착 상태 (Deadlock)</h4>
 <ul>
-<li><strong>정의</strong>: 자원 할당 전 시스템이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>안전 상태인지 확인</strong></u></span>하여 교착 상태를 회피하는 알고리즘</li>
-<li><strong>키워드</strong>: 안전 상태, 불안전 상태(교착상태), MAX, Allocated, Available, Need, 안전 순서열</li>
+<li><strong>정의</strong>: 둘 이상의 프로세스가 서로 상대방이 점유한 자원을 무한히 대기하여 진행이 불가능한 상태</li>
+<li><strong>키워드</strong>: 코프만 조건, 상호배제, 점유대기, 비선점, 환형대기, 예방, 회피, 탐지, 복구</li>
 <li><strong>분류</strong>: 프로세스 관리</li>
-<li><strong>은행가 알고리즘 연산:</strong><div class="table-scroll"><table>
-<tr><th><strong>자료명</strong></th><th><strong>설명</strong></th><th><strong>수식</strong></th></tr>
-<tr><td><strong>Available</strong></td><td>사용 가능한 자원의 수</td><td><code>Available[j] = K</code></td></tr>
-<tr><td><strong>Max</strong></td><td>프로세스별 최대 자원 요구량</td><td><code>Max[i, j] = K</code></td></tr>
-<tr><td><strong>Allocation</strong></td><td>현재 프로세스별 할당된 자원 수</td><td><code>Allocation[i, j] = K</code></td></tr>
-<tr><td><strong>Need</strong></td><td>프로세스별 추가로 필요한 자원 수</td><td><code>Need[i, j] = Max - Allocation</code></td></tr>
-<tr><td><strong>Request</strong></td><td>프로세스가 현재 요청 중인 자원 수</td><td><code>Request[i, j] = K</code></td></tr>
-</table></div>
-</li>
-<li><strong>안전 상태 판단</strong>: Need ≤ Available인 프로세스를 순차 실행 가능 → 안전 순서열 존재 → 안전 상태<ul>
-<li>안전여부 확인하는데 (m*n^2) 개의 연산이 필요 → 프로세스수(N)에 따른 오버헤드 큼</li>
+<li><strong>발생 필요 조건 (코프만 조건 4가지)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;상점비환&gt;</strong></span><ul>
+<li><strong>상호배제(Mutual Exclusion)</strong>: 자원을 한 번에 하나의 프로세스만 사용 가능</li>
+<li><strong>점유 대기(Hold &amp; Wait)</strong>: 자원을 점유한 채 다른 자원을 대기</li>
+<li><strong>비선점(No Preemption)</strong>: 다른 프로세스의 자원을 강제로 빼앗을 수 없음</li>
+<li><strong>환형 대기(Circular Wait)</strong>: 프로세스들이 자원을 원형으로 대기</li>
 </ul>
 </li>
-<li><strong>동작</strong>: 준비 → 자원 할당 요청 → 안정상태 확인 → (안정 상태) 자원할당 → (불안정 상태) 할당 거부</li>
-<li><strong>인사이트</strong>: 사전에 최대 자원 수요를 알아야 하는 제약이 있어 실용성이 제한됨. 시험에서 MAX/Allocated/Need/Available 행렬 계산 문제가 핵심 출제 포인트</li>
+<li><strong>대처 방법</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;예회발복&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>방법</th><th>기법</th><th>핵심</th></tr>
+<tr><td><strong>예방 (Prevention)</strong></td><td>상호 배제 조건 제거 — 공유 가능 자원으로 전환</td><td>조건 원천 제거</td></tr>
+<tr><td></td><td>점유 대기 조건 제거 — 필요 자원 한번에 모두 요청</td><td>일괄 자원 요청</td></tr>
+<tr><td></td><td>비선점 조건 제거 — 대기 시 보유 자원 강제 반납</td><td>강제 자원 반납</td></tr>
+<tr><td></td><td>순환 대기 조건 제거 — 자원에 순서 부여, 순서대로만 요청</td><td>자원 순서화</td></tr>
+<tr><td><strong>회피 (Avoidance)</strong></td><td>은행가 알고리즘 — 안전 상태 유지 가능한 경우만 자원 할당</td><td>안전 상태 유지</td></tr>
+<tr><td></td><td>사전 최대 자원 선언 — 프로세스 시작 전 최대 요구량 명시</td><td>최대 요구 선언</td></tr>
+<tr><td><strong>발견 (Detection)</strong></td><td>자원 할당 그래프 — 사이클 탐지로 교착 상태 식별</td><td>그래프 사이클 탐지</td></tr>
+<tr><td></td><td>탐지 알고리즘 — 주기적 실행으로 교착 상태 프로세스 식별</td><td>주기적 탐지</td></tr>
+<tr><td><strong>복구 (Recovery)</strong></td><td>프로세스 종료 — 희생 프로세스 선택·강제 종료로 자원 해제</td><td>프로세스 강제 종료</td></tr>
+<tr><td></td><td>자원 선점 — 프로세스에서 자원 강제 회수·재할당</td><td>자원 강제 선점</td></tr>
+<tr><td></td><td>롤백 — 교착 상태 이전 안전 상태로 프로세스 복귀</td><td>체크포인트 복귀</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 현대 OS는 교착 상태 예방보다 탐지+복구 방식을 선호하며, <strong>데이터베이스 시스템에서는 Wait-For Graph를 통한 교착 상태 탐지가 표준 방식</strong>임</li>
 </ul>
 
 </body>

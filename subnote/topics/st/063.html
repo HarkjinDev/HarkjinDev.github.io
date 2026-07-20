@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. 필터링/추천시스템 (Filtering)</title>
+  <title>9. PPDM (Privacy Preserving Data Mining)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,60 +15,21 @@
   </style>
 </head>
 <body>
-<h4>10. 필터링/추천시스템 (Filtering)</h4>
+<h4>9. PPDM (Privacy Preserving Data Mining)</h4>
 <ul>
-<li><strong>정의:</strong> 방대한 빅데이터 정보 중 사용자가 선호하거나 특정 목적에 적합한 데이터만을 추출, 결합하여 개인화된 가치나 추천 리스트를 제공하는 빅데이터 분석 기법</li>
-<li><strong>키워드:</strong> 협업 필터링, 콘텐츠 기반 필터링, 하이브리드, 유사도, 희소성, 콜드스타트, 행렬분해, MF</li>
+<li><strong>정의</strong>: 프라이버시를 보호하면서 데이터 마이닝을 수행하는 기법</li>
+<li><strong>키워드</strong>: k-익명성, ℓ-다양성, 차분 프라이버시, 연합학습</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>추천시스템 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td>사용자 (User)</td><td>추천을 받는 대상</td><td>추천 수혜자</td></tr>
-<tr><td>아이템 (Item)</td><td>추천할 대상</td><td>추천 객체</td></tr>
-<tr><td>상호작용 (Interaction)</td><td>사용자와 아이템 사이의 행동 데이터</td><td>평점·구매·클릭</td></tr>
-<tr><td>특성 (Feature)</td><td>사용자 또는 아이템의 속성 정보</td><td>메타데이터</td></tr>
-<tr><td>피드백 (Feedback)</td><td>추천 결과에 대한 반응</td><td>명시적·암묵적</td></tr>
+<li><strong>주요 기법</strong>:<div class="table-scroll"><table>
+<tr><th>기법</th><th>개념</th><th>한계</th></tr>
+<tr><td><strong>k-익명성</strong></td><td>동일 레코드 k개 이상 존재</td><td>동질성 공격에 취약</td></tr>
+<tr><td><strong>ℓ-다양성</strong></td><td>민감 속성 ℓ가지 이상 다양</td><td>근접성 공격 취약</td></tr>
+<tr><td><strong>차분 프라이버시</strong></td><td>노이즈 추가로 개인 식별 차단</td><td>유용성 저하</td></tr>
+<tr><td><strong>연합학습</strong></td><td>원본 데이터 비공유 분산 학습</td><td>통신 비용 증가</td></tr>
 </table></div>
 </li>
-<li><strong>필터링 유형 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>협업 필터링 (CF)</th><th>콘텐츠 기반 필터링 (CBF)</th></tr>
-<tr><td>기반</td><td>사용자·아이템 간 행동 패턴</td><td>아이템 속성·사용자 프로필</td></tr>
-<tr><td>핵심 원리</td><td>유사한 사용자는 유사한 선호</td><td>과거 선호 아이템과 유사한 아이템 추천</td></tr>
-<tr><td>입력 데이터</td><td>평점·구매·클릭 이력</td><td>아이템 메타데이터·특성</td></tr>
-<tr><td>콜드스타트</td><td>취약 (신규 사용자·아이템)</td><td>아이템 콜드스타트 강함</td></tr>
-<tr><td>희소성 문제</td><td>있음</td><td>없음</td></tr>
-<tr><td>다양성</td><td>높음</td><td>낮음 (과거 선호 편중)</td></tr>
-<tr><td>대표 알고리즘</td><td>KNN·행렬분해(MF)</td><td>TF-IDF·코사인 유사도</td></tr>
-</table></div>
-</li>
-<li><strong>협업 필터링 세부 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td>메모리 기반</td><td>사용자 기반 </td><td>유사한 사용자 그룹의 선호 기반 추천</td><td>사용자 유사도</td></tr>
-<tr><td></td><td>아이템 기반 </td><td>유사한 아이템 간 관계 기반 추천</td><td>아이템 유사도</td></tr>
-<tr><td>모델 기반</td><td>행렬분해 (MF)</td><td>사용자·아이템 행렬을 잠재 요인으로 분해</td><td>SVD·ALS·SGD</td></tr>
-<tr><td></td><td>딥러닝 기반</td><td>Neural CF·AutoEncoder로 비선형 패턴 학습</td><td>NCF·VAE</td></tr>
-<tr><td></td><td>클러스터링 기반</td><td>사용자·아이템 군집화 후 군집 내 추천</td><td>K-Means 연계</td></tr>
-</table></div>
-</li>
-<li><strong>콘텐츠 기반 필터링 세부 기법:</strong><div class="table-scroll"><table>
-<tr><th>기법</th><th>설명</th><th>핵심</th></tr>
-<tr><td>TF-IDF</td><td>문서 내 단어 빈도·역문서 빈도로 아이템 특성 벡터화</td><td>텍스트 특성 추출</td></tr>
-<tr><td>워드 임베딩</td><td>아이템 설명·리뷰 임베딩으로 의미 유사도 측정</td><td>딥러닝 특성 추출</td></tr>
-<tr><td>코사인 유사도</td><td>아이템 특성 벡터 간 방향 유사도로 유사 아이템 탐색</td><td>유사 아이템 탐색</td></tr>
-<tr><td>사용자 프로필</td><td>사용자 선호 아이템 특성 누적·평균화</td><td>선호 프로필 갱신</td></tr>
-</table></div>
-</li>
-<li><strong>주요 문제점 및 해결방안:</strong><div class="table-scroll"><table>
-<tr><th>문제</th><th>설명</th><th>해결방안</th><th>핵심</th></tr>
-<tr><td>콜드스타트</td><td>신규 사용자·아이템 데이터 부족</td><td>CBF 결합·인구통계 활용</td><td>하이브리드</td></tr>
-<tr><td>희소성 </td><td>사용자-아이템 행렬 대부분 미평가</td><td>행렬분해·딥러닝</td><td>MF 적용</td></tr>
-<tr><td>확장성 </td><td>사용자·아이템 증가 시 계산 급증</td><td>근사 최근접 탐색(ANN)·분산처리</td><td>Spark·Faiss</td></tr>
-<tr><td>필터버블</td><td>과거 선호 편중·다양성 저하</td><td>탐색-활용 균형(ε-greedy)</td><td>다양성 보완</td></tr>
-<tr><td>인기 편향</td><td>인기 아이템만 추천·롱테일 누락</td><td>역인기 가중치·탐색 전략</td><td>롱테일 추천</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 필터링은 협업·콘텐츠 기반·하이브리드 3축으로 구성되며, 콜드스타트·희소성·필터버블의 3대 한계를 행렬분해·딥러닝·탐색-활용 균형 전략으로 극복하는 것이 현대 추천 시스템 설계의 핵심</li>
+<li><strong>인사이트</strong>: 차분 프라이버시(Differential Privacy)는 개인 정보 유출 위험을 수학적으로 보장하는 가장 강력한 프라이버시 보호 기법이다.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

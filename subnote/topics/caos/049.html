@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. UNIX 파일 시스템 (UNIX File System)</title>
+  <title>5. 세그멘테이션 오류 (Segmentation Fault)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,20 @@
   </style>
 </head>
 <body>
-<h4>6. UNIX 파일 시스템 (UNIX File System)</h4>
+<h4>5. 세그멘테이션 오류 (Segmentation Fault)</h4>
 <ul>
-<li><strong>정의</strong>: UNIX 운영체제에서 파일 저장 및 관리를 위한 계층적 디렉토리 구조와 i-node 기반의 파일 시스템</li>
-<li><strong>키워드</strong>: 부트블록, 슈퍼블록, i-node, 데이터블록, 접근제어</li>
+<li><strong>정의</strong>: 프로세스가 허용되지 않은 메모리 영역에 접근할 때 발생하는 런타임 오류 (SIGSEGV 신호)</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Core dumped</strong></u></span>, 잘못된 포인터 참조, 배열 인덱스 오류, NULL 포인터, 스택 오버플로우</li>
 <li><strong>분류</strong>: 메모리 관리</li>
-<li><strong>구성 요소:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;부슈아데&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>역할</th><th>핵심</th></tr>
-<tr><td><strong>부트 블록 (Boot Block)</strong></td><td>부팅 시 필요한 부트스트랩 코드 저장</td><td>부팅 코드 저장</td></tr>
-<tr><td><strong>슈퍼 블록 (Super Block)</strong></td><td>파일 시스템 전체 정보 저장 
-(블록 크기·빈 블록 수·i-node 수)</td><td>파일 시스템 메타</td></tr>
-<tr><td><strong>i-node 블록</strong></td><td>각 파일의 메타데이터 저장 (i-node 테이블)</td><td>파일 메타데이터</td></tr>
-<tr><td><strong>데이터 블록</strong></td><td>실제 파일 내용 저장</td><td>파일 실제 내용</td></tr>
+<li><strong>발생 원인 및 해결방안:</strong><div class="table-scroll"><table>
+<tr><th><strong>측면</strong></th><th><strong>발생 원인</strong></th><th><strong>해결 방안</strong></th></tr>
+<tr><td><strong>프로그래밍</strong></td><td>포인터 초기화 누락, NULL 역참조, 배열 범위 초과 접근, Use-After-Free</td><td>포인터 초기화 및 NULL 체크, 배열 경계 검증, 메모리 해제 후 포인터 NULL 설정</td></tr>
+<tr><td><strong>메모리 관리</strong></td><td>메모리 누수, 이중 해제(Double Free), 미사용 동적 메모리 접근</td><td>할당·해제 짝 맞추기, 스마트 포인터(C++) 사용, 해제 후 참조 금지</td></tr>
+<tr><td><strong>운영체제/보안</strong></td><td>권한 없는 영역 접근, 스택/힙 경계 초과, 코드 실행 금지(NX) 영역 접근</td><td>접근 제어 정책 강화, ASLR, NX bit, Stack Guard 등 보호 기법 활용</td></tr>
+<tr><td><strong>디버깅/도구</strong></td><td>원인 파악 어려움, 숨겨진 포인터 오류, 실행 중 메모리 충돌</td><td>Valgrind/ASan 동적 분석, gdb 위치 추적, 정적 분석 도구(cppcheck) 활용</td></tr>
 </table></div>
 </li>
-<li><strong>접근 권한</strong>: <code>rwxrwxrwx</code> — 소유자/그룹/기타 사용자 각 3비트</li>
-<li><strong>인사이트</strong>: UNIX 파일 시스템은 모든 것을 파일로 추상화하는 철학(Everything is a file)이 특징이며, 하드 링크(i-node 공유)와 심볼릭 링크(경로 참조)의 차이를 시험에서 자주 출제함</li>
+<li><strong>인사이트</strong>: Segmentation Fault는 메모리 보호 메커니즘이 제대로 동작한다는 신호이며, 오류 발생 즉시 프로세스를 종료하여 추가 피해를 막음. 보안 관점에서 Stack Canary, ASLR이 Segfault를 이용한 공격을 방어함</li>
 </ul>
 
 </body>

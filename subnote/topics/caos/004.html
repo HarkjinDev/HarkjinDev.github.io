@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-2. 엔디언 (Endianness)</title>
+  <title>[하위] 1-1. 폰 노이만 아키텍처 (Von Neumann Architecture)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,22 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-2. 엔디언 (Endianness)</h4>
+<h4>[하위] 1-1. 폰 노이만 아키텍처 (Von Neumann Architecture)</h4>
 <ul>
-<li><strong>정의</strong>: 다중 바이트 데이터를 메모리에 저장할 때의 바이트 순서 방식</li>
-<li><strong>키워드</strong>: MSB, LSB, 빅 엔디언, 리틀 엔디언, 네트워크 바이트 순서, x86 아키텍처</li>
-<li><strong>분류</strong>: 컴퓨터 구조<div class="table-scroll"><table>
-<tr><th>구분</th><th>빅 엔디언 (Big Endian)</th><th>리틀 엔디언 (Little Endian)</th></tr>
-<tr><td>정의</td><td>최상위 바이트(MSB)를 낮은 주소에 먼저 저장</td><td>최하위 바이트(LSB)를 낮은 주소에 먼저 저장</td></tr>
-<tr><td>예시 (0x12345678)</td><td>주소 0: 0x12 / 1: 0x34 / 
-2: 0x56 / 3: 0x78</td><td>주소 0: 0x78 / 1: 0x56 
-/ 2: 0x34 / 3: 0x12</td></tr>
-<tr><td>사용 환경</td><td>네트워크 프로토콜(TCP/IP), 
-SPARC, PowerPC</td><td>x86, x86-64 (Intel/AMD), 
-ARM(기본)</td></tr>
-<tr><td>가독성</td><td>메모리 덤프 시 직관적</td><td>산술 연산 처리 용이</td></tr>
+<li><strong>정의</strong>: 프로그램과 데이터를 동일한 메모리에 저장하고 CPU가 명령어를 순차적으로 인출·실행하는 컴퓨터 구조 모델</li>
+<li><strong>키워드</strong>: SISD(Single Instruction Single Data), 폰 노이만 병목(Memory Wall), 하나의 명령</li>
+<li><strong>분류</strong>: 컴퓨터 구조</li>
+<li><strong>폰 노이만 병목 (Von Neumann Bottleneck)</strong>: CPU와 메모리 간 단일 버스로 명령어와 데이터 전송이 순차 처리되어 발생하는 성능 병목</li>
+<li><strong>폰 노이만 vs 하버드 아키텍처</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>폰 노이만 (Von Neumann)</th><th>하버드 (Harvard)</th></tr>
+<tr><td>메모리 구조</td><td>명령어·데이터 공유 메모리</td><td>명령어·데이터 분리 메모리</td></tr>
+<tr><td>버스 구조</td><td>단일 공유 버스</td><td>분리된 명령어 버스 / 데이터 버스</td></tr>
+<tr><td>속도</td><td>병목 발생 가능</td><td>명령어·데이터 동시 접근 → 고속</td></tr>
+<tr><td>연산 구조</td><td>CISC(가변)</td><td>RISC(고정)</td></tr>
+<tr><td>적용 사례</td><td>범용 CPU (x86, ARM)</td><td>마이크로컨트롤러, DSP, L1 캐시 구조</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 네트워크 통신 시 서로 다른 엔디언 시스템 간 데이터 교환을 위해 htons()/ntohl() 같은 바이트 순서 변환 함수를 반드시 사용해야 하며, <strong>네트워크 바이트 순서는 빅 엔디언이 표준</strong>임</li>
+<li><strong>인사이트</strong>: 현대 CPU는 폰 노이만 기반이지만 L1 캐시를 명령어/데이터 캐시로 분리(수정 하버드 구조)하여 병목을 완화. 뉴로모픽 칩은 메모리-연산 통합으로 폰 노이만 병목을 근본적으로 극복하려는 접근임</li>
 </ul>
 
 </body>
