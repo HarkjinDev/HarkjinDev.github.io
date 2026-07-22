@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. OWASP LLM Top 10(2026)</title>
+  <title>7. MCP 보안 (Model Context Protocol Security)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,19 @@
   </style>
 </head>
 <body>
-<h4>8. OWASP LLM Top 10(2026)</h4>
+<h4>7. MCP 보안 (Model Context Protocol Security)</h4>
 <ul>
-<li><strong>정의</strong>: OWASP에서 발표한 LLM 애플리케이션의 10대 보안 위협 목록</li>
-<li><strong>키워드</strong>: LLM 보안 위협, 프롬프트 인젝션, 데이터 유출</li>
+<li><strong>정의</strong>: MCP기반 AI 서비스 구축 시 발생 가능한 보안 취약점과 대응 방안</li>
+<li><strong>키워드</strong>: 프롬프트 인젝션, 도구 오염 공격, CVE-2025-6514(mcp-remote 취약점)</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>OWASP LLM Top 10 목록</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;인민공오/출에시/벡허무&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>#</strong></th><th><strong>항목</strong></th><th><strong>핵심</strong></th><th><strong>대응</strong></th></tr>
-<tr><td><strong>LLM01</strong></td><td><strong>프롬프트 인젝션</strong></td><td>프롬프트 조작</td><td>입력 정제·검증·격리</td></tr>
-<tr><td><strong>LLM02</strong></td><td><strong>민감 정보 유출</strong></td><td>데이터 노출</td><td>접근 제어·DP·데이터 정제</td></tr>
-<tr><td><strong>LLM03</strong></td><td><strong>공급망 취약점</strong></td><td>외부 모듈 결함</td><td>SBOM·무결성 체크</td></tr>
-<tr><td><strong>LLM04</strong></td><td><strong>데이터 및 모델 오염</strong></td><td>학습 데이터 변조</td><td>안전 파이프라인·무결성 검사</td></tr>
-<tr><td><strong>LLM05</strong></td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증 미흡</td><td>샌드박싱·출력 모니터링</td></tr>
-<tr><td><strong>LLM06</strong></td><td><strong>과도한 에이전시</strong></td><td>통제 불능 자율성</td><td>인간 개입(HITL)·권한 제한</td></tr>
-<tr><td><strong>LLM07</strong></td><td><strong>시스템 프롬프트 유출</strong></td><td>내부 지침 공개</td><td>프롬프트 은닉·내외부 분리</td></tr>
-<tr><td><strong>LLM08</strong></td><td><strong>벡터·임베딩 취약점</strong></td><td>RAG/임베딩 조작</td><td>안전 임베딩·적대적 테스트</td></tr>
-<tr><td><strong>LLM09</strong></td><td><strong>허위 정보 (Hallucination)</strong></td><td>왜곡 정보 생성</td><td>RAG·파인튜닝·인간 검증</td></tr>
-<tr><td><strong>LLM10</strong></td><td><strong>무한 소비</strong></td><td>자원 고갈 요청</td><td>속도 제한(Rate Limit)·자원 관리</td></tr>
-</table></div>
+<li><strong>주요 취약점</strong>:<ul>
+<li><strong>프롬프트 인젝션</strong>: 외부 도구/리소스를 통한 간접 인젝션</li>
+<li><strong>도구 오염 공격(Tool Poisoning)</strong>: 악의적 MCP 서버가 안전한 도구처럼 위장</li>
+<li><strong>권한 상승</strong>: MCP 통해 과도한 권한 획득</li>
+<li><strong>CVE-2025-6514</strong>: mcp-remote의 원격 코드 실행 취약점</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: LLM06(과도한 에이전시)은 AI 에이전트가 필요 이상의 권한으로 자율 행동하는 위험으로, 최소 권한 원칙과 Human-in-the-Loop가 핵심 대응임</li>
+<li><strong>인사이트</strong>: MCP 서버 출처 검증과 샌드박스 실행이 핵심 보안 원칙임</li>
 </ul>
 
 </body>

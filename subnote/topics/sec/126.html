@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. OWASPAgentic Applications Top 10(2026)</title>
+  <title>8. OWASP LLM Top 10(2026)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,26 @@
   </style>
 </head>
 <body>
-<h4>9. OWASP <strong>Agentic Applications Top 10(2026)</strong></h4>
+<h4>8. OWASP LLM Top 10(2026)</h4>
 <ul>
-<li><strong>정의</strong>: OWASP에서 발표한 agent 애플리케이션의 10대 보안 위협 목록</li>
+<li><strong>정의</strong>: OWASP에서 발표한 LLM 애플리케이션의 10대 보안 위협 목록</li>
+<li><strong>키워드</strong>: LLM 보안 위협, 프롬프트 인젝션, 데이터 유출</li>
 <li><strong>분류</strong>: AI 보안</li>
-<li><strong>OWASP Top 10 for Agentic Applications 2026: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;목신불/도신예/메연/공통&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>순위</th><th>항목</th><th>핵심</th><th>대응</th></tr>
-<tr><td>의사결정 위협</td><td>ASI01</td><td>에이전트 목표 탈취</td><td>간접 조작·목표 변조</td><td>입력 검증·목표 고정</td></tr>
-<tr><td></td><td>ASI09</td><td>인간-에이전트 신뢰 악용</td><td>의인화 악용·악의적 승인 유도</td><td>독립 승인채널 분리</td></tr>
-<tr><td></td><td>ASI10</td><td>불량 에이전트</td><td>목표 불일치·자율 이탈 행동</td><td>행동 모니터링·Kill Switch</td></tr>
-<tr><td>실행 위협</td><td>ASI02</td><td>도구 오남용</td><td>합법 도구 악의적 오용</td><td>최소권한·도구 허용목록</td></tr>
-<tr><td></td><td>ASI03</td><td>신원·권한 남용</td><td>위임·캐시 자격증명 악용</td><td>에이전트 신원 격리</td></tr>
-<tr><td></td><td>ASI05</td><td>예기치 않은 코드 실행</td><td>공격자 제어 RCE 발생</td><td>샌드박스·코드 실행 제한</td></tr>
-<tr><td>시스템 위협</td><td>ASI06</td><td>메모리·컨텍스트 오염</td><td>RAG·장기메모리 지속 오염</td><td>메모리 무결성 검증</td></tr>
-<tr><td></td><td>ASI08</td><td>연쇄 장애</td><td>오류 다단계 전파·증폭</td><td>장애 격리·서킷브레이커</td></tr>
-<tr><td>연계 위협</td><td>ASI04</td><td>공급망 취약점</td><td>MCP·서드파티 컴포넌트 변조</td><td>무결성 검증·서명 확인</td></tr>
-<tr><td></td><td>ASI07</td><td>에이전트 간 통신 취약</td><td>에이전트 간 메시지 위변조</td><td>상호인증·통신 암호화</td></tr>
+<li><strong>OWASP LLM Top 10 목록</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;인민공오/출에시/벡허무&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>#</strong></th><th><strong>항목</strong></th><th><strong>핵심</strong></th><th><strong>대응</strong></th></tr>
+<tr><td><strong>LLM01</strong></td><td><strong>프롬프트 인젝션</strong></td><td>프롬프트 조작</td><td>입력 정제·검증·격리</td></tr>
+<tr><td><strong>LLM02</strong></td><td><strong>민감 정보 유출</strong></td><td>데이터 노출</td><td>접근 제어·DP·데이터 정제</td></tr>
+<tr><td><strong>LLM03</strong></td><td><strong>공급망 취약점</strong></td><td>외부 모듈 결함</td><td>SBOM·무결성 체크</td></tr>
+<tr><td><strong>LLM04</strong></td><td><strong>데이터 및 모델 오염</strong></td><td>학습 데이터 변조</td><td>안전 파이프라인·무결성 검사</td></tr>
+<tr><td><strong>LLM05</strong></td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증 미흡</td><td>샌드박싱·출력 모니터링</td></tr>
+<tr><td><strong>LLM06</strong></td><td><strong>과도한 에이전시</strong></td><td>통제 불능 자율성</td><td>인간 개입(HITL)·권한 제한</td></tr>
+<tr><td><strong>LLM07</strong></td><td><strong>시스템 프롬프트 유출</strong></td><td>내부 지침 공개</td><td>프롬프트 은닉·내외부 분리</td></tr>
+<tr><td><strong>LLM08</strong></td><td><strong>벡터·임베딩 취약점</strong></td><td>RAG/임베딩 조작</td><td>안전 임베딩·적대적 테스트</td></tr>
+<tr><td><strong>LLM09</strong></td><td><strong>허위 정보 (Hallucination)</strong></td><td>왜곡 정보 생성</td><td>RAG·파인튜닝·인간 검증</td></tr>
+<tr><td><strong>LLM10</strong></td><td><strong>무한 소비</strong></td><td>자원 고갈 요청</td><td>속도 제한(Rate Limit)·자원 관리</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트</strong>: LLM06(과도한 에이전시)은 AI 에이전트가 필요 이상의 권한으로 자율 행동하는 위험으로, 최소 권한 원칙과 Human-in-the-Loop가 핵심 대응임</li>
 </ul>
 
 </body>

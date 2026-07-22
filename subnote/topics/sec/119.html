@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 적대적 공격 (Adversarial Attack)</title>
+  <title>0. AI 보안</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,58 @@
   </style>
 </head>
 <body>
-<h4>1. 적대적 공격 (Adversarial Attack)</h4>
+<h4>0. AI 보안</h4>
 <ul>
-<li><strong>정의</strong>: 입력 데이터에 인간이 인지하기 어려운 미세한 교란을 가하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AI 모델의 오분류를 유도</strong></u></span>하는 공격 기법</li>
-<li><strong>키워드</strong>: 적대적 예제, 오분류 유도, 회피 공격, 데이터 오염</li>
-<li><strong>분류</strong>: AI 보안</li>
-<li><strong>학습 과정 기반 적대적 공격 4가지</strong>:<ul>
-<li><strong>데이터 오염 공격(Poisoning Attack)</strong>: 학습 데이터에 악성 샘플 삽입 → 모델 성능 저하</li>
-<li><strong>회피 공격(Evasion Attack)</strong>: 추론 시 입력 교란으로 오분류 유도</li>
-<li><strong>추출 공격(Extraction Attack)</strong>: 모델의 예측값으로 내부 모델 역설계</li>
-<li><strong>추론 공격(Inference Attack)</strong>: 모델 출력으로 학습 데이터 프라이버시 추론</li>
+<li><strong>AI 보안 위협 분류:</strong></li>
 </ul>
-</li>
-<li><strong>인사이트</strong>: 자율주행·의료 AI에서 적대적 공격은 인명 피해로 직결될 수 있어, AI 시스템 인증에 적대적 견고성 검증이 필수 요건으로 논의되고 있음</li>
+<div class="table-scroll"><table>
+<tr><th>구분</th><th>위협 유형</th><th>요약 설명</th><th>대응방안</th></tr>
+<tr><td>학습</td><td><strong>데이터 포이즈닝</strong></td><td>악성 데이터로 학습 데이터 오염</td><td>데이터 출처 검증·이상탐지</td></tr>
+<tr><td></td><td><strong>편향 주입</strong></td><td>학습 데이터 편향으로 차별적 결과</td><td>편향성 검증·데이터 정제</td></tr>
+<tr><td>배포·인프라</td><td><strong>공급망 공격</strong></td><td>오픈소스 모델·데이터 악성 삽입</td><td>AI-BOM·모델 서명 검증</td></tr>
+<tr><td></td><td><strong>의존성 공격</strong></td><td>라이브러리·프레임워크 취약점 악용</td><td>SBOM·의존성 스캔</td></tr>
+<tr><td></td><td><strong>Model DoS</strong></td><td>과부하·리소스 고갈로 서비스 마비</td><td>요청·토큰 제한·리소스 쿼터</td></tr>
+<tr><td>추론·입력</td><td><strong>적대적 공격</strong></td><td>입력 변형으로 오분류 유도</td><td>적대적 훈련·입력 검증</td></tr>
+<tr><td></td><td><strong>프롬프트 인젝션</strong></td><td>악성 입력으로 명령 무력화·가드레일 우회</td><td>입력 분리·다층 가드레일</td></tr>
+<tr><td></td><td><strong>민감정보 유출</strong></td><td>시스템 프롬프트·학습 데이터 노출</td><td>출력 필터·프롬프트 보호</td></tr>
+<tr><td>LLM·RAG</td><td><strong>컨텍스트 오염</strong></td><td>RAG·메모리·컨텍스트 조작·환각 유도</td><td>출처 검증·컨텍스트 무결성</td></tr>
+<tr><td></td><td><strong>과도한 에이전시</strong></td><td>LLM 과도 권한으로 의도외 행동</td><td>최소권한·권한 검증</td></tr>
+<tr><td>에이전트</td><td><strong>에이전트 하이재킹</strong></td><td>목표 변조·제어권 탈취·원격 조종</td><td>목표 고정·행동 모니터링·Kill Switch</td></tr>
+<tr><td></td><td><strong>에이전트 루프 조작</strong></td><td>무한 루프·연쇄 오작동 유발</td><td>루프 제한·서킷브레이커</td></tr>
+<tr><td></td><td><strong>에이전트 간 통신 공격</strong></td><td>멀티에이전트 메시지 위변조</td><td>상호인증·통신 암호화</td></tr>
+<tr><td>도구</td><td><strong>도구 오남용</strong></td><td>에이전트 도구·함수 호출 악용</td><td>도구 허용목록·최소권한</td></tr>
+<tr><td></td><td><strong>MCP 서버 위장</strong></td><td>악성 MCP 서버로 도구 환경 오염</td><td>MCP 서명·무결성 검증</td></tr>
+<tr><td>자산</td><td><strong>모델 탈취·복제</strong></td><td>파라미터 추출·응답 수집 모델 복제</td><td>접근통제·API 제한·워터마킹</td></tr>
+<tr><td></td><td><strong>멤버십 추론</strong></td><td>학습 데이터 포함 여부 확인</td><td>차등 프라이버시</td></tr>
+<tr><td></td><td><strong>모델 역전</strong></td><td>출력으로 원본 학습 데이터 복원</td><td>출력 제한·노이즈 추가</td></tr>
+</table></div>
+<ul>
+<li><strong>AI 생명주기별 보안 대응:</strong></li>
 </ul>
+<div class="table-scroll"><table>
+<tr><th>구분</th><th>보안대응</th><th>핵심 기술</th></tr>
+<tr><td>데이터</td><td><strong>데이터 검증</strong></td><td>학습 데이터 무결성·출처·편향 검증</td></tr>
+<tr><td></td><td><strong>차등 프라이버시</strong></td><td>학습 데이터 개인정보 역추론 방지</td></tr>
+<tr><td></td><td><strong>데이터 이상탐지</strong></td><td>포이즈닝·오염 데이터 사전 탐지</td></tr>
+<tr><td>모델 개발</td><td><strong>보안 테스트 자동화</strong></td><td>적대적 예제·백도어 탐지 자동화 테스트</td></tr>
+<tr><td></td><td><strong>AI 레드팀</strong></td><td>개발 단계 공격 시뮬레이션·취약점 발견</td></tr>
+<tr><td></td><td><strong>적대적 훈련</strong></td><td>적대적 예제 학습으로 견고성 강화</td></tr>
+<tr><td>공급망</td><td><strong>AI-BOM·모델 카드</strong></td><td>AI 모델 구성요소·출처 투명성 확보</td></tr>
+<tr><td></td><td><strong>코드·모델 서명</strong></td><td>모델·파이프라인 무결성 검증</td></tr>
+<tr><td></td><td><strong>의존성 스캔</strong></td><td>SBOM 기반 라이브러리 취약점 점검</td></tr>
+<tr><td>배포·운영</td><td><strong>입출력 가드레일</strong></td><td>입력 검증·프롬프트 인젝션 방어·출력 필터링 다층 적용</td></tr>
+<tr><td></td><td><strong>모델 모니터링</strong></td><td>드리프트·이상 출력·공격 패턴 실시간 탐지</td></tr>
+<tr><td></td><td><strong>접근 제어</strong></td><td>모델 API·가중치 최소 권한·인증 강화</td></tr>
+<tr><td></td><td><strong>리소스 제어</strong></td><td>요청·토큰 제한·Model DoS 방어</td></tr>
+<tr><td>LLM·RAG</td><td><strong>컨텍스트 무결성</strong></td><td>RAG·메모리·컨텍스트 오염 검증</td></tr>
+<tr><td></td><td><strong>최소 에이전시</strong></td><td>LLM 권한 최소화·과도한 에이전시 통제</td></tr>
+<tr><td></td><td><strong>민감정보 보호</strong></td><td>시스템 프롬프트·학습 데이터 유출 차단</td></tr>
+<tr><td>에이전트·MCP</td><td><strong>Kill Switch</strong></td><td>에이전트 거버넌스(목표 고정·행동 모니터링) 등</td></tr>
+<tr><td></td><td><strong>도구 접근 통제</strong></td><td>도구 허용목록·최소권한·루프 제한</td></tr>
+<tr><td></td><td><strong>MCP 무결성 검증</strong></td><td>MCP 서버 서명·에이전트 간 상호인증</td></tr>
+<tr><td>모델 자산</td><td><strong>모델 보호</strong></td><td>접근통제·API 제한·워터마킹</td></tr>
+<tr><td></td><td><strong>출력 필터링/방어</strong></td><td>멤버십 추론·모델 역전 방지·노이즈 추가</td></tr>
+</table></div>
 
 </body>
 </html>
