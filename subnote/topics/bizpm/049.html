@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)</title>
+  <title>[하위] 5-4. 민감도 분석 (Sensitivity Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,14 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)</h4>
+<h4>[하위] 5-4. 민감도 분석 (Sensitivity Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 확률분포를 따르는 입력 변수에 대해 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>난수를 반복 생성</strong></u></span>(수천~수만 회)하여 결과의 분포와 위험을 분석하는 시뮬레이션 기법</li>
-<li><strong>키워드</strong>: 난수, 확률분포, 반복 시뮬레이션, 리스크 분포, P10/P50/P90</li>
+<li><strong>정의</strong>: 주요 입력 변수의 변화가 결과(비용, 기간, ROI 등)에 미치는 영향도를 분석하여 핵심 리스크 변수를 식별하는 기법</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>토네이도 차트, What-if 분석</strong></u></span>, 변수 범위, 핵심 변수 식별</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;변무시결&gt;</strong></span> <div class="table-scroll"><table>
-<tr><th><strong>단계</strong></th><th><strong>설명</strong></th><th><strong>핵심 </strong></th></tr>
-<tr><td><strong>1. 변수 정의</strong></td><td>변수 식별 및 확률분포 설정</td><td>분포 할당</td></tr>
-<tr><td><strong>2. 무작위 샘플링</strong></td><td>난수 기반 입력값 추출</td><td>무작위 추출</td></tr>
-<tr><td><strong>3. 시뮬레이션 실행</strong></td><td>모델 적용 후 반복 계산</td><td>반복 연산</td></tr>
-<tr><td><strong>4. 결과 집계</strong></td><td>통계 기반 결과 분포 분석</td><td>리스크 도출</td></tr>
-</table></div>
-</li>
-<li><strong>P10/P50/P90 의미:</strong><div class="table-scroll"><table>
-<tr><th><strong>P값</strong></th><th><strong>비용·일정 기준</strong></th><th><strong>수익·생산량 기준</strong></th></tr>
-<tr><td><strong>P10</strong></td><td>낙관</td><td>공격</td></tr>
-<tr><td><strong>P50</strong></td><td>현실</td><td>중간</td></tr>
-<tr><td><strong>P90</strong></td><td>보수</td><td>비관</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 몬테카를로 시뮬레이션은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 예측치의 한계를 극복하여 결과의 확률적 분포와 최악·최선 시나리오를 제시</strong></u></span>하며, IT 프로젝트 비용·일정 위험 분석에 활용됨.</li>
+<li><strong>토네이도 차트</strong>: 변수별 영향 범위를 막대그래프로 정렬하여 영향도가 큰 변수를 상단에 표시</li>
+<li><strong>적용 사례</strong>: IT 투자 ROI 분석, 원가 추정, 일정 위험 분석</li>
+<li><strong>인사이트</strong>: 민감도 분석은 <strong>어떤 변수가 결과에 가장 큰 영향을 주는지 집중 관리</strong>하도록 하여, 위험 대응 자원을 핵심 변수에 집중시키는 의사결정 근거를 제공함.</li>
 </ul>
 
 </body>

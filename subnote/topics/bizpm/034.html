@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SCM (Supply Chain Management)</title>
+  <title>[하위] 2-1. 수요 예측 (Demand Forecasting)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,39 +15,30 @@
   </style>
 </head>
 <body>
-<h4>2. SCM (Supply Chain Management)</h4>
+<h4>[하위] 2-1. 수요 예측 (Demand Forecasting)</h4>
 <ul>
-<li><strong>정의</strong>: 원재료 조달에서 최종 소비자 납품까지 공급망 전체를 계획·실행·통제하여 비용과 서비스를 최적화하는 관리 체계</li>
-<li><strong>키워드</strong>: 공급망계획(SCP), 공급망실행(SCE), 공급망관리(SCI), 채찍 효과, 공급망 가시성, 수요 예측, 안전재고, 협업</li>
+<li><strong>정의</strong>: 과거 데이터와 통계·AI 모형을 활용하여 미래 수요를 정량적으로 추정하는 분석 기법</li>
+<li><strong>키워드</strong>: 정성적 예측, 정량적 예측, 이동평균, 지수평활, 회귀분석, 채찍효과 억제</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>구성요소:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;제수유운/주생유역&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
-<tr><td><strong>공급망 계획 (SCP)</strong></td><td><strong>제조 계획</strong></td><td>제조 관련 모든 일정 세부 관리</td></tr>
-<tr><td></td><td><strong>수요 계획</strong></td><td>Forecasting 기반 수요분석·계획 수립</td></tr>
-<tr><td></td><td><strong>유통 계획</strong></td><td>물류 운영계획 통합 수립</td></tr>
-<tr><td></td><td><strong>운송 계획</strong></td><td>최소비용 자원 배분 계획 수립</td></tr>
-<tr><td><strong>공급망 실행 (SCE)</strong></td><td><strong>주문 관리</strong></td><td>주문이행·확인·처리</td></tr>
-<tr><td></td><td><strong>생산 관리</strong></td><td>생산 과정 전체적 관리</td></tr>
-<tr><td></td><td><strong>유통 관리</strong></td><td>완성 제품의 고객 전달 관리</td></tr>
-<tr><td></td><td><strong>역물류 관리</strong></td><td>반품·하자·보상 상품 회수 관리</td></tr>
-<tr><td><strong>공급망 관리 (SCI)</strong></td><td><strong>통합 관리</strong></td><td>모니터링, 성과측정, 프로세스 개선</td></tr>
+<li><strong>수요 예측의 7단계:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기자요방/실검활&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>절차</strong></th><th><strong>핵심 요소</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>기간확정</strong></td><td>예측목적, 기간 확인</td><td>수요 예측 대상 선정 후 기간 파악</td></tr>
+<tr><td><strong>자료수집</strong></td><td>인터뷰, 설문조사, 자료조사</td><td>수요예측에 필요한 자료 수집</td></tr>
+<tr><td><strong>요인분석</strong></td><td>수요규모, 성장률, 경쟁자수</td><td>수요에 영향을 미치는 여러가지 요인 분석</td></tr>
+<tr><td><strong>방법 선정</strong></td><td>상관분석, 회귀분석, 시뮬레이션 모형</td><td>자사의 상황에 잘 맞는 수요예측 방법 결정</td></tr>
+<tr><td><strong>예측실시</strong></td><td>전문가 의견조사, 상호비교</td><td>예측방법에 따라 예측 실시</td></tr>
+<tr><td><strong>예측결과 검증</strong></td><td>상관분석, 회귀분석의 결과 검증</td><td>예측을 실시한 후 반드시 예측 결과 검증 수행</td></tr>
+<tr><td><strong>활용가치 고조</strong></td><td>기업별, 브랜드별, 제품 별 등의 활용가치 높임</td><td>검증을 통해 수요 예측이 정확하다고 판단되면 활용가치를 높임</td></tr>
 </table></div>
 </li>
-<li><strong>SCM 핵심 프로세스 (SCOR 모델)</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계조생배회&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>단계</strong></th><th><strong>주요 내용</strong></th><th><strong>핵심 활동</strong></th></tr>
-<tr><td><strong>계획 (Plan)</strong></td><td>최적의 운영 전략 수립</td><td>수요 예측, 재고 수준 설정, 생산 능력 계획</td></tr>
-<tr><td><strong>조달 (Source)</strong></td><td>공급업체 선정 및 관리</td><td>구매 계약, 공급업체 평가, 원재료 검수</td></tr>
-<tr><td><strong>생산 (Make)</strong></td><td>제품 제조 및 품질 관리</td><td>생산 스케줄링, 공정 관리, 품질 보증(QA)</td></tr>
-<tr><td><strong>배송 (Deliver)</strong></td><td>최종 제품의 물류 과정</td><td>창고 관리, 운송 경로 최적화, 주문 처리</td></tr>
-<tr><td><strong>회수 (Return)</strong></td><td>사후 처리를 위한 역물류</td><td>반품 관리, 수리, 재활용 및 폐기</td></tr>
+<li><strong>예측 방법 분류</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>방법</th><th>특징</th></tr>
+<tr><td>정성적</td><td>경험자 의견, 델파이, 시장조사법</td><td>데이터 부족 시 활용</td></tr>
+<tr><td>시계열</td><td>이동평균, 지수평활, 가중치 이동평균</td><td>패턴 기반 단기 예측</td></tr>
+<tr><td>인과관계</td><td>회귀분석</td><td>변수 관계 기반 예측</td></tr>
 </table></div>
 </li>
-<li><strong>채찍 효과(Bullwhip Effect)</strong>: 공급망에서 시장의 수요정보가 유통업체를 거쳐, 공급업체로 이동하면서 왜곡이 발생하여 공급 업체 등이 과잉 또는 과소 생산하는 현상 <ul>
-<li><strong>원인: </strong>수요예측, 일괄주문, 가격변동, 과잉주문</li>
-<li><strong>대응:</strong> 정보 공유·수요 가시성 확보로 대응</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: SCM의 핵심 성과는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>리드타임 단축 + 재고비용 절감 + 공급망 가시성 확보</strong></u></span>이며, AI 기반 수요 예측과 디지털 트윈 연계로 실시간 공급망 최적화가 가능함.</li>
+<li><strong>인사이트</strong>: 수요 예측 정확도는 <strong>SCM 재고 최적화와 서비스 수준</strong>에 직결되며, AI/ML 기반 앙상블 모델이 전통 통계 모델 대비 예측 정확도를 크게 향상시키고 있음.</li>
 </ul>
 
 </body>

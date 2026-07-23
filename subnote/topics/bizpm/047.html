@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. 의사결정나무 분석 (Decision Tree Analysis)</title>
+  <title>[하위] 5-2. 금전적 기대값 분석 (EMV, Expected Monetary Value)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,20 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. 의사결정나무 분석 (Decision Tree Analysis)</h4>
+<h4>[하위] 5-2. 금전적 기대값 분석 (EMV, Expected Monetary Value)</h4>
 <ul>
-<li><strong>정의</strong>: 의사결정 대안과 불확실성을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>트리 구조로 표현</strong></u></span>하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기대값 기반</strong></u></span> 최적 의사결정을 지원하는 분석 기법</li>
-<li><strong>키워드</strong>: 결정 노드, 기회 노드, 결과 노드, EMV, 가지 가지치기, 리스크 분석</li>
+<li><strong>정의</strong>: 각 위험(또는 기회)의 발생 확률과 금전적 영향을 곱한 값을 합산하여 의사결정의 기대 가치를 산출하는 분석 기법</li>
+<li><strong>키워드</strong>:<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 발생 확률, 금전적 영향, 의사결정나무 연계, 위험 예산 산정</strong></u></span></li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>구성요소</strong>:<div class="table-scroll"><table>
-<tr><th>노드 유형</th><th>기호</th><th>설명</th></tr>
-<tr><td>결정 노드</td><td>□</td><td>의사결정자가 선택하는 분기점</td></tr>
-<tr><td>기회 노드</td><td>○</td><td>확률적 결과가 발생하는 분기점</td></tr>
-<tr><td>결과 노드</td><td>△</td><td>최종 결과값(이익/손실)</td></tr>
+<li><strong>산출 공식</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>EMV = Σ (확률 × 영향)</strong></u></span></li>
+<li><strong>적용 예시</strong>:<div class="table-scroll"><table>
+<tr><th>위험</th><th>확률</th><th>영향(만원)</th><th>EMV(만원)</th></tr>
+<tr><td>요구사항 변경</td><td>0.3</td><td>-5,000</td><td>-1,500</td></tr>
+<tr><td>기술적 성공</td><td>0.7</td><td>+3,000</td><td>+2,100</td></tr>
+<tr><td><strong>합계 EMV</strong></td><td></td><td></td><td><strong>+600</strong></td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 의사결정나무는 <strong>정량적 위험분석의 핵심 도구</strong>로, EMV(기대화폐가치)를 각 경로별로 계산하여 최적 대안을 선택하며, 민감도 분석과 결합하여 핵심 변수의 영향도를 파악함.</li>
+<li><strong>인사이트</strong>: EMV는<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u> </u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>긍정적 위험(기회)과 부정적 위험(위협)을 모두 포함</strong></u></span>하여 전체 프로젝트 기대 성과를 수치화하며, 의사결정나무와 결합하면 최적 대안 선택의 수치적 근거가 됨.</li>
 </ul>
 
 </body>

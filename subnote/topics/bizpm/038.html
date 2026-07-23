@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. MES (Manufacturing Execution System)</title>
+  <title>5. POP (Point of Production)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,23 @@
   </style>
 </head>
 <body>
-<h4>4. MES (Manufacturing Execution System)</h4>
+<h4>5. POP (Point of Production)</h4>
 <ul>
-<li><strong>정의</strong>: 공장 현장의 생산 계획 실행, 자원 관리, 품질 관리를 실시간으로 지원하는 제조 실행 시스템</li>
-<li><strong>키워드</strong>: 생산계획, 실시간 모니터링, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>품질 추적</strong></u></span>, ERP 연계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>OEE, SPC, LOT 추적</strong></u></span></li>
+<li><strong>정의</strong>: 생산 현장의 작업자·설비에서 실시간으로 생산 실적·품질·자재 데이터를 수집하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>현장 중심 생산 관리</strong></u></span> 시스템</li>
+<li><strong>키워드:</strong> 생산 현장, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>실시간 데이터, MES 연계</strong></u></span>, 바코드·RFID, 작업 지시, 자재 이력, IoT 센서, 스마트팩토리</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>주요 기능</strong>:<div class="table-scroll"><table>
-<tr><th><strong>기능</strong></th><th><strong>내용</strong></th></tr>
-<tr><td>생산 계획 실행</td><td>작업 지시 생성 및 작업자 배정</td></tr>
-<tr><td>실시간 모니터링</td><td>가동률(OEE), 불량률 실시간 추적</td></tr>
-<tr><td>품질 관리</td><td>SPC, 불량 원인 추적</td></tr>
-<tr><td>자재 추적</td><td>LOT 추적, 재고 실시간 현황</td></tr>
+<li><strong>주요 기능:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>작업 지시 수신</strong></td><td>MES·ERP로부터 작업 지시를 현장 단말에 실시간 전달</td><td>지시 하달</td></tr>
+<tr><td><strong>생산 실적 입력</strong></td><td>작업자가 생산량·불량·작업 시간을 현장에서 즉시 입력</td><td>실적 수집</td></tr>
+<tr><td><strong>설비 가동 모니터링</strong></td><td>설비 가동·정지·고장 상태를 실시간 감시·기록</td><td>설비 현황</td></tr>
+<tr><td><strong>자재 이력 관리</strong></td><td>바코드·RFID로 투입 자재 추적·사용 이력 관리</td><td>자재 추적</td></tr>
+<tr><td><strong>품질 데이터 수집</strong></td><td>검사 결과·불량 유형·원인을 현장에서 직접 기록</td><td>품질 관리</td></tr>
+<tr><td><strong>작업 표준 제공</strong></td><td>작업 지시서·도면·표준 작업 절차를 현장 단말에 표시</td><td>표준 작업</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: MES는 <strong>ERP(계획)와 현장 장비(실행) 사이의 연결 고리</strong>이며, 스마트팩토리 구현 시 IIoT 센서·디지털 트윈과 연계하여 <strong>예지정비(Predictive Maintenance)</strong>까지 확장됨.</li>
+<li><strong>데이터 수집 방식: </strong>수동 입력, 바코드/RFID, IoT 센서, PLC/SCADA </li>
+<li><strong>인사이트</strong>: POP는 <strong>스마트팩토리의 현장 데이터 수집 기반</strong>으로, IoT 센서와 결합 시 작업자 수동 입력 없는 자동 실적 집계가 가능해 디지털화의 출발점이 됨.</li>
 </ul>
 
 </body>

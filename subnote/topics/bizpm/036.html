@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. 안전재고/적정재고 산정</title>
+  <title>3. CRM (Customer Relationship Management)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,34 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. 안전재고/적정재고 산정</h4>
+<h4>3. CRM (Customer Relationship Management)</h4>
 <ul>
-<li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>수요 불확실성과 공급 변동에 대비</strong></u></span>하여 품절을 방지하는 안전재고와 총 재고비용을 최소화하는 적정재고 수준을 산정하는 기법</li>
-<li><strong>키워드</strong>: 서비스 수준(z-값), 수요 표준편차, 재주문점(ROP), 경제력 주문량(EOQ)</li>
+<li><strong>정의</strong>: 고객 데이터를 기반으로 관계를 관리해 고객가치·수익을 극대화하는 경영전략</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고객 생애가치(CLV)</strong></u></span>, 360° 고객뷰, RFM 분석, 세분화, 개인화, 마케팅 자동화, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고객 여정, </strong></u></span>고객이탈방지, 고객획득비용(CAC), 고객유지율, 순추천지수(NPS), 전환율, 충성도</li>
 <li><strong>분류</strong>: 엔터프라이즈 시스템</li>
-<li><strong>주요 공식</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;서수공/주평공안&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>개념</strong></th><th><strong>산정 방법</strong></th></tr>
-<tr><td>안전재고 </td><td>안전재고 = <u><strong>서</strong></u>비스계수 x <u><strong>수</strong></u>요표준편차 x √<u><strong>공</strong></u>급리드타임
-z × σ_d × √LT (z: 서비스수준, σ_d: 수요표준편차, LT: 리드타임)</td></tr>
-<tr><td>적정재고</td><td>적정재고 = <u><strong>주</strong></u>기재고 x <u><strong>안</strong></u>전재고
-  • 주기재고 = (<u><strong>평</strong></u>균수요 x <u><strong>공</strong></u>급리드타임)</td></tr>
-<tr><td>재주문점(ROP) </td><td>평균수요 × 공급리드타임 + 안전재고</td></tr>
-<tr><td>경제력 주문량(EOQ)</td><td>√(2DS/H) (D: 연간수요, S: 주문비용, H: 단위 재고유지비용)</td></tr>
+<li><strong>핵심 기능:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>고객 데이터</strong></td><td><strong>360° 고객 뷰</strong></td><td>구매·행동·접점 데이터 통합 단일 고객 프로파일</td><td>통합 고객 정보</td></tr>
+<tr><td></td><td><strong>RFM 분석</strong></td><td>최근성·빈도·구매금액 기반 고객 가치 측정</td><td>고객 가치 측정</td></tr>
+<tr><td><strong>마케팅</strong></td><td><strong>고객 세분화</strong></td><td>행동·인구통계·가치 기반 고객 그룹 분류</td><td>타깃 마케팅</td></tr>
+<tr><td></td><td><strong>개인화</strong></td><td>고객별 맞춤 콘텐츠·제품·제안 제공</td><td>1:1 맞춤 경험</td></tr>
+<tr><td></td><td><strong>마케팅 자동화</strong></td><td>이메일·SMS·푸시 알림 자동화 캠페인 운영</td><td>자동화 캠페인</td></tr>
+<tr><td><strong>영업</strong></td><td><strong>리드 관리</strong></td><td>잠재 고객 발굴·관리·전환율 추적</td><td>영업 파이프라인</td></tr>
+<tr><td></td><td><strong>영업 예측</strong></td><td>AI 기반 매출·성약률 예측</td><td>예측 영업</td></tr>
+<tr><td><strong>서비스</strong></td><td><strong>고객 여정 관리</strong></td><td>접점별 고객 경험 설계·모니터링</td><td>경험 최적화</td></tr>
+<tr><td></td><td><strong>고객 이탈 예측</strong></td><td>AI 기반 이탈 가능 고객 사전 감지·대응</td><td>이탈 방지</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>안전재고 수준은 서비스 수준(서비스율)과 재고유지 비용 간 트레이드오프</strong></u></span>에 의해 결정되며, 수요 예측 정확도 향상이 안전재고 감소에 직접 기여함.</li>
+<li><strong>핵심 지표:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>CLV (고객 생애가치)</strong></td><td>고객이 생애 동안 창출하는 총 수익 예측값</td><td>장기 고객 가치</td></tr>
+<tr><td><strong>고객 획득 비용 (CAC)</strong></td><td>신규 고객 1명 획득에 소요되는 비용</td><td>마케팅 효율</td></tr>
+<tr><td><strong>고객 유지율 (Retention Rate)</strong></td><td>기간 내 기존 고객 유지 비율</td><td>충성도 지표</td></tr>
+<tr><td><strong>NPS (순추천지수)</strong></td><td>고객 만족·추천 의향 측정 지표</td><td>고객 충성도</td></tr>
+<tr><td><strong>전환율 (Conversion Rate)</strong></td><td>리드 대비 실제 구매 전환 비율</td><td>영업 효율</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: CRM은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>신규 고객 획득보다 기존 고객 유지가 5~7배 저렴하다는 원칙</strong></u></span>에 기반하며, 고객 생애가치(CLV) 극대화를 위해 개인화된 경험을 제공하는 것이 핵심.</li>
 </ul>
 
 </body>
