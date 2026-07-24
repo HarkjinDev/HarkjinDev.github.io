@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)</title>
+  <title>7. SLM (Service Level Management)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,53 +15,23 @@
   </style>
 </head>
 <body>
-<h4>[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)</h4>
+<h4>7. SLM (Service Level Management)</h4>
 <ul>
-<li><strong>공공부문 정보시스템 등급제 재편:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>현행</th><th>개편</th></tr>
-<tr><td><strong>분류기준</strong></td><td>1등급: 90점 이상</td><td>A1 (국가핵심): 90점 이상</td></tr>
-<tr><td></td><td>2등급: 85점 이상</td><td>A2 (대국민필수): 80점 이상</td></tr>
-<tr><td></td><td>3등급: 80점 이상</td><td>A3 (행정중요): 80점 이상</td></tr>
-<tr><td></td><td>4등급: 80점 미만</td><td>A4 (국민·행정일반): 80점 미만</td></tr>
-<tr><td><strong>측정지표</strong></td><td>업무 영향도: 40%</td><td>국민 영향도: 70% 
-(서비스 중요도 50%·서비스 연속성 20%)</td></tr>
-<tr><td></td><td>사용자수: 50%</td><td>사용자수: 10%</td></tr>
-<tr><td></td><td>서비스 파급도: 10%</td><td>서비스 파급도: 10%</td></tr>
-<tr><td></td><td>(신규) —</td><td>대체 가능성: 10%</td></tr>
-<tr><td><strong>등급확정</strong></td><td>항목 합산 (측정항목에 1등급 시 배점 무관 1등급 부여)</td><td>항목 합산</td></tr>
-<tr><td></td><td>(신규) —</td><td>등급심의위원회 종합 검토</td></tr>
-<tr><td></td><td>행정안전부장관이 확정</td><td>행정안전부장관이 확정</td></tr>
+<li><strong>정의</strong>: IT 서비스 수준을 지속적으로 협의·모니터링·보고·개선하는 ITSM의 핵심 관리 프레임워크</li>
+<li><strong>키워드</strong>: SLR, SLA, SIP, 서비스 카탈로그, 성과 리뷰, CSI</li>
+<li><strong>분류</strong>: 서비스 관리</li>
+<li><strong>SLM 프레임워크 구성요소</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구성요소</strong></th><th><strong>내용</strong></th></tr>
+<tr><td>SLR (서비스 수준 요구서)</td><td>고객의 서비스 수준 요구사항</td></tr>
+<tr><td>SLA</td><td>합의된 서비스 수준 계약</td></tr>
+<tr><td>성과 모니터링</td><td>KPI 기반 실시간 성과 추적</td></tr>
+<tr><td>서비스 성과 리뷰</td><td>정기 검토 및 개선 협의</td></tr>
+<tr><td>SIP (서비스 개선 계획)</td><td>미달 항목의 개선 실행 계획</td></tr>
 </table></div>
 </li>
-<li><strong>정보시스템 등급 분류:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;핵필중국&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>등급</th><th>정의</th><th>복구목표</th></tr>
-<tr><td><strong>A1 (국가핵심)</strong></td><td>상시 운영·최고 중요도 국가 핵심 시스템</td><td>실시간(0)~1시간 이내</td></tr>
-<tr><td><strong>A2 (대국민필수)</strong></td><td>기본 생활 직결·상시 사용 필수 시스템</td><td>3~12시간 이내</td></tr>
-<tr><td><strong>A3 (행정중요)</strong></td><td>핵심·필수 서비스 연계 행정 중요 시스템</td><td>1~5일 이내</td></tr>
-<tr><td><strong>A4 (국민·행정일반)</strong></td><td>편의·정보 제공·낮은 중요도 일반 시스템</td><td>3주 이내</td></tr>
-</table></div>
-</li>
-<li><strong>등급별 SLA 적용 방식:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>내용</th><th>핵심</th></tr>
-<tr><td><strong>적용 대상</strong></td><td>1·2등급 정보시스템 SLA 의무 적용</td><td>의무 적용</td></tr>
-<tr><td></td><td>3·4등급 정보시스템 SLA 적용 권고</td><td>권고 적용</td></tr>
-<tr><td></td><td>국정자원·개별전산실·민간클라우드 등 소재 위치 무관 동일 적용</td><td>위치 무관</td></tr>
-<tr><td><strong>적용 방법</strong></td><td>필수지표 의무 적용</td><td>필수지표 의무</td></tr>
-<tr><td></td><td>필수지표 운영수준은 표준(안) 제시 수준 이상으로 설정·적용</td><td>표준안 이상 설정</td></tr>
-<tr><td><strong>적용 시기</strong></td><td>2025년도 사업 시범 적용</td><td>시범 적용</td></tr>
-<tr><td></td><td>2026년부터 의무 적용</td><td>의무 적용 전환</td></tr>
-</table></div>
-</li>
-<li><strong>공공 SLA 표준안 주요 내용(가용률/장애조치 시간):</strong><div class="table-scroll"><table>
-<tr><th>등급</th><th>목표</th><th>최소 허용수준 - 기존(안)</th><th>최소 허용수준 - 수정(안)</th></tr>
-<tr><td><strong>1등급 (필수)</strong></td><td>100%</td><td>99.97% (13분)</td><td><strong>99.92% (34.6분)</strong></td></tr>
-<tr><td><strong>2등급 (필수)</strong></td><td>100%</td><td>99.95% (21.6분)</td><td><strong>99.90% (43.2분)</strong></td></tr>
-<tr><td><strong>3등급 (권고)</strong></td><td>99.98%</td><td>99.93% (30.2분)</td><td><strong>99.88% (51.8분)</strong></td></tr>
-<tr><td><strong>4등급 (권고)</strong></td><td>99.98%</td><td>99.90% (43.2분)</td><td><strong>99.85% (64.8분)</strong></td></tr>
-</table></div>
-</li>
-<li><strong>위약금:</strong> 월 유지관리비 5%, 10% → <u><strong>10%, 20%</strong></u></li>
+<li><strong>인사이트</strong>: SLM은 SLA를 계약으로 끝내지 않고<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u> </u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>지속적 서비스 개선(CSI)과 연계</strong></u></span>하여 서비스 품질을 상향 발전시키는 선순환 체계이며, SIP의 실행력 확보가 SLM 성숙도의 핵심임.</li>
 </ul>
+<hr/>
 
 </body>
 </html>

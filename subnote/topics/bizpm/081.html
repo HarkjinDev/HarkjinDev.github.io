@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6]. SW 사업관리</title>
+  <title>1. 소프트웨어 비용 산정 (Software Cost Estimation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,49 @@
   </style>
 </head>
 <body>
-<h3>[Part 6]. SW 사업관리</h3>
+<h4>1. 소프트웨어 비용 산정 (Software Cost Estimation)</h4>
+<ul>
+<li><strong>정의</strong>: 소프트웨어 개발에 필요한 노력(MM), 비용, 기간을 체계적으로 추정하는 기법</li>
+<li><strong>키워드</strong>: 하향식, 상향식, 기능점수, COCOMO, 전문가 판단</li>
+<li><strong>분류</strong>: SW 사업관리</li>
+<li><strong>규모산정의 의의:</strong><ul>
+<li><strong>낮게 산정 시:</strong> 품질문제 발생, 납기 문제, 개발자 부담 증가</li>
+<li><strong>높게 산정 시:</strong> 예산낭비(개발비, 유지보수비), 일의 효율성 저하</li>
+</ul>
+</li>
+<li><strong>산정 방법 비교</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;하상수&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>산정방법</strong></th><th><strong>내용</strong></th><th><strong>기법</strong></th></tr>
+<tr><td><u><strong>하</strong></u><strong>향식 
+(Top Down)</strong></td><td>경험적 단언(시스템 이해한 후), 개발자 합의(인력, 시스템 크기, 예산)</td><td>◦ 전문가 감정
+◦ 델파이 방식</td></tr>
+<tr><td><u><strong>상</strong></u><strong>향식 
+(Bottom UP)</strong></td><td>업무분류구조(WBS) 정의, 각 구성요소에 대한 독립적 산정 및 집계</td><td>◦ LOC 기법
+◦ Man/Month</td></tr>
+<tr><td><u><strong>수</strong></u><strong>학적</strong></td><td>소프트웨어 비용산정의 자동화, 수치화에 의한 비용 산정</td><td>◦ 기능점수(FP)
+◦ COCOMO
+◦ Parametric Estimation</td></tr>
+</table></div>
+</li>
+<li><strong>하향식과 상향식 비교:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>하향식 (Top Down)</strong></th><th><strong>상향식 (Bottom UP)</strong></th></tr>
+<tr><td><strong>특징</strong></td><td>◦ 전체 시스템 차원의 비용 산정
+◦ 과거 유사 사례 기반 인력 비용 추정
+◦ 모듈별 기술 요인 반영</td><td>◦ 세부 모듈별 산정 후 전체 합산
+◦ 시스템 차원 비용 누락 가능성 존재
+◦ 연산식 기반의 산정 방식</td></tr>
+<tr><td><strong>장점</strong></td><td>산정 과정이 간편하고 경험적 신뢰감 부여</td><td>결과의 객관성 및 상세 근거 확보</td></tr>
+<tr><td><strong>단점</strong></td><td>비과학적이며 지나치게 낙관적일 수 있음</td><td>세부 기술적 난이도 반영이 배제될 수 있음</td></tr>
+<tr><td>방식</td><td>전문가 감정, 그룹 합의 방식</td><td>LOC, 기능점수(FP), COCOMO</td></tr>
+</table></div>
+</li>
+<li><strong>규모산정 시 고려요소: </strong><ul>
+<li><strong>프로젝트 요소:</strong> 문제의 복잡도, 시스템 크기, 시스템 신뢰도</li>
+<li><strong>자원 요소:</strong> 인적 자원, 하드웨어 자원, 소프트웨어 자원</li>
+<li><strong>생산성 요소:</strong> 개발자 능력, 고객 능력, 개발 방법론</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: SW 비용 산정 방법은<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 프로젝트 초기(개념)에는 하향식, 설계 이후에는 상향식으로 점진적 정밀화</strong></u></span>를 적용하며, 공공 사업은 기능점수 기반 대가산정 가이드를 의무 적용함.</li>
+</ul>
 
 </body>
 </html>

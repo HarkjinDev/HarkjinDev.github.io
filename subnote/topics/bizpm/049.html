@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-4. 민감도 분석 (Sensitivity Analysis)</title>
+  <title>6. 정성적 위험분석(Qualitative Risk Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,14 +15,33 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-4. 민감도 분석 (Sensitivity Analysis)</h4>
+<h4>6. 정성적 위험분석(Qualitative Risk Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 주요 입력 변수의 변화가 결과(비용, 기간, ROI 등)에 미치는 영향도를 분석하여 핵심 리스크 변수를 식별하는 기법</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>토네이도 차트, What-if 분석</strong></u></span>, 변수 범위, 핵심 변수 식별</li>
+<li><strong>정의:</strong> 수치화가 어려운 위험을 주관적으로 평가하여 우선순위를 결정하는 위험 분석 방법론</li>
+<li><strong>키워드:</strong> 발생 가능성, 영향도, 위험 매트릭스, 델파이, 시나리오 분석, 전문가 판단, 체크리스트, What-if 분석, 친화도법(KJ법)</li>
 <li><strong>분류</strong>: IT 거버넌스/투자</li>
-<li><strong>토네이도 차트</strong>: 변수별 영향 범위를 막대그래프로 정렬하여 영향도가 큰 변수를 상단에 표시</li>
-<li><strong>적용 사례</strong>: IT 투자 ROI 분석, 원가 추정, 일정 위험 분석</li>
-<li><strong>인사이트</strong>: 민감도 분석은 <strong>어떤 변수가 결과에 가장 큰 영향을 주는지 집중 관리</strong>하도록 하여, 위험 대응 자원을 핵심 변수에 집중시키는 의사결정 근거를 제공함.</li>
+<li><strong>핵심 평가 요소:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>발생 가능성 (Likelihood)</strong></td><td>위험이 실제 발생할 확률 수준</td><td>높음·중간·낮음</td></tr>
+<tr><td><strong>영향도 (Impact)</strong></td><td>위험 발생 시 업무·자산에 미치는 피해 수준</td><td>심각·보통·경미</td></tr>
+<tr><td><strong>위험도 (Risk Level)</strong></td><td>발생 가능성 × 영향도로 산출한 위험 수준</td><td>우선순위 결정</td></tr>
+<tr><td><strong>위험 허용 수준</strong></td><td>조직이 수용 가능한 위험의 최대 한계</td><td>대응 기준선</td></tr>
+</table></div>
+</li>
+<li><strong>주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>전문가 기반</strong></td><td><strong>델파이 기법 (Delphi)</strong></td><td>전문가 반복 설문으로 위험 합의 도출</td><td>전문가 합의</td></tr>
+<tr><td></td><td><strong>브레인스토밍</strong></td><td>자유로운 아이디어 도출로 위험 목록화</td><td>창의적 위험 도출</td></tr>
+<tr><td></td><td><strong>전문가 판단</strong></td><td>도메인 전문가 경험 기반 위험 평가</td><td>경험적 판단</td></tr>
+<tr><td><strong>시나리오 기반</strong></td><td><strong>시나리오 분석</strong></td><td>위협 발생 시나리오별 영향 시뮬레이션</td><td>시나리오 기반</td></tr>
+<tr><td></td><td><strong>What-If 분석</strong></td><td>특정 상황 가정 후 위험 결과 추론</td><td>가정 기반 분석</td></tr>
+<tr><td><strong>매트릭스 기반</strong></td><td><strong>위험 매트릭스</strong></td><td>발생 가능성×영향도 2축 기반 위험 등급화</td><td>시각적 우선순위</td></tr>
+<tr><td></td><td><strong>위험 지도 (Risk Map)</strong></td><td>위험 항목을 매트릭스 위에 시각적 배치</td><td>위험 분포 시각화</td></tr>
+<tr><td><strong>체크리스트</strong></td><td><strong>체크리스트 기법</strong></td><td>사전 정의된 위험 목록 기반 점검</td><td>표준화된 점검</td></tr>
+<tr><td></td><td><strong>질문서 기법</strong></td><td>구조화된 질문으로 위험 체계적 파악</td><td>구조적 수집</td></tr>
+<tr><td><strong>친화도</strong></td><td><strong>친화도법 (KJ법)</strong></td><td>유사 위험 항목을 그룹핑으로 구조화</td><td>위험 분류·구조화</td></tr>
+</table></div>
+</li>
 </ul>
 
 </body>

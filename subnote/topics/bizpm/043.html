@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-1. 비즈니스 가치 경제성 분석</title>
+  <title>4. AHP (Analytic Hierarchy Process)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,27 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-1. 비즈니스 가치 경제성 분석</h4>
+<h4>4. AHP (Analytic Hierarchy Process)</h4>
 <ul>
-<li><strong>경제성 분석 기법:</strong><div class="table-scroll"><table>
-<tr><th>유형</th><th>방법</th><th>내용</th></tr>
-<tr><td><strong>실물옵션
-가치평가</strong></td><td><strong>블랙-숄즈
-(Black-Sholes 모형)</strong></td><td>가치변화에 따른 투자옵션 산식으로 도출</td></tr>
-<tr><td></td><td><strong>이항모형</strong></td><td>가치 경우의 수를 증가, 감소 2가지 제한 모형</td></tr>
-<tr><td></td><td><strong>몬테카를로 평가 모델</strong></td><td>확률 분포를 근거하여 모든 경로 예측 모형</td></tr>
-<tr><td><strong>비용편익분석</strong></td><td><strong>ROI(투자대비 이익률)</strong></td><td>(순이익 / 투자비용) × 100%</td></tr>
-<tr><td></td><td><strong>NPV(순현재가치)</strong></td><td>NPV = PV(현재 가치) - C(투자비용 현재 가치)</td></tr>
-<tr><td></td><td><strong>IRR(내부 수익률)</strong></td><td>∑(예상현금유입액 현재 가치) = ∑(예상현금유출액 현재 가치)</td></tr>
-<tr><td></td><td><strong>TCO(소유총비용)</strong></td><td>총 소유 비용(구축+운영+폐기)</td></tr>
-<tr><td></td><td><strong>BCR(비용편익비)</strong></td><td>수익(Benefit) / 비용(Cost)</td></tr>
-<tr><td></td><td><strong>PP(투자회수기간)</strong></td><td>투자회수기간 = 프로젝트 투자비용 / 연간 현금 흐름</td></tr>
+<li><strong>정의</strong>: 복잡한 문제를 계층화하고 쌍대비교로 가중치를 도출하는 의사결정 기법</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>쌍대비교, 일관성 비율(CR)≤0.1</strong></u></span>, 주관적 판단, 계층화, 우선순위화, 가중치, 일관성</li>
+<li><strong>분류</strong>: IT 거버넌스/투자</li>
+<li><strong>3원칙:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계우일&gt;</strong></span><ul>
+<li><strong>계층화: </strong>복잡한 상황의 구조화</li>
+<li><strong>우선순위화: </strong>비율척도를 통한 가중치 도출</li>
+<li><strong>일관성: </strong>통합 및 논리적 일관성 검증</li>
+</ul>
+</li>
+<li><strong>AHP 절차</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계쌍가일우&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>단계</th><th>내용</th></tr>
+<tr><td>1. 계층화</td><td>목표→기준→대안 계층 구성</td></tr>
+<tr><td>2. 쌍대비교</td><td>9점 척도로 기준 간 중요도 비교</td></tr>
+<tr><td>3. 가중치 산출</td><td>고유벡터 기반 우선순위 계산</td></tr>
+<tr><td>4. 일관성 검증</td><td>CR ≤ 0.1 이면 일관성 인정</td></tr>
+<tr><td>5. 최종 우선순위 도입</td><td>의사결정</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>AHP의 강점은 주관적 판단을 수치화</strong></u></span>하여 여러 전문가 의견을 합리적으로 통합할 수 있다는 점이며, IT 투자 우선순위 결정, 벤더 선정, 정책 평가에 폭넓게 활용됨.</li>
 </ul>
 
 </body>

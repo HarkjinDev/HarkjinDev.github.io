@@ -17,11 +17,11 @@
 <body>
 <h4>5. 연합학습 (Federated Learning)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터를 중앙 서버로 수집하지 않고, 개별 기기(로컬)에서 모델을 학습시킨 후 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>학습된 '가중치'값만 서버에 공유</strong></u></span>하여 개인정보를 보호하며 학습하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분산 학습 기법</strong></u></span></li>
+<li><strong>정의</strong>: 로컬기기에서 학습한 가중치만 서버와 공유해 프라이버시를 보호하는 분산학습기법</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인정보 보호</strong></u></span>, 데이터 비식별화, 가중치 평균, 분산 학습, 프라이버시 보존, 가중치 집계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>FedSGD, FedAvg, 차등 프라이버시,</strong></u></span> 통신 효율, Non-IID, 온디바이스 학습</li>
 <li><strong>분류</strong>: AI 응용/트렌드</li>
 <li><strong>특징</strong>: 데이터 주권 확보, 프라이버시 보호, 통신 비용 절감</li>
-<li><strong>동작 원리:</strong><div class="table-scroll"><table>
+<li><strong>동작 원리: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;모로가집반&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 모델 배포</strong></td><td>서버가 전역 모델을 각 클라이언트에 배포</td><td>초기 배포</td></tr>
 <tr><td><strong>2. 로컬 학습</strong></td><td>클라이언트가 자신의 로컬 데이터로 모델 학습</td><td>분산 학습</td></tr>
@@ -42,7 +42,7 @@
 <tr><td><strong>FedSGD</strong></td><td>클라이언트 가중치를 서버가 집계하여 전역모델 갱신</td><td>기본 연합학습 방식</td></tr>
 <tr><td><strong>FedAvg</strong></td><td>클라이언트 가중치를 데이터 비율로 가중 평균 집계</td><td>표준 집계 알고리즘</td></tr>
 <tr><td><strong>차등 프라이버시 (DP)</strong></td><td>가중치에 노이즈를 추가하여 개인정보 역추론 방지</td><td>프라이버시 강화</td></tr>
-<tr><td><strong>보안 집계 (Secure Aggregation)</strong></td><td>암호화 기반으로 개별 가중치 노출 없이 집계 수행</td><td>암호화 집계</td></tr>
+<tr><td><strong>보안 집계 </strong></td><td>암호화 기반으로 개별 가중치 노출 없이 집계 수행</td><td>암호화 집계</td></tr>
 <tr><td><strong>통신 압축</strong></td><td>가중치 양자화·희소화로 통신 비용 절감</td><td>통신 효율화</td></tr>
 </table></div>
 </li>

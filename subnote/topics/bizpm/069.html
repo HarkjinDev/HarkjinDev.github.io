@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 4-3. PERT (Program Evaluation and Review Technique)</title>
+  <title>[하위] 4-4. 프로젝트 일정 단축기법</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,36 +15,39 @@
   </style>
 </head>
 <body>
-<h4>[하위] 4-3. PERT (Program Evaluation and Review Technique)</h4>
+<h4>[하위] 4-4. 프로젝트 일정 단축기법</h4>
 <ul>
-<li><strong>정의:</strong> 프로젝트의 개별 활동 소요 시간을 <strong>낙관치, 최빈치, 비관치</strong>의 3점 산정방식을 통해 확률적으로 추정하고, 이를 바탕으로 전체 프로젝트 완료 시간을 예측하는 일정 관리 기법</li>
-<li><strong>키워드: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>3점 산정방식(낙관치, 최빈치, 비관치)</strong></u></span>, 일정 리스크 정량화, 표준편차 및 분산, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중심 극한 정리</strong></u></span>, 경로 수렴 문제</li>
-<li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>3점 산정방식:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;낙최비&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>구성요소</strong></th><th><strong>기호</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>낙관치</strong></td><td>t_o</td><td>모든 조건이 가장 좋을 때, 최단 시간 내에 끝낼 수 있는 시간</td></tr>
-<tr><td><strong>최빈치</strong></td><td>t_m</td><td>가장 빈번하게 발생할 것으로 예상되는 정상적인 소요 시간</td></tr>
-<tr><td><strong>비관치</strong></td><td>t_p</td><td>예상치 못한 장애 등 최악의 상황일 때 소요되는 최장 시간</td></tr>
+<li><strong>공정 압축법과 공정 중첩 단축법 비교표:</strong><div class="table-scroll"><table>
+<tr><th><strong>비교 항목</strong></th><th><strong>공정 압축법 (Crashing)</strong></th><th><strong>공정 중첩 단축법 (Fast Tracking)</strong></th></tr>
+<tr><td><strong>핵심 개념</strong></td><td><strong>자원 추가 투입</strong>을 통한 기간 단축</td><td><strong>활동 병행 수행</strong>을 통한 기간 단축</td></tr>
+<tr><td><strong>적용 상황</strong></td><td>추가 투입 가능한 <strong>예산이 충분</strong>할 때</td><td><strong>병행 가능한 활동</strong>이 존재할 때</td></tr>
+<tr><td><strong>적용 대상</strong></td><td>최소 비용으로 최대 단축 가능한 활동</td><td>의존 관계를 고려해 병행 가능한 활동</td></tr>
+<tr><td><strong>제약 사항</strong></td><td>투입 인력에 여유가 있는 활동 필요</td><td><strong>Critical Path 외</strong> 활동에 우선 고려</td></tr>
+<tr><td><strong>장점</strong></td><td>유휴 리소스의 효율적 활용</td><td>추가 비용 없이 일정(Reserve) 확보 가능</td></tr>
+<tr><td><strong>단점</strong></td><td><strong>추가 비용(Direct Cost) 발생</strong></td><td><strong>재작업(Rework) 리스크</strong> 증가</td></tr>
+<tr><td><strong>사례 요약</strong></td><td>2천만 원(30일) → 3천만 원(20일) 투입</td><td>15일씩 순차 진행 → 10일 중첩 진행(20일)</td></tr>
 </table></div>
 </li>
-<li><strong>산출 공식: </strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>산출 공식</strong></th><th><strong>비고</strong></th></tr>
-<tr><td><strong>기대 소요 시간 (</strong><strong>t_e</strong><strong>)</strong></td><td>t_e = \frac{t_o + 4t_m + t_p}{6}</td><td>낙관치, 최빈치, 비관치의 가중 산술 평균</td></tr>
-<tr><td><strong>표준편차 (</strong><strong>\sigma</strong><strong>)</strong></td><td>\sigma = \frac{t_p - t_o}{6}</td><td>일정의 변동성(불확실성)을 나타내는 지표</td></tr>
-<tr><td><strong>분산 (</strong><strong>\sigma^2</strong><strong>)</strong></td><td>\sigma^2 = \left(\frac{t_p - t_o}{6}\right)^2</td><td>표준편차의 제곱으로 확률 분석 시 활용</td></tr>
+<li><strong>자원 평준화와 자원 평활화:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>자원 평준화 (Resource Leveling)</th><th>자원 평활화 (Resource Smoothing)</th></tr>
+<tr><td><strong>정의</strong></td><td>자원 제약 기준으로 일정을 조정하는 기법</td><td>일정 제약 내에서 자원 사용을 균등화하는 기법</td></tr>
+<tr><td><strong>우선순위</strong></td><td>자원 제약 우선</td><td>일정(납기) 우선</td></tr>
+<tr><td><strong>일정 변경</strong></td><td>✅ 일정 변경 가능</td><td>❌ 일정 변경 불가</td></tr>
+<tr><td><strong>납기 영향</strong></td><td>납기 지연 발생 가능</td><td>납기 유지 필수</td></tr>
+<tr><td><strong>자원 한계</strong></td><td>자원 한계 초과 불허</td><td>자원 한계 초과 허용 가능</td></tr>
+<tr><td><strong>핵심 제약</strong></td><td>자원 가용량</td><td>크리티컬 패스·납기</td></tr>
+<tr><td><strong>적용 상황</strong></td><td>자원이 절대적으로 부족한 경우</td><td>자원 과부하를 완화하되 납기 유지</td></tr>
+<tr><td><strong>일정 여유</strong></td><td>총 여유 시간 소진 가능</td><td>총 여유 시간 범위 내에서만 조정</td></tr>
+<tr><td><strong>주경로</strong></td><td><strong>변경될 수 있음</strong></td><td>유지됨</td></tr>
+<tr><td><strong>결과</strong></td><td>자원 균등화·납기 지연 가능</td><td>자원 부하 완화·납기 유지</td></tr>
 </table></div>
 </li>
-<li><strong>수행 절차: </strong><ol>
-<li><strong>활동 정의:</strong> WBS를 기반으로 프로젝트 수행에 필요한 세부 활동 식별</li>
-<li><strong>활동 순서 배열:</strong> 활동 간의 선후 관계를 정의하여 네트워크 도표(AON 등) 작성</li>
-<li><strong>3점 산정 수행:</strong> 전문가 판단 등을 통해 각 활동별 t_o, t_m, t_p 산정</li>
-<li><strong>기대 시간 및 분산 계산:</strong> 상기 공식을 사용하여 개별 활동의 t_e와 \sigma^2 산출</li>
-<li><strong>임계 경로(Critical Path) 식별:</strong> 각 활동의 t_e를 합산하여 가장 긴 경로 결정</li>
-<li><strong>전체 일정 확률 분석:</strong> 정규분포를 활용하여 특정 기한 내 프로젝트 완공 확률 계산</li>
-</ol>
+<li><strong>브룩스의 법칙 (Brooks's Law): </strong><ul>
+<li>지체되는 소프트웨어 개발 프로젝트에 인력을 추가로 투입하면 오히려 더 지연</li>
+<li>일정 단축을 위해 인력을 추가 투입할 때 반드시 고려해야 할 법칙</li>
+</ul>
 </li>
-<li><strong>중심 극한 정리: </strong>개별 활동은 베타 분포를 따르더라도, 이들의 합인 전체 프로젝트 일정은 <strong>정규 분포</strong>에 수렴</li>
-<li><strong>인사이트: </strong>PERT는 단순한 산술 도구가 아니라, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일정 리스크를 정량화하는 도구</strong></u></span>. 비관치와 낙관치의 차이(분산)가 큰 활동일수록 리스크가 높으므로 집중 관리가 필요. 모든 경로를 고려하지 않고 주공정(Critical Path)에만 집중할 경우, 다른 경로의 지연으로 인해 전체 일정이 늦어지는<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 경로 수렴(Path Convergence) 문제를 간과</strong></u></span>할 수 있다는 점에 유의</li>
+<li><strong>인사이트: </strong>새로운 인력의 교육 시간, 팀원 간 커뮤니케이션 비용 급증 등으로 인해 오히려 생산성이 저하될 수 있음. 무분별한 Crashing보다는 활동 간의 관계와 커뮤니케이션 오버헤드를 고려한 선별적 적용이 필요</li>
 </ul>
 
 </body>

@@ -197,7 +197,7 @@
       },
       {
         "id": "049",
-        "name": "1. 데이터베이스 분할 (Partitioning)"
+        "name": "1. 파티셔닝 (Partitioning)"
       },
       {
         "id": "050",
@@ -3229,362 +3229,358 @@
       },
       {
         "id": "039",
-        "name": "6. ECM (Enterprise Content Management)"
-      },
-      {
-        "id": "040",
         "name": "[Part 4]. IT 거버넌스/투자"
       },
       {
-        "id": "041",
+        "id": "040",
         "name": "1. IT 거버넌스 (IT Governance)"
       },
       {
-        "id": "042",
+        "id": "041",
         "name": "2. IT 투자관리 (IT Investment Management)"
       },
       {
-        "id": "043",
+        "id": "042",
         "name": "[하위] 2-1. 비즈니스 가치 경제성 분석"
       },
       {
-        "id": "044",
+        "id": "043",
         "name": "4. AHP (Analytic Hierarchy Process)"
       },
       {
-        "id": "045",
+        "id": "044",
         "name": "5. 정량적 위험분석 (Quantitative Risk Analysis)"
       },
       {
-        "id": "046",
+        "id": "045",
         "name": "[하위] 5-1. 의사결정나무 분석 (Decision Tree Analysis)"
       },
       {
-        "id": "047",
+        "id": "046",
         "name": "[하위] 5-2. 금전적 기대값 분석 (EMV, Expected Monetary Value)"
       },
       {
-        "id": "048",
+        "id": "047",
         "name": "[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)"
       },
       {
-        "id": "049",
+        "id": "048",
         "name": "[하위] 5-4. 민감도 분석 (Sensitivity Analysis)"
       },
       {
-        "id": "050",
+        "id": "049",
         "name": "6. 정성적 위험분석(Qualitative Risk Analysis)"
       },
       {
-        "id": "051",
+        "id": "050",
         "name": "7. IT 컴플라이언스 (IT Compliance)"
       },
       {
-        "id": "052",
+        "id": "051",
         "name": "8. IT 생산성 패러독스"
       },
       {
-        "id": "053",
+        "id": "052",
         "name": "9. IT 투자성과 평가"
       },
       {
-        "id": "054",
+        "id": "053",
         "name": "10. 예비타당성 조사"
       },
       {
-        "id": "055",
+        "id": "054",
         "name": "11. 사업 적정성 평가"
       },
       {
-        "id": "056",
+        "id": "055",
         "name": "12. 기술 가치 평가"
       },
       {
-        "id": "057",
+        "id": "056",
         "name": "13. 캐즘 이론 (Chasm Theory)"
       },
       {
-        "id": "058",
+        "id": "057",
         "name": "14. TRL (Technology Readiness Level, 기술 성숙도 수준)"
       },
       {
-        "id": "059",
+        "id": "058",
         "name": "15. 죽음의 계곡 (Valley of Death)"
       },
       {
-        "id": "060",
+        "id": "059",
         "name": "[Part 5]. 프로젝트 관리"
       },
       {
-        "id": "061",
+        "id": "060",
         "name": "1. IT 프로젝트 관리"
       },
       {
-        "id": "062",
+        "id": "061",
         "name": "[하위] 1-1. ISO 21500 (프로젝트관리 지침)"
       },
       {
-        "id": "063",
+        "id": "062",
         "name": "2. 프로젝트 조직 유형"
       },
       {
-        "id": "064",
+        "id": "063",
         "name": "3. 프로젝트 범위관리(Scope Management)"
       },
       {
-        "id": "065",
+        "id": "064",
         "name": "[하위] 3-1. WBS (Work Breakdown Structure)"
       },
       {
-        "id": "066",
+        "id": "065",
         "name": "4. 프로젝트 일정관리(Schedule Management)"
       },
       {
-        "id": "067",
+        "id": "066",
         "name": "[하위] 4-1. CPM(Critical Path Method)"
       },
       {
-        "id": "068",
+        "id": "067",
         "name": "[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)"
       },
       {
-        "id": "069",
+        "id": "068",
         "name": "[하위] 4-3. PERT (Program Evaluation and Review Technique)"
       },
       {
-        "id": "070",
+        "id": "069",
         "name": "[하위] 4-4. 프로젝트 일정 단축기법"
       },
       {
-        "id": "071",
+        "id": "070",
         "name": "5. 갈등관리 (Conflict Management)"
       },
       {
-        "id": "072",
+        "id": "071",
         "name": "[하위] 5-1. 터크만 모델 (Tuckman Ladder Model)"
       },
       {
-        "id": "073",
+        "id": "072",
         "name": "[하위] 5-2. RACI(Responsible, Accountable, Consult, Inform) 차트"
       },
       {
-        "id": "074",
+        "id": "073",
         "name": "6. 프로젝트 의사소통 관리(Communication Management)"
       },
       {
-        "id": "075",
+        "id": "074",
         "name": "7. 프로젝트 위험관리 (Project Risk Management)"
       },
       {
-        "id": "076",
+        "id": "075",
         "name": "[하위] 7-1. 리스크 대응 (Risk Response)"
       },
       {
-        "id": "077",
+        "id": "076",
         "name": "8. 프로젝트 원가관리"
       },
       {
-        "id": "078",
+        "id": "077",
         "name": "[하위] 8-1. 획득가치관리 (EVM, Earned Value Management)"
       },
       {
-        "id": "079",
+        "id": "078",
         "name": "9. 프로젝트 조달관리"
       },
       {
-        "id": "080",
+        "id": "079",
         "name": "10. 프로젝트 이해관계자 관리(Stakeholder Management)"
       },
       {
-        "id": "081",
+        "id": "080",
         "name": "[Part 6]. SW 사업관리"
       },
       {
-        "id": "082",
+        "id": "081",
         "name": "1. 소프트웨어 비용 산정 (Software Cost Estimation)"
       },
       {
-        "id": "083",
+        "id": "082",
         "name": "[하위] 1-1. 기능 점수(FP, Function Point)"
       },
       {
-        "id": "084",
+        "id": "083",
         "name": "[하위] 1-2. COCOMO II (Post-Architecture Model)"
       },
       {
-        "id": "085",
+        "id": "084",
         "name": "2. 협상에 의한 계약체결"
       },
       {
-        "id": "086",
+        "id": "085",
         "name": "3. 제안 요청서(RFP, Request for Proposal)"
       },
       {
-        "id": "087",
+        "id": "086",
         "name": "4. 제안서 평가 세부기준 (SW사업 제안서 평가)"
       },
       {
-        "id": "088",
+        "id": "087",
         "name": "5. 소프트웨어 발주"
       },
       {
-        "id": "089",
+        "id": "088",
         "name": "[하위] 5-1. 단계별 발주제도"
       },
       {
-        "id": "090",
+        "id": "089",
         "name": "[하위] 5-2. 분할 발주제도"
       },
       {
-        "id": "091",
+        "id": "090",
         "name": "6. SW사업 과업심의위원회"
       },
       {
-        "id": "092",
+        "id": "091",
         "name": "7. 소프트웨어 기술자 직무제"
       },
       {
-        "id": "093",
+        "id": "092",
         "name": "8. 공공SW사업 영향평가제"
       },
       {
-        "id": "094",
+        "id": "093",
         "name": "[Part 7]. 감리/PMO"
       },
       {
-        "id": "095",
+        "id": "094",
         "name": "1. 정보시스템 감리"
       },
       {
-        "id": "096",
+        "id": "095",
         "name": "2. PMO (Project Management Office)"
       },
       {
-        "id": "097",
+        "id": "096",
         "name": "[하위] 2-1. 공공 정보화 사업 PMO(Project Management Office)"
       },
       {
-        "id": "098",
+        "id": "097",
         "name": "3. 상주감리"
       },
       {
-        "id": "099",
+        "id": "098",
         "name": "4. 운영 감리"
       },
       {
-        "id": "100",
+        "id": "099",
         "name": "5. 유지보수 감리"
       },
       {
-        "id": "101",
+        "id": "100",
         "name": "7. 클라우드 전환 감리"
       },
       {
-        "id": "102",
+        "id": "101",
         "name": "[Part 8]. 서비스 관리"
       },
       {
-        "id": "103",
+        "id": "102",
         "name": "1. ITSM (IT Service Management)"
       },
       {
-        "id": "104",
+        "id": "103",
         "name": "2. ISO/IEC 20000 (IT 서비스 관리)"
       },
       {
-        "id": "105",
+        "id": "104",
         "name": "3. ITIL 4.0(IT Infrastructure Library)"
       },
       {
-        "id": "106",
+        "id": "105",
         "name": "4. IT아웃소싱 (IT Outsourcing)"
       },
       {
-        "id": "107",
+        "id": "106",
         "name": "5. SOW (Statement of Work)"
       },
       {
-        "id": "108",
+        "id": "107",
         "name": "6. SLA (Service Level Agreement)"
       },
       {
-        "id": "109",
+        "id": "108",
         "name": "[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)"
       },
       {
-        "id": "110",
+        "id": "109",
         "name": "7. SLM (Service Level Management)"
       },
       {
-        "id": "111",
+        "id": "110",
         "name": "[Part 9]. 연속성"
       },
       {
-        "id": "112",
+        "id": "111",
         "name": "1. BCP (Business Continuity Planning)"
       },
       {
-        "id": "113",
+        "id": "112",
         "name": "2. BIA(Business Impact Analysis)"
       },
       {
-        "id": "114",
+        "id": "113",
         "name": "3. DRS (Disaster Recovery System)"
       },
       {
-        "id": "115",
+        "id": "114",
         "name": "[Part 10]. ESG/윤리/정책"
       },
       {
-        "id": "116",
+        "id": "115",
         "name": "1. ESG 경영 (Environment, Social, Governance)"
       },
       {
-        "id": "117",
+        "id": "116",
         "name": "2. 데이터 주권 (Data Sovereignty)"
       },
       {
-        "id": "118",
+        "id": "117",
         "name": "3. 정보윤리 (Information Ethics)"
       },
       {
-        "id": "119",
+        "id": "118",
         "name": "4. 지식 재산권(Intellectual Property Rights)"
       },
       {
-        "id": "120",
+        "id": "119",
         "name": "5. 전자정부 평가(EGDI)"
       },
       {
-        "id": "121",
+        "id": "120",
         "name": "6. 디지털세 (Digital Tax)"
       },
       {
-        "id": "122",
+        "id": "121",
         "name": "[Part 11]. 마케팅/트렌드"
       },
       {
-        "id": "123",
+        "id": "122",
         "name": "1. 화이트 레이블 마케팅 (White Label Marketing)"
       },
       {
-        "id": "124",
+        "id": "123",
         "name": "[하위] 1-1. 블랙 레이블 마케팅 (Black Label Marketing)"
       },
       {
-        "id": "125",
+        "id": "124",
         "name": "2. 그로스 해킹 (Growth Hacking)"
       },
       {
-        "id": "126",
+        "id": "125",
         "name": "3. 의도 경제(Intention Economy)"
       },
       {
-        "id": "127",
+        "id": "126",
         "name": "4. 고객 경험 관리 (CEM, Customer Experience Management)"
       },
       {
-        "id": "128",
+        "id": "127",
         "name": "[하위] 4-1. 고객 여정 맵(Customer Journey Map)"
       }
     ]

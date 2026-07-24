@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 프로젝트 위험관리 (Project Risk Management)</title>
+  <title>[하위] 7-1. 리스크 대응 (Risk Response)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,32 +15,30 @@
   </style>
 </head>
 <body>
-<h4>7. 프로젝트 위험관리 (Project Risk Management)</h4>
+<h4>[하위] 7-1. 리스크 대응 (Risk Response)</h4>
 <ul>
-<li><strong>정의</strong>: 프로젝트에 영향을 미칠 수 있는 부정적 영향을 최소화하고 긍정적 기회를 극대화하는 체계적 프로세스</li>
-<li><strong>키워드</strong>: 위험 식별, 정성/정량 분석, 대응 계획, 위험 등록부, 잔존 위험, 2차 위험</li>
+<li><strong>정의</strong>: 식별·분석된 위험에 대해 대응 전략을 수립하고 실행하여 프로젝트 목표에 미치는 영향을 최소화·최대화하는 활동</li>
+<li><strong>키워드</strong>: 위협 대응 전략, 기회 대응 전략, 대응 계획 수립 절차</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>프로세스:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계식성량/대실감&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>절차</strong></th><th><strong>설명</strong></th><th><strong>대표 산출물</strong></th></tr>
-<tr><td><strong>1. 위험관리계획수립</strong></td><td>관리 방법·조직·예산 계획</td><td>위험관리 계획서</td></tr>
-<tr><td><strong>2. 위험식별</strong></td><td>브레인스토밍, 체크리스트, 인터뷰</td><td>위험 관리대장, 이슈로그</td></tr>
-<tr><td><strong>3. 정성적 위험 분석</strong></td><td>확률×영향 매트릭스 우선순위화</td><td>프로젝트(PJT) 문서 갱신</td></tr>
-<tr><td><strong>4. 정량적 위험 분석</strong></td><td>EMV, 몬테카를로, 의사결정나무 등 수치 분석</td><td>위험 보고서</td></tr>
-<tr><td><strong>5. 위험 대응 계획 수립</strong></td><td>위협/기회별 전략 수립</td><td>변경 요청, 관리계획서 및 문서 갱신</td></tr>
-<tr><td><strong>6. 위험 대응 실행</strong></td><td>합의된 위험 대응 계획을 실제로 수행</td><td>변경 요청, PJT 문서 갱신</td></tr>
-<tr><td><strong>7. 위험 감시</strong></td><td>잔존위험 추적, 트리거 감시</td><td>작업성과정보, PJT 문서 갱신</td></tr>
+<li><strong>위협 대응 전략(부정적 위험 대응, EATMA):   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;회전완수&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>수준</th><th>전략</th><th>내용</th></tr>
+<tr><td>적극적</td><td>에스컬레이션(Escalation)</td><td>과업 및 권한 밖의 사항</td></tr>
+<tr><td>↑</td><td>회피(Avoid)</td><td>위험 원인 제거, 계획 변경</td></tr>
+<tr><td>↑</td><td>전가(Transfer)</td><td>보험, 계약으로 제3자에 이전</td></tr>
+<tr><td>↑</td><td>완화(Mitigate)</td><td>발생확률/영향 축소</td></tr>
+<tr><td>소극적</td><td>수용(Accept)</td><td>능동적(예비비 확보) / 수동적(발생 시 대응)</td></tr>
 </table></div>
 </li>
-<li><strong>bohem의 10대 위험 요인 분류:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>해당 위험 요인</th><th>핵심</th></tr>
-<tr><td><strong>인력·조직</strong></td><td>1위 인력 부족</td><td>사람 리스크</td></tr>
-<tr><td><strong>계획·일정</strong></td><td>2위 비현실적 일정·예산</td><td>계획 리스크</td></tr>
-<tr><td><strong>요구사항</strong></td><td>3위 잘못된 요구사항·4위 요구 증가·6위 지속 변경</td><td>요구사항 리스크</td></tr>
-<tr><td><strong>설계·기술</strong></td><td>5위 인터페이스 오류·9위 성능 미달·10위 기술 한계</td><td>기술 리스크</td></tr>
-<tr><td><strong>외부 의존</strong></td><td>7위 외부 컴포넌트·8위 외부 태스크 결함</td><td>외부 리스크</td></tr>
+<li><strong>기회 대응 전략(긍정적 위험 대응, EESEA)</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;활공강수&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>수준</th><th>전략</th><th>내용</th></tr>
+<tr><td>적극적</td><td>에스컬레이션(Escalation)</td><td>과업 및 권한 밖의 사항</td></tr>
+<tr><td>↑</td><td>활용(Exploit)</td><td>기회 발생 보장</td></tr>
+<tr><td>↑</td><td>공유(Share)</td><td>제3자와 협력하여 기회 실현</td></tr>
+<tr><td>↑</td><td>강화(Enhance)</td><td>발생확률/영향 증대</td></tr>
+<tr><td>소극적</td><td>수용(Accept)</td><td>기회 발생 시 자연스럽게 활용</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 위험관리에서 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>잔존 위험(Residual Risk)과 2차 위험(Secondary Risk)</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u>까지 관리</u></span>해야 하며, 위험 대응 예산인 <strong>Contingency Reserve</strong>와 <strong>Management Reserve</strong>를 명확히 구분해야 함.</li>
+<li><strong>인사이트</strong>: 시험에서는 <strong>위협과 기회 대응 전략을 대칭적으로 서술</strong>하는 것이 고득점 포인트이며, 각 전략의 적용 조건(비용, 확률, 영향도)을 함께 제시해야 함.</li>
 </ul>
 
 </body>

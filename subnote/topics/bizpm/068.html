@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</title>
+  <title>[하위] 4-3. PERT (Program Evaluation and Review Technique)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,46 +15,36 @@
   </style>
 </head>
 <body>
-<h4>[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</h4>
+<h4>[하위] 4-3. PERT (Program Evaluation and Review Technique)</h4>
 <ul>
-<li><strong>정의:</strong> 자원 제약 조건을 반영하여 일정의 불확실성을 제거하고, 개별 작업에 할당된 여유 시간(Safety Margin)을 모아 프로젝트 끝에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>버퍼(Buffer)</strong></u></span>로 관리하는 일정 관리 기법</li>
-<li><strong>키워드: </strong>선후관계, 자원제약, 학생 증후군, 파킨슨의 법칙, 자기방어, 프로젝트 버퍼, 피딩 버퍼, 자원 버퍼, 조직문화 변화, TOC(제약이론), CCPM</li>
+<li><strong>정의:</strong> 프로젝트의 개별 활동 소요 시간을 <strong>낙관치, 최빈치, 비관치</strong>의 3점 산정방식을 통해 확률적으로 추정하고, 이를 바탕으로 전체 프로젝트 완료 시간을 예측하는 일정 관리 기법</li>
+<li><strong>키워드: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>3점 산정방식(낙관치, 최빈치, 비관치)</strong></u></span>, 일정 리스크 정량화, 표준편차 및 분산, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중심 극한 정리</strong></u></span>, 경로 수렴 문제</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>핵심 특징: (기존 CPM 방식이 실무에서 지켜지지 않은 이유를 </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>심리적 요인에서 찾음)</strong></u></span><ul>
-<li><strong>학생 증후군:</strong> 마감 직전까지 일을 미루다 마지막에 집중하는 현상</li>
-<li><strong>파킨슨의 법칙: </strong>주어진 시간만큼 업무량이 늘어나는 현상</li>
-<li><strong>자기방어:</strong> 불확실성을 대비해 각 작업마다 과도한 여유 시간 설정</li>
-</ul>
-</li>
-<li><strong>Critical Chain (주공정 연쇄):</strong> 활동 간의 선후 관계(Logical Dependency)뿐만 아니라 <strong>자원 제약(Resource Constraint)</strong>까지 고려한 최장 경로</li>
-<li><strong>버퍼 관리:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프피자&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>버퍼 종류</strong></th><th><strong>위치 및 기능</strong></th></tr>
-<tr><td><strong>프로젝트 버퍼 (Project) </strong></td><td>프로젝트 가장 마지막에 위치하며, 주공정 연쇄의 지연을 흡수</td></tr>
-<tr><td><strong>피딩 버퍼 (Feeding)</strong></td><td>비주공정 연쇄가 주공정 연쇄로 합류하는 지점에 위치하여 지연 전파 방지</td></tr>
-<tr><td><strong>자원 버퍼 (Resource)</strong></td><td>자원 투입 시점을 알려주는 신호(Flag) 역할을 하여 대기 시간 최소화</td></tr>
+<li><strong>3점 산정방식:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;낙최비&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>구성요소</strong></th><th><strong>기호</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>낙관치</strong></td><td>t_o</td><td>모든 조건이 가장 좋을 때, 최단 시간 내에 끝낼 수 있는 시간</td></tr>
+<tr><td><strong>최빈치</strong></td><td>t_m</td><td>가장 빈번하게 발생할 것으로 예상되는 정상적인 소요 시간</td></tr>
+<tr><td><strong>비관치</strong></td><td>t_p</td><td>예상치 못한 장애 등 최악의 상황일 때 소요되는 최장 시간</td></tr>
 </table></div>
 </li>
-<li><strong>수행절차: </strong><ol>
-<li><strong>도전적 일정 추정:</strong> 개별 활동에서 안전율(Safety Margin)을 제거하고 실행 가능한 최소 시간으로 산정</li>
-<li><strong>자원 충돌 해결:</strong> 동일한 자원이 중복 사용되는 경우 일정을 조정하여 자원 제약을 반영</li>
-<li><strong>Critical Chain 식별:</strong> 자원 제약이 반영된 최장 경로 도출</li>
-<li><strong>버퍼 삽입:</strong> PB, FB 등을 배치하여 불확실성 방어막 구축</li>
-<li><strong>버퍼 모니터링:</strong> 프로젝트 진행 중 발생하는 지연을 버퍼가 얼마나 흡수하고 있는지(소진율) 상시 감시</li>
+<li><strong>산출 공식: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>산출 공식</strong></th><th><strong>비고</strong></th></tr>
+<tr><td><strong>기대 소요 시간 (</strong><strong>t_e</strong><strong>)</strong></td><td>t_e = \frac{t_o + 4t_m + t_p}{6}</td><td>낙관치, 최빈치, 비관치의 가중 산술 평균</td></tr>
+<tr><td><strong>표준편차 (</strong><strong>\sigma</strong><strong>)</strong></td><td>\sigma = \frac{t_p - t_o}{6}</td><td>일정의 변동성(불확실성)을 나타내는 지표</td></tr>
+<tr><td><strong>분산 (</strong><strong>\sigma^2</strong><strong>)</strong></td><td>\sigma^2 = \left(\frac{t_p - t_o}{6}\right)^2</td><td>표준편차의 제곱으로 확률 분석 시 활용</td></tr>
+</table></div>
+</li>
+<li><strong>수행 절차: </strong><ol>
+<li><strong>활동 정의:</strong> WBS를 기반으로 프로젝트 수행에 필요한 세부 활동 식별</li>
+<li><strong>활동 순서 배열:</strong> 활동 간의 선후 관계를 정의하여 네트워크 도표(AON 등) 작성</li>
+<li><strong>3점 산정 수행:</strong> 전문가 판단 등을 통해 각 활동별 t_o, t_m, t_p 산정</li>
+<li><strong>기대 시간 및 분산 계산:</strong> 상기 공식을 사용하여 개별 활동의 t_e와 \sigma^2 산출</li>
+<li><strong>임계 경로(Critical Path) 식별:</strong> 각 활동의 t_e를 합산하여 가장 긴 경로 결정</li>
+<li><strong>전체 일정 확률 분석:</strong> 정규분포를 활용하여 특정 기한 내 프로젝트 완공 확률 계산</li>
 </ol>
 </li>
-<li><strong>CCPM(Critical Chain Project Management): </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TOC(제약이론)를 기반</strong></u></span>으로 자원 제약과 불확실성을 고려하여 프로젝트 일정을 관리하는 기법<ul>
-<li><strong>TOC 연계</strong>: 병목(Constraint) 식별 → 버퍼로 보호 → 전체 처리량 극대화</li>
-<li><strong>비교표: </strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>CCM</strong></th><th><strong>CCPM </strong></th></tr>
-<tr><td><strong>의미</strong></td><td><strong>주공정 연쇄법</strong> (방법론)</td><td><strong>주공정 연쇄 프로젝트 관리</strong> (관리 체계)</td></tr>
-<tr><td><strong>초점</strong></td><td>일정 네트워크에서 <strong>일정을 계산하는 기법</strong></td><td>프로젝트 전체를 <strong>관리하는 프레임워크</strong></td></tr>
-<tr><td><strong>범위</strong></td><td>자원 제약과 버퍼를 이용한 <strong>스케줄링 알고리즘</strong></td><td>조직 문화, 멀티태스킹 방지 등 <strong>포괄적 경영 기법</strong></td></tr>
-<tr><td><strong>관계</strong></td><td><strong>CCPM</strong>이라는 관리 체계 안에 포함된 <strong>핵심 일정 산정 기술(CCM)</strong></td><td></td></tr>
-</table></div>
-</li>
-</ul>
-</li>
-<li><strong>인사이트:</strong> CCM은 단순한 계산 기법을 넘어 <strong>조직 문화의 변화</strong>를 요구. "일찍 끝내도 보상을 주지 않고, 늦어지면 문책하는" 문화에서는 성공하기 어렵기 때문. 따라서 버퍼 소진율을 기반으로 선제적인 대응 체계를 갖추고, 자원의 멀티태스킹을 지양하는 환경을 조성하는 것이 프로젝트 성공의 핵심</li>
+<li><strong>중심 극한 정리: </strong>개별 활동은 베타 분포를 따르더라도, 이들의 합인 전체 프로젝트 일정은 <strong>정규 분포</strong>에 수렴</li>
+<li><strong>인사이트: </strong>PERT는 단순한 산술 도구가 아니라, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일정 리스크를 정량화하는 도구</strong></u></span>. 비관치와 낙관치의 차이(분산)가 큰 활동일수록 리스크가 높으므로 집중 관리가 필요. 모든 경로를 고려하지 않고 주공정(Critical Path)에만 집중할 경우, 다른 경로의 지연으로 인해 전체 일정이 늦어지는<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 경로 수렴(Path Convergence) 문제를 간과</strong></u></span>할 수 있다는 점에 유의</li>
 </ul>
 
 </body>
