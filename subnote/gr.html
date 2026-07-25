@@ -212,7 +212,7 @@
 </li>
 <li><strong>생체인식정보의 특성: </strong><div class="table-scroll"><table>
 <tr><th>특성</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>유일성·불변성</strong></td><td>유출 시 피해 복구 불가</td><td>복구 불가</td></tr>
+<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>유일성·불변성</strong></u></span></td><td>유출 시 피해 복구 불가</td><td>복구 불가</td></tr>
 <tr><td></td><td>편익 대비 침해 위험 비례성 검토</td><td>비례성 검토</td></tr>
 <tr><td></td><td>목적에 필요한 최소 정보 적법 수집</td><td>최소 수집</td></tr>
 <tr><td><strong>민감정보 추출 가능성</strong></td><td>인증 외 민감정보 추출 가능</td><td>민감정보 추출 위험</td></tr>
@@ -630,23 +630,114 @@
 </table></div>
 </li>
 </ul>
+<h4>13. 공공데이터 인공지능 친화적 관리 가이드라인(v1, 26.3.)</h4>
+<ul>
+<li><strong>공공데이터:</strong> 공공기관이 목적을 위해 생성 또는 취득하여 관리하고 있는 모든 자료</li>
+<li><strong>키워드:</strong> Parquet(컬럼형 저장), ORC, GeoJSON, GLB, PID, dct(DCAT), dc, 데이터 카드, 데이터 사전, </li>
+<li><strong>적용범위: </strong>공공데이터법 제2조 1항</li>
+<li><strong>품질지표: </strong>완전성, 정확성, 유효성, 일관성, 적시성, 유일성</li>
+<li><strong>인공지능 친화적 공공데이터의 핵심 특성: </strong><ul>
+<li>기계가공 및 상호운용 가능 기술 구조, 메타데이터와 문서화, 내용 품질과 대표성, 권리·윤리·보안·책임 거버넌스</li>
+</ul>
+</li>
+<li><strong>데이터 등급별 공유범위:</strong><div class="table-scroll"><table>
+<tr><th><strong>등급</strong></th><th><strong>구분</strong></th><th><strong>정의</strong></th><th><strong>공유범위</strong></th></tr>
+<tr><td><strong>1등급(O)</strong></td><td>공개공유</td><td>개인정보 및 보안상 문제가 없음</td><td>모든 기관 및 공공데이터포털</td></tr>
+<tr><td><strong>2등급(S)</strong></td><td>제한공유</td><td>비식별 처리를 통해 안전성 확보</td><td>승인된 기관 간 한정</td></tr>
+<tr><td><strong>3등급(C)</strong></td><td>내부전용</td><td>비식별 처리 후라도 보안상 외부 공유 부적절</td><td>해당 기관 내부 한정</td></tr>
+</table></div>
+</li>
+<li><strong>데이터별 권장 오픈 포맷:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>형식</strong></th></tr>
+<tr><td>권장 포맷
+(오픈 포맷)</td><td>텍스트</td><td>ODT, CSV, JSON, XML, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Parquet(컬럼형 저장), ORC</strong></u></span> 등</td></tr>
+<tr><td></td><td>지리정보</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GeoJSON</strong></u></span>, GeoPackage, GeoTIFF 등</td></tr>
+<tr><td></td><td>이미지</td><td>PNG, JPG, JPEG, TIF, TIFF, SVG 등</td></tr>
+<tr><td></td><td>건설/건축</td><td>IFC, OBJ, GLTF, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GLB</strong></u></span> 등</td></tr>
+<tr><td>비권장 포맷
+(벤더 종속)</td><td>텍스트</td><td>HWP, HWPX, DOC, DOCX, XLS, XLSX, PPT, PPTX 등</td></tr>
+<tr><td></td><td>이미지</td><td>AI, PSD 등</td></tr>
+</table></div>
+</li>
+<li><strong>메타데이터: </strong>데이터를 구조화하여 제공함으로써 기계가 데이터를 자동으로 해석·처리할 수 있도록 하는 정보<ul>
+<li><strong>고유식별자(PID): </strong>데이터·문서의 추적과 접근성 확보 및 이용자 피드백의 정확한 환류를 위해 부여</li>
+<li><strong>dct(DCAT, Data Catalog Vocabulary):</strong> W3C 표준</li>
+<li><strong>dc(Dublin Core):</strong> 자원식별 ISO 표준</li>
+<li><strong>메타데이터 유형:</strong> 데이터 관리 메타데이터, 데이터 계보 메타데이터, 데이터 품질 메타데이터, 데이터 타입별 메타데이터</li>
+</ul>
+</li>
+<li><strong>문서화</strong>: 공공데이터의 신뢰성과 활용성 확보를 위해 데이터 구조, 목적, 수집 방식, 편향성, 한계점 및 버전 이력 등을 투명하게 기술한 문서<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>문서명</strong></th><th><strong>핵심내용</strong></th></tr>
+<tr><td><strong>기본 명세</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>데이터 카드 (Data Card)</strong></u></span></td><td>표준화된 형태의 데이터 핵심 정보를 제공</td></tr>
+<tr><td><strong>기술 규격</strong></td><td>스키마 정의서 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>(데이터 사전)</strong></u></span></td><td>변수명(물리/논리), 데이터 타입, 단위, 필드 간 관계 등 명세</td></tr>
+<tr><td></td><td>메타데이터 명세서</td><td>관리, 업데이트, 이용, 투명성 등 메타데이터 정보</td></tr>
+<tr><td></td><td>API / Access 문서</td><td>데이터 접근 경로, 호출 규약, 인증 및 보안 설정</td></tr>
+<tr><td><strong>신뢰 보증</strong></td><td>품질 진단 보고서</td><td>정확성, 완전성, 유효성 등 품질 지표 및 검증 결과 보고서</td></tr>
+<tr><td></td><td>개인정보/법적 리스크 분석</td><td>비식별 조치 현황, 저작권 권리관계, 라이선스 활용 조건</td></tr>
+<tr><td><strong>이력 관리</strong></td><td>계보 및 출처</td><td>원천 데이터 소스, 수집 환경 정보</td></tr>
+<tr><td></td><td>버전 관리 및 변경 이력</td><td>유의적 기준 버전 정보, 변경 로그, 마이그레이션 노트</td></tr>
+</table></div>
+</li>
+<li><strong>품질지표:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완일정/적유유&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>품질지표</th><th>주요 속성</th><th>핵심</th></tr>
+<tr><td><strong>완전성</strong></td><td>❶ 충분성</td><td>필수데이터 누락방지</td></tr>
+<tr><td></td><td>❷ 대표성·균형성</td><td>분포균형·편향완화</td></tr>
+<tr><td><strong>일관성</strong></td><td>❶ 의미적 일관성</td><td>충돌방지·기준통일</td></tr>
+<tr><td><strong>정확성</strong></td><td>❶ 내용 정확성</td><td>라벨·값 사실부합</td></tr>
+<tr><td></td><td>❷ 데이터 신뢰성</td><td>출처명확·오류최소</td></tr>
+<tr><td><strong>적시성</strong></td><td>❶ 최신성</td><td>지연최소·갱신준수</td></tr>
+<tr><td></td><td>❷ 개념·분포 변화 관리</td><td>분포변화 탐지관리</td></tr>
+<tr><td><strong>유효성</strong></td><td>❶ 구조·형식 유효성</td><td>스키마준수·기계이해</td></tr>
+<tr><td></td><td>❷ 값·범위 유효성</td><td>입력규칙·범위준수</td></tr>
+<tr><td><strong>유일성</strong></td><td>❶ 유일성</td><td>중복제거·왜곡최소</td></tr>
+</table></div>
+</li>
+<li><strong>인공지능 친화적 공공데이터 관리원칙:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>관리원칙</th><th>요약 </th></tr>
+<tr><td>3.1</td><td>데이터 책임 주체 및 관리체계 수립</td><td>책임주체 명확화·관리절차 수립</td></tr>
+<tr><td>3.2</td><td>이용자 접근 편의성 인프라 구축</td><td>이용자 중심 탐색 인프라 구축</td></tr>
+<tr><td>3.3</td><td>이용자 관점 데이터셋 평가 및 피드백 체계 구축</td><td>평가·피드백으로 데이터 개선</td></tr>
+<tr><td>3.4</td><td>데이터 접근 권한 및 활용 체계</td><td>접근권한 차등·보안 강화</td></tr>
+<tr><td>3.5</td><td>데이터 거버넌스와 책임 구조</td><td>전주기 책임소재 명확화</td></tr>
+<tr><td>3.6</td><td>법적 충돌 해소 및 데이터 보호 체계</td><td>법령 정립·법적 불확실성 해소</td></tr>
+</table></div>
+</li>
+</ul>
 <h3>[Part 2] 법/제도</h3>
-<h4>1. 디지털 권리장전</h4>
+<h4>1. 디지털 권리장전(Digital Bill of Rights)</h4>
+<ul>
+<li><strong>정의</strong>: 디지털 사회에서 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>국민의 자유·권리·안전 보장</strong></u></span>을 위해 국가가 제정한 기본 원칙 선언문</li>
+<li><strong>키워드</strong>: 5대 원칙, 디지털 포용, 자기결정권, 잊힐 권리, 알 권리, 디지털 격차, AI 안전</li>
+<li><strong>분류</strong>: 법/제도</li>
+<li><strong>제정</strong>: 2023년 9월 25일 (대한민국 정부)</li>
+<li><strong>특징: </strong>선언적 성격, 정책 기준점, 국제 연계</li>
+<li><strong>5대 원칙: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;자공안디인&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>원칙</th><th>설명</th><th>핵심</th></tr>
+<tr><td>자유와 권리 보장</td><td>표현·정보접근·프라이버시 보호</td><td>기본권 보장</td></tr>
+<tr><td>공정 접근과 포용</td><td>디지털 격차 해소·보편적 접근권</td><td>디지털 포용</td></tr>
+<tr><td>안전·신뢰 환경</td><td>AI 안전성·사이버보안·신뢰성</td><td>디지털 안전</td></tr>
+<tr><td>디지털 혁신 발전</td><td>혁신 촉진·데이터 활용·성장</td><td>혁신 촉진</td></tr>
+<tr><td>인류 보편적 가치</td><td>글로벌 협력·인권·민주주의</td><td>글로벌 가치</td></tr>
+</table></div>
+</li>
+<li><strong>주요 개인 권리: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;알잊자디안&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>권리</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>알 권리</strong></td><td>디지털 정보 접근 및 열람</td><td>정보접근</td></tr>
+<tr><td><strong>잊힐 권리</strong></td><td>개인정보 삭제·수정 요구권</td><td>정보삭제</td></tr>
+<tr><td><strong>자기결정권</strong></td><td>개인데이터 처리 동의·철회</td><td>데이터통제</td></tr>
+<tr><td><strong>디지털 접근권</strong></td><td>인터넷·서비스 보편적 이용</td><td>보편접근</td></tr>
+<tr><td><strong>안전 이용권</strong></td><td>사이버위협·피해로부터 보호</td><td>안전보호</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 디지털 권리장전은 법적 구속력은 없으나 디지털 플랫폼법·AI 기본법 등 후속 법제도의 기준점으로 작용하며, 기술 발전에 따른 새로운 기본권 정립의 출발점으로 평가됨</li>
+</ul>
 <h4>2. 디지털 포용법</h4>
 <ul>
 <li><strong>정의: </strong>디지털 취약계층의 접근성·역량 보장과 포용적 지능정보사회 구현을 위한 독립 법률</li>
-<li><strong>키워드</strong>: 디지털 취약계층, 디지털 격차 제거</li>
-<li><strong>분류</strong>: ESG/윤리/정책</li>
+<li><strong>키워드</strong>: 디지털 취약계층, 디지털 격차 제거, 디지털역량 함양, 이용환경 보장, 포용</li>
+<li><strong>분류</strong>: 법/제도</li>
 <li><strong>목적: </strong>디지털 격차 제거, 기존 법률 강화</li>
-<li><strong>법령: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>2025년 12월 31일 시행령 제정</strong></u></span><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>법령</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>정책 거버넌스 영역</strong></td><td><strong>총칙</strong></td><td>법 목적, 정의, 주체별 책무 및 기본 원칙 제시</td></tr>
-<tr><td></td><td><strong>추진 체계</strong></td><td>기본·시행계획 및 전문기관 등 정책 거버넌스 규정</td></tr>
-<tr><td><strong>실행 집행 영역</strong></td><td><strong>디지털역량 함양</strong></td><td>교육·센터 지원을 통한 국민 디지털 활용 역량 강화</td></tr>
-<tr><td></td><td><strong>이용환경 보장</strong></td><td>웹·키오스크 등 접근성 의무 및 품질인증 등 규제</td></tr>
-<tr><td></td><td><strong>포용적 활용 촉진</strong></td><td>기술 표준화, R&amp;D, 인력양성 등 산업 확산 촉진</td></tr>
-</table></div>
-</li>
+<li><strong>법령: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>2025년 12월 31일 시행령 제정</strong></u></span></li>
 <li><strong>시행령:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>주요 내용</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>계획 수립·관리</strong></td><td>기본계획·시행계획 운영</td><td>계획 공고 의무화 및 실적 점검·차년도 반영 체계 명확화</td></tr>
@@ -662,11 +753,11 @@
 <h4>3. 정보보호 제품 신속 확인 제도</h4>
 <ul>
 <li><strong>정의</strong>: 보안 제품의 시장 출시를 앞당기기 위한 신속 인증 확인 제도 (국정원)</li>
-<li><strong>키워드</strong>: CC인증, 취약점점검, 기능시험, 신속확인기관, 2년</li>
+<li><strong>키워드</strong>: CC인증(18개월), 취약점점검, 기능시험, 신속확인기관, 유효기간 2년</li>
 <li><strong>분류</strong>: 법/제도</li>
 <li><strong>도입 배경</strong>: CC 인증 평균 18개월 → 신속 확인으로 기간 단축</li>
 <li><strong>대상: </strong>CC인증 등 기존 보안인증제도에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평가기준이 없는 신기술 및 융복합 기술</strong></u></span></li>
-<li><strong>도입 요건:  </strong>'가'그룹 기관의 경우 국가정보원의 '보안적합성 검증' 취득 시 신속확인 제품 도입 가능</li>
+<li><strong>도입 요건:  </strong>'가'그룹 기관의 경우 국가정보원의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>'보안적합성 검증' 취득</strong></u></span> 시 신속확인 제품 도입 가능</li>
 <li><strong>유효기간</strong>: 2년</li>
 <li><strong>절차</strong>: <div class="table-scroll"><table>
 <tr><th>절차</th><th>세부활동</th><th>핵심</th></tr>
@@ -688,6 +779,7 @@
 <li><strong>정의:</strong> 이용자 보호 및 알권리 보장, 기업의 차별적인 정보보호 투자를 촉진하기 위한 제도</li>
 <li><strong>키워드: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정보보호산업진흥법 제13조, 알권리, 자율공시, 의무공시</strong></u></span>, 3000억 이상, 100만명 이상, 세제혜택, 우수기관</li>
 <li><strong>분류</strong>: 법/제도</li>
+<li><strong>법적근거: </strong>정보보호산업진흥법 제13조 <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;공정일삼&gt;</strong></span></li>
 <li><strong>공시시기:</strong> CISO 주관하에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>매년 6월 30일까지 공시</strong></u></span></li>
 <li><strong>대상:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;아아병씨&gt;</strong></span><ul>
 <li><strong>제외: </strong>공공기관, 소기업, 금융회사, 전자금융업자</li>
@@ -725,20 +817,20 @@
 </li>
 <li><strong>2027년 시행령 개정 이후 (입법예고, 2027.1.1. 시행)</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>내용</th><th>핵심</th></tr>
-<tr><td><strong>신규 의무대상 추가</strong></td><td>코스피·코스닥 상장 법인 전체 (SPAC 제외)</td><td>전체 상장사 의무화</td></tr>
+<tr><td><strong>의무대상 개선</strong></td><td>코스피·코스닥 상장 법인 전체 (SPAC 제외)</td><td>전체 상장사 의무화</td></tr>
 <tr><td></td><td>ISMS 인증 취득·유지 기업</td><td>ISMS 인증사 포함</td></tr>
-<tr><td><strong>제외 예외 조항 전면 삭제</strong></td><td>공공기관·소기업·금융회사·전자금융업자 예외 삭제</td><td>사각지대 해소</td></tr>
-<tr><td><strong>이용자 수 산정 변경</strong></td><td>전년도 말 3개월 평균 → 전년도 전체 평균으로 변경</td><td>왜곡 방지</td></tr>
-<tr><td><strong>매출액 조건 삭제</strong></td><td>기존 3,000억 이상 조건 삭제</td><td>상장사 전면 적용</td></tr>
+<tr><td></td><td>공공기관·소기업·금융회사·전자금융업자 예외 삭제</td><td>사각지대 해소</td></tr>
+<tr><td><strong>기준 변경</strong></td><td>전년도 말 3개월 평균 → 전년도 전체 평균으로 변경</td><td>왜곡 방지</td></tr>
+<tr><td></td><td>기존 3,000억 이상 조건 삭제</td><td>상장사 전면 적용</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> 정보보호 공시 제도는 기업의 정보보호 수준을 시장이 평가하도록 유도하는 투명성 기반 거버넌스 수단으로, 의무공시 대상 확대와 CISO·CPO 역할 강화를 통해 정보보호를 경영 핵심 지표로 내재화하는 방향으로 발전하고 있으며 공시 결과가 투자·조달·신뢰도 평가에 직결되는 추세임</li>
 </ul>
 <h4>5. 소프트웨어 영향평가</h4>
 <ul>
-<li><strong>정의:</strong> 공공/정부 사업 소프트웨어 개발 출시 전, 사전 민간 소프트웨어 시장 침해 검토 사전 조정 제도</li>
+<li><strong>정의:</strong> 공공/정부 사업 소프트웨어 개발 출시 전, 사전 민간 소프트웨어 시장 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>침해 검토 사전 조정 제도</strong></u></span></li>
 <li><strong>분류</strong>: 법/제도</li>
-<li><strong>법적근거: </strong>소프트웨어진흥법 제43조, 시행령 제35조</li>
+<li><strong>법적근거: </strong>소프트웨어진흥법 제43조, 시행령 제35조 <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;소영사삼&gt;</strong></span></li>
 <li><strong>대상:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>내용</th></tr>
 <tr><td><strong>대상 사업</strong></td><td>국가기관 등의 장이 발주하는 소프트웨어 기획·구축·유지관리 사업</td></tr>
@@ -808,9 +900,10 @@
 </ul>
 <h4>7. EU CRA (Cyber Resilience Act, 사이버복원력법)</h4>
 <ul>
-<li><strong>정의:</strong> 디지털 요소를 포함한 제품(하드웨어·소프트웨어)의 전체 수명주기에 걸쳐 사이버보안 요구사항을 의무화한 EU 규정으로, 2024년 10월 발효·2027년 12월 전면 시행 예정</li>
-<li><strong>키워드:</strong> 디지털 제품 보안, CE 마킹, SBOM, 취약점 공개, 수명주기 보안, NIS2 연계, 중요제품, 공급망 보안</li>
+<li><strong>정의:</strong> 디지털 제품의 전체 수명주기에 걸쳐 사이버보안 요구사항을 의무화한 EU 규정</li>
+<li><strong>키워드:</strong> 디지털 제품 보안, 보안 내재화, CE 마킹, SBOM, 취약점 공개, 수명주기 보안, NIS2 연계, 중요제품, 공급망 보안</li>
 <li><strong>분류</strong>: 법/제도</li>
+<li><strong>법령: </strong>2024년 10월 발효·2027년 12월 전면 시행 예정</li>
 <li><strong>핵심 의무사항:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>의무</th><th>설명</th><th>핵심</th></tr>
 <tr><td>설계</td><td>보안 내재화 
@@ -832,9 +925,8 @@
 <li><strong>정의</strong>: 조직의 리스크를 체계적으로 식별·평가·처리·모니터링하기 위한 국제표준 리스크 관리 프레임워크</li>
 <li><strong>키워드</strong>: 리스크 컨텍스트, 리스크 평가, 리스크 처리, 커뮤니케이션, PDCA</li>
 <li><strong>분류</strong>: 표준</li>
-<li><strong>리스크 관리 프로세스</strong>:<div class="table-scroll"><table>
+<li><strong>리스크 관리 프로세스</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;식분평처모&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>내용</th></tr>
-<tr><td>컨텍스트 수립</td><td>조직 내·외부 환경 파악</td></tr>
 <tr><td>리스크 식별</td><td>위험 원인·사건·결과 식별</td></tr>
 <tr><td>리스크 분석</td><td>발생 가능성·영향 평가</td></tr>
 <tr><td>리스크 평가</td><td>허용 가능 여부 판단</td></tr>
@@ -1010,7 +1102,7 @@
 <li><strong>법적 근거: </strong>「전자정부법」 제 56조, 동법 시행령 제 70조</li>
 <li><strong>정보시스템 등급 분류:</strong> 기관별 정보자원의 중요도와 행정 업무 영향도를 객관적으로 정량화하여 핵심 시스템 위주로 한정된 자원을 집중 투자하는 차등 관리 체계 확립에 필수적</li>
 <li><strong>정보시스템 등급체계:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;국대행일&gt;</strong></span><ul>
-<li>A1 등급: 복수인증수단 필수, RTO 1시간 이내, RPO 실시간, 연 1회 이상 실전 재해복구 훈련 요구</li>
+<li>A1 등급: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>복수인증수단 필수, RTO 1시간 이내, RPO 실시간, 연 1회 이상 실전 재해복구 훈련 요구</strong></u></span></li>
 </ul>
 <div class="table-scroll"><table>
 <tr><th>등급</th><th>분류</th><th>설명</th><th>핵심</th></tr>
@@ -1032,10 +1124,10 @@
 <li><strong>재해복구시스템 구축 기준: </strong>재난·재해 등 비상상황 시 각 등급에 부합하는 명확한 복구 목표 지표(RTO/RPO)
 표준 가이드라인을 제공하여 인프라 구축의 실효성과 다자간 복구 일관성을 확보하기 위함<div class="table-scroll"><table>
 <tr><th>등급</th><th>구축기준</th><th>설명</th><th>핵심</th></tr>
-<tr><td>A1</td><td>Active-Active</td><td>주/보조 실시간 동시 서비스</td><td>고가용성 분산</td></tr>
-<tr><td>A2</td><td>Active-Standby</td><td>보조 상시 동기화·장애 시 대체</td><td>즉시 전환</td></tr>
-<tr><td>A3</td><td>스토리지 DR</td><td>데이터만 타센터 실시간 복제</td><td>RTO 1~5일</td></tr>
-<tr><td>A4</td><td>원격지 소산</td><td>백업매체 주기적 원격지 보관</td><td>RTO 3주</td></tr>
+<tr><td>A1</td><td><strong>Active-Active</strong></td><td>주/보조 실시간 동시 서비스</td><td>고가용성 분산</td></tr>
+<tr><td>A2</td><td><strong>Active-Standby</strong></td><td>보조 상시 동기화·장애 시 대체</td><td>즉시 전환</td></tr>
+<tr><td>A3</td><td><strong>스토리지 DR</strong></td><td>데이터만 타센터 실시간 복제</td><td>RTO 1~5일</td></tr>
+<tr><td>A4</td><td><strong>원격지 소산</strong></td><td>백업매체 주기적 원격지 보관</td><td>RTO 3주</td></tr>
 </table></div>
 </li>
 <li><strong>정보시스템 등급 분류 절차: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;평예제검확&gt;</strong></span><div class="table-scroll"><table>
@@ -1061,7 +1153,7 @@
 </ul>
 <h4>4. OT 환경의 제로트러스트 적용 안내서(25.12.)</h4>
 <ul>
-<li><strong>정의:</strong> OT(운영기술) 환경의 가용성·실시간성을 보장하면서 암묵적 신뢰를 배제하는 보안 아키텍처</li>
+<li><strong>정의:</strong> OT(운영기술) 환경의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>가용성·실시간성을 보장</strong></u></span>하면서 암묵적 신뢰를 배제하는 보안 아키텍처</li>
 <li><strong>키워드:</strong> OT, Zero Trust, Purdue모델, PEP/PDP, 마이크로세그멘테이션, 6대 핵심요소</li>
 <li><strong>분류:</strong> 보안</li>
 <li><strong>OT 보안 위협:</strong><div class="table-scroll"><table>
@@ -1131,7 +1223,7 @@
 </ul>
 </li>
 <li><strong>핵심 원리</strong><ul>
-<li>문서/정의 우선(Documentation First), 구현의 기준(Source of Truth), 기계 가독성(Machine-Readable), AI와의 협업</li>
+<li>문서/정의 우선, 구현의 기준, 기계 가독성, AI와의 협업</li>
 </ul>
 </li>
 <li><strong>SDD 핵심 사이클 (6단계, github spec-kit)</strong><div class="table-scroll"><table>
@@ -1195,6 +1287,7 @@
 <ul>
 <li><strong>정의:</strong> AI 에이전트가 상품을 탐색·평가·결제까지 자율 수행하는 차세대 상거래 방식</li>
 <li><strong>키워드:</strong> ACP, AP2, UCP, MCP, Verifiable Credentials, Mandate, Shared Payment Token, x402</li>
+<li><strong>특징: </strong>록인(Lock-in), 구독경제, 구매 여정 자동화, 결제 권한 위임</li>
 <li><strong>3계층 프로토콜 모델 (경쟁 아닌 계층 분업):</strong><div class="table-scroll"><table>
 <tr><th>계층</th><th>프로토콜</th><th>역할</th><th>핵심</th></tr>
 <tr><td>발견·도구계층</td><td>MCP</td><td>에이전트가 무엇을 읽고·호출할 수 있는지 정의</td><td>Tool Discovery</td></tr>
@@ -1237,8 +1330,6 @@
 <li><strong>분류:</strong> AI / AI 안전성·정렬</li>
 <li><strong>핵심 도전과제 (2대 정렬 문제):</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Outer Alignment</strong></td><td>시스템의 목적을 인간 의도대로 정확히 명시하는 문제</td><td>목표 명세의 정확성</td></tr>
-<tr><td><strong>Inner Alignment</strong></td><td>명시된 목표를 시스템이 견고하게 실제로 추구하도록 하는 문제</td><td>명세-행동 간 간극</td></tr>
 <tr><td><strong>보상해킹(Reward Hacking)</strong></td><td>Outer Alignment 실패 시 발생·명세의 허점을 악용</td><td>명세 자체의 결함</td></tr>
 <tr><td><strong>메사최적화(Mesa-Optimization)</strong></td><td>Inner Alignment 실패 시 발생·학습된 목표가 원목표와 괴리</td><td>학습결과의 왜곡</td></tr>
 </table></div>
@@ -1285,10 +1376,10 @@
 </li>
 <li><strong>인사이트:</strong> AI Alignment는 AI Safety라는 포괄적 분야 내에서 "AI의 목표를 인간 가치에 부합시킨다"는 핵심 기술과제를 담당하며, 2022~2025년 RLHF 단일기법 중심에서 2026년 Constitutional AI·DPO·Scalable Oversight를 결합한 하이브리드 정렬로 진화 중이나, 수학적으로 안전함을 증명하는 정렬 검증(Alignment Verification)은 아직 요원한 과제로 남아있음</li>
 </ul>
-<h4>신기술/개념</h4>
+<h4>6. 신기술/개념</h4>
 <div class="table-scroll"><table>
 <tr><th><strong>토픽명</strong></th><th><strong>정의</strong></th><th><strong>키워드</strong></th></tr>
-<tr><td>FDE(Forward Deployed Engineer)</td><td>고객 현장에 직접 배치하는 고객 밀착형 AI 엔지니어</td><td></td></tr>
+<tr><td>FDE(Forward Deployed Engineer)</td><td>고객 현장에 직접 배치하는 고객 밀착형 AI 엔지니어</td><td>고객 임베딩, 엔드투엔드 오너쉽, 모호성 대응, 프로덕션급 코드, 고객 커뮤니케이션, Palantir</td></tr>
 <tr><td>네오클라우드</td><td>AI를 위한 AI Native 클라우드 컴퓨팅</td><td>GPUaaS, 베어메탈 중심</td></tr>
 <tr><td>AI 우루부로스(AI Ouroboros)</td><td>데이터의 원본성이 상실되는 현상</td><td>모델 붕괴, 모델품질 저하</td></tr>
 </table></div>

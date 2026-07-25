@@ -4117,115 +4117,119 @@
       },
       {
         "id": "015",
-        "name": "[Part 2] 법/제도"
+        "name": "13. 공공데이터 인공지능 친화적 관리 가이드라인(v1, 26.3.)"
       },
       {
         "id": "016",
-        "name": "1. 디지털 권리장전"
+        "name": "[Part 2] 법/제도"
       },
       {
         "id": "017",
-        "name": "2. 디지털 포용법"
+        "name": "1. 디지털 권리장전(Digital Bill of Rights)"
       },
       {
         "id": "018",
-        "name": "3. 정보보호 제품 신속 확인 제도"
+        "name": "2. 디지털 포용법"
       },
       {
         "id": "019",
-        "name": "4. 정보보호 공시제도"
+        "name": "3. 정보보호 제품 신속 확인 제도"
       },
       {
         "id": "020",
-        "name": "5. 소프트웨어 영향평가"
+        "name": "4. 정보보호 공시제도"
       },
       {
         "id": "021",
-        "name": "6. 개인정보 영향평가"
+        "name": "5. 소프트웨어 영향평가"
       },
       {
         "id": "022",
-        "name": "7. EU CRA (Cyber Resilience Act, 사이버복원력법)"
+        "name": "6. 개인정보 영향평가"
       },
       {
         "id": "023",
-        "name": "[Part 3] 표준"
+        "name": "7. EU CRA (Cyber Resilience Act, 사이버복원력법)"
       },
       {
         "id": "024",
-        "name": "1. ISO 31000 (리스크관리)"
+        "name": "[Part 3] 표준"
       },
       {
         "id": "025",
-        "name": "2. ISO 14000 (환경경영체제)"
+        "name": "1. ISO 31000 (리스크관리)"
       },
       {
         "id": "026",
-        "name": "3. ISO/IEC 27001"
+        "name": "2. ISO 14000 (환경경영체제)"
       },
       {
         "id": "027",
-        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
+        "name": "3. ISO/IEC 27001"
       },
       {
         "id": "028",
-        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
+        "name": "4. ISO/IEC 27017 (클라우드 보안 통제)"
       },
       {
         "id": "029",
-        "name": "6. ISO 42001:2023"
+        "name": "5. ISA/IEC 62443 (산업제어시스템 보안)"
       },
       {
         "id": "030",
-        "name": "7. ISO/IEC 25059:2023"
+        "name": "6. ISO 42001:2023"
       },
       {
         "id": "031",
-        "name": "[Part 4] 지침"
+        "name": "7. ISO/IEC 25059:2023"
       },
       {
         "id": "032",
-        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
+        "name": "[Part 4] 지침"
       },
       {
         "id": "033",
-        "name": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
+        "name": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)"
       },
       {
         "id": "034",
-        "name": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
+        "name": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)"
       },
       {
         "id": "035",
-        "name": "4. OT 환경의 제로트러스트 적용 안내서(25.12.)"
+        "name": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)"
       },
       {
         "id": "036",
-        "name": "[Part 5] 140회 대비 신규 문제"
+        "name": "4. OT 환경의 제로트러스트 적용 안내서(25.12.)"
       },
       {
         "id": "037",
-        "name": "1. SDD (Spec-Driven Development, 명세 주도 개발)"
+        "name": "[Part 5] 140회 대비 신규 문제"
       },
       {
         "id": "038",
-        "name": "2. AI-DLC (AI-Driven Development Life Cycle)"
+        "name": "1. SDD (Spec-Driven Development, 명세 주도 개발)"
       },
       {
         "id": "039",
-        "name": "3. 에이전틱 커머스 (Agentic Commerce)"
+        "name": "2. AI-DLC (AI-Driven Development Life Cycle)"
       },
       {
         "id": "040",
-        "name": "4. 개인정보 안전성 확보조치 기준"
+        "name": "3. 에이전틱 커머스 (Agentic Commerce)"
       },
       {
         "id": "041",
-        "name": "5. AI Alignment (AI 정렬)"
+        "name": "4. 개인정보 안전성 확보조치 기준"
       },
       {
         "id": "042",
-        "name": "신기술/개념"
+        "name": "5. AI Alignment (AI 정렬)"
+      },
+      {
+        "id": "043",
+        "name": "6. 신기술/개념"
       }
     ]
   }

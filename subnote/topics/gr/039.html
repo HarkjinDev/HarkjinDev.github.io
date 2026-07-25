@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 에이전틱 커머스 (Agentic Commerce)</title>
+  <title>2. AI-DLC (AI-Driven Development Life Cycle)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,42 @@
   </style>
 </head>
 <body>
-<h4>3. 에이전틱 커머스 (Agentic Commerce)</h4>
+<h4>2. AI-DLC (AI-Driven Development Life Cycle)</h4>
 <ul>
-<li><strong>정의:</strong> AI 에이전트가 상품을 탐색·평가·결제까지 자율 수행하는 차세대 상거래 방식</li>
-<li><strong>키워드:</strong> ACP, AP2, UCP, MCP, Verifiable Credentials, Mandate, Shared Payment Token, x402</li>
-<li><strong>3계층 프로토콜 모델 (경쟁 아닌 계층 분업):</strong><div class="table-scroll"><table>
-<tr><th>계층</th><th>프로토콜</th><th>역할</th><th>핵심</th></tr>
-<tr><td>발견·도구계층</td><td>MCP</td><td>에이전트가 무엇을 읽고·호출할 수 있는지 정의</td><td>Tool Discovery</td></tr>
-<tr><td>실행계층</td><td>ACP</td><td>OpenAI + Stripe </td><td>체크아웃 실행</td></tr>
-<tr><td></td><td>UCP</td><td>Google + Shopify</td><td>셀프서비스화</td></tr>
-<tr><td>인증계층</td><td>AP2</td><td>사용자 의도와 결제 승인을 암호학적으로 증명</td><td>권한 위임 증명</td></tr>
+<li><strong>정의:</strong> AI가 요구사항부터 운영까지 전 과정을 주도하고 인간이 검증·승인하는 개발방법론</li>
+<li><strong>키워드:</strong> AWS, Bolt, Mob Elaboration, Mob Construction, Unit of Work, Persistent Context, Amazon Q Developer</li>
+<li><strong>분류</strong>: 개발 방법론</li>
+<li><strong>핵심 철학: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>"AI proposes, human approves"</strong></u></span></li>
+<li><strong>절차: </strong><div class="table-scroll"><table>
+<tr><th>Phase</th><th>절차</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Inception</strong></td><td>1. Intent(의도 입력)</td><td>비즈니스 목표를 AI에 입력</td><td>목표 입력</td></tr>
+<tr><td><strong>Construction</strong></td><td>2. Plan(AI 계획 수립)</td><td>AI가 실행 계획 자동 수립</td><td>AI 자동계획</td></tr>
+<tr><td></td><td>3. Clarify(질의&amp;확인)</td><td>불명확 사항 질의로 확인</td><td>요구 명확화</td></tr>
+<tr><td></td><td>4. Approve(사람 승인)</td><td>사람이 계획·결과 최종 승인</td><td>휴먼인더루프</td></tr>
+<tr><td></td><td>5. Execute(AI 실행)</td><td>승인된 계획을 AI가 실행</td><td>AI 자동실행</td></tr>
+<tr><td><strong>Operation</strong></td><td>6. Review(검증&amp;리뷰)</td><td>실행 결과 검증 및 리뷰</td><td>결과 검증</td></tr>
+<tr><td></td><td>7. Feedback(피드백&amp;개선)</td><td>피드백 반영해 지속 개선</td><td>지속적 개선</td></tr>
 </table></div>
 </li>
-<li><strong>보조 프로토콜:</strong><div class="table-scroll"><table>
-<tr><th>프로토콜</th><th>역할</th></tr>
-<tr><td>x402 (Coinbase)</td><td>기계 간(M2M) API 결제를 스테이블코인으로 정산</td></tr>
-<tr><td>Visa TAP(Trusted Agent Protocol)</td><td>거래시점 에이전트 신원 검증·카드소지자 대리결제 승인</td></tr>
-<tr><td>A2A(Agent-to-Agent)</td><td>에이전트 간 통신·조정·작업위임 정의</td></tr>
+<li><strong>핵심 용어 (전통 SDLC 대비):</strong><div class="table-scroll"><table>
+<tr><th>AI-DLC 용어</th><th>전통 SDLC 대응</th><th>핵심</th></tr>
+<tr><td><strong>Intent</strong></td><td>비즈니스 목표·비전</td><td>상위 목표</td></tr>
+<tr><td><strong>Unit of Work</strong></td><td>Epic</td><td>분해된 작업단위</td></tr>
+<tr><td><strong>Bolt</strong></td><td>Sprint</td><td>시간~일 단위 초단기 주기</td></tr>
+<tr><td><strong>Mob Elaboration</strong></td><td>요구사항 정의 회의</td><td>Inception 협업</td></tr>
+<tr><td><strong>Mob Construction</strong></td><td>기술 설계 회의</td><td>Construction 협업</td></tr>
+<tr><td><strong>Persistent Context</strong></td><td>(개념 부재)</td><td>세션간 컨텍스트 유지</td></tr>
 </table></div>
 </li>
+<li><strong>AI-DLC 핵심 원칙:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>① Plan First</strong></td><td>AI가 코드 작성 전 작업계획을 먼저 생성</td><td>계획 선행</td></tr>
+<tr><td><strong>② Clarification First</strong></td><td>요구사항 모호 시 AI가 먼저 질문</td><td>질문으로 모호성 제거</td></tr>
+<tr><td><strong>③ Human Approval Gate</strong></td><td>중요 단계마다 사람의 승인 필수</td><td>승인 없이 실행 없음</td></tr>
+<tr><td><strong>④ Persistent Context</strong></td><td>요구사항·설계·결정사항을 저장소에 지속 기록</td><td>세션 간 동일 문맥 유지</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> AI-DLC는 "AI가 제안, 인간이 승인"하는 구조화된 거버넌스로 완전자율·완전수동의 양극단을 지양하며, Bolt·Mob세션·품질게이트로 속도와 통제를 동시에 추구하는 방법론이나, 생산성 수치는 벤더 발표 벤치마크임을 유의해 해석해야 함</li>
 </ul>
 
 </body>
