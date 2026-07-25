@@ -144,6 +144,24 @@
     }
     iframe#viewer.show { display: block; }
 
+    /* ── 모드 버튼 ── */
+    .mode-btns { display: flex; gap: 3px; }
+    .mode-btn {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #888; cursor: pointer;
+      border-radius: 7px; width: 34px; height: 34px;
+      font-size: .95rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s; -webkit-tap-highlight-color: transparent;
+    }
+    .mode-btn:hover { background: rgba(255,255,255,.14); color: #ccc; }
+    .mode-btn.active {
+      background: rgba(193,117,80,.3);
+      border-color: rgba(193,117,80,.6);
+      color: var(--accent);
+    }
+
     /* ── 오버레이 (모바일) ── */
     .overlay {
       display: none; position: fixed; inset: 0; top: var(--header-h);
@@ -173,6 +191,11 @@
   <div class="logo">📚 <em>서브노트</em></div>
   <div class="breadcrumb" id="breadcrumb">토픽을 선택하세요</div>
   <div class="header-right">
+    <div class="mode-btns">
+      <button class="mode-btn" id="modeBtn1" title="토픽명만 보기">1️⃣</button>
+      <button class="mode-btn" id="modeBtn2" title="정의/키워드/분류만 보기">2️⃣</button>
+      <button class="mode-btn active" id="modeBtn3" title="전체 보기">3️⃣</button>
+    </div>
     <button class="nav-btn" id="btnRand" title="랜덤 토픽">🎲</button>
     <button class="nav-btn" id="btnPrev" title="이전 토픽" disabled>⬆</button>
     <button class="nav-btn" id="btnNext" title="다음 토픽" disabled>⬇</button>
@@ -211,10 +234,11 @@ const overlay    = document.getElementById('overlay');
 const btnMenu    = document.getElementById('btnMenu');
 const mainEl     = document.getElementById('mainEl');
 
-let activeItem   = null;
-let allTopics    = [];
-let currentIndex = -1;
+let activeItem    = null;
+let allTopics     = [];
+let currentIndex  = -1;
 let recentDomains = [];  // 최근 방문 도메인 기록 (최대 3개)
+let currentMode   = parseInt(localStorage.getItem('snb_mode') || '3');
 
 const btnPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');
@@ -293,6 +317,92 @@ function resizeIframe() {
     viewer.style.height = '80vh';
   }
 }
+
+/* ── 암기 모드 적용 ── */
+function applyMode(mode) {
+  try {
+    const doc  = viewer.contentDocument;
+    if (!doc || !doc.body) return;
+    const body = doc.body;
+
+    // 이전 주입 스타일 제거
+    const old = doc.getElementById('__mode_style__');
+    if (old) old.remove();
+
+    // 이전 모드 클래스 초기화
+    doc.querySelectorAll('.__show').forEach(el => el.classList.remove('__show'));
+
+    if (mode === 3) {
+      // 전체 보기 — 모든 요소 표시 복원
+      doc.querySelectorAll('[style*="display"]').forEach(el => el.style.display = '');
+      resizeIframe();
+      return;
+    }
+
+    const style = doc.createElement('style');
+    style.id = '__mode_style__';
+
+    if (mode === 1) {
+      // 제목만 보기
+      style.textContent = `
+        body > *:not(h1):not(h2):not(h3):not(h4) { display: none !important; }
+        h1,h2,h3,h4 { display: block !important; }
+      `;
+      doc.head.appendChild(style);
+    }
+
+    if (mode === 2) {
+      // 정의/키워드/분류 li만 보기
+      style.textContent = `
+        ul, ol, table, p, .table-scroll, blockquote,
+        pre, details, figure, img, hr, .callout { display: none !important; }
+        ul.__show, ol.__show { display: block !important; }
+        li.__show { display: list-item !important; }
+      `;
+      doc.head.appendChild(style);
+
+      const SHOW_KEYWORDS = ['정의', '키워드', '분류'];
+      doc.querySelectorAll('ul, ol').forEach(list => {
+        let hasVisible = false;
+        list.querySelectorAll(':scope > li').forEach(li => {
+          const strongText = li.querySelector('strong, b')?.textContent || '';
+          const liText     = li.childNodes[0]?.textContent?.trim() || '';
+          const match = SHOW_KEYWORDS.some(k =>
+            strongText.includes(k) || liText.startsWith(k)
+          );
+          if (match) { li.classList.add('__show'); hasVisible = true; }
+        });
+        if (hasVisible) list.classList.add('__show');
+      });
+    }
+
+    resizeIframe();
+  } catch(e) {
+    console.warn('모드 적용 실패:', e);
+  }
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  localStorage.setItem('snb_mode', mode);
+  [1, 2, 3].forEach(n => {
+    document.getElementById(`modeBtn${n}`)
+      .classList.toggle('active', n === mode);
+  });
+  applyMode(mode);
+}
+
+// 모드 버튼 이벤트
+[1, 2, 3].forEach(n => {
+  document.getElementById(`modeBtn${n}`)
+    .addEventListener('click', () => setMode(n));
+});
+
+// 초기 버튼 상태 반영
+[1, 2, 3].forEach(n => {
+  document.getElementById(`modeBtn${n}`)
+    .classList.toggle('active', n === currentMode);
+});
 
 /* ── topics.json 로드 ── */
 async function init() {
@@ -399,7 +509,7 @@ function loadTopic(domain, id, name, label, skipOpen) {
   viewer.onload = () => {
     loading.classList.remove('show');
     requestAnimationFrame(() => {
-      resizeIframe();
+      applyMode(currentMode);   // 현재 모드 적용
       viewer.classList.add('show');
       mainEl.scrollTo({ top: 0 });
     });
