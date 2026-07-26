@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. TF-IDF (Term Frequency-Inverse Document Frequency)</title>
+  <title>3. NER (Named Entity Recognition, 개체명 인식)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,21 @@
   </style>
 </head>
 <body>
-<h4>4. TF-IDF (Term Frequency-Inverse Document Frequency)</h4>
+<h4>3. NER (Named Entity Recognition, 개체명 인식)</h4>
 <ul>
-<li><strong>정의</strong>: 특정 문서 내에서 단어의 빈도(TF)와 해당 단어가 전체 문서군에서 나타나는 빈도의 역수(IDF)를 곱하여 단어의 중요도를 평가하는 통계적 가중치 모델</li>
-<li><strong>키워드:</strong> 단어 빈도(TF), 역문서 빈도(IDF), 텍스트 마이닝, 정보 검색, 가중치 산출, 희소 행렬, 핵심어 추출, 코사인 유사도</li>
+<li><strong>정의</strong>: 문장 내에서 고유 명사나 특정 의미를 가진 단어를 찾아내어 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>그 범주(Entity)를 식별</strong></u></span>하는 기술</li>
+<li><strong>키워드</strong>: 정보 추출, 시퀀스 레이블링, BIO 태깅, 챗봇 의도 파악</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
-<li><strong>활용 원리</strong>: 특정 문서에는 많이 나오지만 전체 문서에는 흔치 않은 단어일수록 높은 점수를 부여하여 '핵심어'를 추출</li>
-<li><strong>핵심 공식: </strong>(로그를 취하는 이유: 문서 수가 커질수록 IDF 값이 폭발적으로 증가하는 것을 방지)<div class="table-scroll"><table>
-<tr><th>요소</th><th><strong>공식</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>TF </strong></td><td>TF(t, d) = \frac{\text{단어 } t\text{의 등장 횟수}}{\text{문서 } d\text{의 전체 단어 수}}</td><td>특정 문서 내에서 단어 출현 비율</td></tr>
-<tr><td><strong>IDF </strong></td><td>IDF(t) = \log\left(\frac{\text{전체 문서 수}}{\text{단어 } t\text{가 포함된 문서 수}}\right)</td><td>단어의 희소성을 반영 
-(흔한 단어일수록 낮은 값)</td></tr>
-<tr><td><strong>TF-IDF</strong></td><td>TF\text{-}IDF(t, d) = TF(t, d) \times IDF(t)</td><td>단어의 최종 중요도를 나타내는 가중치</td></tr>
-</table></div>
-</li>
-<li><strong>절차: </strong><div class="table-scroll"><table>
+<li><strong>주요 단계</strong>: <div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>1. 전처리</strong></td><td>토큰화, 불용어 제거, 어간 추출 수행</td><td>데이터 정제 및 정규화</td></tr>
-<tr><td><strong>2. TF 계산</strong></td><td>개별 문서 내 단어 출현 빈도 산출</td><td>문서 내 단어 중요도 측정</td></tr>
-<tr><td><strong>3. IDF 계산</strong></td><td>전체 문서 기준 역문서 빈도 산출</td><td>단어의 희소성 및 변별력 파악</td></tr>
-<tr><td><strong>4. TF-IDF 행렬 생성</strong></td><td>문서와 단어 간 희소 행렬 구성</td><td>텍스트의 수치 벡터화</td></tr>
-<tr><td><strong>5. 가중치 적용</strong></td><td>핵심어 추출 및 문서 유사도 계산</td><td>검색 랭킹 및 정보 검색 활용</td></tr>
+<tr><td><strong>1. 문장 토큰화</strong></td><td>문장을 최소 의미 단위로 분리함</td><td>텍스트 분석의 기초 작업</td></tr>
+<tr><td><strong>2. 품사 태깅</strong></td><td>각 토큰의 문법적 역할을 식별함</td><td>고유 명사 등 후보군 파악</td></tr>
+<tr><td><strong>3. 개체명 및 모델 매칭</strong></td><td>사전이나 학습 모델로 개체 탐색</td><td><strong>BIO 태깅(시작/내부/외부 식별)</strong>, 
+<strong>시퀀스 레이블링(토큰분류)</strong></td></tr>
+<tr><td><strong>4. 범주 분류</strong></td><td>추출된 개체를 특정 범주로 매핑</td><td>정보 추출, 챗봇 의도 파악</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 단순 빈도 기반의 한계를 극복하여 검색 엔진 최적화 및 키워드 추출에 여전히 널리 사용됨</li>
+<li><strong>인사이트</strong>: 지식 그래프 구축의 핵심 기술이며, 챗봇 서비스에서 사용자 질문의 핵심 요소를 파악하는 데 필수적임</li>
 </ul>
 
 </body>

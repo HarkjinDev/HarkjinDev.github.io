@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. LLM 성능향상 기법</title>
+  <title>[하위] 2-1. sLLM(small Large Language Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,13 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. LLM 성능향상 기법</h4>
+<h4>[하위] 2-1. sLLM(small Large Language Model)</h4>
 <ul>
-<li><strong>LLM 성능향상 기술:</strong><div class="table-scroll"><table>
-<tr><th>기술 그룹</th><th>설명</th><th>주요 기법</th></tr>
-<tr><td>추론능력 강화</td><td>논리적 사고로 정확도 향상</td><td>CoT, ToT, Least-to-Most</td></tr>
-<tr><td>외부지식 활용 (RAG)</td><td>외부DB 참조 정확도 보강</td><td>RAG, Knowledge-Intensive NLP</td></tr>
-<tr><td>모델병합·결합 </td><td>사전학습 모델 결합·조정</td><td>DARE, Evolutionary Merging</td></tr>
-<tr><td>효율성·비용절감 </td><td>계산비용 절감·성능 유지</td><td>MoE, Sparse Attention, LoRA, 양자화</td></tr>
-<tr><td>멀티모달 통합 </td><td>텍스트·이미지·음성 통합</td><td>CLIP, Flamingo, BLIP-2</td></tr>
-<tr><td>파인튜닝 </td><td>특정 도메인 추가 학습</td><td>SFT, RLHF, RAFT, DPO</td></tr>
-<tr><td>컨텍스트 확장 </td><td>긴 문맥 처리 능력 확장</td><td>RoPE, ALiBi, FlashAttention</td></tr>
-<tr><td>에이전트·도구사용 </td><td>외부도구 호출·자율 실행</td><td>ReAct, AutoGPT, Function Calling</td></tr>
-<tr><td>지식증류 </td><td>대형모델→소형모델 압축</td><td>DistilBERT, TinyLLM</td></tr>
-<tr><td>정렬·안전성</td><td>인간 가치·안전 기준 정렬</td><td>RLHF, Constitutional AI, DPO</td></tr>
+<li><strong>sLLM (소형 언어 모델)</strong><div class="table-scroll"><table>
+<tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>정의</strong></td><td>7B~13B 수준의 파라미터를 가진 경량 모델</td><td>특정 도메인 특화 및 온디바이스 적합</td></tr>
+<tr><td><strong>장점</strong></td><td>낮은 구축 비용, 데이터 보안(On-premise), 빠른 응답 속도</td><td>가성비와 보안성 중심의 B2B 솔루션</td></tr>
+<tr><td><strong>사례</strong></td><td>Llama 3 (8B), Mistral, Phi-3, Solar</td><td>고성능 오픈소스 모델의 확산</td></tr>
 </table></div>
 </li>
 </ul>

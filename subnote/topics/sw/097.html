@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 13-1. 소프트웨어 신뢰성 성장 모델 (SRGM, Software Reliability Growth Model)</title>
+  <title>13. 신뢰성 테스트 (Reliability Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,20 @@
   </style>
 </head>
 <body>
-<h4>[하위] 13-1. 소프트웨어 신뢰성 성장 모델 (SRGM, Software Reliability Growth Model)</h4>
+<h4>13. 신뢰성 테스트 (Reliability Test)</h4>
 <ul>
-<li><strong>정의</strong>: 테스트 진행에 따른 결함 수정으로 소프트웨어 신뢰성이 성장하는 과정을 수학적으로 모델링하여 출시 시점을 예측하는 기법</li>
-<li><strong>키워드</strong>: 결함 발견율, 고장 강도 함수, Goel-Okumoto 모델, Musa-Okumoto, NHPP</li>
+<li><strong>정의</strong>: 소프트웨어가 주어진 환경에서 특정 기간 동안 정상적으로 기능을 수행하는 능력(신뢰성)을 측정하고 검증하는 테스트</li>
+<li><strong>키워드</strong>: MTBF(Mean Time Between Failures), MTTF, MTTR, 가용성, 결함 내성, 신뢰성 성장 모델</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>주요 SRGM 모델</strong>:<div class="table-scroll"><table>
-<tr><th>모델</th><th>특징</th></tr>
-<tr><td>Jelinski-Moranda</td><td>초기 결함 수 고정, 발견 즉시 수정 가정</td></tr>
-<tr><td>Goel-Okumoto</td><td>NHPP(비동질 포아송 과정) 기반 S자 곡선</td></tr>
-<tr><td>Musa-Okumoto</td><td>로그 포아송, 실행 시간 기반</td></tr>
-<tr><td>Littlewood-Verrall</td><td>베이지안 접근, 가변 결함 크기</td></tr>
+<li><strong>신뢰성 측정 지표</strong>:<div class="table-scroll"><table>
+<tr><th>지표</th><th>공식</th><th>설명</th></tr>
+<tr><td>MTTF</td><td>평균 고장 간격</td><td>첫 고장까지의 평균 시간</td></tr>
+<tr><td>MTTR</td><td>평균 수리 시간</td><td>고장 후 복구까지의 평균 시간</td></tr>
+<tr><td>MTBF</td><td>MTTF + MTTR</td><td>고장과 고장 사이의 평균 시간</td></tr>
+<tr><td>가용성</td><td>MTBF / (MTBF + MTTR)</td><td>정상 운영 비율</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: SRGM은 <strong>테스트 완료 시점 및 잔존 결함 수를 예측</strong>하여 출시 결정의 정량적 근거를 제공하며, 결함 발견율이 안정화(수렴)될 때를 출시 기준으로 활용.</li>
+<li><strong>인사이트</strong>: 신뢰성 테스트는 <strong>장시간 부하 환경에서의 안정성 측정</strong>이 목적으로, MTBF·MTTR을 SLA 지표와 연계하여 가용성 목표 달성 여부를 정량적으로 평가.</li>
 </ul>
 
 </body>

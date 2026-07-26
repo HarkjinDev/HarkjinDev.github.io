@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21. 패키지 소프트웨어 테스트</title>
+  <title>20. 임베디드 소프트웨어 테스트 (Embedded SW Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,20 @@
   </style>
 </head>
 <body>
-<h4>21. 패키지 소프트웨어 테스트</h4>
+<h4>20. 임베디드 소프트웨어 테스트 (Embedded SW Test)</h4>
 <ul>
-<li><strong>정의</strong>: 상용 패키지(ERP·CRM·그룹웨어 등)를 도입 환경에 맞게 설치·구성한 후 요구사항 충족 및 커스터마이징 정합성을 검증하는 테스트</li>
-<li><strong>키워드</strong>: 인수 테스트(UAT), 설치 테스트, 구성 테스트, 호환성 테스트, ISO 25051</li>
+<li><strong>정의</strong>: 특정 하드웨어에 종속적으로 동작하는 임베디드 시스템의 소프트웨어를 검증하는 테스트로, 실시간성·자원 제약·하드웨어 의존성이 특징</li>
+<li><strong>키워드</strong>: HIL(Hardware In the Loop), SIL(Software In the Loop), MIL(Model In the Loop), RTOS, 실시간 제약, 타이밍 분석, 안전인증</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>패키지 SW 테스트 주요 유형</strong>:<div class="table-scroll"><table>
-<tr><th>유형</th><th>설명</th></tr>
-<tr><td>설치 테스트</td><td>설치·업그레이드·제거 정상 동작 확인</td></tr>
-<tr><td>구성 테스트</td><td>다양한 구성 옵션에서의 정상 동작</td></tr>
-<tr><td>인수 테스트 (UAT)</td><td>실제 사용자가 업무 시나리오로 검증</td></tr>
-<tr><td>회귀 테스트</td><td>커스터마이징 후 기본 기능 영향 확인</td></tr>
-<tr><td>호환성 테스트</td><td>기존 시스템·데이터와의 연동 검증</td></tr>
+<li><strong>임베디드 테스트 환경 비교</strong>:<div class="table-scroll"><table>
+<tr><th>환경</th><th>설명</th><th>특징</th></tr>
+<tr><td>MIL (Model-in-the-Loop)</td><td>모델 수준 시뮬레이션</td><td>초기 설계 단계 검증</td></tr>
+<tr><td>SIL (Software-in-the-Loop)</td><td>생성된 코드 PC에서 실행</td><td>코드 로직 검증</td></tr>
+<tr><td>HIL (Hardware-in-the-Loop)</td><td>실제 하드웨어 연결 시뮬레이션</td><td>실시간 하드웨어 인터랙션</td></tr>
+<tr><td>PIL (Processor-in-the-Loop)</td><td>실제 타겟 프로세서 사용</td><td>프로세서 특성 검증</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 패키지 SW는 소스 수정이 제한적이므로 <strong>도입 전 GAP 분석(기능 갭 파악)</strong>이 필수이며, UAT에서 실 업무 담당자가 직접 시나리오를 검증하는 것이 핵심.</li>
+<li><strong>인사이트</strong>: 임베디드 테스트는 <strong>실제 환경 재현 비용이 높아 MIL→SIL→HIL 단계적 검증</strong>이 표준이며, DO-178C(항공)·ISO 26262(자동차) 등 도메인별 안전 인증 기준 준수가 필수.</li>
 </ul>
 
 </body>

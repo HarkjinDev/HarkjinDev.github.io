@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. NER (Named Entity Recognition, 개체명 인식)</title>
+  <title>2.워드 임베딩 (Word Embedding)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,33 @@
   </style>
 </head>
 <body>
-<h4>3. NER (Named Entity Recognition, 개체명 인식)</h4>
+<h4>2. <strong>워드 임베딩 (Word Embedding)</strong></h4>
 <ul>
-<li><strong>정의</strong>: 문장 내에서 고유 명사나 특정 의미를 가진 단어를 찾아내어 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>그 범주(Entity)를 식별</strong></u></span>하는 기술</li>
-<li><strong>키워드</strong>: 정보 추출, 시퀀스 레이블링, BIO 태깅, 챗봇 의도 파악</li>
-<li><strong>분류</strong>: 자연어처리(NLP)</li>
-<li><strong>주요 단계</strong>: <div class="table-scroll"><table>
-<tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>1. 문장 토큰화</strong></td><td>문장을 최소 의미 단위로 분리함</td><td>텍스트 분석의 기초 작업</td></tr>
-<tr><td><strong>2. 품사 태깅</strong></td><td>각 토큰의 문법적 역할을 식별함</td><td>고유 명사 등 후보군 파악</td></tr>
-<tr><td><strong>3. 개체명 및 모델 매칭</strong></td><td>사전이나 학습 모델로 개체 탐색</td><td><strong>BIO 태깅(시작/내부/외부 식별)</strong>, 
-<strong>시퀀스 레이블링(토큰분류)</strong></td></tr>
-<tr><td><strong>4. 범주 분류</strong></td><td>추출된 개체를 특정 범주로 매핑</td><td>정보 추출, 챗봇 의도 파악</td></tr>
+<li><strong>정의:</strong> 단어를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>고차원 벡터 공간의 수치(실수)로 변환</strong></u></span>하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단어 간의 의미적 유사성을 보존</strong></u></span>하는 기술</li>
+<li><strong>키워드:</strong> 분산 가설, Word2Vec, CBOW, Skip-gram, GloVe, FastText, ELMo, BERT, 코사인 유사도, 단어 유추, 상관계수, t-SNE</li>
+<li><strong>분류:</strong> 자연어 처리 (NLP)</li>
+<li><strong>분산 가설(Distributional Hypothesis):</strong> 비슷한 문맥에서 나타나는 단어들은 비슷한 의미를 가진다는 가정(유사 문맥 = 유사 의미)</li>
+<li><strong>주요 모델:</strong><div class="table-scroll"><table>
+<tr><th><strong>분류</strong></th><th><strong>모델</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>추론 기반 (정적)</strong></td><td><strong>Word2Vec</strong></td><td>신경망 기반 단어 벡터화</td><td>단어 간 산술 연산</td></tr>
+<tr><td><strong>추론 기반 (정적)</strong></td><td><strong>CBOW</strong></td><td>주변 단어로 중심 단어 예측</td><td>빠른 학습 속도</td></tr>
+<tr><td><strong>추론 기반 (정적)</strong></td><td><strong>Skip-gram</strong></td><td>중심 단어로 주변 단어 예측</td><td>저빈도 단어 학습 유리</td></tr>
+<tr><td><strong>통계 기반 (정적)</strong></td><td><strong>GloVe</strong></td><td>말뭉치 전체 통계 정보 반영</td><td>전역적 의미 관계 보존</td></tr>
+<tr><td><strong>서브워드 (정적)</strong></td><td><strong>FastText</strong></td><td>단어를 부분 단위로 분리 학습</td><td>미등록 단어(OOV) 대응</td></tr>
+<tr><td><strong>문맥 기반 (동적)</strong></td><td><strong>ELMo</strong></td><td>양방향 LSTM으로 문맥 파악</td><td>단어 중의성 해결 가능</td></tr>
+<tr><td><strong>문맥 기반 (동적)</strong></td><td><strong>BERT</strong></td><td>트랜스포머 양방향 인코딩</td><td>현재 NLP 핵심 표준 기술</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 지식 그래프 구축의 핵심 기술이며, 챗봇 서비스에서 사용자 질문의 핵심 요소를 파악하는 데 필수적임</li>
+<li><strong>워드 임베딩 성능 지표:</strong><div class="table-scroll"><table>
+<tr><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>코사인 유사도</strong></td><td>벡터 간의 각도로 유사도 측정</td><td>1에 가까울수록 의미적 유사함</td></tr>
+<tr><td><strong>단어 유추 (Analogy)</strong></td><td>단어 간 관계를 벡터 연산함</td><td>의미적·문법적 추론 능력 검증</td></tr>
+<tr><td><strong>상관계수 (Correlation)</strong></td><td>인간 평가와 수치 상관성 확인</td><td>전문가 판단(WS-353)과의 일치도</td></tr>
+<tr><td><strong>클러스터 순도 (Purity)</strong></td><td>군집화 후 동일 범주 포함 비율</td><td>단어 범주화의 정확성 평가</td></tr>
+<tr><td><strong>시각화 평가 (t-SNE)</strong></td><td>고차원 벡터를 2차원 투영함</td><td>군집 형성 여부 시각적 확인</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 단어를 단순 숫자로 바꾸는 단계를 넘어, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단어 간의 '거리'를 통해 의미적 관계를 산출</strong></u></span>함. 이는 단순 통계 기반에서 딥러닝 기반 언어 모델로 넘어가는 핵심 가교 역할을 함</li>
 </ul>
 
 </body>

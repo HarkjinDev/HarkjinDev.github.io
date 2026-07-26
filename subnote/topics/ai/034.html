@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 5] 신경망 (Neural Networks)</title>
+  <title>7. 메타학습 (Meta Learning)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,35 @@
   </style>
 </head>
 <body>
-<h3>[Part 5] 신경망 (Neural Networks)</h3>
+<h4>7. 메타학습 (Meta Learning)</h4>
+<ul>
+<li><strong>정의:</strong> 메타 지식을 통해 새로운 문제를 적은 데이터와 적은 학습만으로 빠르게 적응하도록 하는 프레임워크</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Learning to Learn, Few-shot Learning, MAML, MANN,</strong></u></span> Task Distribution, Base/Meta Learner, Support/Query Set</li>
+<li><strong>분류</strong>: 비지도학습</li>
+<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Learning to Learn</strong></td><td>학습하는 방법 자체를 학습</td><td>학습법 학습</td></tr>
+<tr><td><strong>Few-shot 적응</strong></td><td>소량데이터로 신속히 새 과제 적응</td><td>소량데이터 적응</td></tr>
+<tr><td><strong>이중루프 구조</strong></td><td>Inner/Outer 루프로 과제별·전체 최적화</td><td>이중루프 최적화</td></tr>
+<tr><td><strong>일반화 능력</strong></td><td>다양한 과제 경험으로 범용성 확보</td><td>범용 일반화</td></tr>
+</table></div>
+</li>
+<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기술요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>학습 대상</strong></td><td>Task Distribution</td><td>다양한 관련 Task를 학습해 공통패턴·적응전략 도출</td><td>공통패턴 도출</td></tr>
+<tr><td><strong>학습 단계</strong></td><td>Meta-Training</td><td>여러 Task 반복학습으로 메타지식·초기파라미터 학습</td><td>메타지식 학습</td></tr>
+<tr><td></td><td>Meta-Testing</td><td>새로운 Task에서 소량데이터로 빠르게 적응</td><td>신속 적응</td></tr>
+<tr><td><strong>학습 구조</strong></td><td>Base Learner</td><td>개별 Task를 수행하는 모델(Inner Learning Loop)</td><td>개별과제 수행</td></tr>
+<tr><td></td><td>Meta Learner / Meta Knowledge</td><td>Base Learner 결과 분석해 초기가중치·전략 최적화(Outer Loop)</td><td>전략 최적화</td></tr>
+<tr><td><strong>데이터 구성</strong></td><td>Support Set/Query Set</td><td>Support Set으로 적응, Query Set으로 테스트 진행</td><td>적응·테스트셋</td></tr>
+<tr><td><strong>최적화기반</strong></td><td>MAML</td><td>초기파라미터·학습률 자체를 학습하는 메타최적화기법</td><td>초기값 최적화</td></tr>
+<tr><td><strong>메트릭기반</strong></td><td>Matching Network / Prototypical Network</td><td>유사도 기반 Few-shot 분류 수행</td><td>거리기반 분류</td></tr>
+<tr><td><strong>모델기반</strong></td><td>MANN(Memory-Augmented NN)</td><td>외부메모리·내부상태로 학습속도·업데이트 조절</td><td>메모리기반 조절</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 메타학습은 "학습하는 법을 학습"함으로써 데이터가 부족한 새로운 과제에도 신속히 적응하는 범용 지능의 핵심 기반기술이다.</li>
+</ul>
+<hr/>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 연합학습 (Federated Learning)</title>
+  <title>[하위] 3-1. 루프 엔지니어링</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,46 +15,30 @@
   </style>
 </head>
 <body>
-<h4>5. 연합학습 (Federated Learning)</h4>
+<h4>[하위] 3-1. 루프 엔지니어링</h4>
 <ul>
-<li><strong>정의</strong>: 로컬기기에서 학습한 가중치만 서버와 공유해 프라이버시를 보호하는 분산학습기법</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인정보 보호</strong></u></span>, 데이터 비식별화, 가중치 평균, 분산 학습, 프라이버시 보존, 가중치 집계, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>FedSGD, FedAvg, 차등 프라이버시,</strong></u></span> 통신 효율, Non-IID, 온디바이스 학습</li>
-<li><strong>분류</strong>: AI 응용/트렌드</li>
-<li><strong>특징</strong>: 데이터 주권 확보, 프라이버시 보호, 통신 비용 절감</li>
-<li><strong>동작 원리: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;모로가집반&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 모델 배포</strong></td><td>서버가 전역 모델을 각 클라이언트에 배포</td><td>초기 배포</td></tr>
-<tr><td><strong>2. 로컬 학습</strong></td><td>클라이언트가 자신의 로컬 데이터로 모델 학습</td><td>분산 학습</td></tr>
-<tr><td><strong>3. 가중치 업로드</strong></td><td>데이터 대신 학습된 가중치(기울기)만 서버에 전송</td><td>프라이버시 보존</td></tr>
-<tr><td><strong>4. 집계 (Aggregation)</strong></td><td>서버가 각 클라이언트 가중치를 FedAvg 등으로 통합</td><td>전역 모델 갱신</td></tr>
-<tr><td><strong>5. 반복</strong></td><td>갱신된 전역 모델을 재배포하며 위 과정 반복</td><td>수렴까지 반복</td></tr>
+<li><strong>정의:</strong> AI 에이전트가 사람의 지속 개입 없이, 원하는 목표를 위해 피드백 루프를 설계/운영하는 방법론</li>
+<li><strong>에이전트 루프 (Agent Loop) 동작 구조:</strong><div class="table-scroll"><table>
+<tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>1. 목표/관찰</strong></td><td>해결해야 할 목표(Goal)를 수용함</td><td>사용자 의도 및 최종 목적지</td></tr>
+<tr><td><strong>2. 계획</strong></td><td>복잡한 태스크를 하위 단계로 분해 및 할당</td><td>전체적인 실행 계획</td></tr>
+<tr><td><strong>3. 행동(추론)</strong></td><td>LLM이 현재 상태를 분석하고 다음 행동 결정</td><td><strong>ReAct</strong> / <strong>CoT</strong></td></tr>
+<tr><td><strong>3. 행동(툴 호출)</strong></td><td>외부 도구(API, 코드, 검색 등)를 실행함</td><td>외부 세계와의 상호작용</td></tr>
+<tr><td><strong>4. 검증/기록</strong></td><td>도구 실행 결과를 확인하고 컨텍스트에 기록</td><td>피드백 및 지식 반영</td></tr>
+<tr><td><strong>5. 판단(종료 조건)</strong></td><td>목표 달성 여부를 확인하여 루프 지속 결정</td><td>조건 미충족 시 <strong>추론</strong> 단계로 재순환</td></tr>
+<tr><td><strong>6. 종료(결과 반환)</strong></td><td>최종 완성된 결과물을 사용자에게 전달</td><td>태스크 완결 및 루프 종료</td></tr>
 </table></div>
 </li>
-<li><strong>주요 유형:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>수평 연합학습</strong></td><td>클라이언트 간 동일한 특징, 다른 샘플 데이터 보유</td><td>샘플 분산</td></tr>
-<tr><td><strong>수직 연합학습</strong></td><td>클라이언트 간 동일한 샘플, 다른 특징 데이터 보유</td><td>특징 분산</td></tr>
-<tr><td><strong>연합 전이학습</strong></td><td>데이터·특징 모두 다를 때 전이학습과 결합</td><td>이종 도메인</td></tr>
+<li><strong>구성요소: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
+<tr><td><strong>자동수행</strong></td><td><strong>Automations</strong></td><td>일정·이벤트 기반 루프 자동 시작</td></tr>
+<tr><td><strong>격리</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Worktrees</strong></u></span></td><td>에이전트별 독립적 작업공간에서 병렬 수행</td></tr>
+<tr><td><strong>지식</strong></td><td><strong>Skills</strong></td><td>프로젝트 설명을 미리 작성한 파일로 지식·절차 재사용</td></tr>
+<tr><td><strong>연계</strong></td><td><strong>Plugins/Connectors</strong></td><td>MCP기반 외부 도구·데이터와 업무 연계</td></tr>
+<tr><td><strong>분업</strong></td><td><strong>Sub-agents</strong></td><td>실행과 검증역할 Agent 분리로 루프 신뢰성 확보</td></tr>
+<tr><td><strong>기록</strong></td><td><strong>Memory/State</strong></td><td>루프 외부에 상태·진행 이력 저장</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 기술:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>FedSGD</strong></td><td>클라이언트 가중치를 서버가 집계하여 전역모델 갱신</td><td>기본 연합학습 방식</td></tr>
-<tr><td><strong>FedAvg</strong></td><td>클라이언트 가중치를 데이터 비율로 가중 평균 집계</td><td>표준 집계 알고리즘</td></tr>
-<tr><td><strong>차등 프라이버시 (DP)</strong></td><td>가중치에 노이즈를 추가하여 개인정보 역추론 방지</td><td>프라이버시 강화</td></tr>
-<tr><td><strong>보안 집계 </strong></td><td>암호화 기반으로 개별 가중치 노출 없이 집계 수행</td><td>암호화 집계</td></tr>
-<tr><td><strong>통신 압축</strong></td><td>가중치 양자화·희소화로 통신 비용 절감</td><td>통신 효율화</td></tr>
-</table></div>
-</li>
-<li><strong>주요 문제점:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Non-IID 문제</strong></td><td>클라이언트 간 데이터 분포 불균일로 모델 수렴 저하</td><td>데이터 이질성</td></tr>
-<tr><td><strong>통신 비용</strong></td><td>반복적인 가중치 송수신으로 네트워크 부하 발생</td><td>통신 병목</td></tr>
-<tr><td><strong>무임승차 공격</strong></td><td>일부 클라이언트가 학습 기여 없이 전역 모델만 수신</td><td>신뢰성 문제</td></tr>
-<tr><td><strong>적대적 공격</strong></td><td>악의적 클라이언트가 오염된 가중치로 모델 훼손</td><td>보안 취약성</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 연합학습은 데이터 프라이버시 규제가 강화되는 환경에서 '데이터는 모으지 않고 지식만 모으는' 현실적 대안으로 부상함. 특히 의료·금융 등 데이터 민감도가 높은 산업에서 AI 도입의 핵심 enabler로 주목받고 있으며, 차등 프라이버시·보안 집계와의 결합으로 프라이버시 보존 수준이 지속적으로 강화되는 추세</li>
 </ul>
 
 </body>

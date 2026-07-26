@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 시계열 딥러닝 (Time-series Deep Learning)</title>
+  <title>7. 은닉 마르코프 모델 (HMM, Hidden Markov Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,55 +15,19 @@
   </style>
 </head>
 <body>
-<h4>8. 시계열 딥러닝 (Time-series Deep Learning)</h4>
+<h4>7. 은닉 마르코프 모델 (HMM, Hidden Markov Model)</h4>
 <ul>
-<li><strong>정의:</strong> 시간 순서로 수집된 연속 데이터의 패턴·추세·계절성을 딥러닝 모델로 학습하여 예측·분류·이상 탐지를 수행하는 AI 기술</li>
-<li><strong>키워드:</strong> 시계열, LSTM, Transformer, TCN, 자기상관, 트렌드·계절성, 이상 탐지, 예측, 시간 의존성</li>
+<li><strong>정의</strong>: 시스템이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>숨겨진 상태(Hidden State)와 관찰 가능한 결과(Observation)로 구성되어 있다고 가정</strong></u></span>하고, 상태 변화를 확률적으로 모델링하는 기법</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>상태 전이 확률, 마르코프 연쇄</strong></u></span>, 음성 인식, 전방-후방 알고리즘</li>
 <li><strong>분류</strong>: 신경망</li>
-<li><strong>시계열 데이터 특성:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>추세 (Trend)</strong></td><td>장기적 증가·감소 방향성</td><td>장기 방향성</td></tr>
-<tr><td><strong>계절성 (Seasonality)</strong></td><td>주기적으로 반복되는 패턴</td><td>주기적 반복</td></tr>
-<tr><td><strong>불규칙성 (Noise)</strong></td><td>예측 불가한 랜덤 변동</td><td>랜덤 변동</td></tr>
-<tr><td><strong>자기상관 (Autocorrelation)</strong></td><td>과거값이 현재값에 영향</td><td>시간 의존성</td></tr>
-<tr><td><strong>정상성 (Stationarity)</strong></td><td>통계적 특성이 시간에 무관</td><td>학습 안정성</td></tr>
+<li><strong>구성 요소</strong>: <div class="table-scroll"><table>
+<tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>상태 전이 확률</strong></td><td>현재 상태에서 다음 상태로 변할 확률</td><td>상태 변화의 동적 모델링</td></tr>
+<tr><td><strong>방출 확률</strong></td><td>은닉 상태에서 관찰값이 생성될 확률</td><td>관찰 데이터의 확률 분포</td></tr>
+<tr><td><strong>초기 상태 분포</strong></td><td>프로세스가 특정 상태로 시작할 확률</td><td>시작 지점의 확률적 결정</td></tr>
 </table></div>
 </li>
-<li><strong>주요 딥러닝 모델:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>모델</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>RNN 계열</strong></td><td><strong>LSTM</strong></td><td>장기 의존성 학습·게이트 구조</td><td>장기 패턴 학습</td></tr>
-<tr><td></td><td><strong>GRU</strong></td><td>LSTM 경량화·게이트 단순화</td><td>경량 순환 모델</td></tr>
-<tr><td></td><td><strong>Bidirectional LSTM</strong></td><td>과거·미래 양방향 시계열 학습</td><td>양방향 학습</td></tr>
-<tr><td><strong>합성곱 계열</strong></td><td><strong>TCN (Temporal CNN)</strong></td><td>인과적 확장 합성곱 시계열 처리</td><td>병렬 처리 우수</td></tr>
-<tr><td></td><td><strong>WaveNet</strong></td><td>확장 합성곱 기반 음성·신호 생성</td><td>음성·신호 처리</td></tr>
-<tr><td><strong>트랜스포머</strong></td><td><strong>Transformer</strong></td><td>자기 어텐션 기반 장기 의존성 포착</td><td>전역 의존성</td></tr>
-<tr><td></td><td><strong>Informer</strong></td><td>희소 어텐션·장문 시계열 효율 처리</td><td>장문 예측 효율</td></tr>
-<tr><td></td><td><strong>PatchTST</strong></td><td>시계열 패치 단위 Transformer 학습</td><td>패치 기반 학습</td></tr>
-<tr><td></td><td><strong>TimesNet</strong></td><td>1D 시계열을 2D 변환 후 CNN 처리</td><td>2D 변환 처리</td></tr>
-<tr><td><strong>하이브리드</strong></td><td><strong>N-BEATS</strong></td><td>순수 딥러닝 기반 시계열 분해 예측</td><td>분해 기반 예측</td></tr>
-<tr><td></td><td><strong>TFT (Temporal Fusion Transformer)</strong></td><td>어텐션 + 게이트 기반 다변량 예측</td><td>다변량 통합 예측</td></tr>
-</table></div>
-</li>
-<li><strong>핵심 기법:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>슬라이딩 윈도우</strong></td><td>고정 크기 윈도우로 입력 시퀀스 생성</td><td>시퀀스 구성</td></tr>
-<tr><td><strong>시계열 분해</strong></td><td>추세·계절성·잔차 분리 후 학습</td><td>성분 분리 학습</td></tr>
-<tr><td><strong>차분 (Differencing)</strong></td><td>비정상 시계열을 정상 시계열로 변환</td><td>정상성 확보</td></tr>
-<tr><td><strong>다변량 입력</strong></td><td>여러 변수 동시 입력·상관관계 학습</td><td>다변량 처리</td></tr>
-<tr><td><strong>교사 강요 (Teacher Forcing)</strong></td><td>훈련 시 실제값을 다음 입력으로 사용</td><td>학습 안정화</td></tr>
-<tr><td><strong>어텐션 메커니즘</strong></td><td>중요 시점에 가중치 집중하여 예측</td><td>중요 시점 포착</td></tr>
-</table></div>
-</li>
-<li><strong>태스크 유형:</strong><div class="table-scroll"><table>
-<tr><th>유형</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>예측 (Forecasting)</strong></td><td>미래 시점 값 예측 (단기·장기)</td><td>미래 예측</td></tr>
-<tr><td><strong>분류 (Classification)</strong></td><td>시계열 패턴별 클래스 분류</td><td>패턴 분류</td></tr>
-<tr><td><strong>이상 탐지 (Anomaly Detection)</strong></td><td>정상 패턴 대비 이상 시점 감지</td><td>이상 감지</td></tr>
-<tr><td><strong>세그멘테이션</strong></td><td>시계열 구간별 의미 단위 분할</td><td>구간 분할</td></tr>
-<tr><td><strong>결측값 보간</strong></td><td>누락된 시점 값 추정·복원</td><td>결측 복원</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 시계열 딥러닝은 LSTM 중심에서 Transformer 계열로 빠르게 전환되고 있으며, PatchTST·TimesNet 등 시계열 특화 Transformer가 기존 LSTM을 성능면에서 앞서고 있음. 단순 정확도보다 불확실성 정량화·해석 가능성·비정상 시계열 대응이 실무 적용의 핵심 과제이며, 다변량·장기 예측·이상 탐지를 통합하는 범용 시계열 Foundation Model 개발이 차세대 연구 방향으로 부상하고 있음</li>
+<li><strong>인사이트</strong>: 과거 음성 인식 및 자연어 처리의 주류였으나, 현재는 RNN 및 Transformer 기반 딥러닝 모델로 대체되는 추세임을 언급</li>
 </ul>
 
 </body>

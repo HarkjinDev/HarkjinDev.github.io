@@ -18,12 +18,15 @@
 <h4>2. 양자내성 암호 (Post-Quantum Cryptography, PQC)</h4>
 <ul>
 <li><strong>정의</strong>: 양자컴퓨터의 공격에도 안전한 암호 알고리즘</li>
-<li><strong>키워드</strong>: Shor 알고리즘, Grover 알고리즘, 격자/다변수/해시/코드/아이소제니 기반, Kyber, Dilihium, SPHINCS+, HNDL</li>
+<li><strong>키워드</strong>: Shor 알고리즘, Grover 알고리즘, 격자/다변수/해시/코드/아이소제니 기반, Kyber, Dilihium, SPHINCS+, HNDL,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> Q-Day</strong></u></span></li>
 <li><strong>분류</strong>: 양자 보안</li>
-<li><strong>양자컴퓨터 위협</strong>: Shor 알고리즘으로 RSA/ECC 파괴 가능, Grover 알고리즘으로 대칭키 보안강도 절반 감소<div class="table-scroll"><table>
+<li><strong>양자컴퓨터 위협(Q-Day)</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;쇼공그대&gt;</strong></span><ul>
+<li>Shor 알고리즘으로 RSA/ECC 파괴 가능, Grover 알고리즘으로 대칭키 보안강도 절반 감소</li>
+</ul>
+<div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>특징</th><th>영향 암호</th><th>영향</th></tr>
 <tr><td>Shor</td><td>인수분해 문제 해결 속도 감소</td><td>공개키</td><td>더 이상 안전하지 않음</td></tr>
-<tr><td>Grover</td><td>정렬되지 않은 데이터베이스 원소 검색 속도 향상</td><td>대칭키</td><td>키 사이즈 증가 필요</td></tr>
+<tr><td>Grover</td><td>정렬되지 않은 DB 원소 검색 속도 향상</td><td>대칭키</td><td>키 사이즈 증가 필요</td></tr>
 <tr><td></td><td></td><td>해시</td><td>암호 알고리즘 출력 길이 증가 필요</td></tr>
 </table></div>
 </li>

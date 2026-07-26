@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. 신뢰성 테스트 (Reliability Test)</title>
+  <title>12. 카오스 테스트 (Chaos Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,20 @@
   </style>
 </head>
 <body>
-<h4>13. 신뢰성 테스트 (Reliability Test)</h4>
+<h4>12. 카오스 테스트 (Chaos Test)</h4>
 <ul>
-<li><strong>정의</strong>: 소프트웨어가 주어진 환경에서 특정 기간 동안 정상적으로 기능을 수행하는 능력(신뢰성)을 측정하고 검증하는 테스트</li>
-<li><strong>키워드</strong>: MTBF(Mean Time Between Failures), MTTF, MTTR, 가용성, 결함 내성, 신뢰성 성장 모델</li>
+<li><strong>정의</strong>: 프로덕션 환경에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의도적으로 장애를 주입</strong></u></span>하여 시스템의 복원력과 장애 내성을 검증하는 테스트 방법론</li>
+<li><strong>키워드</strong>: Chaos Engineering, Netflix Chaos Monkey, 카오스 원숭이, 복원력(Resilience), 실패 주입, 게임 데이(Game Day)</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>신뢰성 측정 지표</strong>:<div class="table-scroll"><table>
-<tr><th>지표</th><th>공식</th><th>설명</th></tr>
-<tr><td>MTTF</td><td>평균 고장 간격</td><td>첫 고장까지의 평균 시간</td></tr>
-<tr><td>MTTR</td><td>평균 수리 시간</td><td>고장 후 복구까지의 평균 시간</td></tr>
-<tr><td>MTBF</td><td>MTTF + MTTR</td><td>고장과 고장 사이의 평균 시간</td></tr>
-<tr><td>가용성</td><td>MTBF / (MTBF + MTTR)</td><td>정상 운영 비율</td></tr>
-</table></div>
+<li><strong>카오스 엔지니어링 원칙 (Netflix)</strong>:<ul>
+<li>정상 상태(Steady State) 정의</li>
+<li>정상 상태가 실험군·대조군에서 유지된다는 가설 수립</li>
+<li>실제 세계의 장애 이벤트 반영</li>
+<li>프로덕션 환경에서 실험</li>
+<li>폭발 반경(Blast Radius) 최소화</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 신뢰성 테스트는 <strong>장시간 부하 환경에서의 안정성 측정</strong>이 목적으로, MTBF·MTTR을 SLA 지표와 연계하여 가용성 목표 달성 여부를 정량적으로 평가.</li>
+<li><strong>인사이트</strong>: 카오스 테스트는 <strong>“장애는 반드시 발생한다”는 전제 하에 사전 훈련</strong>으로 복원력을 높이는 SRE 실천이며, MSA·클라우드 환경에서 단일 장애 지점(SPOF) 발견에 효과적.</li>
 </ul>
 
 </body>

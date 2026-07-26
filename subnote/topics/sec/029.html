@@ -29,11 +29,27 @@
 </table></div>
 </li>
 <li><strong>주요 생성 방식:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>GAN 기반</strong></td><td>생성자·판별자 경쟁 학습으로 실제 분포와 유사한 데이터 생성</td><td>분포 모방</td></tr>
-<tr><td><strong>VAE 기반</strong></td><td>잠재 공간 샘플링으로 다양한 변형 데이터 생성</td><td>변형 생성</td></tr>
-<tr><td><strong>LLM 기반</strong></td><td>대형 언어 모델로 텍스트·대화·지시문 형태의 합성 데이터 생성</td><td>텍스트 합성</td></tr>
-<tr><td><strong>규칙 기반</strong></td><td>도메인 규칙·통계 모델로 정형 데이터 생성</td><td>규칙 생성</td></tr>
+<tr><th>항목</th><th>설명</th><th>대표 알고리즘</th></tr>
+<tr><td><strong>GAN 기반</strong></td><td>생성자·판별자 경쟁 학습</td><td>Table GAN, CTGAN</td></tr>
+<tr><td><strong>인코더 기반</strong></td><td>잠재 공간 샘플링으로 다양한 변형 데이터 생성</td><td>AE, VAE</td></tr>
+<tr><td><strong>LLM 기반</strong></td><td>대형 언어 모델로 텍스트·대화·지시문 형태</td><td>디퓨전 모델</td></tr>
+<tr><td><strong>비모수 베이즈</strong></td><td>사전-사후 분포추론 원리</td><td>DPMM</td></tr>
+<tr><td><strong>연쇄조건부</strong></td><td>조건부 분포의 연쇄로 분해하여 모델링하는 접근법</td><td>MICE</td></tr>
+</table></div>
+</li>
+<li><strong>합성 데이터 품질 평가 지표:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>평가지표</th><th>핵심</th></tr>
+<tr><td><strong>유사성 평가</strong></td><td><strong>UM, C-vM, CAM</strong></td><td>분포·구조 유사성</td></tr>
+<tr><td></td><td><strong>KS Test, PSI</strong></td><td>분포 안정성검정</td></tr>
+<tr><td></td><td><strong>상관관계 분석</strong></td><td>관계·분포 보존</td></tr>
+<tr><td><strong>유용성 평가</strong></td><td><strong>분류 성능(F1, AUC)</strong></td><td>분류성능 유지</td></tr>
+<tr><td></td><td><strong>TSTR 평가</strong></td><td>교차성능 검증</td></tr>
+<tr><td></td><td><strong>회귀 성능(RMSE)</strong></td><td>예측오차 비교</td></tr>
+<tr><td><strong>위험성 평가</strong></td><td><strong>DUPI(Data Utility and Privacy Index)</strong></td><td>프라이버시 위험도</td></tr>
+<tr><td></td><td><strong>CAP(Correct Attribution Probability)</strong></td><td>속성추론 위험</td></tr>
+<tr><td></td><td><strong>CM(Contingency Matrix)</strong></td><td>간접노출 위험</td></tr>
+<tr><td><strong>다양성 평가</strong></td><td><strong>α-Precision</strong></td><td>데이터 현실성</td></tr>
+<tr><td><strong>다양성 평가</strong></td><td><strong>β-Recall</strong></td><td>다양성 포괄성</td></tr>
 </table></div>
 </li>
 <li><strong>주요 활용:</strong><div class="table-scroll"><table>

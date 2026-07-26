@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>18. 소프트웨어 품질성능 평가시험(BMT, Benchmark Test)</title>
+  <title>17. 사용자 테스트(User & Acceptance Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,43 +15,58 @@
   </style>
 </head>
 <body>
-<h4>18. 소프트웨어 품질성능 평가시험(BMT, Benchmark Test)</h4>
+<h4>17. 사용자 테스트(User &amp; Acceptance Test)</h4>
 <ul>
-<li><strong>정의: </strong>동종 제품간 기능 및 성능 평가 통해 우수한 제품 평가 시험</li>
-<li><strong>키워드:</strong> SW법 제55조, BMT, TTA, 변별력, 사전규격, 객관성, 공정성, 우선협상대상자</li>
-<li><strong>법적근거: </strong>소프트웨어 진흥법 제55조(상용소프트웨어 품질성능 평가시험)</li>
-<li><strong>대상:</strong><ul>
-<li>직접구매 대상 상용SW 제품 중 1억원 이상(대상분야 34종)</li>
-<li>총 사업 3억이상 사업의 구매금액 2억원 이상 SW제품</li>
-<li>국가기관등이 필요하다고 판단하는 경우</li>
-<li><strong>제외대상:</strong> 조달청 종합쇼핑몰 구매 및 직접구매 대상 제외를 받은 SW</li>
+<li><strong>정의:</strong> 시스템이 사전 정의된 인수 조건을 만족하는지 확인하고, 사용자가 시스템을 인수할지 결정할 수 있도록 비즈니스 프로세스 관점에서 수행하는 최종 단계의 테스팅</li>
+<li><strong>키워드:</strong> 인수 조건 만족, 비즈니스 적절성, 확신(Confidence) 확보, 배포 가능성 평가, 준수성 확인</li>
+<li><strong>분류:</strong> 테스트</li>
+<li><strong>주요 특징:</strong><ul>
+<li><strong>검증 목적:</strong> 결함 발견보다 배포 및 사용 가능 여부에 대한 확신을 얻는 것이 핵심임</li>
+<li><strong>수행 주체:</strong> 비즈니스 프로세스를 가장 잘 이해하는 실제 사용자 및 고객이 주도함</li>
+<li><strong>평가 범위:</strong> 기능적 요구사항 외에 계약 준수, 운영 안정성, 법적 규제 등을 종합 검토함</li>
 </ul>
 </li>
-<li>절차:<div class="table-scroll"><table>
-<tr><th><strong>단계</strong></th><th><strong>주요 활동</strong></th><th><strong>주요 산출물 및 비고</strong></th></tr>
-<tr><td><strong>1. 평가시험 대상 검토</strong></td><td>분리발주 대상 SW 및 BMT 의무화 대상 여부 확인</td><td>법적 의무 준수 검토</td></tr>
-<tr><td><strong>2. 사전협의</strong></td><td>BMT 실시 여부 및 제외 대상(유일 제품 등) 협의</td><td>제외 및 실시 확정</td></tr>
-<tr><td><strong>3. 평가시험 설계</strong></td><td>평가 항목 개발, 테스트 시나리오 수립, 인프라 환경 구성</td><td>평가 항목/환경 구성서</td></tr>
-<tr><td><strong>4. 조달발주</strong></td><td>조달청 사전규격 공개 및 입찰공고 절차 진행</td><td>사전규격공고서</td></tr>
-<tr><td><strong>5. 평가시험 의뢰</strong></td><td>공인 시험기관(TTA 등) 또는 자체 평가위원회에 시험 요청</td><td>BMT 의뢰서</td></tr>
-<tr><td><strong>6. 평가시험 실시</strong></td><td>구성된 환경에서 시나리오에 따른 기능 및 성능 측정</td><td>BMT 결과서</td></tr>
-<tr><td><strong>7. 평가시험 결과 반영</strong></td><td>BMT 점수와 가격 점수를 합산하여 최종 순위 결정</td><td>우선협상대상자 선정 / 계약서</td></tr>
+<li><strong>알파테스트 vs 베타테스트 비교: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>알파 테스트 (Alpha Test)</strong></th><th><strong>베타 테스트 (Beta Test)</strong></th></tr>
+<tr><td><strong>정의</strong></td><td>선택된 사용자에 의해 개발 환경에서 수행되는 테스트</td><td>실 환경에서 사용자 혹은 잠재 고객에 의해 수행되는 테스트</td></tr>
+<tr><td><strong>별칭</strong></td><td>공장 인수 테스팅 
+(Factory Acceptance Testing)</td><td>사이트 인수 테스팅 
+(Site Acceptance Testing)</td></tr>
+<tr><td><strong>환경</strong></td><td>개발자 조직 내 개발 환경</td><td>실제 사용자 운영 환경</td></tr>
+<tr><td><strong>목표</strong></td><td>결함 발견, 부하 검사, SW 신뢰도 향상</td><td>제품 평가, 사용자 실제 조건에서의 테스트</td></tr>
+<tr><td><strong>시점</strong></td><td>시스템 테스트 이후 (제품 70~90% 완료)</td><td>알파 테스트 후 (제품 90~95% 완료)</td></tr>
+<tr><td><strong>참가자</strong></td><td>개발자, 테스터, 고객 또는 최종 사용자</td><td>고객 또는 최종 사용자 (개발자 부재)</td></tr>
+<tr><td><strong>기간</strong></td><td>1~2주 (테스트 주기 다수 수행)</td><td>4~6주 (피드백/제안에 따라 조율)</td></tr>
 </table></div>
 </li>
-<li><strong>비교표:  PoC → BMT → Pilot Test</strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>PoC </strong></th><th><strong>BMT </strong></th><th><strong>Pilot Test</strong></th></tr>
-<tr><td><strong>핵심 개념</strong></td><td>기술적 가능성 검증</td><td>성능 및 기능 비교</td><td>소규모 선행 운영</td></tr>
-<tr><td><strong>주요 목적</strong></td><td>신기술의 구현 가능성 확인</td><td>제품 선정의 객관적 근거 확보</td><td>운영 리스크 및 변수 사전 파악</td></tr>
-<tr><td><strong>수행 시점</strong></td><td>프로젝트 초기 (도입 전)</td><td>제품 선택 및 계약 단계</td><td>개발 완료 후 (본 가동 전)</td></tr>
-<tr><td><strong>수행 대상</strong></td><td>신기술, 프로토타입, 단일 제품</td><td>2개 이상의 후보 제품군</td><td>전체 시스템 및 서비스 일부</td></tr>
-<tr><td><strong>주요 특징</strong></td><td>◦ 기술적 불확실성 제거
-◦ Reference Site 부재 시 필수</td><td>◦ 동일 환경 내 성능 변별력 확보
-◦ 조달 및 분리발주 시 활용</td><td>◦ 실환경 데이터 기반 피드백
-◦ 시행착오 최소화 및 확산 결정</td></tr>
-<tr><td><strong>결과 활용</strong></td><td>도입 여부(Go/No-Go) 결정</td><td>우선협상대상자 선정</td><td>전체 시스템 확산 및 보완</td></tr>
+<li><strong>인수테스트:</strong><ul>
+<li><strong>정의: </strong>시스템이 인수조건을 만족시키는지, 사용자/고객 또는 다른 인가된 개체가 시스템을 인수할지 결정할 수 있도록 사용자의 필요, 요구, 비즈니스 프로세스를 고려하여 수행하는 테스팅</li>
+<li><strong>목적:</strong> 확신, 배포가능성 평가, 준수성 확인, 고객 피드백</li>
+<li><strong>유형:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>유형</strong></th><th><strong>설명</strong></th></tr>
+<tr><td><strong>공식적</strong></td><td><strong>사용자 인수테스트</strong></td><td>비즈니스 사용자가 시스템 사용의 적절성을 최종 확인</td></tr>
+<tr><td></td><td><strong>운영상의 인수테스트</strong></td><td>관리자에 의한 백업/복원, 재난복구, 보안 취약성 점검</td></tr>
+<tr><td></td><td><strong>계약 인수테스트</strong></td><td>맞춤식 개발 SW가 계약상의 인수 조건을 준수하는지 확인</td></tr>
+<tr><td></td><td><strong>규정 인수테스트</strong></td><td>정부 지침, 법률, 안전 규정 등 준수 여부 확인</td></tr>
+<tr><td><strong>비공식적</strong></td><td><strong>알파 테스트</strong></td><td>개발 조직 내에서 선택된 사용자가 수행</td></tr>
+<tr><td></td><td><strong>베타 테스트</strong></td><td>상용화 전 잠재 고객으로부터 피드백을 목적으로 활용</td></tr>
 </table></div>
 </li>
-<li>인사이트: 공공 조달의 객관성 확보, 변별력 있는 항목 구성, Shift-Left 품질 보증을 통한 위험관리 수단으로 활용</li>
+<li><strong>인수테스트 프로세스: </strong><div class="table-scroll"><table>
+<tr><th><strong>단계</strong></th><th><strong>활동</strong></th><th><strong>설명</strong></th><th><strong>산출물</strong></th></tr>
+<tr><td><strong>준비</strong></td><td>계획 수립 및 절차 정의</td><td>요구사항 식별 및 테스트 기법/목표 수준 정의</td><td>테스트 시나리오</td></tr>
+<tr><td></td><td>환경 및 데이터 구축</td><td>수행용 HW/SW 구성 및 테스트 데이터 생성/관리</td><td></td></tr>
+<tr><td><strong>수행</strong></td><td>시나리오 기반 수행</td><td>정의된 시나리오에 따른 테스트 실시 및 결과 수집</td><td>테스트 수행 계획서</td></tr>
+<tr><td></td><td>결함 관리 및 재테스트</td><td>발견된 오류 기록, 수정 후 정상 동작 여부 재확인</td><td></td></tr>
+<tr><td><strong>평가</strong></td><td>결과 분석 및 요약</td><td>테스트 결과의 정량적 도출 및 기능별 종합 분석</td><td>테스트 결과 보고서</td></tr>
+<tr><td></td><td>검토 및 최종 승인</td><td>기대 결과 비교를 통한 인수 여부 협상 및 승인</td><td></td></tr>
+<tr><td><strong>모니터링</strong></td><td>데이터 및 자원 분석</td><td>실 운영 데이터 수집 및 시스템 자원 사용량 분석</td><td>시스템 테스트 보고서</td></tr>
+<tr><td></td><td>성능 및 보안 검증</td><td>시스템 성능 부하 분석 및 보안 위반 상태 확인</td><td></td></tr>
+</table></div>
+</li>
+</ul>
+</li>
+<li><strong>인사이트:</strong> 인수테스트는 개발 완료 후 최종 사용자의 신뢰를 확보하는 품질 보증의 마지막 관문으로, 단순 기능 검증을 넘어 운영 안정성과 규정 준수성을 종합적으로 평가하여 비즈니스 가치 실현 여부를 결정짓는 전략적 프로세스임.</li>
 </ul>
 
 </body>

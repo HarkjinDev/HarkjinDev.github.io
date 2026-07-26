@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. AI 법적 이슈</title>
+  <title>[하위] 2-2. AI RMF (AI Risk Management Framework)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,36 @@
   </style>
 </head>
 <body>
-<h4>3. AI 법적 이슈</h4>
+<h4>[하위] 2-2. AI RMF (AI Risk Management Framework)</h4>
 <ul>
-<li><strong>정의</strong>: AI 생성물의 저작권, 사고 발생 시 책임 소재, 개인정보 침해 등 법적 쟁점</li>
-<li><strong>키워드</strong>: 저작권법, 개인정보 보호법, EU AI Act(유럽 AI 법), 책임주의</li>
+<li><strong>정의</strong>: 미국 국립표준기술연구소(NIST)가 제시한 AI 시스템의 신뢰성 확보를 위해 위험을 식별·평가·완화·모니터링하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자발적 프레임워크</strong></u></span></li>
+<li><strong>키워드</strong>: NIST, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GOVERN·MAP·MEASURE·MANAGE, 7대 신뢰성 특성</strong></u></span>, 위험 완화, 자발적 프레임워크</li>
 <li><strong>분류</strong>: AI 윤리/거버넌스</li>
-<li><strong>주요 이슈</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>지식재산권</strong></td><td><strong>저작권 침해</strong></td><td>학습 데이터 저작물 무단 사용 문제</td><td>적법성</td></tr>
-<tr><td></td><td><strong>AI 생성물 저작권</strong></td><td>생성물의 저작권 주체 불명확</td><td>권리 주체 불명</td></tr>
-<tr><td></td><td><strong>특허권</strong></td><td>AI 발명자 인정 및 특허 출원 가능성</td><td>발명자 인정</td></tr>
-<tr><td><strong>개인정보</strong></td><td><strong>학습 데이터 개인정보</strong></td><td>동의 없는 개인정보 학습 활용</td><td>무단 수집</td></tr>
-<tr><td></td><td><strong>생체정보 활용</strong></td><td>민감 생체정보 처리 적법성</td><td>민감정보 침해</td></tr>
-<tr><td></td><td><strong>잊혀질 권리</strong></td><td>학습된 개인정보 삭제 이행 한계</td><td>삭제권 충돌</td></tr>
-<tr><td><strong>책임·배상</strong></td><td><strong>AI 오판 책임</strong></td><td>오류 피해 시 책임 주체 불명확</td><td>책임 소재</td></tr>
-<tr><td></td><td><strong>자율주행 사고</strong></td><td>사고 시 제조사·AI·운전자 책임 귀속</td><td>사고 책임</td></tr>
-<tr><td></td><td><strong>의료 AI 오진</strong></td><td>진단 오류 배상 책임 주체 불명확</td><td>의료 책임</td></tr>
-<tr><td><strong>공정성·차별</strong></td><td><strong>알고리즘 편향</strong></td><td>편향 데이터로 인한 차별적 결과</td><td>알고리즘 차별</td></tr>
-<tr><td></td><td><strong>설명 요구권</strong></td><td>자동 의사결정 설명 요구 권리</td><td>설명 의무</td></tr>
-<tr><td><strong>허위정보·보안</strong></td><td><strong>딥페이크</strong></td><td>AI 허위 영상·음성 명예훼손·사기</td><td>허위정보 유포</td></tr>
-<tr><td></td><td><strong>AI 사이버공격</strong></td><td>AI 활용 피싱·악성코드 법적 대응</td><td>보안 위협</td></tr>
-<tr><td><strong>규제 준수</strong></td><td><strong>EU AI Act</strong></td><td>위험 등급별 글로벌 규제 준수</td><td>컴플라이언스</td></tr>
-<tr><td></td><td><strong>금융·의료 규제</strong></td><td>기존 산업 규제와 AI 활용 충돌</td><td>규제 충돌</td></tr>
+<li><strong>주요 특징</strong>:<ul>
+<li><strong>자발적 적용</strong>: 법적 강제가 아닌 조직이 자율적으로 채택하는 권고 프레임워크</li>
+<li><strong>유연성</strong>: 조직의 규모, 산업, AI 활용 목적에 맞게 커스터마이징하여 적용 가능</li>
+</ul>
+</li>
+<li><strong>4대 핵심 기능:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;거식측관&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>기능</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>GOVERN(거버넌스)</strong></td><td>위험 관리 문화 및 정책 수립</td><td>조직 내 책임 구조</td></tr>
+<tr><td><strong>MAP(식별/분석)</strong></td><td>시스템 맥락 및 위험 요소 파악</td><td>위험 요소 카테고리화</td></tr>
+<tr><td><strong>MEASURE(측정/평가)</strong></td><td>위험 정량·정성 분석 및 평가</td><td>우선순위 결정</td></tr>
+<tr><td><strong>MANAGE(관리/대응)</strong></td><td>위험 완화 계획 수립 및 대응</td><td>잔여 위험 지속 모니터링</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 전 세계적으로 고위험(High-risk) AI에 대한 강한 규제(EU 등)와 시장 자율 규제 간의 글로벌 표준 경쟁이 치열함</li>
+<li><strong>7대 신뢰성 특성 (Trustworthiness Characteristics)</strong>:<div class="table-scroll"><table>
+<tr><th><strong>특성</strong></th><th><strong>설명</strong></th><th><strong>역할</strong></th></tr>
+<tr><td><strong>유효성·신뢰성</strong></td><td>목적 부합 및 일관된 결과 산출</td><td><strong>신뢰성의 필수 기반</strong></td></tr>
+<tr><td><strong>안전성</strong></td><td>유해 결과 방지 및 사회 안전 보호</td><td>피해 방지 및 안전 확보</td></tr>
+<tr><td><strong>보안성·복원력</strong></td><td>공격 대응 및 시스템 복원력 확보</td><td>침해 사고 대응 및 복구</td></tr>
+<tr><td><strong>책임성·투명성</strong></td><td>운영 투명성 및 책임 소재 명시</td><td><strong>전체 특성 연결(수직적)</strong></td></tr>
+<tr><td><strong>설명·해석 가능성</strong></td><td>판단 근거 및 동작 원리 제공</td><td>결과에 대한 이해 지원</td></tr>
+<tr><td><strong>프라이버시 강화</strong></td><td>개인정보 보호 및 데이터 최소화</td><td>사용자 데이터 주권 보호</td></tr>
+<tr><td><strong>공정성·편향 관리</strong></td><td>편향 완화 및 특정 집단 차별 방지</td><td>알고리즘 평등성 확보</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 강제성은 없으나 미국 연방기관 및 글로벌 기업의 AI 도입 기준으로 빠르게 확산되고 있으며, EU AI Act 등 각국 규제와의 정합성을 고려한 통합 위험 관리 체계 설계가 필요함</li>
 </ul>
 
 </body>

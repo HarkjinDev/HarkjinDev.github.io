@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12. 카오스 테스트 (Chaos Test)</title>
+  <title>11. 몽키 테스트 (Monkey Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,19 @@
   </style>
 </head>
 <body>
-<h4>12. 카오스 테스트 (Chaos Test)</h4>
+<h4>11. 몽키 테스트 (Monkey Test)</h4>
 <ul>
-<li><strong>정의</strong>: 프로덕션 환경에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>의도적으로 장애를 주입</strong></u></span>하여 시스템의 복원력과 장애 내성을 검증하는 테스트 방법론</li>
-<li><strong>키워드</strong>: Chaos Engineering, Netflix Chaos Monkey, 카오스 원숭이, 복원력(Resilience), 실패 주입, 게임 데이(Game Day)</li>
+<li><strong>정의</strong>: 랜덤하고 예측 불가능한 입력을 시스템에 무작위로 제공하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>크래시·예외를 발견하는 탐색적 테스트</strong></u></span> 기법</li>
+<li><strong>키워드</strong>: 무작위 입력, 스마트 몽키, 덤 몽키, 퍼지 테스트(Fuzzing), 안정성·견고성 테스트</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>카오스 엔지니어링 원칙 (Netflix)</strong>:<ul>
-<li>정상 상태(Steady State) 정의</li>
-<li>정상 상태가 실험군·대조군에서 유지된다는 가설 수립</li>
-<li>실제 세계의 장애 이벤트 반영</li>
-<li>프로덕션 환경에서 실험</li>
-<li>폭발 반경(Blast Radius) 최소화</li>
-</ul>
+<li><strong>몽키 테스트 유형</strong>:<div class="table-scroll"><table>
+<tr><th><strong>유형</strong></th><th>설명</th></tr>
+<tr><td><strong>덤 몽키 (Dumb Monkey)</strong></td><td>완전 무작위 입력, 시스템 최소 지식</td></tr>
+<tr><td><strong>스마트 몽키 (Smart Monkey)</strong></td><td>시스템 상태 인식, 유효 입력 범위 내 무작위</td></tr>
+<tr><td><strong>브릴리언트 몽키</strong></td><td>시스템 완전 이해, 경계 케이스 집중 무작위</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 카오스 테스트는 <strong>“장애는 반드시 발생한다”는 전제 하에 사전 훈련</strong>으로 복원력을 높이는 SRE 실천이며, MSA·클라우드 환경에서 단일 장애 지점(SPOF) 발견에 효과적.</li>
+<li><strong>인사이트</strong>: 몽키 테스트는 <strong>예측하지 못한 사용자 행동 패턴에 의한 크래시를 발견</strong>하는 데 효과적이며, Android의 UI/Application Exerciser Monkey가 대표적 자동화 도구.</li>
 </ul>
 
 </body>

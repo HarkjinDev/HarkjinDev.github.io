@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. AI 거버넌스 (AI Governance)</title>
+  <title>[하위] 1-1. 인공지능신뢰성(Trustworthiness)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,40 +15,17 @@
   </style>
 </head>
 <body>
-<h4>2. AI 거버넌스 (AI Governance)</h4>
+<h4>[하위] 1-1. 인공지능 <strong>신뢰성(Trustworthiness)</strong></h4>
 <ul>
-<li><strong>정의:</strong> AI 시스템의 개발·배포·운영 전반에 걸쳐 투명성·책임성·공정성·안전성을 확보하기 위해 정책·규제·프로세스·기술적 수단을 통합적으로 설계·관리하는 체계</li>
-<li><strong>키워드:</strong> 책임성, 투명성, 공정성, 위험 관리, AI 윤리, 컴플라이언스, 거버넌스 프레임워크, AI 감사, 이해관계자, 규제 준수</li>
-<li><strong>분류</strong>: AI 윤리/거버넌스</li>
-<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>정책·규제 체계</strong></td><td>AI 개발·활용 기준을 정의하는 내·외부 규범 수립</td><td>규범 정립</td></tr>
-<tr><td><strong>위험 관리</strong></td><td>AI 시스템의 잠재적 위험을 식별·평가·완화하는 프로세스</td><td>리스크 통제</td></tr>
-<tr><td><strong>투명성·설명가능성</strong></td><td>AI 의사결정 과정과 근거를 이해관계자에게 공개</td><td>XAI 연계</td></tr>
-<tr><td><strong>책임성 체계</strong></td><td>AI 오류·피해 발생 시 책임 주체와 대응 절차 명확화</td><td>책임 소재</td></tr>
-<tr><td><strong>데이터 거버넌스</strong></td><td>학습 데이터의 품질·편향·프라이버시 관리 체계</td><td>데이터 통제</td></tr>
-<tr><td><strong>AI 감사 (Audit)</strong></td><td>AI 시스템의 성능·공정성·안전성을 주기적으로 검증</td><td>사후 검증</td></tr>
-<tr><td><strong>이해관계자 참여</strong></td><td>개발자·배포자·사용자·규제기관 간 협력 체계 구축</td><td>다자 협력</td></tr>
+<li><strong>신뢰성 속성:</strong><div class="table-scroll"><table>
+<tr><th><strong>핵심 속성</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>안전성</strong></td><td>인명과 환경에 대한 위험 요소 제거</td><td><strong>위해 방지</strong></td></tr>
+<tr><td><strong>설명가능성</strong></td><td>AI 판단 근거와 과정의 이해 제공</td><td><strong>근거 제시</strong></td></tr>
+<tr><td><strong>투명성</strong></td><td>정보 공개 및 결정 근거 추적 가능</td><td><strong>정보 공개</strong></td></tr>
+<tr><td><strong>견고성</strong></td><td>외부 간섭 및 극한 환경 내 성능 유지</td><td><strong>안정 유지</strong></td></tr>
+<tr><td><strong>공정성</strong></td><td>특정 그룹 차별 및 편향성 배제</td><td><strong>차별 금지</strong></td></tr>
 </table></div>
 </li>
-<li><strong>주요 거버넌스 프레임워크:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>EU AI Act</strong></td><td>위험 기반 4단계 분류로 의무·금지 사항 법제화</td><td>강제 규제</td></tr>
-<tr><td><strong>OECD AI 원칙</strong></td><td>포용적 성장·투명성·책임성 등 5대 원칙 제시</td><td>국제 지침</td></tr>
-<tr><td><strong>NIST AI RMF</strong></td><td>미국 국립표준기술연구소의 AI 위험 관리 프레임워크</td><td>위험 관리 표준</td></tr>
-<tr><td><strong>국가 AI 윤리기준</strong></td><td>한국 과기정통부의 3대 원칙·10대 핵심 요건</td><td>국내 기준</td></tr>
-<tr><td><strong>ISO/IEC 42001</strong></td><td>AI 관리 시스템에 대한 국제 표준</td><td>인증 표준</td></tr>
-</table></div>
-</li>
-<li><strong>주요 리스크:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>알고리즘 편향</strong></td><td>편향된 데이터·모델로 인한 차별적 결과 발생</td><td>공정성 침해</td></tr>
-<tr><td><strong>책임 공백</strong></td><td>AI 오판 시 개발자·배포자·사용자 간 책임 불명확</td><td>책임 소재 불명</td></tr>
-<tr><td><strong>규제 지체</strong></td><td>기술 발전 속도 대비 규제 마련이 늦어지는 현상</td><td>법적 공백</td></tr>
-<tr><td><strong>거버넌스 형식화</strong></td><td>실질적 통제 없이 문서·절차만 갖추는 형식적 준수</td><td>실효성 부재</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> AI 거버넌스는 AI 기술의 신뢰성을 담보하는 제도적 인프라로, 단순 규제 준수를 넘어 기업의 AI 전략과 통합되는 방향으로 진화하고 있음. EU AI Act·NIST AI RMF 등 글로벌 프레임워크가 표준화되면서 AI 거버넌스 수준이 기업 경쟁력과 직결되는 시대로 접어들고 있으며, 기술·윤리·법률을 아우르는 통합적 접근이 필수 역량으로 부상하고 있음</li>
 </ul>
 
 </body>
