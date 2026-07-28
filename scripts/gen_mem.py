@@ -492,6 +492,25 @@ loadTopics();
     Path(output_path).write_text(html, encoding="utf-8")
     print(f"[완료] {output_path} 생성 (총 {total_count}개 두음)")
 
+    # mnemonics.json 생성 (quiz.html에서 사용)
+    import json as _json
+    all_mnemonics = []
+    for fname2, label2, desc2 in DOMAINS:
+        items2 = extract_mnemonics(f"{subnote_dir}/{fname2}.html", label2)
+        for topic2, mnemonic2, _ in items2:
+            all_mnemonics.append({
+                "domain": label2,
+                "fname":  fname2,
+                "topic":  topic2,
+                "mnemonic": mnemonic2
+            })
+    json_path = f"{subnote_dir}/mnemonics.json"
+    Path(json_path).write_text(
+        _json.dumps(all_mnemonics, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+    print(f"[완료] {json_path} 생성 ({len(all_mnemonics)}개 두음)")
+
 
 if __name__ == "__main__":
     generate_mem_html()
