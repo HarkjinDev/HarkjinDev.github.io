@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두음 퀴즈</title>
+  <style>
+    :root {
+      --bg:           #f5f4ef;
+      --header-bg:    #1e202b;
+      --accent:       #c17550;
+      --border:       #e6e3dc;
+      --card-bg:      #ffffff;
+      --tag-bg:       #373d52;
+      --tag-text:     #9fb3ff;
+      --mn-bg:        #93c7e7;
+      --mn-fg:        #d44c47;
+      --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      --header-h:     52px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: var(--font); background: var(--bg); }
+    body { display: flex; flex-direction: column; }
+
+    /* ── 헤더 ── */
+    header {
+      height: var(--header-h); flex-shrink: 0;
+      background: var(--header-bg);
+      display: flex; align-items: center; padding: 0 14px; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .logo { font-size: .92rem; font-weight: 700; color: #e0ddd6; white-space: nowrap; }
+    .logo em { color: var(--accent); font-style: normal; }
+    .counter {
+      margin-left: auto;
+      font-size: .76rem; color: #888;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      padding: 4px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+    }
+    .hbtn {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      color: #ccc; cursor: pointer; border-radius: 7px;
+      width: 36px; height: 36px; font-size: .95rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s; -webkit-tap-highlight-color: transparent; flex-shrink: 0;
+    }
+    .hbtn:hover:not(:disabled) { background: rgba(255,255,255,.14); color: #fff; }
+    .hbtn:active:not(:disabled) { background: rgba(255,255,255,.2); }
+    .hbtn:disabled { opacity: .25; cursor: default; }
+    .hbtn-link { text-decoration: none; flex-shrink: 0; }
+
+    /* ── 메인 ── */
+    main {
+      flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 20px 16px 40px;
+    }
+
+    /* ── 도메인 필터 ── */
+    .domain-filter {
+      display: none; flex-wrap: wrap; gap: 6px;
+      width: 100%; max-width: 580px; margin-bottom: 16px;
+    }
+    .domain-filter.show { display: flex; }
+    .filter-btn {
+      background: rgba(45,55,72,.07); border: 1px solid #ddd;
+      color: #666; cursor: pointer; border-radius: 20px;
+      padding: 4px 13px; font-size: .74rem; font-family: var(--font);
+      transition: all .15s; -webkit-tap-highlight-color: transparent;
+    }
+    .filter-btn:hover  { background: rgba(45,55,72,.14); }
+    .filter-btn.active { background: #2d3748; color: #fff; border-color: #2d3748; }
+
+    /* ── 퀴즈 카드 ── */
+    .quiz-card {
+      display: none;
+      background: var(--card-bg); border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      padding: 32px 28px; width: 100%; max-width: 580px;
+      text-align: center;
+    }
+    .quiz-card.show { display: block; }
+
+    .card-domain-tag {
+      display: inline-block;
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: .68rem; font-weight: 700; padding: 3px 10px;
+      border-radius: 4px; letter-spacing: .03em; margin-bottom: 14px;
+    }
+    .card-topic {
+      font-size: 1.12rem; font-weight: 700; color: #2c2c2c;
+      margin-bottom: 26px; line-height: 1.45;
+    }
+    .card-mnemonic {
+      display: inline-block;
+      background: var(--mn-bg); color: var(--mn-fg);
+      font-size: 1.7rem; font-weight: 700;
+      padding: 12px 32px; border-radius: 10px;
+      letter-spacing: .08em; margin-bottom: 26px;
+    }
+
+    .reveal-btn {
+      display: block; width: 100%;
+      background: var(--bg); border: 1px solid var(--border);
+      color: #666; cursor: pointer; border-radius: 8px;
+      padding: 11px; font-size: .88rem; font-family: var(--font);
+      transition: all .15s;
+    }
+    .reveal-btn:hover  { background: #ede9e0; color: #333; }
+    .reveal-btn.open   { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── 내용 영역 ── */
+    .content-area {
+      width: 100%; max-width: 580px; margin-top: 10px;
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); background: #fff;
+      max-height: 0; transition: max-height .35s cubic-bezier(.4,0,.2,1);
+    }
+    .content-area.open { max-height: 3000px; }
+
+    .content-loading {
+      display: none; padding: 28px; text-align: center;
+    }
+    .content-loading.show { display: block; }
+    .spinner {
+      width: 22px; height: 22px; border: 2px solid var(--border);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin .7s linear infinite; margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #contentFrame { width: 100%; border: none; display: block; }
+
+    /* ── 플레이스홀더 ── */
+    .placeholder {
+      text-align: center; padding: 60px 20px; color: #bbb;
+    }
+    .placeholder-icon { font-size: 3rem; opacity: .3; margin-bottom: 12px; }
+    .placeholder-text { font-size: .88rem; }
+
+    /* ── 모바일 ── */
+    @media (max-width: 480px) {
+      .quiz-card { padding: 24px 16px; }
+      .card-topic { font-size: .98rem; }
+      .card-mnemonic { font-size: 1.4rem; padding: 10px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📝 <em>두음 퀴즈</em></div>
+  <div class="counter" id="counter">- / -</div>
+  <button class="hbtn" id="btnRand" title="랜덤">🎲</button>
+  <button class="hbtn" id="btnPrev" title="이전" disabled>⬆</button>
+  <button class="hbtn" id="btnNext" title="다음" disabled>⬇</button>
+  <a class="hbtn-link" href="mem.html" title="두음 목록">
+    <button class="hbtn">≡</button>
+  </a>
+</header>
+
+<main id="mainEl">
+  <div class="placeholder" id="placeholder">
+    <div class="placeholder-icon">📝</div>
+    <div class="placeholder-text">로딩 중…</div>
+  </div>
+
+  <!-- 도메인 필터 -->
+  <div class="domain-filter" id="domainFilter"></div>
+
+  <!-- 퀴즈 카드 -->
+  <div class="quiz-card" id="quizCard">
+    <div class="card-domain-tag" id="cardDomain">-</div>
+    <div class="card-topic"      id="cardTopic">-</div>
+    <div class="card-mnemonic"   id="cardMnemonic">-</div>
+    <button class="reveal-btn"   id="revealBtn">↓ 내용 보기</button>
+  </div>
+
+  <!-- 내용 패널 -->
+  <div class="content-area" id="contentArea">
+    <div class="content-loading" id="contentLoading">
+      <div class="spinner"></div>
+    </div>
+    <iframe id="contentFrame" scrolling="no" title="토픽 내용"></iframe>
+  </div>
+</main>
+
+<script>
+let mnemonics      = [];
+let filtered       = [];
+let currentIndex   = -1;
+let topicsData     = null;
+let contentOpen    = false;
+let selectedDomain = 'ALL';
+let recentDomains  = [];
+
+/* ── 초기화 ── */
+async function init() {
+  try {
+    const [mRes, tRes] = await Promise.all([
+      fetch('mnemonics.json', { cache: 'no-cache' }),
+      fetch('topics.json',    { cache: 'no-cache' }),
+    ]);
+    if (!mRes.ok) throw new Error('mnemonics.json 없음 (Run workflow 필요)');
+    mnemonics  = await mRes.json();
+    topicsData = await tRes.json();
+
+    filtered = [...mnemonics];
+    buildFilter();
+    goToIndex(0);
+  } catch(e) {
+    document.getElementById('placeholder').innerHTML =
+      `<div class="placeholder-icon">⚠️</div>
+       <div class="placeholder-text">${e.message}</div>`;
+  }
+}
+
+/* ── 도메인 필터 ── */
+function buildFilter() {
+  const container = document.getElementById('domainFilter');
+  const domains   = ['ALL', ...new Set(mnemonics.map(m => m.domain))];
+
+  container.innerHTML = domains.map(d =>
+    `<button class="filter-btn${d === 'ALL' ? ' active' : ''}"
+      data-d="${d}">${d === 'ALL' ? '전체' : d}</button>`
+  ).join('');
+
+  container.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedDomain = btn.dataset.d;
+      container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filtered = selectedDomain === 'ALL'
+        ? [...mnemonics]
+        : mnemonics.filter(m => m.domain === selectedDomain);
+      goToIndex(0);
+    });
+  });
+  container.classList.add('show');
+}
+
+/* ── 카드 표시 ── */
+function goToIndex(idx) {
+  if (!filtered.length) return;
+  currentIndex = Math.max(0, Math.min(idx, filtered.length - 1));
+  const item   = filtered[currentIndex];
+
+  document.getElementById('placeholder').style.display   = 'none';
+  document.getElementById('quizCard').classList.add('show');
+  document.getElementById('cardDomain').textContent    = item.domain;
+  document.getElementById('cardTopic').textContent     = item.topic;
+  document.getElementById('cardMnemonic').textContent  = item.mnemonic;
+  document.getElementById('counter').textContent       = `${currentIndex + 1} / ${filtered.length}`;
+
+  document.getElementById('btnPrev').disabled = currentIndex <= 0;
+  document.getElementById('btnNext').disabled = currentIndex >= filtered.length - 1;
+
+  recentDomains = [item.domain, ...recentDomains.filter(d => d !== item.domain)].slice(0, 3);
+  closeContent();
+  document.getElementById('mainEl').scrollTo({ top: 0 });
+}
+
+/* ── 내용 토글 ── */
+function toggleContent() {
+  contentOpen ? closeContent() : openContent();
+}
+
+function openContent() {
+  const item    = filtered[currentIndex];
+  if (!item) return;
+  const file    = findFile(item.fname, item.topic);
+  const area    = document.getElementById('contentArea');
+  const frame   = document.getElementById('contentFrame');
+  const loading = document.getElementById('contentLoading');
+
+  contentOpen = true;
+  document.getElementById('revealBtn').textContent = '↑ 내용 접기';
+  document.getElementById('revealBtn').classList.add('open');
+  area.classList.add('open');
+
+  if (!file) {
+    loading.classList.remove('show');
+    frame.srcdoc = '<div style="padding:24px;color:#999;text-align:center;font-family:sans-serif">토픽 파일을 찾을 수 없습니다</div>';
+    return;
+  }
+
+  loading.classList.add('show');
+  frame.onload = () => {
+    loading.classList.remove('show');
+    resizeFrame();
+  };
+  frame.src = file + '?v=' + Date.now();
+}
+
+function closeContent() {
+  contentOpen = false;
+  document.getElementById('contentArea').classList.remove('open');
+  document.getElementById('revealBtn').textContent = '↓ 내용 보기';
+  document.getElementById('revealBtn').classList.remove('open');
+}
+
+function resizeFrame() {
+  const frame = document.getElementById('contentFrame');
+  try {
+    const doc  = frame.contentDocument;
+    const win  = frame.contentWindow;
+    const body = doc.body;
+    frame.style.height = '1px';
+    const cs = win.getComputedStyle(body);
+    const pb = parseFloat(cs.paddingBottom) || 0;
+    let maxBottom = 0;
+    for (const child of body.children) {
+      const r  = child.getBoundingClientRect();
+      const mb = parseFloat(win.getComputedStyle(child).marginBottom) || 0;
+      if (r.height > 0) maxBottom = Math.max(maxBottom, r.bottom + mb);
+    }
+    const h = Math.ceil(maxBottom + pb);
+    frame.style.height = (h > 50 ? h : body.scrollHeight) + 'px';
+  } catch(e) {
+    frame.style.height = '400px';
+  }
+}
+
+/* ── 토픽 파일 찾기 ── */
+function findFile(fname, topicName) {
+  if (!topicsData?.[fname]) return null;
+  const topics = topicsData[fname].topics;
+  return (
+    topics.find(t => t.name === topicName) ||
+    topics.find(t => t.name.includes(topicName) || topicName.includes(t.name)) ||
+    topics.find(t => t.name.slice(0, 10) === topicName.slice(0, 10))
+  )?.id ? `topics/${fname}/${(topics.find(t => t.name === topicName) ||
+    topics.find(t => t.name.includes(topicName) || topicName.includes(t.name)) ||
+    topics.find(t => t.name.slice(0,10) === topicName.slice(0,10))).id}.html` : null;
+}
+
+/* ── 버튼 이벤트 ── */
+document.getElementById('revealBtn').addEventListener('click', toggleContent);
+
+document.getElementById('btnPrev').addEventListener('click', () => goToIndex(currentIndex - 1));
+document.getElementById('btnNext').addEventListener('click', () => goToIndex(currentIndex + 1));
+document.getElementById('btnRand').addEventListener('click', () => {
+  if (!filtered.length) return;
+  // 최근 방문 도메인 제외 랜덤
+  let candidates = filtered
+    .map((m, i) => ({ m, i }))
+    .filter(({ m, i }) =>
+      i !== currentIndex &&
+      !recentDomains.slice(0, 2).includes(m.domain)
+    );
+  if (!candidates.length)
+    candidates = filtered.map((m, i) => ({ m, i })).filter(({ i }) => i !== currentIndex);
+  if (!candidates.length) return;
+  goToIndex(candidates[Math.floor(Math.random() * candidates.length)].i);
+});
+
+init();
+</script>
+</body>
+</html>
