@@ -1,0 +1,1622 @@
+[
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. 데이터베이스 Key",
+    "mnemonic": "<유최대>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. 데이터베이스 Key",
+    "mnemonic": "<슈후기대외>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. 데이터베이스 Key",
+    "mnemonic": "<결슈후기/유최대>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 데이터 모델링 (Data Modeling)",
+    "mnemonic": "<요개논물, 주후핵관, 속엔이, 물논반>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. ERD (Entity Relationship Diagram)",
+    "mnemonic": "<유개사/기중행>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "4. CRUD 매트릭스 (CRUD Matrix)",
+    "mnemonic": "<엔단>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling)",
+    "mnemonic": "<단서타>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "7. 암스트롱 공리 (Armstrong's Axioms)",
+    "mnemonic": "<폐정완>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "7. 암스트롱 공리 (Armstrong's Axioms)",
+    "mnemonic": "<반확이/재부이>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "7. 암스트롱 공리 (Armstrong's Axioms)",
+    "mnemonic": "<분합의>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "8. 연결 함정 (Connection Trap)",
+    "mnemonic": "<부모균미>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. SQL (Structured Query Language)",
+    "mnemonic": "<구실인>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 정규화 (Normalization)",
+    "mnemonic": "<무중분>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 정규화 (Normalization)",
+    "mnemonic": "<삽삭갱>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 정규화 (Normalization)",
+    "mnemonic": "<도부이결다조>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. 역정규화/반정규화 (De-normalization)",
+    "mnemonic": "<대다적/범대통조/뷰클인응>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "2. 역정규화/반정규화 (De-normalization)",
+    "mnemonic": "<테컬관/병분추/중파이피/중>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 데이터 무결성 (Data Integrity)",
+    "mnemonic": "<개참속/사키도>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 2-2. 릴레이션 무결성 제약 (Relation Integrity Constraint)",
+    "mnemonic": "<상과집튜즉지>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 트랜잭션 (Transaction)",
+    "mnemonic": "<활부완실철>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "3. 병행제어 (Concurrency Control)",
+    "mnemonic": "<갱현모연>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)",
+    "mnemonic": "<판검기>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "4. 데이터베이스 회복기법 (Database Recovery)",
+    "mnemonic": "<즉언지리/첵그아>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 인덱스 (Index)",
+    "mnemonic": "<트해비/함조도/정동/클논밀희고비>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 인덱스 (Index)",
+    "mnemonic": "<렌풀유스디패>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 2-1. CBO (Cost Based Optimizer)",
+    "mnemonic": "<질비실>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 2-1. CBO (Cost Based Optimizer)",
+    "mnemonic": "<파최행실>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 2-1. CBO (Cost Based Optimizer)",
+    "mnemonic": "<테인컬시>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 파티셔닝 (Partitioning)",
+    "mnemonic": "<범해리조복>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 파티셔닝 (Partitioning)",
+    "mnemonic": "<접기민>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "3. 분산 데이터베이스 (Distributed Database)",
+    "mnemonic": "<위복병분장>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 1-1. NoSQL 모델링",
+    "mnemonic": "<비집프원인>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "[하위] 1-1. NoSQL 모델링",
+    "mnemonic": "<도쿼패/기후디>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. OLAP (On-Line Analytical Processing)",
+    "mnemonic": "<슬다드롤피>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "1. 데이터 거버넌스 (Data Governance)",
+    "mnemonic": "<원조프>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "5. 데이터 표준화 (Data Standardization)",
+    "mnemonic": "<명정형규>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "2. 과적합 (Overfitting)",
+    "mnemonic": "<드규교조>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "[하위] 3-1. 배깅 (Bagging, Bootstrap Aggregating)",
+    "mnemonic": "<분하회평>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "1. SOM (Self-Organizing Map)",
+    "mnemonic": "<초경이가반>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "2. 군집화 (Clustering) 알고리즘",
+    "mnemonic": "<거절수신>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "[하위] 3-1. PCA (Principal Component Analysis, 주성분 분석)",
+    "mnemonic": "<공고주투>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "5. 프롬프트 엔지니어링 (Prompt Engineering)",
+    "mnemonic": "<역지맥예출>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "1. XAI (eXplainable AI, 설명 가능한 인공지능)",
+    "mnemonic": "<설희누가>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "5. 연합학습 (Federated Learning)",
+    "mnemonic": "<모로가집반>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "1. AI 윤리 (AI Ethics) 및 신뢰성",
+    "mnemonic": "<인사기/준공합>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "1. AI 윤리 (AI Ethics) 및 신뢰성",
+    "mnemonic": "<인프다침/공연데책/안투>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "[하위] 2-2. AI RMF (AI Risk Management Framework)",
+    "mnemonic": "<거식측관>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)",
+    "mnemonic": "<오편환통>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "1. 정보보안 정책 (Information Security Policy)",
+    "mnemonic": "<정표절지>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "1. 정보보안 정책 (Information Security Policy)",
+    "mnemonic": "<지소존행>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. 접근제어/통제 (Access Control)",
+    "mnemonic": "<정모메>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "11. 전자봉투 (Digital Envelope)",
+    "mnemonic": "<봉수공암>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "12. 전자서명 (Digital Signature)",
+    "mnemonic": "<서송개암>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)",
+    "mnemonic": "<수탐조대복>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. 시큐어 코딩 (Secure Coding)",
+    "mnemonic": "<입보시에/코캡아>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "3. OWASP (Open Web Application Security Project)",
+    "mnemonic": "<접보공암/인불인무/로예>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. XSS (Cross-Site Scripting)",
+    "mnemonic": "<·>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "8. 공격 벡터 (Attack Vector)",
+    "mnemonic": "<거식보/탐대복>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 9-1. CTEM (Continuous Threat Exposure Management)",
+    "mnemonic": "<범발우/검완>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "10. APT (Advanced Persistent Threat)",
+    "mnemonic": "<침탐수유>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "12. 사이버 킬 체인 (Cyber Kill Chain)",
+    "mnemonic": "<정무전악/설씨행>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 12-1. STRIDE 위협 모델링(Microsoft)",
+    "mnemonic": "<위변부/정서권>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "1. 디지털 포렌식 (Digital Forensics)",
+    "mnemonic": "<정재신연무>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. 안티포렌식 (Anti-Forensics)",
+    "mnemonic": "<삭은변암>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. 양자내성 암호 (Post-Quantum Cryptography, PQC)",
+    "mnemonic": "<쇼공그대>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. 양자내성 암호 (Post-Quantum Cryptography, PQC)",
+    "mnemonic": "<격다해코아>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "8. OWASP LLM Top 10(2026)",
+    "mnemonic": "<인민공오/출에시/벡허무>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "9. OWASPAgentic Applications Top 10(2026)",
+    "mnemonic": "<목신불/도신예/메연/공통>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "11. 다크패턴 (Dark Pattern)",
+    "mnemonic": "<오압방편>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "1. 정보보호 거버넌스 (Information Security Governance)",
+    "mnemonic": "<책전획/성적인>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. ISMS-P (개인정보보호 관리체계 인증)",
+    "mnemonic": "<아아병정>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "2. ISMS-P (개인정보보호 관리체계 인증)",
+    "mnemonic": "<관보개, 기위운점, 정인외물/인접안정/운보사재, 수이제파권>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)",
+    "mnemonic": "<대심사품>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "4. 사이버 복원력(Cyber Resilience)",
+    "mnemonic": "<예견복적>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "3. 개인정보 비식별조치 (De-identification)",
+    "mnemonic": "<가총삭범마>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. 가명처리 (Pseudonymization)",
+    "mnemonic": "<삭통일암무/표해재동차>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. 가명처리 (Pseudonymization)",
+    "mnemonic": "<케익엘다티근>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. 가명처리 (Pseudonymization)",
+    "mnemonic": "<준위가적안>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "7. PET (Privacy Enhancing Technology)",
+    "mnemonic": "<동차합영/연다신>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "8. PbD (Privacy by Design)",
+    "mnemonic": "<사초내균/생가존>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "8. PbD (Privacy by Design)",
+    "mnemonic": "<최숨분총/정통집입>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)",
+    "mnemonic": "<계동방파>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)",
+    "mnemonic": "<요지응확>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "4. 오류 제어 (Error Control)",
+    "mnemonic": "<패엘블씨첵>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "4. 오류 제어 (Error Control)",
+    "mnemonic": "<훼손중순확>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "5. 흐름 제어 (Flow Control)",
+    "mnemonic": "<수클송네>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "4. IPv6 (Internet Protocol version 6)",
+    "mnemonic": "<버트플렌/넥홉소데>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "4. IPv6 (Internet Protocol version 6)",
+    "mnemonic": "<듀터트>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "6. 거리벡터 라우팅 (Distance Vector Routing)",
+    "mnemonic": "<거벨링다>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "1. QoS (Quality of Service)",
+    "mnemonic": "<대연터패>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "1. 6G 이동통신",
+    "mnemonic": "<성대현/지정공>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "6. 자율 네트워크 (Autonomous Network)",
+    "mnemonic": "<감최치구보>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 공학 (Software Engineering)",
+    "mnemonic": "<비복변/무순제>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "2. 소프트웨어 품질관리",
+    "mnemonic": "<확실/예평내외>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-1. 소프트웨어 품질통제(Quality Control)",
+    "mnemonic": "<체히파특/산흐관, 친연계매/데피애>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-3. 소프트웨어 품질 특성 (Software Quality Characteristics)",
+    "mnemonic": "<기신상효/유연보호안>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "5. 소프트웨어 기술 부채 (Technical Debt)",
+    "mnemonic": "<설코테/문인보>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "7. 소프트웨어 유지보수 (Software Maintenance)",
+    "mnemonic": "<수적예완>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "7. 소프트웨어 유지보수 (Software Maintenance)",
+    "mnemonic": "<프문수/검이폐>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)",
+    "mnemonic": "<캡추다정상>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "2. 객체지향 프로그래밍 (OOP, Object Oriented Programming)",
+    "mnemonic": "<클객메인>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "0. 개발 방법론(SW Development Methodology)",
+    "mnemonic": "<절방산관기도>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "4. 폭포수 모델 (Waterfall Model)",
+    "mnemonic": "<요설구테유>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "5. 애자일 (Agile)",
+    "mnemonic": "<개동고변>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 5-3. XP(eXtreme Programming)",
+    "mnemonic": "<용단커피존>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "6. 개발방법론 테일러링 (Tailoring)",
+    "mnemonic": "<정선상세문>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "9. 도메인 주도 설계 (Domain Driven Design, DDD)",
+    "mnemonic": "<략보바컨/술엔벨애리>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "9. 도메인 주도 설계 (Domain Driven Design, DDD)",
+    "mnemonic": "<유도서/바컨모>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 요구공학 (Requirements Engineering)",
+    "mnemonic": "<추분명검>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 요구공학 (Requirements Engineering)",
+    "mnemonic": "<협기변확>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "2. 요구사항 도출 (Requirements Elicitation)",
+    "mnemonic": "<인설워포/유컨벤브/관프사자>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "3. 요구사항명세서 (SRS, Software Requirements Specification)",
+    "mnemonic": "<완일명검/추수이>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "2. 소프트웨어 모듈 (Software Module)",
+    "mnemonic": "<응하결로>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-1. 응집도 (Cohesion)",
+    "mnemonic": "<기순교절시논우>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-2. 결합도 (Coupling)",
+    "mnemonic": "<자료구조제어는외부공통내용이다>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-3. fan-in / fan-out",
+    "mnemonic": "<인상아하>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "3. 디자인 패턴 (Design Pattern)",
+    "mnemonic": "<패문해결>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "3. 디자인 패턴 (Design Pattern)",
+    "mnemonic": "<생구행>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "4. 리팩토링 (Refactoring)",
+    "mnemonic": "<메클조/상데의>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 아키텍처",
+    "mnemonic": "<요참모프배>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-1. 소프트웨어 아키텍처 모델",
+    "mnemonic": "<논개프물유>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-1. 소프트웨어 아키텍처 모델",
+    "mnemonic": "<텍테포코>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 테스트 원리",
+    "mnemonic": "<결완초집/살정오>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 테스트 원리",
+    "mnemonic": "<데프도테키>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 테스트 원리",
+    "mnemonic": "<계모설실완>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 소프트웨어 테스트 원리",
+    "mnemonic": "<식항입출/환특의>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-1. V-Model",
+    "mnemonic": "<요시상구/단통시인>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-1. V-Model",
+    "mnemonic": "<모프최>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반",
+    "mnemonic": "<동분경구랜/모페이베/결원상시>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반",
+    "mnemonic": "<구분결/분건합변/정계선사/정사경>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-3. 경험기반 테스트",
+    "mnemonic": "<에탐체>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "6. 테스트 커버리지 (Test Coverage)",
+    "mnemonic": "<구결조/결조/변조결/경>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "7. 테스트 오라클(Test Oracle)",
+    "mnemonic": "<참샘휴일>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "16. 소프트웨어 성능테스트(Performance Test)",
+    "mnemonic": "<단복임/루스티확가>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "1. 형상관리 (Configuration Management)",
+    "mnemonic": "<식통감기>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-1. 기준선 (Baseline)",
+    "mnemonic": "<기분설/시제운>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)",
+    "mnemonic": "<지트오포>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "5. 최소신장트리 (MST, Minimum Spanning Tree)",
+    "mnemonic": "<크간프정솔컴>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "1. 메타휴리스틱스 (Metaheuristics)",
+    "mnemonic": "<유모개입타>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "2. 유전 알고리즘 (Genetic Algorithm)",
+    "mnemonic": "<염적선교돌>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "1. 통계 자료",
+    "mnemonic": "<범명순/수등비/횡종>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "2. 기술통계 (Descriptive Statistics)",
+    "mnemonic": "<중평중최 / 분산표 / 분왜첨>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "4. 추론통계 (Inferential Statistics)",
+    "mnemonic": "<점구가차관>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "8. 타당도 (Validity)",
+    "mnemonic": "<내구기>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "1. 확률분포(Probability distribution)",
+    "mnemonic": "<이질연밀 / 베이기다포 / 정지균티카프>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "3. 선형회귀분석 (Linear Regression Analysis)",
+    "mnemonic": "<선독정등>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "1. 시계열 분석 (Time Series Analysis)",
+    "mnemonic": "<추순계불>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)",
+    "mnemonic": "<수시패인>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)",
+    "mnemonic": "<가수통증>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "3. 연관 규칙 분석 (Association Rule Analysis)",
+    "mnemonic": "<지신향>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "3. 연관 규칙 분석 (Association Rule Analysis)",
+    "mnemonic": "<빈최후반연>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "2. 데이터 시각화 (Data Visualization)",
+    "mnemonic": "<구시표>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "2. 데이터 시각화 (Data Visualization)",
+    "mnemonic": "<시분관비공>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-3. 파이프라인 (Pipeline)",
+    "mnemonic": "<구데제>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "3. 캐시 메모리 (Cache Memory)",
+    "mnemonic": "<공시순>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "3. 캐시 메모리 (Cache Memory)",
+    "mnemonic": "<직연집>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 3-2. MESI 프로토콜 (MESI Protocol)",
+    "mnemonic": "<수베공무>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)",
+    "mnemonic": "<상모하기씨>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-2. 문맥교환",
+    "mnemonic": "<저복저복>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "2. 스레드 (Thread)",
+    "mnemonic": "<인블동칩>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "3. 교착상태(Mutual Exclusion)",
+    "mnemonic": "<상진한>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "3. 교착상태(Mutual Exclusion)",
+    "mnemonic": "<테스인/데피램>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "4. 교착 상태 (Deadlock)",
+    "mnemonic": "<상점비환>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "4. 교착 상태 (Deadlock)",
+    "mnemonic": "<예회발복>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "5. 프로세스 동기화 (Process Synchronization)",
+    "mnemonic": "<세뮤스모>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 5-5. Race Condition (경쟁 상태)",
+    "mnemonic": "<데피램/테스인>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "6. 인터럽트 (Interrupt)",
+    "mnemonic": "<전기외입 / 명프스>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "6. 인터럽트 (Interrupt)",
+    "mnemonic": "<직병풀>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "1. 가상 메모리 (Virtual Memory)",
+    "mnemonic": "<할배인교>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "1. 가상 메모리 (Virtual Memory)",
+    "mnemonic": "<통압관풀슬버>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-1. 페이징 (Paging)",
+    "mnemonic": "<페고내 / 세가외>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "6. UNIX 파일 시스템 (UNIX File System)",
+    "mnemonic": "<부슈아데>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "11. 큐비트 (Qubit) & 양자 컴퓨팅",
+    "mnemonic": "<중얽불비>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-1. FTS (Fault Tolerant System)",
+    "mnemonic": "<티와체리/오페롤>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-3. 후향 복구(Backward Recovery), 전향 복구(Forward Recovery)",
+    "mnemonic": "<후과전미>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. ISP (Information Strategy Planning)",
+    "mnemonic": "<사실디규/필시중/사기/클국하에민>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. ISP (Information Strategy Planning)",
+    "mnemonic": "<환현정목통 / 경법아 / 업아벤차이 / 개업정데기 / 통총효>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 2-1. 소규모 정보시스템 구축 사업",
+    "mnemonic": "<연시타클적>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. ISMP (Information System Master Plan)",
+    "mnemonic": "<착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. BPR (Business Process Reengineering)",
+    "mnemonic": "<현비투갭/계구측>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 2-4. 7S Model",
+    "mnemonic": "<전조제/공역구스>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 2-7. BCG Matrix",
+    "mnemonic": "<물별개현>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. BSC (Balanced Score Card)",
+    "mnemonic": "<재고내학>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. BSC (Balanced Score Card)",
+    "mnemonic": "<비사운미>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "5. 기술수용모델 (TAM, Technology Acceptance Model)",
+    "mnemonic": "<유용의사>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "6. 디자인 싱킹 (Design Thinking)",
+    "mnemonic": "<공정아프테>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. SCM (Supply Chain Management)",
+    "mnemonic": "<제수유운/주생유역>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. SCM (Supply Chain Management)",
+    "mnemonic": "<계조생배회>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 2-1. 수요 예측 (Demand Forecasting)",
+    "mnemonic": "<기자요방/실검활>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 2-2. 안전재고/적정재고 산정",
+    "mnemonic": "<서수공/주평공안>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. IT 거버넌스 (IT Governance)",
+    "mnemonic": "<전가위자성>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. IT 투자관리 (IT Investment Management)",
+    "mnemonic": "<사중후/타용과>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. AHP (Analytic Hierarchy Process)",
+    "mnemonic": "<계우일>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. AHP (Analytic Hierarchy Process)",
+    "mnemonic": "<계쌍가일우>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "5. 정량적 위험분석 (Quantitative Risk Analysis)",
+    "mnemonic": "<의금몬민>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 5-3. 몬테카를로 시뮬레이션 (Monte Carlo Simulation)",
+    "mnemonic": "<변무시결>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "12. 기술 가치 평가",
+    "mnemonic": "<기권시사>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "12. 기술 가치 평가",
+    "mnemonic": "<수시비>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 1-1. ISO 21500 (프로젝트관리 지침)",
+    "mnemonic": "<통이범자/시원리/품조의>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 1-1. ISO 21500 (프로젝트관리 지침)",
+    "mnemonic": "<착계실통종>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. 프로젝트 범위관리(Scope Management)",
+    "mnemonic": "<계요정W확통>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)",
+    "mnemonic": "<프피자>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 4-3. PERT (Program Evaluation and Review Technique)",
+    "mnemonic": "<낙최비>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "5. 갈등관리 (Conflict Management)",
+    "mnemonic": "<해타철수강>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "5. 갈등관리 (Conflict Management)",
+    "mnemonic": "<매이엑욕/기목공스>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 5-1. 터크만 모델 (Tuckman Ladder Model)",
+    "mnemonic": "<형격규성해>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "7. 프로젝트 위험관리 (Project Risk Management)",
+    "mnemonic": "<계식성량/대실감>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 7-1. 리스크 대응 (Risk Response)",
+    "mnemonic": "<회전완수>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 7-1. 리스크 대응 (Risk Response)",
+    "mnemonic": "<활공강수>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "10. 프로젝트 이해관계자 관리(Stakeholder Management)",
+    "mnemonic": "<권합긴>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. 소프트웨어 비용 산정 (Software Cost Estimation)",
+    "mnemonic": "<하상수>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 1-1. 기능 점수(FP, Function Point)",
+    "mnemonic": "<논연/입출조/규연성운보>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 1-1. 기능 점수(FP, Function Point)",
+    "mnemonic": "<유범데트/미보후>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 5-2. 분할 발주제도",
+    "mnemonic": "<공기부>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "8. 공공SW사업 영향평가제",
+    "mnemonic": "<기운민사종>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. ITSM (IT Service Management)",
+    "mnemonic": "<인조기프>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. ITIL 4.0(IT Infrastructure Library)",
+    "mnemonic": "<조정파가>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. ITIL 4.0(IT Infrastructure Library)",
+    "mnemonic": "<지거서지실>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)",
+    "mnemonic": "<핵필중국>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. BCP (Business Continuity Planning)",
+    "mnemonic": "<티재/피손>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. BCP (Business Continuity Planning)",
+    "mnemonic": "<조리계지/운수개>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. BIA(Business Impact Analysis)",
+    "mnemonic": "<식발손우복>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. DRS (Disaster Recovery System)",
+    "mnemonic": "<상공외독>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "3. DRS (Disaster Recovery System)",
+    "mnemonic": "<관디지>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. 지식 재산권(Intellectual Property Rights)",
+    "mnemonic": "<산저신 / 특실디상 / 저인 / 산첨정>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. 지식 재산권(Intellectual Property Rights)",
+    "mnemonic": "<공타비>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "5. 전자정부 평가(EGDI)",
+    "mnemonic": "<온정인/제참결>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. 그로스 해킹 (Growth Hacking)",
+    "mnemonic": "<획활유추수>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "8. 클라우드 서비스 (Cloud Service)",
+    "mnemonic": "<가응확신/지지고>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "2. 인더스트리 5.0 (Industry 5.0)",
+    "mnemonic": "<인지복>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "4. 메타버스 (Metaverse)",
+    "mnemonic": "<증라거가>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 4-1. 메타버스 윤리원칙",
+    "mnemonic": "<온안지>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 4-1. 메타버스 윤리원칙",
+    "mnemonic": "<진자호사 공개포책>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "3. 온톨로지(Ontology)",
+    "mnemonic": "<개속관계공>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. 생성형 인공지능 투명성 확보 가이드라인(26.1.)",
+    "mnemonic": "<인투삼일>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. 생성형 인공지능 투명성 확보 가이드라인(26.1.)",
+    "mnemonic": "<사표딥>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "2. 제로트러스트(Zero Trust) 가이드라인(2.0 / 24.12.)",
+    "mnemonic": "<기초향최>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)",
+    "mnemonic": "<준등위/대적보>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "3. 국가 망 보안체계(N2SF) 가이드라인(1.0 / 25.9.)",
+    "mnemonic": "<위주객>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "4. 생체정보 보호 가이드라인(21.9.)",
+    "mnemonic": "<비적목/투안통>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)",
+    "mnemonic": "<준완유/적다구의/알유>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "5. 인공지능 학습용 데이터 품질관리 가이드라인(25.5.)",
+    "mnemonic": "<준구운/계수정가학운/원천적학공>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "6. 소프트웨어 대가산정 가이드(25.8.)",
+    "mnemonic": "<유시모>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "[하위] 6-1. 인공지능(AI) 서비스 도입 대가산정",
+    "mnemonic": "<단커시/기데모>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "7. 정보시스템 운영 성과측정 메뉴얼(25.11.)",
+    "mnemonic": "<운유비/기업공고>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "8. 생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드(26. 5.)",
+    "mnemonic": "<원전후가/프실기외>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)",
+    "mnemonic": "<편환정확>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)",
+    "mnemonic": "<탈모공고>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)",
+    "mnemonic": "<데개모애사>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "13. 공공데이터 인공지능 친화적 관리 가이드라인(v1, 26.3.)",
+    "mnemonic": "<완일정/적유유>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. 디지털 권리장전(Digital Bill of Rights)",
+    "mnemonic": "<자공안디인>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. 디지털 권리장전(Digital Bill of Rights)",
+    "mnemonic": "<알잊자디안>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "4. 정보보호 공시제도",
+    "mnemonic": "<공정일삼>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "4. 정보보호 공시제도",
+    "mnemonic": "<아아병씨>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "4. 정보보호 공시제도",
+    "mnemonic": "<투인평활>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "5. 소프트웨어 영향평가",
+    "mnemonic": "<소영사삼>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "5. 소프트웨어 영향평가",
+    "mnemonic": "<기운침필종>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "6. 개인정보 영향평가",
+    "mnemonic": "<개영삼삼>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "6. 개인정보 영향평가",
+    "mnemonic": "<민내정>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "6. 개인정보 영향평가",
+    "mnemonic": "<준수이/계사/계자흐/침개영/반이>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. ISO 31000 (리스크관리)",
+    "mnemonic": "<식분평처모>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "6. ISO/IEC 25059:2023",
+    "mnemonic": "<기신상효/유연보호안>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "1. TTA 정보시스템 백업 지침(TTAS.KO-10.0253)",
+    "mnemonic": "<전차누/온오/파디>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)",
+    "mnemonic": "<씨메디스>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)",
+    "mnemonic": "<수참시>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "2. 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3, 23.12.)",
+    "mnemonic": "<구기참가>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)",
+    "mnemonic": "<국대행일>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)",
+    "mnemonic": "<국중연/사파대>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "3. 행정안전부, 「행정기관 및 공공기관 정보시스템 안정성 고시」 (26.4.13.)",
+    "mnemonic": "<평예제검확>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "4. OT 환경의 제로트러스트 적용 안내서(25.12.)",
+    "mnemonic": "<실독전모>"
+  }
+]
