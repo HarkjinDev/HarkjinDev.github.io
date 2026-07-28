@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)</title>
+  <title>[하위] 2-2. AI RMF (AI Risk Management Framework)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,25 +15,36 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)</h4>
+<h4>[하위] 2-2. AI RMF (AI Risk Management Framework)</h4>
 <ul>
-<li><strong>정의</strong>: LLM 등 다양한 목적으로 광범위하게 활용되는 범용 AI(GPAI)의 오남용, 의도치 않은 피해, 통제 불능 등의 위험을 사전에 예방하고 관리하는 체계</li>
-<li><strong>키워드</strong>: GPAI, 레드팀, 환각(Hallucination), 워터마킹, 사용 정책(AUP), 안전장치(Guardrail)</li>
+<li><strong>정의</strong>: 미국 국립표준기술연구소(NIST)가 제시한 AI 시스템의 신뢰성 확보를 위해 위험을 식별·평가·완화·모니터링하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자발적 프레임워크</strong></u></span></li>
+<li><strong>키워드</strong>: NIST, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GOVERN·MAP·MEASURE·MANAGE, 7대 신뢰성 특성</strong></u></span>, 위험 완화, 자발적 프레임워크</li>
 <li><strong>분류</strong>: AI 윤리/거버넌스</li>
-<li><strong>주요 위험 유형</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;오편환통&gt;</strong></span><ul>
-<li><strong>오용 위험</strong>: 딥페이크, 허위정보 생성, 사이버 공격 자동화 등 악의적 목적으로의 활용</li>
-<li><strong>편향 위험</strong>: 학습 데이터의 편향이 결과물에 반영되어 특정 집단에 대한 차별 발생</li>
-<li><strong>환각 위험 (Hallucination)</strong>: 사실과 다른 정보를 생성하여 의사결정 오류 유발</li>
-<li><strong>통제 불능 위험</strong>: 모델의 행동을 예측·통제하기 어려운 블랙박스 특성으로 인한 위험</li>
+<li><strong>주요 특징</strong>:<ul>
+<li><strong>자발적 적용</strong>: 법적 강제가 아닌 조직이 자율적으로 채택하는 권고 프레임워크</li>
+<li><strong>유연성</strong>: 조직의 규모, 산업, AI 활용 목적에 맞게 커스터마이징하여 적용 가능</li>
 </ul>
 </li>
-<li><strong>주요 관리 수단</strong>:<ul>
-<li><strong>레드팀 테스트</strong>: 의도적 공격 시나리오를 통해 모델의 취약점을 사전에 식별</li>
-<li><strong>사용 정책 (AUP)</strong>: 허용·금지 사용 사례를 명시하여 오남용 방지</li>
-<li><strong>워터마킹</strong>: AI 생성 콘텐츠에 식별 표식을 삽입하여 출처 추적 가능하게 함</li>
-</ul>
+<li><strong>4대 핵심 기능:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;거식측관&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>기능</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>GOVERN(거버넌스)</strong></td><td>위험 관리 문화 및 정책 수립</td><td>조직 내 책임 구조</td></tr>
+<tr><td><strong>MAP(식별/분석)</strong></td><td>시스템 맥락 및 위험 요소 파악</td><td>위험 요소 카테고리화</td></tr>
+<tr><td><strong>MEASURE(측정/평가)</strong></td><td>위험 정량·정성 분석 및 평가</td><td>우선순위 결정</td></tr>
+<tr><td><strong>MANAGE(관리/대응)</strong></td><td>위험 완화 계획 수립 및 대응</td><td>잔여 위험 지속 모니터링</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: EU AI Act에서는 범용 AI 모델을 별도 규제 대상으로 명시하여 투명성 보고 및 저작권 준수 의무를 부과하고 있으며, 모델 제공자와 활용자 간 책임 분담 구조를 명확히 설계하는 것이 핵심 과제임</li>
+<li><strong>7대 신뢰성 특성 (Trustworthiness Characteristics)</strong>:<div class="table-scroll"><table>
+<tr><th><strong>특성</strong></th><th><strong>설명</strong></th><th><strong>역할</strong></th></tr>
+<tr><td><strong>유효성·신뢰성</strong></td><td>목적 부합 및 일관된 결과 산출</td><td><strong>신뢰성의 필수 기반</strong></td></tr>
+<tr><td><strong>안전성</strong></td><td>유해 결과 방지 및 사회 안전 보호</td><td>피해 방지 및 안전 확보</td></tr>
+<tr><td><strong>보안성·복원력</strong></td><td>공격 대응 및 시스템 복원력 확보</td><td>침해 사고 대응 및 복구</td></tr>
+<tr><td><strong>책임성·투명성</strong></td><td>운영 투명성 및 책임 소재 명시</td><td><strong>전체 특성 연결(수직적)</strong></td></tr>
+<tr><td><strong>설명·해석 가능성</strong></td><td>판단 근거 및 동작 원리 제공</td><td>결과에 대한 이해 지원</td></tr>
+<tr><td><strong>프라이버시 강화</strong></td><td>개인정보 보호 및 데이터 최소화</td><td>사용자 데이터 주권 보호</td></tr>
+<tr><td><strong>공정성·편향 관리</strong></td><td>편향 완화 및 특정 집단 차별 방지</td><td>알고리즘 평등성 확보</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 강제성은 없으나 미국 연방기관 및 글로벌 기업의 AI 도입 기준으로 빠르게 확산되고 있으며, EU AI Act 등 각국 규제와의 정합성을 고려한 통합 위험 관리 체계 설계가 필요함</li>
 </ul>
 
 </body>

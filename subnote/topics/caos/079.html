@@ -18,16 +18,18 @@
 <h4>3. AI 데이터센터</h4>
 <ul>
 <li><strong>정의</strong>: GPU·NPU 등 AI가속기를 집적해 학습·추론을 처리하는 차세대 고집적 데이터센터</li>
-<li><strong>키워드</strong>: GPU 클러스터, InfiniBand, NVLink, 전력밀도(PUE), 액침냉각, RDMA, 스파인-리프, 고대역폭 네트워크</li>
+<li><strong>키워드</strong>: GPU 클러스터, InfiniBand, NVLink, 전력밀도(PUE), 액침냉각, RDMA, 스파인-리프, 고대역폭 네트워크, Power-Adjacent DC, Co-location, Behind-the-Meter (BTM)</li>
 <li><strong>분류</strong>: 고가용성 인프라</li>
 <li><strong>핵심 구성요소</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>구성요소</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>컴퓨팅</strong></td><td>GPU/NPU 서버</td><td>NVIDIA HGX, TPU, Gaudi</td></tr>
+<tr><td><strong>컴퓨팅</strong></td><td>GPU/NPU 서버</td><td>첨단 패키징 (CoWoS), TPU, NVLink(가속기 인터커넥트)</td></tr>
+<tr><td><strong>메모리</strong></td><td>고대역폭 메모리</td><td>HBM, CXL</td></tr>
 <tr><td><strong>네트워크</strong></td><td>초고속 패브릭</td><td>InfiniBand 및 RoCEv2 기반의 저지연·고대역폭 RDMA 네트워크 구성</td></tr>
-<tr><td><strong>냉각</strong></td><td>액체 냉각 시스템</td><td>액침냉각(Immersion) 및 후면도어 냉각(RDHX)</td></tr>
+<tr><td><strong>분산</strong></td><td>DCI</td><td>DWDM, SD-WAN, Dark Fiber, DCIM</td></tr>
+<tr><td><strong>냉각</strong></td><td>액체 냉각 시스템</td><td>액침냉각(Immersion) 및 D2C (직접 액체 냉각)</td></tr>
 <tr><td><strong>전력</strong></td><td>고밀도 전력 인프라</td><td>전용 변전설비 및 UPS 이중화로<u><strong> PUE 1.1 이하</strong></u>의 고효율 전력 환경 달성</td></tr>
-<tr><td><strong>스토리지</strong></td><td>병렬 파일 시스템</td><td>대규모 학습 데이터의 빠른 로딩을 위한 All-Flash 기반 병렬 스토리지</td></tr>
-<tr><td><strong>소프트웨어</strong></td><td>AI 오케스트레이션</td><td>Kubernetes, Slurm 기반 플랫폼</td></tr>
+<tr><td><strong>스토리지</strong></td><td>병렬 파일 시스템</td><td>NVMe 플래시 어레이, 계층형 스토리지(핫·콜드 데이터분리)</td></tr>
+<tr><td><strong>소프트웨어</strong></td><td>AI 오케스트레이션</td><td>MLOps 플랫폼, 관측성(Observability)</td></tr>
 <tr><td><strong>보안</strong></td><td>신뢰 실행 환경(TEE)</td><td>모델 자산 및 개인정보 보호를 위한 기밀 컴퓨팅</td></tr>
 </table></div>
 </li>

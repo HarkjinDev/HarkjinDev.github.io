@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-1. 루프 엔지니어링</title>
+  <title>3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,44 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-1. 루프 엔지니어링</h4>
+<h4>3. 에이전트 하네스 엔지니어링 (Agent Harness Engineering)</h4>
 <ul>
-<li><strong>정의:</strong> AI 에이전트가 사람의 지속 개입 없이, 원하는 목표를 위해 피드백 루프를 설계/운영하는 방법론</li>
-<li><strong>에이전트 루프 (Agent Loop) 동작 구조:</strong><div class="table-scroll"><table>
-<tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>1. 목표/관찰</strong></td><td>해결해야 할 목표(Goal)를 수용함</td><td>사용자 의도 및 최종 목적지</td></tr>
-<tr><td><strong>2. 계획</strong></td><td>복잡한 태스크를 하위 단계로 분해 및 할당</td><td>전체적인 실행 계획</td></tr>
-<tr><td><strong>3. 행동(추론)</strong></td><td>LLM이 현재 상태를 분석하고 다음 행동 결정</td><td><strong>ReAct</strong> / <strong>CoT</strong></td></tr>
-<tr><td><strong>3. 행동(툴 호출)</strong></td><td>외부 도구(API, 코드, 검색 등)를 실행함</td><td>외부 세계와의 상호작용</td></tr>
-<tr><td><strong>4. 검증/기록</strong></td><td>도구 실행 결과를 확인하고 컨텍스트에 기록</td><td>피드백 및 지식 반영</td></tr>
-<tr><td><strong>5. 판단(종료 조건)</strong></td><td>목표 달성 여부를 확인하여 루프 지속 결정</td><td>조건 미충족 시 <strong>추론</strong> 단계로 재순환</td></tr>
-<tr><td><strong>6. 종료(결과 반환)</strong></td><td>최종 완성된 결과물을 사용자에게 전달</td><td>태스크 완결 및 루프 종료</td></tr>
+<li><strong>정의:</strong> AI에이전트의 실행환경·도구연결·안전제어를 통합 설계·관리하는 엔지니어링 방법론</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에이전트 루프</strong></u></span>, 툴 호출(Tool Calling), 오케스트레이션, 샌드박스, 평가 프레임워크, 가드레일, 멀티에이전트, 메모리 관리, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>관찰 가능성(Observability)</strong></u></span></li>
+<li><strong>분류</strong>: AI 응용/트렌드</li>
+<li><strong>하네스(Harness): </strong>소프트웨어 테스트에서 코드를 자동으로 실행·검증하는 <strong>테스트 인프라</strong></li>
+<li><strong>구성 요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>Guides(행동지침계층)</strong></td><td><strong>시스템 프롬프트</strong></td><td>에이전트 역할·행동규칙 정의</td></tr>
+<tr><td></td><td><strong>AGENTS.md/문서</strong></td><td>프로젝트별 행동가이드 문서화</td></tr>
+<tr><td></td><td><strong>가드레일</strong></td><td>허용된 행동범위 명시</td></tr>
+<tr><td><strong>Sensors(감지·검증계층)</strong></td><td><strong>평가 스위트</strong></td><td>에이전트 출력 품질 테스트</td></tr>
+<tr><td></td><td><strong>검증 루프</strong></td><td>커밋 전 출력 검증</td></tr>
+<tr><td></td><td><strong>드리프트 탐지기</strong></td><td>행동 이탈 모니터링</td></tr>
+<tr><td><strong>실행·도구계층(Execution)</strong></td><td><strong>툴 레지스트리</strong></td><td>외부시스템·API 호출</td></tr>
+<tr><td></td><td><strong>샌드박스</strong></td><td>격리된 안전 실행환경</td></tr>
+<tr><td></td><td><strong>권한관리</strong></td><td>도구별 접근권한 제어</td></tr>
+<tr><td><strong>오케스트레이션계층</strong></td><td><strong>워크플로우 오케스트레이션</strong></td><td>태스크 순서·흐름 제어</td></tr>
+<tr><td></td><td><strong>멀티에이전트 시스템(MAS)</strong></td><td>서브에이전트 위임·협업</td></tr>
+<tr><td><strong>메모리계층</strong></td><td><strong>단기 메모리(컨텍스트)</strong></td><td>대화·세션 상태 유지</td></tr>
+<tr><td></td><td><strong>장기 메모리</strong></td><td>이력·지식 영속 저장</td></tr>
+<tr><td><strong>관측·운영계층</strong></td><td><strong>Observability</strong></td><td>실행 이력 추적</td></tr>
+<tr><td></td><td><strong>피드백 루프</strong></td><td>결과 반영 지속개선</td></tr>
+<tr><td><strong>주요 패턴</strong></td><td><strong>ReAct</strong></td><td>추론 → 행동 → 관찰 반복</td></tr>
+<tr><td></td><td><strong>Plan &amp; Execute</strong></td><td>전체 계획 수립 후 단계별 실행 분리</td></tr>
+<tr><td></td><td><strong>Human-in-the-Loop</strong></td><td>사람이 개입하여 승인·수정</td></tr>
 </table></div>
 </li>
-<li><strong>구성요소: </strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
-<tr><td><strong>자동수행</strong></td><td><strong>Automations</strong></td><td>일정·이벤트 기반 루프 자동 시작</td></tr>
-<tr><td><strong>격리</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Worktrees</strong></u></span></td><td>에이전트별 독립적 작업공간에서 병렬 수행</td></tr>
-<tr><td><strong>지식</strong></td><td><strong>Skills</strong></td><td>프로젝트 설명을 미리 작성한 파일로 지식·절차 재사용</td></tr>
-<tr><td><strong>연계</strong></td><td><strong>Plugins/Connectors</strong></td><td>MCP기반 외부 도구·데이터와 업무 연계</td></tr>
-<tr><td><strong>분업</strong></td><td><strong>Sub-agents</strong></td><td>실행과 검증역할 Agent 분리로 루프 신뢰성 확보</td></tr>
-<tr><td><strong>기록</strong></td><td><strong>Memory/State</strong></td><td>루프 외부에 상태·진행 이력 저장</td></tr>
+<li><strong>주요 리스크 및 대응:</strong><div class="table-scroll"><table>
+<tr><th>리스크</th><th>설명</th><th>대응 방법</th></tr>
+<tr><td><strong>무한 루프</strong></td><td>종료 조건 미충족으로 에이전트가 반복 실행</td><td>최대 스텝 수 제한, 타임아웃 설정</td></tr>
+<tr><td><strong>툴 오남용</strong></td><td>불필요하거나 위험한 툴을 잘못 호출</td><td>툴 권한 최소화(최소 권한 원칙)</td></tr>
+<tr><td><strong>컨텍스트 오염</strong></td><td>이전 실행 결과가 후속 추론에 오류 전파</td><td>메모리 초기화, 세션 격리</td></tr>
+<tr><td><strong>프롬프트 인젝션</strong></td><td>외부 입력을 통해 에이전트 행동을 악의적으로 유도</td><td>입력 검증, 샌드박스 격리</td></tr>
+<tr><td><strong>비용 폭주</strong></td><td>반복 루프로 인한 LLM API 호출 비용 급증</td><td>토큰 예산 제한, 캐싱 적용</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트: </strong>LLM을 '도구'에서 '자율 실행 시스템'으로 전환하는 핵심 인프라이며, 단순 프롬프트 엔지니어링의 상위 개념으로 부상 중. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>에이전트 성능의 병목은 LLM 자체보다 툴 설계·메모리 관리·평가 체계에서 주로 발생</strong></u></span>하며, 하네스 품질이 전체 시스템 신뢰도를 결정함. 관찰 가능성(Observability) 확보 없이는 멀티에이전트 시스템의 디버깅이 사실상 불가능하므로, 로깅·추적 인프라는 선택이 아닌 필수 설계 요소. Human-in-the-Loop 설계는 초기에는 자율성을 제한하는 것처럼 보이지만, 고위험 도메인(금융·의료·법률)에서는 오히려 신뢰성과 채택률을 높이는 전략적 선택</li>
 </ul>
 
 </body>
