@@ -117,7 +117,14 @@
       border: 1px solid var(--border); background: #fff;
       max-height: 0; transition: max-height .35s cubic-bezier(.4,0,.2,1);
     }
-    .content-area.open { max-height: 3000px; }
+    .content-area.open {
+      max-height: 60vh;           /* 화면의 60% 높이로 고정 */
+      overflow-y: auto;           /* 내부 상하 스크롤 */
+      -webkit-overflow-scrolling: touch;
+    }
+    @media (max-width: 480px) {
+      .content-area.open { max-height: 65vh; }
+    }
 
     .content-loading {
       display: none; padding: 28px; text-align: center;
