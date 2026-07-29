@@ -172,6 +172,8 @@
     .timer-btn.t-start { border-right: 1px solid var(--border); }
     .timer-btn.t-start:hover:not(:disabled) { color: #2d8a4e; }
     .timer-btn.t-stop:hover:not(:disabled)  { color: #c0392b; }
+    .timer-btn.t-reset { border-left: 1px solid var(--border); }
+    .timer-btn.t-reset:hover:not(:disabled) { color: #b06000; }
     .timer-btn:disabled { opacity: .3; cursor: default; }
 
     /* ── 모바일 ── */
@@ -205,7 +207,8 @@
   <div class="timer-bar" id="timerBar" style="display:none">
     <span class="timer-display" id="timerDisplay">00:00:00</span>
     <button class="timer-btn t-start" id="btnTimerStart">시작</button>
-    <button class="timer-btn t-stop"  id="btnTimerStop" disabled>중지</button>
+    <button class="timer-btn t-stop"  id="btnTimerStop"  disabled>중지</button>
+    <button class="timer-btn t-reset" id="btnTimerReset">초기화</button>
   </div>
 
   <!-- 도메인 필터 -->
@@ -430,8 +433,15 @@ function stopTimer() {
   document.getElementById('btnTimerStop').disabled  = true;
 }
 
+function resetTimer() {
+  stopTimer();
+  timerSeconds = 0;
+  document.getElementById('timerDisplay').textContent = '00:00:00';
+}
+
 document.getElementById('btnTimerStart').addEventListener('click', startTimer);
 document.getElementById('btnTimerStop').addEventListener('click', stopTimer);
+document.getElementById('btnTimerReset').addEventListener('click', resetTimer);
 
 // 타이머 표시는 데이터 로드 후
 function showTimer() {
