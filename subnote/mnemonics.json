@@ -860,8 +860,20 @@
   {
     "domain": "ST",
     "fname": "st",
+    "topic": "7. 결측치 (Missing Value)",
+    "mnemonic": "<완무비>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
     "topic": "8. 타당도 (Validity)",
     "mnemonic": "<내구기>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "8. 신뢰도 (Reliability)",
+    "mnemonic": "<재동내>"
   },
   {
     "domain": "ST",

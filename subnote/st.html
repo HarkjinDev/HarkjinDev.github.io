@@ -154,7 +154,7 @@
 <h4>5. 이상치 (Outlier)</h4>
 <ul>
 <li><strong>정의</strong>: 데이터의 일반적 분포에서 크게 벗어난 비정상적 관측값</li>
-<li><strong>키워드</strong>: 이상치, 전역/맥락/군집 이상치, IQR, Z-score</li>
+<li><strong>키워드</strong>: 이상치, 전역/맥락/군집 이상치, IQR, Z-score, Boxplot, KNN, DBSCAN</li>
 <li><strong>분류</strong>: 통계 기초</li>
 <li><strong>주요 발생 원인:</strong> 데이터 오류, 측정 단위 불일치, 샘플링 오류, 비정상적 이벤트, 극단적인 행동</li>
 <li><strong>유형 (3가지)</strong>:<ul>
@@ -249,10 +249,10 @@
 </ul>
 <h4>7. 결측치 (Missing Value)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터셋에서 값이 누락된 관측값 및 그 처리 방법</li>
+<li><strong>정의</strong>: 수집·처리 과정에서 값이 기록되지 않거나 손실되어 비어있는 관측값</li>
 <li><strong>키워드</strong>: 삭제법, 대체법, 예측법, 다중대체법</li>
 <li><strong>분류</strong>: 통계 기초</li>
-<li><strong>종류: </strong><div class="table-scroll"><table>
+<li><strong>종류:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완무비&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>종류</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>완전 무작위 결측(MCAR)</strong></td><td>타 변수와 무관하게 무작위 발생</td><td>무작위성 보장</td></tr>
 <tr><td><strong>무작위 결측(MAR)</strong></td><td>타 관측 변수와 연계되어 발생</td><td>조건부 무작위</td></tr>
@@ -287,7 +287,7 @@
 <li><strong>정의</strong>: 동일 조건에서 반복 측정 시 일관된 결과를 산출하는 정도</li>
 <li><strong>키워드</strong>: 일관성,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 재검사, 내적 일치도, Cronbach α</strong></u></span></li>
 <li><strong>분류</strong>: 통계 기초</li>
-<li><strong>유형</strong>:<ul>
+<li><strong>유형</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;재동내&gt;</strong></span><ul>
 <li><strong>재검사 신뢰도</strong>: 동일 도구로 시간 차를 두고 반복 측정</li>
 <li><strong>동형검사 신뢰도</strong>: 동등한 두 측정 도구 결과 비교</li>
 <li><strong>내적 일치도</strong>: 문항 간 일관성 → Cronbach α (α ≥ 0.7 수용 기준)</li>
