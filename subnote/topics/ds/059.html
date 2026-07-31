@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 사물인터넷 (IoT, Internet of Things)</title>
+  <title>7. 측위 기술</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,22 +15,47 @@
   </style>
 </head>
 <body>
-<h4>4. 사물인터넷 (IoT, Internet of Things)</h4>
+<h4>7. 측위 기술</h4>
 <ul>
-<li><strong>정의</strong>: 사물에 센서와 통신 모듈을 내장하여 인터넷으로 연결하고 데이터를 수집·처리하여 지능형 서비스를 제공하는 기술 체계</li>
-<li><strong>키워드</strong>: 센서, M2M, MQTT, CoAP, 에지 컴퓨팅, 국내외 플랫폼, AIoT</li>
-<li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
-<tr><th>계층</th><th>기술</th></tr>
-<tr><td>디바이스</td><td>센서, MCU, 저전력 통신(BLE, Zigbee, LoRa)</td></tr>
-<tr><td>네트워크</td><td>MQTT, CoAP, LWM2M, NB-IoT</td></tr>
-<tr><td>플랫폼</td><td>데이터 수집·분석, 디바이스 관리</td></tr>
-<tr><td>서비스</td><td>스마트홈, 스마트팩토리, 헬스케어</td></tr>
+<li><strong>LDT(Location Determination Technology):</strong> 위치기반 서비스(LBS) 제공을 위해 모바일 단말의 위치를 측정하는 위치 확인 기술</li>
+<li><strong>LAS(Location Aware System):</strong> 특정 위치 또는 이동하는 사물의 물리적/논리적 위치를 파악하여 적절한 서비스를 제공하는 기술 및 시스템<div class="table-scroll"><table>
+<tr><th>기술</th><th>설명</th><th>위치측정방식</th></tr>
+<tr><td><strong>위성통신 기반</strong></td><td>위성 반송파 신호 위상·코드 측정·추적</td><td>삼각측량 (D-GPS·A-GPS)</td></tr>
+<tr><td><strong>이동통신 기반</strong></td><td>셀룰러 이동통신 네트워크 활용</td><td>삼각측량 (TOA·AOA·TDOA·Cell-ID)</td></tr>
+<tr><td><strong>무선통신 기반</strong></td><td>적외선·초음파 등 무선통신 기술 활용</td><td>초음파·RFID·UWB·Wi-Fi</td></tr>
+<tr><td><strong>영상인식 기반</strong></td><td>영상의 시공간적 차이점으로 위치 인식</td><td>컴퓨터 비전</td></tr>
 </table></div>
 </li>
-<li><strong>국내외 서비스 현황</strong>: AWS IoT Core, Azure IoT Hub, 국내 SKT ARTIK, KT IoT Maker's</li>
-<li><strong>인사이트</strong>: IoT는 <strong>디바이스-네트워크-플랫폼-서비스</strong> 4계층 구조로 설명하고, 보안 취약성(디바이스 무결성·암호화 부재)과 AIoT로의 진화 방향을 제시하면 고득점 가능.</li>
+<li><strong>LBS(Location Based Service): </strong>위치확인기술(LAS)을 이용해 사용자의 위치를 파악하고, 관련된 부가정보를 결합해 다양한 서비스를 제공하는 기술<div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>기술요소</th></tr>
+<tr><td><strong>위치측위기술 (LDT)</strong></td><td>모바일 기기 위치 측정 기술·Network·Handset·Wi-Fi 기반 측위</td><td>GPS·Cell-ID·Wi-Fi</td></tr>
+<tr><td><strong>위치처리플랫폼 (LEP)</strong></td><td>이동통신망·위치응용 간 기반기술·위치정보 관리·인증·보안·부하분산</td><td>MMDB·공간인덱싱·인증·접근통제</td></tr>
+<tr><td><strong>위치응용프로그램 (LAP)</strong></td><td>위치기반 서비스 컨텐츠 처리·운영·수치지도·POI·경로 제공</td><td>L-CRM·Location Trigger Marketing·Navigation·L-commerce</td></tr>
+</table></div>
+</li>
+<li><strong>IPS(Indoor Positioning System)</strong>: 건물 내부에 있는 사용자의 위치를 파악하고, 이를 스마트폰 등에 내장된 지도와 대조해 물건이나 장소의 위치를 쉽게 찾아주는 시스템</li>
+<li><strong>측위 기술 비교</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>Wi-Fi RSSI</strong></th><th><strong>BLE</strong></th><th><strong>UWB</strong></th><th><strong>핑거프린팅</strong></th></tr>
+<tr><td><strong>설명</strong></td><td>신호 강도 기반</td><td>신호 강도/AoA</td><td>ToA 정밀 측정</td><td>DB 매칭</td></tr>
+<tr><td><strong>정확도</strong></td><td>2~5m</td><td>1~3m</td><td>10~30cm</td><td>1~3m</td></tr>
+<tr><td><strong>특징</strong></td><td>기존 인프라 활용</td><td>저전력, 소형 비콘</td><td>고정밀, 고비용</td><td>환경 변화에 민감</td></tr>
+</table></div>
+</li>
+<li><strong>측위기술: </strong><div class="table-scroll"><table>
+<tr><th>측위 기술</th><th>상세 측위 방법</th><th>설명</th></tr>
+<tr><td><strong>Wi-Fi 기반</strong></td><td><strong>기준점 측위 (Cell ID)</strong></td><td>Cell ID·RSSI로 AP 위치 결정</td></tr>
+<tr><td></td><td><strong>삼각측량 측위</strong></td><td>3개 이상 AP RSSI 거리 환산</td></tr>
+<tr><td></td><td><strong>Fingerprinting 측위</strong></td><td>전파 맵 비교로 단말 위치 결정</td></tr>
+<tr><td></td><td><strong>다변 측위</strong></td><td>신호·도착시간·왕복시간 계산</td></tr>
+<tr><td><strong>UWB 기반</strong></td><td><strong>ToA·TDoA·AoA·Fingerprinting</strong></td><td>벽 투과·수 cm 정확도 측위</td></tr>
+<tr><td><strong>센서 기반</strong></td><td><strong>PDR (보행자추측항법)</strong></td><td>가속도·자이로·지자기 보행 계산</td></tr>
+<tr><td><strong>비콘 기반</strong></td><td><strong>Bluetooth 방식</strong></td><td>BLE 장치 간 거리로 측위 계산</td></tr>
+<tr><td><strong>CCTV·RFID 기반</strong></td><td><strong>CCTV 기반 측위</strong></td><td>영상 분석·사용자 식별 위치 측정</td></tr>
+<tr><td></td><td><strong>RFID 기반 측위</strong></td><td>RFID Tag·BLE·Wi-Fi망 위치 서비스</td></tr>
+</table></div>
+</li>
 </ul>
+<hr/>
 
 </body>
 </html>

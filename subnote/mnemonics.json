@@ -1382,14 +1382,62 @@
   {
     "domain": "DS",
     "fname": "ds",
-    "topic": "8. 클라우드 서비스 (Cloud Service)",
+    "topic": "7. 오토 스케일링 (Auto Scaling)",
+    "mnemonic": "<반예스>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "0. 클라우드",
+    "mnemonic": "<서대가씨분병>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "4. 클라우드 서비스 (Cloud Service)",
     "mnemonic": "<가응확신/지지고>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)",
+    "mnemonic": "<엠컨데씨>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)",
+    "mnemonic": "<외서런/지텔씨>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)",
+    "mnemonic": "<범사발구운>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)",
+    "mnemonic": "<기시활/도최혁>"
   },
   {
     "domain": "DS",
     "fname": "ds",
     "topic": "2. 인더스트리 5.0 (Industry 5.0)",
     "mnemonic": "<인지복>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "[하위] 8-2. 블록체인 트릴레마(Blockchain Trilemma)",
+    "mnemonic": "<확탈보>"
+  },
+  {
+    "domain": "DS",
+    "fname": "ds",
+    "topic": "2. 데이터 가치평가 (Data Valuation)",
+    "mnemonic": "<수원시>"
   },
   {
     "domain": "DS",

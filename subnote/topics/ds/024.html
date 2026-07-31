@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12. 클라우드 네이티브 (Cloud Native)</title>
+  <title>10. HCI (Hyper Converged Infrastructure)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,47 +15,19 @@
   </style>
 </head>
 <body>
-<h4>12. 클라우드 네이티브 (Cloud Native)</h4>
+<h4>10. HCI (Hyper Converged Infrastructure)</h4>
 <ul>
-<li><strong>정의</strong>: 클라우드 환경의 탄력성·확장성·자동화를 최대한 활용하도록 MSA·컨테이너·CI/CD·DevOps를 기반으로 설계·개발되는 애플리케이션 방식</li>
-<li><strong>키워드</strong>: MSA, 컨테이너, CI/CD, DevOps, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선언적 API, 불변 인프라</strong></u></span>, CNCF, 12 Factor App</li>
+<li><strong>정의</strong>: 컴퓨팅·스토리지·네트워크·가상화를 단일 소프트웨어 정의 장비에 통합한 초융합 인프라</li>
+<li><strong>키워드</strong>: 소프트웨어 정의, 단순화, 확장성, vSAN, Nutanix, 분산 스토리지</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>핵심 원칙 (12 Factor App 기반)</strong>:<ul>
-<li>환경 분리(Config), 무상태 프로세스, 로그 스트림, 포트 바인딩, 수평 확장</li>
-</ul>
-</li>
-<li><strong>CNCF 핵심 기술 스택</strong>: Kubernetes, Prometheus, Envoy, Helm, Argo CD</li>
-<li><strong>특성: </strong><div class="table-scroll"><table>
-<tr><th>특성</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>확장성 (Scalability)</strong></td><td>부하 변화에 따라 자원을 자동으로 수평 확장·축소</td><td><u><strong>오토 스케일링</strong></u></td></tr>
-<tr><td><strong>탄력성 (Elasticity)</strong></td><td>수요에 따라 즉시 할당·해제하는 유연한 자원 관리</td><td>동적 자원 조정</td></tr>
-<tr><td><strong>복원력 (Resiliency)</strong></td><td>장애 발생 시 자동 복구·서비스 연속성 유지</td><td><u><strong>자가 치유</strong></u></td></tr>
-<tr><td><strong>관측가능성 (Observability)</strong></td><td>메트릭·로그·트레이싱 시스템 상태 실시간 파악</td><td>시스템 가시성</td></tr>
-<tr><td><strong>자동화 (Automation)</strong></td><td>빌드·테스트·배포·운영을 코드 기반으로 자동화</td><td>CI/CD·IaC</td></tr>
-<tr><td><strong>이식성 (Portability)</strong></td><td>어떤 클라우드·환경에서도 동일하게 실행 가능</td><td>벤더 종속 탈피</td></tr>
-<tr><td><strong>느슨한 결합 (Loose Coupling)</strong></td><td>서비스 간 독립성 유지·변경 영향 최소화</td><td>독립 배포 가능</td></tr>
-<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>선언적 API (Declarative API)</strong></u></span></td><td>목표 상태를 선언하면 시스템이 자동으로 상태 유지</td><td>상태 기반 관리</td></tr>
-<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>불변 인프라 (Immutable Infrastructure)</strong></u></span></td><td>배포 후 변경 없이 새 이미지로 교체 운영 방식</td><td>교체 기반 운영</td></tr>
-<tr><td><strong>보안 내재화 (Security by Design)</strong></td><td>설계 단계부터 보안을 내재화·DevSecOps 적용</td><td>보안 시프트 레프트</td></tr>
+<li><strong>유형별 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>전통 인프라</th><th>CI(융합 인프라)</th><th>HCI(초융합 인프라)</th></tr>
+<tr><td>구성</td><td>서버·스토리지·네트워크 분리</td><td>사전 통합 패키지</td><td>소프트웨어 정의 완전 통합</td></tr>
+<tr><td>확장</td><td>개별 장비 증설</td><td>어려움</td><td>노드 추가로 선형 확장</td></tr>
+<tr><td>관리</td><td>복잡</td><td>중간</td><td>단일 관리 콘솔</td></tr>
 </table></div>
 </li>
-<li><strong>기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>프로비저닝</strong></td><td><strong>컨테이너 (Docker)</strong></td><td>앱·의존성 패키징한 경량 실행 단위</td><td>이식성·일관성</td></tr>
-<tr><td><strong>오케스트레이션</strong></td><td><strong>쿠버네티스 </strong></td><td>컨테이너 배포·확장·복구 자동화</td><td>컨테이너 자동 관리</td></tr>
-<tr><td><strong>아키텍처</strong></td><td><strong>MSA</strong></td><td>서비스를 독립 배포 가능 단위로 분리</td><td>독립 배포·확장</td></tr>
-<tr><td><strong>네트워킹</strong></td><td><strong>API 게이트웨이</strong></td><td>외부 요청 단일 진입점·라우팅·인증</td><td>단일 진입점</td></tr>
-<tr><td></td><td><strong>서비스 메시 (Istio·Linkerd)</strong></td><td>서비스 간 통신·보안·트래픽 제어</td><td>서비스 통신 관리</td></tr>
-<tr><td><strong>CI/CD</strong></td><td><strong>CI/CD 파이프라인</strong></td><td>코드 변경부터 배포까지 자동화</td><td>배포 자동화</td></tr>
-<tr><td></td><td><strong>GitOps/ArgoCD</strong></td><td>Git 기반 인프라·배포 상태 관리</td><td>Git 기반 운영</td></tr>
-<tr><td><strong>인프라</strong></td><td><strong>IaC </strong></td><td>인프라를 코드로 선언·버전 관리</td><td>코드 기반 인프라</td></tr>
-<tr><td></td><td><strong>오토 스케일링</strong></td><td>부하 기반 자원 자동 조정</td><td>자동 자원 조정</td></tr>
-<tr><td><strong>관측가능성</strong></td><td><strong>Observability(MELT) </strong></td><td>메트릭·로그·트레이싱 통합 모니터링</td><td>시스템 가시성</td></tr>
-<tr><td><strong>보안</strong></td><td><strong>DevSecOps</strong></td><td>개발·운영 전 단계 보안 내재화</td><td>보안 자동화</td></tr>
-<tr><td></td><td><strong>제로 트러스트</strong></td><td>모든 접근 지속 검증·최소 권한</td><td>신뢰 최소화</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 클라우드 네이티브는 <strong>단순한 클라우드 이전이 아닌 아키텍처 혁신</strong>으로, 기존 모놀리식 앱의 MSA 전환 시 데이터 일관성·서비스 간 통신 복잡성을 체계적으로 관리해야 함.</li>
+<li><strong>인사이트</strong>: HCI는 <strong>VDI·소규모 지점·엣지 컴퓨팅</strong>에 적합하며, 프라이빗 클라우드 구축 시 복잡성 감소와 빠른 배포가 주요 채택 이유임. 대규모 워크로드에서는 성능 병목이 발생할 수 있음.</li>
 </ul>
 
 </body>

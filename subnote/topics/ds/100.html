@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 디지털 휴먼증강 (Digital Human Augmentation)</title>
+  <title>1. EDA (Event Driven Architecture)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,34 @@
   </style>
 </head>
 <body>
-<h4>3. 디지털 휴먼증강 (Digital Human Augmentation)</h4>
+<h4>1. EDA (Event Driven Architecture)</h4>
 <ul>
-<li><strong>정의</strong>: 웨어러블·BCI·임플란트 등 디지털 기술로 인간의 신체적·인지적·감각적 능력을 기존 한계 이상으로 확장하는 기술</li>
-<li><strong>키워드</strong>: BCI, 외골격, 신경 인터페이스, 인지 강화, 감각 확장, 트랜스휴머니즘</li>
-<li><strong>분류</strong>: 디지털 사회/정책</li>
-<li><strong>유형</strong>:<div class="table-scroll"><table>
-<tr><th>유형</th><th>기술</th><th>사례</th></tr>
-<tr><td>신체 증강</td><td>외골격 로봇, 의족·의수</td><td>산업용 HAL, 재활 로봇</td></tr>
-<tr><td>인지 증강</td><td>BCI, AI 어시스턴트</td><td>Neuralink, 코크리어 임플란트</td></tr>
-<tr><td>감각 확장</td><td>AR/VR, 첨단 센서</td><td>색맹 보정 렌즈, 야간 투시</td></tr>
+<li><strong>정의</strong>: 시스템의 상태 변화를 이벤트로 표현하고, 이벤트의 생산·전달·소비를 기반으로 서비스 간 비동기 통신을 구성하는 아키텍처 패턴</li>
+<li><strong>키워드</strong>: 이벤트(Event), 프로듀서(Producer), 컨슈머(Consumer), 이벤트 브로커, 비동기, 느슨한 결합, Kafka, CQRS, 이벤트 소싱</li>
+<li><strong>분류</strong>: 미들웨어/아키텍처</li>
+<li><strong>EDA 핵심 구성 요소</strong>:<div class="table-scroll"><table>
+<tr><th>구성 요소</th><th>역할</th></tr>
+<tr><td>이벤트 프로듀서</td><td>상태 변화 시 이벤트 생성·발행</td></tr>
+<tr><td>이벤트 브로커</td><td>이벤트 수신·저장·라우팅 (Kafka, RabbitMQ)</td></tr>
+<tr><td>이벤트 컨슈머</td><td>이벤트 구독·처리</td></tr>
+<tr><td>이벤트 스토어</td><td>이벤트 영속적 저장 (이벤트 소싱 시)</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 디지털 휴먼증강은 <strong>의료 재활(치료 목적)과 능력 강화(향상 목적)의 경계</strong>에서 윤리·공정성(부유층만 접근 가능) 문제가 핵심 쟁점이며, 국제 규범 마련이 시급함을 강조.</li>
+<li><strong>EDA 패턴 유형</strong>:<div class="table-scroll"><table>
+<tr><th>패턴</th><th>설명</th></tr>
+<tr><td>Pub/Sub</td><td>주제(Topic) 기반 다중 컨슈머 구독</td></tr>
+<tr><td>Event Streaming</td><td>이벤트 스트림 순서 보장·재처리 (Kafka)</td></tr>
+<tr><td>Event Sourcing</td><td>상태 변화를 이벤트 시퀀스로 저장</td></tr>
+<tr><td>CQRS + EDA</td><td>커맨드 이벤트로 읽기·쓰기 모델 동기화</td></tr>
+</table></div>
+</li>
+<li><strong>EDA 장단점</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td>장점</td><td>서비스 간 느슨한 결합, 확장성, 비동기 처리</td></tr>
+<tr><td>단점</td><td>이벤트 순서·중복 처리, 분산 추적 복잡, 최종 일관성</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: EDA는 <strong>MSA와 자연스럽게 결합</strong>되어 서비스 간 직접 호출을 이벤트 기반 비동기로 대체하며, <strong>최종 일관성(Eventual Consistency)</strong>을 수용하는 설계 철학이 필수 전제.</li>
 </ul>
 
 </body>

@@ -3671,414 +3671,394 @@
       },
       {
         "id": "014",
-        "name": "2. IaaS (Infrastructure as a Service)"
+        "name": "2. FaaS (Function as a Service)"
       },
       {
         "id": "015",
-        "name": "3. SaaS (Software as a Service)"
+        "name": "3. BaaS (Backend as a Service)"
       },
       {
         "id": "016",
-        "name": "4. PaaS (Platform as a Service)"
+        "name": "4. 클라우드 서비스 (Cloud Service)"
       },
       {
         "id": "017",
-        "name": "5. FaaS (Function as a Service)"
+        "name": "5. 서버리스 컴퓨팅 (Serverless Computing)"
       },
       {
         "id": "018",
-        "name": "6. BaaS (Backend as a Service)"
+        "name": "6. 클라우드 관리 플랫폼 (CMP, Cloud Management Platform)"
       },
       {
         "id": "019",
-        "name": "7. SaaS 이용 가이드라인"
+        "name": "7. 멀티클라우드 (Multi-Cloud)"
       },
       {
         "id": "020",
-        "name": "8. 클라우드 서비스 (Cloud Service)"
+        "name": "8. 클라우드 네이티브 (Cloud Native)"
       },
       {
         "id": "021",
-        "name": "9. 서버리스 컴퓨팅 (Serverless Computing)"
+        "name": "[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)"
       },
       {
         "id": "022",
-        "name": "10. 클라우드 관리 플랫폼 (CMP, Cloud Management Platform)"
+        "name": "[하위] 8-2. 클라우드 네이티브 애플리케이션 개발 가이드라인"
       },
       {
         "id": "023",
-        "name": "11. 멀티클라우드 (Multi-Cloud)"
+        "name": "9. 소버린 클라우드 (Sovereign Cloud)"
       },
       {
         "id": "024",
-        "name": "12. 클라우드 네이티브 (Cloud Native)"
+        "name": "10. HCI (Hyper Converged Infrastructure)"
       },
       {
         "id": "025",
-        "name": "[하위] 12-1. 클라우드 네이티브 애플리케이션 개발 가이드라인"
-      },
-      {
-        "id": "026",
-        "name": "13. 소버린 클라우드 (Sovereign Cloud)"
-      },
-      {
-        "id": "027",
-        "name": "14. HCI (Hyper Converged Infrastructure)"
-      },
-      {
-        "id": "028",
         "name": "15. 코드형 인프라 (IaC, Infrastructure as Code)"
       },
       {
-        "id": "029",
+        "id": "026",
         "name": "16. 클라우드 전환 (Cloud Migration)"
       },
       {
-        "id": "030",
+        "id": "027",
         "name": "17. 엣지 컴퓨팅 (Edge Computing)"
       },
       {
-        "id": "031",
+        "id": "028",
         "name": "[Part 3]. API/웹 기술"
       },
       {
-        "id": "032",
+        "id": "029",
         "name": "1. API (Application Programming Interface)"
       },
       {
-        "id": "033",
+        "id": "030",
         "name": "[하위] 1-1. 개방형 API (Open API)"
       },
       {
-        "id": "034",
+        "id": "031",
         "name": "[하위] 1-2. OAS (OpenAPI Specification)"
       },
       {
-        "id": "035",
+        "id": "032",
         "name": "[하위] 1-3. REST (Representational State Transfer)"
       },
       {
-        "id": "036",
+        "id": "033",
         "name": "[하위] 1-4. SOAP (Simple Object Access Protocol)"
       },
       {
-        "id": "037",
+        "id": "034",
         "name": "[하위] 1-5. REST API (REpresentational State Transfer API)"
       },
       {
-        "id": "038",
+        "id": "035",
         "name": "[하위] 1-6. API Gateway"
       },
       {
-        "id": "039",
+        "id": "036",
         "name": "2. 반응형 웹 디자인 (RWD, Responsive Web Design)"
       },
       {
-        "id": "040",
+        "id": "037",
         "name": "3. 웹 성능 최적화 (Web Performance Optimization)"
       },
       {
-        "id": "041",
+        "id": "038",
         "name": "4. 버전관리 시스템 (Version Control System)"
       },
       {
-        "id": "042",
+        "id": "039",
         "name": "5. 디지털 정부서비스 UI/UX 가이드라인"
       },
       {
-        "id": "043",
+        "id": "040",
         "name": "[하위] 5-1. 전자정부 UI/UX"
       },
       {
-        "id": "044",
+        "id": "041",
         "name": "[Part 4]. 스마트 제조/산업"
       },
       {
-        "id": "045",
+        "id": "042",
         "name": "1. 스마트팩토리 (Smart Factory)"
       },
       {
-        "id": "046",
+        "id": "043",
         "name": "[하위] 1-1. 다크 팩토리(Dark Factory)"
       },
       {
-        "id": "047",
+        "id": "044",
         "name": "[하위] 1-2. AMR (Autonomous Mobile Robot, 자율이동로봇)"
       },
       {
-        "id": "048",
+        "id": "045",
         "name": "2. 인더스트리 5.0 (Industry 5.0)"
       },
       {
-        "id": "049",
+        "id": "046",
         "name": "3. 가상물리시스템 (CPS, Cyber Physical System)"
       },
       {
-        "id": "050",
+        "id": "047",
         "name": "4. 디지털 트윈 (Digital Twin)"
       },
       {
-        "id": "051",
+        "id": "048",
         "name": "5. 스마트 그리드 (Smart Grid)"
       },
       {
-        "id": "052",
+        "id": "049",
         "name": "6. 스마트시티 (Smart City)"
       },
       {
-        "id": "053",
+        "id": "050",
         "name": "7. 휴머노이드 로봇 (Humanoid Robot)"
       },
       {
-        "id": "054",
+        "id": "051",
         "name": "8. AI 예지보전 (Predictive Maintenance, PdM)"
       },
       {
-        "id": "055",
+        "id": "052",
         "name": "[Part 5]. 디지털 서비스 기초"
       },
       {
-        "id": "056",
+        "id": "053",
         "name": "1. NFC (Near Field Communication)"
       },
       {
-        "id": "057",
+        "id": "054",
         "name": "2. LOD (Linked Open Data)"
       },
       {
-        "id": "058",
+        "id": "055",
         "name": "3. 드론 (Drone)"
       },
       {
-        "id": "059",
+        "id": "056",
         "name": "4. 사물인터넷 (IoT, Internet of Things)"
       },
       {
-        "id": "060",
+        "id": "057",
         "name": "5. C-ITS (Cooperative Intelligent Transportation System, 협력 지능형 교통 시스템)"
       },
       {
-        "id": "061",
+        "id": "058",
         "name": "6. 커넥티드카 (Connected Car)"
       },
       {
-        "id": "062",
+        "id": "059",
         "name": "7. 측위 기술"
       },
       {
-        "id": "063",
+        "id": "060",
         "name": "[Part 6]. 핀테크/금융"
       },
       {
-        "id": "064",
+        "id": "061",
         "name": "1. 오픈뱅킹 (Open Banking)"
       },
       {
-        "id": "065",
+        "id": "062",
         "name": "2. 인슈어테크 (InsurTech)"
       },
       {
-        "id": "066",
+        "id": "063",
         "name": "3. 레그테크 (RegTech, Regulatory Technology)"
       },
       {
-        "id": "067",
+        "id": "064",
         "name": "4. 디파이 (DeFi, Decentralized Finance)"
       },
       {
-        "id": "068",
+        "id": "065",
         "name": "5. FDS (Fraud Detection System)"
       },
       {
-        "id": "069",
+        "id": "066",
         "name": "6. 중앙은행 디지털 화폐 (CBDC, Central Bank Digital Currency)"
       },
       {
-        "id": "070",
+        "id": "067",
         "name": "7. 스테이블코인 (Stablecoin)"
       },
       {
-        "id": "071",
+        "id": "068",
         "name": "8. 블록체인 (Blockchain)"
       },
       {
-        "id": "072",
+        "id": "069",
         "name": "[하위] 8-1. 블록체인 합의 알고리즘"
       },
       {
-        "id": "073",
+        "id": "070",
         "name": "[하위] 8-2. 블록체인 트릴레마(Blockchain Trilemma)"
       },
       {
-        "id": "074",
+        "id": "071",
         "name": "[Part 7]. 데이터 경제"
       },
       {
-        "id": "075",
+        "id": "072",
         "name": "1. 데이터 커머스 (Data Commerce)"
       },
       {
-        "id": "076",
+        "id": "073",
         "name": "2. 데이터 가치평가 (Data Valuation)"
       },
       {
-        "id": "077",
+        "id": "074",
         "name": "[하위] 2-1. 데이터 자산화"
       },
       {
-        "id": "078",
+        "id": "075",
         "name": "3. 데이터 거래소 (Data Exchange)"
       },
       {
-        "id": "079",
+        "id": "076",
         "name": "[Part 8]. XR/메타버스"
       },
       {
-        "id": "080",
+        "id": "077",
         "name": "1. 가상현실 (VR, Virtual Reality)"
       },
       {
-        "id": "081",
+        "id": "078",
         "name": "2. 가상융합기술 (XR, eXtended Reality)"
       },
       {
-        "id": "082",
+        "id": "079",
         "name": "3. 증강현실 (AR, Augmented Reality)"
       },
       {
-        "id": "083",
+        "id": "080",
         "name": "4. 메타버스 (Metaverse)"
       },
       {
-        "id": "084",
+        "id": "081",
         "name": "[하위] 4-1. 메타버스 윤리원칙"
       },
       {
-        "id": "085",
+        "id": "082",
         "name": "5. 공간 컴퓨팅 (Spatial Computing)"
       },
       {
-        "id": "086",
+        "id": "083",
         "name": "6. GIS (Geographic Information System, 지리정보시스템)"
       },
       {
-        "id": "087",
+        "id": "084",
         "name": "[Part 9]. 앱/서비스 트렌드"
       },
       {
+        "id": "085",
+        "name": "1. 멀티앱 (Multi App)/ 미니앱 (Mini App) / 슈퍼앱 (Super App)"
+      },
+      {
+        "id": "086",
+        "name": "2. 앰비언트 컴퓨팅 (Ambient Computing)"
+      },
+      {
+        "id": "087",
+        "name": "[하위] 2-1. 앰비언트 커머스 (Ambient Commerce)"
+      },
+      {
         "id": "088",
-        "name": "1. 슈퍼앱 (Super App)"
+        "name": "3. 웹3.0 (Web 3.0)"
       },
       {
         "id": "089",
-        "name": "2. 미니앱 (Mini App)"
+        "name": "4. NFT (Non-Fungible Token)"
       },
       {
         "id": "090",
-        "name": "3. 멀티앱 (Multi App)"
+        "name": "5. 3D 프린팅"
       },
       {
         "id": "091",
-        "name": "4. 앰비언트 컴퓨팅 (Ambient Computing)"
+        "name": "6. 웨어러블 컴퓨팅 (Wearable Computing)"
       },
       {
         "id": "092",
-        "name": "5. 앰비언트 커머스 (Ambient Commerce)"
-      },
-      {
-        "id": "093",
-        "name": "6. 웹3.0 (Web 3.0)"
-      },
-      {
-        "id": "094",
-        "name": "7. NFT (Non-Fungible Token)"
-      },
-      {
-        "id": "095",
-        "name": "8. 3D 프린팅"
-      },
-      {
-        "id": "096",
-        "name": "9. 웨어러블 컴퓨팅 (Wearable Computing)"
-      },
-      {
-        "id": "097",
         "name": "[Part 10]. 디지털 사회/정책"
       },
       {
-        "id": "098",
+        "id": "093",
         "name": "1. 전문성의 민주화 (Democratization of Expertise)"
       },
       {
-        "id": "099",
+        "id": "094",
         "name": "2. 행동인터넷 (IoB, Internet of Behavior)"
       },
       {
-        "id": "100",
+        "id": "095",
         "name": "3. 디지털 휴먼증강 (Digital Human Augmentation)"
       },
       {
-        "id": "101",
+        "id": "096",
         "name": "4. IT 생산성 패러독스 (Productivity Paradox)"
       },
       {
-        "id": "102",
+        "id": "097",
         "name": "8. 전자정부 평가 (EGDI, E-Government Development Index)"
       },
       {
-        "id": "103",
+        "id": "098",
         "name": "9. RE100 (Renewable Energy 100%)"
       },
       {
-        "id": "104",
+        "id": "099",
         "name": "[Part 11]. 미들웨어/아키텍처"
       },
       {
-        "id": "105",
+        "id": "100",
         "name": "1. EDA (Event Driven Architecture)"
       },
       {
-        "id": "106",
+        "id": "101",
         "name": "2. 메시지큐잉 (Message Queuing)"
       },
       {
-        "id": "107",
+        "id": "102",
         "name": "3. ELK 스택 (Elasticsearch / Logstash / Kibana)"
       },
       {
-        "id": "108",
+        "id": "103",
         "name": "[Part 12.] 신기술/동향"
       },
       {
-        "id": "109",
+        "id": "104",
         "name": "1. 2026년 가트너 10대 전략 기술 트렌드"
       },
       {
-        "id": "110",
+        "id": "105",
         "name": "[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)"
       },
       {
-        "id": "111",
+        "id": "106",
         "name": "[하위] 1-2. 지오패트리에이션 (Geopatriation)"
       },
       {
-        "id": "112",
+        "id": "107",
         "name": "2. 관측가능성 (Observability)"
       },
       {
-        "id": "113",
+        "id": "108",
         "name": "3. 온톨로지(Ontology)"
       },
       {
-        "id": "114",
+        "id": "109",
         "name": "4. BCI (Brain-Computer Interface, 뇌-컴퓨터 인터페이스)"
       },
       {
-        "id": "115",
+        "id": "110",
         "name": "5. 도심항공교통 (UAM, Urban Air Mobility)"
       },
       {
-        "id": "116",
+        "id": "111",
         "name": "6. 인터미턴트 컴퓨팅 (Intermittent Computing)"
       }
     ]

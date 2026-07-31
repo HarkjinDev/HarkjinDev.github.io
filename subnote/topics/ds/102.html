@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 전자정부 평가 (EGDI, E-Government Development Index)</title>
+  <title>3. ELK 스택 (Elasticsearch / Logstash / Kibana)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,31 @@
   </style>
 </head>
 <body>
-<h4>8. 전자정부 평가 (EGDI, E-Government Development Index)</h4>
+<h4>3. ELK 스택 (Elasticsearch / Logstash / Kibana)</h4>
 <ul>
-<li><strong>정의</strong>: UN이 2년마다 회원국의 전자정부 수준을 온라인 서비스, 통신 인프라, 인적 자본 지수로 평가하는 국제 비교 지표 체계</li>
-<li><strong>키워드</strong>: EGDI, OSI, TII, HCI, UN 전자정부 보고서, 한국 1위</li>
-<li><strong>분류</strong>: 디지털 사회/정책</li>
-<li><strong>구성요소 및 산출 방식</strong>:<div class="table-scroll"><table>
-<tr><th>지수</th><th>설명</th><th>비중</th></tr>
-<tr><td>OSI (온라인서비스지수)</td><td>정부 디지털 서비스 수준</td><td>1/3</td></tr>
-<tr><td>TII (통신인프라지수)</td><td>인터넷·모바일 인프라 보급</td><td>1/3</td></tr>
-<tr><td>HCI (인적자본지수)</td><td>교육 수준·디지털 리터러시</td><td>1/3</td></tr>
+<li><strong>정의</strong>: 로그 수집(Logstash)·저장·검색(Elasticsearch)·시각화(Kibana)를 통합한 오픈소스 로그 분석 플랫폼</li>
+<li><strong>키워드</strong>: 로그 수집, 분산 검색, 시각화 대시보드, Beats, 역색인(Inverted Index), ELK, Elastic Stack, 관찰가능성</li>
+<li><strong>분류</strong>: 미들웨어/아키텍처</li>
+<li><strong>ELK 스택 구성 요소</strong>:<div class="table-scroll"><table>
+<tr><th>구성 요소</th><th>역할</th><th>특징</th></tr>
+<tr><td>Elasticsearch</td><td>분산 검색·저장 엔진</td><td>역색인 기반 빠른 전문 검색, RESTful API</td></tr>
+<tr><td>Logstash</td><td>데이터 수집·변환·파이프라인</td><td>다양한 소스 입력, 필터·출력 플러그인</td></tr>
+<tr><td>Kibana</td><td>데이터 시각화·대시보드</td><td>실시간 차트·지도·대시보드</td></tr>
+<tr><td>Beats</td><td>경량 데이터 수집 에이전트</td><td>Filebeat(로그)·Metricbeat(메트릭)</td></tr>
 </table></div>
 </li>
-<li>EGDI = (OSI + TII + HCI) / 3</li>
-<li><strong>인사이트</strong>: 한국은 EGDI 최상위권을 유지하며 <strong>전자정부 선진 모델</strong>로 인정받고 있으며, 단순 서비스 제공을 넘어 참여·투명성 지수(EPI) 강화가 차세대 과제임을 강조.</li>
+<li><strong>ELK 데이터 흐름</strong>:<ul>
+<li>서버/앱 로그 → Beats(에이전트) → Logstash(수집·변환) → Elasticsearch(저장·색인) → Kibana(시각화)</li>
 </ul>
+</li>
+<li><strong>Elasticsearch 역색인 원리</strong>:<ul>
+<li>일반 색인: 문서 → 단어 목록</li>
+<li>역색인: 단어 → 해당 단어가 포함된 문서 목록 → <strong>전문 검색 고속화</strong></li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: ELK는 DevOps·MSA 환경의 <strong>중앙화 로그 관리(Centralized Logging)</strong> 표준 스택으로, 최근 Elastic사의 라이선스 변경(SSPL)으로 AWS의 <strong>OpenSearch</strong>가 대안으로 부상.</li>
+</ul>
+<hr/>
 
 </body>
 </html>

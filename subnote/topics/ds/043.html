@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 5-1. 전자정부 UI/UX</title>
+  <title>[하위] 1-1. 다크 팩토리(Dark Factory)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,30 @@
   </style>
 </head>
 <body>
-<h4>[하위] 5-1. 전자정부 UI/UX</h4>
+<h4>[하위] 1-1. 다크 팩토리(Dark Factory)</h4>
 <ul>
-<li><strong>정의</strong>: 전자정부 서비스 구축 시 적용해야 할 표준 화면 구성, 컴포넌트, 상호작용 방식에 관한 구체적 설계 지침</li>
-<li><strong>키워드</strong>: 전자정부 표준프레임워크, eGovFrame, 공통 컴포넌트, 웹 표준, 웹 접근성 인증마크</li>
-<li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>전자정부 표준프레임워크 UI 구성</strong>:<ul>
-<li>레이아웃 기준: 1,280px 고정 + 반응형 대응</li>
-<li>공통 컴포넌트: 달력, 팝업, 그리드, 파일 업로드 등 표준 제공</li>
-<li>접근성: 키보드 내비게이션, 스크린 리더 대응 필수</li>
-<li>색상 체계: 대비율 WCAG AA 기준(4.5:1) 이상 준수</li>
-</ul>
+<li><strong>정의:</strong> 조명·냉난방 등 인간을 위한 환경 조건 없이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>로봇·AI가 24시간 자율 운영</strong></u></span>하는 무인 스마트팩토리의 극단적 형태</li>
+<li><strong>키워드:</strong> 완전 자동화(5단계), 무인 공장, 로봇, AMR, 협동로봇, AI 비전, 디지털 트윈, 스마트팩토리, OT 보안, 엣지 컴퓨팅</li>
+<li><strong>분류</strong>: 스마트 제조/산업</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>자율 이동</strong></td><td><strong>AMR (자율 이동 로봇)</strong></td><td>SLAM 기반 자율 주행·자재 이송·적재</td></tr>
+<tr><td></td><td><strong>AGV (무인 운반차)</strong></td><td>정해진 경로 자율 주행·물류 자동화</td></tr>
+<tr><td><strong>생산·조립</strong></td><td><strong>산업용 로봇</strong></td><td>다관절 로봇 기반 용접·조립·도장 자동화</td></tr>
+<tr><td></td><td><strong>협동 로봇 (Cobot)/휴머노이드</strong></td><td>인간-로봇 협력 작업, 안전 센서 내장</td></tr>
+<tr><td><strong>인식·검사</strong></td><td><strong>AI 비전 시스템</strong></td><td>카메라·딥러닝 기반 불량 탐지·품질 검사 자동화</td></tr>
+<tr><td></td><td><strong>3D 스캐닝·센서</strong></td><td>고정밀 형상 측정·치수 검사 자동화</td></tr>
+<tr><td><strong>제어·운영</strong></td><td><strong>디지털 트윈/CPS</strong></td><td>물리 공장 가상 복제·시뮬레이션·자율 최적화</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>예지 보전 (PdM)</strong></u></span></td><td>센서 데이터 분석 기반 고장 전 선제 유지보수</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자율 생산 스케줄링</strong></u></span></td><td>AI 기반 수요·자재·설비 상태 기반 계획 자동 수립</td></tr>
+<tr><td></td><td><strong>MES·ERP 통합</strong></td><td>생산 실행·자원 관리 자동 연계·실시간 동기화</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>엣지 컴퓨팅</strong></td><td>현장 실시간 데이터 처리·저지연 제어</td></tr>
+<tr><td></td><td><strong>5G·산업 네트워크</strong></td><td>초저지연·고신뢰 무선 통신 인프라</td></tr>
+<tr><td></td><td><strong>자동창고 (AS/RS)</strong></td><td>자재·완제품 자동 입출고·보관 시스템</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 전자정부 UI/UX는 <strong>단순 디자인이 아닌 법적 준수 사항</strong>으로, 웹 접근성 인증마크(WA) 획득이 공공기관 정보시스템의 필수 요건으로 관리됨.</li>
+<li><strong>인사이트:</strong> 다크팩토리는 인건비 절감과 24시간 무중단 생산이라는 경제적 논리와 AI·로봇 기술의 성숙이 맞물려 현실화되고 있으며, 삼성·TSMC·아마존 물류센터 등이 선도적으로 구현 중임. 완전 자동화의 기술적 실현보다 예지 보전·자율 품질 제어의 신뢰도 확보와 OT 보안 체계 구축이 다크팩토리 성공의 핵심 선결 과제로 부상하고 있음</li>
 </ul>
-<hr/>
 
 </body>
 </html>

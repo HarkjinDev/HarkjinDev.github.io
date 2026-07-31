@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. 소버린 클라우드 (Sovereign Cloud)</title>
+  <title>16. 클라우드 전환 (Cloud Migration)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,35 +15,24 @@
   </style>
 </head>
 <body>
-<h4>13. 소버린 클라우드 (Sovereign Cloud)</h4>
+<h4>16. 클라우드 전환 (Cloud Migration)</h4>
 <ul>
-<li><strong>정의:</strong> 글로벌 클라우드의 확장성을 유지하면서 데이터 주권·보안·컴플라이언스를 동시에 확보하는 전략적 클라우드 아키텍처</li>
-<li><strong>키워드:</strong> 데이터 주권, 데이터 상주(Data Residency), 데이터 로컬리제이션, GDPR, Cloud Act, 기밀 컴퓨팅, 고객 관리형 키, Gaia-X</li>
+<li><strong>정의</strong>: 온프레미스 시스템과 데이터를 클라우드 환경으로 이전하는 전략 수립·실행 과정</li>
+<li><strong>키워드</strong>: 6R 전략, Lift &amp; Shift, Re-Architect, 마이그레이션 공장, 이행 절차, TCO 분석</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>등장 배경: </strong>GDPR, 지정학적 리스크, 공공·국방 데이터 보호, 디지털 주권 강화</li>
-<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>데이터</strong></td><td><strong>데이터 상주 
-(Data Residency)</strong></td><td>데이터를 특정 국가·지역 내에서만 저장·처리</td><td>데이터 국내 고정</td></tr>
-<tr><td></td><td><strong>데이터 로컬리제이션</strong></td><td>법률 기반 데이터의 국경 이동 제한·통제</td><td>국내 데이터 의무화</td></tr>
-<tr><td><strong>보안·암호화</strong></td><td><strong>고객 관리형 키(CMK)</strong></td><td>암호화 키를 고객이 직접 관리·제어</td><td>암호화 주권 확보</td></tr>
-<tr><td></td><td><strong>기밀 컴퓨팅</strong></td><td>하드웨어 기반 기밀 컴퓨팅</td><td>처리 중 데이터 보호</td></tr>
-<tr><td></td><td><strong>하드웨어 보안 모듈</strong></td><td>암호화 키 물리적 하드웨어 보안 저장</td><td>키 물리적 보호</td></tr>
-<tr><td><strong>접근 통제</strong></td><td><strong>현지인력 운용</strong></td><td>자국 거주자가 제어·변조 방지 로그 추적</td><td>운영 감사 가능성</td></tr>
-<tr><td></td><td><strong>인력 접근 통제</strong></td><td>자국민·승인된 인력만 데이터 접근 허용</td><td>인적 접근 제한</td></tr>
-<tr><td></td><td><strong>Zero Trust</strong></td><td>모든 접근 지속 검증·최소 권한 원칙</td><td>신뢰 최소화</td></tr>
-<tr><td><strong>인프라</strong></td><td><strong>독립 인프라</strong></td><td>글로벌 리전과 물리적·법적 분리된 독립 인프라</td><td>물리적 분리</td></tr>
-<tr><td></td><td><strong>국내 데이터센터</strong></td><td>자국 영토 내 물리적 서버·스토리지 운용</td><td>국내 물리 인프라</td></tr>
-<tr><td><strong>거버넌스</strong></td><td><strong>규제 컴플라이언스</strong></td><td>GDPR·개인정보보호법 등 자국 법률 준수</td><td><strong>Geo-fencing</strong></td></tr>
-<tr><td></td><td><strong>감사·로깅</strong></td><td>모든 데이터 접근·처리 이력 완전 기록·감사</td><td>완전 감사 추적</td></tr>
-<tr><td><strong>물리적격리</strong></td><td><strong>단일 테넌트</strong></td><td>특정 국가를 위한 전용존 구축</td><td>자국 전용존</td></tr>
-<tr><td></td><td><strong>에어갭</strong></td><td>물리적으로 단절된 클라우드 구축</td><td>물리적 단절</td></tr>
+<li><strong>대상 분류 및 선정 기준</strong>: 비즈니스 중요도, 기술 부채 수준, 클라우드 친화성, 데이터 민감도</li>
+<li><strong>6R 이행 전략</strong>:<div class="table-scroll"><table>
+<tr><th>전략</th><th>설명</th></tr>
+<tr><td>Rehost (Lift &amp; Shift)</td><td>그대로 클라우드로 이전</td></tr>
+<tr><td>Replatform</td><td>최소 변경 후 이전</td></tr>
+<tr><td>Repurchase</td><td>SaaS로 교체</td></tr>
+<tr><td>Refactor/Re-Architect</td><td>클라우드 네이티브로 재설계</td></tr>
+<tr><td>Retire</td><td>불필요 시스템 폐기</td></tr>
+<tr><td>Retain</td><td>현행 유지</td></tr>
 </table></div>
 </li>
-<li><strong>Gaia-X(유럽 클라우드 자립): </strong>EU 주도 유럽 데이터 인프라·클라우드 생태계 구축 이니셔티</li>
-<li><strong>인사이트:</strong> 소버린 클라우드는 단순한 로컬 호스팅이 아닌 디지털 주권 확보를 위한 핵심 전략으로, 미·중 기술 패권 경쟁과 GDPR·Cloud Act 등 규제 강화로 공공·금융·의료·국방 분야의 필수 아키텍처로 자리잡고 있음. 글로벌 CSP의 소버린 클라우드 솔루션과 자국 클라우드 생태계 육성의 균형이 각국 디지털 주권 전략의 핵심 과제이며, Gaia-X·한국 CSAP 등 지역별 신뢰 프레임워크 구축이 소버린 클라우드 생태계 성숙의 핵심 방향임</li>
+<li><strong>인사이트</strong>: 클라우드 전환 성공의 핵심은 <strong>기술 이전보다 조직 변화 관리(OCM)</strong>이며, 파일럿 애플리케이션부터 시작하여 경험을 쌓은 후 핵심 시스템으로 확장하는 단계적 접근이 권장됨.</li>
 </ul>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 네이티브 구축운영 가이드 추가</span></p>
 
 </body>
 </html>

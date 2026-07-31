@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. EDA (Event Driven Architecture)</title>
+  <title>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,34 +15,36 @@
   </style>
 </head>
 <body>
-<h4>1. EDA (Event Driven Architecture)</h4>
+<h4>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</h4>
 <ul>
-<li><strong>정의</strong>: 시스템의 상태 변화를 이벤트로 표현하고, 이벤트의 생산·전달·소비를 기반으로 서비스 간 비동기 통신을 구성하는 아키텍처 패턴</li>
-<li><strong>키워드</strong>: 이벤트(Event), 프로듀서(Producer), 컨슈머(Consumer), 이벤트 브로커, 비동기, 느슨한 결합, Kafka, CQRS, 이벤트 소싱</li>
-<li><strong>분류</strong>: 미들웨어/아키텍처</li>
-<li><strong>EDA 핵심 구성 요소</strong>:<div class="table-scroll"><table>
-<tr><th>구성 요소</th><th>역할</th></tr>
-<tr><td>이벤트 프로듀서</td><td>상태 변화 시 이벤트 생성·발행</td></tr>
-<tr><td>이벤트 브로커</td><td>이벤트 수신·저장·라우팅 (Kafka, RabbitMQ)</td></tr>
-<tr><td>이벤트 컨슈머</td><td>이벤트 구독·처리</td></tr>
-<tr><td>이벤트 스토어</td><td>이벤트 영속적 저장 (이벤트 소싱 시)</td></tr>
+<li><strong>정의:</strong> 공격 발생 이전에 위협을 제거하는 예방 중심의 선제적 사이버보안 패러다임</li>
+<li><strong>키워드:</strong> 가트너 2026, Deny·Deceive, AI-powered SecOps, 프로그래매틱 방어, CTEM, ASM, 예측적 보안</li>
+<li><strong>분류:</strong> 신기술/동향</li>
+<li><strong>필요성:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI 공격 지능화</td><td>AI 기반 공격이 밀리초 단위로 가속화·기존 탐지·대응 방식 한계 도달</td><td>반응형 보안 무력화</td></tr>
+<tr><td>공격면 확장</td><td>클라우드·OT·CPS 디지털 자산 증가로 공격면 급격히 확대</td><td>ASM 기반 노출 관리 필요</td></tr>
+<tr><td>패러다임 전환</td><td>Detect &amp; Respond 중심→AI 기반 사전 차단·기만 전략 전환</td><td>예방 중심 보안</td></tr>
 </table></div>
 </li>
-<li><strong>EDA 패턴 유형</strong>:<div class="table-scroll"><table>
-<tr><th>패턴</th><th>설명</th></tr>
-<tr><td>Pub/Sub</td><td>주제(Topic) 기반 다중 컨슈머 구독</td></tr>
-<tr><td>Event Streaming</td><td>이벤트 스트림 순서 보장·재처리 (Kafka)</td></tr>
-<tr><td>Event Sourcing</td><td>상태 변화를 이벤트 시퀀스로 저장</td></tr>
-<tr><td>CQRS + EDA</td><td>커맨드 이벤트로 읽기·쓰기 모델 동기화</td></tr>
+<li><strong>가트너 정의 핵심 3요소:</strong><div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI-powered SecOps</td><td>AI로 보안 운영 자동화·위협 예측·우선순위화 수행</td><td>자율 보안 운영</td></tr>
+<tr><td>Programmatic Denial</td><td>알려진 악성 인프라·위협을 프로그래매틱하게 사전 차단</td><td>자동화 차단</td></tr>
+<tr><td>Deception (기만)</td><td>공격자를 허니팟·허위 자산으로 유인·무력화</td><td>공격자 혼란 유도</td></tr>
 </table></div>
 </li>
-<li><strong>EDA 장단점</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>내용</th></tr>
-<tr><td>장점</td><td>서비스 간 느슨한 결합, 확장성, 비동기 처리</td></tr>
-<tr><td>단점</td><td>이벤트 순서·중복 처리, 분산 추적 복잡, 최종 일관성</td></tr>
+<li><strong>핵심 구현 기술:</strong><div class="table-scroll"><table>
+<tr><th>기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI-powered SecOps</td><td>AI로 위협 예측·탐지·우선순위화·대응 자동화</td><td>자율 보안 운영</td></tr>
+<tr><td>ASM (공격면 관리)</td><td>클라우드·OT·CPS 공격면 지속 식별·노출 관리</td><td>공격면 가시성</td></tr>
+<tr><td>CTEM (지속적 위협 노출 관리)</td><td>노출 식별→우선순위화→검증→대응 지속 수행</td><td>노출 관리 자동화</td></tr>
+<tr><td>Deception 기술</td><td>허니팟·허위 자산으로 공격자 유인·탐지·무력화</td><td>공격자 기만</td></tr>
+<tr><td>Programmatic Denial</td><td>악성 인프라 연결 전 네트워크 계층에서 자동 차단</td><td>사전 차단</td></tr>
+<tr><td>예측적 위협 인텔리전스</td><td>글로벌 CTI 실시간 수집·분석·자동 방어 정책 반영</td><td>선제적 IOC 차단</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: EDA는 <strong>MSA와 자연스럽게 결합</strong>되어 서비스 간 직접 호출을 이벤트 기반 비동기로 대체하며, <strong>최종 일관성(Eventual Consistency)</strong>을 수용하는 설계 철학이 필수 전제.</li>
+<li><strong>인사이트:</strong> 가트너는 선제적 사이버보안을 "예측이 곧 보호(Prediction is Protection)"로 정의하며, AI-powered SecOps·프로그래매틱 차단·기만 전략의 3요소로 공격자보다 먼저 행동하는 보안 패러다임 전환을 2026년 핵심 전략기술로 제시함</li>
 </ul>
 
 </body>

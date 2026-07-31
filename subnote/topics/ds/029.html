@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>16. 클라우드 전환 (Cloud Migration)</title>
+  <title>1. API (Application Programming Interface)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,28 @@
   </style>
 </head>
 <body>
-<h4>16. 클라우드 전환 (Cloud Migration)</h4>
+<h4>1. API (Application Programming Interface)</h4>
 <ul>
-<li><strong>정의</strong>: 온프레미스 시스템과 데이터를 클라우드 환경으로 이전하는 전략 수립·실행 과정</li>
-<li><strong>키워드</strong>: 6R 전략, Lift &amp; Shift, Re-Architect, 마이그레이션 공장, 이행 절차, TCO 분석</li>
-<li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>대상 분류 및 선정 기준</strong>: 비즈니스 중요도, 기술 부채 수준, 클라우드 친화성, 데이터 민감도</li>
-<li><strong>6R 이행 전략</strong>:<div class="table-scroll"><table>
-<tr><th>전략</th><th>설명</th></tr>
-<tr><td>Rehost (Lift &amp; Shift)</td><td>그대로 클라우드로 이전</td></tr>
-<tr><td>Replatform</td><td>최소 변경 후 이전</td></tr>
-<tr><td>Repurchase</td><td>SaaS로 교체</td></tr>
-<tr><td>Refactor/Re-Architect</td><td>클라우드 네이티브로 재설계</td></tr>
-<tr><td>Retire</td><td>불필요 시스템 폐기</td></tr>
-<tr><td>Retain</td><td>현행 유지</td></tr>
+<li><strong>정의</strong>: 소프트웨어 컴포넌트 간 상호작용을 위해 기능 호출 방식과 데이터 교환 형식을 규정된 인터페이스 명세</li>
+<li><strong>키워드</strong>: 인터페이스, 엔드포인트, 요청/응답, 계약(Contract), SDK, 표준화</li>
+<li><strong>분류</strong>: API/웹 기술</li>
+<li><strong>API 유형 분류</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>예시</th></tr>
+<tr><td>Open API</td><td>공개된 외부 개발자 대상 API</td><td>카카오 지도 API</td></tr>
+<tr><td>Partner API</td><td>특정 파트너사에 제한 공개</td><td>B2B 연동 API</td></tr>
+<tr><td>Internal API</td><td>조직 내부용 비공개 API</td><td>사내 마이크로서비스</td></tr>
+<tr><td>Composite API</td><td>여러 API를 조합한 단일 호출</td><td>BFF 패턴</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 클라우드 전환 성공의 핵심은 <strong>기술 이전보다 조직 변화 관리(OCM)</strong>이며, 파일럿 애플리케이션부터 시작하여 경험을 쌓은 후 핵심 시스템으로 확장하는 단계적 접근이 권장됨.</li>
+<li><strong>웹 API 종류 비교</strong>:<div class="table-scroll"><table>
+<tr><th><strong>종류</strong></th><th><strong>특징</strong></th></tr>
+<tr><td><strong>REST API</strong></td><td>HTTP 메서드 기반, 경량, JSON 응답, 무상태</td></tr>
+<tr><td><strong>SOAP</strong></td><td>XML 기반, 엄격한 계약, 보안·트랜잭션 강점</td></tr>
+<tr><td><strong>GraphQL</strong></td><td>클라이언트 주도 쿼리, 오버패칭 방지</td></tr>
+<tr><td><strong>gRPC</strong></td><td>Protobuf 기반, 고성능 바이너리 통신</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: API는 <strong>소프트웨어 간 계약(Contract)</strong>으로, 인터페이스가 안정적일수록 독립적 개발·배포가 가능하며 마이크로서비스 아키텍처의 핵심 통신 수단.</li>
 </ul>
 
 </body>

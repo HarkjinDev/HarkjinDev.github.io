@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. NFC (Near Field Communication)</title>
+  <title>4. 사물인터넷 (IoT, Internet of Things)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,21 @@
   </style>
 </head>
 <body>
-<h4>1. NFC (Near Field Communication)</h4>
+<h4>4. 사물인터넷 (IoT, Internet of Things)</h4>
 <ul>
-<li><strong>정의</strong>: 13.56MHz 주파수 대역에서 10cm 이내 근거리 비접촉 방식으로 데이터를 교환하는 단거리 무선 통신 기술</li>
-<li><strong>키워드</strong>: 13.56MHz, ISO/IEC 14443, P2P, 카드 에뮬레이션, 리더/라이터 모드, 간편결제</li>
+<li><strong>정의</strong>: 사물에 센서·통신모듈을 내장해 인터넷 연결로 데이터를 수집·처리하는 기술체계</li>
+<li><strong>키워드</strong>: 센서, M2M, MQTT, CoAP, 에지 컴퓨팅, 국내외 플랫폼, AIoT</li>
 <li><strong>분류</strong>: 디지털 서비스 기초</li>
-<li><strong>동작 모드</strong>:<div class="table-scroll"><table>
-<tr><th>모드</th><th>설명</th></tr>
-<tr><td>카드 에뮬레이션</td><td>스마트폰을 교통카드·신용카드처럼 동작</td></tr>
-<tr><td>리더/라이터</td><td>NFC 태그 정보를 읽거나 기록</td></tr>
-<tr><td>P2P</td><td>기기 간 데이터 직접 교환</td></tr>
+<li><strong>핵심 기술</strong>:<div class="table-scroll"><table>
+<tr><th>계층</th><th>기술</th></tr>
+<tr><td>디바이스</td><td>센서, MCU, 저전력 통신(BLE, Zigbee, LoRa)</td></tr>
+<tr><td>네트워크</td><td>MQTT, CoAP, LWM2M, NB-IoT</td></tr>
+<tr><td>플랫폼</td><td>데이터 수집·분석, 디바이스 관리</td></tr>
+<tr><td>서비스</td><td>스마트홈, 스마트팩토리, 헬스케어</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: NFC는 <strong>교통·결제·스마트 오피스</strong> 등 근거리 인증 인프라의 핵심이며, RFID와의 차이(거리, 양방향 통신, 보안)를 비교하면 차별화 가능.</li>
+<li><strong>국내외 서비스 현황</strong>: AWS IoT Core, Azure IoT Hub, 국내 SKT ARTIK, KT IoT Maker's</li>
+<li><strong>인사이트</strong>: IoT는 <strong>디바이스-네트워크-플랫폼-서비스</strong> 4계층 구조로 설명하고, 보안 취약성(디바이스 무결성·암호화 부재)과 AIoT로의 진화 방향을 제시하면 고득점 가능.</li>
 </ul>
 
 </body>

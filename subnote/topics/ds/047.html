@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-2. AMR (Autonomous Mobile Robot, 자율이동로봇)</title>
+  <title>4. 디지털 트윈 (Digital Twin)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,49 +15,50 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-2. AMR (Autonomous Mobile Robot, 자율이동로봇)</h4>
+<h4>4. 디지털 트윈 (Digital Twin)</h4>
 <ul>
-<li><strong>정의:</strong> 사전 프로그래밍된 경로나 인프라 없이 센서·AI·SLAM 기술로 주변 환경을 스스로 인식·지도 작성·경로 계획하여 자율적으로 이동하는 지능형 모바일 로봇</li>
-<li><strong>키워드:</strong> SLAM, 자율 내비게이션, LiDAR, 경로 계획, 장애물 회피, Fleet Management, MES·WMS 연계</li>
+<li><strong>정의:</strong> 물리적 객체·시스템을 디지털공간에 실시간 복제해 시뮬레이션·예측하는 기술</li>
+<li><strong>키워드:</strong> CPS, 실시간 동기화, 시뮬레이션, 예지보전, 디지털 쓰레드, Omniverse(NVIDIA), Xcelerator(지멘스)</li>
 <li><strong>분류</strong>: 스마트 제조/산업</li>
+<li><strong>디지털 트윈 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>물리 엔티티</strong></td><td>실제 객체·설비·시스템·프로세스</td><td>현실 세계 대상</td></tr>
+<tr><td><strong>디지털 모델</strong></td><td>물리 엔티티의 3D·수치 디지털 표현</td><td>가상 복제 모델</td></tr>
+<tr><td><strong>데이터 연결</strong></td><td>IoT·센서로 물리↔디지털 실시간 데이터 동기화</td><td>실시간 연결</td></tr>
+<tr><td><strong>분석·AI 엔진</strong></td><td>시뮬레이션·예측·최적화 수행 AI 모델</td><td>지능형 분석</td></tr>
+<tr><td><strong>서비스 인터페이스</strong></td><td>분석 결과 시각화·의사결정 지원</td><td>결과 활용</td></tr>
+</table></div>
+</li>
 <li><strong>핵심 기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>인식·지각</strong></td><td><strong>LiDAR</strong></td><td>레이저 기반 360° 거리·장애물 측정</td><td>공간 인식</td></tr>
-<tr><td></td><td><strong>카메라 (RGB-D)</strong></td><td>2D·3D 영상 기반 환경·객체 인식</td><td>시각 인식</td></tr>
-<tr><td></td><td><strong>IMU (관성센서)</strong></td><td>가속도·자이로 기반 자세·이동 측정</td><td>자세 추정</td></tr>
-<tr><td></td><td><strong>초음파·적외선</strong></td><td>근거리 장애물·충돌 방지 감지</td><td>근거리 감지</td></tr>
-<tr><td><strong>내비게이션</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SLAM</strong></u></span></td><td>동시 지도 작성·자기 위치 추정 기술</td><td>자율 지도 생성</td></tr>
-<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>경로 계획 (Path Planning)</strong></u></span></td><td>A*·Dijkstra 기반 최적 경로 탐색</td><td>최적 경로 탐색</td></tr>
-<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>장애물 회피 (DWA·VFH)</strong></u></span></td><td>동적 장애물 실시간 감지·회피 알고리즘</td><td>동적 회피</td></tr>
-<tr><td></td><td><strong>위치 추정 (Localization)</strong></td><td>지도 대비 현재 위치 실시간 파악</td><td>자기 위치 파악</td></tr>
-<tr><td><strong>AI·제어</strong></td><td><strong>딥러닝 인식</strong></td><td>객체·사람·환경 AI 기반 실시간 분류</td><td>지능형 인식</td></tr>
-<tr><td></td><td><strong>강화학습</strong></td><td>환경 상호작용으로 최적 이동 정책 학습</td><td>자율 학습</td></tr>
-<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Fleet Management</strong></u></span></td><td>다수 AMR 중앙 통합 제어·임무 배분</td><td>군집 제어</td></tr>
-<tr><td><strong>통신·연계</strong></td><td><strong>5G·WiFi 6</strong></td><td>저지연 고속 무선 통신 기반 실시간 제어</td><td>실시간 통신</td></tr>
-<tr><td></td><td><strong>MES·WMS 연계</strong></td><td>생산·물류 시스템과 실시간 데이터 연동</td><td>시스템 통합</td></tr>
-<tr><td></td><td><strong>ROS (Robot OS)</strong></td><td>로봇 소프트웨어 표준 프레임워크</td><td>표준 플랫폼</td></tr>
+<tr><td><strong>데이터 수집</strong></td><td><strong>IoT·IIoT 센서</strong></td><td>온도·진동·압력·위치 실시간 수집</td><td>물리 데이터 수집</td></tr>
+<tr><td></td><td><strong>엣지 컴퓨팅</strong></td><td>현장 실시간 데이터 전처리·저지연</td><td>현장 실시간 처리</td></tr>
+<tr><td></td><td><strong>디지털 쓰레드</strong></td><td>제품 수명주기 전 단계 데이터 연속 추적</td><td>수명주기 데이터</td></tr>
+<tr><td><strong>모델링</strong></td><td><strong>3D 모델링·BIM</strong></td><td>설비·건물·인프라 정밀 3D 디지털 표현</td><td>정밀 디지털 모델</td></tr>
+<tr><td></td><td><strong>물리 기반 모델 
+(FEM·CFD)</strong></td><td>유한요소법·유체역학 기반 물리 시뮬레이션</td><td>물리 법칙 기반</td></tr>
+<tr><td></td><td><strong>AI 대리 모델</strong></td><td>머신러닝 기반 빠른 근사 시뮬레이션</td><td>고속 AI 시뮬레이션</td></tr>
+<tr><td><strong>분석·AI</strong></td><td><strong>예측 분석</strong></td><td>ML 기반 미래 상태·고장 시점 예측</td><td>사전 예측</td></tr>
+<tr><td></td><td><strong>최적화 엔진</strong></td><td>시뮬레이션 기반 최적 파라미터 탐색</td><td>파라미터 최적화</td></tr>
+<tr><td></td><td><strong>이상 탐지</strong></td><td>정상 패턴 대비 실시간 이상 감지</td><td>실시간 이상 탐지</td></tr>
+<tr><td><strong>시각화</strong></td><td><strong>3D 시각화·렌더링</strong></td><td>실시간 3D 현황 시각화·대시보드</td><td>직관적 현황 파악</td></tr>
+<tr><td></td><td><strong>AR·VR 연계</strong></td><td>증강·가상현실로 디지털 트윈 몰입 조작</td><td>직관적 인터페이스</td></tr>
+<tr><td><strong>연결·통합</strong></td><td><strong>클라우드 플랫폼</strong></td><td>대규모 데이터 저장·분석·AI 학습</td><td>대용량 처리</td></tr>
+<tr><td></td><td><strong>API·표준 프로토콜</strong></td><td>OPC-UA·MQTT 기반 이기종 시스템 연계</td><td>시스템 통합</td></tr>
 </table></div>
 </li>
-<li><strong>SLAM: </strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>정의</strong></td><td>Simultaneous Localization And Mapping·지도 작성과 위치 추정 동시 수행</td><td>동시 지도·위치</td></tr>
-<tr><td><strong>LiDAR SLAM</strong></td><td>레이저 스캔 기반 정밀 지도 작성·위치 추정</td><td>고정밀 실내</td></tr>
-<tr><td><strong>Visual SLAM</strong></td><td>카메라 영상 기반 SLAM·비용 낮음</td><td>저비용 영상 기반</td></tr>
-<tr><td><strong>Graph SLAM</strong></td><td>위치 노드·엣지 그래프로 최적화</td><td>대규모 환경</td></tr>
+<li><strong>구현 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>1. 대상 정의</strong></td><td>트윈 대상·범위·목적·KPI 설정</td><td>목적 명확화</td></tr>
+<tr><td><strong>2. 데이터 수집 설계</strong></td><td>IoT 센서·수집 주기·데이터 항목 정의</td><td>데이터 파이프라인</td></tr>
+<tr><td><strong>3. 디지털 모델 구축</strong></td><td>3D 모델·물리 모델·AI 모델 개발</td><td>모델 구축</td></tr>
+<tr><td><strong>4. 실시간 연동</strong></td><td>물리 객체와 디지털 모델 실시간 동기화</td><td>양방향 연결</td></tr>
+<tr><td><strong>5. 분석·시뮬레이션</strong></td><td>예측·최적화·시나리오 분석 수행</td><td>가치 창출</td></tr>
+<tr><td><strong>6. 피드백·제어</strong></td><td>분석 결과를 물리 시스템에 반영·제어</td><td>자율 최적화</td></tr>
+<tr><td><strong>7. 지속 개선</strong></td><td>데이터 축적·AI 모델 지속 고도화</td><td>모델 진화</td></tr>
 </table></div>
 </li>
-<li><strong>AGV vs AMR 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>AGV (Automated Guided Vehicle)</th><th>AMR </th></tr>
-<tr><td><strong>경로 방식</strong></td><td>고정 경로 (자기테이프·레일)</td><td>자율 경로 계획</td></tr>
-<tr><td><strong>환경 변화 대응</strong></td><td>❌ 대응 불가</td><td>✅ 실시간 재경로</td></tr>
-<tr><td><strong>인프라 요구</strong></td><td>바닥 마커·유도선 필요</td><td>인프라 불필요</td></tr>
-<tr><td><strong>유연성</strong></td><td>낮음</td><td>높음</td></tr>
-<tr><td><strong>장애물 처리</strong></td><td>정지·대기</td><td>회피·우회</td></tr>
-<tr><td><strong>도입 비용</strong></td><td>낮음</td><td>높음</td></tr>
-<tr><td><strong>확장성</strong></td><td>어려움</td><td>쉬움</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> AMR은 AGV의 고정 경로 한계를 극복한 차세대 물류·생산 자동화 핵심 기술로, SLAM·AI·5G의 융합으로 인간과 공존하는 협업 환경(Human-Robot Collaboration)이 스마트팩토리의 표준으로 자리잡고 있음. Fleet Management 기반 수백 대 AMR의 군집 제어와 MES·WMS 연계가 AMR 도입 ROI를 결정하는 핵심이며, Physical AI와 디지털 트윈의 결합으로 AMR의 자율성·적응성이 지속 고도화되는 방향으로 발전하고 있음</li>
+<li><strong>인사이트:</strong> 디지털 트윈은 단순 3D 모델을 넘어 물리 세계와 디지털 세계의 실시간 양방향 연동이 핵심으로, IoT·AI·클라우드의 융합이 디지털 트윈의 실용성을 결정함. 제품 설계 단계의 가상 검증부터 운영 단계의 예지보전·최적화까지 수명주기 전체를 디지털 쓰레드로 연결하는 것이 진정한 디지털 트윈의 가치이며, NVIDIA Omniverse·지멘스 Xcelerator 등 플랫폼 생태계 기반의 표준화된 구현이 디지털 트윈 확산의 핵심 촉진 요소임</li>
 </ul>
 
 </body>

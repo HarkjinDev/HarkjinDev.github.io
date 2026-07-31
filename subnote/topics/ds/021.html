@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 서버리스 컴퓨팅 (Serverless Computing)</title>
+  <title>[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,16 +15,48 @@
   </style>
 </head>
 <body>
-<h4>9. 서버리스 컴퓨팅 (Serverless Computing)</h4>
+<h4>[하위] 8-1. 클라우드 네이티브 구축·운영 가이드(25.5.)</h4>
 <ul>
-<li><strong>정의</strong>: 서버 프로비저닝·관리 없이 코드를 실행하고 실제 사용 자원에만 과금하는 클라우드 실행 모델</li>
-<li><strong>키워드</strong>: FaaS, BaaS, 이벤트 드리븐, 콜드 스타트, AWS Lambda, 무상태 아키텍처</li>
-<li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>서버리스 구성 요소</strong>: FaaS(함수 실행) + BaaS(백엔드 서비스) = 서버리스 아키텍처</li>
-<li><strong>적합한 워크로드</strong>: 이벤트 기반 처리, API 백엔드, 배치 작업, IoT 데이터 처리</li>
-<li><strong>인사이트</strong>: '서버리스'는 서버가 없는 것이 아니라 <strong>서버 관리를 추상화</strong>한 것으로, MSA와 결합 시 개별 기능별 독립 배포·확장이 가능해 운영 효율이 극대화됨.</li>
+<li><strong>클라우드 네이티브 주요 구성요소: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;엠컨데씨&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 특징</th></tr>
+<tr><td><strong>MSA</strong></td><td>소규모 서비스, 독립적 서비스 운영, 다양한 언어·기술 적용, 유지관리 용이성</td></tr>
+<tr><td><strong>Container</strong></td><td>효율적 개발환경 구축, 경량화, 높은 이식성, 확장성</td></tr>
+<tr><td><strong>DevOps</strong></td><td>서비스단위 개발·운영조직 협업, 신속한 서비스 개발·배포</td></tr>
+<tr><td><strong>CI/CD</strong></td><td>프로세스 자동화, 소규모 서비스단위 배포</td></tr>
+</table></div>
+</li>
+<li><strong>클라우드 네이티브 아키텍처: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;외서런/지텔씨&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th></tr>
+<tr><td><strong>외부 게이트웨이</strong></td><td>사용자 인증/인가, 정책관리, 메시지전달(API)</td></tr>
+<tr><td><strong>서비스 메시</strong></td><td>서비스 디스커버리, 설정관리, 장애관리, 서비스라우터, 로드밸런싱</td></tr>
+<tr><td><strong>런타임 관리</strong></td><td>컨테이너(MSA), 런타임플랫폼, 오토스케일링, 자원할당, 모니터링, 배포</td></tr>
+<tr><td><strong>지원 서비스</strong></td><td>저장소, 메시지브로커</td></tr>
+<tr><td><strong>텔레메트리</strong></td><td>로그, 모니터링</td></tr>
+<tr><td><strong>CI/CD 자동화</strong></td><td>빌드자동화, 이미지관리, 배포자동화, 플랫폼자동화</td></tr>
+</table></div>
+</li>
+<li><strong>클라우드 네이티브 사업 추진 절차: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;범사발구운&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>단계</th><th>절차</th></tr>
+<tr><td><strong>1. 구축범위결정</strong></td><td>신규구축 / 전면재구축</td></tr>
+<tr><td></td><td>전체시스템전환 / 부분전환(기능개발·개선)</td></tr>
+<tr><td><strong>2. 사업유형결정</strong></td><td>ISP(상세설계 포함)</td></tr>
+<tr><td><strong>3. 발주형태결정</strong></td><td>별도발주 또는 일괄발주 선택</td></tr>
+<tr><td><strong>4. 구축</strong></td><td>구축사업</td></tr>
+<tr><td></td><td>구축·운영 일괄발주사업</td></tr>
+<tr><td><strong>5. 운영</strong></td><td>운영사업</td></tr>
+</table></div>
+</li>
+<li><strong>공공부문 클라우드 네이티브 성숙도 모델:</strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;기시활/도최혁&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>LV</th><th>명칭</th><th>특징</th></tr>
+<tr><td><strong>0</strong></td><td>기존 애플리케이션(Initial)</td><td>Legacy(모놀리식)</td></tr>
+<tr><td><strong>1</strong></td><td>시작단계(Entry)</td><td>IaaS 전환</td></tr>
+<tr><td><strong>2</strong></td><td>활용단계(Operate)</td><td>PaaS 도입 및 개발/운영환경 활용</td></tr>
+<tr><td><strong>3</strong></td><td>도입단계(Scale)</td><td>MSA+CI/CD+Container+DevOps 기술</td></tr>
+<tr><td><strong>4</strong></td><td>최적화단계(Optimize)</td><td>MSA+CI/CD+Container+DevOps 기술+DevOps 조직문화</td></tr>
+<tr><td><strong>5</strong></td><td>혁신단계(Innovate)</td><td>MSA+CI/CD+Container+DevOps 기술+조직문화+신기술</td></tr>
+</table></div>
+</li>
 </ul>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 구성도 추가</span></p>
 
 </body>
 </html>
