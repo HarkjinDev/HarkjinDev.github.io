@@ -30,12 +30,12 @@
 </li>
 <li><strong>모델링 절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;도쿼패/기후디&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>절자</th><th>절자 별 상세 설명</th></tr>
-<tr><td><strong>도메인 모델 파악</strong></td><td>데이터 개체 및 관계 분석 후 ERD 도식화</td></tr>
-<tr><td><strong>쿼리결과 디자인</strong></td><td>도메인 모델 기반으로 쿼리 결과값 정하여 출력 내용 기반 디자인</td></tr>
-<tr><td><strong>패턴을 이용한 데이터 모델링</strong></td><td>RDBMS 기능 배제, Put/Get 형태로 NoSQL 테이블 재정의</td></tr>
-<tr><td><strong>기능 최적화</strong></td><td>Secondary Index를 이용하여 기능 최적화</td></tr>
-<tr><td><strong>후보 NoSQL을 선정 및 테스트</strong></td><td>부하·안정성·확정성 테스트 후 최적 솔루션 선택</td></tr>
-<tr><td><strong>데이터 모델 최적화 및 하드웨어 디자인</strong></td><td>데이터 모델 최적화 + 애플리케이션 인터페이스 설계 + 하드웨어 디자인 실시</td></tr>
+<tr><td><strong>1. 도메인 모델 파악</strong></td><td>데이터 개체 및 관계 분석 후 ERD 도식화</td></tr>
+<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>2. 쿼리결과 디자인</strong></u></span></td><td>도메인 모델 기반으로 쿼리 결과값 정하여 출력 내용 기반 디자인</td></tr>
+<tr><td><strong>3. 패턴을 이용한 데이터 모델링</strong></td><td>RDBMS 기능 배제, Put/Get 형태로 NoSQL 테이블 재정의</td></tr>
+<tr><td><strong>4. 기능 최적화</strong></td><td>Secondary Index를 이용하여 기능 최적화</td></tr>
+<tr><td><strong>5. 후보 NoSQL을 선정 및 테스트</strong></td><td>부하·안정성·확정성 테스트 후 최적 솔루션 선택</td></tr>
+<tr><td><strong>6. 데이터 모델 최적화 및 하드웨어 디자인</strong></td><td>데이터 모델 최적화 + 애플리케이션 인터페이스 설계 + 하드웨어 디자인 실시</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 관계형 DB 모델링 방식을 NoSQL에 그대로 적용하면 성능 문제가 발생하므로, 사용 패턴(읽기/쓰기 비율, 트랜잭션 범위)을 먼저 정의하는 것이 핵심</li>

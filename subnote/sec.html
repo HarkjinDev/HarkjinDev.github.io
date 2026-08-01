@@ -489,8 +489,8 @@ TLS 세션키 협상에 사용</td></tr>
 </ul>
 <h4>10. MAC (Message Authentication Code, 메시지 인증)</h4>
 <ul>
-<li><strong>정의</strong>: 메시지의 무결성과 송신자 인증을 동시에 보장하기 위해 비밀키를 이용해 생성하는 짧은 인증 코드</li>
-<li><strong>키워드</strong>: 비밀키, 무결성, 인증, 해시함수, 위변조 방지, CBC-MAC, HMAC, GMAC</li>
+<li><strong>정의</strong>: 비밀키를 이용해 메시지 무결성과 송신자인증을 함께 보장하는 인증코드</li>
+<li><strong>키워드</strong>:<strong> 비밀키, 무결성, 인증</strong>, 해시함수, 위변조 방지, CBC-MAC, HMAC, GMAC</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>동작 원리</strong>:<ul>
 <li>① 송신자가 비밀키 K와 메시지 m으로 MAC 값 생성: MAC = h(K, m)</li>
@@ -498,12 +498,17 @@ TLS 세션키 협상에 사용</td></tr>
 <li>③ 일치하면 메시지 무결성 및 출처 인증 확인</li>
 </ul>
 </li>
-<li><strong>제공 속성</strong>: 무결성(Integrity) + 인증(Authentication) — <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기밀성·부인방지는 제공하지 않음</strong></u></span></li>
-<li><strong>유형 비교</strong>:<div class="table-scroll"><table>
+<li><strong>제공 속성</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;맥무인&gt;</strong></span><ul>
+<li><strong>무결성(Integrity) + 인증(Authentication) </strong></li>
+<li> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>기밀성·부인방지는 제공하지 않음</strong></u></span></li>
+</ul>
+</li>
+<li><strong>유형:</strong><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>예시</th></tr>
-<tr><td>CBC-MAC</td><td>블록 암호(CBC 모드)로 MAC 생성</td><td>금융 메시지 인증 (ISO 9797)</td></tr>
-<tr><td>HMAC</td><td>해시 함수와 비밀키를 결합하여 MAC 생성</td><td>JWT, TLS, API 인증</td></tr>
-<tr><td>GMAC</td><td>AES-GCM 기반 인증 태그 생성</td><td>TLS 1.3, IPSec</td></tr>
+<tr><td><strong>CMAC(Cipher-based MAC)</strong></td><td>블록암호 기반, 가변길이 안전처리</td><td>NIST SP800-38B, 금융권 표준</td></tr>
+<tr><td><strong>NMAC(Nested MAC)</strong></td><td>두 개의 키로 해시함수를 중첩(Nested) 적용하는 구조</td><td>HMAC 설계의 이론적 기반</td></tr>
+<tr><td><strong>HMAC</strong></td><td>해시함수와 비밀키를 결합해 MAC생성</td><td>JWT, TLS, API 인증</td></tr>
+<tr><td><strong>GMAC</strong></td><td>AES-GCM 기반 인증태그 생성</td><td>TLS 1.3, IPSec</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: MAC은 비밀키를 공유한 당사자 간에만 유효하므로 제3자에 대한 부인방지는 불가능함. 부인방지가 필요한 경우 전자서명을 사용해야 함</li>
@@ -1332,6 +1337,8 @@ TLS 세션키 협상에 사용</td></tr>
 <li><strong>API 오용</strong>: 안전하지 않은 API 사용</li>
 </ul>
 </li>
+<li><strong>SAST(정적 분석): </strong>정적 테스트, White Box Test, 설계/개발 단계, 조기 취약점 발견, 높은 ROI, 오탐, 제한적 커버리지</li>
+<li><strong>DAST(동적 분석):</strong> 동적 테스트, Black Box Test, 테스트/배포 단계, 전체 시스템 평가, 낮은 ROI, 미탐</li>
 <li><strong>인사이트</strong>: SAST(정적 분석)와 DAST(동적 분석)를 CI/CD 파이프라인에 통합하여 자동화된 보안 검증 체계(DevSecOps)를 구축하는 것이 현대적 시큐어 코딩의 실천 방법임</li>
 </ul>
 <h4>3. OWASP (Open Web Application Security Project)</h4>
@@ -3131,7 +3138,7 @@ TLS 세션키 협상에 사용</td></tr>
 </table></div>
 </li>
 </ul>
-<h4>3. CISO (Chief Information Security Officer)</h4>
+<h4>3. 정보보호책임자(CISO, Chief Information Security Officer)</h4>
 <ul>
 <li><strong>정의</strong>: 조직의 정보보호 정책과 활동을 총괄하는 최고 정보보호 책임자</li>
 <li><strong>키워드</strong>: 정보보호 최고책임자, 직무, 자격요건</li>
@@ -3141,6 +3148,8 @@ TLS 세션키 협상에 사용</td></tr>
 <li><strong>자격요건</strong>: 4년 이상 정보보호 업무 경력 또는 관련 학위</li>
 <li><strong>인사이트</strong>: CISO는 기술 전문가에서 비즈니스 리더로 역할이 진화하고 있으며, 이사회 직접 보고 체계와 독립적 권한이 CISO 효과성의 핵심 조건임</li>
 </ul>
+<h4>[하위] 3-1. 개인정보보호책임자(CPO, Chief Privacy Officer)</h4>
+<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">//추가 필요</span></p>
 <h4>4. 사이버 복원력(Cyber Resilience)</h4>
 <ul>
 <li><strong>정의:</strong> 사이버 공격·장애 발생 시 핵심 기능을 유지하고 신속하게 복구하며, 지속적으로 적응·진화하여 비즈니스 연속성을 보장하는 조직의 종합적 대응 역량</li>

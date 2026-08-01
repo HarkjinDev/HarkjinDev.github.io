@@ -248,6 +248,18 @@
   {
     "domain": "AI",
     "fname": "ai",
+    "topic": "1. 자연어 임베딩 (NLP Embedding)",
+    "mnemonic": "<형구의/희밀>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "3. NER (Named Entity Recognition, 개체명 인식)",
+    "mnemonic": "<토태매분>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
     "topic": "5. 프롬프트 엔지니어링 (Prompt Engineering)",
     "mnemonic": "<역지맥예출>"
   },
@@ -304,6 +316,12 @@
     "fname": "sec",
     "topic": "2. 접근제어/통제 (Access Control)",
     "mnemonic": "<정모메>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "10. MAC (Message Authentication Code, 메시지 인증)",
+    "mnemonic": "<맥무인>"
   },
   {
     "domain": "SEC",
@@ -1534,6 +1552,18 @@
     "fname": "gr",
     "topic": "8. 생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드(26. 5.)",
     "mnemonic": "<원전후가/프실기외>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "9. 금융분야 인공지능 가이드라인 (2026.6.)",
+    "mnemonic": "<거합보신/안신보>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "9. 금융분야 인공지능 가이드라인 (2026.6.)",
+    "mnemonic": "<휴오킬사>"
   },
   {
     "domain": "GR",
