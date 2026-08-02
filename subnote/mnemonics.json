@@ -356,6 +356,18 @@
   {
     "domain": "SEC",
     "fname": "sec",
+    "topic": "4. 공급망 보안 (Supply Chain Security)",
+    "mnemonic": "<타의공/리빌업코/서협>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 4-1. SW 공급망 보안 강화 로드맵(26.6., 부처합동)",
+    "mnemonic": "<역체기>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
     "topic": "5. XSS (Cross-Site Scripting)",
     "mnemonic": "<·>"
   },
@@ -898,6 +910,12 @@
     "fname": "st",
     "topic": "1. 확률분포(Probability distribution)",
     "mnemonic": "<이질연밀 / 베이기다포 / 정지균티카프>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "1. 상관분석 (Correlation Analysis)",
+    "mnemonic": "<피스켄/파크편>"
   },
   {
     "domain": "ST",

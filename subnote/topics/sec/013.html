@@ -22,12 +22,12 @@
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>주요 모드 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>모드</th><th>특징</th><th>장점</th><th>단점</th><th>적용</th></tr>
-<tr><td>블록</td><td>ECB</td><td>블록 독립 암호화</td><td>병렬 처리 가능</td><td>패턴 노출</td><td>매우 취약</td></tr>
-<tr><td></td><td>CBC</td><td>이전 암호문과 XOR 후 암호화</td><td>패턴 은닉</td><td>순차 처리, IV 필요</td><td>TLS, 파일 암호화</td></tr>
-<tr><td></td><td>PCBC</td><td>이전 평문/암호문 모두 XOR</td><td>무결성 검사</td><td>작은 오류에도 복호화 실패</td><td>Keberos v4</td></tr>
-<tr><td>스트림</td><td>CFB</td><td>암호문을 피드백하여 스트림처럼 동작</td><td>자기동기화</td><td>오류 전파</td><td>실시간 스트림</td></tr>
-<tr><td></td><td>OFB</td><td>키 스트림 사전 생성</td><td>오류 비전파</td><td>재전송 공격 취약</td><td>위성 통신</td></tr>
-<tr><td></td><td>CTR</td><td>카운터로 키 스트림 생성</td><td>병렬 처리, 
+<tr><td>블록</td><td><strong>ECB</strong></td><td>블록 독립 암호화</td><td>병렬 처리 가능</td><td>패턴 노출</td><td>매우 취약</td></tr>
+<tr><td></td><td><strong>CBC</strong></td><td>이전 암호문과 XOR 후 암호화</td><td>패턴 은닉</td><td>순차 처리, IV 필요</td><td>TLS, 파일 암호화</td></tr>
+<tr><td></td><td><strong>PCBC</strong></td><td>이전 평문/암호문 모두 XOR</td><td>무결성 검사</td><td>작은 오류에도 복호화 실패</td><td>Keberos v4</td></tr>
+<tr><td>스트림</td><td><strong>CFB</strong></td><td>암호문을 피드백하여 스트림처럼 동작</td><td>자기동기화</td><td>오류 전파</td><td>실시간 스트림</td></tr>
+<tr><td></td><td><strong>OFB</strong></td><td>키 스트림 사전 생성</td><td>오류 비전파</td><td>재전송 공격 취약</td><td>위성 통신</td></tr>
+<tr><td></td><td><strong>CTR</strong></td><td>카운터로 키 스트림 생성</td><td>병렬 처리, 
 랜덤 접근</td><td>카운터 재사용 취약</td><td>디스크 암호화, 
 클라우드</td></tr>
 </table></div>

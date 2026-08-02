@@ -18,7 +18,7 @@
 <h4>[하위] 3-2. SAGA 패턴 (SAGA Pattern)</h4>
 <ul>
 <li><strong>정의:</strong> 전체 트랜잭션을 여러 개의 로컬 트랜잭션으로 나누어 순차적으로 실행하고 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>실패 시 보상 트랜잭션을 통해 원상복구</strong></u></span>하는 디자인 패턴</li>
-<li><strong>키워드:</strong> 로컬 트랜잭션, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>보상 트랜잭션(Compensating Transaction)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과적 일관성(Eventual Consistency)</strong></u></span>, 메시지 브로커(Kafka/RabbitMQ), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>코레오그래피, 오케스트레이션</strong></u></span></li>
+<li><strong>키워드:</strong> 로컬 트랜잭션, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>이벤트 트리거 기반</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>보상 트랜잭션(Compensating Transaction)</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과적 일관성(Eventual Consistency)</strong></u></span>, 메시지 브로커(Kafka/RabbitMQ), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>코레오그래피, 오케스트레이션</strong></u></span></li>
 <li><strong>분류:</strong> 소프트웨어 아키텍처</li>
 <li><strong>핵심 메커니즘:</strong><div class="table-scroll"><table>
 <tr><th><strong>구성 요소</strong></th><th><strong>설명</strong></th></tr>

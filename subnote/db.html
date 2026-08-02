@@ -979,6 +979,16 @@
 <tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr>
 </table></div>
 </li>
+<li><strong>RBO vs CBO 비교:</strong> <div class="table-scroll"><table>
+<tr><th>항목</th><th>RBO</th><th>CBO</th></tr>
+<tr><td><strong>판단 기준</strong></td><td>규칙(Rule)</td><td>비용(Cost)</td></tr>
+<tr><td><strong>데이터 반영</strong></td><td>미흡</td><td>반영</td></tr>
+<tr><td><strong>통계정보</strong></td><td>불필요</td><td>필수</td></tr>
+<tr><td><strong>최적화 방식</strong></td><td>정적 최적화</td><td>동적 최적화</td></tr>
+<tr><td><strong>예측 가능성</strong></td><td>높음</td><td>상대적으로 낮음</td></tr>
+<tr><td><strong>현대 DB 적용</strong></td><td>감소</td><td>주류</td></tr>
+</table></div>
+</li>
 <li><strong>인사이트</strong>: CBO의 행동에 영향을 미치는 요소로 SQL의 형태, DBMS 제약 설정, 클러스터링/파티셔닝 등 다양한 요소가 존재하며, 이 중 통계정보에 대한 의존성이 절대적임. 대량 DML 이후 반드시 통계 재수집(ANALYZE/DBMS_STATS)을 수행해야 최적 실행계획 유지 가능</li>
 </ul>
 <h4>3. 데이터베이스 튜닝 (Database Tuning)</h4>
@@ -1139,6 +1149,8 @@
 </ul>
 </li>
 <li><strong>설계 전략</strong>: 분할(Fragmentation), 복제(Replication), 할당(Allocation)</li>
+<li><strong>복제(Replication): </strong>Primary-Replica 복제, 동기·비동기 복제, Log Shipping·CDC, 복제 지연·충돌 관리</li>
+<li><strong>쿼리 오프로딩: </strong>쓰기-읽기 분리, 조회 라우팅, Pool·Load Balancing</li>
 <li><strong>인사이트</strong>: 분산 DB의 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>핵심 가치는 투명성</strong></u></span>이며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>CAP 이론에 따라 분산 환경에서 일관성과 가용성을 동시에 보장하는 것은 불가능함</strong></u></span>을 함께 언급 권장</li>
 </ul>
 <h4>4. CAP 이론 &amp; PACELC 이론</h4>

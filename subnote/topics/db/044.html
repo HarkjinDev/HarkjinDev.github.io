@@ -53,6 +53,16 @@
 <tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr>
 </table></div>
 </li>
+<li><strong>RBO vs CBO 비교:</strong> <div class="table-scroll"><table>
+<tr><th>항목</th><th>RBO</th><th>CBO</th></tr>
+<tr><td><strong>판단 기준</strong></td><td>규칙(Rule)</td><td>비용(Cost)</td></tr>
+<tr><td><strong>데이터 반영</strong></td><td>미흡</td><td>반영</td></tr>
+<tr><td><strong>통계정보</strong></td><td>불필요</td><td>필수</td></tr>
+<tr><td><strong>최적화 방식</strong></td><td>정적 최적화</td><td>동적 최적화</td></tr>
+<tr><td><strong>예측 가능성</strong></td><td>높음</td><td>상대적으로 낮음</td></tr>
+<tr><td><strong>현대 DB 적용</strong></td><td>감소</td><td>주류</td></tr>
+</table></div>
+</li>
 <li><strong>인사이트</strong>: CBO의 행동에 영향을 미치는 요소로 SQL의 형태, DBMS 제약 설정, 클러스터링/파티셔닝 등 다양한 요소가 존재하며, 이 중 통계정보에 대한 의존성이 절대적임. 대량 DML 이후 반드시 통계 재수집(ANALYZE/DBMS_STATS)을 수행해야 최적 실행계획 유지 가능</li>
 </ul>
 

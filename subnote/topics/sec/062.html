@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. SBOM (Software Bill of Materials)</title>
+  <title>5. 공급망 사이버보안 위험관리 (C-SCRM, Cyber Supply Chain Risk Management)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,48 @@
   </style>
 </head>
 <body>
-<h4>6. SBOM (Software Bill of Materials)</h4>
+<h4>5. 공급망 사이버보안 위험관리 (C-SCRM, Cyber Supply Chain Risk Management)</h4>
 <ul>
-<li><strong>정의:</strong> 소프트웨어를 구성하는 모든 컴포넌트(오픈소스·서드파티 라이브러리·의존성)의 목록을 체계화한 소프트웨어 구성 명세서</li>
-<li><strong>키워드:</strong> SW 구성요소 목록, SPDX(ISO/IEC 5962), CycloneDX, SWID, 오픈소스 관리, 공급망 보안, CVE 매칭, 라이선스 컴플라이언스, EO 14028, EU CRA, SCA</li>
+<li><strong>정의:</strong> 소프트웨어·하드웨어·서비스 공급망 전반에 걸쳐 사이버보안 위험을 식별·평가·완화하는 체계적 위험 관리 프레임워크</li>
+<li><strong>키워드:</strong> 공급망 위험, 서드파티 리스크, NIST SP 800-161, SBOM, 공급업체 평가, 최소 권한, Zero Trust, 위험 평가</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
-<li><strong>SBOM 주요 형식:</strong><div class="table-scroll"><table>
+<li><strong>C-SCRM vs 공급망 보안 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>공급망 보안</th><th>C-SCRM</th></tr>
+<tr><td><strong>범위</strong></td><td>SW 취약점·무결성 중심</td><td>SW·HW·서비스 전체 공급망</td></tr>
+<tr><td><strong>관점</strong></td><td>기술적 보안 대응</td><td>위험 관리·거버넌스 통합</td></tr>
+<tr><td><strong>대상</strong></td><td>개발·운영 팀</td><td>경영진·구매·보안 전체 조직</td></tr>
+<tr><td><strong>핵심 활동</strong></td><td>취약점 탐지·패치</td><td>공급업체 평가·계약·모니터링</td></tr>
+</table></div>
+</li>
+<li><strong>C-SCRM 프레임:</strong><div class="table-scroll"><table>
+<tr><th>수준</th><th>이해관계자</th><th>역할</th><th>주요 활동</th></tr>
+<tr><td><strong>1. 전사</strong></td><td>경영진</td><td>C-SCRM 활동 경영진 감독</td><td>전사 C-SCRM 전략·거버넌스 수립, 위험관리 기조 설정, PMO 구성</td></tr>
+<tr><td><strong>2. 프로세스</strong></td><td>비즈니스 관리자</td><td>비즈니스 프로세스 관점 공급망 위험 평가·대응·모니터링</td><td>프로세스별 전략·정책 개발, 보안취약점 감축, 위험 허용 범위 설정</td></tr>
+<tr><td><strong>3. 운영</strong></td><td>시스템 관리자</td><td>개별 시스템·업무에 C-SCRM 적용·운영·보고</td><td>C-SCRM 계획·요구사항 구현, 상위 제약사항 준수, SDLC 적용·보고</td></tr>
+</table></div>
+</li>
+<li><strong>C-SCRM 핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>위험 식별</strong></td><td><strong>공급망 매핑</strong></td><td>1차·2차·3차 공급업체 전체 식별·가시성 확보</td></tr>
+<tr><td></td><td><strong>자산 인벤토리</strong></td><td>HW·SW·서비스 구성요소 목록화 및 의존성 파악</td></tr>
+<tr><td><strong>위험 평가</strong></td><td><strong>공급업체 보안 평가</strong></td><td>보안 성숙도·취약점·컴플라이언스 수준 평가</td></tr>
+<tr><td></td><td><strong>위협 모델링</strong></td><td>공급망 경로별 위협 시나리오 식별·분석</td></tr>
+<tr><td><strong>위험 완화</strong></td><td><strong>계약 보안 요건</strong></td><td>공급업체 계약에 보안 요건·감사권·SBOM 제공 명시</td></tr>
+<tr><td></td><td><strong>Zero Trust 적용</strong></td><td>공급업체 접근 최소 권한·지속 검증 원칙 적용</td></tr>
+<tr><td><strong>모니터링</strong></td><td><strong>지속적 모니터링</strong></td><td>공급업체 보안 상태·취약점·침해 여부 지속 추적</td></tr>
+<tr><td></td><td><strong>사고 대응 연계</strong></td><td>공급망 침해 시 신속 격리·대응 절차 사전 수립</td></tr>
+</table></div>
+</li>
+<li><strong>NIST SP 800-161 핵심 내용:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>SPDX</strong></td><td>NIST·Linux Foundation 주도 국제 표준 형식 (ISO/IEC 5962)</td><td>국제 표준</td></tr>
-<tr><td><strong>CycloneDX</strong></td><td>OWASP 주도, 보안·취약점 분석에 특화된 형식</td><td>보안 특화</td></tr>
-<tr><td><strong>SWID</strong></td><td>ISO/IEC 19770-2 기반 SW 식별 태그 형식</td><td>자산 식별</td></tr>
+<tr><td><strong>C-SCRM 정책</strong></td><td>조직 전체 공급망 위험 관리 정책·거버넌스 수립</td><td>정책 기반</td></tr>
+<tr><td><strong>공급업체 평가</strong></td><td>신규·기존 공급업체 보안 역량 정기 평가</td><td>공급업체 심사</td></tr>
+<tr><td><strong>계약 관리</strong></td><td>보안 요건·사고 통보·감사권을 계약서에 명시</td><td>계약 통제</td></tr>
+<tr><td><strong>SBOM 요구</strong></td><td>소프트웨어 구성 요소 목록 제출 의무화</td><td>투명성 확보</td></tr>
+<tr><td><strong>4단계 계층</strong></td><td>조직·임무·시스템·공급망 레벨별 위험 관리</td><td>계층적 관리</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>컴포넌트 식별</strong></td><td>패키지명·버전·공급업체·라이선스 정보 목록화</td><td>구성요소 식별</td></tr>
-<tr><td><strong>의존성 관계</strong></td><td>직접·간접 의존성 트리 구조 표현</td><td>의존성 가시성</td></tr>
-<tr><td><strong>해시·무결성</strong></td><td>컴포넌트 해시값으로 위변조 여부 검증</td><td>무결성 확인</td></tr>
-<tr><td><strong>CVE 연계</strong></td><td>NVD·CVE DB와 매핑하여 취약 컴포넌트 자동 탐지</td><td>취약점 자동화</td></tr>
-</table></div>
-</li>
-<li><strong>활용 분야:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
-<tr><td><strong>보안</strong></td><td><strong>CVE 취약점 매칭</strong></td><td>SBOM 기반 취약 컴포넌트 즉시 식별·패치 우선순위 결정</td></tr>
-<tr><td></td><td><strong>공급망 위험 관리</strong></td><td>서드파티·오픈소스 컴포넌트 위험 지속 모니터링</td></tr>
-<tr><td><strong>컴플라이언스</strong></td><td><strong>라이선스 관리</strong></td><td>GPL·MIT 등 라이선스 충돌·위반 자동 탐지</td></tr>
-<tr><td></td><td><strong>규제 준수</strong></td><td>EO 14028·EU CRA 등 SBOM 제출 의무 이행</td></tr>
-<tr><td><strong>운영</strong></td><td><strong>사고 대응</strong></td><td>취약점 발생 시 영향 범위 즉시 파악·대응 속도 향상</td></tr>
-</table></div>
-</li>
-<li><strong>법적 동향</strong>: 미국 EO 14028 SBOM 의무화, EU CRA(사이버복원력법) SBOM 요구</li>
-<li><strong>SBOM 생성 도구: </strong>Syft(컨테이너 특화), FOSSA(라이선스 관리), Black Duck(엔터프라이즈), Dependency-Track(OWASP 기반 지속 모니터링)</li>
-<li><strong>인사이트:</strong> Log4Shell 취약점 대응 시 SBOM 부재로 영향 범위 파악에 수개월이 소요된 교훈으로 SBOM의 필요성이 전 세계적으로 부각되었으며, EO 14028·EU CRA로 법제화가 가속되면서 SBOM은 SW 개발·납품의 필수 보안 산출물로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> C-SCRM은 공급망 공격이 단순 기술 취약점이 아닌 신뢰 관계를 악용한다는 점에서 기술적 대응만으로는 한계가 있으며, 구매·계약·법무·보안을 통합한 조직 전체의 거버넌스 체계와 공급업체 전주기 평가·모니터링이 핵심으로 NIST SP 800-161 기반의 제도적 접근이 글로벌 표준으로 자리잡고 있음</li>
 </ul>
 
 </body>
