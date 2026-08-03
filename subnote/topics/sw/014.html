@@ -45,9 +45,9 @@
 <li><strong>캡슐화 vs 정보은닉: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>캡슐화 (Encapsulation)</strong></th><th><strong>정보은닉 (Information Hiding)</strong></th></tr>
 <tr><td><strong>핵심 개념</strong></td><td><strong>'묶기'</strong>: 데이터와 함수를 하나로 묶음</td><td><strong>'숨기기'</strong>: 내부 구현을 외부에 감춤</td></tr>
-<tr><td><strong>목적</strong></td><td>응집도 향상, 재사용성 증대</td><td>결합도 감소, 무결성 보호, 보안 강화</td></tr>
-<tr><td><strong>수단</strong></td><td><strong>클래스(Class)</strong>, 인터페이스, 접근제어자</td><td><strong>접근제어자(private, public 등)</strong></td></tr>
-<tr><td><strong>관계</strong></td><td>정보은닉을 <strong>포함하는 상위 개념</strong></td><td>캡슐화 안에서 실현되는 <strong>하위 개념</strong></td></tr>
+<tr><td><strong>목적</strong></td><td>응집도 향상, 재사용성 증대</td><td>결합도 최소화, 무결성 보호, 보안 강화</td></tr>
+<tr><td><strong>수단</strong></td><td>클래스(Class), 구조체, 접근제어자</td><td>접근제어자, 인터페이스</td></tr>
+<tr><td><strong>관계</strong></td><td>하위 개념, 구현 메커니즘</td><td>상위 개념, 설계 원칙</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 캡슐화는 객체의 독립성을 높여 재사용성을 극대화하고, 정보은닉은 객체 간의 결합도를 낮추어(Loose Coupling) 변경에 유연한 아키텍처를 가능케 한다. 캡슐화가 정보은닉을 구현하는 메커니즘이라는 <strong>포함 관계</strong>를 시험에서 정확히 서술하는 것이 중요.</li>

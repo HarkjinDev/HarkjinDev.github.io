@@ -1130,6 +1130,12 @@
   {
     "domain": "BIZ/PM",
     "fname": "bizpm",
+    "topic": "[하위] 2-1. SWOT (Strengths, Weaknesses, Opportunities, Threats)",
+    "mnemonic": "<공전방출>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
     "topic": "[하위] 2-4. 7S Model",
     "mnemonic": "<전조제/공역구스>"
   },
