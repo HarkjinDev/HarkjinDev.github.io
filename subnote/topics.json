@@ -756,6 +756,10 @@
       {
         "id": "110",
         "name": "6. 인공지능 영향평가"
+      },
+      {
+        "id": "111",
+        "name": "[하위] 6-1. 고영향 인공지능"
       }
     ]
   },
@@ -2237,11 +2241,11 @@
       },
       {
         "id": "130",
-        "name": "[하위] 1-1. FTA (Fault Tree Analysis)"
+        "name": "[하위] 1-1. 결함트리분석(FTA, Fault Tree Analysis)"
       },
       {
         "id": "131",
-        "name": "[하위] 1-2. FMEA (Failure Mode and Effects Analysis)"
+        "name": "[하위] 1-2. 고장모드 영향분석(FMEA, Failure Mode and Effects Analysis)"
       },
       {
         "id": "132",
