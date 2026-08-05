@@ -852,6 +852,12 @@
     "mnemonic": "<지트오포>"
   },
   {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-5. STPA (System Theoretic Process Analysis)",
+    "mnemonic": "<미불타지>"
+  },
+  {
     "domain": "AL",
     "fname": "al",
     "topic": "5. 최소신장트리 (MST, Minimum Spanning Tree)",
