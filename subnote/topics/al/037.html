@@ -20,8 +20,8 @@
 <li><strong>정의:</strong> 시작정점의 인접 노드를 레벨 단위로 모두 탐색한 뒤 다음 레벨로 확장하는 알고리즘</li>
 <li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>큐(Queue), 레벨 탐색</strong></u></span>, 최단 경로, 방문 체크, 인접 리스트, 가중치 없는 그래프</li>
 <li><strong>분류:</strong> 그래프 탐색</li>
-<li><strong>특성: </strong>Queue, 시간복잡도: O(V+E), 공간복잡도: O(V), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최단경로 보장</strong></u></span></li>
-<li><strong>동작 원리:</strong><div class="table-scroll"><table>
+<li><strong>특성: </strong>Queue, 시간복잡도: O(V+E), 공간복잡도: O(V), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>최단경로 보장 </strong></u></span> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;비큐디스&gt;</strong></span></li>
+<li><strong>동작 원리: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;초탐방반&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 초기화</strong></td><td>시작 정점을 큐에 삽입 후 방문 처리</td><td>시작점 설정</td></tr>
 <tr><td><strong>2. 탐색</strong></td><td>큐에서 정점을 꺼내 인접 미방문 정점을 모두 큐에 삽입</td><td>레벨 확장</td></tr>

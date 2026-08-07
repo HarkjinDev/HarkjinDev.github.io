@@ -26,6 +26,8 @@
 <tr><th>레벨</th><th>구성 방식</th><th>최소</th><th>유효 용량</th><th>특징</th></tr>
 <tr><td>RAID 0</td><td>스트라이핑</td><td>2</td><td>n/n (100%)</td><td>최고 성능, 장애 허용 없음</td></tr>
 <tr><td>RAID 1</td><td>미러링</td><td>2</td><td>n/2n (50%)</td><td>최고 가용성, 비용 높음</td></tr>
+<tr><td>RAID 3</td><td>스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>순차 처리 최적, 병목 발생</td></tr>
+<tr><td>RAID 4</td><td>블록 스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>랜덤 읽기 우수, 병목 발생</td></tr>
 <tr><td>RAID 5</td><td>스트라이핑 + 분산 패리티</td><td>3</td><td>(n-1)/n</td><td>1개 디스크 장애 허용, 실용적</td></tr>
 <tr><td>RAID 6</td><td>스트라이핑 + 이중 패리티</td><td>4</td><td>(n-2)/n</td><td>2개 디스크 동시 장애 허용</td></tr>
 <tr><td>RAID 1+0</td><td>미러링 후 스트라이핑</td><td>4</td><td>50%</td><td>고성능 + 고가용성, 비용 가장 높음</td></tr>

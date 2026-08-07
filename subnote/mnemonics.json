@@ -290,6 +290,12 @@
   {
     "domain": "AI",
     "fname": "ai",
+    "topic": "[하위] 1-2. 인공지능 신뢰성 인증 (CAT, Certification of AI Trustworthiness)",
+    "mnemonic": "<위신경거>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
     "topic": "[하위] 2-2. AI RMF (AI Risk Management Framework)",
     "mnemonic": "<거식측관>"
   },
@@ -298,6 +304,24 @@
     "fname": "ai",
     "topic": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)",
     "mnemonic": "<오편환통>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "[하위] 6-1. 고영향 인공지능",
+    "mnemonic": "<에수원교/보의/수권공교>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "7. 허위정보 보안 (Disinformation Security)",
+    "mnemonic": "<허오악>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "7. 허위정보 보안 (Disinformation Security)",
+    "mnemonic": "<수검탐대>"
   },
   {
     "domain": "SEC",
@@ -860,8 +884,38 @@
   {
     "domain": "AL",
     "fname": "al",
+    "topic": "1. 선형 자료구조 (Linear Data Structure)",
+    "mnemonic": "<배스큐리덱>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "4. 이진트리 (Binary Tree)",
+    "mnemonic": "<정포완/균편탐>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
     "topic": "5. 최소신장트리 (MST, Minimum Spanning Tree)",
     "mnemonic": "<크간프정솔컴>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "1. 너비 우선 탐색 (BFS, Breadth-First Search)",
+    "mnemonic": "<비큐디스>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "1. 너비 우선 탐색 (BFS, Breadth-First Search)",
+    "mnemonic": "<초탐방반>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "2. 깊이 우선 탐색 (DFS, Depth-First Search)",
+    "mnemonic": "<초탐백반>"
   },
   {
     "domain": "AL",
@@ -874,6 +928,24 @@
     "fname": "al",
     "topic": "2. 유전 알고리즘 (Genetic Algorithm)",
     "mnemonic": "<염적선교돌>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "2. 유전 알고리즘 (Genetic Algorithm)",
+    "mnemonic": "<룰비/토경/엘최>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "3. 모의 담금질 (Simulated Annealing)",
+    "mnemonic": "<수냉온>"
+  },
+  {
+    "domain": "AL",
+    "fname": "al",
+    "topic": "3. 모의 담금질 (Simulated Annealing)",
+    "mnemonic": "<초이수냉반>"
   },
   {
     "domain": "ST",
@@ -992,6 +1064,12 @@
   {
     "domain": "CA/OS",
     "fname": "caos",
+    "topic": "[하위] 3-1. 캐시 일관성 (Cache Coherence)",
+    "mnemonic": "<캐변/스디엠>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
     "topic": "[하위] 3-2. MESI 프로토콜 (MESI Protocol)",
     "mnemonic": "<수베공무>"
   },
@@ -1010,19 +1088,25 @@
   {
     "domain": "CA/OS",
     "fname": "caos",
+    "topic": "[하위] 1-3. 프로세스 상태 전이 (Process State Transition)",
+    "mnemonic": "<생준실종대>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
     "topic": "2. 스레드 (Thread)",
     "mnemonic": "<인블동칩>"
   },
   {
     "domain": "CA/OS",
     "fname": "caos",
-    "topic": "3. 교착상태(Mutual Exclusion)",
-    "mnemonic": "<상진한>"
+    "topic": "3. 상호배제(Mutual Exclusion)",
+    "mnemonic": "<상진한상>"
   },
   {
     "domain": "CA/OS",
     "fname": "caos",
-    "topic": "3. 교착상태(Mutual Exclusion)",
+    "topic": "3. 상호배제(Mutual Exclusion)",
     "mnemonic": "<테스인/데피램>"
   },
   {
@@ -1060,6 +1144,18 @@
     "fname": "caos",
     "topic": "6. 인터럽트 (Interrupt)",
     "mnemonic": "<직병풀>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "7. IPC (Inter-Process Communication)",
+    "mnemonic": "<공피파/공큐맵/소알>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "1. CPU 스케줄링 (CPU Scheduling)",
+    "mnemonic": "<처사공/응반대>"
   },
   {
     "domain": "CA/OS",
@@ -1378,6 +1474,12 @@
     "fname": "bizpm",
     "topic": "1. BCP (Business Continuity Planning)",
     "mnemonic": "<티재/피손>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "1. BCP (Business Continuity Planning)",
+    "mnemonic": "<정업위복/대훈지>"
   },
   {
     "domain": "BIZ/PM",

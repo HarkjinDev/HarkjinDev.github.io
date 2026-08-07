@@ -20,7 +20,7 @@
 <li><strong>정의</strong>: 준비 상태의 프로세스들에게 CPU를 효율적으로 할당하는 운영체제 기법</li>
 <li><strong>키워드</strong>: 선점/비선점, RR, SRT, MLQ, MLFQ, FCFS, SJF, HRN, 기아현상, Convey Effect, 에이징</li>
 <li><strong>분류</strong>: 프로세스 관리</li>
-<li><strong>평가기준: </strong><div class="table-scroll"><table>
+<li><strong>평가기준: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;처사공/응반대&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>요건</strong></th><th><strong>설명</strong></th></tr>
 <tr><td><strong>성능</strong></td><td><strong>처리량(Throughput)</strong></td><td>단위 시간당 처리하는 프로세스의 개수</td></tr>
 <tr><td></td><td><strong>CPU 사용률(CPU Utilization)</strong></td><td>전체 시스템 가동 시간 중 CPU가 실제 작업한 시간의 비율</td></tr>
@@ -53,7 +53,7 @@
 <li><strong>선점 기법:</strong><div class="table-scroll"><table>
 <tr><th>기법</th><th>핵심</th><th>장점</th><th>단점</th></tr>
 <tr><td><strong>RR </strong></td><td>시간 할당량(퀀텀)마다 순환 처리</td><td>응답시간 균등·기아 없음</td><td>퀀텀 크기에 따라 성능 편차</td></tr>
-<tr><td><strong>SRTF</strong></td><td>남은 실행시간 짧은 순서 선점</td><td>평균 대기시간 최소화</td><td>기아·잦은 문맥 교환 비용</td></tr>
+<tr><td><strong>SRT</strong></td><td>남은 실행시간 짧은 순서 선점</td><td>평균 대기시간 최소화</td><td>기아·잦은 문맥 교환 비용</td></tr>
 <tr><td><strong>우선순위
 (선점)</strong></td><td>높은 우선순위 프로세스가 즉시 선점</td><td>긴급 프로세스 즉각 처리</td><td>기아(Starvation)·오버헤드</td></tr>
 <tr><td><strong>MQ</strong></td><td>유형별 큐 분리·각 큐에 다른 정책</td><td>유형별 차등 정책 적용</td><td>큐 간 이동 불가·유연성 낮음</td></tr>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. AX(AI Transformer)</title>
+  <title>3. AIOps (Artificial Intelligence for IT Operations)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,34 +15,50 @@
   </style>
 </head>
 <body>
-<h4>4. AX(AI Transformer)</h4>
+<h4>3. AIOps (Artificial Intelligence for IT Operations)</h4>
 <ul>
-<li><strong>AX 3요소 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>3요소</th><th>구성요소</th><th>설명</th></tr>
-<tr><td>AX 대상·서비스</td><td>고객 경험</td><td>AI 기반 맞춤화·개인화 서비스 제공</td></tr>
-<tr><td></td><td>운영 및 생산성</td><td>프로세스 자동화·공급망 최적화</td></tr>
-<tr><td></td><td>제품 및 서비스</td><td>AI 기능 내재화·비즈니스 모델 창출</td></tr>
-<tr><td>AX 구현</td><td>AI as a Service</td><td>AI 기능·자원 클라우드 On-Demand 제공</td></tr>
-<tr><td></td><td>AI Infra</td><td>고성능 컴퓨팅·병렬 스토리지·클라우드 운영</td></tr>
-<tr><td></td><td>AI Governance</td><td>윤리·투명성·안전성·책임성·법규 준수</td></tr>
-<tr><td>AX 운영·거버넌스</td><td>Active Learning</td><td>가치 데이터 선별·레이블링·전문가 피드백</td></tr>
-<tr><td></td><td>MLOps</td><td>개발~모니터링 전과정 자동화·안정성 확보</td></tr>
-<tr><td></td><td>Compliance</td><td>법률·윤리·편향성 검사·설명가능성 확보</td></tr>
+<li><strong>정의:</strong> AI 기반으로 IT운영데이터를 분석해 장애예측·원인분석·자동화하는 지능형 운영기술</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Observability, MELT, Anomaly Detection, RCA, Predictive Analytics, Self-Healing</strong></u></span></li>
+<li><strong>분류</strong>: AI 운영/실무</li>
+<li><strong>등장 배경:</strong></li>
+<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분석·예측·자동화 3단계</strong></u></span></td><td>알림중심 모니터링을 넘어 분석→예측→자동화 수행</td><td>3단계 지능운영</td></tr>
+<tr><td><strong>Observability 기반</strong></td><td>텔레메트리(MELT) 수집</td><td>통합 관측성</td></tr>
+<tr><td><strong>이벤트 상관분석, 이상탐지</strong></td><td>다수 이벤트를 하나의 장애로 통합</td><td>이벤트 노이즈감소</td></tr>
+<tr><td><strong>RCA 자동화</strong></td><td>근본원인(Root Cause)을 AI가 자동 추론</td><td>근본원인 자동추론</td></tr>
+<tr><td><strong>장애 예측</strong></td><td>장애 발생가능성 사전예측</td><td>장애 예측</td></tr>
+<tr><td><strong>자동 대응</strong></td><td>Playbook 실행, Self-Healing 복구, 자동 구성</td><td>자동 복구/구성</td></tr>
 </table></div>
 </li>
-<li><strong>AX 방법론 도입단계(7D) 및 접근 전략:</strong><div class="table-scroll"><table>
-<tr><th>도입단계</th><th>접근전략</th><th>설명</th></tr>
-<tr><td>목표 정의 (Define)</td><td>서비스·기능 발굴·목표 명확화</td><td>Vertical AI 집중·sLLM 검토</td></tr>
-<tr><td>Data 정립 (Discover)</td><td>메타데이터 중심 데이터 설계·관리</td><td>비식별화·암호화·법규 대응</td></tr>
-<tr><td>Data 운영 방안 설계 (Develop)</td><td>데이터 아키텍처·Knowledge Base 구조화</td><td>자주성·품질·보호 확보</td></tr>
-<tr><td>AX 투자 모델 수립 (Design)</td><td>AX 특성 고려 유연한 방식 채택</td><td>OPEX 중심 동적투자·FinOps</td></tr>
-<tr><td>AI Full Stack 구성 (Deploy)</td><td>공공 AI Full Stack 체계 정립</td><td>5계층 참조 아키텍처·LLMOps</td></tr>
-<tr><td>서비스 채널 선택 (Deliver)</td><td>옴니채널 통합·포용적 채널 접근</td><td>사용자 경험 일관성 유지</td></tr>
-<tr><td>AX 활용 진단·모니터링 (Diagnose)</td><td>환류 거버넌스·상시 진단체계 구축</td><td>성능·비용·준법·윤리 상시진단</td></tr>
+<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
+<tr><td><strong>분석기술</strong></td><td>ML 이상탐지</td><td>이상탐지·예측분석 수행</td></tr>
+<tr><td></td><td>예측 분석</td><td>장애 발생 확률 및 장애 시점 예측</td></tr>
+<tr><td></td><td>로그 파싱·임베딩</td><td>비정형로그 구조화·벡터화</td></tr>
+<tr><td></td><td>용량 예측</td><td>리소스 사용추이 기반 스케일링 예측</td></tr>
+<tr><td><strong>지식·표현기술</strong></td><td>NLP/LLM</td><td>로그분석·질의응답·장애요약</td></tr>
+<tr><td></td><td>지식 그래프</td><td>장애원인·영향관계 표현</td></tr>
+<tr><td></td><td>그래프 기반 분석</td><td>서비스 의존성 및 RCA 분석</td></tr>
+<tr><td><strong>관측·실행기술</strong></td><td>Observability</td><td>Logs/Metrics/Traces 통합관측</td></tr>
+<tr><td></td><td>OpenTelemetry</td><td>표준 Telemetry 데이터 수집</td></tr>
+<tr><td><strong>자동화·대응</strong></td><td>Playbook</td><td>워크플로우 자동 실행</td></tr>
+<tr><td></td><td>Predictive Scaling</td><td>워크로드 증가를 예측하여 사전 증설</td></tr>
+<tr><td></td><td>Self-Healing</td><td>자동 재시작·Failover·복구</td></tr>
+<tr><td></td><td>Auto Remediation</td><td>설정 변경, 서비스 재배포, 네트워크 우회 등 자동 조치</td></tr>
 </table></div>
 </li>
+<li><strong>비교표:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>AIOps</th><th>MLOps</th><th>DataOps</th></tr>
+<tr><td><strong>목적</strong></td><td>IT 운영 자동화</td><td>ML 모델 운영</td><td>데이터 파이프라인 운영</td></tr>
+<tr><td><strong>대상</strong></td><td>시스템 운영</td><td>AI 모델</td><td>데이터</td></tr>
+<tr><td><strong>핵심기술</strong></td><td>Observability, RCA</td><td>CI/CD, Model Registry</td><td>ETL/ELT, Data Quality</td></tr>
+<tr><td><strong>결과</strong></td><td>장애예측·자동복구</td><td>모델배포·운영</td><td>데이터품질 향상</td></tr>
+</table></div>
+</li>
+<li><strong>발전 방향:</strong> 모니터링(임계치 알림) → 관측성(Observability, 통합분석) → AIOps(AI기반 탐지·예측·RCA) → GenAIOps(생성형AI 기반 자연어운영·자동조치)</li>
+<li><strong>인사이트:</strong> AIOps는 옵저버빌리티 기반 AI분석으로 장애를 예측·자동복구하며, 생성형AI와 결합한 GenAIOps로 진화해 자율운영(Autonomous Operations)을 지향하고 있다.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

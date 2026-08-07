@@ -24,20 +24,20 @@
 </li>
 <li><strong>메모리 벽 발생 원인:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>발생원인</th><th>설명</th><th>핵심</th></tr>
-<tr><td>공정</td><td>공정 발전 불균형</td><td>CPU 미세화 대비 DRAM 지연개선 한계</td><td>속도·용량 불균형</td></tr>
-<tr><td>아키텍처</td><td>폰 노이만 병목</td><td>연산·저장 분리로 구조적 지연 발생</td><td>데이터 이동 지연</td></tr>
-<tr><td></td><td>채널·인터커넥트 제약</td><td>채널·패키지·NUMA 물리적 대역폭 한계</td><td>전송경로 병목</td></tr>
-<tr><td>워크로드</td><td>AI 메모리 요구 확대</td><td>수백억 파라미터·KV캐시 막대한 요구</td><td>불규칙 대용량</td></tr>
-<tr><td></td><td>전력·발열 부담 증가</td><td>I/O 전력·발열로 시스템 성능 저하</td><td>에너지 효율 한계</td></tr>
+<tr><td><strong>공정</strong></td><td><strong>공정 발전 불균형</strong></td><td>CPU 미세화 대비 DRAM 지연개선 한계</td><td>속도·용량 불균형</td></tr>
+<tr><td><strong>아키텍처</strong></td><td><strong>폰 노이만 병목</strong></td><td>연산·저장 분리로 구조적 지연 발생</td><td>데이터 이동 지연</td></tr>
+<tr><td></td><td><strong>채널·인터커넥트 제약</strong></td><td>채널·패키지·NUMA 물리적 대역폭 한계</td><td>전송경로 병목</td></tr>
+<tr><td><strong>워크로드</strong></td><td><strong>AI 메모리 요구 확대</strong></td><td>수백억 파라미터·KV캐시 막대한 요구</td><td>불규칙 대용량</td></tr>
+<tr><td></td><td><strong>전력·발열 부담 증가</strong></td><td>I/O 전력·발열로 시스템 성능 저하</td><td>에너지 효율 한계</td></tr>
 </table></div>
 </li>
 <li><strong>메모리 벽 극복 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술</th><th>설명</th><th>핵심</th></tr>
-<tr><td>캐시 지역성</td><td>3D V-Cache</td><td>L3 캐시 수직 적층·용량 확대</td><td>캐시미스 감소</td></tr>
-<tr><td></td><td>하드웨어 프리패칭</td><td>참조패턴 예측·선제 캐시 적재</td><td>지연 은닉</td></tr>
-<tr><td>대역폭 확장</td><td>HBM (High Bandwidth Memory)</td><td>TSV 적층 초고대역폭 메모리</td><td>대역폭 병목 완화</td></tr>
-<tr><td>연결·공유</td><td>CXL (Compute Express Link)</td><td>이기종 장치 간 메모리 풀링</td><td>오픈 인터커넥트</td></tr>
-<tr><td>연산 위치</td><td>PIM / PNM</td><td>메모리 내부·근접 영역 연산 배치</td><td>데이터 이동 제거</td></tr>
+<tr><td><strong>캐시 지역성</strong></td><td><strong>3D V-Cache</strong></td><td>L3 캐시 수직 적층·용량 확대</td><td>캐시미스 감소</td></tr>
+<tr><td></td><td><strong>하드웨어 프리패칭</strong></td><td>참조패턴 예측·선제 캐시 적재</td><td>지연 은닉</td></tr>
+<tr><td><strong>대역폭 확장</strong></td><td><strong>HBM (High Bandwidth Memory)</strong></td><td>TSV 적층 초고대역폭 메모리</td><td>대역폭 병목 완화</td></tr>
+<tr><td><strong>연결·공유</strong></td><td><strong>CXL (Compute Express Link)</strong></td><td>이기종 장치 간 메모리 풀링</td><td>오픈 인터커넥트</td></tr>
+<tr><td><strong>연산 위치</strong></td><td><strong>PIM / PNM</strong></td><td>메모리 내부·근접 영역 연산 배치</td><td>데이터 이동 제거</td></tr>
 </table></div>
 </li>
 </ul>
