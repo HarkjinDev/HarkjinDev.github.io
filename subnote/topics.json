@@ -265,50 +265,54 @@
       },
       {
         "id": "066",
-        "name": "[Part 11] 데이터 거버넌스/품질"
+        "name": "[Part 11] 데이터 거버넌스/품질/보안"
       },
       {
         "id": "067",
-        "name": "1. 데이터 거버넌스 (Data Governance)"
+        "name": "1. DB(데이터베이스) 보안"
       },
       {
         "id": "068",
-        "name": "2. 데이터 품질관리 (Data Quality Management)"
+        "name": "2. 데이터 거버넌스 (Data Governance)"
       },
       {
         "id": "069",
-        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
+        "name": "2. 데이터 품질관리 (Data Quality Management)"
       },
       {
         "id": "070",
-        "name": "4. DA & DBA 역할"
+        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
       },
       {
         "id": "071",
-        "name": "5. 데이터 표준화 (Data Standardization)"
+        "name": "4. DA & DBA 역할"
       },
       {
         "id": "072",
-        "name": "6. 데이터 프로파일링 (Data Profiling)"
+        "name": "5. 데이터 표준화 (Data Standardization)"
       },
       {
         "id": "073",
-        "name": "7. 데이터 스페이스(Data Space)"
+        "name": "6. 데이터 프로파일링 (Data Profiling)"
       },
       {
         "id": "074",
-        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
+        "name": "7. 데이터 스페이스(Data Space)"
       },
       {
         "id": "075",
-        "name": "[Part 12] 마이그레이션"
+        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
       },
       {
         "id": "076",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "[Part 12] 마이그레이션"
       },
       {
         "id": "077",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "078",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]
@@ -2273,22 +2277,26 @@
       },
       {
         "id": "135",
-        "name": "[Part 10]. 오픈소스"
+        "name": "[하위] 1-6.CAST(Causal Analysis based on System Theory)"
       },
       {
         "id": "136",
-        "name": "1. 오픈소스 (Open Source)"
+        "name": "[Part 10]. 오픈소스"
       },
       {
         "id": "137",
-        "name": "2. 오픈소스 라이선스 (Open Source License)"
+        "name": "1. 오픈소스 (Open Source)"
       },
       {
         "id": "138",
-        "name": "[하위] 2-1. 오픈소스 라이선스 변화"
+        "name": "2. 오픈소스 라이선스 (Open Source License)"
       },
       {
         "id": "139",
+        "name": "[하위] 2-1. 오픈소스 라이선스 변화"
+      },
+      {
+        "id": "140",
         "name": "3. 오픈소스 프로젝트관리 소프트웨어"
       }
     ]

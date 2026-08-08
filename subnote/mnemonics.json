@@ -188,6 +188,12 @@
   {
     "domain": "DB",
     "fname": "db",
+    "topic": "1. NoSQL (Not Only SQL)",
+    "mnemonic": "<키순컬도그>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
     "topic": "[하위] 1-1. NoSQL 모델링",
     "mnemonic": "<비집프원인>"
   },
@@ -206,7 +212,7 @@
   {
     "domain": "DB",
     "fname": "db",
-    "topic": "1. 데이터 거버넌스 (Data Governance)",
+    "topic": "2. 데이터 거버넌스 (Data Governance)",
     "mnemonic": "<원조프>"
   },
   {
@@ -214,6 +220,12 @@
     "fname": "db",
     "topic": "5. 데이터 표준화 (Data Standardization)",
     "mnemonic": "<명정형규>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
+    "topic": "8. 국가 데이터 카탈로그 (National Data Catalog)",
+    "mnemonic": "<등표중형>"
   },
   {
     "domain": "AI",
@@ -1360,6 +1372,12 @@
     "fname": "bizpm",
     "topic": "3. 프로젝트 범위관리(Scope Management)",
     "mnemonic": "<계요정W확통>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "4. 프로젝트 일정관리(Schedule Management)",
+    "mnemonic": "<계정순기/개통>"
   },
   {
     "domain": "BIZ/PM",

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-1. 오픈소스 DBMS 전환</title>
+  <title>1. 데이터 마이그레이션 (Data Migration)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,20 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-1. 오픈소스 DBMS 전환</h4>
+<h4>1. 데이터 마이그레이션 (Data Migration)</h4>
 <ul>
-<li><strong>정의</strong>: 비용 절감 및 벤더 종속성 탈피를 위해 상용 DBMS를 오픈소스 DBMS로 전환하는 이전 프로젝트</li>
-<li><strong>키워드</strong>: 상용→오픈소스, SQL 호환성, 저장 프로시저 변환, HA 아키텍처, 벤더 종속성 탈피</li>
+<li><strong>정의</strong>: 기존 시스템의 데이터를 신규 시스템으로 안전하게 이전하는 전환 작업</li>
+<li><strong>키워드</strong>: ETL, 데이터 전환, 검증, 매핑, 정합성, 빅뱅 전환, 점진적 전환</li>
 <li><strong>분류</strong>: 마이그레이션</li>
-<li><strong>전환 시 주요 제약사항</strong>:<ul>
-<li><strong>SQL 호환성</strong>: 상용 DB 전용 문법(힌트, 내장 함수) 변환 필요</li>
-<li><strong>저장 프로시저</strong>: PL/SQL → PL/pgSQL 등 언어 변환 작업</li>
-<li><strong>HA 아키텍처</strong>: Active-Active 또는 Active-Standby 구성 재설계</li>
+<li><strong>수행 단계</strong>: 분석(원천/목적지 파악) → 설계(매핑 규칙, 변환 로직) → 개발(ETL 스크립트) → 테스트(검증, 정합성 확인) → 전환(빅뱅 or 점진적) → 검증(마이그레이션 후 품질 검증)</li>
+<li><strong>핵심 도구 및 방법</strong>:<ul>
+<li><strong>ETL(Extract-Transform-Load)</strong>: 추출 → 변환 → 적재의 표준 데이터 이전 방법</li>
+<li><strong>데이터 매핑</strong>: 원천 필드와 목적지 필드의 변환 규칙 정의</li>
+<li><strong>데이터 정합성 검증</strong>: Row Count, Sum Check, Hash Check 등으로 이전 전후 데이터 검증</li>
 </ul>
 </li>
-<li><strong>전환 절차</strong>: 현황 분석 → 호환성 검토 → 파일럿 구축 → 마이그레이션 → 성능 검증 → 전환</li>
-<li><strong>인사이트</strong>: Oracle → PostgreSQL 전환 시 DATE 타입 차이, ROWNUM vs LIMIT, 시퀀스 방식 등 세부 문법 차이가 예상보다 많으므로, 전환 전 충분한 호환성 테스트와 자동화 변환 도구(Ora2Pg 등) 활용을 권장함</li>
+<li><strong>인사이트</strong>: 마이그레이션에서 가장 큰 리스크는 데이터 손실과 무결성 위반이므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Rollback 계획을 사전에 수립하고 병행 운영(Parallel Run) 기간을 반드시 설정</strong></u></span>해야 함</li>
 </ul>
-</body>
-</html>
+
 </body>
 </html>

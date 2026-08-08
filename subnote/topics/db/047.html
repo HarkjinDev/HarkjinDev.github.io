@@ -20,22 +20,23 @@
 <li><strong>정의</strong>: 해시 함수를 이용하여 키 값을 버킷 주소로 변환하는 데이터 접근 방법</li>
 <li><strong>키워드</strong>: 해시 함수, 버킷, 오버플로우, 체이닝, 개방 주소법, 확장성 해싱, 정적 해싱</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>정적 해싱 vs 확장성 해싱</strong>: <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">/</span><span style="background:#fbf3db;border-radius:3px;padding:1px 3px"><strong>/ 수정 필요 - 정적/동적/확장성</strong></span><ul>
-<li><strong>정적 해싱(Static Hashing)</strong>: 고정 크기 해시 테이블. 오버플로우 처리 — 체이닝(Chaining), 개방 주소법(Open Addressing)</li>
-<li><strong>확장성 해싱(Extendible Hashing)</strong>: 디렉토리 크기를 동적으로 2배씩 확장하여 충돌 해결</li>
-</ul>
+<li><strong>정적/동적 해싱 분류:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th><strong>유형</strong></th><th>설명</th><th>핵심</th></tr>
+<tr><td>정적</td><td><strong>정적 해싱</strong></td><td>해시테이블 크기가 고정, 버킷수 불변</td><td>고정크기 테이블</td></tr>
+<tr><td>동적</td><td><strong>확장성 해싱</strong></td><td>디렉토리(Directory) 깊이를 2배씩 확장해 버킷분할</td><td>디렉토리 기반 확장</td></tr>
+<tr><td></td><td><strong>선형 해싱</strong></td><td>디렉토리 없이 버킷을 순차적으로 분할·확장</td><td>순차적 버킷분할</td></tr>
+</table></div>
 </li>
-<li><strong>충돌 회피 기법</strong>: <span style="background:#fbf3db;border-radius:3px;padding:1px 3px">/</span><span style="background:#fbf3db;border-radius:3px;padding:1px 3px"><strong>/ 보완 필요</strong></span><ul>
-<li><strong>체이닝(Chaining)</strong>: 동일 버킷 충돌 시 연결 리스트로 연결<ul>
-<li>합병 체인법, 분리 체인법</li>
-</ul>
-</li>
-<li><strong>개방 주소법(Open Addressing)</strong>: 선형/이차 탐사, 이중 해싱으로 다른 빈 버킷 탐색<ul>
-<li>선형 조사법, 이차 조사법, 이중 해싱, 무작위 검색</li>
-</ul>
-</li>
-<li><strong>재해싱(Rehashing)</strong>: 적재율 초과 시 더 큰 해시 테이블로 재구성</li>
-</ul>
+<li><strong>충돌 회피 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>체이닝</strong></td><td><strong>분리 체이닝</strong></td><td>각 버킷마다 독립된 연결리스트로 충돌항목 연결</td><td>버킷별 연결리스트</td></tr>
+<tr><td></td><td><strong>결합 체이닝</strong></td><td>개방주소법과 결합, 테이블 내 빈공간을 체인으로 연결</td><td>테이블내 체인결합</td></tr>
+<tr><td><strong>개방주소법</strong></td><td><strong>선형조사법</strong></td><td>충돌시 다음 버킷을 순차탐사</td><td>순차 재탐사</td></tr>
+<tr><td></td><td><strong>이차조사법</strong></td><td>제곱수 간격으로 탐사해 클러스터링 완화</td><td>클러스터링 완화</td></tr>
+<tr><td></td><td><strong>이중해싱</strong></td><td>2차 해시함수로 탐사간격 결정</td><td>클러스터링 최소화</td></tr>
+<tr><td></td><td><strong>무작위검색</strong></td><td>의사난수로 탐사순서 결정</td><td>난수기반 탐사</td></tr>
+<tr><td><strong>재구성</strong></td><td><strong>재해싱</strong></td><td>적재율(Load Factor) 초과 시 더 큰 테이블로 재구성</td><td>적재율 초과대응</td></tr>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 해시 인덱스는 등호 검색에서 O(1) 성능을 보이나 범위 검색이 불가하여, 주로 동등 조건 검색이 대부분인 해시 조인이나 캐시 시스템에 활용됨</li>
 </ul>

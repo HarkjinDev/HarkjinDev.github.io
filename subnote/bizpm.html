@@ -1332,7 +1332,7 @@ z × σ_d × √LT (z: 서비스수준, σ_d: 수요표준편차, LT: 리드타�
 <li><strong>정의: </strong>프로젝트를 성공적으로 완수하고 납기를 준수할 수 있도록 개발 기간을 단계별로 철저히 계획하여 관리하는 프로젝트 관리영역</li>
 <li><strong>키워드:</strong> 활동목록, 활동속성, 마일스톤, 네트워크 도표, 모수산정, 3점산정, 주공정법(CPM), 주공정 연쇄법(CCM)</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
-<li><strong>일정관리 프로세스: </strong><div class="table-scroll"><table>
+<li><strong>일정관리 프로세스: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;계정순기/개통&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>산출물</strong></th></tr>
 <tr><td><strong>일정관리 계획수립</strong></td><td>일정 관리 정책, 절차 및 기준 수립</td><td>일정관리 계획서</td></tr>
 <tr><td><strong>활동정의</strong></td><td>인도물 생산에 필요한 구체적 수행 활동 정의</td><td>활동목록, 활동속성, 마일스톤</td></tr>
@@ -1354,11 +1354,35 @@ z × σ_d × √LT (z: 서비스수준, σ_d: 수요표준편차, LT: 리드타�
 <tr><td></td><td><strong>일정 단축</strong></td><td>공정압축(Crashing, 자원 투입), 공정중첩(Fast Tracking) 적용</td></tr>
 </table></div>
 </li>
+<li><strong>일정 지연 사유:</strong><div class="table-scroll"><table>
+<tr><th>측면</th><th>지연 사유</th><th>설명</th></tr>
+<tr><td><strong>계획 측면</strong></td><td>부정확한 일정 산정</td><td>비현실적 기간 산정과 계획 부실</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Scope Creep</strong></u></span></td><td>승인 없는 요구 추가</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Gold Plating</strong></u></span></td><td>요구 기능 이상을 제공</td></tr>
+<tr><td><strong>자원 측면</strong></td><td>핵심 자원 부족</td><td>인력·예산·장비가 적시 투입되지 않음</td></tr>
+<tr><td></td><td>자원경합</td><td>작업 동시 수행, 효율 감소</td></tr>
+<tr><td><strong>외부요인 측면</strong></td><td>공급망 문제</td><td>외주/납품 지연, 주요 작업 대기 상태</td></tr>
+<tr><td></td><td>이해관계자간 갈등</td><td>의사결정권한 분산으로 결재·승인절차 지연</td></tr>
+<tr><td></td><td>외부 리스크 발생</td><td>법규 변경, 자연재해 등 외부 변수 발생</td></tr>
+</table></div>
+</li>
+<li><strong>일정 지연의 해결방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>해결 방안</th><th>설명</th></tr>
+<tr><td><strong>계획 조정</strong></td><td><strong>주공정법(CPM)</strong></td><td>네트워크 다이어그램, 주경로, 여유시간 분석</td></tr>
+<tr><td></td><td><strong>공정 압축(Crashing)</strong></td><td>비용을 추가 투입해 기간 단축</td></tr>
+<tr><td></td><td><strong>공정 중첩(Fast Tracking)</strong></td><td>병행 작업 수행, 선·후행 활동 겹쳐 단축</td></tr>
+<tr><td></td><td><strong>Re-Baselining</strong></td><td>변경사항 반영, 새 일정 기준선 수립</td></tr>
+<tr><td><strong>자원 관리</strong></td><td><strong>자원 평준화</strong></td><td>자원 수요/공급의 균형유지</td></tr>
+<tr><td></td><td><strong>자원 평활화</strong></td><td>자원 한도 내 균형 유지</td></tr>
+<tr><td><strong>리스크 관리</strong></td><td><strong>주공정연쇄법(CCM)</strong></td><td>프로젝트·피딩 버퍼 소진 감시</td></tr>
+<tr><td></td><td><strong>리스크 대응 계획</strong></td><td>식별 리스크에 대한 회피·완화 조치 실행</td></tr>
+</table></div>
+</li>
 </ul>
 <h4>[하위] 4-1. CPM <strong>(Critical Path Method)</strong></h4>
 <ul>
 <li><strong>정의</strong>: 프로젝트 활동을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>네트워크 다이어그램으로 표현</strong></u></span>하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>주경로(Critical Path)와 여유시간을 분석</strong></u></span>하는 일정 관리 기법</li>
-<li><strong>키워드</strong>: 주경로, Float(여유시간), ES, EF, LS, LF, 네트워크 다이어그램</li>
+<li><strong>키워드</strong>: 주경로, Float(여유시간), 전진계산, 후진계산, ES, EF, LS, LF, 네트워크 다이어그램</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
 <li><strong>주경로(Critical Path)</strong>: Float = 0인 활동들의 연속 → 지연 시 프로젝트 전체 지연</li>
 <li><strong>절차: </strong><ul>
@@ -1372,7 +1396,7 @@ z × σ_d × √LT (z: 서비스수준, σ_d: 수요표준편차, LT: 리드타�
 </ul>
 <h4>[하위] 4-2. 주공정 연쇄법 (Critical Chain Method, CCM)</h4>
 <ul>
-<li><strong>정의:</strong> 자원 제약 조건을 반영하여 일정의 불확실성을 제거하고, 개별 작업에 할당된 여유 시간(Safety Margin)을 모아 프로젝트 끝에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>버퍼(Buffer)</strong></u></span>로 관리하는 일정 관리 기법</li>
+<li><strong>정의:</strong> 자원제약을 반영해 개별작업 여유시간을 모아 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>버퍼</strong></u></span>로 관리하는 일정관리기법</li>
 <li><strong>키워드: </strong>선후관계, 자원제약, 학생 증후군, 파킨슨의 법칙, 자기방어, 프로젝트 버퍼, 피딩 버퍼, 자원 버퍼, 조직문화 변화, TOC(제약이론), CCPM</li>
 <li><strong>분류</strong>: 프로젝트 관리</li>
 <li><strong>핵심 특징: (기존 CPM 방식이 실무에서 지켜지지 않은 이유를 </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>심리적 요인에서 찾음)</strong></u></span><ul>

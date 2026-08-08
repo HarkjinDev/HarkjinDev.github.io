@@ -22,8 +22,14 @@
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
 <li><strong>4가지 격리 수준 (낮음 → 높음)</strong>:<ul>
 <li><strong>(LEVEL 0) Read Uncommitted</strong>: 미완료 트랜잭션의 데이터 읽기 허용 → Dirty Read 발생</li>
-<li><strong>(LEVEL 1) Read Committed</strong>: 커밋된 데이터만 읽기 허용 → Non-Repeatable Read 발생</li>
-<li><strong>(LEVEL 2) Repeatable Read</strong>: 동일 쿼리 반복 시 동일 결과 보장 → Phantom Read 발생</li>
+<li><strong>(LEVEL 1) Read Committed</strong>: 커밋된 데이터만 읽기 허용 → Non-Repeatable Read 발생<ul>
+<li>Oracle, PostgreSQL 기본 설정</li>
+</ul>
+</li>
+<li><strong>(LEVEL 2) Repeatable Read</strong>: 동일 쿼리 반복 시 동일 결과 보장 → Phantom Read 발생<ul>
+<li>MySQL InnoDB 기본 설정</li>
+</ul>
+</li>
 <li><strong>(LEVEL 3) Serializable</strong>: 완전한 격리 보장 → 가장 안전, 성능 가장 낮음</li>
 </ul>
 </li>
