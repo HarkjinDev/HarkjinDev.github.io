@@ -17,7 +17,7 @@
 <body>
 <h4>3. 온톨로지(Ontology)</h4>
 <ul>
-<li><strong>정의:</strong> 실세계 개념과 속성, 데이터의 관계를 구조화하고 시멘틱웹으로 표현하는 지식 베이스</li>
+<li><strong>정의:</strong> 실세계 개념과 속성, 데이터의 관계를 구조화하고 시멘틱웹으로 표현하는 지식 모델/베이스</li>
 <li><strong>키워드:</strong> 개념 체계화, 의미 명세화, 추론기반, 클래스, 인스턴스, 속성, 관계, 제약조건, 공리, RDFS, OWL, XTM, SPARQL 쿼리, 추론엔진, 지식 그래프, 시멘틱웹, 대화형 AI, 로보틱스, XAI</li>
 <li><strong>분류:</strong> 신기술/동향</li>
 <li><strong>구성요소:    </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개속관계공&gt;</strong></span><div class="table-scroll"><table>
@@ -29,6 +29,7 @@
 <tr><td><strong>공리(Axioms)</strong></td><td>관계의 제약조건 및 추론 규칙</td><td>지식의 정당성 및 논리 검증</td></tr>
 </table></div>
 </li>
+<li><strong>지식표현:</strong> 계층 구조, 관계 구조, Triple 구조(주술목), 규칙 구조</li>
 <li><strong>온톨로지 프리미티브: </strong>도메인을 일관된 의미(semantics)로 표현하기위해 사용하는 최소단위 모델링 요소<ul>
 <li><strong>구성요소:</strong> RACI(관계, 속성, 클래스, 인스턴스), 로직(공리, 계층구조)</li>
 <li>계층 구조[(클래스) → (공리) (클래스) → (인스턴스) ↔ (관계) ↔ (인스턴스)]</li>
@@ -43,9 +44,9 @@
 <li><strong>온톨로지 언어 및 표현 기술: </strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>비고</strong></th></tr>
 <tr><td><strong>OWL(Web Ontology Language)</strong></td><td>W3C 표준 온톨로지 저작 언어</td><td>복잡한 논리 표현 가능</td></tr>
-<tr><td><strong>RDF(Resource Description Framework)</strong></td><td>자원 표현용 기본 데이터 모델</td><td>주어-서술어-목적어 구조</td></tr>
+<tr><td><strong>RDF(Resource Description Framework)</strong></td><td>자원 표현용 기본 데이터 모델</td><td>Triple(주-술-목) 구조</td></tr>
 <tr><td><strong>SPARQL(Standard Query Language)</strong></td><td>RDF 데이터용 표준 질의 언어</td><td>그래프 데이터베이스 조회</td></tr>
-<tr><td><strong>XTM(XML Topic Maps)</strong></td><td>ISO 표준 기반 지식 표현 체계</td><td>의미적 상호 연결 강조</td></tr>
+<tr><td><strong>Property Graph</strong></td><td>노드와 엣지에 속성 추가</td><td>속성 그래프</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> 온톨로지는 단순한 데이터 저장 구조를 넘어 <strong>기계가 의미를 이해하고 추론</strong>할 수 있도록 지식을 형식화하는 핵심 기반 기술로, 시맨틱웹의 근간을 형성함. LLM의 할루시네이션 문제해결방법으로 <strong>AI 신뢰성 확보의 보완 수단</strong>으로 주목받고 있음. 또한, <strong>설명가능한 AI 구현의 기반 인프라</strong>로 역할이 확대되고 있음.</li>

@@ -26,6 +26,12 @@
   {
     "domain": "DB",
     "fname": "db",
+    "topic": "1. 데이터 모델링 (Data Modeling)",
+    "mnemonic": "<외개내/논물>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
     "topic": "2. ERD (Entity Relationship Diagram)",
     "mnemonic": "<유개사/기중행>"
   },
@@ -525,13 +531,13 @@
     "domain": "SEC",
     "fname": "sec",
     "topic": "5. 가명처리 (Pseudonymization)",
-    "mnemonic": "<케익엘다티근>"
+    "mnemonic": "<준위가적안>"
   },
   {
     "domain": "SEC",
     "fname": "sec",
-    "topic": "5. 가명처리 (Pseudonymization)",
-    "mnemonic": "<준위가적안>"
+    "topic": "6. k-익명성 (k-anonymity)",
+    "mnemonic": "<케익엘다티근>"
   },
   {
     "domain": "SEC",
@@ -1696,6 +1702,12 @@
     "fname": "gr",
     "topic": "[하위] 6-1. 인공지능(AI) 서비스 도입 대가산정",
     "mnemonic": "<단커시/기데모>"
+  },
+  {
+    "domain": "GR",
+    "fname": "gr",
+    "topic": "[하위] 6-1. 인공지능(AI) 서비스 도입 대가산정",
+    "mnemonic": "<준서커구산>"
   },
   {
     "domain": "GR",
