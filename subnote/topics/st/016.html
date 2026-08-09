@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 베르누이 분포 (Bernoulli Distribution)</title>
+  <title>[하위] 2-1. 중심극한정리 (Central Limit Theorem)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,18 @@
   </style>
 </head>
 <body>
-<h4>3. 베르누이 분포 (Bernoulli Distribution)</h4>
+<h4>[하위] 2-1. 중심극한정리 (Central Limit Theorem)</h4>
 <ul>
-<li><strong>정의</strong>: 성공 확률 p인 단일 시행의 이진 결과를 모형화하는 이산확률분포</li>
-<li><strong>키워드</strong>: 성공/실패, 확률 p, 이진 결과, 1회 시행</li>
+<li><strong>정의</strong>: 표본 크기가 충분히 크면 표본평균의 분포가 정규분포에 수렴하는 정리</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>표본평균, 정규분포 수렴, n≥30</strong></u></span>, 모집단 무관, z-검정</li>
 <li><strong>분류</strong>: 확률분포</li>
-<li><strong>특징</strong>:<ul>
-<li>성공확률: p, 실패확률: (1-p)</li>
-<li>X의 표본공간 S={0,1}이고, X의 확률변수는 P(X=0)=1-p, P(X=1)=p</li>
-<li>n=1, 결과 = {0(실패), 1(성공)}</li>
-<li>베르누이 분포 기대값(평균): E[X] = p</li>
-<li>베르누이 분포 분산: Var[X] = p(1-p)</li>
-<li>이항분포의 특수 케이스(n=1)</li>
+<li><strong>핵심</strong>:<ul>
+<li>모집단 분포 형태에 무관하게 적용</li>
+<li>X̄ ~ N(μ, σ²/n), n≥30 조건</li>
+<li>표준오차(SE, Standard Error) = σ/√n → n 증가 시 감소</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 베르누이 분포는 이항분포의 기저. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>n번 독립 반복 → 이항분포, 희귀 사건 극한(n→∞, p→0, np=λ) → 포아송 분포</strong></u></span>로 확장되는 분포 간 계층 관계를 이해할 것.</li>
+<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>모집단 분포 무관, n≥30이면 표본평균이 정규분포에 수렴</strong></u></span>. 통계적 추론의 이론적 토대이자 z-검정의 근거이다.</li>
 </ul>
 
 </body>

@@ -26,7 +26,7 @@
   {
     "domain": "DB",
     "fname": "db",
-    "topic": "1. 데이터 모델링 (Data Modeling)",
+    "topic": "[하위] 1-1. 데이터베이스 독립성",
     "mnemonic": "<외개내/논물>"
   },
   {
@@ -536,7 +536,7 @@
   {
     "domain": "SEC",
     "fname": "sec",
-    "topic": "6. k-익명성 (k-anonymity)",
+    "topic": "6.프라이버시 보호 모델",
     "mnemonic": "<케익엘다티근>"
   },
   {
@@ -976,6 +976,12 @@
     "fname": "st",
     "topic": "2. 기술통계 (Descriptive Statistics)",
     "mnemonic": "<중평중최 / 분산표 / 분왜첨>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "3. 표본추출",
+    "mnemonic": "<단계층집/판편할유눈>"
   },
   {
     "domain": "ST",

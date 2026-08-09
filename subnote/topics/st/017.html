@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 이항 분포 (Binomial Distribution)</title>
+  <title>[하위] 2-2.대수의 법칙(Law of Large Number)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,23 @@
   </style>
 </head>
 <body>
-<h4>4. 이항 분포 (Binomial Distribution)</h4>
+<h4>[하위] 2-2. <strong>대수의 법칙(Law of Large Number) </strong></h4>
 <ul>
-<li><strong>정의</strong>: n회 독립 베르누이 시행에서 성공 횟수의 확률을 나타내는 이산분포</li>
-<li><strong>키워드</strong>: n회 시행, 성공 확률 p, 독립 시행</li>
-<li><strong>분류</strong>: 확률분포</li>
-<li><strong>특징</strong>:<ul>
-<li>P(X=k) = C(n,k) × p^k × (1-p)^(n-k)</li>
-<li>E[X] = np, Var[X] = np(1-p)</li>
-<li>n=1이면 베르누이 분포</li>
+<li><strong>정의:</strong> 표본 크기 증가 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>표본평균이 모평균에 수렴</strong></u></span>하는 특성 (경험적 확률과 수학적 확률의 관계)</li>
+<li><strong>키워드:</strong> 반복 시행, 평균 계산, 변동 감소, 평균 수렴</li>
+<li><strong>수식:</strong> <ul>
+<li> \lim_{n \to \infty} P\left(\left|\frac{1}{n} \sum_{i=1}^{n} X_i - \mu\right| \geq \epsilon\right) = 0 </li>
+<li><strong>n</strong>: 시행 횟수, <strong>X_i</strong>: 각 시행 결과, <strong>\mu</strong>: 모 평균, <strong>\epsilon</strong>: 작은 양의 수</li>
 </ul>
 </li>
-<li><strong>분포 근사</strong>:<ul>
-<li>n 크고 p ≈ 0.5 → <strong>정규분포 근사</strong></li>
-<li>n 크고 p 매우 작음(np=λ) → <strong>포아송 분포 근사</strong></li>
-</ul>
+<li><strong>원리: </strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>절차</th><th>설명</th></tr>
+<tr><td><strong>반복 시행</strong></td><td>동일 조건 반복 실험</td><td>동일한 확률 실험을 여러 번 반복 수행</td></tr>
+<tr><td><strong>평균 계산</strong></td><td>표본평균 산출</td><td>시행 결과들의 평균값 계산</td></tr>
+<tr><td><strong>변동 감소</strong></td><td>우연성 감소</td><td>시행 횟수가 증가할수록 극단값 영향 감소</td></tr>
+<tr><td><strong>평균 수렴</strong></td><td>모집단 평균 근사</td><td>표본평균이 이론적 평균(기댓값)에 가까워짐</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>n과 p 조건에 따라 정규분포 또는 포아송 분포로 근사</strong></u></span>. 분포 간 연결 관계가 기출 포인트.</li>
 </ul>
 
 </body>

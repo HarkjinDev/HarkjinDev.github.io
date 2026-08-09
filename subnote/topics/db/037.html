@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)</title>
+  <title>[하위] 3-4. MVCC (Multi-Version Concurrency Control)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,25 @@
   </style>
 </head>
 <body>
-<h4>[하위] 3-5. 낙관적 검증 (Optimistic Validation / OCC)</h4>
+<h4>[하위] 3-4. MVCC (Multi-Version Concurrency Control)</h4>
 <ul>
-<li><strong>정의</strong>: COMMIT 직전 검증 단계에서 충돌 여부를 확인하여 직렬 가능성을 보장하는 비잠금 기반 병행제어 기법</li>
-<li><strong>키워드</strong>: 판독/검증/기록 3단계, Read Set, Write Set, 비잠금, 충돌 드문 환경</li>
+<li><strong>정의</strong>: 데이터 항목의 여러 버전을 동시에 유지하여 읽기 연산 시 잠금 없이 특정 시점의 스냅샷을 제공함으로써 읽기-쓰기 간 충돌을 제거하는 병행제어 기법</li>
+<li><strong>키워드</strong>: 다중 버전, 스냅샷 읽기, 읽기 무잠금, Undo Log, Vacuum, USA(Oracle), MGA(PostgreSQL)</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
-<li><strong>3단계 처리 구조</strong>:    <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;판검기&gt;</strong></span><ul>
-<li><strong>판독 단계(Read Phase)</strong>: 데이터를 로컬 복사본에 읽어 연산 수행. 실제 DB에 반영 없음</li>
-<li><strong>검증 단계(Validation Phase)</strong>: 다른 트랜잭션과의 충돌 여부 확인. 충돌 시 롤백</li>
-<li><strong>기록 단계(Write Phase)</strong>: 검증 통과 시 로컬 결과를 실제 DB에 반영</li>
+<li><strong>동작 원리</strong>:<ul>
+<li>쓰기 트랜잭션은 새 버전 생성, 읽기 트랜잭션은 자신의 TS 이전의 최신 버전을 조회</li>
+<li><strong>읽기는 잠금 없이</strong> 수행 → 높은 동시성</li>
 </ul>
 </li>
-<li><strong>충돌 검증 기준</strong>: 검증 중인 트랜잭션의 Read Set과 병행 트랜잭션의 Write Set 교집합 확인</li>
-<li><strong>장점</strong>: Lock 오버헤드 없음, 충돌이 드문 환경에서 높은 처리량</li>
-<li><strong>단점</strong>: 충돌이 잦은 환경에서는 반복 롤백으로 성능 저하, 기아 가능성</li>
-<li><strong>인사이트</strong>: 낙관적 검증은 충돌 가능성이 낮은 읽기 집약적 또는 단기 트랜잭션 환경에 적합하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>충돌 빈도가 높은 환경에서는 잦은 롤백으로 비관적 잠금(Pessimistic Locking)보다 오히려 성능이 저하</strong></u></span>될 수 있음</li>
+<li><strong>구현 방식별 비교</strong>:<ul>
+<li><strong>Oracle</strong>: Undo 세그먼트 활용 (USA, Undo Segment Area)</li>
+<li><strong>PostgreSQL</strong>: 힙 내 다중 버전 직접 저장 (MGA, Multi-Generation Architecture)</li>
+<li><strong>MySQL InnoDB</strong>: Undo Log + Redo Log 기반</li>
+</ul>
+</li>
+<li><strong>장점</strong>: 읽기와 쓰기 간 차단 없음, 높은 동시성, 일관된 스냅샷 읽기 지원</li>
+<li><strong>단점</strong>: 버전 관리로 인한 스토리지 증가, 오래된 버전 정리(Vacuum/Purge) 오버헤드</li>
+<li><strong>인사이트</strong>: MVCC는 현대 RDBMS의 표준 동시성 제어 방식으로, 읽기 집약적 워크로드에서 탁월하나 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>장기 미정리 버전(Long-running Transaction)이 Undo 공간 부족과 성능 저하를 유발</strong></u></span>하므로 트랜잭션 수명 관리가 중요함</li>
 </ul>
 
 </body>

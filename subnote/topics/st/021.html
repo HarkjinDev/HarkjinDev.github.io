@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 3] 추정</title>
+  <title>6. 포아송 분포 (Poisson Distribution)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,20 @@
   </style>
 </head>
 <body>
-<h3>[Part 3] 추정</h3>
+<h4>6. 포아송 분포 (Poisson Distribution)</h4>
+<ul>
+<li><strong>정의</strong>: 단위 시간/공간에서 희귀 사건 발생 횟수를 모형화하는 이산확률분포</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평균 발생률 λ</strong></u></span>, 희귀 사건, 이항분포 근사</li>
+<li><strong>분류</strong>: 확률분포</li>
+<li><strong>특징</strong>:<ul>
+<li>P(X=k) = e^(-λ) × λ^k / k!</li>
+<li><strong>E[X] = Var[X] = λ</strong> (평균 = 분산)</li>
+<li>n이 크고 p가 매우 작을 때 이항분포 근사</li>
+</ul>
+</li>
+<li><strong>예시</strong>: 1시간 동안 콜센터 수신 전화 수, 서버 오류 발생 건수</li>
+<li><strong>인사이트</strong>: 포아송 분포의 핵심 식별자는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평균 = 분산 = λ</strong></u></span>. n이 크고 p가 매우 작은 현실 상황(장애 발생, 불량품 발생)에 적합하다.</li>
+</ul>
 
 </body>
 </html>

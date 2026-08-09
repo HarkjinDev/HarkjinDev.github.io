@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 신뢰도 (Reliability)</title>
+  <title>7. 결측치 (Missing Value)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,28 @@
   </style>
 </head>
 <body>
-<h4>8. 신뢰도 (Reliability)</h4>
+<h4>7. 결측치 (Missing Value)</h4>
 <ul>
-<li><strong>정의</strong>: 동일 조건에서 반복 측정 시 일관된 결과를 산출하는 정도</li>
-<li><strong>키워드</strong>: 일관성,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 재검사, 내적 일치도, Cronbach α</strong></u></span></li>
+<li><strong>정의</strong>: 수집·처리 과정에서 값이 기록되지 않거나 손실되어 비어있는 관측값</li>
+<li><strong>키워드</strong>: 삭제법, 대체법, 예측법, 다중대체법</li>
 <li><strong>분류</strong>: 통계 기초</li>
-<li><strong>유형</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;재동내&gt;</strong></span><ul>
-<li><strong>재검사 신뢰도</strong>: 동일 도구로 시간 차를 두고 반복 측정</li>
-<li><strong>동형검사 신뢰도</strong>: 동등한 두 측정 도구 결과 비교</li>
-<li><strong>내적 일치도</strong>: 문항 간 일관성 → Cronbach α (α ≥ 0.7 수용 기준)</li>
-</ul>
+<li><strong>종류:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완무비&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>종류</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>완전 무작위 결측(MCAR)</strong></td><td>타 변수와 무관하게 무작위 발생</td><td>무작위성 보장</td></tr>
+<tr><td><strong>무작위 결측(MAR)</strong></td><td>타 관측 변수와 연계되어 발생</td><td>조건부 무작위</td></tr>
+<tr><td><strong>비무작위 결측(NMAR)</strong></td><td>결측값 자체가 결측 여부 결정</td><td>정밀 분석 필요</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: <strong>Cronbach α ≥ 0.7</strong>이면 허용 가능한 신뢰도로 판단. 신뢰도는 타당도의 필요 조건이지만 충분 조건은 아님 — 신뢰도가 높아도 타당도가 낮을 수 있다.</li>
+<li><strong>처리 방안</strong>:<div class="table-scroll"><table>
+<tr><th><strong>처리 방안</strong></th><th><strong>설명</strong></th><th><strong>핵심 특징 (장단점)</strong></th></tr>
+<tr><td><strong>삭제법 (Deletion)</strong></td><td>결측치가 포함된 행이나 열을 제거</td><td>단순한 구현 / 정보 손실 발생</td></tr>
+<tr><td><strong>평균/중위수 대체</strong></td><td>해당 변수의 중심값으로 결측치를 대체</td><td>구현이 빠름 / 분산 과소 추정 위험</td></tr>
+<tr><td><strong>예측 대체 (Predictive)</strong></td><td>회귀분석, KNN 등 모델로 예측하여 대체</td><td>정교한 보정 / 높은 연산 비용 소모</td></tr>
+<tr><td><strong>다중대체법 (MI)</strong></td><td>여러 가상 데이터셋을 생성하고 최종 결합</td><td>통계적 편향 최소화 / 복잡한 절차</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 결측치 처리 방안 서술 시, 처리 정교함 순서(삭제 &lt; 대체 &lt; 예측 &lt; 다중대체)와 함께 다중대체법이 편향 최소화 측면에서 가장 우수함을 명시할 것.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

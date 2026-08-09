@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 9] NoSQL</title>
+  <title>4. CAP 이론 & PACELC 이론</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,34 @@
   </style>
 </head>
 <body>
-<h3>[Part 9] NoSQL</h3>
+<h4>4. CAP 이론 &amp; PACELC 이론</h4>
+<ul>
+<li><strong>정의</strong>:<ul>
+<li><strong>CAP 이론</strong>: 분산 시스템은 일관성(C), 가용성(A), 분할내성(P) 중 최대 2개만 동시에 만족할 수 있다는 이론</li>
+<li><strong>PACELC 이론</strong>: CAP을 확장하여, 분할 발생 시(PA/PC)와 정상 상태(EL/EC)로 나누어 지연시간-일관성 트레이드오프까지 설명하는 이론</li>
+</ul>
+</li>
+<li><strong>키워드</strong>: CAP, 일관성, 가용성, 분할내성, PACELC, 지연시간-일관성 트레이드오프</li>
+<li><strong>분류</strong>: 분산DB/파티셔닝</li>
+<li><strong>CAP 분류</strong>:<div class="table-scroll"><table>
+<tr><th>유형</th><th>포기 속성</th><th>대표 사례</th></tr>
+<tr><td><strong>CA (C+A)</strong></td><td>분할내성(Partition Tolerance)</td><td>전통적 RDBMS</td></tr>
+<tr><td><strong>AP (A+P)</strong></td><td>일관성(Consistency)</td><td>DynamoDB, Cassandra</td></tr>
+<tr><td><strong>CP (C+P)</strong></td><td>가용성(Availability)</td><td>HBase, MongoDB(일부 설정)</td></tr>
+</table></div>
+</li>
+<li><strong>CAP 이론 한계: </strong>장애상황만 고려, 정적조합(극단적 이분법) 한계</li>
+<li><strong>PACELC 분류</strong>:<div class="table-scroll"><table>
+<tr><th>분류</th><th>장애/단절 (Partition)</th><th>정상 상황(Else)</th><th>대표 시스템</th></tr>
+<tr><td><strong>PA/EL</strong></td><td>가용성 우선</td><td>낮은 지연시간</td><td>DynamoDB, Cassandra</td></tr>
+<tr><td><strong>PA/EC</strong></td><td>가용성 우선</td><td>일관성 우선</td><td>MongoDB</td></tr>
+<tr><td><strong>PC/EL</strong></td><td>일관성 우선</td><td>낮은 지연시간</td><td>PNUTS</td></tr>
+<tr><td><strong>PC/EC</strong></td><td>일관성 우선</td><td>일관성 우선</td><td>HBase, VoltDB</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 실무에서 완전한 CP나 AP 시스템은 드물며, 대부분 상황에 따라 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일관성 수준을 동적으로 조정하는 최종 일관성(Eventual Consistency) 모델</strong></u></span>을 채택함</li>
+</ul>
+<hr/>
 
 </body>
 </html>

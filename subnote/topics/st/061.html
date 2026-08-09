@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 네트워크 중심성 (Network Centrality)</title>
+  <title>5. 오피니언 마이닝 (Opinion Mining)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,27 @@
   </style>
 </head>
 <body>
-<h4>7. 네트워크 중심성 (Network Centrality)</h4>
+<h4>5. 오피니언 마이닝 (Opinion Mining)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크에서 노드의 중요도를 평가하는 분석 지표</li>
-<li><strong>키워드</strong>: 연결중심성, 매개중심성, 인접중심성</li>
+<li><strong>정의</strong>: 텍스트에서 긍정/부정 등 주관적 의견과 감성을 추출하는 분석 기법</li>
+<li><strong>키워드</strong>: 감성 스코어링, 긍정/부정/중립, SNS, 여론 분석</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>3가지 중심성</strong>:<ul>
-<li><strong>연결중심성(Degree)</strong>: 직접 연결된 노드 수 → 영향력 측정</li>
-<li><strong>매개중심성(Betweenness)</strong>: 최단 경로 상 위치 빈도 → 정보 브로커 역할</li>
-<li><strong>인접중심성(Closeness)</strong>: 다른 노드까지 평균 거리의 역수 → 정보 전파 속도</li>
+<li><strong>수행 절차</strong>:<ul>
+<li>① 텍스트 수집 (SNS, 리뷰, 뉴스)</li>
+<li>② 전처리 (토크나이징, 불용어 제거)</li>
+<li>③ 감성 사전 구축 또는 ML 모델 학습</li>
+<li>④ 감성 분류 (긍정/부정/중립)</li>
+<li>⑤ 인사이트 도출 및 시각화</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 3가지 중심성은 연결(양), 매개(위치), 인접(거리)로 다른 관점에서 중요도 측정. SNS 인플루언서 분석, 감염병 핵심 노드 탐색에 활용.</li>
+<li><strong>비교</strong> (텍스트 마이닝 vs 오피니언 마이닝):<div class="table-scroll"><table>
+<tr><th>구분</th><th>텍스트 마이닝</th><th>오피니언 마이닝</th></tr>
+<tr><td><strong>목적</strong></td><td>정보/패턴 추출</td><td>감성·의견 분류</td></tr>
+<tr><td><strong>분석 대상</strong></td><td>일반 비정형 텍스트</td><td>리뷰·SNS·댓글</td></tr>
+<tr><td><strong>출력</strong></td><td>키워드·토픽</td><td>긍/부/중립 스코어</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 오피니언 마이닝은 텍스트 마이닝의 하위 분야로, 마케팅 전략·정책 평가·여론 모니터링에 활용된다.</li>
 </ul>
 
 </body>

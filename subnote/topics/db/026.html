@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-1. 참조 무결성 (Referential Integrity)</title>
+  <title>1. 데이터 무결성 (Data Integrity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,27 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-1. 참조 무결성 (Referential Integrity)</h4>
+<h4>1. 데이터 무결성 (Data Integrity)</h4>
 <ul>
-<li><strong>정의</strong>: 외래키(FK)가 참조하는 기본키(PK) 값이 항상 유효하게 존재함을 보장하는 데이터베이스 제약 조건</li>
-<li><strong>키워드</strong>: 외래키, 부모-자식 관계, CASCADE, RESTRICT, SET NULL</li>
+<li><strong>정의</strong>: 데이터의 정확성과 일관성을 보장하기 위해 DB에 설정되는 제약 조건의 집합</li>
+<li><strong>키워드</strong>: 개체/참조/속성/사용자/키/도메인 무결성, 제약조건, 일관성, 정확성</li>
 <li><strong>분류</strong>: 무결성</li>
-<li><strong>원리</strong>: 부모 테이블(참조되는 테이블)과 자식 테이블(참조하는 테이블) 간의 <strong>데이터 일관성</strong>을 유지하기 위한 논리적 연결 고리</li>
-<li><strong>참조 무결성 옵션</strong>:<ul>
-<li><strong>CASCADE</strong>: 부모 변경 시 자식 데이터도 자동 변경/삭제</li>
-<li><strong>RESTRICT/NO ACTION</strong>: 자식 데이터가 있으면 부모 변경/삭제 차단</li>
-<li><strong>SET NULL</strong>: 부모 삭제 시 자식 FK를 NULL로 설정</li>
-<li><strong>SET DEFAULT</strong>: 부모 삭제 시 자식 FK를 기본값으로 설정</li>
+<li><strong>무결성 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;개참속/사키도&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>종류</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
+<tr><td><strong>개체 무결성 </strong>(Entity Integrity)</td><td>기본키 존재 및 NULL 불가</td><td>Primary Key, NOT NULL</td></tr>
+<tr><td><strong>참조 무결성 </strong>(Referential Integrity)</td><td>외래키 기반 데이터 일관성</td><td>Foreign Key</td></tr>
+<tr><td><strong>속성 무결성 </strong>(Domain Integrity)</td><td>필드 속성 및 제약 정의</td><td>DATE, CHAR, NUMBER</td></tr>
+<tr><td><strong>사용자정의 무결성 </strong>(User Defined Integrity)</td><td>비즈니스 규칙 기반 정합성</td><td>Trigger, CHECK, DEFAULT</td></tr>
+<tr><td><strong>키 무결성 </strong>(Key Integrity)</td><td>키의 성질을 활용한 무결성</td><td>PK, Unique Index</td></tr>
+<tr><td><strong>도메인 무결성 </strong>(Domain Integrity)</td><td>정의된 도메인 범위 준수</td><td>Check, Foreign Key</td></tr>
+</table></div>
+</li>
+<li><strong>데이터 무결성 확보방법</strong><ul>
+<li>DBMS 무결성 요소 : Primary key, Unique, Foreign Key, Data Type, Check, Default</li>
+<li>절차적 제약조건 : Trigger, Stored procedure, Application</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: CASCADE 옵션은 편리하지만 의도치 않은 대량 삭제를 유발할 수 있어, 운영 DB에서는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RESTRICT 사용 후 명시적 삭제 로직 구현</strong></u></span>을 권장</li>
+<li><strong>인사이트</strong>: 무결성과 정합성의 차이를 명확히 구분해야 함. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무결성은 '단일 데이터의 정확성'</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정합성은 '복수 데이터 간 논리적 일치성'</strong></u></span>을 의미함</li>
 </ul>
 
 </body>

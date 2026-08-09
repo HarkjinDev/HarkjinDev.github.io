@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 텍스트 마이닝 (Text Mining)</title>
+  <title>[하위] 2-1. 데이터 라벨링</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,26 @@
   </style>
 </head>
 <body>
-<h4>4. 텍스트 마이닝 (Text Mining)</h4>
+<h4>[하위] 2-1. 데이터 라벨링</h4>
 <ul>
-<li><strong>정의</strong>: 비정형 텍스트에서 의미 있는 정보와 패턴을 추출하는 분석 기법</li>
-<li><strong>키워드</strong>: 형태소 분석, TF-IDF, LDA, N-gram, 키워드 추출</li>
-<li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>주요 기술</strong>:<ul>
-<li><strong>형태소 분석</strong>: 텍스트를 의미 단위로 분해 (KoNLPy)</li>
-<li><strong>TF-IDF</strong>: 단어 중요도 계산 (빈도×문서 내 희소성)</li>
-<li><strong>토픽 모델링</strong>: LDA(잠재 디리클레 할당)로 주제 추출</li>
-<li><strong>감성 분석</strong>: 긍정/부정 분류</li>
-</ul>
+<li><strong>라벨링 기법: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>텍스트</strong></td><td>텍스트 분류</td><td>문장·문서에 의미적 클래스 부여</td><td>텍스트 분류</td></tr>
+<tr><td></td><td>개체명 인식(NER)</td><td>사람·조직·장소 등 개체 식별</td><td>개체명 식별</td></tr>
+<tr><td></td><td>관계-의존성 정의</td><td>단어·개체 간 의미관계 정의</td><td>관계 정의</td></tr>
+<tr><td><strong>이미지</strong></td><td>이미지 분류</td><td>이미지 전체에 클래스 라벨 부여</td><td>이미지 분류</td></tr>
+<tr><td></td><td>객체 인식</td><td>바운딩박스로 위치·종류 라벨링</td><td>위치 라벨링</td></tr>
+<tr><td></td><td>영역 구분</td><td>픽셀단위로 정밀 영역 구분</td><td>픽셀 영역구분</td></tr>
+<tr><td><strong>동영상</strong></td><td>동영상 분류</td><td>구간별로 의미적 클래스 부여</td><td>동영상 분류</td></tr>
+<tr><td></td><td>객체 인식</td><td>프레임별 객체 탐지·위치라벨링</td><td>프레임 객체탐지</td></tr>
+<tr><td></td><td>객체 추적</td><td>프레임간 동일객체 경로 연결</td><td>이동경로 추적</td></tr>
+<tr><td><strong>오디오</strong></td><td>오디오 분류</td><td>클립단위로 소리유형 분류</td><td>소리유형 분류</td></tr>
+<tr><td></td><td>오디오 세그멘테이션</td><td>시간구간별 오디오 분할·라벨링</td><td>구간별 분할</td></tr>
+<tr><td></td><td>음성인식</td><td>음성을 텍스트로 전사</td><td>음성→텍스트</td></tr>
+<tr><td><strong>기타</strong></td><td>시계열 세그멘테이션</td><td>상태변화·패턴구간을 식별·라벨링</td><td>패턴구간 식별</td></tr>
+<tr><td></td><td>HTML 문서 분류</td><td>HTML 문서를 구조·목적별로 분류</td><td>문서 구조분류</td></tr>
+</table></div>
 </li>
-<li><strong>인사이트</strong>: 비정형 텍스트를 정형 데이터로 변환하는 전처리가 핵심. 오피니언 마이닝은 텍스트 마이닝의 감성 분석 특화 분야다.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 5] 무결성</title>
+  <title>2. 역정규화/반정규화 (De-normalization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,28 @@
   </style>
 </head>
 <body>
-<h3>[Part 5] 무결성</h3>
+<h4>2. 역정규화/반정규화 (De-normalization)</h4>
+<ul>
+<li><strong>정의</strong>: 성능 향상을 위해 정규화된 데이터 모델의 일부 중복을 허용하고 구조를 재조정하는 과정</li>
+<li><strong>키워드</strong>: 테이블 병합/분할/추가, 컬럼 반정규화, 관계 반정규화, 성능 vs 무결성 트레이드오프</li>
+<li><strong>분류</strong>: 정규화</li>
+<li><strong>수행 절차</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;대다적/범대통조/뷰클인응&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>단계</th><th>절차</th><th>상세 내용</th></tr>
+<tr><td>1단계</td><td><strong>역정규화 대상 조사</strong></td><td>범위처리 빈도수 조사, 대량의 범위 처리 조사, 통계성 프로세스 조사, 테이블 조인 개수</td></tr>
+<tr><td>2단계</td><td><strong>다른 방법 유도 검토</strong></td><td>뷰(View) 테이블, 클러스터링 적용, 인덱스 조정, 응용 어플리케이션</td></tr>
+<tr><td>3단계</td><td><strong>역정규화 적용</strong></td><td>테이블 역정규화, 속성 역정규화, 관계 역정규화</td></tr>
+</table></div>
+</li>
+<li><strong>반정규화 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;테컬관/병분추/중파이피/중&gt;</strong></span><ul>
+<li><strong>테이블 반정규화</strong>: 테이블 병합(1:1, 1:M), 분할(수직/수평), 추가(통계/중복)</li>
+<li><strong>컬럼(속성) 반정규화</strong>: 중복 컬럼 추가, 파생 컬럼 추가, 이력 컬럼 추가, PK 컬럼 추가</li>
+<li><strong>관계 반정규화</strong>: 중복 관계 추가 (조인 최소화)</li>
+</ul>
+</li>
+<li><strong>적용 고려사항</strong>: 데이터 무결성 저하 가능성, 유지보수 비용 증가</li>
+<li><strong>인사이트</strong>: 반정규화는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>조회 성능을 높이지만 DML(Insert/Update/Delete) 비용이 증가</strong></u></span>하므로, 읽기 빈도가 쓰기보다 압도적으로 높은 경우에만 적용을 권장함</li>
+</ul>
+<hr/>
 
 </body>
 </html>

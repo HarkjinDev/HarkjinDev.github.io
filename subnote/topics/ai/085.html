@@ -18,6 +18,7 @@
 <h4>[하위] 3-1. 루프 엔지니어링</h4>
 <ul>
 <li><strong>정의:</strong> AI 에이전트가 사람의 지속 개입 없이, 원하는 목표를 위해 피드백 루프를 설계/운영하는 방법론</li>
+<li><strong>키워드: </strong>HOTL, Self-Evaluation, Exit Condition</li>
 <li><strong>에이전트 루프 (Agent Loop) 동작 구조:</strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>1. 목표/관찰</strong></td><td>해결해야 할 목표(Goal)를 수용함</td><td>사용자 의도 및 최종 목적지</td></tr>
@@ -30,13 +31,18 @@
 </table></div>
 </li>
 <li><strong>구성요소: </strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>설명</th></tr>
-<tr><td><strong>자동수행</strong></td><td><strong>Automations</strong></td><td>일정·이벤트 기반 루프 자동 시작</td></tr>
-<tr><td><strong>격리</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Worktrees</strong></u></span></td><td>에이전트별 독립적 작업공간에서 병렬 수행</td></tr>
-<tr><td><strong>지식</strong></td><td><strong>Skills</strong></td><td>프로젝트 설명을 미리 작성한 파일로 지식·절차 재사용</td></tr>
-<tr><td><strong>연계</strong></td><td><strong>Plugins/Connectors</strong></td><td>MCP기반 외부 도구·데이터와 업무 연계</td></tr>
-<tr><td><strong>분업</strong></td><td><strong>Sub-agents</strong></td><td>실행과 검증역할 Agent 분리로 루프 신뢰성 확보</td></tr>
-<tr><td><strong>기록</strong></td><td><strong>Memory/State</strong></td><td>루프 외부에 상태·진행 이력 저장</td></tr>
+<tr><th>구분</th><th>주요 기술</th><th>핵심</th></tr>
+<tr><td><strong>목표수립</strong></td><td><strong>Task Decomposition</strong></td><td>목표 하위분해</td></tr>
+<tr><td></td><td><strong>System Guardrails/Skills</strong></td><td>유해입력 차단</td></tr>
+<tr><td><strong>추론·의사결정</strong></td><td><strong>ReAct</strong></td><td>추론-행동 반복</td></tr>
+<tr><td></td><td><strong>Plan-and-Solve</strong></td><td>동적 재계획</td></tr>
+<tr><td><strong>실행·외부연동</strong></td><td><strong>MCP/Plugins/Connectors</strong></td><td>도구 자율호출</td></tr>
+<tr><td></td><td><strong>Worktrees</strong></td><td>작업 병렬 수행</td></tr>
+<tr><td></td><td><strong>Sandbox</strong></td><td>격리 코드실행</td></tr>
+<tr><td><strong>검증·환류</strong></td><td><strong>Self-Evaluation</strong></td><td>자체 신뢰성검증</td></tr>
+<tr><td></td><td>Feedback LOOP</td><td>오류 자동보정</td></tr>
+<tr><td><strong>상태관리·종료</strong></td><td><strong>Stateful Memory / Vector DB</strong></td><td>문맥상태 유지</td></tr>
+<tr><td></td><td><strong>Exit Condition</strong></td><td>루프 종료조건</td></tr>
 </table></div>
 </li>
 </ul>

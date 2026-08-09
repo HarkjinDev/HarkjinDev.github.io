@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-1. 팬텀 충돌 (Phantom Conflict)</title>
+  <title>2. 트랜잭션 격리 수준 (Transaction Isolation Level)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,14 +15,31 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-1. 팬텀 충돌 (Phantom Conflict)</h4>
+<h4>2. 트랜잭션 격리 수준 (Transaction Isolation Level)</h4>
 <ul>
-<li><strong>정의</strong>: 동일 조건으로 두 번 조회할 때, 다른 트랜잭션의 삽입/삭제로 인해 결과 행 수가 달라지는 이상 현상</li>
-<li><strong>키워드</strong>: Phantom read, 범위 쿼리, 격리 수준, Serializable</li>
+<li><strong>정의</strong>: 동시에 실행되는 여러 트랜잭션 간의 간섭 정도를 단계별로 정의한 격리 수준</li>
+<li><strong>키워드</strong>: ReadUncommitted, ReadCommitted, RepeatableRead, Serializable, Dirty Read, Phantom Read</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
-<li><strong>발생 조건</strong>: Repeatable Read 이하 격리 수준에서 발생</li>
-<li><strong>해결 방법</strong>: Serializable 격리 수준 적용, Range Lock 사용</li>
-<li><strong>인사이트</strong>: 팬텀 읽기는 행 단위 잠금이 아닌 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>범위 잠금(Range Lock)으로만 완전 방지 가능</strong></u></span>하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>MySQL InnoDB의 NEXT-KEY LOCK</strong></u></span>이 대표적 해결 메커니즘임</li>
+<li><strong>4가지 격리 수준 (낮음 → 높음)</strong>:<ul>
+<li><strong>(LEVEL 0) Read Uncommitted</strong>: 미완료 트랜잭션의 데이터 읽기 허용 → Dirty Read 발생</li>
+<li><strong>(LEVEL 1) Read Committed</strong>: 커밋된 데이터만 읽기 허용 → Non-Repeatable Read 발생<ul>
+<li>Oracle, PostgreSQL 기본 설정</li>
+</ul>
+</li>
+<li><strong>(LEVEL 2) Repeatable Read</strong>: 동일 쿼리 반복 시 동일 결과 보장 → Phantom Read 발생<ul>
+<li>MySQL InnoDB 기본 설정</li>
+</ul>
+</li>
+<li><strong>(LEVEL 3) Serializable</strong>: 완전한 격리 보장 → 가장 안전, 성능 가장 낮음</li>
+</ul>
+</li>
+<li><strong>이상 현상</strong>:<ul>
+<li><strong>Dirty Read</strong>: 미완료 데이터 읽기</li>
+<li><strong>Non-Repeatable Read</strong>: 동일 행 재조회 시 결과 변경</li>
+<li><strong>Phantom Read</strong>: 동일 조건 재조회 시 행 수 변경</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: 격리 수준이 높을수록 동시성이 저하되므로, 대부분의 RDBMS는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Read Committed(Oracle) </strong></u></span>또는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Repeatable Read(MySQL)</strong></u></span>를 기본값으로 채택함</li>
 </ul>
 
 </body>

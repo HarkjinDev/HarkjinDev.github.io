@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. PPDM (Privacy Preserving Data Mining)</title>
+  <title>7. 네트워크 중심성 (Network Centrality)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,18 @@
   </style>
 </head>
 <body>
-<h4>9. PPDM (Privacy Preserving Data Mining)</h4>
+<h4>7. 네트워크 중심성 (Network Centrality)</h4>
 <ul>
-<li><strong>정의</strong>: 프라이버시를 보호하면서 데이터 마이닝을 수행하는 기법</li>
-<li><strong>키워드</strong>: k-익명성, ℓ-다양성, 차분 프라이버시, 연합학습</li>
+<li><strong>정의</strong>: 네트워크에서 노드의 중요도를 평가하는 분석 지표</li>
+<li><strong>키워드</strong>: 연결중심성, 매개중심성, 인접중심성</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>주요 기법</strong>:<div class="table-scroll"><table>
-<tr><th>기법</th><th>개념</th><th>한계</th></tr>
-<tr><td><strong>k-익명성</strong></td><td>동일 레코드 k개 이상 존재</td><td>동질성 공격에 취약</td></tr>
-<tr><td><strong>ℓ-다양성</strong></td><td>민감 속성 ℓ가지 이상 다양</td><td>근접성 공격 취약</td></tr>
-<tr><td><strong>차분 프라이버시</strong></td><td>노이즈 추가로 개인 식별 차단</td><td>유용성 저하</td></tr>
-<tr><td><strong>연합학습</strong></td><td>원본 데이터 비공유 분산 학습</td><td>통신 비용 증가</td></tr>
-</table></div>
+<li><strong>3가지 중심성</strong>:<ul>
+<li><strong>연결중심성(Degree)</strong>: 직접 연결된 노드 수 → 영향력 측정</li>
+<li><strong>매개중심성(Betweenness)</strong>: 최단 경로 상 위치 빈도 → 정보 브로커 역할</li>
+<li><strong>인접중심성(Closeness)</strong>: 다른 노드까지 평균 거리의 역수 → 정보 전파 속도</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: 차분 프라이버시(Differential Privacy)는 개인 정보 유출 위험을 수학적으로 보장하는 가장 강력한 프라이버시 보호 기법이다.</li>
+<li><strong>인사이트</strong>: 3가지 중심성은 연결(양), 매개(위치), 인접(거리)로 다른 관점에서 중요도 측정. SNS 인플루언서 분석, 감염병 핵심 노드 탐색에 활용.</li>
 </ul>
 
 </body>

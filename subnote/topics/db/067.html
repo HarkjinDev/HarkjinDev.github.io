@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. DB(데이터베이스) 보안</title>
+  <title>[Part 11] 데이터 거버넌스/품질/보안</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,44 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. DB(데이터베이스) 보안</h4>
-<ul>
-<li><strong>정의: </strong>데이터의 무결성, 기밀성 제공을 위한 관리체계 및 데이터 보호 기술</li>
-<li><strong>분류</strong>: 데이터 거버넌스/품질/보안</li>
-<li><strong>데이터베이스 주요 보안 기법:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>보안 기법</th><th>설명</th></tr>
-<tr><td><strong>접근통제</strong></td><td><strong>인증(Authentication)</strong></td><td>ID/PW, 생체인증 등 접근주체 신원확인</td></tr>
-<tr><td></td><td><strong>인가(Authorization)</strong></td><td>RBAC 등 인증사용자 권한에 맞는 범위 부여</td></tr>
-<tr><td></td><td><strong>접근제어(Access Control)</strong></td><td>MAC·DAC·RBAC 모델 적용</td></tr>
-<tr><td><strong>데이터 보호</strong></td><td><strong>암호화(Encryption)</strong></td><td>저장·전송 데이터 암호화를 통한 내용보호</td></tr>
-<tr><td></td><td><strong>데이터 마스킹(Masking)</strong></td><td>민감데이터 일부를 가려 노출 최소화</td></tr>
-<tr><td><strong>가용성 확보</strong></td><td><strong>백업/복구(Backup &amp; Recovery)</strong></td><td>데이터 손실 시 복원하여 업무연속성 보장</td></tr>
-<tr><td></td><td><strong>DB 방화벽(DB Firewall)</strong></td><td>SQL 인젝션 등 공격차단 및 비인가 접근방어</td></tr>
-<tr><td><strong>감시 및 추적</strong></td><td><strong>감사/로깅(Audit &amp; Logging)</strong></td><td>변경이력 등 기록을 통한 사고 책임소재 규명</td></tr>
-<tr><td></td><td><strong>모니터링(Monitoring)</strong></td><td>실시간 쿼리감시 등을 통한 비정상행위 차단</td></tr>
-</table></div>
-</li>
-<li><strong>데이터베이스 암호화 기술:</strong><div class="table-scroll"><table>
-<tr><th>암호 구분</th><th>암호화 기술</th><th>기술 상세설명</th></tr>
-<tr><td><strong>적용 구조</strong></td><td><strong>TDE(투명 데이터 암호화)</strong></td><td>DEK/MEK 2계층 키구조, 앱 수정 불필요</td></tr>
-<tr><td></td><td><strong>API 방식</strong></td><td>암호화 라이브러리 호출, APP 소스수정 필요</td></tr>
-<tr><td></td><td><strong>Plug-In 방식</strong></td><td>DBMS엔진에 Agent설치</td></tr>
-<tr><td></td><td><strong>하이브리드 방식</strong></td><td>API+Plug-In 결합, 성능 및 보안 균형</td></tr>
-<tr><td><strong>알고리즘 유형</strong></td><td><strong>대칭키 암호화</strong></td><td>AES, SEED, ARIA 등 알고리즘을 통한 암호화</td></tr>
-<tr><td></td><td><strong>비대칭키 암호화</strong></td><td>RSA, ECC, ElGamal, PKI를 통한 암호화</td></tr>
-<tr><td></td><td><strong>해시 암호화</strong></td><td>SHA, HMAC, PBKDF2 등 알고리즘 암호화</td></tr>
-<tr><td><strong>적용범위 기준</strong></td><td><strong>컬럼 단위 암호화</strong></td><td>민감컬럼 선택적 암호화, 인덱스 고려 필요</td></tr>
-<tr><td></td><td><strong>테이블스페이스 암호화</strong></td><td>저장공간 단위 일괄암호화, DEK 기반 처리</td></tr>
-<tr><td></td><td><strong>디스크/볼륨 암호화</strong></td><td>FDE, TPM, HSM 연계, 물리매체 탈취 보안</td></tr>
-<tr><td><strong>차세대 암호</strong></td><td><strong>형태보존 암호화(FPE)</strong></td><td>NIST FF1/FF3표준, Feistel구조, 원본포맷·길이유지로 스키마변경 불필요</td></tr>
-<tr><td></td><td><strong>동형암호(HE)</strong></td><td>Partially/Fully HE, 격자기반, 복호화없이 가산·승산연산</td></tr>
-<tr><td></td><td><strong>양자내성 암호(PQC)</strong></td><td>격자·해시·다변수 기반, RSA 및 ECC 대체</td></tr>
-<tr><td></td><td><strong>결정적 암호화(DET)</strong></td><td>동일평문에 동일암호문, Salt 미사용, Equal(=)·JOIN·GROUP BY 지원</td></tr>
-<tr><td><strong>암호화 대체기법</strong></td><td><strong>토큰화(Tokenization)</strong></td><td>Token Vault 매핑, 비가역 치환</td></tr>
-<tr><td></td><td><strong>데이터 마스킹</strong></td><td>데이터 비식별화, 운영/테스트 데이터 보호</td></tr>
-</table></div>
-</li>
-</ul>
+<h3>[Part 11] 데이터 거버넌스/품질/보안</h3>
 
 </body>
 </html>

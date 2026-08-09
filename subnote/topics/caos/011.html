@@ -22,11 +22,10 @@
 <li><strong>분류:</strong> 컴퓨터 구조</li>
 <li><strong>캐시 일관성 원인:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>아키텍처</strong></td><td>다중 CPU 로컬캐시 보유</td><td>멀티프로세서 각 코어가 독립적 캐시를 보유</td><td>코어별 캐시분산</td></tr>
-<tr><td></td><td>DMA 구조</td><td>I/O장치가 캐시를 거치지 않고 메모리 직접접근</td><td>캐시우회 접근</td></tr>
-<tr><td><strong>정책</strong></td><td>Write-Back 정책 지연</td><td>캐시 갱신 후 주기억장치 반영이 지연됨</td><td>갱신반영 지연</td></tr>
-<tr><td><strong>운영</strong></td><td>프로세스 마이그레이션</td><td>프로세스가 타 CPU로 이동 시 캐시값 불일치</td><td>이동시 캐시불일치</td></tr>
+<tr><td><strong>공유자원</strong></td><td>다중 로컬캐시 보유</td><td>멀티프로세서 각 코어가 독립적 캐시를 보유</td><td>코어별 캐시분산</td></tr>
 <tr><td></td><td>공유데이터 동시쓰기</td><td>여러 캐시가 동일 데이터를 다르게 갱신</td><td>동시쓰기 충돌</td></tr>
+<tr><td><strong>경쟁구조</strong></td><td>Write-Back 정책 지연</td><td>캐시 갱신 후 주기억장치 반영이 지연됨</td><td>갱신반영 지연</td></tr>
+<tr><td></td><td>DMA 구조</td><td>I/O장치가 캐시를 거치지 않고 메모리 직접접근</td><td>캐시우회 접근</td></tr>
 </table></div>
 </li>
 <li><strong>일관성 유지를 위한 캐시 쓰기 정책</strong>:  <div class="table-scroll"><table>
@@ -46,7 +45,8 @@
 <tr><td></td><td><strong>디렉토리 기반</strong></td><td><strong>Full Map Directory</strong></td><td>주기억장치에 전체 상태 중앙 관리</td></tr>
 <tr><td></td><td></td><td><strong>Limit Directory</strong></td><td>Full Map 크기를 작게 제한</td></tr>
 <tr><td></td><td></td><td><strong>Chained Directory</strong></td><td>Linked List 형태의 분산 관리</td></tr>
-<tr><td></td><td><strong>프로토콜</strong></td><td><strong>MESI 프로토콜</strong></td><td>수정, 베타, 공유, 무효</td></tr>
+<tr><td></td><td><strong>프로토콜</strong></td><td><strong>MESI 프로토콜(W-B)</strong></td><td>수정, 베타, 공유, 무효</td></tr>
+<tr><td></td><td></td><td><strong>V1 프로토콜(W-T)</strong></td><td>유효·무효 캐시관리</td></tr>
 <tr><td></td><td></td><td><strong>MEI, MSI, MOESI, MESIF</strong></td><td>Owned, Forwarding</td></tr>
 </table></div>
 </li>

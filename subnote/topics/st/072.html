@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. 빅데이터 프로세싱 아키텍처</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>5. 빅데이터 프로세싱 아키텍처</h4>
+<ul>
+<li><strong>정의</strong>: 빅데이터의 실시간/배치 처리를 지원하는 시스템 아키텍처</li>
+<li><strong>키워드</strong>: 람다(Lambda), 카파(Kappa), 배치 레이어, 스피드 레이어</li>
+<li><strong>분류</strong>: 시각화/빅데이터</li>
+<li><strong>비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>람다 아키텍처</th><th>카파 아키텍처</th></tr>
+<tr><td><strong>구성</strong></td><td>배치+스피드+서빙 레이어</td><td>스트리밍 단일 레이어</td></tr>
+<tr><td><strong>처리</strong></td><td>배치(정확)+실시간(근사)</td><td>스트리밍 일원화</td></tr>
+<tr><td><strong>복잡도</strong></td><td>높음 (이중 파이프라인)</td><td>낮음 (단순화)</td></tr>
+<tr><td><strong>정확성</strong></td><td>높음</td><td>상대적으로 낮음</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 카파 아키텍처는 스트리밍으로 단일화하여 운영 복잡도를 낮춘다. Kafka + Flink/Spark Streaming 기반이 표준이다.</li>
+</ul>
+</body>
+</html>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 데이터베이스 튜닝 (Database Tuning)</title>
+  <title>[하위] 2-1. CBO (Cost Based Optimizer)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,43 +15,55 @@
   </style>
 </head>
 <body>
-<h4>3. 데이터베이스 튜닝 (Database Tuning)</h4>
+<h4>[하위] 2-1. CBO (Cost Based Optimizer)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터베이스의 성능을 향상시키기 위해 SQL, 인덱스, 스키마 구조, 메모리 파라미터 등을 최적화하는 전반적인 활동</li>
-<li><strong>키워드</strong>: 반정규화, 파티셔닝, 인덱스설계, 캐시활용, 메모리 파라미터, 서브쿼리, 힌트</li>
+<li><strong>정의</strong>: 테이블 통계정보(행 수, 블록 수, 카디널리티 등)를 기반으로 비용(Cost)을 계산하여 최적의 실행계획을 선택하는 옵티마이저</li>
+<li><strong>키워드</strong>: 질의 변환기, 비용 산정기, 실행 계획 생성기, 선택도, 카디널리티, 히스토그램, 통계정보, Dictionary</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>튜닝 절차:</strong><div class="table-scroll"><table>
-<tr><th><strong>튜닝단계</strong></th><th><strong>설명</strong></th><th><strong>사례</strong></th></tr>
-<tr><td><strong>1단계: DB 설계 튜닝</strong></td><td>설계 및 모델링 성능 고려</td><td>반정규화, 분산파일배치</td></tr>
-<tr><td><strong>2단계: DBMS 튜닝</strong></td><td>H/W 자원 및 환경 최적화</td><td>Buffer 크기, Cache 크기</td></tr>
-<tr><td><strong>3단계: SQL 튜닝</strong></td><td>SQL 및 실행 계획 최적화</td><td>Hash / Join</td></tr>
+<li><strong>CBO 구성요소</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;질비실&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>구성요소</strong></th><th><strong>역할</strong></th><th><strong>사례</strong></th></tr>
+<tr><td><strong>질의 변환기 (Query Transformer)</strong></td><td>효율적 형태로 SQL 모양 변환</td><td>뷰 병합, 서브쿼리 비내포화</td></tr>
+<tr><td><strong>비용 산정기 (Estimator)</strong></td><td>최적 실행계획 탐색 알고리즘</td><td>선택도, 카디널리티, 비용</td></tr>
+<tr><td><strong>실행 계획 생성기 (Plan Generator)</strong></td><td>최소 비용 실행계획 최종 선택</td><td>적응적·경험적 탐색</td></tr>
 </table></div>
 </li>
-<li><strong>튜닝 단계별 기법</strong>:  <div class="table-scroll"><table>
-<tr><th>튜닝 영역</th><th>기법</th><th>상세</th></tr>
-<tr><td><strong>DB 설계 튜닝</strong></td><td>테이블 분할 및 통합</td><td>파티션 기능, 테이블 수평/수직 분할</td></tr>
-<tr><td></td><td>식별자 지정/Key 설정</td><td>본질/인조 식별자 정의, 클러스터링</td></tr>
-<tr><td></td><td>적정 인덱스 설정</td><td>인덱스 분포도 고려 10~15% (손익분기점)</td></tr>
-<tr><td></td><td>정규화/반정규화</td><td>테이블, 컨럼, 관계 정규화/반정규화</td></tr>
-<tr><td></td><td>적절한 데이터 타입 선정</td><td>조인시 연결되는 데이터 타입의 일치</td></tr>
-<tr><td></td><td>성능 데이터 모델링</td><td>수퍼/서브타입, PK 조정, 이력테이블, 파티셔닝, 데이터 통합</td></tr>
-<tr><td><strong>DBMS 튜닝</strong></td><td>I/O 최소화</td><td>실제 필요한 데이터만 Read, Query off-Loading</td></tr>
-<tr><td></td><td>Buffer Pool 튜닝</td><td>지역성 관점 데이터 관리, 오라클 Keep Buffer Cache</td></tr>
-<tr><td></td><td>Commit/Check Point</td><td>Check Point 수행주기 조절 통해 Commit 주기 조정</td></tr>
-<tr><td></td><td>Thread/Reuse</td><td>Middleware의 기능과 연동</td></tr>
-<tr><td><strong>SQL 튜닝</strong></td><td>Undo Segment 설정</td><td>Undo 영역 크기 조정</td></tr>
-<tr><td></td><td>옵티마이저</td><td>RBO, CBO 이해, 통계정보 최신화</td></tr>
-<tr><td></td><td>힌트(HINT) 사용</td><td>지원되는 힌트 통해 원하는 실행계획 유도</td></tr>
-<tr><td></td><td>부분범위 처리</td><td>전체가 아닌 일부분만 Access, 옵티마이저 정보제공</td></tr>
-<tr><td></td><td>인덱스 활용</td><td>인덱스 통한 조회 속도 향상, Sort 연산 대체</td></tr>
-<tr><td></td><td>조인방식/조인순서</td><td>실행계획 (PLAN) 확인 후 조정</td></tr>
-<tr><td></td><td>동적 SQL 지양</td><td>파싱(Parsing) 부하 감소위해 Static SQL 사용</td></tr>
-<tr><td></td><td>다중처리</td><td>한번의 DBMS 호출로 여러 건을 동시에 처리</td></tr>
-<tr><td></td><td>병렬처리</td><td>하나의 SQL을 여러 개의 CPU가 병렬로 분할 처리</td></tr>
-<tr><td></td><td>SORT 튜닝 수행</td><td>인덱스 이용 통해서 MIN, MAX 구하기, TOP-N 쿼리</td></tr>
+<li><strong>CBO 기반 SQL 최적화 수행 과정</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;파최행실&gt;</strong></span><div class="table-scroll"><table>
+<tr><th><strong>수행 과정</strong></th><th><strong>구성요소</strong></th><th><strong>수행 역할</strong></th></tr>
+<tr><td><strong>1. SQL 파싱</strong></td><td>SQL Parser</td><td>구문 분석 및 오류 확인</td></tr>
+<tr><td><strong>2. 최적화 (Optimization)</strong></td><td>Query Transformer</td><td>쿼리 표준 형태 변환</td></tr>
+<tr><td></td><td>Estimator</td><td>비용 산출 및 통계 계산</td></tr>
+<tr><td></td><td>Plan Generator</td><td>최적 실행 계획 선정</td></tr>
+<tr><td><strong>3. 행 소스 생성</strong></td><td>Row-Source Generator</td><td>실행 가능 코드로 변환</td></tr>
+<tr><td><strong>4. 실행 (Execution)</strong></td><td>SQL Engine</td><td>계획 실행 및 결과 제공</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SQL 튜닝이 가장 높은 ROI를 보이는 튜닝 영역</strong></u></span>이며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>실행계획 분석(EXPLAIN PLAN)이 모든 튜닝의 출발점</strong></u></span>임을 답안에 명시 권장, S/W처리가 불가능하거나 효율적이지 않는 경우 <strong>H/W 방식의 시스템 데이터베이스 튜닝도 필요</strong></li>
+<li><strong>CBO 참조 통계정보 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;테인컬시&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>통계정보 유형</th><th>세부 통계 항목</th><th>설명</th></tr>
+<tr><td><strong>테이블 통계</strong></td><td>전체 레코드 수</td><td>테이블의 전체 행의 수</td></tr>
+<tr><td></td><td>총 블록 수</td><td>테이블이 차지하고 있는 전체 블록의 수</td></tr>
+<tr><td></td><td>평균 행 크기</td><td>테이블의 행들이 갖는 평균 길이</td></tr>
+<tr><td><strong>인덱스 통계</strong></td><td>리프 블록 수</td><td>데이터를 보관하는 Leaf Block의 수</td></tr>
+<tr><td></td><td>인덱스 Level</td><td>인덱스 트리의 높이 정보</td></tr>
+<tr><td></td><td>클러스터링 팩터</td><td>접근하고자 하는 데이터가 모여 있는 밀집도</td></tr>
+<tr><td><strong>컬럼 통계</strong></td><td>값의 수</td><td>컬럼 내 값의 종류 수</td></tr>
+<tr><td></td><td>최저/최고 값</td><td>컬럼 값의 범위</td></tr>
+<tr><td></td><td>컬럼 히스토그램</td><td>컬럼 내 데이터의 분포 추정치</td></tr>
+<tr><td><strong>시스템 통계</strong></td><td>CPU 속도</td><td>CPU 성능 및 사용률</td></tr>
+<tr><td></td><td>평균 I/O 속도</td><td>I/O 수행 성능</td></tr>
+<tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr>
+</table></div>
+</li>
+<li><strong>RBO vs CBO 비교:</strong> <div class="table-scroll"><table>
+<tr><th>항목</th><th>RBO</th><th>CBO</th></tr>
+<tr><td><strong>판단 기준</strong></td><td>규칙(Rule)</td><td>비용(Cost)</td></tr>
+<tr><td><strong>데이터 반영</strong></td><td>미흡</td><td>반영</td></tr>
+<tr><td><strong>통계정보</strong></td><td>불필요</td><td>필수</td></tr>
+<tr><td><strong>최적화 방식</strong></td><td>정적 최적화</td><td>동적 최적화</td></tr>
+<tr><td><strong>예측 가능성</strong></td><td>높음</td><td>상대적으로 낮음</td></tr>
+<tr><td><strong>현대 DB 적용</strong></td><td>감소</td><td>주류</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: CBO의 행동에 영향을 미치는 요소로 SQL의 형태, DBMS 제약 설정, 클러스터링/파티셔닝 등 다양한 요소가 존재하며, 이 중 통계정보에 대한 의존성이 절대적임. 대량 DML 이후 반드시 통계 재수집(ANALYZE/DBMS_STATS)을 수행해야 최적 실행계획 유지 가능</li>
 </ul>
 
 </body>

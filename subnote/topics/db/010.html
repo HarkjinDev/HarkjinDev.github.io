@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 수퍼타입 & 서브타입 모델링 (Supertype & Subtype Modeling)</title>
+  <title>5. 카디널리티 (Cardinality)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,36 +15,19 @@
   </style>
 </head>
 <body>
-<h4>6. 수퍼타입 &amp; 서브타입 모델링 (Supertype &amp; Subtype Modeling)</h4>
+<h4>5. 카디널리티 (Cardinality)</h4>
 <ul>
-<li><strong>정의</strong>: 공통 속성을 가진 상위 엔터티(수퍼타입/통합화)와 각각의 고유 속성을 가진 하위 엔터티(서브타입/세분화)로 계층을 구성하여 데이터 중복을 줄이고 확장성을 높이는 데이터 모델링 기법</li>
-<li><strong>키워드</strong>: 공통속성, 상속, 고유 속성, 배타적 관계, 포괄적 관계, 단일 테이블, 서브타입별, 타입별 분리</li>
+<li><strong>정의</strong>: 엔터티 간 관계에서 하나의 인스턴스가 다른 엔터티의 몇 개 인스턴스와 관계를 맺는지를 나타내는 수적 대응 관계</li>
+<li><strong>키워드</strong>: 1:1, 1:N, M:N, 선택/필수 참여, 교차 엔터티, 바커 표기법</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
-<li><strong>개념</strong>:<ul>
-<li><strong>수퍼타입(Supertype)</strong>: 공통 속성과 관계를 정의하는 상위 엔터티(통합화) (예: 직원)</li>
-<li><strong>서브타입(Subtype)</strong>: 수퍼타입을 상속하면서 고유 속성을 추가로 갖는 하위 엔터티(세분화) (예: 정규직, 계약직, 파견직)</li>
+<li><strong>유형</strong>:<ul>
+<li><strong>1:1 관계</strong>: 각 인스턴스가 상대 엔터티의 정확히 1개와 대응</li>
+<li><strong>1:N 관계</strong>: 한 인스턴스가 상대 엔터티의 여러 인스턴스와 대응 (가장 일반적)</li>
+<li><strong>M:N 관계</strong>: 양쪽 모두 여러 인스턴스와 대응 → 물리 구현 시 교차 테이블로 분해 필요</li>
 </ul>
 </li>
-<li><strong>표기법: </strong><ul>
-<li><strong>배타적 관계(Exclusive)</strong>: 하나의 인스턴스가 하나의 서브타입에만 속함</li>
-<li><strong>포괄적 관계(Inclusive)</strong>: 하나의 인스턴스가 여러 서브타입에 동시에 속할 수 있음</li>
-</ul>
-</li>
-<li><strong>구현방식:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;단서타&gt;</strong></span><ul>
-<li><strong>단일 테이블</strong>: 수퍼타입과 모든 서브타입을 하나의 테이블로 통합. 조회 성능 우수, NULL 컬럼 다수 발생</li>
-<li><strong>서브타입별 테이블</strong>: 서브타입마다 별도 테이블 생성, 수퍼타입 속성 포함. 중복 컬럼 발생</li>
-<li><strong>타입별 분리</strong>: 수퍼타입 테이블 + 서브타입 테이블 분리. 정규화 수준 높으나 JOIN 비용 증가</li>
-</ul>
-</li>
-<li><strong>구현방식 비교</strong>:  <div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>단일 테이블 (Single)</strong></th><th><strong>서브타입별 테이블 (Individual)</strong></th><th><strong>타입별 분리 (Super+Sub)</strong></th></tr>
-<tr><td><strong>테이블 수</strong></td><td>1개</td><td>서브타입 수</td><td>수퍼+서브타입 수</td></tr>
-<tr><td><strong>NULL 발생</strong></td><td>많음</td><td>없음</td><td>없음</td></tr>
-<tr><td><strong>JOIN 비용</strong></td><td>없음</td><td>낮음</td><td>높음</td></tr>
-<tr><td><strong>적합한 상황</strong></td><td>조회 빈번 시</td><td>속성 차이 클 때</td><td>정규화 중요 시</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트</strong>: 물리 변환 전략 선택 시 조회 패턴과 서브타입 수를 먼저 고려해야 하며, 서브타입별 조회가 빈번하면 타입별 분리, 전체 통합 조회가 많으면 단일 테이블 전략이 유리함. 시험에서는 세 가지 변환 전략의 장단점 비교가 핵심 출제 포인트임</li>
+<li><strong>참여도</strong>: 선택적 참여(Optional) vs 필수 참여(Mandatory)</li>
+<li><strong>인사이트</strong>: M:N 관계는 관계형 DB에서 직접 구현 불가능하므로 반드시 분해해야 하며, 참여도(선택/필수)는 NULL 허용 여부와 직결되어 물리 설계에 영향을 줌</li>
 </ul>
 
 </body>

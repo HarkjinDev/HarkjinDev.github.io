@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. 음성 데이터 마이닝 (Voice Data Mining)</title>
+  <title>4. 텍스트 마이닝 (Text Mining)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,19 @@
   </style>
 </head>
 <body>
-<h4>6. 음성 데이터 마이닝 (Voice Data Mining)</h4>
+<h4>4. 텍스트 마이닝 (Text Mining)</h4>
 <ul>
-<li><strong>정의</strong>: 음성 데이터에서 패턴, 감성, 의미를 추출하는 분석 기법</li>
-<li><strong>키워드</strong>: STT, 피치, 에너지, 성조, 어조, 음성 감성 분석</li>
+<li><strong>정의</strong>: 비정형 텍스트에서 의미 있는 정보와 패턴을 추출하는 분석 기법</li>
+<li><strong>키워드</strong>: 형태소 분석, TF-IDF, LDA, N-gram, 키워드 추출</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
 <li><strong>주요 기술</strong>:<ul>
-<li><strong>STT(Speech-to-Text)</strong>: 음성 → 텍스트 변환</li>
-<li><strong>음성 특성 분석</strong>: 피치, 에너지, 성조, 어조</li>
-<li><strong>감성 분석</strong>: 음성에서 감정 상태 추출</li>
-<li><strong>화자 인식</strong>: 화자 구분 및 특성 파악</li>
+<li><strong>형태소 분석</strong>: 텍스트를 의미 단위로 분해 (KoNLPy)</li>
+<li><strong>TF-IDF</strong>: 단어 중요도 계산 (빈도×문서 내 희소성)</li>
+<li><strong>토픽 모델링</strong>: LDA(잠재 디리클레 할당)로 주제 추출</li>
+<li><strong>감성 분석</strong>: 긍정/부정 분류</li>
 </ul>
 </li>
-<li><strong>발전 방향</strong>: wav2vec, Whisper 기반 딥러닝 고정밀 STT</li>
-<li><strong>인사이트</strong>: STT를 통한 텍스트 변환 후 텍스트 마이닝과 결합하는 하이브리드 방식이 활용된다. 콜센터 품질 관리, 보안 인증에 적용된다.</li>
+<li><strong>인사이트</strong>: 비정형 텍스트를 정형 데이터로 변환하는 전처리가 핵심. 오피니언 마이닝은 텍스트 마이닝의 감성 분석 특화 분야다.</li>
 </ul>
 
 </body>

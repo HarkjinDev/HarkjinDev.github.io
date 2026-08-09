@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. CRUD 매트릭스 (CRUD Matrix)</title>
+  <title>3. 관계형 데이터 모델 (Relational Data Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,24 +15,20 @@
   </style>
 </head>
 <body>
-<h4>4. CRUD 매트릭스 (CRUD Matrix)</h4>
+<h4>3. 관계형 데이터 모델 (Relational Data Model)</h4>
 <ul>
-<li><strong>정의</strong>: 엔터티 타입과 단위 프로세스 간 CRUD(Create/Read/Update/Delete) 관계를 매핑하여 데이터 모델의 완전성을 검증하는 도구</li>
-<li><strong>키워드</strong>: 생성(Create), 조회(Read), 갱신(Update), 삭제(Delete), 엔티티 타입, 단위 프로세스, 완전성 검증</li>
+<li><strong>정의</strong>: 데이터를 2차원 테이블(릴레이션) 형태로 표현하고, 관계 대수와 관계 해석을 통해 데이터를 조작하는 논리적 데이터 모델</li>
+<li><strong>키워드</strong>: 릴레이션, 튜플, 속성, 도메인, 키, 정규화, 관계 대수</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
-<li><strong>구성 요소:     </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;엔단&gt;</strong></span><ul>
-<li><strong>엔티티 타입</strong>: 프로세스에 영향 주는 데이터 (고객, 제품, 주문, 목록)</li>
-<li><strong>단위 프로세스:</strong> 엔티티에 영향주는 업무 단위 (고객 등록, 주문 조회)</li>
-<li><strong>CRUD:</strong> 상태 표시 (생성, 조회, 갱신, 삭제)</li>
+<li><strong>핵심 구성 요소</strong>:<ul>
+<li><strong>릴레이션(Relation)</strong>: 행과 열로 구성된 2차원 테이블</li>
+<li><strong>튜플(Tuple)</strong>: 릴레이션의 각 행 (레코드)</li>
+<li><strong>속성(Attribute)</strong>: 릴레이션의 각 열 (컬럼)</li>
+<li><strong>도메인(Domain)</strong>: 속성이 가질 수 있는 원자값의 범위</li>
 </ul>
 </li>
-<li><strong>활용 목적</strong>:<ul>
-<li><strong>품질 검증: </strong>누락 방지, 유령 데이터 방지, 일관성 유지, 병목 포인트 식별</li>
-<li><strong>영향도 분석:</strong> 유지보수 효율화, 오류 최소화</li>
-<li><strong>개발 가이드:</strong> 개발 우선순위 선정, 테스트 시나리오 활용</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: CRUD 매트릭스는 데이터 모델 검토 시 빠진 업무 로직을 조기에 발견하는 품질 도구로, 설계 단계에서 반드시 수행해야 할 검증 절차임</li>
+<li><strong>주요 특성</strong>: 튜플의 무순서성, 속성의 원자값, 중복 튜플 불허</li>
+<li><strong>인사이트</strong>: 관계형 모델의 핵심 장점은 데이터 독립성과 집합 기반 연산이며, ACID 트랜잭션 보장으로 금융·ERP 시스템의 표준으로 자리잡음</li>
 </ul>
 
 </body>

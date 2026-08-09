@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 다중공선성 (Multicollinearity)</title>
+  <title>7. 다변량회귀분석 (Multivariate Regression Analysis)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,20 @@
   </style>
 </head>
 <body>
-<h4>9. 다중공선성 (Multicollinearity)</h4>
+<h4>7. 다변량회귀분석 (Multivariate Regression Analysis)</h4>
 <ul>
-<li><strong>정의</strong>: 독립변수 간 높은 상관관계로 회귀계수 추정이 불안정해지는 문제</li>
-<li><strong>키워드</strong>: VIF, 분산팽창계수, 상관관계 행렬, Ridge 회귀</li>
+<li><strong>정의</strong>: 복수의 종속변수를 동시에 예측하는 다차원 회귀 분석 기법</li>
+<li><strong>키워드</strong>: 종속변수 2개 이상, MANOVA, 정준상관분석</li>
 <li><strong>분류</strong>: 회귀분석</li>
-<li><strong>특징</strong>:<ul>
-<li>VIF(Variance Inflation Factor) = 1/(1-R²j)</li>
-<li>VIF ≥ 10: 심각한 다중공선성(높은 상관관계)</li>
-<li>증상: 계수 부호 변환, 표준오차 증가, 불안정한 추정</li>
-</ul>
+<li><strong>비교</strong> (다중회귀 vs 다변량회귀):<div class="table-scroll"><table>
+<tr><th>구분</th><th>다중회귀</th><th>다변량회귀</th></tr>
+<tr><td><strong>독립변수</strong></td><td>2개 이상</td><td>2개 이상</td></tr>
+<tr><td><strong>종속변수</strong></td><td>1개</td><td>2개 이상</td></tr>
+<tr><td><strong>활용</strong></td><td>예측/설명</td><td>복수 결과 동시 분석</td></tr>
+</table></div>
 </li>
-<li><strong>해결</strong>: 변수 제거, PCA 차원축소, Ridge 회귀(L2 정규화)</li>
-<li><strong>인사이트</strong>: VIF = 1/(1-R²j), VIF≥10이면 심각한 다중공선성으로 판정. Ridge 회귀는 패널티(λ) 부여로 계수를 안정화한다.</li>
+<li><strong>인사이트</strong>: 다변량회귀는 종속변수 간 상관관계를 고려하여 개별 분석보다 통계적 효율성이 높다.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

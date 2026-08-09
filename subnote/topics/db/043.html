@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 옵티마이저 (Optimizer)</title>
+  <title>[하위] 1-2. 논클러스터드 인덱스 (Non-Clustered Index)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,21 @@
   </style>
 </head>
 <body>
-<h4>2. 옵티마이저 (Optimizer)</h4>
+<h4>[하위] 1-2. 논클러스터드 인덱스 (Non-Clustered Index)</h4>
 <ul>
-<li><strong>정의</strong>: SQL 쿼리를 분석하여 최적의 실행계획(Execution Plan)을 생성하는 DBMS의 핵심 엔진</li>
-<li><strong>키워드</strong>: RBO, CBO, 실행계획, 통계정보, 비용 추정, 카디널리티, 선택도</li>
+<li><strong>정의</strong>: 데이터의 물리적 순서와 독립적으로 별도의 인덱스 구조를 생성하며, 리프 노드에 실제 데이터 대신 포인터(RID 또는 클러스터드 인덱스 키)를 저장하는 인덱스</li>
+<li><strong>키워드</strong>: 포인터(RID), 다수 생성 가능, 별도 인덱스 구조, Lookup, 커버링 인덱스</li>
 <li><strong>분류</strong>: 인덱스/튜닝</li>
-<li><strong>핵심 기능:</strong> <strong>실행 계획 탐색, 비용 산정</strong></li>
-<li><strong>RBO vs CBO 비교</strong>:<ul>
-<li><strong>RBO(Rule Based Optimizer)</strong>: <ul>
-<li>미리 정의된 규칙의 우선순위에 따라 실행계획 결정</li>
-<li>인덱스 우선 처리 원칙 적용. 통계정보 불필요하나 최적 실행계획 보장 어려움</li>
+<li><strong>특징</strong>:<ul>
+<li>테이블당 <strong>다수 생성</strong> 가능 (SQL Server 기준 최대 999개)</li>
+<li>인덱스 구조와 데이터 파일이 <strong>분리</strong> — 리프 노드는 포인터 보유</li>
+<li>조회 시 포인터를 통한 추가 탐색(Lookup) 발생 → 클러스터드보다 I/O 증가 가능</li>
+<li>DML 시 물리적 재정렬 불필요 → 삽입·삭제 비용 상대적으로 낮음</li>
 </ul>
 </li>
-<li><strong>CBO(Cost Based Optimizer)</strong>: <ul>
-<li>테이블 통계정보(행 수, 블록 수, 카디널리티 등)를 기반으로 최소 비용 경로 선택</li>
-<li>현재 대부분의 RDBMS 표준 방식</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>실행계획 구성 요소</strong>: 조인 순서, 조인 방법(NL/Hash/Sort-Merge), 인덱스 사용 여부</li>
-<li><strong>인사이트</strong>: CBO는 통계정보가 최신으로 유지될 때 정확한 실행계획을 생성하므로, 대량 DML 후 통계 재수집(ANALYZE/DBMS_STATS)이 성능 유지의 핵심임</li>
+<li><strong>구조</strong>: B-Tree 기반 — 루트 → 브랜치 → 리프(포인터) → 실제 데이터 순 탐색</li>
+<li><strong>커버링 인덱스</strong>: 인덱스만으로 쿼리 결과 반환이 가능하도록 필요 컬럼을 포함시켜 Lookup 제거</li>
+<li><strong>인사이트</strong>: 논클러스터드 인덱스의 Lookup 비용을 제거하는 커버링 인덱스(Covering Index) 설계가 조회 성능 최적화의 핵심이며, 조회 컬럼을 INCLUDE 절에 포함시키는 방식으로 구현 가능</li>
 </ul>
 
 </body>

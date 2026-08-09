@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. SQL JOIN</title>
+  <title>[하위] 1-1. 동적/정적 SQL</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,34 @@
   </style>
 </head>
 <body>
-<h4>2. SQL JOIN</h4>
+<h4>[하위] 1-1. 동적/정적 SQL</h4>
 <ul>
-<li><strong>정의</strong>: 두 개 이상의 테이블을 특정 조건으로 연결하여 데이터를 조회하는 SQL 연산</li>
-<li><strong>키워드</strong>: INNER, OUTER, NATURAL, EQUAL, CROSS, SEMI, NESTED LOOP, SORT MERGE, HASH, CARTESIAN, INDEX</li>
+<li><strong>정의</strong>:<ul>
+<li><strong>정적 SQL(Static SQL)</strong>: 컴파일 시점에 SQL 구문이 확정되어 실행계획을 미리 생성하고 재사용하는 방식 (Pre-compile)</li>
+<li><strong>동적 SQL(Dynamic SQL)</strong>: 실행 시점에 SQL 구문을 문자열로 동적 생성하여 실행하는 방식 (Runtime Parse)</li>
+</ul>
+</li>
+<li><strong>키워드</strong>: ISO/IEC 9075, 사전 컴파일, 고정 쿼리, 실행계획 재사용, SQL 인젝션 위험, 바인드 변수</li>
 <li><strong>분류</strong>: SQL</li>
-<li><strong>JOIN 유형</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>종류/방식</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>논리적 종류</strong></td><td><strong>Inner Join</strong></td><td>키 일치 행 검색</td><td>교집합 추출</td></tr>
-<tr><td></td><td><strong>Outer Join</strong></td><td>미대응 행 NULL 추출</td><td>NULL 포함 결합</td></tr>
-<tr><td></td><td><strong>Natural Join</strong></td><td>공통 속성 기반 결합</td><td>동일 컬럼 매칭</td></tr>
-<tr><td></td><td><strong>Equal Join</strong></td><td>공통 정보 단순 조인</td><td>등호(=) 조인</td></tr>
-<tr><td></td><td><strong>Cross Join</strong></td><td>모든 조합 카테시안 곱</td><td>모든 경우의 수</td></tr>
-<tr><td></td><td><strong>Semi Join</strong></td><td>조건 부합 시 연산 중단</td><td>존재 여부 확인</td></tr>
-<tr><td><strong>물리적 방식</strong></td><td><strong>Nested loops</strong></td><td>순차적 루프 수행 방식</td><td>순차 루프 실행</td></tr>
-<tr><td></td><td><strong>Sort Merge</strong></td><td>정렬 후 병합 조인 방식</td><td>정렬 후 병합</td></tr>
-<tr><td></td><td><strong>Hash Join</strong></td><td>해시 함수 활용 조인</td><td>해시 맵 활용</td></tr>
-<tr><td></td><td><strong>Cartesian Join</strong></td><td>전체 조합 조인 방식</td><td>대량 데이터 부하</td></tr>
-<tr><td></td><td><strong>Index Join</strong></td><td>인덱스 간 해시 조인</td><td>인덱스 최적화</td></tr>
+<li><strong>비교 분석</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>정적 SQL</th><th>동적 SQL</th></tr>
+<tr><td><strong>파싱 시점</strong></td><td>컴파일 시</td><td>실행 시</td></tr>
+<tr><td><strong>실행 계획</strong></td><td>컴파일 시 고정·재사용</td><td>매 실행마다 새로 생성</td></tr>
+<tr><td><strong>성능</strong></td><td>실행계획 재사용으로 빠름</td><td>매 실행마다 파싱 비용 발생</td></tr>
+<tr><td><strong>유연성</strong></td><td>낮음 (쿼리 고정)</td><td>높음 (조건 동적 구성 가능)</td></tr>
+<tr><td><strong>보안</strong></td><td>SQL 인젝션 위험 낮음</td><td>SQL 인젝션 위험 높음</td></tr>
+<tr><td><strong>쿼리 구조</strong></td><td>컴파일 시 쿼리 완전 확정</td><td>런타임에 쿼리 문자열 조합</td></tr>
+<tr><td><strong>문법 오류 탐지</strong></td><td>컴파일 시 사전 탐지 가능</td><td>런타임 실행 시 오류 발생</td></tr>
+<tr><td><strong>바인딩 변수</strong></td><td>정적 바인딩</td><td>동적 바인딩 가능</td></tr>
+<tr><td><strong>적합 상황</strong></td><td>쿼리 구조 고정·반복 실행</td><td>조건·테이블 동적 변경 필요</td></tr>
+<tr><td><strong>대표 사용 방식</strong></td><td>Prepared Statement</td><td>EXECUTE IMMEDIATE·sp_executesql</td></tr>
+<tr><td><strong>유지보수성</strong></td><td>높음 (쿼리 코드 명확)</td><td>낮음 (문자열 조합으로 복잡)</td></tr>
+<tr><td><strong>캐시 활용</strong></td><td>실행계획 캐시 적극 활용</td><td>캐시 재사용 어려움</td></tr>
+<tr><td><strong>사용 예시</strong></td><td>고정 조회·배치 처리</td><td>검색 조건 다변·관리자 도구</td></tr>
 </table></div>
 </li>
-<li><strong>성능 향상 기법</strong>: 조인 컬럼에 인덱스 생성, 결과셋이 작은 테이블을 드라이빙 테이블로 설정</li>
-<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>OUTER JOIN은 NULL 처리 로직이 필요</strong></u></span>하며, 대용량 테이블 JOIN 시 실행계획을 반드시 확인하여 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Full Table Scan 여부를 검토</strong></u></span>해야 함</li>
+<li><strong>인사이트</strong>: 동적 SQL 사용 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>바인드 변수(Bind Variable)</strong></u></span><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u>를</u></span> 활용하여 실행계획 재사용 및 SQL 인젝션 방지를 동시에 달성하는 것이 베스트 프랙티스</li>
 </ul>
-<hr/>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 카디널리티 (Cardinality)</title>
+  <title>4. CRUD 매트릭스 (CRUD Matrix)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,24 @@
   </style>
 </head>
 <body>
-<h4>5. 카디널리티 (Cardinality)</h4>
+<h4>4. CRUD 매트릭스 (CRUD Matrix)</h4>
 <ul>
-<li><strong>정의</strong>: 엔터티 간 관계에서 하나의 인스턴스가 다른 엔터티의 몇 개 인스턴스와 관계를 맺는지를 나타내는 수적 대응 관계</li>
-<li><strong>키워드</strong>: 1:1, 1:N, M:N, 선택/필수 참여, 교차 엔터티, 바커 표기법</li>
+<li><strong>정의</strong>: 엔터티 타입과 단위 프로세스 간 CRUD(Create/Read/Update/Delete) 관계를 매핑하여 데이터 모델의 완전성을 검증하는 도구</li>
+<li><strong>키워드</strong>: 생성(Create), 조회(Read), 갱신(Update), 삭제(Delete), 엔티티 타입, 단위 프로세스, 완전성 검증</li>
 <li><strong>분류</strong>: 데이터 모델링</li>
-<li><strong>유형</strong>:<ul>
-<li><strong>1:1 관계</strong>: 각 인스턴스가 상대 엔터티의 정확히 1개와 대응</li>
-<li><strong>1:N 관계</strong>: 한 인스턴스가 상대 엔터티의 여러 인스턴스와 대응 (가장 일반적)</li>
-<li><strong>M:N 관계</strong>: 양쪽 모두 여러 인스턴스와 대응 → 물리 구현 시 교차 테이블로 분해 필요</li>
+<li><strong>구성 요소:     </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;엔단&gt;</strong></span><ul>
+<li><strong>엔티티 타입</strong>: 프로세스에 영향 주는 데이터 (고객, 제품, 주문, 목록)</li>
+<li><strong>단위 프로세스:</strong> 엔티티에 영향주는 업무 단위 (고객 등록, 주문 조회)</li>
+<li><strong>CRUD:</strong> 상태 표시 (생성, 조회, 갱신, 삭제)</li>
 </ul>
 </li>
-<li><strong>참여도</strong>: 선택적 참여(Optional) vs 필수 참여(Mandatory)</li>
-<li><strong>인사이트</strong>: M:N 관계는 관계형 DB에서 직접 구현 불가능하므로 반드시 분해해야 하며, 참여도(선택/필수)는 NULL 허용 여부와 직결되어 물리 설계에 영향을 줌</li>
+<li><strong>활용 목적</strong>:<ul>
+<li><strong>품질 검증: </strong>누락 방지, 유령 데이터 방지, 일관성 유지, 병목 포인트 식별</li>
+<li><strong>영향도 분석:</strong> 유지보수 효율화, 오류 최소화</li>
+<li><strong>개발 가이드:</strong> 개발 우선순위 선정, 테스트 시나리오 활용</li>
+</ul>
+</li>
+<li><strong>인사이트</strong>: CRUD 매트릭스는 데이터 모델 검토 시 빠진 업무 로직을 조기에 발견하는 품질 도구로, 설계 단계에서 반드시 수행해야 할 검증 절차임</li>
 </ul>
 
 </body>

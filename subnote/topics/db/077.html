@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 데이터 마이그레이션 (Data Migration)</title>
+  <title>[Part 12] 마이그레이션</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,20 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. 데이터 마이그레이션 (Data Migration)</h4>
-<ul>
-<li><strong>정의</strong>: 기존 시스템의 데이터를 신규 시스템으로 안전하게 이전하는 전환 작업</li>
-<li><strong>키워드</strong>: ETL, 데이터 전환, 검증, 매핑, 정합성, 빅뱅 전환, 점진적 전환</li>
-<li><strong>분류</strong>: 마이그레이션</li>
-<li><strong>수행 단계</strong>: 분석(원천/목적지 파악) → 설계(매핑 규칙, 변환 로직) → 개발(ETL 스크립트) → 테스트(검증, 정합성 확인) → 전환(빅뱅 or 점진적) → 검증(마이그레이션 후 품질 검증)</li>
-<li><strong>핵심 도구 및 방법</strong>:<ul>
-<li><strong>ETL(Extract-Transform-Load)</strong>: 추출 → 변환 → 적재의 표준 데이터 이전 방법</li>
-<li><strong>데이터 매핑</strong>: 원천 필드와 목적지 필드의 변환 규칙 정의</li>
-<li><strong>데이터 정합성 검증</strong>: Row Count, Sum Check, Hash Check 등으로 이전 전후 데이터 검증</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 마이그레이션에서 가장 큰 리스크는 데이터 손실과 무결성 위반이므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Rollback 계획을 사전에 수립하고 병행 운영(Parallel Run) 기간을 반드시 설정</strong></u></span>해야 함</li>
-</ul>
+<h3>[Part 12] 마이그레이션</h3>
 
 </body>
 </html>
