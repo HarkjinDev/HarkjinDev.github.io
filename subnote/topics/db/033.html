@@ -21,10 +21,10 @@
 <li><strong>키워드</strong>: Locking, 2PL, Timestamp, MVCC, 낙관적 검증, 갱신분실/현황파악오류/모순읽기/연쇄복귀</li>
 <li><strong>분류</strong>: 트랜잭션/병행제어</li>
 <li><strong>주요 문제점 (병행 오류)</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;갱현모연&gt;</strong></span><ul>
-<li><strong>갱신 분실(Lost Update)</strong>: 두 트랜잭션이 동시에 같은 데이터를 갱신하여 하나가 손실</li>
-<li><strong>현황 파악 오류(Dirty Read)</strong>: 아직 완료되지 않은 트랜잭션의 값을 읽음</li>
-<li><strong>모순 읽기(Inconsistent Read)</strong>: 한 트랜잭션 내에서 같은 데이터가 다르게 읽힘</li>
-<li><strong>연쇄 복귀(Cascading Rollback)</strong>: 한 트랜잭션 취소가 연관 트랜잭션 취소로 연쇄</li>
+<li><strong>갱신 분실(Lost Update)</strong>: (Over Write) 두 트랜잭션이 동시에 같은 데이터를 갱신하여 하나가 손실</li>
+<li><strong>현황 파악 오류(Dirty Read)</strong>: (Uncommit Read) 아직 완료되지 않은 트랜잭션의 값을 읽음</li>
+<li><strong>모순 읽기(Inconsistent Read)</strong>: (동시 실행) 한 트랜잭션 내에서 같은 데이터가 다르게 읽힘</li>
+<li><strong>연쇄 복귀(Cascading Rollback)</strong>: (회복 불가) 한 트랜잭션 취소가 연관 트랜잭션 취소로 연쇄</li>
 </ul>
 </li>
 <li><strong>제어 기법</strong>:<ul>

@@ -44,24 +44,25 @@
 </table></div>
 </li>
 <li><strong>회복기법 유형</strong>:   <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;즉언지리/첵그아&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>방법</th><th>설명</th></tr>
+<tr><th>방법</th><th>설명</th><th>장애회복</th></tr>
 <tr><td><strong>로그기반 회복기법</strong> 
-(즉시갱신)</td><td>트랜잭션 수행 중 갱신 결과를 <strong>DB와 로그에 즉시 반영. </strong>
-<strong>  • 장애회복: </strong>로그기반<strong> Undo 수행</strong></td></tr>
+(즉시갱신)</td><td>트랜잭션 수행 중 갱신 결과를 <strong>DB와 로그에 즉시 반영</strong></td><td>UNDO</td></tr>
 <tr><td><strong>로그기반 회복기법
-</strong>(지연갱신)</td><td>트랜잭션 수행 중 로그만 기록, 트랜잭션 종료 후 commit 시점에 DB 반영.
-<strong>  • 장애회복:</strong> 트랙잭션 종료 : <strong>REDO만 실행</strong>, 트랜잭션 미종료 : log 무시</td></tr>
-<tr><td><strong>Check Point 기법</strong></td><td>트랜잭션 변경 로그기록 → 일정시점(체크포인트)마다 트랜잭션 상태 체크, 완료된 트랜잭션 DB에 반영 → 검사점 활용하여 장애 시 신속 복구 
-  • <strong>장애회복:</strong> 미완료 트랜잭션: Undo, 완료: Redo 실행
-<strong>퍼지 체크포인트:</strong> 체크포인트 수행 중에도 트랜잭션 처리를 계속 허용하는 방식
-(단점 보완) 체크포인트 수행 시, 트랜잭션 처리를 중단하는 단점을 보완</td></tr>
-<tr><td><strong>그림자 페이지 기법</strong></td><td>트랜잭션이 실행되는 동안 2개의 페이지 테이블 유지·관리. 
-<strong>  • 트랜잭션 실행 중:</strong> 데이터 접근은 current page table만 사용. 
-  • <strong>commit:</strong> current page table 내용 → shadow page table에 저장
-<strong>  • 장애회복: </strong>crash 발생 시 current page table 폐기</td></tr>
-<tr><td><strong>ARIES 기법</strong></td><td>WAL(Write Ahead Logging) 및 LSN(Log Sequence Number)을 이용하는 회복 기법
-  • <strong>구성 요소</strong>: LSN(로그 순차 번호), 오손 페이지 테이블(Dirty Page Table), 체크포인트 레코드
-  • <strong>장애회복</strong> Analysis(분석) → Redo(재실행) → Undo(취소) 3단계 수행</td></tr>
+</strong>(지연갱신)</td><td>트랜잭션 수행 중 로그만 기록, 트랜잭션 종료 후 commit 시점에 DB 반영</td><td>REDO</td></tr>
+<tr><td><strong>Check Point </strong></td><td>로그파일에 검사점을 기록하고 장애 발생 시, 검사점 이후의 트랜잭션에 대해서만 회복작업을 수행하는 회복 기법
+</td><td><strong>회복제외:</strong> 검사전 이전,
+<strong>미완료 트랜잭션:</strong> Undo, 
+<strong>완료:</strong> Redo 실행</td></tr>
+<tr><td><strong>퍼지 체크포인트</strong></td><td>기존 체크포인트 수행 시 트랜잭션 처리를 중단하는 단점을 보완한, 체크포인트 수행 중에도 트랜잭션 처리를 계속 허용하는 방식 </td><td><strong>회복제외:</strong> 검사전 이전,
+<strong>미완료 트랜잭션:</strong> Undo, 
+<strong>완료:</strong> Redo 실행</td></tr>
+<tr><td><strong>그림자 페이지 기법</strong></td><td>트랜잭션이 실행되는 동안 2개의 페이지 테이블 유지·관리, shadow(별도 HDD)
+(<strong>트랜잭션 실행 중) </strong>데이터 접근은 current page table만 사용
+(<strong>commit)</strong> current page table 내용 → shadow page table에 저장</td><td>Shadow page 회복, Current page 폐기</td></tr>
+<tr><td><strong>ARIES 기법</strong></td><td>WAL(로그선행기록), Repeating History(Redo 역사반복), CLR(보상레코드기록) 통한 회복 기법.
+장애 직전까지 모든 로그를 Redo로 복원하여, 미완료 트랜잭션은 역방향으로 Undo 하는 방식.
+(<strong>구성 요소)</strong> LSN(로그 순차 번호), 오손 페이지 테이블(Dirty Page Table), 체크포인트 레코드</td><td>Analysis(분석, 순방향) → Redo(재실행, 순방향) → 
+Undo(취소, 역방향)</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 회복기법 선택 시 시스템 특성에 따라 다르며, 로그기반은 세밀한 복구가 가능하지만 로그 조사 오버헤드가 있고, CheckPoint는 복구 범위를 줄여 성능을 높이며, 그림자 페이지는 로그 없이 페이지 단위 복구가 가능하나 저장 공간 비용이 크다는 트레이드오프를 답안에 반드시 언급 권장</li>

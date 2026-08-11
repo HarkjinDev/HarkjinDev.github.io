@@ -452,6 +452,12 @@
   {
     "domain": "SEC",
     "fname": "sec",
+    "topic": "1. 디지털 포렌식 (Digital Forensics)",
+    "mnemonic": "<수복연분보>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
     "topic": "5. 안티포렌식 (Anti-Forensics)",
     "mnemonic": "<삭은변암>"
   },
@@ -520,6 +526,12 @@
     "fname": "sec",
     "topic": "3. 개인정보 비식별조치 (De-identification)",
     "mnemonic": "<가총삭범마>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "5. 가명처리 (Pseudonymization)",
+    "mnemonic": "<통과공>"
   },
   {
     "domain": "SEC",
@@ -610,6 +622,12 @@
     "fname": "nw",
     "topic": "1. QoS (Quality of Service)",
     "mnemonic": "<대연터패>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "3. 트래픽 폴리싱/쉐이핑 (Traffic Policing/Shaping)",
+    "mnemonic": "<폴드샤버>"
   },
   {
     "domain": "NW",
@@ -1012,6 +1030,12 @@
     "fname": "st",
     "topic": "1. 확률분포(Probability distribution)",
     "mnemonic": "<이질연밀 / 베이기다포 / 정지균티카프>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "2. t-검정 (t-test)",
+    "mnemonic": "<독두대단>"
   },
   {
     "domain": "ST",
@@ -1497,7 +1521,7 @@
     "domain": "BIZ/PM",
     "fname": "bizpm",
     "topic": "[하위] 6-1. 공공 SLA - 공공부문 정보시스템 등급 재편(26.4.)",
-    "mnemonic": "<핵필중국>"
+    "mnemonic": "<국대행일>"
   },
   {
     "domain": "BIZ/PM",

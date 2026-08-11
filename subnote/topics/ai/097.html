@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. AIOps (Artificial Intelligence for IT Operations)</title>
+  <title>4. AI 실무 응용 (산업별 특화 토픽)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,49 +15,19 @@
   </style>
 </head>
 <body>
-<h4>3. AIOps (Artificial Intelligence for IT Operations)</h4>
+<h4>4. AI 실무 응용 (산업별 특화 토픽)</h4>
 <ul>
-<li><strong>정의:</strong> AI 기반으로 IT운영데이터를 분석해 장애예측·원인분석·자동화하는 지능형 운영기술</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Observability, MELT, Anomaly Detection, RCA, Predictive Analytics, Self-Healing</strong></u></span></li>
 <li><strong>분류</strong>: AI 운영/실무</li>
-<li><strong>등장 배경:</strong></li>
-<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>분석·예측·자동화 3단계</strong></u></span></td><td>알림중심 모니터링을 넘어 분석→예측→자동화 수행</td><td>3단계 지능운영</td></tr>
-<tr><td><strong>Observability 기반</strong></td><td>텔레메트리(MELT) 수집</td><td>통합 관측성</td></tr>
-<tr><td><strong>이벤트 상관분석, 이상탐지</strong></td><td>다수 이벤트를 하나의 장애로 통합</td><td>이벤트 노이즈감소</td></tr>
-<tr><td><strong>RCA 자동화</strong></td><td>근본원인(Root Cause)을 AI가 자동 추론</td><td>근본원인 자동추론</td></tr>
-<tr><td><strong>장애 예측</strong></td><td>장애 발생가능성 사전예측</td><td>장애 예측</td></tr>
-<tr><td><strong>자동 대응</strong></td><td>Playbook 실행, Self-Healing 복구, 자동 구성</td><td>자동 복구/구성</td></tr>
-</table></div>
+<li><strong>키워드</strong>: 이상 탐지, 객체 인식, HRI(인간-로봇 상호작용), 합성 데이터, 옴니채널</li>
+<li><strong>산업별 응용 사례</strong>:<ul>
+<li><strong>설비 예지정비 (Predictive Maintenance)</strong>: 센서 데이터를 AI로 분석하여 고장 징후를 사전에 포착하고 수리 주기를 최적화하는 기술</li>
+<li><strong>딥뷰 (DeepView)</strong>: 시각 데이터(CCTV 등)를 실시간 분석하여 상황(화재, 범죄 등)을 이해하고 예측하는 시각 지능 기술</li>
+<li><strong>소셜 로봇 (Social Robot)</strong>: 인간과 상호작용하며 정서적 교감과 서비스를 제공하는 AI 기반 로봇</li>
+<li><strong>딥페이크 (Deepfake)</strong>: GAN 등 생성 모델을 이용해 인물의 얼굴이나 음성을 정교하게 합성하는 기술 (순기능과 역기능 공존)</li>
+<li><strong>인공지능 콜센터 (AICC)</strong>: STT/TTS와 NLP를 결합하여 상담 업무를 자동화하고 고객 경험을 개선하는 시스템</li>
+</ul>
 </li>
-<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>분석기술</strong></td><td>ML 이상탐지</td><td>이상탐지·예측분석 수행</td></tr>
-<tr><td></td><td>예측 분석</td><td>장애 발생 확률 및 장애 시점 예측</td></tr>
-<tr><td></td><td>로그 파싱·임베딩</td><td>비정형로그 구조화·벡터화</td></tr>
-<tr><td></td><td>용량 예측</td><td>리소스 사용추이 기반 스케일링 예측</td></tr>
-<tr><td><strong>지식·표현기술</strong></td><td>NLP/LLM</td><td>로그분석·질의응답·장애요약</td></tr>
-<tr><td></td><td>지식 그래프</td><td>장애원인·영향관계 표현</td></tr>
-<tr><td></td><td>그래프 기반 분석</td><td>서비스 의존성 및 RCA 분석</td></tr>
-<tr><td><strong>관측·실행기술</strong></td><td>Observability</td><td>Logs/Metrics/Traces 통합관측</td></tr>
-<tr><td></td><td>OpenTelemetry</td><td>표준 Telemetry 데이터 수집</td></tr>
-<tr><td><strong>자동화·대응</strong></td><td>Playbook</td><td>워크플로우 자동 실행</td></tr>
-<tr><td></td><td>Predictive Scaling</td><td>워크로드 증가를 예측하여 사전 증설</td></tr>
-<tr><td></td><td>Self-Healing</td><td>자동 재시작·Failover·복구</td></tr>
-<tr><td></td><td>Auto Remediation</td><td>설정 변경, 서비스 재배포, 네트워크 우회 등 자동 조치</td></tr>
-</table></div>
-</li>
-<li><strong>비교표:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>AIOps</th><th>MLOps</th><th>DataOps</th></tr>
-<tr><td><strong>목적</strong></td><td>IT 운영 자동화</td><td>ML 모델 운영</td><td>데이터 파이프라인 운영</td></tr>
-<tr><td><strong>대상</strong></td><td>시스템 운영</td><td>AI 모델</td><td>데이터</td></tr>
-<tr><td><strong>핵심기술</strong></td><td>Observability, RCA</td><td>CI/CD, Model Registry</td><td>ETL/ELT, Data Quality</td></tr>
-<tr><td><strong>결과</strong></td><td>장애예측·자동복구</td><td>모델배포·운영</td><td>데이터품질 향상</td></tr>
-</table></div>
-</li>
-<li><strong>발전 방향:</strong> 모니터링(임계치 알림) → 관측성(Observability, 통합분석) → AIOps(AI기반 탐지·예측·RCA) → GenAIOps(생성형AI 기반 자연어운영·자동조치)</li>
-<li><strong>인사이트:</strong> AIOps는 옵저버빌리티 기반 AI분석으로 장애를 예측·자동복구하며, 생성형AI와 결합한 GenAIOps로 진화해 자율운영(Autonomous Operations)을 지향하고 있다.</li>
+<li><strong>인사이트</strong>: 기술 자체보다 도메인 지식(Domain Knowledge)과 AI의 결합을 통해 실질적 비즈니스 가치를 창출하는 것이 중요</li>
 </ul>
 
 </body>

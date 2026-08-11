@@ -31,6 +31,20 @@
 <tr><td><strong>IA³</strong></td><td>Attention·FFN의 활성화 값에 학습 가능한 스케일 벡터 곱</td><td>~0.01%</td><td>추론 비용 증가 없음, 극소 파라미터</td></tr>
 </table></div>
 </li>
+<li><strong>프롬프트 튜닝: </strong>학습 가능한 프롬프트 벡터를 데이터로부터 최적화 하는 기법<ul>
+<li>전체 모델을 재학습 하지 않아 비용 효율적으로 파이프라인 성능을 개선할 수 있음</li>
+<li><strong>Hard Prompt Tuning:</strong> 이산적인 자연어 토큰 자체를 탐색 및 조합하여 최적의 프롬프트<ul>
+<li>후보 문구 선정 → 성능 평가 → 최적 문구 선택</li>
+</ul>
+</li>
+<li><strong>Soft Prompt Tuning:</strong> 자연어 토큰이 아닌 연속적인 임베딩 벡터를 학습 가능한 파라미터로 도입<ul>
+<li><strong>가상 토큰 초기화:</strong> 학습 가능한 임베딩 벡터 생성</li>
+<li><strong>경사 기반 학습:</strong> 과제 데이터로 벡터 최적화</li>
+<li><strong>프롬프트 결합:</strong> 입력 앞단에 최적화된 벡터 결합</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><strong>인사이트: </strong>PEFT는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>LLM 파인튜닝의 민주화를 실현한 핵심 기술</strong></u></span>로, 대형 AI 연구소만 가능했던 모델 특화 작업을 개인·스타트업 수준에서도 가능하게 만든 패러다임 전환점.멀티태스크 환경에서 PEFT의 진가가 발휘됨 — 태스크별 경량 어댑터(수 MB)만 교체하면 되므로, 수백억 파라미터 모델을 태스크마다 별도 유지하는 비효율을 근본적으로 해소.</li>
 </ul>
 
