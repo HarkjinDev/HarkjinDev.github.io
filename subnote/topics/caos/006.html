@@ -35,15 +35,15 @@
 </li>
 <li><strong>해저드 해결방안: </strong><div class="table-scroll"><table>
 <tr><th><strong>해저드 유형</strong></th><th><strong>해결방안</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>해저드 공통</strong></td><td>Stall or Bubble Cycle</td><td>1명령어 구간에 Stall을 추가하여 유효 수행 시까지 지연</td></tr>
-<tr><td><strong>구조적 해저드</strong></td><td>하드웨어 구조 변경</td><td>하버드 아키텍처 사용 및 하드웨어 구조 변경으로 해결</td></tr>
-<tr><td><strong>데이터 해저드</strong></td><td>자원 추가</td><td>ALU, FPU, 메모리 등 자원을 추가하여 중복 설계</td></tr>
-<tr><td></td><td>메모리 인터리빙</td><td>메모리 모듈별 병렬 접근을 통해 동시 접근 수행</td></tr>
-<tr><td></td><td>Forwarding</td><td>연산 결과를 다음 스테이지에 직접 전달하여 지연 최소화</td></tr>
-<tr><td></td><td>Reordering</td><td>Reservation Table 등을 이용해 명령어 실행 순서 조정</td></tr>
-<tr><td></td><td>Restrict S/W</td><td>컴파일러에서 nop 삽입 또는 영향 없는 범위 내 순서 변경</td></tr>
-<tr><td><strong>제어 해저드</strong></td><td>Delayed Branch(순서변경)</td><td>컴파일러 코드 순서 변경을 통해 분기를 지연시켜 손실 최소화</td></tr>
-<tr><td></td><td>Predict Branch(분기예측)</td><td>로컬/글로벌/Gshare 등 다양한 기법을 활용한 분기 예측</td></tr>
+<tr><td><strong>해저드 공통</strong></td><td><strong>Stall/Bubble Cycle</strong></td><td>1명령어 구간에 Stall을 추가하여 유효 수행 시까지 지연</td></tr>
+<tr><td><strong>구조적 해저드</strong></td><td><strong>하드웨어 구조 변경</strong></td><td>하버드 아키텍처 사용 및 하드웨어 구조 변경으로 해결</td></tr>
+<tr><td></td><td><strong>자원 추가</strong></td><td>ALU, FPU, 메모리 등 자원을 추가하여 중복 설계</td></tr>
+<tr><td></td><td><strong>메모리 인터리빙</strong></td><td>메모리 모듈별 병렬 접근을 통해 동시 접근 수행</td></tr>
+<tr><td><strong>데이터 해저드</strong></td><td><strong>Forwarding(Bypass)</strong></td><td>연산 결과를 다음 스테이지에 직접 전달하여 지연 최소화</td></tr>
+<tr><td></td><td><strong>Reordering(비순차적)</strong></td><td>Reservation Table 등을 이용해 명령어 실행 순서 조정</td></tr>
+<tr><td></td><td><strong>컴파일러 스케줄링</strong></td><td>컴파일러에서 nop 삽입 또는 영향 없는 범위 내 순서 변경</td></tr>
+<tr><td><strong>제어 해저드</strong></td><td><strong>Delayed Branch(지연분기)</strong></td><td>컴파일러 코드 순서 변경을 통해 분기를 지연시켜 손실 최소화</td></tr>
+<tr><td></td><td><strong>Predict Branch(분기예측)</strong></td><td>로컬/글로벌/Gshare 등 다양한 기법을 활용한 분기 예측</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 파이프라인 단계 수가 많을수록 해저드 발생 시 플러시(Flush) 비용도 커지므로 단계 수와 분기 예측 정확도의 균형이 핵심</li>

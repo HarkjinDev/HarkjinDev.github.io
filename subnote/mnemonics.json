@@ -1185,7 +1185,13 @@
     "domain": "CA/OS",
     "fname": "caos",
     "topic": "6. 인터럽트 (Interrupt)",
-    "mnemonic": "<전기외입 / 명프스>"
+    "mnemonic": "<전기외입/ 명프스>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "6. 인터럽트 (Interrupt)",
+    "mnemonic": "<금저처복허>"
   },
   {
     "domain": "CA/OS",
@@ -1234,6 +1240,12 @@
     "fname": "caos",
     "topic": "11. 큐비트 (Qubit) & 양자 컴퓨팅",
     "mnemonic": "<중얽불비>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "1. 고가용성 (HA, High Availability)",
+    "mnemonic": "<핫뮤컨>"
   },
   {
     "domain": "CA/OS",

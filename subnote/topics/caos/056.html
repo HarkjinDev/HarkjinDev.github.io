@@ -24,14 +24,14 @@
 <li><strong>Mirroring:</strong> 동일한 데이터를 다른 디스크에 그대로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>복제</strong></u></span>하여 저장</li>
 <li><strong>RAID 레벨:</strong><div class="table-scroll"><table>
 <tr><th>레벨</th><th>구성 방식</th><th>최소</th><th>유효 용량</th><th>특징</th></tr>
-<tr><td>RAID 0</td><td>스트라이핑</td><td>2</td><td>n/n (100%)</td><td>최고 성능, 장애 허용 없음</td></tr>
-<tr><td>RAID 1</td><td>미러링</td><td>2</td><td>n/2n (50%)</td><td>최고 가용성, 비용 높음</td></tr>
-<tr><td>RAID 3</td><td>스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>순차 처리 최적, 병목 발생</td></tr>
-<tr><td>RAID 4</td><td>블록 스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>랜덤 읽기 우수, 병목 발생</td></tr>
-<tr><td>RAID 5</td><td>스트라이핑 + 분산 패리티</td><td>3</td><td>(n-1)/n</td><td>1개 디스크 장애 허용, 실용적</td></tr>
-<tr><td>RAID 6</td><td>스트라이핑 + 이중 패리티</td><td>4</td><td>(n-2)/n</td><td>2개 디스크 동시 장애 허용</td></tr>
-<tr><td>RAID 1+0</td><td>미러링 후 스트라이핑</td><td>4</td><td>50%</td><td>고성능 + 고가용성, 비용 가장 높음</td></tr>
-<tr><td>RAID 0+1</td><td>스트라이핑 후 미러링</td><td>4</td><td>50%</td><td>RAID1+0보다 장애 복구 취약</td></tr>
+<tr><td><strong>RAID 0</strong></td><td>스트라이핑</td><td>2</td><td>n/n (100%)</td><td>최고 성능, 장애 허용 없음</td></tr>
+<tr><td><strong>RAID 1</strong></td><td>미러링</td><td>2</td><td>n/2n (50%)</td><td>최고 가용성, 비용 높음</td></tr>
+<tr><td><strong>RAID 3</strong></td><td>스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>순차 처리 최적, 병목 발생</td></tr>
+<tr><td><strong>RAID 4</strong></td><td>블록 스트라이핑 + 전용 패리티</td><td>3</td><td>(n-1)/n</td><td>랜덤 읽기 우수, 병목 발생</td></tr>
+<tr><td><strong>RAID 5</strong></td><td>스트라이핑 + 분산 패리티</td><td>3</td><td>(n-1)/n</td><td>1개 디스크 장애 허용, 실용적</td></tr>
+<tr><td><strong>RAID 6</strong></td><td>스트라이핑 + 이중 패리티</td><td>4</td><td>(n-2)/n</td><td>2개 디스크 동시 장애 허용</td></tr>
+<tr><td><strong>RAID 1+0</strong></td><td>미러링 후 스트라이핑</td><td>4</td><td>50%</td><td>고성능 + 고가용성, 비용 가장 높음</td></tr>
+<tr><td><strong>RAID 0+1</strong></td><td>스트라이핑 후 미러링</td><td>4</td><td>50%</td><td>RAID1+0보다 장애 복구 취약</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 데이터베이스 환경에서는 RAID 1+0(성능+가용성)이 선호되고, 비용 효율적인 대용량 저장에는 RAID 5/6이 적합함. RAID 6은 RAID 5 재구축 중 두 번째 디스크 장애 위험을 고려한 현실적 선택임</li>

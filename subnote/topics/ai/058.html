@@ -17,14 +17,14 @@
 <body>
 <h4>4. RAG (Retrieval-Augmented Generation, 검색 증강 생성)</h4>
 <ul>
-<li><strong>정의</strong>: LLM이 학습하지 않은 최신 데이터나 내부 문서를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>외부 지식 베이스에서 검색(Retrieval)</strong></u></span>하여 그 내용을 참고해 답변을 생성하는 기술</li>
+<li><strong>정의</strong>: LLM이 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>외부 지식 베이스에서 검색(Retrieval)</strong></u></span>하여 그 내용을 참고해 답변을 생성하는 기술</li>
 <li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>환각(Hallucination) 방지, 벡터 DB</strong></u></span>, 청킹, 시맨틱 검색, 리랭커, 쿼리 임베딩, 하이브리드 검색, HyDE</li>
 <li><strong>분류</strong>: 생성형 AI/LLM</li>
 <li><strong>핵심 구성 요소:</strong><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>핵심</strong></th></tr>
 <tr><td><strong>Embedding</strong></td><td><strong>청킹 (Chunking)</strong></td><td>문서 적정 분할</td></tr>
 <tr><td></td><td><strong>임베딩 모델</strong></td><td>텍스트를 고차원 벡터로 변환</td></tr>
-<tr><td>Vetor DB</td><td><strong>근사 탐색 (ANN)</strong></td><td>HNSF(계층적 그래프), IVF(역색인 클러스터링)</td></tr>
+<tr><td><strong>Vetor DB</strong></td><td><strong>근사 탐색 (ANN)</strong></td><td>HNSF(계층적 그래프), IVF(역색인 클러스터링)</td></tr>
 <tr><td></td><td><strong>ENN(Exact)</strong></td><td>정확도 100% 검색</td></tr>
 <tr><td></td><td><strong>k-NN(k-최근접)</strong></td><td>k거리 기반 근접 탐색</td></tr>
 <tr><td><strong>Retriever</strong></td><td><strong>시맨틱 검색</strong></td><td>의미 기반 유사도 검색 </td></tr>
@@ -66,12 +66,12 @@
 <tr><td><strong>메타데이터 필터링</strong></td><td>속성(날짜, 출처 등) 기반 검색 범위 제한</td><td>노이즈 제거 및 검색 효율 증대</td></tr>
 </table></div>
 </li>
-<li><strong>RAGAS(RAG 평가, RAG Assessment):</strong><div class="table-scroll"><table>
+<li><strong>RAGAS(RAG 평가, RAG Assessment): </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>세부</th><th>핵심</th></tr>
-<tr><td><strong>검색 정합성</strong></td><td>Context Precision(컨텍스트 정밀도)</td><td>정밀도 측정</td></tr>
-<tr><td></td><td>Context Recall(컨텍스트 재현율)</td><td>재현율 확인</td></tr>
-<tr><td><strong>생성 정합성</strong></td><td>Faithfulness(충실도)</td><td>근거 충실도</td></tr>
-<tr><td></td><td>Answer Relevance(답변 관련성)</td><td>관련성 평가</td></tr>
+<tr><td><strong>검색 정합성</strong></td><td><strong>Context Precision(컨텍스트 정밀도)</strong></td><td>정밀도 측정</td></tr>
+<tr><td></td><td><strong>Context Recall(컨텍스트 재현율)</strong></td><td>재현율 확인</td></tr>
+<tr><td><strong>생성 정합성</strong></td><td><strong>Faithfulness(충실도)</strong></td><td>근거 충실도</td></tr>
+<tr><td></td><td><strong>Answer Relevance(답변 관련성)</strong></td><td>관련성 평가</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 기업용 AI(B2B) 구축 시 보안 유지와 정보의 정확성을 확보하기 위한 실질적인 표준(De-facto standard) 기법</li>

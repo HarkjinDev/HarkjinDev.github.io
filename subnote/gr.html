@@ -598,26 +598,26 @@
 <li><strong>AI 보안위협 대응방안: </strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>보안위협</th><th>대응방안</th></tr>
 <tr><td>데이터</td><td><strong>불균형 데이터</strong></td><td>오버·언더샘플링(SMOTE 등), 소수집단 가중치 부여, 공정성 제약 학습</td></tr>
-<tr><td>데이터</td><td><strong>부정확한 데이터</strong></td><td>신뢰출처 확보·교차검증, 모순데이터 제거, 품질검증 파이프라인(HITL)</td></tr>
-<tr><td>데이터</td><td><strong>개인정보 비식별화 미흡</strong></td><td>다층 필터링(패턴·NER·LLM·사람검토), 안전 응답 파인튜닝, 차등정보보호</td></tr>
+<tr><td></td><td><strong>부정확한 데이터</strong></td><td>신뢰출처 확보·교차검증, 모순데이터 제거, 품질검증 파이프라인(HITL)</td></tr>
+<tr><td></td><td><strong>개인정보 비식별화 미흡</strong></td><td>다층 필터링(패턴·NER·LLM·사람검토), 안전 응답 파인튜닝, 차등정보보호</td></tr>
 <tr><td>모델</td><td><strong>학습 데이터 유출</strong></td><td>개인정보 필터링·마스킹, 차등 프라이버시, 출력 민감패턴 차단</td></tr>
-<tr><td>모델</td><td><strong>벡터DB·임베딩 유출</strong></td><td>이중 접근제어(토큰·tenant필터), RBAC·ABAC 정책엔진, 색인단계 마스킹</td></tr>
-<tr><td>모델</td><td><strong>시스템 프롬프트 유출</strong></td><td>입력·출력 필터, system/user 문맥 분리, 유출요청 거절 재학습</td></tr>
-<tr><td>모델</td><td><strong>모델 유출</strong></td><td>저장소 접근통제(IAM·VPC), API 파라미터 통제(logit_bias 제한), 출력정밀도 축소</td></tr>
-<tr><td>모델</td><td><strong>환각(Hallucination)</strong></td><td>근거문서 기반 응답 제한, 출처 제시, 근거부족시 답변보류, RAG 일치검증</td></tr>
-<tr><td>모델</td><td><strong>탈옥(Jailbreak)</strong></td><td>시스템프롬프트 강화, 가드레일(사전·사후 필터링), HITL, RLHF 재학습</td></tr>
-<tr><td>모델</td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증·파싱·인코딩, 컨텍스트별 이스케이핑(SQL·HTML·쉘 등)</td></tr>
-<tr><td>모델</td><td><strong>모델 DoS</strong></td><td>API 요청 횟수·속도·길이 제한, 이상패턴 모니터링, 특수토큰 필터링</td></tr>
+<tr><td></td><td><strong>벡터DB·임베딩 유출</strong></td><td>이중 접근제어(토큰·tenant필터), RBAC·ABAC 정책엔진, 색인단계 마스킹</td></tr>
+<tr><td></td><td><strong>시스템 프롬프트 유출</strong></td><td>입력·출력 필터, system/user 문맥 분리, 유출요청 거절 재학습</td></tr>
+<tr><td></td><td><strong>모델 유출</strong></td><td>저장소 접근통제(IAM·VPC), API 파라미터 통제(logit_bias 제한), 출력정밀도 축소</td></tr>
+<tr><td></td><td><strong>환각(Hallucination)</strong></td><td>근거문서 기반 응답 제한, 출처 제시, 근거부족시 답변보류, RAG 일치검증</td></tr>
+<tr><td></td><td><strong>탈옥(Jailbreak)</strong></td><td>시스템프롬프트 강화, 가드레일(사전·사후 필터링), HITL, RLHF 재학습</td></tr>
+<tr><td></td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증·파싱·인코딩, 컨텍스트별 이스케이핑(SQL·HTML·쉘 등)</td></tr>
+<tr><td></td><td><strong>모델 DoS</strong></td><td>API 요청 횟수·속도·길이 제한, 이상패턴 모니터링, 특수토큰 필터링</td></tr>
 <tr><td>에이전트</td><td><strong>부적절한 도구 설계</strong></td><td>역할별 도구 제한, 최소권한, 샌드박스 실행, MCP 화이트리스트</td></tr>
-<tr><td>에이전트</td><td><strong>에이전트 하이재킹</strong></td><td>데이터소스 신뢰성 평가, 악성패턴 필터링, 최소권한, 명령·데이터 분리</td></tr>
-<tr><td>에이전트</td><td><strong>에이전트 DoS</strong></td><td>반복횟수·시간 제한(max_iterations), 요청 제한, 재시도 탐지·차단</td></tr>
-<tr><td>에이전트</td><td><strong>에이전트 메모리 오염</strong></td><td>장기메모리 저장 제한, 세션별 메모리 분리, 저장 전 안전성 검증</td></tr>
+<tr><td></td><td><strong>에이전트 하이재킹</strong></td><td>데이터소스 신뢰성 평가, 악성패턴 필터링, 최소권한, 명령·데이터 분리</td></tr>
+<tr><td></td><td><strong>에이전트 DoS</strong></td><td>반복횟수·시간 제한(max_iterations), 요청 제한, 재시도 탐지·차단</td></tr>
+<tr><td></td><td><strong>에이전트 메모리 오염</strong></td><td>장기메모리 저장 제한, 세션별 메모리 분리, 저장 전 안전성 검증</td></tr>
 <tr><td>공급망</td><td><strong>데이터 포이즈닝</strong></td><td>출처·신뢰성 확인, 변경이력 관리, 이상데이터 탐지·제거, 버전복구</td></tr>
-<tr><td>공급망</td><td><strong>모델 포이즈닝</strong></td><td>신뢰 출처 모델 사용, 파일 검토, 모델 암호화·무결성 검증</td></tr>
-<tr><td>공급망</td><td><strong>취약한 추론엔진 사용</strong></td><td>최신 보안패치 적용, 입력 유효성 검증, SBOM 구성요소 관리</td></tr>
-<tr><td>공급망</td><td><strong>취약한 에이전트 확장요소</strong></td><td>최신 패치 확장요소 사용, 입력 검증, SBOM 관리</td></tr>
+<tr><td></td><td><strong>모델 포이즈닝</strong></td><td>신뢰 출처 모델 사용, 파일 검토, 모델 암호화·무결성 검증</td></tr>
+<tr><td></td><td><strong>취약한 추론엔진 사용</strong></td><td>최신 보안패치 적용, 입력 유효성 검증, SBOM 구성요소 관리</td></tr>
+<tr><td></td><td><strong>취약한 에이전트 확장요소</strong></td><td>최신 패치 확장요소 사용, 입력 검증, SBOM 관리</td></tr>
 <tr><td>고성능모델</td><td><strong>고도화된 사이버공격 지원</strong></td><td>모델 정렬(거부·안전응답), 입출력 필터링, 이상패턴 모니터링, 단계적 배포</td></tr>
-<tr><td>고성능모델</td><td><strong>자율성 통제 상실</strong></td><td>운영정책 사전정의, 최소권한·허용목록, 로그·이상행위 모니터링</td></tr>
+<tr><td></td><td><strong>자율성 통제 상실</strong></td><td>운영정책 사전정의, 최소권한·허용목록, 로그·이상행위 모니터링</td></tr>
 </table></div>
 </li>
 </ul>

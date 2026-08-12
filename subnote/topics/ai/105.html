@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. AI RMF (AI Risk Management Framework)</title>
+  <title>[하위] 1-2. 인공지능 신뢰성 인증 (CAT, Certification of AI Trustworthiness)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,36 +15,54 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. AI RMF (AI Risk Management Framework)</h4>
+<h4>[하위] 1-2. 인공지능 신뢰성 인증 (CAT, Certification of AI Trustworthiness)</h4>
 <ul>
-<li><strong>정의</strong>: 미국 국립표준기술연구소(NIST)가 제시한 AI 시스템의 신뢰성 확보를 위해 위험을 식별·평가·완화·모니터링하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자발적 프레임워크</strong></u></span></li>
-<li><strong>키워드</strong>: NIST, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GOVERN·MAP·MEASURE·MANAGE, 7대 신뢰성 특성</strong></u></span>, 위험 완화, 자발적 프레임워크</li>
+<li><strong>정의:</strong> 국제표준 기반으로 AI 위험관리·신뢰성 확보수준을 검증하는 인증제도</li>
+<li><strong>키워드:</strong> ISO/IEC 23894, ISO/IEC 42001, ISO/IEC 38507, ISO/IEC TR 24028, TTA, 위험관리, 신뢰성확보조치</li>
 <li><strong>분류</strong>: AI 윤리/거버넌스</li>
-<li><strong>주요 특징</strong>:<ul>
-<li><strong>자발적 적용</strong>: 법적 강제가 아닌 조직이 자율적으로 채택하는 권고 프레임워크</li>
-<li><strong>유연성</strong>: 조직의 규모, 산업, AI 활용 목적에 맞게 커스터마이징하여 적용 가능</li>
-</ul>
-</li>
-<li><strong>4대 핵심 기능:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;거식측관&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>기능</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>GOVERN(거버넌스)</strong></td><td>위험 관리 문화 및 정책 수립</td><td>조직 내 책임 구조</td></tr>
-<tr><td><strong>MAP(식별/분석)</strong></td><td>시스템 맥락 및 위험 요소 파악</td><td>위험 요소 카테고리화</td></tr>
-<tr><td><strong>MEASURE(측정/평가)</strong></td><td>위험 정량·정성 분석 및 평가</td><td>우선순위 결정</td></tr>
-<tr><td><strong>MANAGE(관리/대응)</strong></td><td>위험 완화 계획 수립 및 대응</td><td>잔여 위험 지속 모니터링</td></tr>
+<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>국제표준 기반 평가</strong></td><td>ISO/IEC 23894·42001·38507 적합성 평가</td><td>국제표준 적합성</td></tr>
+<tr><td><strong>이원화 인증범위</strong></td><td>제품·서비스와 조직을 별도로 평가</td><td>대상별 이원화</td></tr>
+<tr><td><strong>심사+시험 병행</strong></td><td>문서·절차심사와 측정·기능시험 병행</td><td>심사·시험 병행</td></tr>
+<tr><td><strong>자가수행 위험관리 검증</strong></td><td>기업 자체 위험관리활동의 적정성 검증</td><td>자가위험관리 검증</td></tr>
 </table></div>
 </li>
-<li><strong>7대 신뢰성 특성 (Trustworthiness Characteristics)</strong>:<div class="table-scroll"><table>
-<tr><th><strong>특성</strong></th><th><strong>설명</strong></th><th><strong>역할</strong></th></tr>
-<tr><td><strong>유효성·신뢰성</strong></td><td>목적 부합 및 일관된 결과 산출</td><td><strong>신뢰성의 필수 기반</strong></td></tr>
-<tr><td><strong>안전성</strong></td><td>유해 결과 방지 및 사회 안전 보호</td><td>피해 방지 및 안전 확보</td></tr>
-<tr><td><strong>보안성·복원력</strong></td><td>공격 대응 및 시스템 복원력 확보</td><td>침해 사고 대응 및 복구</td></tr>
-<tr><td><strong>책임성·투명성</strong></td><td>운영 투명성 및 책임 소재 명시</td><td><strong>전체 특성 연결(수직적)</strong></td></tr>
-<tr><td><strong>설명·해석 가능성</strong></td><td>판단 근거 및 동작 원리 제공</td><td>결과에 대한 이해 지원</td></tr>
-<tr><td><strong>프라이버시 강화</strong></td><td>개인정보 보호 및 데이터 최소화</td><td>사용자 데이터 주권 보호</td></tr>
-<tr><td><strong>공정성·편향 관리</strong></td><td>편향 완화 및 특정 집단 차별 방지</td><td>알고리즘 평등성 확보</td></tr>
+<li><strong>인증대상·범위(4종): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;위신경거&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>인증대상</th><th>인증범위</th><th>적용표준</th><th>시험·심사내용</th></tr>
+<tr><td><strong>제품·서비스</strong></td><td><strong>AI 위험관리</strong></td><td>ISO/IEC 23894</td><td>위험관리 프레임워크·프로세스 심사</td></tr>
+<tr><td></td><td><strong>AI 신뢰성 확보조치</strong></td><td>ISO/IEC TR 24028</td><td>기획·개발·운영과정 위험완화조치 심사·시험(고위험 제품·서비스는 제외)</td></tr>
+<tr><td><strong>조직</strong></td><td><strong>AI 경영시스템(AIMS)</strong></td><td>ISO/IEC 42001</td><td>책임있는 AI 개발·운영 역량 심사</td></tr>
+<tr><td></td><td><strong>AI 사용(도입) 거버넌스</strong></td><td>ISO/IEC 38507</td><td>AI 도입조직의 거버넌스 심사</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 강제성은 없으나 미국 연방기관 및 글로벌 기업의 AI 도입 기준으로 빠르게 확산되고 있으며, EU AI Act 등 각국 규제와의 정합성을 고려한 통합 위험 관리 체계 설계가 필요함</li>
+<li><strong>인증 절차:</strong><div class="table-scroll"><table>
+<tr><th>절차</th><th>설명</th></tr>
+<tr><td><strong>1. 준비(상담·분석)</strong></td><td>조직·제품서비스 분석 후 인증대상·범위 합의, 비용확정(중소기업 할인)</td></tr>
+<tr><td><strong>2. 시험·심사</strong></td><td>예비심사로 문서·절차 점검, 측정·기능시험 환경 사전검토</td></tr>
+<tr><td><strong>3. 인증결정</strong></td><td>검증시험은 성적서·결과서 발급, 인증시험은 위원회 심의 후 인증서 발급</td></tr>
+<tr><td><strong>4. 인증유지</strong></td><td>조직대상 인증은 사후관리심사 수행</td></tr>
+</table></div>
+</li>
+<li><strong>CAT 점검항목(제품·서비스 부문 예시):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>안전성(Safety)</strong></td><td>유해출력 차단</td></tr>
+<tr><td><strong>설명가능성(Explainability)</strong></td><td>결과 설명력</td></tr>
+<tr><td><strong>공정성(Fairness)</strong></td><td>답변 일관성</td></tr>
+<tr><td><strong>견고성(Robustness)</strong></td><td>안정적 동작</td></tr>
+<tr><td><strong>개인정보보호(Privacy)</strong></td><td>개인정보 보호</td></tr>
+<tr><td><strong>제어가능성(Controllability)</strong></td><td>인간 통제가능</td></tr>
+</table></div>
+</li>
+<li><strong>활용 분야:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>AI서비스 신뢰성 입증</strong></td><td>대외 신뢰성·안전성 공식 인증 확보</td><td>신뢰성 공식입증</td></tr>
+<tr><td><strong>공공AI 도입평가 연계</strong></td><td>공공기관 AI도입 시 신뢰성 검증자료 활용</td><td>공공조달 연계</td></tr>
+<tr><td><strong>기업 AI거버넌스 구축</strong></td><td>ISO42001 기반 AI경영시스템 수립</td><td>경영시스템 구축</td></tr>
+<tr><td><strong>글로벌 진출 대응</strong></td><td>국제표준 기반이라 해외신뢰성 입증에 활용</td><td>국제표준 정합</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> CAT는 제품·서비스와 조직을 이원화해 국제표준(ISO/IEC 23894·42001·38507) 기반으로 AI위험관리와 신뢰성을 검증하는 국내 대표 인증제도</li>
 </ul>
 
 </body>

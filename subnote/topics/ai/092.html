@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. 오픈웨이트 (Open Weight)</title>
+  <title>10. 추론 모델 (Reasoning Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,48 +15,27 @@
   </style>
 </head>
 <body>
-<h4>11. 오픈웨이트 (Open Weight)</h4>
+<h4>10. 추론 모델 (Reasoning Model)</h4>
 <ul>
-<li><strong>정의:</strong> 학습코드·데이터 없이 학습된 파라미터(가중치)만 공개하는 AI모델 방식</li>
-<li><strong>키워드:</strong> Open Source AI, OSAID, Llama, DeepSeek, Qwen, Mistral, 라이선스, 재현성</li>
-<li><strong>분류:</strong> 생성형 AI/LLM</li>
-<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>가중치만 공개</strong></td><td>학습된 파라미터값만 다운로드 가능</td><td>파라미터 공개</td></tr>
-<tr><td><strong>학습코드 비공개</strong></td><td>학습 알고리즘·파이프라인은 비공개</td><td>학습과정 비공개</td></tr>
-<tr><td><strong>데이터셋 비공개</strong></td><td>학습에 사용된 데이터 정보 미공개</td><td>데이터 비공개</td></tr>
-<tr><td><strong>재현성 한계</strong></td><td>처음부터 모델을 재현·검증하기 어려움</td><td>재현 불가능</td></tr>
-</table></div>
-</li>
-<li><strong>비교표:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>Open Weight</th><th>Open Source(OSAID)</th><th>Closed(API 전용)</th></tr>
-<tr><td><strong>가중치 공개</strong></td><td>공개</td><td>공개</td><td>비공개</td></tr>
-<tr><td><strong>학습코드 공개</strong></td><td>비공개</td><td>공개</td><td>비공개</td></tr>
-<tr><td><strong>학습데이터 정보</strong></td><td>비공개</td><td>공개(재구축 가능 수준)</td><td>비공개</td></tr>
-<tr><td><strong>로컬 실행·커스터마이징</strong></td><td>가능</td><td>가능</td><td>불가(API로만 접근)</td></tr>
-<tr><td><strong>대표 사례</strong></td><td>Llama, DeepSeek-R1, Qwen</td><td>극소수(OLMo 등)</td><td>GPT, Claude, Gemini</td></tr>
-</table></div>
-</li>
+<li><strong>정의:</strong> 복잡한 문제를 단계적·논리적 사고과정으로 분해해 추론하는 LLM 유형</li>
+<li><strong>키워드:</strong> 딥시크, CoT, Test-time Compute, System2 Thinking, 강화학습기반 추론</li>
+<li><strong>분류:</strong> AI 응용 / 트렌드</li>
 <li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>라이선스 유형</strong></td><td>커스텀 라이선스(Llama류)</td><td>상업적 사용 제한조건부 허용</td></tr>
-<tr><td></td><td>Apache2.0/MIT</td><td>제약이 거의 없는 permissive 라이선스</td></tr>
-<tr><td></td><td>RAIL(Responsible AI License)</td><td>유해사용 금지조항 포함 라이선스</td></tr>
-<tr><td><strong>배포 방식</strong></td><td>Hugging Face 배포</td><td>가중치파일 공개저장소 업로드</td></tr>
-<tr><td></td><td>양자화 배포(GGUF 등)</td><td>경량화된 형태로 로컬실행 지원</td></tr>
+<tr><td><strong>학습</strong></td><td><strong>강화학습(RLVR)</strong></td><td>정답 검증가능 보상으로 추론경로 학습</td></tr>
+<tr><td></td><td><strong>Process Reward Model(PRM)</strong></td><td>추론 각 단계별 정답여부 보상</td></tr>
+<tr><td></td><td><strong>Outcome Reward Model(ORM)</strong></td><td>최종 결과만 평가하는 보상모델</td></tr>
+<tr><td></td><td><strong>Distillation(증류)</strong></td><td>대형 추론모델의 사고패턴 경량모델 전이</td></tr>
+<tr><td><strong>탐색</strong></td><td><strong>Chain-of-Thought(CoT)</strong></td><td>단계별 중간추론 생성</td></tr>
+<tr><td></td><td><strong>Tree-of-Thought(ToT)</strong></td><td>다중 추론경로 트리형 탐색</td></tr>
+<tr><td></td><td><strong>Monte Carlo Tree Search(MCTS)</strong></td><td>무작위 시뮬레이션 기반 탐색트리 확장</td></tr>
+<tr><td></td><td><strong>Best-of-N Sampling</strong></td><td>N개 후보 중 최적답 선택</td></tr>
+<tr><td><strong>추론심화</strong></td><td><strong>Test-time Compute</strong></td><td>추론시점에 연산량을 늘려 정확도향상</td></tr>
+<tr><td></td><td><strong>System 2 Thinking</strong></td><td>빠른직관 아닌 느리고 신중한 추론</td></tr>
+<tr><td></td><td><strong>자기검증(Self-verification)</strong></td><td>생성한 답을 스스로 재검토·수정</td></tr>
 </table></div>
 </li>
-<li><strong>활용 분야:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>온프레미스 AI구축</strong></td><td>자체 인프라에 모델 배포·커스터마이징</td><td>자체 인프라구축</td></tr>
-<tr><td><strong>파인튜닝·경량화 연구</strong></td><td>공개가중치 기반 추가학습·압축 연구</td><td>연구 활용</td></tr>
-<tr><td><strong>데이터주권 확보</strong></td><td>외부전송 없이 로컬추론으로 정보보호</td><td>데이터 주권</td></tr>
-<tr><td><strong>저비용 AI도입</strong></td><td>API비용 없이 자체서빙으로 비용절감</td><td>비용 절감</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 오픈웨이트는 진정한 오픈소스(학습코드+데이터 공개)에는 못미치지만, 가중치 접근만으로도 로컬배포·커스터마이징이 가능해 AI주권과 비용효율화의 실용적 대안으로 부상하고 있다.</li>
 </ul>
-<hr/>
 
 </body>
 </html>
