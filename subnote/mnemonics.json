@@ -570,6 +570,12 @@
     "mnemonic": "<최숨분총/정통집입>"
   },
   {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 10-2. OECD 프라이버시 8원칙",
+    "mnemonic": "<수품목이/안공개책>"
+  },
+  {
     "domain": "NW",
     "fname": "nw",
     "topic": "[하위] 1-1.서비스 프리미티브 (Service Primitive, SP)",
@@ -764,6 +770,12 @@
   {
     "domain": "SW",
     "fname": "sw",
+    "topic": "6. 성능 요구사항 (Performance Requirements)",
+    "mnemonic": "<응처동가/자확안>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
     "topic": "2. 소프트웨어 모듈 (Software Module)",
     "mnemonic": "<응하결로>"
   },
@@ -886,6 +898,18 @@
     "fname": "sw",
     "topic": "7. 테스트 오라클(Test Oracle)",
     "mnemonic": "<참샘휴일>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "9. 회귀 테스트 (Regression Test)",
+    "mnemonic": "<전선우>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "10. 뮤테이션 테스트 (Mutation Test)",
+    "mnemonic": "<대변삭>"
   },
   {
     "domain": "SW",
@@ -1365,7 +1389,7 @@
     "domain": "BIZ/PM",
     "fname": "bizpm",
     "topic": "2. IT 투자관리 (IT Investment Management)",
-    "mnemonic": "<사중후/타용과>"
+    "mnemonic": "<사중후/타용과, 투품이효>"
   },
   {
     "domain": "BIZ/PM",
@@ -1594,6 +1618,12 @@
     "fname": "bizpm",
     "topic": "2. 그로스 해킹 (Growth Hacking)",
     "mnemonic": "<획활유추수>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "2. 그로스 해킹 (Growth Hacking)",
+    "mnemonic": "<에바제/코퍼히>"
   },
   {
     "domain": "DS",

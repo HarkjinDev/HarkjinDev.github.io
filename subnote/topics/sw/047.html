@@ -20,13 +20,15 @@
 <li><strong>정의</strong>: 시스템이 특정 조건 하에서 달성해야 할 응답시간·처리량·자원 사용률 등의 정량적 품질 수준을 정의한 비기능 요구사항</li>
 <li><strong>키워드</strong>: 응답시간(Response Time), 처리량(Throughput), 가용성(Availability), TPS, SLA</li>
 <li><strong>분류</strong>: 요구공학</li>
-<li><strong>성능 요구사항 유형</strong>:<div class="table-scroll"><table>
+<li><strong>성능 요구사항 유형</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;응처동가/자확안&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>유형</th><th>설명</th><th>예시</th></tr>
-<tr><td>응답시간</td><td>요청~응답까지 소요 시간</td><td>페이지 로딩 3초 이내</td></tr>
-<tr><td>처리량</td><td>단위 시간당 처리 건수</td><td>1,000 TPS</td></tr>
-<tr><td>가용성</td><td>서비스 정상 운영 비율</td><td>99.9% (연 8.7시간 다운 허용)</td></tr>
-<tr><td>자원 사용률</td><td>CPU·메모리·네트워크 점유율</td><td>CPU 80% 이하 유지</td></tr>
-<tr><td>확장성</td><td>부하 증가 시 성능 유지 능력</td><td>사용자 2배 증가 시 응답시간 동일</td></tr>
+<tr><td><strong>응답시간</strong></td><td>요청~응답까지 소요 시간</td><td>페이지 로딩 3초 이내</td></tr>
+<tr><td><strong>처리량</strong></td><td>단위 시간당 처리 건수</td><td>1,000 TPS</td></tr>
+<tr><td><strong>동시성</strong></td><td>동시에 처리 가능한 사용자·요청 수</td><td>동시 사용자 수</td></tr>
+<tr><td><strong>가용성</strong></td><td>서비스 정상 운영 비율</td><td>99.9% (연 8.7시간 다운 허용)</td></tr>
+<tr><td><strong>자원 사용률</strong></td><td>CPU·메모리·네트워크 점유율</td><td>CPU 80% 이하 유지</td></tr>
+<tr><td><strong>확장성</strong></td><td>부하 증가 시 성능 유지 능력</td><td>사용자 2배 증가 시 응답시간 동일</td></tr>
+<tr><td><strong>성능 안정성</strong></td><td>지속적인 부하에서도 성능 저하를 최소화</td><td>처리시간 편차, 성능저하율</td></tr>
 </table></div>
 </li>
 <li><strong>성능요구사항 예시: </strong><div class="table-scroll"><table>
