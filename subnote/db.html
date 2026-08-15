@@ -997,6 +997,17 @@ Undo(취소, 역방향)</td></tr>
 <tr><td></td><td>초당 I/O 처리량</td><td>I/O 사용률</td></tr>
 </table></div>
 </li>
+<li><strong>CBO 활용 통계정보 유형:</strong><div class="table-scroll"><table>
+<tr><th>통계정보 유형</th><th>활용정보</th><th>설명</th></tr>
+<tr><td><strong>선택도</strong></td><td>1/Distinct</td><td>컬럼의 특정 값이 선택될 확률로</td></tr>
+<tr><td></td><td>Value 개수</td><td>컬럼 내 서로 다른 값의 계수</td></tr>
+<tr><td><strong>카디널리티</strong></td><td>평균 행 크기</td><td>테이블/인덱스의 평균 로우(Row) 크기</td></tr>
+<tr><td><strong>히스토그램</strong></td><td>값 별 빈도</td><td>특정 컬럼 값이 데이터 내에서 나타나는 빈도</td></tr>
+<tr><td></td><td>버킷수</td><td>값의 분포를 구간별로 나눈 버킷(Bucket)의 개수</td></tr>
+<tr><td><strong>비용</strong></td><td>I/O call 횟수</td><td>실행계획 수행 시 예상되는 디스크·메모리 I/O 호출 횟수</td></tr>
+<tr><td></td><td>CPU 시간</td><td>실행계획 수행 시 예상되는 CPU 연산 소요시간</td></tr>
+</table></div>
+</li>
 <li><strong>RBO vs CBO 비교:</strong> <div class="table-scroll"><table>
 <tr><th>항목</th><th>RBO</th><th>CBO</th></tr>
 <tr><td><strong>판단 기준</strong></td><td>규칙(Rule)</td><td>비용(Cost)</td></tr>
