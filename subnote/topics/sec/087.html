@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>16. 제로데이 (Zero-Day) 취약점</title>
+  <title>15. 사회공학 (Social Engineering)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,43 +15,45 @@
   </style>
 </head>
 <body>
-<h4>16. 제로데이 (Zero-Day) 취약점</h4>
+<h4>15. 사회공학 (Social Engineering)</h4>
 <ul>
-<li><strong>정의:</strong> 소프트웨어·하드웨어의 취약점이 발견되었으나 아직 패치·공식 대응이 없는 상태에서 공격자가 악용하는 취약점</li>
-<li><strong>키워드:</strong> 미패치 취약점, 익스플로잇, 취약점 브로커, N-day, 버그바운티, 제로데이 시장, 위협 인텔리전스, 가상 패치</li>
+<li><strong>정의:</strong> 인간의 심리적 취약점(신뢰·권위·두려움·긴급성)을 악용하여 정보를 탈취하거나 행동을 유도하는 공격 기법</li>
+<li><strong>키워드:</strong> 피싱, 스피어피싱, 프리텍스팅, 베이팅, 테일게이팅, 파밍, 큐싱, BitB, 타이포스쿼팅, 딥페이크</li>
 <li><strong>분류:</strong> 위협/공격</li>
-<li><strong>제로데이 생명주기:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>1. 취약점 발견</strong></td><td>연구자·공격자·버그바운티 헌터가 취약점 최초 발견</td><td>최초 인지</td></tr>
-<tr><td><strong>2. 익스플로잇 개발</strong></td><td>취약점을 악용하는 공격 코드(PoC·익스플로잇) 제작</td><td>무기화</td></tr>
-<tr><td><strong>3. 제로데이 공격</strong></td><td>패치 없는 상태에서 표적 시스템 공격</td><td>미패치 악용</td></tr>
-<tr><td><strong>4. 취약점 공개</strong></td><td>벤더·보안 기관에 취약점 보고 또는 공개</td><td>공개 시점</td></tr>
-<tr><td><strong>5. 패치 개발·배포</strong></td><td>벤더가 패치 개발 후 배포, N-day 취약점으로 전환</td><td>패치 시점</td></tr>
-<tr><td><strong>6. 패치 적용</strong></td><td>사용자·조직이 패치 적용 완료</td><td>위험 종료</td></tr>
+<li><strong>주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>디지털</strong></td><td><strong>피싱 (Phishing)</strong></td><td>사칭 이메일·SMS로 자격증명·정보 탈취</td></tr>
+<tr><td></td><td><strong>비싱 (Vishing)</strong></td><td>전화·음성 기반 사칭으로 정보 탈취</td></tr>
+<tr><td></td><td><strong>프리텍스팅 (Pretexting)</strong></td><td>허위 시나리오·신분 위장으로 신뢰 구축 후 정보 탈취</td></tr>
+<tr><td></td><td><strong>베이팅 (Baiting)</strong></td><td>악성 USB 방치·무료 콘텐츠로 호기심 유발 감염</td></tr>
+<tr><td><strong>물리적</strong></td><td><strong>테일게이팅 (Tailgating)</strong></td><td>허가된 사람 뒤를 따라 물리적 보안 구역 침입</td></tr>
+<tr><td></td><td><strong>숄더 서핑</strong></td><td>어깨 너머로 화면·키보드 입력 정보 훔쳐보기</td></tr>
 </table></div>
 </li>
-<li><strong>주요 기술:</strong><div class="table-scroll"><table>
+<li><strong>피싱 유형 상세:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>대상 기반</strong></td><td><strong>일반 피싱</strong></td><td>불특정 다수 대상 이메일·SMS 대량 발송</td><td>무차별 공격</td></tr>
+<tr><td></td><td><strong>스피어 피싱</strong></td><td>특정 대상 맞춤형 정보로 정교하게 제작된 피싱</td><td>표적 공격</td></tr>
+<tr><td></td><td><strong>웨일링 (Whaling)</strong></td><td>CEO·임원 등 고위직 대상 스피어 피싱</td><td>고위직 표적</td></tr>
+<tr><td><strong>기술 기반</strong></td><td><strong>Active Phishing</strong></td><td>실시간으로 피해자 입력값을 중간에서 가로채 정상 사이트에 중계하는 공격</td><td>실시간 중간자</td></tr>
+<tr><td></td><td><strong>파밍 (Pharming)</strong></td><td>DNS·hosts 파일 변조로 정상 URL 접속 시 가짜 사이트로 자동 유도</td><td>DNS 변조</td></tr>
+<tr><td></td><td><strong>BitB (Browser in the Browser)</strong></td><td>브라우저 팝업 창을 HTML·CSS로 위조하여 가짜 OAuth 로그인 창 생성</td><td>브라우저 UI 위조</td></tr>
+<tr><td></td><td><strong>큐싱 (Qshing)</strong></td><td>QR 코드에 악성 URL을 삽입하여 피해자를 피싱 사이트로 유도</td><td>QR 코드 악용</td></tr>
+<tr><td></td><td><strong>타이포스쿼팅</strong></td><td>정상 도메인과 유사한 오타 도메인을 등록하여 접속자를 가짜 사이트로 유인</td><td>오타 도메인 위장</td></tr>
+<tr><td></td><td><strong>스미싱 (Smishing)</strong></td><td>SMS 문자 기반 악성 링크 전송으로 정보 탈취·악성앱 설치 유도</td><td>SMS 기반</td></tr>
+</table></div>
+</li>
+<li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>탐지</strong></td><td><strong>행위 기반 탐지</strong></td><td>알려지지 않은 취약점 악용 행위 패턴 이상 탐지</td></tr>
-<tr><td></td><td><strong>샌드박스 분석</strong></td><td>의심 파일·코드를 격리 환경에서 실행·분석</td></tr>
-<tr><td></td><td><strong>위협 인텔리전스</strong></td><td>제로데이 관련 TTPs·IOC 사전 수집·공유</td></tr>
-<tr><td><strong>완화</strong></td><td><strong>가상 패치 (Virtual Patch)</strong></td><td>공식 패치 전 WAF·IPS 룰로 임시 차단</td></tr>
-<tr><td></td><td><strong>공격 표면 최소화</strong></td><td>불필요 서비스·포트 제거로 노출 범위 축소</td></tr>
-<tr><td></td><td><strong>최소 권한 원칙</strong></td><td>익스플로잇 성공 시 피해 범위 최소화</td></tr>
-<tr><td><strong>대응</strong></td><td><strong>패치 관리</strong></td><td>공식 패치 배포 즉시 신속 적용 체계 수립</td></tr>
-<tr><td></td><td><strong>EDR·XDR</strong></td><td>제로데이 익스플로잇 행위 실시간 탐지·격리</td></tr>
+<tr><td><strong>기술적</strong></td><td><strong>이메일 보안</strong></td><td>SPF·DKIM·DMARC 발신자 인증, 악성 링크 필터링</td></tr>
+<tr><td></td><td><strong>MFA 적용</strong></td><td>자격증명 탈취 후에도 계정 접근 차단</td></tr>
+<tr><td></td><td><strong>DNS 보안</strong></td><td>DNSSEC·DNS 필터링으로 파밍·악성 도메인 차단</td></tr>
+<tr><td></td><td><strong>도메인 모니터링</strong></td><td>타이포스쿼팅·유사 도메인 등록 실시간 모니터링</td></tr>
+<tr><td><strong>관리적</strong></td><td><strong>모의 피싱 훈련</strong></td><td>정기적 피싱 시뮬레이션으로 임직원 대응 능력 향상</td></tr>
+<tr><td></td><td><strong>보안 인식 교육</strong></td><td>사회공학 기법·최신 피싱 유형 정기 교육</td></tr>
 </table></div>
 </li>
-<li><strong>N-day와의 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>제로데이 (Zero-Day)</th><th>N-day</th></tr>
-<tr><td><strong>패치 여부</strong></td><td>❌ 패치 없음</td><td>✅ 패치 존재</td></tr>
-<tr><td><strong>공격 난이도</strong></td><td>높음</td><td>낮음 (PoC 공개)</td></tr>
-<tr><td><strong>위험도</strong></td><td>매우 높음</td><td>패치 미적용 시 높음</td></tr>
-<tr><td><strong>대응 방법</strong></td><td>가상 패치·행위 탐지</td><td>신속 패치 적용</td></tr>
-<tr><td><strong>주요 공격자</strong></td><td>APT·국가 지원 그룹</td><td>일반 공격자·스크립트 키디</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 제로데이 취약점은 패치가 존재하지 않는 특성상 완벽한 차단이 불가능하므로 가상 패치·행위 기반 탐지·공격 표면 최소화의 다층 방어가 핵심이며, 버그바운티 프로그램 활성화로 취약점을 블랙마켓보다 먼저 확보하는 선제적 취약점 관리가 현대 보안의 핵심 전략으로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> 기술적 보안이 강화될수록 사회공학 공격이 증가하는 역설적 현상이 나타나며, Active Phishing·BitB·큐싱 등 탐지 우회 기술이 고도화됨에 따라 MFA·이메일 인증 강화와 함께 정기적 모의 피싱 훈련을 통한 인적 보안이 가장 효과적인 최후 방어선으로 자리잡고 있음</li>
 </ul>
 
 </body>

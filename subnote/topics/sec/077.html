@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 9-1. CTEM (Continuous Threat Exposure Management)</title>
+  <title>9. 공격 표면 (Attack Surface)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,18 +15,59 @@
   </style>
 </head>
 <body>
-<h4><strong>[하위] 9-1. CTEM (Continuous Threat Exposure Management)</strong></h4>
+<h4>9. 공격 표면 (Attack Surface)</h4>
 <ul>
-<li><strong>정의:</strong> Gartner가 제시한 위협 노출을 지속적으로 평가·완화하는 통합 프로그램</li>
-<li><strong>CTEM 구성요소: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;범발우/검완&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>구분</th><th>프로세스</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Diagnose</strong></td><td><strong>Scoping</strong></td><td>보호 대상 인프라·정보자산 식별 및 가치 높은 자산 선별</td><td>자산 범위 설정</td></tr>
-<tr><td></td><td><strong>Discovery</strong></td><td>식별된 자산의 위험·취약점·위협 발견</td><td>취약점 발견</td></tr>
-<tr><td></td><td><strong>Prioritization</strong></td><td>위협 영향도·정도 기반 우선순위 결정</td><td>위험 우선순위화</td></tr>
-<tr><td><strong>Action</strong></td><td><strong>Validation</strong></td><td>식별된 위협이 실제로 취약한지 검증</td><td>실제 위험 검증</td></tr>
-<tr><td></td><td><strong>Mobilization</strong></td><td>실제 조치를 위한 자원 투입·위험 완화 실행</td><td>위험 완화 실행</td></tr>
+<li><strong>정의:</strong> 시스템에서 공격자가 침입 가능한 모든 진입점(엔드포인트·API·네트워크 포트·UI 등)의 총합</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>진입점</strong></u></span>, 노출 자산, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ASM, CTEM, 디지털 발자국, Shadow IT</strong></u></span>, 최소 권한, Zero Trust</li>
+<li><strong>분류</strong>: 위협/공격</li>
+<li><strong>공격 표면 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>핵심</th></tr>
+<tr><td><strong>네트워크</strong></td><td><strong>오픈 포트·서비스</strong></td><td>불필요하게 노출된 포트·프로토콜·원격 접속 서비스</td></tr>
+<tr><td></td><td><strong>클라우드·API</strong></td><td>공개 API 엔드포인트·클라우드 스토리지 노출</td></tr>
+<tr><td><strong>소프트웨어</strong></td><td><strong>웹·애플리케이션</strong></td><td>웹 인터페이스·API·취약한 라이브러리·레거시 시스템</td></tr>
+<tr><td></td><td><strong>Shadow IT</strong></td><td>IT 부서 미승인 SaaS·앱·디바이스</td></tr>
+<tr><td><strong>물리적</strong></td><td><strong>엔드포인트</strong></td><td>노트북·USB·IoT·OT 장비 물리적 접근</td></tr>
+<tr><td></td><td><strong>시설</strong></td><td>서버실·네트워크 장비 무단 접근</td></tr>
+<tr><td><strong>인간</strong></td><td><strong>사회공학</strong></td><td>피싱·스피어피싱·내부자 위협</td></tr>
+<tr><td></td><td><strong>자격증명 노출</strong></td><td>유출된 계정 정보·재사용 패스워드</td></tr>
 </table></div>
 </li>
+<li><strong>최소화 원칙:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>불필요 서비스 제거</strong></td><td>미사용 포트·서비스·기능 비활성화</td><td>노출 감소</td></tr>
+<tr><td><strong>최소 권한 원칙</strong></td><td>업무 수행에 필요한 최소한의 권한만 부여</td><td>권한 최소화</td></tr>
+<tr><td><strong>네트워크 세분화</strong></td><td>VLAN·마이크로 세그멘테이션으로 내부 공격 확산 방지</td><td>횡적 이동 차단</td></tr>
+<tr><td><strong>패치 관리</strong></td><td>취약 컴포넌트 신속 패치·업데이트</td><td>취약점 제거</td></tr>
+</table></div>
+</li>
+<li><strong>ASM (Attack Surface Management):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>개념</strong></td><td>외부 공격자 관점에서 노출된 자산을 지속 발견·평가·관리하는 체계</td><td>외부 관점 관리</td></tr>
+<tr><td><strong>자산 발견</strong></td><td>알려진·알려지지 않은 인터넷 노출 자산 자동 식별</td><td>섀도우 IT 탐지</td></tr>
+<tr><td><strong>취약점 평가</strong></td><td>발견된 자산의 취약점·설정 오류·노출 위험 평가</td><td>위험 평가</td></tr>
+<tr><td><strong>우선순위화</strong></td><td>위험도 기반 노출 자산 대응 우선순위 결정</td><td>위험 기반 대응</td></tr>
+<tr><td><strong>지속 모니터링</strong></td><td>새로운 자산 추가·변경 시 실시간 공격 표면 변화 추적</td><td>지속적 가시성</td></tr>
+</table></div>
+</li>
+<li><strong>측면 이동 (Lateral Movement):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>개념</strong></td><td>초기 침투 후 내부 시스템 간 이동하며 권한·자산을 확대하는 공격 기법</td><td>내부 확산</td></tr>
+<tr><td><strong>주요 기법</strong></td><td>Pass-the-Hash·자격증명 덤프·원격 서비스 악용·신뢰 관계 악용</td><td>자격증명 재사용</td></tr>
+<tr><td><strong>공격 표면 연계</strong></td><td>내부 노출 자산·과도한 권한·미패치 시스템이 횡적 이동의 공격 표면이 됨</td><td>내부 공격 표면</td></tr>
+<tr><td><strong>탐지 방법</strong></td><td>UEBA 기반 비정상 내부 접근·이동 패턴 탐지, 네트워크 세그멘테이션</td><td>이상 행위 탐지</td></tr>
+<tr><td><strong>대응</strong></td><td>마이크로 세그멘테이션·최소 권한·Zero Trust로 이동 범위 제한</td><td>확산 차단</td></tr>
+</table></div>
+</li>
+<li><strong>섀도우 IT (Shadow IT):</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>개념</strong></td><td>IT 부서의 승인·관리 없이 임직원이 사용하는 SaaS·앱·디바이스·클라우드 서비스</td><td>미승인 자산</td></tr>
+<tr><td><strong>공격 표면 연계</strong></td><td>보안 통제 미적용 자산이 외부에 노출되어 공격 표면 증가</td><td>비가시 공격 표면</td></tr>
+<tr><td><strong>주요 위험</strong></td><td>데이터 유출·자격증명 노출·보안 정책 미준수·컴플라이언스 위반</td><td>통제 불가 위험</td></tr>
+<tr><td><strong>발견 방법</strong></td><td>ASM·CASB·네트워크 트래픽 분석으로 미승인 서비스 자동 탐지</td><td>가시성 확보</td></tr>
+<tr><td><strong>대응</strong></td><td>CASB 도입·클라우드 사용 정책 수립·승인 서비스 목록 관리</td><td>가시성·통제</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 공격 표면은 클라우드·IoT·원격근무 확산으로 급속히 확대되고 있어 일회성 점검이 아닌 ASM 기반 지속적 가시성 확보가 필수이며, Gartner가 제시한 CTEM은 단순 취약점 관리를 넘어 실제 악용 가능성을 검증·완화하는 방향으로 보안 관리 패러다임이 진화하고 있음을 보여줌</li>
 </ul>
 
 </body>

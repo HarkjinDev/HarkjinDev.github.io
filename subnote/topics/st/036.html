@@ -18,18 +18,18 @@
 <h4>5. ANOVA (Analysis of Variance, 분산분석)</h4>
 <ul>
 <li><strong>정의:</strong> 세 개 이상의 집단 간 평균 차이가 통계적으로 유의한지를 집단 내 분산과 집단 간 분산의 비율(F-통계량)로 검정하는 통계적 분석 방법론</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>F-통계량, 집단 간 분산(SSB), 집단 내 분산(SSW),</strong></u></span> 귀무가설, 유의수준, 사후검정, 일원분산분석, 이원분산분석, 잔차</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>F-통계량(F=SSB/SSW), 집단 간 분산(SSB), 집단 내 분산(SSW),</strong></u></span> 정규성, 등분산성, 독립성, 귀무가설, 유의수준, 사후검정, 일원분산분석, 이원분산분석, 잔차</li>
 <li><strong>분류</strong>: 가설검정</li>
 <li><strong>핵심 개념:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>집단 간 분산 (SSB)</strong></td><td>각 집단 평균과 전체 평균 간의 차이에 의한 변동</td><td>처리 효과</td></tr>
 <tr><td><strong>집단 내 분산 (SSW)</strong></td><td>각 집단 내 개별 관측값과 집단 평균 간의 변동</td><td>오차 변동</td></tr>
-<tr><td><strong>F-통계량</strong></td><td>F = SSB / SSW, 클수록 집단 차이 유의</td><td>유의성 척도</td></tr>
+<tr><td><strong>F-통계량</strong></td><td><strong>F = SSB / SSW</strong>, 클수록 집단 차이 유의</td><td>유의성 척도</td></tr>
 <tr><td><strong>귀무가설 (H₀)</strong></td><td>모든 집단의 평균이 동일함 (μ₁ = μ₂ = μ₃)</td><td>차이 없음</td></tr>
 <tr><td><strong>대립가설 (H₁)</strong></td><td>적어도 하나의 집단 평균이 다름</td><td>차이 존재</td></tr>
 </table></div>
 </li>
-<li><strong>ANOVA 성립 가정:</strong><div class="table-scroll"><table>
+<li><strong>ANOVA 성립 가정: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정등독&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>정규성</strong></td><td>각 집단의 데이터가 정규분포를 따름</td><td>분포 가정</td></tr>
 <tr><td><strong>등분산성</strong></td><td>모든 집단의 분산이 동일함 (Levene 검정으로 확인)</td><td>분산 동질성</td></tr>

@@ -29,14 +29,6 @@
 <tr><td>DELETE</td><td>Delete</td><td>멱등</td><td>DELETE /users/1</td></tr>
 </table></div>
 </li>
-<li><strong>Richardson 성숙도 모델</strong>:<div class="table-scroll"><table>
-<tr><th>레벨</th><th>설명</th></tr>
-<tr><td>Level 0</td><td>단일 URI, 단일 메서드</td></tr>
-<tr><td>Level 1</td><td>자원별 URI 분리</td></tr>
-<tr><td>Level 2</td><td>HTTP 메서드 적절히 활용</td></tr>
-<tr><td>Level 3</td><td>HATEOAS 적용 (진정한 REST)</td></tr>
-</table></div>
-</li>
 <li><strong>인사이트</strong>: 실무에서는 Level 2가 일반적이며, <strong>멱등성(Idempotency)</strong>이 API 신뢰성의 핵심으로 PUT·DELETE는 반복 호출 시 동일 결과를 보장해야 함.</li>
 </ul>
 

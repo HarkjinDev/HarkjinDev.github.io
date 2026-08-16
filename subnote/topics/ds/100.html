@@ -20,12 +20,12 @@
 <li><strong>정의</strong>: 시스템의 상태 변화를 이벤트로 표현하고, 이벤트의 생산·전달·소비를 기반으로 서비스 간 비동기 통신을 구성하는 아키텍처 패턴</li>
 <li><strong>키워드</strong>: 이벤트(Event), 프로듀서(Producer), 컨슈머(Consumer), 이벤트 브로커, 비동기, 느슨한 결합, Kafka, CQRS, 이벤트 소싱</li>
 <li><strong>분류</strong>: 미들웨어/아키텍처</li>
-<li><strong>EDA 핵심 구성 요소</strong>:<div class="table-scroll"><table>
+<li><strong>EDA 핵심 구성 요소</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;프브컨스&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구성 요소</th><th>역할</th></tr>
-<tr><td>이벤트 프로듀서</td><td>상태 변화 시 이벤트 생성·발행</td></tr>
-<tr><td>이벤트 브로커</td><td>이벤트 수신·저장·라우팅 (Kafka, RabbitMQ)</td></tr>
-<tr><td>이벤트 컨슈머</td><td>이벤트 구독·처리</td></tr>
-<tr><td>이벤트 스토어</td><td>이벤트 영속적 저장 (이벤트 소싱 시)</td></tr>
+<tr><td><strong>이벤트 프로듀서</strong></td><td>상태 변화 시 이벤트 생성·발행</td></tr>
+<tr><td><strong>이벤트 브로커</strong></td><td>이벤트 수신·저장·라우팅 (Kafka, RabbitMQ)</td></tr>
+<tr><td><strong>이벤트 컨슈머</strong></td><td>이벤트 구독·처리</td></tr>
+<tr><td><strong>이벤트 스토어</strong></td><td>이벤트 영속적 저장 (이벤트 소싱 시)</td></tr>
 </table></div>
 </li>
 <li><strong>EDA 패턴 유형</strong>:<div class="table-scroll"><table>

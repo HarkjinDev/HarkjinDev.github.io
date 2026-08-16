@@ -36,10 +36,8 @@
 <tr><td>혼잡제어</td><td>있음</td><td>없음</td><td>있음</td></tr>
 <tr><td>오류 검출</td><td>Checksum (의사헤더)</td><td>Checksum (선택)</td><td>Checksum (CRC-32c)</td></tr>
 <tr><td>SYN 공격 방어</td><td>취약</td><td>해당 없음</td><td>COOKIE 메커니즘 방어</td></tr>
-<tr><td>메시지 경계</td><td>없음 (바이트 스트림)</td><td>있음</td><td>있음 (청크 단위)</td></tr>
 <tr><td>헤더 크기</td><td>20~60byte</td><td>8byte</td><td>12byte + 청크</td></tr>
 <tr><td>전송 단위</td><td>세그먼트</td><td>데이터그램</td><td>청크 (Chunk)</td></tr>
-<tr><td>부분 신뢰성</td><td>미지원</td><td>미지원</td><td>PR-SCTP로 지원</td></tr>
 <tr><td>적합 환경</td><td>파일전송·HTTP·이메일</td><td>실시간·DNS·스트리밍</td><td>VoIP·SS7·통신 시그널링</td></tr>
 <tr><td>대표 활용</td><td>HTTP/HTTPS·FTP</td><td>DNS·DHCP·RTP</td><td>이동통신 코어망·WebRTC</td></tr>
 </table></div>

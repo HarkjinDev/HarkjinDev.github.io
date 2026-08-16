@@ -18,7 +18,7 @@
 <h4>[하위] 1-1. p-해킹 (p-Hacking)</h4>
 <ul>
 <li><strong>정의:</strong> 통계적 유의성(p-value ≤ α)을 확보하기 위해 데이터 수집·분석·보고 과정을 의도적 또는 무의식적으로 조작하는 행위</li>
-<li><strong>키워드:</strong> p-value, 재현성 위기, 출판 편향, 다중비교 오류, 다중검정, 유의성 편향, 데이터 마이닝, HARKing, 사전등록, 본페로니 검정, FDR 통제, 효과크기 보고(Cohen's d)</li>
+<li><strong>키워드:</strong> p-value, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재현성 위기, 출판 편향, 다중비교 오류</strong></u></span>, 다중검정, 유의성 편향, 데이터 마이닝, HARKing, 사전등록, 본페로니 검정, FDR 통제, 효과크기 보고(Cohen's d)</li>
 <li><strong>분류</strong>: 가설검정</li>
 <li><strong>p-해킹 발생 구조:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
@@ -32,24 +32,26 @@
 <li>배경: 이치를 제대로 이해하지 않아도, 선행 연구를 모방하여 가설검정을 시행하여 p&lt;0.05를 얻는 사례</li>
 </ul>
 </li>
-<li><strong>주요 유형:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>다중검정 반복</strong></td><td>유의한 결과가 나올 때까지 검정을 반복 수행</td><td>1종 오류 누적</td></tr>
-<tr><td><strong>변수 선택 조작(체리피킹)</strong></td><td>유의한 결과를 주는 독립변수만 선택적으로 포함</td><td>변수 취사선택</td></tr>
-<tr><td><strong>데이터 제거</strong></td><td>결과에 불리한 이상치·관측값을 자의적으로 제거</td><td>선택적 삭제</td></tr>
-<tr><td><strong>분석 시점 조정</strong></td><td>유의성이 나타날 때 데이터 수집을 임의로 중단</td><td>조기 종료</td></tr>
-<tr><td><strong>HARKing</strong></td><td>결과를 먼저 보고 사후에 가설을 재구성하는 행위</td><td>사후 가설 설정</td></tr>
-<tr><td><strong>하위 집단 분석</strong></td><td>전체 분석이 유의하지 않으면 하위 집단만 선택 보고</td><td>부분 결과 선택</td></tr>
+<li><strong>주요 왜곡 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>왜곡</th><th>설명</th><th>핵심</th></tr>
+<tr><td>분석 측면</td><td><strong>다중검정 반복</strong></td><td>유의한 결과가 나올 때까지 검정을 반복 수행</td><td>1종 오류 누적</td></tr>
+<tr><td></td><td><strong>선택적 데이터 수집
+(체리피킹)</strong></td><td>유의한 결과를 주는 독립변수만 선택적으로 포함</td><td>변수 취사선택</td></tr>
+<tr><td></td><td><strong>데이터 제거</strong></td><td>결과에 불리한 이상치·관측값을 자의적으로 제거</td><td>선택적 삭제</td></tr>
+<tr><td>결과 측면</td><td><strong>분석 시점 조정</strong></td><td>유의성이 나타날 때 데이터 수집을 임의로 중단</td><td>조기 종료</td></tr>
+<tr><td></td><td><strong>HARKing</strong></td><td>결과를 먼저 보고 사후에 가설을 재구성하는 행위</td><td>사후 가설 설정</td></tr>
+<tr><td></td><td><strong>하위 집단 분석</strong></td><td>전체 분석이 유의하지 않으면 하위 집단만 선택 보고</td><td>부분 결과 선택</td></tr>
 </table></div>
 </li>
 <li><strong>대응 방법:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>사전 등록 
+<tr><td><strong>사전 등록제
 (Pre-registration)</strong></td><td>분석 전에 가설·방법론을 공개 등록하여 사후 조작 방지</td><td>분석 전 공개</td></tr>
-<tr><td><strong>Bonferroni 보정</strong></td><td>유의수준을 검정 횟수로 나눠 다중비교 오류 통제</td><td>α 보정</td></tr>
+<tr><td><strong>다중검정 보정</strong></td><td>유의수준을 검정 횟수로 나눠 다중비교 오류 통제</td><td>Bonferroni</td></tr>
 <tr><td><strong>FDR 통제</strong></td><td>거짓 발견율(False Discovery Rate)을 기준으로 유의성 보정</td><td>오류율 통제</td></tr>
 <tr><td><strong>효과크기 보고</strong></td><td>p-value 외 Cohen's d 등 효과 크기(Effect-size)를 함께 보고</td><td>실질적 유의성</td></tr>
-<tr><td><strong>교차검증</strong></td><td>독립 데이터셋으로 결과 재현 여부 확인</td><td>재현성 검증</td></tr>
+<tr><td><strong>교차 검증</strong></td><td>독립 데이터셋으로 결과 재현 여부 확인</td><td>재현성 검증</td></tr>
+<tr><td><strong>윤리 교육</strong></td><td>연구원, 기업, 개인의 비윤리적 의도 교육</td><td>윤리 교육</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> p-해킹은 개인의 비윤리적 의도뿐 아니라 "유의한 결과만 출판된다"는 구조적 압력에서 비롯되므로, 사전 등록·효과 크기 보고·재현성 검증을 연구 표준으로 제도화하는 것이 근본적 해결책이며, AI·머신러닝 분야의 성능 과장 문제와도 직결되는 핵심 연구 윤리 이슈임</li>

@@ -17,10 +17,16 @@
 <body>
 <h4>2. TCP</h4>
 <ul>
-<li><strong>주요 기능: </strong></li>
-<li><strong>제어 플래그(Control Flag, 6bit):</strong><ul>
-<li>URG, ACK, PSH, RST, SYN, FIN</li>
-</ul>
+<li><strong>주요 기능: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>핵심 기술 / 알고리즘</strong></th><th><strong>세부 역할 및 특징</strong></th></tr>
+<tr><td><strong>제어 플래그</strong></td><td><strong>URG, ACK, PSH, RST, SYN, FIN</strong></td><td>세션 상태 및 패킷 처리 지시</td></tr>
+<tr><td><strong>연결 지향성</strong></td><td><strong>3-Way / 4-Way Handshake</strong></td><td>가상 회선 수립 및 안전한 열결/해제</td></tr>
+<tr><td><strong>신뢰성 보장</strong></td><td><strong>Sequence / ACK Number</strong></td><td>패킷 누락 및 순서 역전 방지</td></tr>
+<tr><td><strong>흐름 제어</strong></td><td><strong>Sliding Window</strong></td><td>송신량을 조절하여 오버플로우 방지</td></tr>
+<tr><td><strong>혼잡 제어</strong></td><td><strong>Slow Start, AIMD, Fast Recovery</strong></td><td>네트워크 전체의 트래픽 과부하를 감지</td></tr>
+<tr><td><strong>오류 제어</strong></td><td><strong>ARQ (자동 재전송), Checksum</strong></td><td>훼손 탐지, 패킷 재전송(ARQ)</td></tr>
+<tr><td><strong>다중화/통신</strong></td><td><strong>Port 식별, Full-Duplex</strong></td><td>양방향(전이중) 동시 통신 지원</td></tr>
+</table></div>
 </li>
 </ul>
 

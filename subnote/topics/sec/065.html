@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 6] 위협/공격</title>
+  <title>7. Secure OS (보안 운영체제)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,38 @@
   </style>
 </head>
 <body>
-<h3>[Part 6] 위협/공격</h3>
+<h4>7. Secure OS (보안 운영체제)</h4>
+<ul>
+<li><strong>정의:</strong> 일반 운영체제에 강제적 접근 제어·최소 권한·보안 커널 등 다층 보안 메커니즘을 적용하여 무결성·기밀성·가용성을 시스템 수준에서 보장하는 보안 강화 운영체제</li>
+<li><strong>키워드:</strong> 보안 커널, MAC, SELinux, 최소 권한, TCB, 참조 모니터, 무결성, 다중 등급 보안(MLS), CC 인증</li>
+<li><strong>분류</strong>: 시스템/SW 보안</li>
+<li><strong>핵심 보안 메커니즘:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>접근 제어</strong></td><td><strong>MAC</strong></td><td>보안 레이블 기반 시스템 정책으로 접근 강제 통제</td><td>정책 기반 강제</td></tr>
+<tr><td></td><td><strong>DAC</strong></td><td>자원 소유자가 접근 권한 설정·관리</td><td>소유자 재량</td></tr>
+<tr><td></td><td><strong>RBAC</strong></td><td>사용자 역할에 따라 권한 부여·관리</td><td>역할 기반</td></tr>
+<tr><td><strong>보안 커널</strong></td><td><strong>TCB</strong></td><td>보안 정책 집행하는 최소한의 신뢰 컴포넌트</td><td>신뢰 기반</td></tr>
+<tr><td></td><td><strong>참조 모니터</strong></td><td>모든 접근 요청을 중재·검증하는 핵심 보안 모듈</td><td>접근 중재</td></tr>
+<tr><td></td><td><strong>보안 커널 최소화</strong></td><td>공격 표면 최소화를 위한 커널 기능 최소 구성</td><td>최소화 원칙</td></tr>
+<tr><td><strong>무결성 보호</strong></td><td><strong>커널 무결성 검증</strong></td><td>부팅 시 커널·드라이버 무결성 해시 검증</td><td>부팅 보안</td></tr>
+<tr><td></td><td><strong>메모리 보호</strong></td><td>ASLR·DEP·스택 카나리로 메모리 공격 방어</td><td>메모리 방어</td></tr>
+</table></div>
+</li>
+<li><strong>참조 모니터 (Reference Monitor):  </strong>모든 주체·객체 간 접근 요청을 중재·검증하는 보안 커널 핵심 모듈<ul>
+<li><strong>필수 속성:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>완전성 (Complete Mediation)</strong></td><td>모든 접근 요청을 예외 없이 반드시 거쳐야 함</td><td>우회 불가</td></tr>
+<tr><td><strong>격리성 (Isolation)</strong></td><td>참조 모니터 자체가 외부 변조·우회로부터 보호</td><td>자기 보호</td></tr>
+<tr><td><strong>검증 가능성 (Verifiability)</strong></td><td>소규모·단순 구조로 형식적 검증 가능해야 함</td><td>수학적 검증</td></tr>
+</table></div>
+</li>
+<li><strong>동작방식: </strong>주체 보안 레이블 ↔ 객체 보안 레이블 비교 후 정책 판단·허용·거부</li>
+<li><strong>구현체: </strong>SELinux의 LSM(Linux Security Module)이 대표적 구현</li>
+</ul>
+</li>
+<li><strong>인사이트:</strong> Secure OS는 보안을 애플리케이션 수준이 아닌 OS 커널 수준에서 강제하는 근본적 접근으로, SELinux 기반 MAC이 현대 Linux·컨테이너 환경의 사실상 표준 보안 메커니즘으로 자리잡고 있음. Zero Trust 아키텍처와 결합하여 최소 권한·강제 접근 제어를 OS 수준에서 구현하는 방향으로 발전하고 있으며, CC EAL 인증이 국방·정부 시스템 도입의 핵심 요건으로 강화되는 추세임</li>
+</ul>
+<hr/>
 
 </body>
 </html>

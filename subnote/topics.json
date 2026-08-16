@@ -269,54 +269,58 @@
       },
       {
         "id": "067",
-        "name": "[Part 11] 데이터 거버넌스/품질/보안"
+        "name": "7. 시계열 데이터베이스(TSDB, Time Series DB)"
       },
       {
         "id": "068",
-        "name": "1. DB(데이터베이스) 보안"
+        "name": "[Part 11] 데이터 거버넌스/품질/보안"
       },
       {
         "id": "069",
-        "name": "2. 데이터 거버넌스 (Data Governance)"
+        "name": "1. DB(데이터베이스) 보안"
       },
       {
         "id": "070",
-        "name": "2. 데이터 품질관리 (Data Quality Management)"
+        "name": "2. 데이터 거버넌스 (Data Governance)"
       },
       {
         "id": "071",
-        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
+        "name": "2. 데이터 품질관리 (Data Quality Management)"
       },
       {
         "id": "072",
-        "name": "4. DA & DBA 역할"
+        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
       },
       {
         "id": "073",
-        "name": "5. 데이터 표준화 (Data Standardization)"
+        "name": "4. DA & DBA 역할"
       },
       {
         "id": "074",
-        "name": "6. 데이터 프로파일링 (Data Profiling)"
+        "name": "5. 데이터 표준화 (Data Standardization)"
       },
       {
         "id": "075",
-        "name": "7. 데이터 스페이스(Data Space)"
+        "name": "6. 데이터 프로파일링 (Data Profiling)"
       },
       {
         "id": "076",
-        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
+        "name": "7. 데이터 스페이스(Data Space)"
       },
       {
         "id": "077",
-        "name": "[Part 12] 마이그레이션"
+        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
       },
       {
         "id": "078",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "[Part 12] 마이그레이션"
       },
       {
         "id": "079",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "080",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]
@@ -1049,394 +1053,398 @@
       },
       {
         "id": "064",
-        "name": "7. Secure OS (보안 운영체제)"
+        "name": "[하위] 6-1. AI BOM(AI Bill of Materials)"
       },
       {
         "id": "065",
-        "name": "[Part 6] 위협/공격"
+        "name": "7. Secure OS (보안 운영체제)"
       },
       {
         "id": "066",
-        "name": "1. 버퍼 오버플로우 (Buffer Overflow)"
+        "name": "[Part 6] 위협/공격"
       },
       {
         "id": "067",
-        "name": "2. 포맷 스트링 공격 (Format String Attack)"
+        "name": "1. 버퍼 오버플로우 (Buffer Overflow)"
       },
       {
         "id": "068",
-        "name": "3. 레이스 컨디션 (Race Condition)"
+        "name": "2. 포맷 스트링 공격 (Format String Attack)"
       },
       {
         "id": "069",
-        "name": "[하위] 3-1. TOCTOU (Time Of Check Time Of Use)"
+        "name": "3. 레이스 컨디션 (Race Condition)"
       },
       {
         "id": "070",
-        "name": "4. 인젝션 (Injection)"
+        "name": "[하위] 3-1. TOCTOU (Time Of Check Time Of Use)"
       },
       {
         "id": "071",
-        "name": "5. XSS (Cross-Site Scripting)"
+        "name": "4. 인젝션 (Injection)"
       },
       {
         "id": "072",
-        "name": "6. CSRF (Cross-Site Request Forgery)"
+        "name": "5. XSS (Cross-Site Scripting)"
       },
       {
         "id": "073",
-        "name": "7. SSRF (Server-Side Request Forgery)"
+        "name": "6. CSRF (Cross-Site Request Forgery)"
       },
       {
         "id": "074",
-        "name": "8. 공격 벡터 (Attack Vector)"
+        "name": "7. SSRF (Server-Side Request Forgery)"
       },
       {
         "id": "075",
-        "name": "[하위] 8-1. 다중벡터 공격 (Multi-Vector Attack)"
+        "name": "8. 공격 벡터 (Attack Vector)"
       },
       {
         "id": "076",
-        "name": "9. 공격 표면 (Attack Surface)"
+        "name": "[하위] 8-1. 다중벡터 공격 (Multi-Vector Attack)"
       },
       {
         "id": "077",
-        "name": "[하위] 9-1. CTEM (Continuous Threat Exposure Management)"
+        "name": "9. 공격 표면 (Attack Surface)"
       },
       {
         "id": "078",
-        "name": "10. APT (Advanced Persistent Threat)"
+        "name": "[하위] 9-1. CTEM (Continuous Threat Exposure Management)"
       },
       {
         "id": "079",
-        "name": "11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)"
+        "name": "10. APT (Advanced Persistent Threat)"
       },
       {
         "id": "080",
-        "name": "12. 사이버 킬 체인 (Cyber Kill Chain)"
+        "name": "11. CVE / CWE / CCE (보안 취약점 표준 식별 체계)"
       },
       {
         "id": "081",
-        "name": "[하위] 12-1. STRIDE 위협 모델링(Microsoft)"
+        "name": "12. 사이버 킬 체인 (Cyber Kill Chain)"
       },
       {
         "id": "082",
-        "name": "13. MITRE ATT&CK (Adversarial Tactics, Techniques & Common Knowledge)"
+        "name": "[하위] 12-1. STRIDE 위협 모델링(Microsoft)"
       },
       {
         "id": "083",
-        "name": "[하위] 13-1. TTPs (Tactics, Techniques, and Procedures, 전술·기법·절차)"
+        "name": "13. MITRE ATT&CK (Adversarial Tactics, Techniques & Common Knowledge)"
       },
       {
         "id": "084",
-        "name": "14. 랜섬웨어 (Ransomware)"
+        "name": "[하위] 13-1. TTPs (Tactics, Techniques, and Procedures, 전술·기법·절차)"
       },
       {
         "id": "085",
-        "name": "[하위] 14-1. RaaS (Ransomware as a Service)"
+        "name": "14. 랜섬웨어 (Ransomware)"
       },
       {
         "id": "086",
-        "name": "15. 사회공학 (Social Engineering)"
+        "name": "[하위] 14-1. RaaS (Ransomware as a Service)"
       },
       {
         "id": "087",
-        "name": "16. 제로데이 (Zero-Day) 취약점"
+        "name": "15. 사회공학 (Social Engineering)"
       },
       {
         "id": "088",
-        "name": "17. EMP 공격 (ElectroMagnetic Pulse Attack)"
+        "name": "16. 제로데이 (Zero-Day) 취약점"
       },
       {
         "id": "089",
-        "name": "18. 사이버전 (Cyber Warfare)"
+        "name": "17. EMP 공격 (ElectroMagnetic Pulse Attack)"
       },
       {
         "id": "090",
-        "name": "19. 부채널 공격 (Side-Channel Attack)"
+        "name": "18. 사이버전 (Cyber Warfare)"
       },
       {
         "id": "091",
-        "name": "19. 마이크로세그멘테이션(Microsegmentation)"
+        "name": "19. 부채널 공격 (Side-Channel Attack)"
       },
       {
         "id": "092",
-        "name": "20. 기타 위협"
+        "name": "19. 마이크로세그멘테이션(Microsegmentation)"
       },
       {
         "id": "093",
-        "name": "[Part 7] 디지털 포렌식"
+        "name": "20. 기타 위협"
       },
       {
         "id": "094",
-        "name": "1. 디지털 포렌식 (Digital Forensics)"
+        "name": "[Part 7] 디지털 포렌식"
       },
       {
         "id": "095",
-        "name": "2. 디지털 포렌식 아티팩트 (Artifact)"
+        "name": "1. 디지털 포렌식 (Digital Forensics)"
       },
       {
         "id": "096",
-        "name": "3. 파일 슬랙 (File Slack)"
+        "name": "2. 디지털 포렌식 아티팩트 (Artifact)"
       },
       {
         "id": "097",
-        "name": "4. 파일 카빙 (File Carving)"
+        "name": "3. 파일 슬랙 (File Slack)"
       },
       {
         "id": "098",
-        "name": "5. 안티포렌식 (Anti-Forensics)"
+        "name": "4. 파일 카빙 (File Carving)"
       },
       {
         "id": "099",
-        "name": "6. 클라우드 포렌식 (Cloud Forensic)"
+        "name": "5. 안티포렌식 (Anti-Forensics)"
       },
       {
         "id": "100",
-        "name": "7. 스마트폰 포렌식 (Smartphone Forensic)"
+        "name": "6. 클라우드 포렌식 (Cloud Forensic)"
       },
       {
         "id": "101",
-        "name": "[Part 8] 특수 보안"
+        "name": "7. 스마트폰 포렌식 (Smartphone Forensic)"
       },
       {
         "id": "102",
-        "name": "1. 블록체인 보안"
+        "name": "[Part 8] 특수 보안"
       },
       {
         "id": "103",
-        "name": "2. 블록체인 합의 알고리즘 (Consensus Algorithm)"
+        "name": "1. 블록체인 보안"
       },
       {
         "id": "104",
-        "name": "3. 블록체인 스마트 컨트랙트 보안"
+        "name": "2. 블록체인 합의 알고리즘 (Consensus Algorithm)"
       },
       {
         "id": "105",
-        "name": "4. NFT 보안"
+        "name": "3. 블록체인 스마트 컨트랙트 보안"
       },
       {
         "id": "106",
-        "name": "5. IoT 보안 (IoT Security)"
+        "name": "4. NFT 보안"
       },
       {
         "id": "107",
-        "name": "6. 메타버스 보안"
+        "name": "5. IoT 보안 (IoT Security)"
       },
       {
         "id": "108",
-        "name": "7. 드론 보안 (Drone Security)"
+        "name": "6. 메타버스 보안"
       },
       {
         "id": "109",
-        "name": "8. 퍼듀 모델 (Purdue Model)"
+        "name": "7. 드론 보안 (Drone Security)"
       },
       {
         "id": "110",
-        "name": "9. 클라우드 보안 (Cloud Security)"
+        "name": "8. 퍼듀 모델 (Purdue Model)"
       },
       {
         "id": "111",
-        "name": "10. CDR (Content Disarm & Reconstruction)"
+        "name": "9. 클라우드 보안 (Cloud Security)"
       },
       {
         "id": "112",
-        "name": "11. IEC 61508 (기능안전 표준)"
+        "name": "10. CDR (Content Disarm & Reconstruction)"
       },
       {
         "id": "113",
-        "name": "12. CC (Common Criteria)"
+        "name": "11. IEC 61508 (기능안전 표준)"
       },
       {
         "id": "114",
-        "name": "13. FIPS 140-2 (Federal Information Processing Standard)"
+        "name": "12. CC (Common Criteria)"
       },
       {
         "id": "115",
-        "name": "14. 기밀 컴퓨팅 (Confidential Computing)"
+        "name": "13. FIPS 140-2 (Federal Information Processing Standard)"
       },
       {
         "id": "116",
-        "name": "[Part 9] 양자 보안"
+        "name": "14. 기밀 컴퓨팅 (Confidential Computing)"
       },
       {
         "id": "117",
-        "name": "1. 양자암호통신 (Quantum Cryptography Communication)"
+        "name": "[Part 9] 양자 보안"
       },
       {
         "id": "118",
-        "name": "2. 양자내성 암호 (Post-Quantum Cryptography, PQC)"
+        "name": "1. 양자암호통신 (Quantum Cryptography Communication)"
       },
       {
         "id": "119",
-        "name": "[Part 10] AI 보안"
+        "name": "2. 양자내성 암호 (Post-Quantum Cryptography, PQC)"
       },
       {
         "id": "120",
-        "name": "1. 적대적 공격 (Adversarial Attack)"
+        "name": "[Part 10] AI 보안"
       },
       {
         "id": "121",
-        "name": "2. 모델 전도 공격 (Model Inversion Attack)"
+        "name": "1. 적대적 공격 (Adversarial Attack)"
       },
       {
         "id": "122",
-        "name": "3. 프롬프트 인젝션 (Prompt Injection)"
+        "name": "2. 모델 전도 공격 (Model Inversion Attack)"
       },
       {
         "id": "123",
-        "name": "4. Model DoS (모델 서비스 거부 공격)"
+        "name": "3. 프롬프트 인젝션 (Prompt Injection)"
       },
       {
         "id": "124",
-        "name": "5. Jailbreak (탈옥 공격)"
+        "name": "4. Model DoS (모델 서비스 거부 공격)"
       },
       {
         "id": "125",
-        "name": "7. MCP 보안 (Model Context Protocol Security)"
+        "name": "5. Jailbreak (탈옥 공격)"
       },
       {
         "id": "126",
-        "name": "8. OWASP LLM Top 10(2026)"
+        "name": "7. MCP 보안 (Model Context Protocol Security)"
       },
       {
         "id": "127",
-        "name": "9. OWASPAgentic Applications Top 10(2026)"
+        "name": "8. OWASP LLM Top 10(2026)"
       },
       {
         "id": "128",
-        "name": "10. ML 편향 문제 (Machine Learning Bias)"
+        "name": "9. OWASPAgentic Applications Top 10(2026)"
       },
       {
         "id": "129",
-        "name": "11. 다크패턴 (Dark Pattern)"
+        "name": "10. ML 편향 문제 (Machine Learning Bias)"
       },
       {
         "id": "130",
-        "name": "12. AI 기반 사이버위협 (AI-based Cyber Threat)"
+        "name": "11. 다크패턴 (Dark Pattern)"
       },
       {
         "id": "131",
-        "name": "[Part 11] 보안관리체계"
+        "name": "12. AI 기반 사이버위협 (AI-based Cyber Threat)"
       },
       {
         "id": "132",
-        "name": "1. 정보보호 거버넌스 (Information Security Governance)"
+        "name": "[Part 11] 보안관리체계"
       },
       {
         "id": "133",
-        "name": "2. ISMS-P (개인정보보호 관리체계 인증)"
+        "name": "1. 정보보호 거버넌스 (Information Security Governance)"
       },
       {
         "id": "134",
-        "name": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
+        "name": "2. ISMS-P (개인정보보호 관리체계 인증)"
       },
       {
         "id": "135",
-        "name": "3. 정보보호책임자(CISO, Chief Information Security Officer)"
+        "name": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
       },
       {
         "id": "136",
-        "name": "[하위] 3-1. 개인정보보호책임자(CPO, Chief Privacy Officer)"
+        "name": "3. 정보보호책임자(CISO, Chief Information Security Officer)"
       },
       {
         "id": "137",
-        "name": "4. 사이버 복원력(Cyber Resilience)"
+        "name": "[하위] 3-1. 개인정보보호책임자(CPO, Chief Privacy Officer)"
       },
       {
         "id": "138",
-        "name": "[Part 12] 개인정보보호"
+        "name": "4. 사이버 복원력(Cyber Resilience)"
       },
       {
         "id": "139",
-        "name": "1. 개인정보보호법 개정"
+        "name": "[Part 12] 개인정보보호"
       },
       {
         "id": "140",
-        "name": "2. 데이터 3법"
+        "name": "1. 개인정보보호법 개정"
       },
       {
         "id": "141",
-        "name": "3. 개인정보 비식별조치 (De-identification)"
+        "name": "2. 데이터 3법"
       },
       {
         "id": "142",
-        "name": "4. 익명처리 (Anonymization)"
+        "name": "3. 개인정보 비식별조치 (De-identification)"
       },
       {
         "id": "143",
-        "name": "5. 가명처리 (Pseudonymization)"
+        "name": "4. 익명처리 (Anonymization)"
       },
       {
         "id": "144",
-        "name": "6.프라이버시 보호 모델"
+        "name": "5. 가명처리 (Pseudonymization)"
       },
       {
         "id": "145",
-        "name": "7. PET (Privacy Enhancing Technology)"
+        "name": "6.프라이버시 보호 모델"
       },
       {
         "id": "146",
-        "name": "8. PbD (Privacy by Design)"
+        "name": "7. PET (Privacy Enhancing Technology)"
       },
       {
         "id": "147",
-        "name": "9. 개인정보 안전성 확보조치"
+        "name": "8. PbD (Privacy by Design)"
       },
       {
         "id": "148",
-        "name": "[하위] 9-1. 내부관리계획"
+        "name": "9. 개인정보 안전성 확보조치"
       },
       {
         "id": "149",
-        "name": "10. APEC 프라이버시 9원칙"
+        "name": "[하위] 9-1. 내부관리계획"
       },
       {
         "id": "150",
-        "name": "[하위] 10-1. CBPR (Cross Border Privacy Rules)"
+        "name": "10. APEC 프라이버시 9원칙"
       },
       {
         "id": "151",
-        "name": "[하위] 10-2. OECD 프라이버시 8원칙"
+        "name": "[하위] 10-1. CBPR (Cross Border Privacy Rules)"
       },
       {
         "id": "152",
-        "name": "11. 개인정보 전송요구권 (Right to Data Portability)"
+        "name": "[하위] 10-2. OECD 프라이버시 8원칙"
       },
       {
         "id": "153",
-        "name": "[하위] 11-1. 공공 마이데이터"
+        "name": "11. 개인정보 전송요구권 (Right to Data Portability)"
       },
       {
         "id": "154",
-        "name": "12. 자동화 의사결정 대응권"
+        "name": "[하위] 11-1. 공공 마이데이터"
       },
       {
         "id": "155",
-        "name": "13. AI 개인정보보호 자율점검표"
+        "name": "12. 자동화 의사결정 대응권"
       },
       {
         "id": "156",
-        "name": "14. CCTV 개인영상정보 보호"
+        "name": "13. AI 개인정보보호 자율점검표"
       },
       {
         "id": "157",
-        "name": "15. 개인정보 보호 법률 체계"
+        "name": "14. CCTV 개인영상정보 보호"
       },
       {
         "id": "158",
-        "name": "16. 잊힐 권리 (Right to be Forgotten)"
+        "name": "15. 개인정보 보호 법률 체계"
       },
       {
         "id": "159",
-        "name": "17. 개인정보 이노베이션 존"
+        "name": "16. 잊힐 권리 (Right to be Forgotten)"
       },
       {
         "id": "160",
-        "name": "18. 개인정보 사전적정성 제도"
+        "name": "17. 개인정보 이노베이션 존"
       },
       {
         "id": "161",
+        "name": "18. 개인정보 사전적정성 제도"
+      },
+      {
+        "id": "162",
         "name": "19. 인공지능기술 개발을 위한 개인정보 처리의 특례(안)(26.5.)"
       }
     ]
@@ -1667,86 +1675,90 @@
       },
       {
         "id": "056",
-        "name": "[Part 7]. VPN"
+        "name": "4. SDDC(소프트웨어 정의 데이터센터, Software Defined Data Center)"
       },
       {
         "id": "057",
-        "name": "1. VPN (Virtual Private Network, 가상 사설망)"
+        "name": "[Part 7]. VPN"
       },
       {
         "id": "058",
-        "name": "2. IPSec (Internet Protocol Security)"
+        "name": "1. VPN (Virtual Private Network, 가상 사설망)"
       },
       {
         "id": "059",
-        "name": "3. SSL VPN (Secure Socket Layer VPN)"
+        "name": "2. IPSec (Internet Protocol Security)"
       },
       {
         "id": "060",
-        "name": "4. MPLS VPN (Multi-Protocol Label Switching VPN)"
+        "name": "3. SSL VPN (Secure Socket Layer VPN)"
       },
       {
         "id": "061",
-        "name": "5. Tor (The Onion Router)"
+        "name": "4. MPLS VPN (Multi-Protocol Label Switching VPN)"
       },
       {
         "id": "062",
-        "name": "[Part 8]. 이동통신/무선"
+        "name": "5. Tor (The Onion Router)"
       },
       {
         "id": "063",
-        "name": "1. 5G 특화망 (Private 5G Network)"
+        "name": "[Part 8]. 이동통신/무선"
       },
       {
         "id": "064",
-        "name": "2. SDR (Software Defined Radio)"
+        "name": "1. 5G 특화망 (Private 5G Network)"
       },
       {
         "id": "065",
-        "name": "3. IEEE 802.11bn (Wi-Fi 8)"
+        "name": "2. SDR (Software Defined Radio)"
       },
       {
         "id": "066",
-        "name": "4. 5G 네트워크 슬라이싱 (Network Slicing)"
+        "name": "3. IEEE 802.11bn (Wi-Fi 8)"
       },
       {
         "id": "067",
-        "name": "5. Ad-hoc 네트워크"
+        "name": "4. 5G 네트워크 슬라이싱 (Network Slicing)"
       },
       {
         "id": "068",
-        "name": "6. 저궤도 위성 (LEO, Low Earth Orbit Satellite)"
+        "name": "5. Ad-hoc 네트워크"
       },
       {
         "id": "069",
-        "name": "[Part 9]. 차세대 네트워크"
+        "name": "6. 저궤도 위성 (LEO, Low Earth Orbit Satellite)"
       },
       {
         "id": "070",
-        "name": "1. 6G 이동통신"
+        "name": "[Part 9]. 차세대 네트워크"
       },
       {
         "id": "071",
-        "name": "2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)"
+        "name": "1. 6G 이동통신"
       },
       {
         "id": "072",
-        "name": "3. AI-Native Network (AI 네이티브 네트워크)"
+        "name": "2. SATIN (Satellite-Aerial-Terrestrial Integrated Network)"
       },
       {
         "id": "073",
-        "name": "4. AI-RAN (AI-based Radio Access Network)"
+        "name": "3. AI-Native Network (AI 네이티브 네트워크)"
       },
       {
         "id": "074",
-        "name": "5. IBN (Intent-Based Networking)"
+        "name": "4. AI-RAN (AI-based Radio Access Network)"
       },
       {
         "id": "075",
-        "name": "6. 자율 네트워크 (Autonomous Network)"
+        "name": "5. IBN (Intent-Based Networking)"
       },
       {
         "id": "076",
+        "name": "6. 자율 네트워크 (Autonomous Network)"
+      },
+      {
+        "id": "077",
         "name": "7. Matter (Matter Standard)"
       }
     ]
@@ -3767,15 +3779,15 @@
       },
       {
         "id": "025",
-        "name": "15. 코드형 인프라 (IaC, Infrastructure as Code)"
+        "name": "11. 코드형 인프라 (IaC, Infrastructure as Code)"
       },
       {
         "id": "026",
-        "name": "16. 클라우드 전환 (Cloud Migration)"
+        "name": "12. 클라우드 전환 (Cloud Migration)"
       },
       {
         "id": "027",
-        "name": "17. 엣지 컴퓨팅 (Edge Computing)"
+        "name": "13. 엣지 컴퓨팅 (Edge Computing)"
       },
       {
         "id": "028",
@@ -3951,115 +3963,115 @@
       },
       {
         "id": "071",
-        "name": "[Part 7]. 데이터 경제"
+        "name": "9. STO(Security Token Offering)"
       },
       {
         "id": "072",
-        "name": "1. 데이터 커머스 (Data Commerce)"
+        "name": "[Part 7]. 데이터 경제"
       },
       {
         "id": "073",
-        "name": "2. 데이터 가치평가 (Data Valuation)"
+        "name": "1. 데이터 커머스 (Data Commerce)"
       },
       {
         "id": "074",
-        "name": "[하위] 2-1. 데이터 자산화"
+        "name": "2. 데이터 가치평가 (Data Valuation)"
       },
       {
         "id": "075",
-        "name": "3. 데이터 거래소 (Data Exchange)"
+        "name": "[하위] 2-1. 데이터 자산화"
       },
       {
         "id": "076",
-        "name": "[Part 8]. XR/메타버스"
+        "name": "3. 데이터 거래소 (Data Exchange)"
       },
       {
         "id": "077",
-        "name": "1. 가상현실 (VR, Virtual Reality)"
+        "name": "[Part 8]. XR/메타버스"
       },
       {
         "id": "078",
-        "name": "2. 가상융합기술 (XR, eXtended Reality)"
+        "name": "1. 가상현실 (VR, Virtual Reality)"
       },
       {
         "id": "079",
-        "name": "3. 증강현실 (AR, Augmented Reality)"
+        "name": "2. 가상융합기술 (XR, eXtended Reality)"
       },
       {
         "id": "080",
-        "name": "4. 메타버스 (Metaverse)"
+        "name": "3. 증강현실 (AR, Augmented Reality)"
       },
       {
         "id": "081",
-        "name": "[하위] 4-1. 메타버스 윤리원칙"
+        "name": "4. 메타버스 (Metaverse)"
       },
       {
         "id": "082",
-        "name": "5. 공간 컴퓨팅 (Spatial Computing)"
+        "name": "[하위] 4-1. 메타버스 윤리원칙"
       },
       {
         "id": "083",
-        "name": "6. GIS (Geographic Information System, 지리정보시스템)"
+        "name": "5. 공간 컴퓨팅 (Spatial Computing)"
       },
       {
         "id": "084",
-        "name": "[Part 9]. 앱/서비스 트렌드"
+        "name": "6. GIS (Geographic Information System, 지리정보시스템)"
       },
       {
         "id": "085",
-        "name": "1. 멀티앱 (Multi App)/ 미니앱 (Mini App) / 슈퍼앱 (Super App)"
+        "name": "[Part 9]. 앱/서비스 트렌드"
       },
       {
         "id": "086",
-        "name": "2. 앰비언트 컴퓨팅 (Ambient Computing)"
+        "name": "1. 멀티앱 (Multi App)/ 미니앱 (Mini App) / 슈퍼앱 (Super App)"
       },
       {
         "id": "087",
-        "name": "[하위] 2-1. 앰비언트 커머스 (Ambient Commerce)"
+        "name": "2. 앰비언트 컴퓨팅 (Ambient Computing)"
       },
       {
         "id": "088",
-        "name": "3. 웹3.0 (Web 3.0)"
+        "name": "[하위] 2-1. 앰비언트 커머스 (Ambient Commerce)"
       },
       {
         "id": "089",
-        "name": "4. NFT (Non-Fungible Token)"
+        "name": "3. 웹3.0 (Web 3.0)"
       },
       {
         "id": "090",
-        "name": "5. 3D 프린팅"
+        "name": "4. NFT (Non-Fungible Token)"
       },
       {
         "id": "091",
-        "name": "6. 웨어러블 컴퓨팅 (Wearable Computing)"
+        "name": "5. 3D 프린팅"
       },
       {
         "id": "092",
-        "name": "[Part 10]. 디지털 사회/정책"
+        "name": "6. 웨어러블 컴퓨팅 (Wearable Computing)"
       },
       {
         "id": "093",
-        "name": "1. 전문성의 민주화 (Democratization of Expertise)"
+        "name": "[Part 10]. 디지털 사회/정책"
       },
       {
         "id": "094",
-        "name": "2. 행동인터넷 (IoB, Internet of Behavior)"
+        "name": "1. 전문성의 민주화 (Democratization of Expertise)"
       },
       {
         "id": "095",
-        "name": "3. 디지털 휴먼증강 (Digital Human Augmentation)"
+        "name": "2. 행동인터넷 (IoB, Internet of Behavior)"
       },
       {
         "id": "096",
-        "name": "4. IT 생산성 패러독스 (Productivity Paradox)"
+        "name": "3. 디지털 휴먼증강 (Digital Human Augmentation)"
       },
       {
         "id": "097",
-        "name": "8. 전자정부 평가 (EGDI, E-Government Development Index)"
+        "name": "4. IT 생산성 패러독스 (Productivity Paradox)"
       },
       {
         "id": "098",
-        "name": "9. RE100 (Renewable Energy 100%)"
+        "name": "5. RE100 (Renewable Energy 100%)"
       },
       {
         "id": "099",

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[하위] 1-1. 오픈소스 DBMS 전환</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* iframe 내부 여백 및 반응형 보정 */
+    body { margin: 0; padding: 20px 24px 40px; box-sizing: border-box; }
+    img  { max-width: 100% !important; height: auto !important; }
+    /* table display:block 금지 — style.css 값 덮어쓰기 방지 */
+    table { display: table !important; width: max-content; min-width: 100%; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body>
+<h4>[하위] 1-1. 오픈소스 DBMS 전환</h4>
+<ul>
+<li><strong>정의</strong>: 비용 절감 및 벤더 종속성 탈피를 위해 상용 DBMS를 오픈소스 DBMS로 전환하는 이전 프로젝트</li>
+<li><strong>키워드</strong>: 상용→오픈소스, SQL 호환성, 저장 프로시저 변환, HA 아키텍처, 벤더 종속성 탈피</li>
+<li><strong>분류</strong>: 마이그레이션</li>
+<li><strong>전환 시 주요 제약사항</strong>:<ul>
+<li><strong>SQL 호환성</strong>: 상용 DB 전용 문법(힌트, 내장 함수) 변환 필요</li>
+<li><strong>저장 프로시저</strong>: PL/SQL → PL/pgSQL 등 언어 변환 작업</li>
+<li><strong>HA 아키텍처</strong>: Active-Active 또는 Active-Standby 구성 재설계</li>
+</ul>
+</li>
+<li><strong>전환 절차</strong>: 현황 분석 → 호환성 검토 → 파일럿 구축 → 마이그레이션 → 성능 검증 → 전환</li>
+<li><strong>인사이트</strong>: Oracle → PostgreSQL 전환 시 DATE 타입 차이, ROWNUM vs LIMIT, 시퀀스 방식 등 세부 문법 차이가 예상보다 많으므로, 전환 전 충분한 호환성 테스트와 자동화 변환 도구(Ora2Pg 등) 활용을 권장함</li>
+</ul>
+</body>
+</html>
+</body>
+</html>

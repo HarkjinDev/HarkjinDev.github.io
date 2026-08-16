@@ -58,7 +58,7 @@
 <li><strong>정의</strong>: 알고리즘의 실행 시간과 메모리 사용량을 입력 크기 함수로 표현한 성능 척도</li>
 <li><strong>키워드</strong>: 시간 복잡도, 공간 복잡도, 수행시간, Big-O, Big-Ω, Big-Θ, 점근 표기법, 최선/평균/최악</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
-<li><strong>알고리즘 측정:</strong><div class="table-scroll"><table>
+<li><strong>알고리즘 측정: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;시공수&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th></tr>
 <tr><td><strong>성능 분석</strong></td><td><strong>시간 복잡도</strong></td><td>연산횟수의 총량(연산의 횟수)</td></tr>
 <tr><td></td><td><strong>공간 복잡도</strong></td><td>메모리 공간의 총량(고정영역(프로그램 사이즈) + 가변영역(데이터 사이즈))</td></tr>
@@ -117,7 +117,7 @@
 </ul>
 <h4>3. 탐욕 알고리즘 (Greedy Algorithm)</h4>
 <ul>
-<li><strong>정의:</strong> 매 단계마다 현재 최선의 선택을 반복하여 해를 구하는 알고리즘 패러다임</li>
+<li><strong>정의:</strong> 매 단계마다 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>현재 최선의 선택을 반복</strong></u></span>하여 해를 구하는 알고리즘 패러다임</li>
 <li><strong>키워드:</strong> 지역 최적해, 전역 최적해, 탐욕적 선택, 최적 부분 구조, 탐욕 증명, 크루스칼, 다익스트라, 허프만 코딩</li>
 <li><strong>분류</strong>: 알고리즘 기초</li>
 <li><strong>동작 원리:</strong><div class="table-scroll"><table>
@@ -166,19 +166,20 @@
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>피보나치 수열</strong></td><td>DP의 가장 기본 예제, O(n)으로 최적화</td><td>기본 예제</td></tr>
 <tr><td><strong>배낭 문제 (Knapsack)</strong></td><td>무게 제한 내 최대 가치 선택 최적화</td><td>선택 최적화</td></tr>
+<tr><td><strong>최단 경로 (Floyd-Warshall)</strong></td><td>모든 정점 쌍 간 최단 경로 동시 계산</td><td>전체 최단 경로</td></tr>
 <tr><td><strong>LCS(최장공통부분수열)</strong></td><td>두 문자열의 최장 공통 부분 수열 탐색</td><td>문자열 비교</td></tr>
 <tr><td><strong>LIS(부분수열)</strong></td><td>최장 증가하는 부분 수열 탐색</td><td>수열 최적화</td></tr>
-<tr><td><strong>최단 경로 (Floyd-Warshall)</strong></td><td>모든 정점 쌍 간 최단 경로 동시 계산</td><td>전체 최단 경로</td></tr>
 <tr><td><strong>행렬 체인 곱셈</strong></td><td>행렬 곱셈 순서 최적화로 연산 비용 최소화</td><td>연산 최적화</td></tr>
 </table></div>
 </li>
 <li><strong>타 패러다임과 비교:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>동적 프로그래밍</th><th>분할정복</th><th>탐욕 알고리즘</th></tr>
-<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>부분 문제 중복</strong></u></span></td><td>✅ 있음</td><td>❌ 없음</td><td>❌ 없음</td></tr>
-<tr><td><strong>최적해 보장</strong></td><td>✅ 항상</td><td>✅ 항상</td><td>△ 조건 성립 시</td></tr>
-<tr><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과 저장</strong></u></span></td><td>✅ 필수</td><td>❌ 불필요</td><td>❌ 불필요</td></tr>
-<tr><td><strong>속도</strong></td><td>중간</td><td>빠름</td><td>가장 빠름</td></tr>
-<tr><td><strong>적용 범위</strong></td><td>광범위</td><td>제한적</td><td>제한적</td></tr>
+<tr><th>항목</th><th><strong>동적 프로그래밍</strong></th><th><strong>분할정복</strong></th><th><strong>탐욕 알고리즘</strong></th><th><strong>메타휴리스틱스</strong></th></tr>
+<tr><td><strong>핵심</strong></td><td>중복 부분문제 해결</td><td>문제를 작은 문제로 분할</td><td>현재 최선 선택</td><td>좋은 해를 탐색</td></tr>
+<tr><td><strong>부분 문제 중복</strong></td><td>✅ 있음</td><td>❌ 없음</td><td>❌ 없음</td><td>△ 탐색에 따라 발생</td></tr>
+<tr><td><strong>최적해 보장</strong></td><td>✅ 항상</td><td>✅ 정확한 해 보장</td><td>△ 조건 성립 시</td><td>❌ 보장 안 됨</td></tr>
+<tr><td><strong>결과 저장</strong></td><td>✅ 필수</td><td>❌ 불필요</td><td>❌ 불필요</td><td>△ 선택적</td></tr>
+<tr><td><strong>속도</strong></td><td>중간</td><td>빠름</td><td>가장 빠름</td><td>중간~느림</td></tr>
+<tr><td><strong>적용 범위</strong></td><td>광범위</td><td>제한적</td><td>제한적</td><td><strong>매우 광범위</strong></td></tr>
 </table></div>
 </li>
 <li><strong>인사이트: </strong>동적 프로그래밍은 알고리즘 설계 패러다임 중 가장 광범위하게 적용되며, <strong>"상태를 어떻게 정의하느냐"</strong> 가 곧 문제 해결의 핵심이자 시험 답안의 핵심 포인트. 분할정복과 구조는 유사하나 <strong>부분 문제의 중복 여부</strong>가 두 패러다임을 가르는 핵심 기준이며, 이 차이를 명확히 설명하는 것이 시험 답안 차별화의 핵심</li>
@@ -289,7 +290,7 @@
 <h4>3. 스택 (Stack)</h4>
 <ul>
 <li><strong>정의</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>후입선출(LIFO) 원칙</strong></u></span>으로 삽입과 삭제가 한쪽 끝에서 이루어지는 자료 구조</li>
-<li><strong>키워드</strong>: LIFO, Push, Pop, Top, Overflow, Underflow, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재귀 호출, 콜스택</strong></u></span></li>
+<li><strong>키워드</strong>: LIFO, Push, Pop, Top, Overflow, Underflow, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재귀 호출, 콜스택, DFS</strong></u></span></li>
 <li><strong>분류</strong>: 선형 자료구조</li>
 <li><strong>주요 연산 및 예외 상태</strong>:<div class="table-scroll"><table>
 <tr><th>연산/상태</th><th>설명</th></tr>
@@ -601,21 +602,21 @@
 <ul>
 <li><strong>정렬 알고리즘의 분류:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td>비교 정렬</td><td>원소 순서를 비교해 정렬하는 방식</td><td>순서 비교</td></tr>
-<tr><td>안정 정렬</td><td>같은 값의 원래 순서를 보장</td><td>순서 보장</td></tr>
-<tr><td>불안정 정렬</td><td>같은 값의 순서가 바뀔 수 있음</td><td>순서 변경</td></tr>
-<tr><td>제자리 정렬</td><td>추가 저장공간을 거의 쓰지 않음</td><td>저장공간 최소</td></tr>
-<tr><td>온라인 정렬</td><td>입력이 순차적으로 들어와도 처리</td><td>순차 처리</td></tr>
+<tr><td><strong>비교 정렬</strong></td><td>원소 순서를 비교해 정렬하는 방식</td><td>순서 비교</td></tr>
+<tr><td><strong>안정 정렬</strong></td><td>같은 값의 원래 순서를 보장</td><td>순서 보장</td></tr>
+<tr><td><strong>불안정 정렬</strong></td><td>같은 값의 순서가 바뀔 수 있음</td><td>순서 변경</td></tr>
+<tr><td><strong>제자리 정렬</strong></td><td>추가 저장공간을 거의 쓰지 않음</td><td>저장공간 최소</td></tr>
+<tr><td><strong>온라인 정렬</strong></td><td>입력이 순차적으로 들어와도 처리</td><td>순차 처리</td></tr>
 </table></div>
 </li>
 <li><strong>정렬 알고리즘 유형:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>평균 시간복잡도</th><th>핵심</th></tr>
-<tr><td><strong>버블 정렬</strong></td><td>인접한 두 원소를 비교해 교환</td><td>O(n²)</td><td>인접 교환</td></tr>
-<tr><td><strong>삽입 정렬</strong></td><td>정렬된 부분에 원소를 차례로 삽입</td><td>O(n²)</td><td>순차 삽입</td></tr>
-<tr><td><strong>선택 정렬</strong></td><td>매 단계 최솟값을 찾아 배치</td><td>O(n²)</td><td>최솟값 선택</td></tr>
-<tr><td><strong>퀵 정렬</strong></td><td>기준값 중심으로 분할해 정렬</td><td>O(n log n)</td><td>분할 정복</td></tr>
-<tr><td><strong>힙 정렬</strong></td><td>힙 구조로 최댓값을 반복 추출</td><td>O(n log n)</td><td>힙 구조 이용</td></tr>
-<tr><td><strong>병합 정렬</strong></td><td>분할한 뒤 정렬된 부분을 병합</td><td>O(n log n)</td><td>분할 후 병합</td></tr>
+<tr><th>항목</th><th>설명</th><th><strong>정렬 특성</strong></th><th>평균 시간복잡도</th><th>핵심</th></tr>
+<tr><td><strong>버블 정렬</strong></td><td>인접한 두 원소를 비교해 교환</td><td>안정</td><td>O(n²)</td><td>인접 교환</td></tr>
+<tr><td><strong>삽입 정렬</strong></td><td>정렬된 부분에 원소를 차례로 삽입</td><td>안정, 온라인</td><td>O(n²)</td><td>순차 삽입</td></tr>
+<tr><td><strong>선택 정렬</strong></td><td>매 단계 최솟값을 찾아 배치</td><td>제자리, 불안정</td><td>O(n²)</td><td>최솟값 선택</td></tr>
+<tr><td><strong>퀵 정렬</strong></td><td>기준값 중심으로 분할해 정렬</td><td>불안정</td><td>O(n log n)</td><td>분할 정복</td></tr>
+<tr><td><strong>힙 정렬</strong></td><td>힙 구조로 최댓값을 반복 추출</td><td>제자리, 불안정</td><td>O(n log n)</td><td>힙 구조 이용</td></tr>
+<tr><td><strong>병합 정렬</strong></td><td>분할한 뒤 정렬된 부분을 병합</td><td>안정</td><td>O(n log n)</td><td>분할 후 병합</td></tr>
 </table></div>
 </li>
 </ul>
