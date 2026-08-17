@@ -302,6 +302,12 @@
   {
     "domain": "AI",
     "fname": "ai",
+    "topic": "12. MCP (Model Context Protocol)",
+    "mnemonic": "<도리프>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
     "topic": "1. AI 윤리 (AI Ethics) 및 신뢰성",
     "mnemonic": "<인사기/준공합>"
   },
@@ -328,6 +334,12 @@
     "fname": "ai",
     "topic": "[하위] 2-3. 범용 AI 위험 관리 (General-Purpose AI Risk Management)",
     "mnemonic": "<오편환통>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
+    "topic": "6. 인공지능 영향평가",
+    "mnemonic": "<필대/피작기/후공>"
   },
   {
     "domain": "AI",
@@ -364,6 +376,12 @@
     "fname": "sec",
     "topic": "2. 접근제어/통제 (Access Control)",
     "mnemonic": "<정모메>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "[하위] 2-2. ABAC (Attribute-Based Access Control)",
+    "mnemonic": "<주객행환>"
   },
   {
     "domain": "SEC",
@@ -1084,6 +1102,12 @@
     "fname": "st",
     "topic": "[하위] 2-1. 중심극한정리 (Central Limit Theorem)",
     "mnemonic": "<중정/대모>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "1. 가설검정 (Statistical Hypothesis Test)",
+    "mnemonic": "<참기거채>"
   },
   {
     "domain": "ST",

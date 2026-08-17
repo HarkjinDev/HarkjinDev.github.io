@@ -17,13 +17,13 @@
 <body>
 <h4>5. Text2SQL (자연어 기반 SQL 자동 생성)</h4>
 <ul>
-<li><strong>정의:</strong> 자연어(Natural Language)로 입력된 질의를 AI 모델이 분석하여 실행 가능한 SQL 쿼리로 자동 변환하는 기술</li>
+<li><strong>정의:</strong> 자연어로 입력된 질의를 AI 모델이 분석하여 실행 가능한 SQL 쿼리로 자동 변환하는 기술</li>
 <li><strong>키워드:</strong> 자연어 처리, SQL 생성, 스키마 이해, 스키마 링킹, RAG 연계, 시맨틱 파싱, 데이터 민주화</li>
 <li><strong>분류</strong>: 자연어처리(NLP)</li>
 <li><strong>동작 원리:</strong><div class="table-scroll"><table>
 <tr><th>단계</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>1. 자연어 입력</strong></td><td>사용자가 일상 언어로 데이터 질의 입력</td><td>자연어 질의</td></tr>
-<tr><td><strong>2. 스키마 인식</strong></td><td>DB 테이블·컬럼·관계·제약 정보 파악</td><td>스키마 이해</td></tr>
+<tr><td><strong>2. </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>스키마 인식</strong></u></span></td><td>DB 테이블·컬럼·관계·제약 정보 파악</td><td>스키마 이해</td></tr>
 <tr><td><strong>3. 의도 분석</strong></td><td>질의 의도·조건·집계·정렬 요소 추출</td><td>의도 파악</td></tr>
 <tr><td><strong>4. SQL 생성</strong></td><td>LLM이 스키마·의도 기반으로 SQL 쿼리 생성</td><td>쿼리 변환</td></tr>
 <tr><td><strong>5. 검증·실행</strong></td><td>생성된 SQL 문법·실행 가능성 검증 후 DB 실행</td><td>실행 검증</td></tr>
@@ -37,7 +37,7 @@
 <tr><td></td><td><strong>스키마 필터링</strong></td><td>대형 DB에서 관련 테이블·컬럼만 선별 주입</td><td>컨텍스트 최적화</td></tr>
 <tr><td><strong>생성 전략</strong></td><td><strong>Few-shot 프롬프팅</strong></td><td>유사 자연어-SQL 예시 제공으로 생성 품질 향상</td><td>예시 기반 생성</td></tr>
 <tr><td></td><td><strong>Chain-of-Thought</strong></td><td>단계별 추론으로 복잡한 쿼리 생성 정확도 향상</td><td>추론 기반 생성</td></tr>
-<tr><td></td><td><strong>Seq2Seq 모델</strong></td><td>데이터를 다른 순서 데이터로 변환</td><td>입력-출력 변환</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Seq2Seq 모델</strong></u></span></td><td>데이터를 다른 순서 데이터로 변환</td><td>입력-출력 변환</td></tr>
 <tr><td></td><td><strong>RAG 연계</strong></td><td>유사 질의-SQL 쌍을 검색하여 프롬프트에 주입</td><td>검색 기반 생성</td></tr>
 <tr><td><strong>검증</strong></td><td><strong>실행 기반 검증</strong></td><td>생성 SQL을 실제 DB에 실행하여 결과 확인</td><td>실행 검증</td></tr>
 <tr><td></td><td><strong>자기 수정 </strong></td><td>오류 발생 시 LLM이 오류 메시지 기반 자동 수정</td><td>자동 오류 수정</td></tr>

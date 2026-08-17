@@ -17,8 +17,8 @@
 <body>
 <h4><strong>[하위] 3-3. 다차원 척도법 (MDS, Multidimensional Scaling)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 데이터 개체들 간의 거리나 비유사성(Dissimilarity)을 최대한 보존하면서, 저차원 공간(주로 2, 3차원)에 시각적으로 매핑하는 차원 축소 기법</li>
-<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비유사성, 스트레스(Stress, 오차 측정) 값, Scree Plot,</strong></u></span> 계량적/비계량적, 거리 행렬, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>저차원 매핑</strong></u></span>, 시각화, 유클리드 거리</li>
+<li><strong>정의:</strong> 데이터 개체들 간의 거리나 비유사성을 최대한 보존하면서, 저차원 공간에 시각적으로 매핑하는 차원 축소 기법</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비유사성(Dissimilarity), 스트레스(Stress, 오차 측정) 값, Scree Plot,</strong></u></span> 계량적/비계량적, 거리 행렬, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>저차원 매핑</strong></u></span>, 시각화, 유클리드 거리</li>
 <li><strong>분류</strong>: 비지도학습</li>
 <li><strong>MDS 주요 유형</strong><div class="table-scroll"><table>
 <tr><th><strong>유형</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
@@ -28,10 +28,10 @@
 </li>
 <li><strong>MDS 상세 프로세스</strong><div class="table-scroll"><table>
 <tr><th><strong>프로세스</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>거리 행렬 계산</strong></td><td>개체 간 비유사성을 산출함</td><td>유클리드 거리 행렬</td></tr>
-<tr><td><strong>저차원 매핑</strong></td><td>초기 임의 좌표에 개체 배치</td><td>초기 위치 설정</td></tr>
-<tr><td><strong>스트레스 평가</strong></td><td>실제와 매핑 간 오차 측정</td><td>적합도(Stress) 산출</td></tr>
-<tr><td><strong>최적화</strong></td><td>스트레스 최소화 좌표 탐색</td><td>반복 계산 및 최종 시각화</td></tr>
+<tr><td><strong>1. 거리 행렬 계산</strong></td><td>개체 간 비유사성을 산출함</td><td>유클리드 거리 행렬</td></tr>
+<tr><td><strong>2. 저차원 매핑</strong></td><td>초기 임의 좌표에 개체 배치</td><td>초기 위치 설정</td></tr>
+<tr><td><strong>3. 스트레스 평가</strong></td><td>실제와 매핑 간 오차 측정</td><td>적합도(Stress) 산출</td></tr>
+<tr><td><strong>4. 최적화</strong></td><td>스트레스 최소화 좌표 탐색</td><td>반복 계산 및 최종 시각화</td></tr>
 </table></div>
 </li>
 <li><strong>MDS 평가 지표</strong><div class="table-scroll"><table>
