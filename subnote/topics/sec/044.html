@@ -17,14 +17,14 @@
 <body>
 <h4>3. 네트워크 스니핑 (Network Sniffing)</h4>
 <ul>
-<li><strong>정의</strong>: 네트워크 상에서 흐르는 패킷을 무차별적으로 캡처·분석하여 민감 정보를 탈취하는 공격 기법</li>
-<li><strong>키워드</strong>: 패킷 캡처, 무차별 모드(Promiscuous Mode), Wireshark, 수동적 공격</li>
+<li><strong>정의</strong>: 네트워크 상에서 흐르는 패킷을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무차별적으로 캡처·분석</strong></u></span>하여 민감 정보를 탈취하는 공격 기법</li>
+<li><strong>키워드</strong>: 패킷 캡처, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>무차별 모드(Promiscuous Mode)</strong></u></span>, Wireshark, 수동적 공격</li>
 <li><strong>분류</strong>: 네트워크 보안</li>
 <li><strong>동작 원리</strong>: NIC를 무차별 모드(Promiscuous Mode)로 설정 → 자신에게 오지 않는 패킷도 모두 수신 → 평문 프로토콜(HTTP, FTP, Telnet 등)에서 ID/PW·세션 쿠키 추출</li>
 <li><strong>스니핑 유형</strong>:<div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
-<tr><td>수동적 스니핑</td><td>허브 기반 네트워크에서 브로드캐스트 패킷을 그냥 수신</td><td>공유 허브 환경</td></tr>
-<tr><td>능동적 스니핑</td><td>스위치 환경에서 ARP 스푸핑 등으로 트래픽을 강제 우회 후 캡처</td><td>ARP Poisoning + 스니핑</td></tr>
+<tr><td><strong>수동적 스니핑</strong></td><td>허브 기반 네트워크에서 브로드캐스트 패킷을 그냥 수신</td><td>공유 허브 환경</td></tr>
+<tr><td><strong>능동적 스니핑</strong></td><td>스위치 환경에서 ARP 스푸핑 등으로 트래픽을 강제 우회 후 캡처</td><td>ARP Poisoning + 스니핑</td></tr>
 </table></div>
 </li>
 <li><strong>스니핑 공격 기법</strong>:<div class="table-scroll"><table>

@@ -24,7 +24,7 @@
 <div class="table-scroll"><table>
 <tr><th>상태 전이</th><th>전이 조건</th><th>설명</th></tr>
 <tr><td>생성 → 준비</td><td>프로세스 생성 완료</td><td>메모리 할당 후 Ready Queue에 삽입</td></tr>
-<tr><td>준비 → 실행</td><td><strong>디스패치(Dispatch)</strong></td><td>스케줄러가 프로세스를 선택하여 CPU 할당</td></tr>
+<tr><td>준비 → 실행</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>디스패치(Dispatch)</strong></u></span></td><td>스케줄러가 프로세스를 선택하여 CPU 할당</td></tr>
 <tr><td>실행 → 준비</td><td><strong>선점(Preemption)</strong> / 타임 퀀텀 만료</td><td>높은 우선순위 프로세스가 CPU 선점</td></tr>
 <tr><td>실행 → 대기</td><td>I/O 요청 / 이벤트 대기</td><td>Block 상태로 전이, CPU 반납</td></tr>
 <tr><td>대기 → 준비</td><td>I/O 완료 / 이벤트 발생</td><td>Ready Queue로 복귀</td></tr>

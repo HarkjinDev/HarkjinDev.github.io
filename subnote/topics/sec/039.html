@@ -20,25 +20,25 @@
 <li><strong>정의:</strong> 비밀번호 없이 생체인증·보안키 등으로 사용자를 인증하는 차세대 인증 방식</li>
 <li><strong>핵심 보안 장점:</strong><div class="table-scroll"><table>
 <tr><th>장점</th><th>설명</th><th>핵심</th></tr>
-<tr><td>피싱 원천차단</td><td>Origin(도메인) 바인딩으로 가짜사이트 인증 불가</td><td>도메인 검증 내장</td></tr>
-<tr><td>서버측 자산 무력화</td><td>서버는 공개키만 보관·탈취해도 악용 불가</td><td>대규모유출 무의미</td></tr>
-<tr><td>재사용공격 무력화</td><td>사이트별 별도 키쌍 생성</td><td>크리덴셜스터핑 차단</td></tr>
-<tr><td>자격증명공유 불가</td><td>개인키가 하드웨어에 봉인</td><td>물리적 유출 방지</td></tr>
+<tr><td><strong>피싱 원천차단</strong></td><td>Origin(도메인) 바인딩으로 가짜사이트 인증 불가</td><td>도메인 검증 내장</td></tr>
+<tr><td><strong>서버측 자산 무력화</strong></td><td>서버는 공개키만 보관·탈취해도 악용 불가</td><td>대규모유출 무의미</td></tr>
+<tr><td><strong>재사용공격 무력화</strong></td><td>사이트별 별도 키쌍 생성</td><td>크리덴셜스터핑 차단</td></tr>
+<tr><td><strong>자격증명공유 불가</strong></td><td>개인키가 하드웨어에 봉인</td><td>물리적 유출 방지</td></tr>
 </table></div>
 </li>
 <li><strong>Passwordless 인증 방식: </strong><div class="table-scroll"><table>
 <tr><th>보안수준</th><th>방식</th><th>핵심</th><th>대표사례</th></tr>
-<tr><td>최고 
-(피싱저항)</td><td>하드웨어 보안키</td><td>원격탈취 불가·개인키 물리봉인</td><td>YubiKey</td></tr>
-<tr><td></td><td>패스키 </td><td>도메인바인딩·피싱저항성 최강</td><td>Apple·Google·MS 통합</td></tr>
-<tr><td>높음</td><td>생체인식</td><td>고유신체정보·로컬검증</td><td>Apple FaceID, Windows Hello</td></tr>
-<tr><td></td><td>인증서 기반 인증</td><td>PKI 개인키·스마트카드 기반</td><td>공동인증서, 스마트카드</td></tr>
-<tr><td>중간</td><td>인증 앱·푸시알림</td><td>기기소유 기반 승인버튼</td><td>Google/MS Authenticator</td></tr>
-<tr><td></td><td>QR코드 인증</td><td>기기간 신뢰전이·암호화교환</td><td>은행앱, WeChat</td></tr>
-<tr><td></td><td>NFC 배지 탭</td><td>기존 출입카드 재활용</td><td>프론트라인 근로자용</td></tr>
-<tr><td></td><td>소셜/연합 로그인 (SSO)</td><td>신뢰된 IdP로 위임인증</td><td>"Google로 로그인"</td></tr>
-<tr><td>낮음</td><td>매직 링크 </td><td>이메일 계정 탈취시 취약</td><td>Slack, Notion</td></tr>
-<tr><td></td><td>OTP (원타임 패스코드)</td><td>SIM스와핑·피싱 취약</td><td>SMS/이메일 TOTP, HOTP</td></tr>
+<tr><td><strong>최고 
+(피싱저항)</strong></td><td><strong>하드웨어 보안키</strong></td><td>원격탈취 불가·개인키 물리봉인</td><td>YubiKey</td></tr>
+<tr><td></td><td><strong>패스키 </strong></td><td>도메인바인딩·피싱저항성 최강</td><td>Apple·Google·MS 통합</td></tr>
+<tr><td><strong>높음</strong></td><td><strong>생체인식</strong></td><td>고유신체정보·로컬검증</td><td>Apple FaceID, Windows Hello</td></tr>
+<tr><td></td><td><strong>인증서 기반 인증</strong></td><td>PKI 개인키·스마트카드 기반</td><td>공동인증서, 스마트카드</td></tr>
+<tr><td><strong>중간</strong></td><td><strong>인증 앱·푸시알림</strong></td><td>기기소유 기반 승인버튼</td><td>Google/MS Authenticator</td></tr>
+<tr><td></td><td><strong>QR코드 인증</strong></td><td>기기간 신뢰전이·암호화교환</td><td>은행앱, WeChat</td></tr>
+<tr><td></td><td><strong>NFC 배지 탭</strong></td><td>기존 출입카드 재활용</td><td>프론트라인 근로자용</td></tr>
+<tr><td></td><td><strong>소셜/연합 로그인 (SSO)</strong></td><td>신뢰된 IdP로 위임인증</td><td>"Google로 로그인"</td></tr>
+<tr><td><strong>낮음</strong></td><td><strong>매직 링크 </strong></td><td>이메일 계정 탈취시 취약</td><td>Slack, Notion</td></tr>
+<tr><td></td><td><strong>OTP (원타임 패스코드)</strong></td><td>SIM스와핑·피싱 취약</td><td>SMS/이메일 TOTP, HOTP</td></tr>
 </table></div>
 </li>
 </ul>

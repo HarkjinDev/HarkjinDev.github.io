@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-2. 웹소켓 (WebSocket)</title>
+  <title>2. TCP</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,26 +15,19 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-2. 웹소켓 (WebSocket)</h4>
+<h4>2. TCP</h4>
 <ul>
-<li><strong>정의</strong>: HTTP 핸드셰이크 후 단일 TCP 연결로 전이중 실시간 통신하는 프로토콜</li>
-<li><strong>키워드</strong>: RFC 6455, HTTP Upgrade, ws/wss, 전이중, Upgrade 헤더, 실시간</li>
-<li><strong>분류:</strong> 프로토콜</li>
-<li><strong>연결 수립 절차</strong>:<ol>
-<li>클라이언트 → HTTP GET + Upgrade: websocket 요청</li>
-<li>서버 → 101 Switching Protocols 응답</li>
-<li>이후 TCP 연결 유지, 프레임 단위 양방향 통신</li>
-</ol>
-</li>
-<li><strong>HTTP Polling vs WebSocket 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>HTTP Polling</th><th>WebSocket</th></tr>
-<tr><td>연결 방식</td><td>반복 요청-응답</td><td>단일 연결 유지</td></tr>
-<tr><td>지연</td><td>높음</td><td>낮음</td></tr>
-<tr><td>오버헤드</td><td>HTTP 헤더 매번</td><td>최초 1회만</td></tr>
-<tr><td>용도</td><td>단순 갱신</td><td>채팅, 주식, 게임</td></tr>
+<li><strong>주요 기능: </strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>핵심 기술 / 알고리즘</strong></th><th><strong>세부 역할 및 특징</strong></th></tr>
+<tr><td><strong>제어 플래그</strong></td><td><strong>URG, ACK, PSH, RST, SYN, FIN</strong></td><td>세션 상태 및 패킷 처리 지시</td></tr>
+<tr><td><strong>연결 지향성</strong></td><td><strong>3-Way / 4-Way Handshake</strong></td><td>가상 회선 수립 및 안전한 열결/해제</td></tr>
+<tr><td><strong>신뢰성 보장</strong></td><td><strong>Sequence / ACK Number</strong></td><td>패킷 누락 및 순서 역전 방지</td></tr>
+<tr><td><strong>흐름 제어</strong></td><td><strong>Sliding Window</strong></td><td>송신량을 조절하여 오버플로우 방지</td></tr>
+<tr><td><strong>혼잡 제어</strong></td><td><strong>Slow Start, AIMD, Fast Recovery</strong></td><td>네트워크 전체의 트래픽 과부하를 감지</td></tr>
+<tr><td><strong>오류 제어</strong></td><td><strong>ARQ (자동 재전송), Checksum</strong></td><td>훼손 탐지, 패킷 재전송(ARQ)</td></tr>
+<tr><td><strong>다중화/통신</strong></td><td><strong>Port 식별, Full-Duplex</strong></td><td>양방향(전이중) 동시 통신 지원</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 웹소켓은 <strong>HTTP와 호환되는 포트(80/443)</strong>를 사용하여 방화벽 우회가 용이하며, wss://는 TLS 기반 보안 웹소켓으로 도청 방지.</li>
 </ul>
 
 </body>

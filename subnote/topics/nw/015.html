@@ -17,14 +17,14 @@
 <body>
 <h4>5. 흐름 제어 (Flow Control)</h4>
 <ul>
-<li><strong>정의:</strong> 송수신 속도 차이로 인한 수신버퍼 오버플로우를 방지해 송신속도를 조절하는 기법</li>
+<li><strong>정의:</strong> 수신자의 처리능력에 맞춰 송신량을 조절하여 수신버퍼 오버플로우를 방지하는 기법</li>
 <li><strong>키워드:</strong> 슬라이딩 윈도우, 수신 윈도우(rwnd), Stop-and-Wait, 버퍼 오버플로우, ACK, TCP, XON/XOFF, 어리석은 윈도우 증후군(payload(1byte) &lt;&lt; header(40byte)), Clark’s(버퍼, MSS), Nalge(버퍼, 일괄전송)</li>
 <li><strong>분류</strong>: 네트워크 기초</li>
 <li><strong>흐름 제어 vs 혼잡 제어 비교:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>흐름 제어</th><th>혼잡 제어</th></tr>
-<tr><td><strong>목적</strong></td><td>수신측 버퍼 오버플로우 방지</td><td>네트워크 과부하 방지</td></tr>
+<tr><td><strong>목적</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>수신측 버퍼 오버플로우 방지</strong></u></span></td><td>네트워크 과부하 방지</td></tr>
 <tr><td><strong>제어 대상</strong></td><td>송신자 ↔ 수신자</td><td>송신자 ↔ 네트워크</td></tr>
-<tr><td><strong>윈도우</strong></td><td>수신 윈도우 (rwnd)</td><td>혼잡 윈도우 (cwnd)</td></tr>
+<tr><td><strong>윈도우</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><strong>수신 윈도우 (rwnd)</strong></span></td><td>혼잡 윈도우 (cwnd)</td></tr>
 <tr><td><strong>주체</strong></td><td>수신측 제어</td><td>송신측 판단</td></tr>
 <tr><td><strong>계층</strong></td><td>전송 계층 (L4)</td><td>전송 계층 (L4)</td></tr>
 </table></div>

@@ -17,19 +17,19 @@
 <body>
 <h4>7. Secure OS (보안 운영체제)</h4>
 <ul>
-<li><strong>정의:</strong> 일반 운영체제에 강제적 접근 제어·최소 권한·보안 커널 등 다층 보안 메커니즘을 적용하여 무결성·기밀성·가용성을 시스템 수준에서 보장하는 보안 강화 운영체제</li>
-<li><strong>키워드:</strong> 보안 커널, MAC, SELinux, 최소 권한, TCB, 참조 모니터, 무결성, 다중 등급 보안(MLS), CC 인증</li>
+<li><strong>정의:</strong> 일반 운영체제에다층 보안 메커니즘을 적용하여 무결성·기밀성·가용성을 시스템 수준에서 보장하는 보안 강화 운영체제</li>
+<li><strong>키워드:</strong> 보안 커널, MAC, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SELinux</strong></u></span>, 최소 권한, TCB, 참조 모니터, 무결성, 다중 등급 보안(MLS), CC 인증</li>
 <li><strong>분류</strong>: 시스템/SW 보안</li>
 <li><strong>핵심 보안 메커니즘:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>접근 제어</strong></td><td><strong>MAC</strong></td><td>보안 레이블 기반 시스템 정책으로 접근 강제 통제</td><td>정책 기반 강제</td></tr>
 <tr><td></td><td><strong>DAC</strong></td><td>자원 소유자가 접근 권한 설정·관리</td><td>소유자 재량</td></tr>
 <tr><td></td><td><strong>RBAC</strong></td><td>사용자 역할에 따라 권한 부여·관리</td><td>역할 기반</td></tr>
-<tr><td><strong>보안 커널</strong></td><td><strong>TCB</strong></td><td>보안 정책 집행하는 최소한의 신뢰 컴포넌트</td><td>신뢰 기반</td></tr>
-<tr><td></td><td><strong>참조 모니터</strong></td><td>모든 접근 요청을 중재·검증하는 핵심 보안 모듈</td><td>접근 중재</td></tr>
+<tr><td><strong>보안 커널</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TCB</strong></u></span></td><td>보안 정책 집행하는 최소한의 신뢰 컴포넌트</td><td>신뢰 기반</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>참조 모니터</strong></u></span></td><td>모든 접근 요청을 중재·검증하는 핵심 보안 모듈</td><td>접근 중재</td></tr>
 <tr><td></td><td><strong>보안 커널 최소화</strong></td><td>공격 표면 최소화를 위한 커널 기능 최소 구성</td><td>최소화 원칙</td></tr>
-<tr><td><strong>무결성 보호</strong></td><td><strong>커널 무결성 검증</strong></td><td>부팅 시 커널·드라이버 무결성 해시 검증</td><td>부팅 보안</td></tr>
-<tr><td></td><td><strong>메모리 보호</strong></td><td>ASLR·DEP·스택 카나리로 메모리 공격 방어</td><td>메모리 방어</td></tr>
+<tr><td><strong>무결성 보호</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>커널 무결성 검증</strong></u></span></td><td>부팅 시 커널·드라이버 무결성 해시 검증</td><td>부팅 보안</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>메모리 보호</strong></u></span></td><td>ASLR·DEP·스택 카나리로 메모리 공격 방어</td><td>메모리 방어</td></tr>
 </table></div>
 </li>
 <li><strong>참조 모니터 (Reference Monitor):  </strong>모든 주체·객체 간 접근 요청을 중재·검증하는 보안 커널 핵심 모듈<ul>

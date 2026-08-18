@@ -17,8 +17,8 @@
 <body>
 <h4>5. DDoS (Distributed Denial of Service)</h4>
 <ul>
-<li><strong>정의:</strong> 다수의 좀비 PC·서버(봇넷)를 이용하여 비정상적 대규모 트래픽을 유발해 서비스를 마비시키는 분산 서비스 거부 공격</li>
-<li><strong>키워드:</strong> 봇넷, 대역폭 소진, 자원 소진, 스크러빙 센터, CDN, 앰플리피케이션, Anycast, L7 공격, ISP 필터링</li>
+<li><strong>정의:</strong> 다수의 좀비 PC·서버(봇넷)를 이용하여 비정상적 대규모 트래픽을 유발해 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>서비스를 마비</strong></u></span>시키는 분산 서비스 거부 공격</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>좀비 PC, 봇넷, 대역폭 소진, 자원 소진</strong></u></span>, 스크러빙 센터, CDN, 앰플리피케이션, Anycast, L7 공격, ISP 필터링</li>
 <li><strong>분류:</strong> 네트워크 보안</li>
 <li><strong>공격 유형:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
@@ -36,12 +36,12 @@
 </li>
 <li><strong>대응 방안:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>트래픽 정제</strong></td><td><strong>스크러빙 센터</strong></td><td>정상·비정상 트래픽 분리 후 정상만 전달</td></tr>
-<tr><td></td><td><strong>Anycast 라우팅</strong></td><td>공격 트래픽을 전 세계 분산 노드로 흡수</td></tr>
+<tr><td><strong>트래픽 정제</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>스크러빙 센터</strong></u></span></td><td>정상·비정상 트래픽 분리 후 정상만 전달</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Anycast 라우팅</strong></u></span></td><td>공격 트래픽을 전 세계 분산 노드로 흡수</td></tr>
 <tr><td><strong>트래픽 분산</strong></td><td><strong>CDN 활용</strong></td><td>전 세계 엣지 서버로 트래픽 분산·부하 감소</td></tr>
 <tr><td></td><td><strong>로드 밸런서</strong></td><td>서버 간 트래픽 분배로 단일 장애점 제거</td></tr>
-<tr><td><strong>필터링</strong></td><td><strong>ISP 업스트림 필터링</strong></td><td>공격 트래픽을 ISP 레벨에서 조기 차단</td></tr>
-<tr><td></td><td><strong>BCP38</strong></td><td>출발지 IP 위조(스푸핑) 방지 필터링 표준</td></tr>
+<tr><td><strong>필터링</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>ISP 업스트림 필터링</strong></u></span></td><td>공격 트래픽을 ISP 레벨에서 조기 차단</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>BCP38</strong></u></span></td><td>출발지 IP 위조(스푸핑) 방지 필터링 표준</td></tr>
 <tr><td><strong>탐지·완화</strong></td><td><strong>이상 트래픽 탐지</strong></td><td>ML 기반 정상 트래픽 패턴 대비 이상 탐지</td></tr>
 <tr><td></td><td><strong>Rate Limiting</strong></td><td>출발지 IP별 요청 속도 임계치 제한</td></tr>
 </table></div>

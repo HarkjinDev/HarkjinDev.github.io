@@ -404,6 +404,18 @@
   {
     "domain": "SEC",
     "fname": "sec",
+    "topic": "12. 전자서명 (Digital Signature)",
+    "mnemonic": "<서무인부>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
+    "topic": "7. 영지식 증명 (Zero-Knowledge Proof, ZKP)",
+    "mnemonic": "<완건영>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
     "topic": "10. EDR (Endpoint Detection and Response, 엔드포인트 탐지 및 대응)",
     "mnemonic": "<수탐조대복>"
   },
@@ -506,6 +518,12 @@
   {
     "domain": "SEC",
     "fname": "sec",
+    "topic": "1. 적대적 공격 (Adversarial Attack)",
+    "mnemonic": "<오회출론>"
+  },
+  {
+    "domain": "SEC",
+    "fname": "sec",
     "topic": "8. OWASP LLM Top 10(2026)",
     "mnemonic": "<인민공오/출에시/벡허무>"
   },
@@ -603,7 +621,7 @@
     "domain": "SEC",
     "fname": "sec",
     "topic": "[하위] 10-2. OECD 프라이버시 8원칙",
-    "mnemonic": "<수품목이/안공개책>"
+    "mnemonic": "<수정목이/안공개책>"
   },
   {
     "domain": "NW",
@@ -620,8 +638,14 @@
   {
     "domain": "NW",
     "fname": "nw",
-    "topic": "3. 데이터링크 계층 (Datalink Layer, L2)",
-    "mnemonic": "<회흐오접>"
+    "topic": "2.전송 계층 (Transport Layer, L4)",
+    "mnemonic": "<회접흐오혼>"
+  },
+  {
+    "domain": "NW",
+    "fname": "nw",
+    "topic": "4. 오류 제어 (Error Control)",
+    "mnemonic": "<검벡정포>"
   },
   {
     "domain": "NW",
@@ -1216,6 +1240,18 @@
     "fname": "caos",
     "topic": "[하위] 4-1. 메모리 인터리빙 (Memory Interleaving)",
     "mnemonic": "<상모하기씨>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-1. PCB",
+    "mnemonic": "<식상카레/스계입메>"
+  },
+  {
+    "domain": "CA/OS",
+    "fname": "caos",
+    "topic": "[하위] 1-2. 문맥교환",
+    "mnemonic": "<시메하>"
   },
   {
     "domain": "CA/OS",

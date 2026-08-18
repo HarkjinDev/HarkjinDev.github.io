@@ -18,11 +18,11 @@
 <h4>5. Challenge-Response 인증</h4>
 <ul>
 <li><strong>정의</strong>: 서버가 챌린지(난수)를 보내고 클라이언트가 올바른 응답을 반환하여 인증하는 방식</li>
-<li><strong>키워드</strong>: 난수, 해시, 공유 비밀, 재생 공격 방지</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>난수-응답</strong></u></span>, 해시, 공유 비밀, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>재생 공격 방지</strong></u></span></li>
 <li><strong>분류</strong>: 인증/신원관리</li>
 <li><strong>동작 원리</strong>:<ul>
 <li>① 서버가 난수(Nonce) 챌린지 전송</li>
-<li>② 클라이언트: Response = Hash(비밀키 || 챌린지) 계산 후 응답</li>
+<li>② 클라이언트: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Response = Hash(비밀키 || 챌린지) </strong></u></span>계산 후 응답</li>
 <li>③ 서버: 동일 계산으로 검증</li>
 </ul>
 </li>

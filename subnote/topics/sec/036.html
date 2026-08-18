@@ -17,8 +17,8 @@
 <body>
 <h4>4. FIDO (Fast Identity Online)</h4>
 <ul>
-<li><strong>정의</strong>: 비밀번호 없는 생체인증 기반 온라인 인증 표준</li>
-<li><strong>키워드</strong>: UAF, U2F, CTAP, WebAuthn, Relying Party</li>
+<li><strong>정의</strong>: 다양한 환경에서 생체정보를 통해 비밀번호 없이 로그인하는 통합 생체인증 표준</li>
+<li><strong>키워드</strong>: Passwordless, UAF, U2F, CTAP, WebAuthn, Relying Party</li>
 <li><strong>분류</strong>: 인증/신원관리</li>
 <li><strong>구성요소: </strong><ul>
 <li><strong>FIDO 서버:</strong> 인증장치에 대한 정책 설정, 사용자의 공개키 등록, 관리, 검증</li>
@@ -38,18 +38,19 @@
 </li>
 <li><strong>FIDO2 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>WebAuthn(W3C)</strong></td><td>공개키 인증 API·자격증명 등록/검증</td><td>앱 계층 표준</td></tr>
+<tr><td><strong>WebAuthn(W3C)</strong></td><td>공개키 인증 API·자격증명 등록/검증</td><td>공개키 기반 인증</td></tr>
 <tr><td><strong>CTAP2(FIDO Alliance)</strong></td><td>신규 정의된 패스워드리스·다중요소 지원 프로토콜</td><td>FIDO2 핵심 신규</td></tr>
 <tr><td><strong>U2F</strong></td><td>기존 U2F 보안키의 하위호환용 프로토콜</td><td>2차인증 전용·레거시 지원</td></tr>
 <tr><td><strong>Authenticator</strong></td><td>키쌍 생성·서명 수행(플랫폼형·로밍형)</td><td>실제 인증 수행체</td></tr>
 <tr><td><strong>Relying Party</strong></td><td>인증을 요구·공개키 검증하는 서비스</td><td>검증 주체</td></tr>
 <tr><td><strong>UAF(FIDO 1.0)</strong></td><td>생체인증 기반 비밀번호 대체</td><td>생체인증</td></tr>
+<tr><td><strong>공개키 기반 인증</strong></td><td>개인키(기기 저장) + 공개키(서버)</td><td>공개키 인증</td></tr>
 </table></div>
 </li>
 <li><strong>버전 비교</strong>:<div class="table-scroll"><table>
 <tr><th>구분</th><th>FIDO 1.0</th><th>FIDO 2.0</th></tr>
-<tr><td>표준</td><td>UAF + U2F</td><td>CTAP + WebAuthn</td></tr>
-<tr><td>인증 방식</td><td>생체인증(UAF), 2차 인증(U2F)</td><td>패스키(Passkey) 지원</td></tr>
+<tr><td>표준</td><td>UAF + U2F</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>CTAP2 + WebAuthn</strong></u></span></td></tr>
+<tr><td>인증 방식</td><td>생체인증(UAF), 2차 인증(U2F)</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>패스키(Passkey) 지원</strong></u></span></td></tr>
 <tr><td>적용 범위</td><td>앱 기반</td><td>웹 브라우저 표준 포함</td></tr>
 </table></div>
 </li>

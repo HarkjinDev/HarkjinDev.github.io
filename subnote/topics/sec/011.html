@@ -29,14 +29,28 @@
 <li><strong>단점</strong>: 속도 느림 → 대량 데이터에 부적합</li>
 <li><strong>대표 알고리즘</strong>:<div class="table-scroll"><table>
 <tr><th>알고리즘</th><th>키 길이</th><th>수학적 기반</th><th>특징</th></tr>
-<tr><td>RSA</td><td>1024~4096bit</td><td>소인수분해</td><td>암호화 + 전자서명 모두 지원. 
+<tr><td><strong>RSA</strong></td><td>1024~4096bit</td><td>소인수분해</td><td>암호화 + 전자서명 모두 지원. 
 현재 가장 널리 사용</td></tr>
-<tr><td>ECC (타원곡선)</td><td>160~521bit</td><td>타원곡선 이산대수</td><td>RSA 대비 짧은 키로 동등한 보안강도. 모바일·IoT에 적합</td></tr>
-<tr><td>DSA</td><td>1024~3072bit</td><td>이산대수</td><td>전자서명 전용 (암호화 불가). 
+<tr><td><strong>ECC (타원곡선)</strong></td><td>160~521bit</td><td>타원곡선 이산대수</td><td>RSA 대비 짧은 키로 동등한 보안강도. 모바일·IoT에 적합</td></tr>
+<tr><td><strong>DSA</strong></td><td>1024~3072bit</td><td>이산대수</td><td>전자서명 전용 (암호화 불가). 
 FIPS 186 표준</td></tr>
-<tr><td>ElGamal</td><td>1024bit 이상</td><td>이산대수</td><td>확률적 암호화 (동일 평문 → 매번 다른 암호문). 암호문 크기 2배</td></tr>
-<tr><td>Diffie-Hellman</td><td>1024~4096bit</td><td>이산대수</td><td>키 교환 전용 (암호화·서명 불가). 
+<tr><td><strong>ElGamal</strong></td><td>1024bit 이상</td><td>이산대수</td><td>확률적 암호화 (동일 평문 → 매번 다른 암호문). 암호문 크기 2배</td></tr>
+<tr><td><strong>Diffie-Hellman</strong></td><td>1024~4096bit</td><td>이산대수</td><td>키 교환 전용 (암호화·서명 불가). 
 TLS 세션키 협상에 사용</td></tr>
+</table></div>
+</li>
+<li><strong>비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th><strong>대칭키 암호</strong></th><th><strong>비대칭키 암호</strong></th></tr>
+<tr><td><strong>개념</strong></td><td>하나의 동일한 키로 암·복호화</td><td>공개키·개인키 한 쌍으로 암·복호화</td></tr>
+<tr><td><strong>키 구성</strong></td><td><strong>대칭키 1개</strong></td><td><strong>공개키 + 개인키</strong></td></tr>
+<tr><td><strong>키 전달</strong></td><td>키를 안전하게 공유해야 함</td><td>공개키는 공개 가능</td></tr>
+<tr><td><strong>암호화</strong></td><td>동일한 키로 암호화·복호화</td><td>공개키로 암호화 → 개인키로 복호화</td></tr>
+<tr><td><strong>속도</strong></td><td><strong>빠름</strong></td><td>상대적으로 느림</td></tr>
+<tr><td><strong>대규모 통신</strong></td><td>키 관리가 어려움</td><td>키 관리가 상대적으로 용이</td></tr>
+<tr><td><strong>주요 용도</strong></td><td>대용량 데이터 암호화</td><td>키 교환, 인증, 전자서명</td></tr>
+<tr><td><strong>대표 알고리즘</strong></td><td>AES, DES, 3DES, ChaCha20</td><td>RSA, ECC, ElGamal</td></tr>
+<tr><td><strong>장점</strong></td><td>빠른 처리, 높은 효율</td><td>안전한 키 교환, 인증 가능</td></tr>
+<tr><td><strong>단점</strong></td><td>키 전달·관리 문제</td><td>연산량이 크고 느림</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트</strong>: 비대칭 암호화는 처리 속도가 대칭키 대비 1000배 이상 느리므로 실무에서는 대칭키 교환 목적으로만 활용하며, 하이브리드 방식(SSL/TLS)이 표준임</li>

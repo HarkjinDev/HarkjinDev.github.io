@@ -38,7 +38,11 @@
 </table></div>
 </li>
 <li><strong>전방향 안전성(PFS, Perfect Forward Secrecy)</strong>: 세션마다 임시 키 쌍 생성(DHE/ECDHE) → 장기 개인키 유출 시에도 과거 세션 복호화 불가</li>
-<li><strong>취약점</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중간자 공격(MITM) 취약</strong></u></span><strong> </strong>→ 인증서 기반 인증(TLS)과 결합 필요. 소수 p가 충분히 크지 않으면 이산대수 공격에 취약 (Logjam 공격)</li>
+<li><strong>취약점</strong>: <ul>
+<li><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>중간자 공격(MITM) 취약</strong></u></span><strong>: </strong>인증서 기반 인증(TLS)과 결합 필요</li>
+<li><strong>Logjam 공격:</strong> 소수 p가 충분히 크지 않으면 이산대수 공격에 취약</li>
+</ul>
+</li>
 <li><strong>인사이트</strong>: DH는 암호화·서명이 불가능한 순수 키 교환 프로토콜로, 단독 사용 시 MITM에 무방비하므로 반드시 인증 메커니즘과 결합해야 하며, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>TLS 1.3에서는 ECDHE가 필수 적용</strong></u></span>됨</li>
 </ul>
 
