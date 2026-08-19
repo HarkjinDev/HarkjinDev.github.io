@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 리버스 프록시 (Reverse Proxy)</title>
+  <title>5. 로드밸런싱 (Load Balancing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,29 @@
   </style>
 </head>
 <body>
-<h4>4. 리버스 프록시 (Reverse Proxy)</h4>
+<h4>5. 로드밸런싱 (Load Balancing)</h4>
 <ul>
-<li><strong>정의</strong>: 클라이언트와 백엔드 서버 사이에서 클라이언트 요청을 대신 받아 내부 서버로 전달하고 응답을 반환하는 중간 서버</li>
-<li><strong>키워드</strong>: 포워드 프록시, Nginx, HAProxy, 캐싱, SSL 종료, 로드밸런싱, 보안</li>
+<li><strong>정의</strong>: 서버 클러스터에 유입되는 트래픽을 여러 서버에 분산하여 가용성과 성능을 향상시키는 기법</li>
+<li><strong>키워드</strong>: L4/L7 로드밸런서, 라운드 로빈, 가중치, 최소 연결, IP 해시, 세션 어피니티, 헬스체크</li>
 <li><strong>분류</strong>: 형상관리/배포</li>
-<li><strong>포워드 프록시 vs 리버스 프록시 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>포워드 프록시</th><th>리버스 프록시</th></tr>
-<tr><td>위치</td><td>클라이언트 앞</td><td>서버 앞</td></tr>
-<tr><td>대리 대상</td><td>클라이언트</td><td>서버</td></tr>
-<tr><td>주요 용도</td><td>클라이언트 익명화, 우회</td><td>서버 보호, 로드밸런싱</td></tr>
-<tr><td>서버 인지</td><td>서버가 클라이언트 실IP 모름</td><td>클라이언트가 서버 구성 모름</td></tr>
+<li><strong>로드밸런싱 알고리즘</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>알고리즘</strong></th><th><strong>설명</strong></th><th><strong>적합 상황</strong></th></tr>
+<tr><td><strong>RR</strong></td><td><strong>라운드 로빈 (Round Robin)</strong></td><td>순서대로 균등 분산</td><td>서버 동일 사양</td></tr>
+<tr><td></td><td><strong>가중 라운드 로빈</strong></td><td>서버 성능 비율로 분산</td><td>서버 이기종 환경</td></tr>
+<tr><td><strong>최소</strong></td><td><strong>최소 연결 </strong></td><td>현재 연결 수 가장 적은 서버 선택</td><td>요청 처리 시간 편차 큼</td></tr>
+<tr><td></td><td><strong>최소 응답시간</strong></td><td>응답 빠른 서버 우선 선택</td><td>응답시간 편차 큼</td></tr>
+<tr><td><strong>고정</strong></td><td><strong>IP 해시 (IP Hash)</strong></td><td>클라이언트 IP 기반 고정 서버</td><td>세션 유지 필요</td></tr>
 </table></div>
 </li>
-<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>트래픽제어</strong></td><td>로드밸런싱 알고리즘</td><td>라운드로빈·최소연결 등 분산방식</td></tr>
-<tr><td></td><td>헬스체크</td><td>백엔드서버 상태 주기적 확인</td></tr>
-<tr><td><strong>보안</strong></td><td>SSL/TLS Termination</td><td>암호화 연결을 프록시에서 종료처리</td></tr>
-<tr><td></td><td>WAF/DDOS 연계</td><td>공격 패턴 탐지·차단</td></tr>
-<tr><td><strong>성능최적화</strong></td><td>캐싱</td><td>자주요청되는 응답 임시저장</td></tr>
-<tr><td></td><td>압축(Gzip)</td><td>응답데이터 압축전송</td></tr>
+<li><strong>L4 vs L7 로드밸런서 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>L4 (전송 계층)</th><th>L7 (응용 계층)</th></tr>
+<tr><td>기준</td><td>IP·포트</td><td>URL·헤더·쿠키·콘텐츠</td></tr>
+<tr><td>속도</td><td>빠름</td><td>상대적으로 느림</td></tr>
+<tr><td>스마트 라우팅</td><td>불가</td><td>가능 (컨텐츠 기반)</td></tr>
+<tr><td>SSL 종료</td><td>불가</td><td>가능</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 리버스 프록시는 <strong>백엔드 서버 구조를 클라이언트에 완전히 숨기는 추상화 계층</strong>으로, MSA에서 API Gateway와 함께 외부 노출 지점을 단일화하는 핵심 인프라.</li>
+<li><strong>인사이트</strong>: <strong>L7 로드밸런서는 API Gateway 기능과 중첩</strong>되는 부분이 있으며, MSA에서는 서비스 경로·버전 기반 스마트 라우팅이 필요하므로 L7 또는 서비스 메쉬(Envoy)를 함께 활용.</li>
 </ul>
 
 </body>

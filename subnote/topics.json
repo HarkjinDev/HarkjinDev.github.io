@@ -2193,134 +2193,130 @@
       },
       {
         "id": "108",
-        "name": "21. 패키지 소프트웨어 테스트"
+        "name": "21. 적대적 테스트(Adversarial Testing)"
       },
       {
         "id": "109",
-        "name": "22. 적대적 테스트(Adversarial Testing)"
+        "name": "22. 정적 테스트(Static Test)"
       },
       {
         "id": "110",
-        "name": "23. 정적 테스트(Static Test)"
+        "name": "23. 위험기반 테스트 (Risk-Based Testing)"
       },
       {
         "id": "111",
-        "name": "24. 위험기반 테스트 (Risk-Based Testing)"
-      },
-      {
-        "id": "112",
         "name": "[Part 8]. 형상관리/배포"
       },
       {
-        "id": "113",
+        "id": "112",
         "name": "1. 형상관리 (Configuration Management)"
       },
       {
-        "id": "114",
+        "id": "113",
         "name": "[하위] 1-1. 기준선 (Baseline)"
       },
       {
-        "id": "115",
+        "id": "114",
         "name": "[하위] 1-2. ALM (Application Lifecycle Management)"
       },
       {
-        "id": "116",
+        "id": "115",
         "name": "2. DevOps (Development and Operations)"
       },
       {
-        "id": "117",
+        "id": "116",
         "name": "[하위] 2-1. CI/CD (Continuous Integration / Continuous Deployment)"
       },
       {
-        "id": "118",
+        "id": "117",
         "name": "[하위] 2-2. DevSecOps (Development, Security and Operations)"
       },
       {
-        "id": "119",
+        "id": "118",
         "name": "[하위] 2-3. 데이터옵스 (DataOps)"
       },
       {
-        "id": "120",
+        "id": "119",
         "name": "[하위] 2-4. SRE (Site Reliability Engineering, 사이트 신뢰성 엔지니어링)"
       },
       {
-        "id": "121",
+        "id": "120",
         "name": "[하위] 2-5. 플랫폼 엔지니어링 (Platform Engineering)"
       },
       {
-        "id": "122",
+        "id": "121",
         "name": "3. 배포 전략 (Deployment Strategy)"
       },
       {
-        "id": "123",
+        "id": "122",
         "name": "[하위] 3-1. 무중단 배포 (Zero Downtime Deployment)"
       },
       {
-        "id": "124",
+        "id": "123",
         "name": "4. 리버스 프록시 (Reverse Proxy)"
       },
       {
-        "id": "125",
+        "id": "124",
         "name": "5. 로드밸런싱 (Load Balancing)"
       },
       {
-        "id": "126",
+        "id": "125",
         "name": "6. 워크플로우 관리 (Workflow Management)"
       },
       {
-        "id": "127",
+        "id": "126",
         "name": "7. 백필 (Backfill)"
       },
       {
-        "id": "128",
+        "id": "127",
         "name": "[Part 9]. 안전성 분석"
       },
       {
-        "id": "129",
+        "id": "128",
         "name": "1. 소프트웨어 안전"
       },
       {
-        "id": "130",
+        "id": "129",
         "name": "[하위] 1-1. 결함트리분석(FTA, Fault Tree Analysis)"
       },
       {
-        "id": "131",
+        "id": "130",
         "name": "[하위] 1-2. 고장모드 영향분석(FMEA, Failure Mode and Effects Analysis)"
       },
       {
-        "id": "132",
+        "id": "131",
         "name": "[하위] 1-3. HAZOP (Hazard and Operability Analysis)"
       },
       {
-        "id": "133",
+        "id": "132",
         "name": "[하위] 1-4. ETA (Event Tree Analysis)"
       },
       {
-        "id": "134",
+        "id": "133",
         "name": "[하위] 1-5. STPA (System Theoretic Process Analysis)"
       },
       {
-        "id": "135",
+        "id": "134",
         "name": "[하위] 1-6.CAST(Causal Analysis based on System Theory)"
       },
       {
-        "id": "136",
+        "id": "135",
         "name": "[Part 10]. 오픈소스"
       },
       {
-        "id": "137",
+        "id": "136",
         "name": "1. 오픈소스 (Open Source)"
       },
       {
-        "id": "138",
+        "id": "137",
         "name": "2. 오픈소스 라이선스 (Open Source License)"
       },
       {
-        "id": "139",
+        "id": "138",
         "name": "[하위] 2-1. 오픈소스 라이선스 변화"
       },
       {
-        "id": "140",
+        "id": "139",
         "name": "3. 오픈소스 프로젝트관리 소프트웨어"
       }
     ]
@@ -3617,58 +3613,62 @@
       },
       {
         "id": "114",
-        "name": "[Part 10]. ESG/윤리/정책"
+        "name": "[하위] 3-1. 클라우드 DR"
       },
       {
         "id": "115",
-        "name": "1. ESG 경영 (Environment, Social, Governance)"
+        "name": "[Part 10]. ESG/윤리/정책"
       },
       {
         "id": "116",
-        "name": "2. 데이터 주권 (Data Sovereignty)"
+        "name": "1. ESG 경영 (Environment, Social, Governance)"
       },
       {
         "id": "117",
-        "name": "3. 정보윤리 (Information Ethics)"
+        "name": "2. 데이터 주권 (Data Sovereignty)"
       },
       {
         "id": "118",
-        "name": "4. 지식 재산권(Intellectual Property Rights)"
+        "name": "3. 정보윤리 (Information Ethics)"
       },
       {
         "id": "119",
-        "name": "5. 전자정부 평가(EGDI)"
+        "name": "4. 지식 재산권(Intellectual Property Rights)"
       },
       {
         "id": "120",
-        "name": "6. 디지털세 (Digital Tax)"
+        "name": "5. 전자정부 평가(EGDI)"
       },
       {
         "id": "121",
-        "name": "[Part 11]. 마케팅/트렌드"
+        "name": "6. 디지털세 (Digital Tax)"
       },
       {
         "id": "122",
-        "name": "1. 화이트 레이블 마케팅 (White Label Marketing)"
+        "name": "[Part 11]. 마케팅/트렌드"
       },
       {
         "id": "123",
-        "name": "[하위] 1-1. 블랙 레이블 마케팅 (Black Label Marketing)"
+        "name": "1. 화이트 레이블 마케팅 (White Label Marketing)"
       },
       {
         "id": "124",
-        "name": "2. 그로스 해킹 (Growth Hacking)"
+        "name": "[하위] 1-1. 블랙 레이블 마케팅 (Black Label Marketing)"
       },
       {
         "id": "125",
-        "name": "3. 의도 경제(Intention Economy)"
+        "name": "2. 그로스 해킹 (Growth Hacking)"
       },
       {
         "id": "126",
-        "name": "4. 고객 경험 관리 (CEM, Customer Experience Management)"
+        "name": "3. 의도 경제(Intention Economy)"
       },
       {
         "id": "127",
+        "name": "4. 고객 경험 관리 (CEM, Customer Experience Management)"
+      },
+      {
+        "id": "128",
         "name": "[하위] 4-1. 고객 여정 맵(Customer Journey Map)"
       }
     ]

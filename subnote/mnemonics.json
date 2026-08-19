@@ -896,6 +896,24 @@
   {
     "domain": "SW",
     "fname": "sw",
+    "topic": "[하위] 1-5. ATAM (Architecture Trade-off Analysis Method)",
+    "mnemonic": "<협기상후>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 1-6. CBAM (Cost Benefit Analysis Method)",
+    "mnemonic": "<시효이선>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
+    "topic": "[하위] 3-4. 클린 아키텍처 (Clean Architecture)",
+    "mnemonic": "<엔유인프>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
     "topic": "1. 소프트웨어 테스트 원리",
     "mnemonic": "<결완초집/살정오>"
   },
@@ -1406,12 +1424,6 @@
   {
     "domain": "BIZ/PM",
     "fname": "bizpm",
-    "topic": "3. ISMP (Information System Master Plan)",
-    "mnemonic": "<착방업정이 / 경프계 / 전벤정검 / 아연작검 / 계분예제평>"
-  },
-  {
-    "domain": "BIZ/PM",
-    "fname": "bizpm",
     "topic": "4. BPR (Business Process Reengineering)",
     "mnemonic": "<현비투갭/계구측>"
   },
@@ -1456,6 +1468,12 @@
     "fname": "bizpm",
     "topic": "6. 디자인 싱킹 (Design Thinking)",
     "mnemonic": "<공정아프테>"
+  },
+  {
+    "domain": "BIZ/PM",
+    "fname": "bizpm",
+    "topic": "[하위] 6-1.더블 다이아몬드 모델 (Double Diamond Model)",
+    "mnemonic": "<발정개전>"
   },
   {
     "domain": "BIZ/PM",

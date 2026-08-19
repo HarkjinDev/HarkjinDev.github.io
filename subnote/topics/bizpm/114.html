@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 10]. ESG/윤리/정책</title>
+  <title>[하위] 3-1. 클라우드 DR</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,18 @@
   </style>
 </head>
 <body>
-<h3>[Part 10]. ESG/윤리/정책</h3>
+<h4>[하위] 3-1. 클라우드 DR</h4>
+<ul>
+<li><strong>DR 유형:</strong><div class="table-scroll"><table>
+<tr><th><strong>DR 유형</strong></th><th><strong>평상시 클라우드 인프라 상태</strong></th><th><strong>예상 RTO (복구 시간)</strong></th></tr>
+<tr><td><strong>Backup &amp; Restore</strong></td><td>데이터 저장소(스토리지)만 존재</td><td>수 시간 ~ 수 일</td></tr>
+<tr><td><strong>Pilot Light</strong></td><td>DB만 최소한으로 켜둠</td><td>수십 분 ~ 수 시간</td></tr>
+<tr><td><strong>Warm Standby</strong></td><td>전체 인프라의 '축소판' 가동</td><td>수 분 ~ 수십 분</td></tr>
+<tr><td><strong>Multi-Site (Active/Active)</strong></td><td>100% 동일한 인프라 동시 가동</td><td>수 초 내외 (거의 0)</td></tr>
+</table></div>
+</li>
+</ul>
+<hr/>
 
 </body>
 </html>

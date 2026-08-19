@@ -33,6 +33,16 @@
 <tr><td></td><td><strong>컴퓨트 클러스터(GPU Cluster)</strong></td><td>GPU 자원풀</td></tr>
 </table></div>
 </li>
+<li><strong>비교:</strong><div class="table-scroll"><table>
+<tr><th><strong>비교 항목</strong></th><th><strong>MLOps </strong></th><th><strong>LLMOps</strong></th></tr>
+<tr><td><strong>운영 대상</strong></td><td>정형/비정형 예측·분류 모델 </td><td>Foundation Model </td></tr>
+<tr><td><strong>개발/개선 방식</strong></td><td>데이터 학습, Feature Engineering</td><td>프롬프트 엔지니어링, RAG, PEFT/LoRA 파인튜닝</td></tr>
+<tr><td><strong>핵심 관리 자산</strong></td><td>데이터셋, 피처 스토어, 모델 가중치/아티팩트</td><td>프롬프트 템플릿, 벡터 DB(임베딩), 외부 툴 연동 체계, 가드레일</td></tr>
+<tr><td><strong>평가 지표</strong></td><td>정량적 수치(정밀도, 재현도, F1-Score, RMSE, AUC)</td><td>정성/의미론적 지표(ROUGE, BLEU, LLM-as-Judge, 환각률)</td></tr>
+<tr><td><strong>주요 장애/리스크</strong></td><td>Data Drift, Concept Drift, 오버피팅</td><td>환각, 프롬프트 인젝션, 토큰 비용 급증, 비결정성</td></tr>
+<tr><td><strong>대표적인 도구</strong></td><td>MLflow, Kubeflow, Weights &amp; Biases, Feast</td><td>LangChain, LlamaIndex, Langfuse, Arize Phoenix, Guardrails AI</td></tr>
+</table></div>
+</li>
 </ul>
 
 </body>
