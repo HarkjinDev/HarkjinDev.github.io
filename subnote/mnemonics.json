@@ -182,6 +182,12 @@
   {
     "domain": "DB",
     "fname": "db",
+    "topic": "[하위] 2-1. CBO (Cost Based Optimizer)",
+    "mnemonic": "<선카히비>"
+  },
+  {
+    "domain": "DB",
+    "fname": "db",
     "topic": "1. 파티셔닝 (Partitioning)",
     "mnemonic": "<범해리조복>"
   },
@@ -555,7 +561,7 @@
     "domain": "SEC",
     "fname": "sec",
     "topic": "2. ISMS-P (개인정보보호 관리체계 인증)",
-    "mnemonic": "<관보개, 기위운점, 정인외물/인접안정/운보사재, 수이제파권>"
+    "mnemonic": "<관보개, 기위운점, 정인외물/인접암정/운보사재, 수이제파권>"
   },
   {
     "domain": "SEC",
@@ -1118,19 +1124,25 @@
   {
     "domain": "ST",
     "fname": "st",
-    "topic": "7. 결측치 (Missing Value)",
+    "topic": "5. 데이터 이상치 (Outlier)",
+    "mnemonic": "<전맥군>"
+  },
+  {
+    "domain": "ST",
+    "fname": "st",
+    "topic": "8. 결측치 (Missing Value)",
     "mnemonic": "<완무비>"
   },
   {
     "domain": "ST",
     "fname": "st",
-    "topic": "8. 타당도 (Validity)",
+    "topic": "9. 타당도 (Validity)",
     "mnemonic": "<내구기>"
   },
   {
     "domain": "ST",
     "fname": "st",
-    "topic": "8. 신뢰도 (Reliability)",
+    "topic": "10. 신뢰도 (Reliability)",
     "mnemonic": "<재동내>"
   },
   {
@@ -1510,12 +1522,6 @@
     "fname": "bizpm",
     "topic": "2. IT 투자관리 (IT Investment Management)",
     "mnemonic": "<사중후/타용과, 투품이효>"
-  },
-  {
-    "domain": "BIZ/PM",
-    "fname": "bizpm",
-    "topic": "4. AHP (Analytic Hierarchy Process)",
-    "mnemonic": "<계우일>"
   },
   {
     "domain": "BIZ/PM",

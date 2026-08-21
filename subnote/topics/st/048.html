@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. 시계열 분석 (Time Series Analysis)</title>
+  <title>[Part 6] 시계열 분석</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,52 +15,7 @@
   </style>
 </head>
 <body>
-<h4>1. 시계열 분석 (Time Series Analysis)</h4>
-<ul>
-<li><strong>정의:</strong> 시간 순서에 따라 관측된 데이터의 패턴·추세·주기성을 분석하여 미래 값을 예측하고 구조적 특성을 파악하는 통계적 분석 방법론</li>
-<li><strong>키워드:</strong> 정상성, 시계열 분해, 추세, 계절성, 이동평균, 지수평활, AR, MA, ARMA, ARIMA, 자기상관, 백색잡음</li>
-<li><strong>분류:</strong> 시계열 분석</li>
-<li><strong>정상성 (Stationarity):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>평균 일정</strong></td><td>시간이 지나도 평균값이 변하지 않음</td><td>수준 안정</td></tr>
-<tr><td><strong>분산 일정</strong></td><td>시간이 지나도 분산이 일정하게 유지됨</td><td>변동 안정</td></tr>
-<tr><td><strong>공분산 시차 의존</strong></td><td>두 시점 간 공분산이 시점 자체가 아닌 시차(lag)에만 의존</td><td>시차 의존</td></tr>
-<tr><td><strong>비정상 → 정상 변환</strong></td><td>차분(Differencing)·로그 변환으로 정상성 확보</td><td>전처리 필수</td></tr>
-</table></div>
-</li>
-<li><strong>시계열 분해 요인:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;추순계불&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>추세 (Trend)</strong></td><td>장기적으로 증가·감소하는 방향성</td><td>장기 방향</td></tr>
-<tr><td><strong>순환 (Cyclical)</strong></td><td>경기 변동 등 수년 주기의 불규칙 파동</td><td>장기 파동</td></tr>
-<tr><td><strong>계절 (Seasonal)</strong></td><td>월·분기 등 고정 주기로 반복되는 패턴</td><td>고정 주기</td></tr>
-<tr><td><strong>불규칙 (Irregular)</strong></td><td>위 세 요인으로 설명되지 않는 무작위 오차</td><td>잔차·노이즈</td></tr>
-</table></div>
-</li>
-<li><strong>시계열 분해 모델:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>가법 모델</strong></td><td>Y = 추세 + 순환 + 계절 + 불규칙 (계절 진폭 일정)</td><td>절대적 합산</td></tr>
-<tr><td><strong>승법 모델</strong></td><td>Y = 추세 × 순환 × 계절 × 불규칙 (계절 진폭 비례)</td><td>상대적 곱산</td></tr>
-</table></div>
-</li>
-<li><strong>평활 및 예측 기법:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>지수평활법</strong></td><td>최근 값에 더 높은 가중치를 부여하여 평활화</td><td>가중 평균</td></tr>
-<tr><td><strong>AR (자기회귀)</strong></td><td>과거 자신의 값으로 현재 값을 예측하는 모델</td><td>자기 회귀</td></tr>
-<tr><td><strong>MA (이동평균)</strong></td><td>과거 오차항으로 현재 값을 예측하는 모델</td><td>오차 회귀</td></tr>
-<tr><td><strong>ARMA(p, q)</strong></td><td>AR + MA 결합, 정상 시계열에 적용</td><td>정상 시계열</td></tr>
-<tr><td><strong>ARIMA(p, d, q)</strong></td><td>ARMA + 차분(d)으로 비정상 시계열까지 대응</td><td>비정상 대응</td></tr>
-</table></div>
-</li>
-<li><strong>ARIMA 파라미터(p, d, q):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>p (AR 차수)</strong></td><td>자기회귀 항의 수, PACF로 결정</td><td>자기회귀 차수</td></tr>
-<tr><td><strong>d (차분 횟수)</strong></td><td>정상성 확보를 위한 차분 횟수</td><td>정상화 차수</td></tr>
-<tr><td><strong>q (MA 차수)</strong></td><td>이동평균 항의 수, ACF로 결정</td><td>이동평균 차수</td></tr>
-</table></div>
-</li>
-<li><strong>활용 분야: </strong>금융(주가·환율·금리 예측), 수요 예측(재고 관리·생산 계획 수요 예측), IoT·센서(설비 이상 탐지·예측 정비), 기상(기온·강수량 예측)</li>
-<li><strong>인사이트: </strong>시계열 분석의 성패는 정상성 확보에 달려 있으며, 차분·변환 등 전처리 단계가 모델 품질을 결정하는 핵심 선행 작업. ARIMA는 전통적 시계열 분석의 표준이나, 복잡한 비선형 패턴에는 LSTM·Transformer 기반 딥러닝 모델과 결합하는 하이브리드 접근이 실무 표준으로 자리잡는 추세</li>
-</ul>
+<h3>[Part 6] 시계열 분석</h3>
 
 </body>
 </html>

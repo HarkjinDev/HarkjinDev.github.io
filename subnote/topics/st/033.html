@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. 대응표본 t-검정 (Paired t-test)</title>
+  <title>[하위] 2-1. 독립표본 t-검정 (Independent t-test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,18 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. 대응표본 t-검정 (Paired t-test)</h4>
+<h4>[하위] 2-1. 독립표본 t-검정 (Independent t-test)</h4>
 <ul>
-<li><strong>정의</strong>: 동일 집단의 사전-사후 측정값 차이를 비교하는 t-검정 기법</li>
-<li><strong>키워드</strong>: 동일 집단, 사전/사후, 쌍별 차이</li>
+<li><strong>정의</strong>: 서로 독립인 두 집단의 평균 차이를 비교하는 t-검정 기법</li>
+<li><strong>키워드</strong>: 두 독립 집단, 평균 차이, 등분산 가정</li>
 <li><strong>분류</strong>: 가설검정</li>
 <li><strong>특징</strong>:<ul>
-<li>Di = Xi(사후) - Xi(사전)</li>
-<li>H0: μD = 0 (차이 없음)</li>
-<li>같은 개체의 반복 측정 — 개체 간 변이 제거</li>
+<li>H0: μ1 = μ2 (두 집단 평균 동일)</li>
+<li>등분산 가정 확인 필요 (Levene's test)</li>
+<li>등분산: pooled t-test / 이분산: Welch's t-test</li>
 </ul>
 </li>
-<li><strong>예시</strong>: 운동 프로그램 전후 체중 변화 검정</li>
-<li><strong>인사이트</strong>: 같은 집단의 전후 비교이므로 개체 간 변이를 제거하여 독립표본 t-검정보다 검정력이 높다.</li>
+<li><strong>인사이트</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>독립표본 t-검정 전 등분산성 검정(Levene's test)</strong></u></span>을 반드시 수행하여 pooled vs Welch 방법을 결정해야 함.</li>
 </ul>
 
 </body>

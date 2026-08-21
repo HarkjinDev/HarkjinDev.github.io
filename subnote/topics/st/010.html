@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 결측치 (Missing Value)</title>
+  <title>7. 편향(Bias)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,27 +15,61 @@
   </style>
 </head>
 <body>
-<h4>7. 결측치 (Missing Value)</h4>
+<h4>7. 편향(Bias)</h4>
 <ul>
-<li><strong>정의</strong>: 수집·처리 과정에서 값이 기록되지 않거나 손실되어 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비어있는 관측값</strong></u></span></li>
-<li><strong>키워드</strong>: 삭제법, 대체법, 예측법, 다중대체법</li>
+<li><strong>정의:</strong> 데이터 수집·표본추출·학습·분석 과정에서 특정 방향으로 데이터 또는 분석 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과가 치우치는 현상</strong></u></span></li>
+<li><strong>키워드:</strong> 선택편향, 생존자편향, 확증편향, 알고리즘 편향, 이상치, SMOTE, 공정성, XAI</li>
 <li><strong>분류</strong>: 통계 기초</li>
-<li><strong>종류:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완무비&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>종류</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>완전 무작위 결측(MCAR)</strong></td><td>타 변수와 무관하게 무작위 발생</td><td>무작위성 보장</td></tr>
-<tr><td><strong>무작위 결측(MAR)</strong></td><td>타 관측 변수와 연계되어 발생</td><td>조건부 무작위</td></tr>
-<tr><td><strong>비무작위 결측(NMAR)</strong></td><td>결측값 자체가 결측 여부 결정</td><td>정밀 분석 필요</td></tr>
+<li><strong>편향 유형 (발생단계별):</strong><div class="table-scroll"><table>
+<tr><th>발생단계</th><th>편향 유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td>수집·표본</td><td><strong>선택 편향</strong></td><td>특정 집단만 표본화→일반화 실패</td><td>온라인 설문만 수집</td></tr>
+<tr><td></td><td><strong>생존자 편향</strong></td><td>성공 사례만 관찰·실패 사례 누락</td><td>폐업 기업 제외 분석</td></tr>
+<tr><td></td><td><strong>측정 편향</strong></td><td>측정 도구·기준 일관성 부족</td><td>평가자별 라벨링 기준 상이</td></tr>
+<tr><td>라벨링</td><td><strong>확증 편향</strong></td><td>가설 지지 데이터만 선별 라벨링</td><td>주관적 라벨링</td></tr>
+<tr><td></td><td><strong>역사적 편향</strong></td><td>과거 차별적 데이터 반영</td><td>AI 채용 여성 불이익</td></tr>
+<tr><td>알고리즘</td><td><strong>알고리즘 편향</strong></td><td>모델 설계·목적함수에서 발생</td><td>다수 집단 최적화·소수 차별</td></tr>
+<tr><td>인지</td><td><strong>인지 편향</strong></td><td>분석가 선입견 반영</td><td>앵커링·가용성 편향</td></tr>
 </table></div>
 </li>
-<li><strong>처리 방안</strong>:<div class="table-scroll"><table>
-<tr><th><strong>처리 방안</strong></th><th><strong>설명</strong></th><th><strong>핵심 특징 (장단점)</strong></th></tr>
-<tr><td><strong>삭제법 (Deletion)</strong></td><td>결측치가 포함된 행이나 열을 제거</td><td>단순한 구현 / 정보 손실 발생</td></tr>
-<tr><td><strong>평균/중위수 대체</strong></td><td>해당 변수의 중심값으로 결측치를 대체</td><td>구현이 빠름 / 분산 과소 추정 위험</td></tr>
-<tr><td><strong>예측 대체 (Predictive)</strong></td><td>회귀분석, KNN 등 모델로 예측하여 대체</td><td>정교한 보정 / 높은 연산 비용 소모</td></tr>
-<tr><td><strong>다중대체법 (MI)</strong></td><td>여러 가상 데이터셋을 생성하고 최종 결합</td><td>통계적 편향 최소화 / 복잡한 절차</td></tr>
+<li><strong>데이터 분석 결과에 미치는 영향:</strong><div class="table-scroll"><table>
+<tr><th>영향 영역</th><th>이상치 영향</th><th>편향 영향</th></tr>
+<tr><td>통계량</td><td>평균·분산·표준편차 등 기술통계 왜곡</td><td>추정량의 체계적 오차(Estimator Bias)</td></tr>
+<tr><td>모델 학습</td><td>회귀계수 왜곡·손실함수 발산</td><td>특정 집단 과적합·일반화 성능 저하</td></tr>
+<tr><td>예측 정확도</td><td>MAE·RMSE 등 오차 지표 악화</td><td>전체 정확도 양호·부분집단 성능 격차</td></tr>
+<tr><td>일반화</td><td>테스트셋 성능 저하·재현성 부족</td><td>Out-of-Distribution 환경 급격한 성능 저하</td></tr>
+<tr><td>의사결정</td><td>잘못된 인사이트로 전략적 오류</td><td>잘못된 정책·차별적 의사결정(AI 채용 차별)</td></tr>
+<tr><td>사회·법적</td><td>분석 신뢰도·재현성 문제</td><td>GDPR·EU AI Act 위반·차별·인권 침해 소송</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 결측치 처리 방안 서술 시, 처리 정교함 순서(삭제 &lt; 대체 &lt; 예측 &lt; 다중대체)와 함께 다중대체법이 편향 최소화 측면에서 가장 우수함을 명시할 것.</li>
+<li><strong>편향 탐지 기법:</strong><div class="table-scroll"><table>
+<tr><th>기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td>왜도(Skewness) 측정</td><td>데이터 분포의 비대칭도 확인</td><td>분포 치우침 정량화</td></tr>
+<tr><td>카이제곱 검정</td><td>모집단 분포와 표본 분포 정합성 검정</td><td>범주형 편향 탐지</td></tr>
+<tr><td>Residual Analysis</td><td>잔차 분포의 무작위성 검증</td><td>체계적 오류 식별</td></tr>
+<tr><td>공정성 지표</td><td>집단별 정확도·FPR·FNR 비교</td><td>Demographic Parity</td></tr>
+</table></div>
+</li>
+<li><strong>편향 처리 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td>데이터 수준</td><td>재표본추출 (Resampling)</td><td>언더샘플링·오버샘플링(SMOTE) 적용</td><td>클래스 불균형 해소</td></tr>
+<tr><td></td><td>가중치 부여</td><td>취약 집단 데이터에 가중치 부여</td><td>소수집단 반영</td></tr>
+<tr><td>모델 수준</td><td>규제화 (Regularization)</td><td>L1/L2 규제로 모델 편향 통제</td><td>과적합·편향 억제</td></tr>
+<tr><td></td><td>공정성 제약</td><td>집단 간 예측 균등성 목적함수 추가</td><td>Fairness Constraint</td></tr>
+<tr><td>사후 수준</td><td>임계값 조정</td><td>집단별 분류 임계값 개별 최적화</td><td>Post-processing</td></tr>
+<tr><td></td><td>XAI 검증</td><td>설명가능 AI로 편향 원인 사후 분석</td><td>SHAP·LIME 활용</td></tr>
+</table></div>
+</li>
+<li><strong>이상치 vs 편향 비교:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>이상치 (Outlier)</th><th>편향 (Bias)</th></tr>
+<tr><td>정의</td><td>대다수와 현저히 다른 개별 데이터 포인트</td><td>전체 분포가 체계적으로 치우친 현상</td></tr>
+<tr><td>발생 단위</td><td>개별 데이터 포인트</td><td>전체 분포(Distribution)</td></tr>
+<tr><td>오류 성격</td><td>무작위적 오류 가능</td><td>체계적·방향성 있는 오류</td></tr>
+<tr><td>탐지 방법</td><td>IQR·Z-score·박스플롯</td><td>왜도·카이제곱·잔차 분석</td></tr>
+<tr><td>처리 방법</td><td>제거·대체·변환</td><td>재표본추출·가중치·규제화</td></tr>
+<tr><td>AI 영향</td><td>모델 학습 불안정</td><td>차별적 의사결정·일반화 실패</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 편향은 데이터 수집부터 모델 배포까지 전 과정에서 발생하며, AI 시대에는 데이터 편향→모델 편향→사회적 차별로 증폭되므로 탐지·처리·공정성 검증을 수명주기 전반에 걸쳐 통합 관리해야 함</li>
 </ul>
 
 </body>

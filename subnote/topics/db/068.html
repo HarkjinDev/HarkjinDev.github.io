@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 11] 데이터 거버넌스/품질/보안</title>
+  <title>7. 시계열 데이터베이스(TSDB, Time Series DB)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,45 @@
   </style>
 </head>
 <body>
-<h3>[Part 11] 데이터 거버넌스/품질/보안</h3>
+<h4>7. 시계열 데이터베이스(TSDB, Time Series DB)</h4>
+<ul>
+<li><strong>정의:</strong> 시간에 따라 지속적으로 발생하는 데이터를 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>타임스탬프(Time Stamp)를 중심</strong></u></span><strong>으로 저장·관리·조회·분석</strong>하도록 최적화된 데이터베이스</li>
+<li><strong>키워드:</strong> 시간축, 고속 Write, 시간 인덱스, 데이터 압축, Downsampling, Retention</li>
+<li><strong>분류</strong>: 특수 DB</li>
+<li><strong>핵심:</strong> 시간 중심 데이터 → 고속 수집 → 압축 저장 → 시간 범위 조회 → 시계열 분석</li>
+<li><strong>특성:</strong><div class="table-scroll"><table>
+<tr><th>특성</th><th>설명</th></tr>
+<tr><td><strong>시간 종속성</strong></td><td>모든 데이터가 Timestamp를 가짐</td></tr>
+<tr><td><strong>고빈도 발생</strong></td><td>짧은 주기로 지속적인 데이터 생성</td></tr>
+<tr><td><strong>Append 중심</strong></td><td>기존 데이터 수정보다 신규 데이터 추가가 많음</td></tr>
+<tr><td><strong>대용량</strong></td><td>장기간 축적 시 데이터 규모 급증</td></tr>
+<tr><td><strong>순차성</strong></td><td>시간 순서에 따른 데이터 특성이 중요</td></tr>
+<tr><td><strong>조회 패턴</strong></td><td>특정 시간 구간의 Range Query가 빈번</td></tr>
+<tr><td><strong>상관성</strong></td><td>시간에 따른 추세·패턴 분석 필요</td></tr>
+</table></div>
+</li>
+<li><strong>5계층 구조:</strong><div class="table-scroll"><table>
+<tr><th>계층</th><th>핵심 역할</th><th>주요 기술</th></tr>
+<tr><td><strong>① 데이터 발생</strong></td><td>시계열 데이터 생성</td><td>IoT, 센서, 서버</td></tr>
+<tr><td><strong>② 수집/전송</strong></td><td>대량 데이터 수집·전송</td><td>Agent, Kafka, MQTT</td></tr>
+<tr><td><strong>③ 저장/관리</strong></td><td>시간순 저장 및 효율적 관리</td><td>인덱스, 압축, Partition, WAL</td></tr>
+<tr><td><strong>④ 분석/질의</strong></td><td>시간 범위 조회·집계</td><td>Range Query, Window, Downsampling</td></tr>
+<tr><td><strong>⑤ 서비스/시각화</strong></td><td>모니터링·분석 결과 제공</td><td>API, Dashboard, Grafana</td></tr>
+</table></div>
+</li>
+<li><strong>주요 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>핵심기술</th><th>설명</th><th>목적</th></tr>
+<tr><td><strong>시계열</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>시간 기반 인덱싱</strong></u></span></td><td>Timestamp 중심 인덱스 구성</td><td>시간 조회 성능 향상</td></tr>
+<tr><td></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>시간 파티셔닝</strong></u></span></td><td>시간 구간별 데이터 분할</td><td>대용량 관리·검색 최적화</td></tr>
+<tr><td></td><td><strong>데이터 압축</strong></td><td>시간 순서 및 값의 특성을 활용한 압축</td><td>저장공간 절감</td></tr>
+<tr><td><strong>수명주기</strong></td><td><strong>다운샘플링</strong></td><td>고해상도 데이터를 낮은 주기로 집계</td><td>장기 보관 효율화</td></tr>
+<tr><td></td><td><strong>TTL / Retention</strong></td><td>데이터 보존기간 자동 관리</td><td>저장공간 관리</td></tr>
+<tr><td></td><td><strong>연속 집계</strong></td><td>시간 구간별 통계 자동 생성</td><td>분석 성능 향상</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트: </strong>단순히 시간 데이터를 저장하는 DB를 넘어, IoT·클라우드·AI 확산으로 증가하는 대규모 실시간 데이터를 고속 수집·압축·분석하기 위한 데이터 플랫폼으로 발전</li>
+</ul>
+<hr/>
 
 </body>
 </html>

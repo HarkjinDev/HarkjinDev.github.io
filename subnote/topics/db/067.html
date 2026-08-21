@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 시계열 데이터베이스(TSDB, Time Series DB)</title>
+  <title>6. 인메모리 데이터베이스 (IMDB, In-Memory Database)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,45 +15,41 @@
   </style>
 </head>
 <body>
-<h4>7. 시계열 데이터베이스(TSDB, Time Series DB)</h4>
+<h4>6. 인메모리 데이터베이스 (IMDB, In-Memory Database)</h4>
 <ul>
-<li><strong>정의:</strong> 시간에 따라 지속적으로 발생하는 데이터를 <strong>타임스탬프(Time Stamp)를 중심으로 저장·관리·조회·분석</strong>하도록 최적화된 데이터베이스</li>
-<li><strong>키워드:</strong> 시간축, 고속 Write, 시간 인덱스, 데이터 압축, Downsampling, Retention</li>
+<li><strong>정의</strong>: 데이터를 디스크 대신 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>메인 메모리(RAM)에 상주</strong></u></span>시켜 초고속 실시간 데이터 처리를 수행하는 데이터베이스 시스템</li>
+<li><strong>키워드</strong>: 메인 메모리,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> I/O비용 없음</strong></u></span>, 고속 처리, 영속성, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>WAL, 스냅샷, IMDG</strong></u></span>, SAP HANA, Redis, VoltDB</li>
 <li><strong>분류</strong>: 특수 DB</li>
-<li><strong>핵심:</strong> 시간 중심 데이터 → 고속 수집 → 압축 저장 → 시간 범위 조회 → 시계열 분석</li>
-<li><strong>특성:</strong><div class="table-scroll"><table>
-<tr><th>특성</th><th>설명</th></tr>
-<tr><td><strong>시간 종속성</strong></td><td>모든 데이터가 Timestamp를 가짐</td></tr>
-<tr><td><strong>고빈도 발생</strong></td><td>짧은 주기로 지속적인 데이터 생성</td></tr>
-<tr><td><strong>Append 중심</strong></td><td>기존 데이터 수정보다 신규 데이터 추가가 많음</td></tr>
-<tr><td><strong>대용량</strong></td><td>장기간 축적 시 데이터 규모 급증</td></tr>
-<tr><td><strong>순차성</strong></td><td>시간 순서에 따른 데이터 특성이 중요</td></tr>
-<tr><td><strong>조회 패턴</strong></td><td>특정 시간 구간의 Range Query가 빈번</td></tr>
-<tr><td><strong>상관성</strong></td><td>시간에 따른 추세·패턴 분석 필요</td></tr>
-</table></div>
-</li>
-<li><strong>5계층 구조:</strong><div class="table-scroll"><table>
-<tr><th>계층</th><th>핵심 역할</th><th>주요 기술</th></tr>
-<tr><td><strong>① 데이터 발생</strong></td><td>시계열 데이터 생성</td><td>IoT, 센서, 서버</td></tr>
-<tr><td><strong>② 수집/전송</strong></td><td>대량 데이터 수집·전송</td><td>Agent, Kafka, MQTT</td></tr>
-<tr><td><strong>③ 저장/관리</strong></td><td>시간순 저장 및 효율적 관리</td><td>인덱스, 압축, Partition, WAL</td></tr>
-<tr><td><strong>④ 분석/질의</strong></td><td>시간 범위 조회·집계</td><td>Range Query, Window, Downsampling</td></tr>
-<tr><td><strong>⑤ 서비스/시각화</strong></td><td>모니터링·분석 결과 제공</td><td>API, Dashboard, Grafana</td></tr>
-</table></div>
-</li>
-<li><strong>주요 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>핵심기술</th><th>설명</th><th>목적</th></tr>
-<tr><td><strong>시계열</strong></td><td><strong>시간 기반 인덱싱</strong></td><td>Timestamp 중심 인덱스 구성</td><td>시간 조회 성능 향상</td></tr>
-<tr><td></td><td><strong>시간 파티셔닝</strong></td><td>시간 구간별 데이터 분할</td><td>대용량 관리·검색 최적화</td></tr>
-<tr><td></td><td><strong>데이터 압축</strong></td><td>시간 순서 및 값의 특성을 활용한 압축</td><td>저장공간 절감</td></tr>
-<tr><td><strong>수명주기</strong></td><td><strong>다운샘플링</strong></td><td>고해상도 데이터를 낮은 주기로 집계</td><td>장기 보관 효율화</td></tr>
-<tr><td></td><td><strong>TTL / Retention</strong></td><td>데이터 보존기간 자동 관리</td><td>저장공간 관리</td></tr>
-<tr><td></td><td><strong>연속 집계</strong></td><td>시간 구간별 통계 자동 생성</td><td>분석 성능 향상</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트: </strong>단순히 시간 데이터를 저장하는 DB를 넘어, IoT·클라우드·AI 확산으로 증가하는 대규모 실시간 데이터를 고속 수집·압축·분석하기 위한 데이터 플랫폼으로 발전</li>
+<li><strong>등장 배경</strong>:<ul>
+<li>기존 디스크 기반 DBMS는 I/O 병목이 성능 한계 → 메모리 가격 하락 및 대용량화로 IMDB 실용화</li>
+<li>실시간 분석·초저지연 응답이 요구되는 환경에서 필수 기술로 부상</li>
 </ul>
-<hr/>
+</li>
+<li><strong>인메모리 DB vs 디스크 기반 DB 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>인메모리 DB (IMDB)</th><th>디스크 기반 DB</th></tr>
+<tr><td>저장 위치</td><td>메인 메모리(RAM)</td><td>디스크(HDD/SSD)</td></tr>
+<tr><td>응답 속도</td><td>마이크로초(μsec) 수준</td><td>밀리초(msec) 수준</td></tr>
+<tr><td>I/O 비용</td><td>없음 (메모리 직접 접근)</td><td>디스크 I/O 발생</td></tr>
+<tr><td>영속성</td><td>휘발성 → WAL·스냅샷으로 보완</td><td>기본 보장</td></tr>
+<tr><td>용량</td><td>메모리 용량에 제한</td><td>대용량 저장 가능</td></tr>
+<tr><td>비용</td><td>메모리 단가 높음</td><td>상대적으로 저렴</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 기술</strong>:<ul>
+<li><strong>WAL(Write Ahead Logging)</strong>: 데이터 변경 전 로그를 먼저 기록하여 장애 시 복구</li>
+<li><strong>스냅샷(Snapshot)</strong>: 특정 시점의 메모리 상태를 디스크에 주기적으로 저장</li>
+<li><strong>IMDG(In-Memory Data Grid)</strong>: 분산 메모리 환경에서 데이터를 그리드 형태로 공유 및 처리</li>
+</ul>
+</li>
+<li><strong>대표 제품</strong>:<ul>
+<li><strong>SAP HANA</strong>: 컬럼 기반 인메모리 DB, OLTP+OLAP 동시 지원 (HTAP)</li>
+<li><strong>Redis</strong>: Key-Value 기반 인메모리 DB, 캐시·세션 관리에 특화</li>
+<li><strong>VoltDB</strong>: ACID 보장 인메모리 RDBMS, 고속 트랜잭션 처리</li>
+</ul>
+</li>
+<li><strong>적용 분야</strong>: 실시간 사기 탐지, 주식·금융 거래 처리, 세션 관리, 실시간 대시보드</li>
+<li><strong>인사이트</strong>: 인메모리 DB는 초저지연 응답이 필수인 환경에서 탁월하나, 메모리 휘발성 문제를 WAL·스냅샷·복제(Replication)로 반드시 보완해야 하며, 메모리 비용과 데이터 볼륨을 고려한 하이브리드 설계(핫데이터는 IMDB, 콜드데이터는 디스크 DB)가 현실적 대안임</li>
+</ul>
 
 </body>
 </html>

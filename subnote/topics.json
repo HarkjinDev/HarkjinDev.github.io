@@ -217,110 +217,114 @@
       },
       {
         "id": "054",
-        "name": "[Part 9] NoSQL"
+        "name": "5. 2PC(Two-Phase Commit, 2단계 커밋)"
       },
       {
         "id": "055",
-        "name": "1. NoSQL (Not Only SQL)"
+        "name": "[Part 9] NoSQL"
       },
       {
         "id": "056",
-        "name": "[하위] 1-1. NoSQL 모델링"
+        "name": "1. NoSQL (Not Only SQL)"
       },
       {
         "id": "057",
-        "name": "[Part 10] 특수 DB"
+        "name": "[하위] 1-1. NoSQL 모델링"
       },
       {
         "id": "058",
-        "name": "1. OLAP (On-Line Analytical Processing)"
+        "name": "[Part 10] 특수 DB"
       },
       {
         "id": "059",
-        "name": "2. 벡터 데이터베이스 (Vector Database)"
+        "name": "1. OLAP (On-Line Analytical Processing)"
       },
       {
         "id": "060",
-        "name": "[하위] 2-1. PQ(Product Quantization)"
+        "name": "2. 벡터 데이터베이스 (Vector Database)"
       },
       {
         "id": "061",
-        "name": "3. 그래프 데이터베이스 (Graph Database)"
+        "name": "[하위] 2-1. PQ(Product Quantization)"
       },
       {
         "id": "062",
-        "name": "4. 데이터 웨어하우스 & 데이터 레이크"
+        "name": "3. 그래프 데이터베이스 (Graph Database)"
       },
       {
         "id": "063",
-        "name": "[하위] 4-1.데이터 늪(Data Swamp)"
+        "name": "4. 데이터 웨어하우스 & 데이터 레이크"
       },
       {
         "id": "064",
-        "name": "5. 데이터 레이크하우스 (Data Lakehouse)"
+        "name": "[하위] 4-1.데이터 늪(Data Swamp)"
       },
       {
         "id": "065",
-        "name": "[하위] 5-2. 델타 레이크(Delta Lake)"
+        "name": "5. 데이터 레이크하우스 (Data Lakehouse)"
       },
       {
         "id": "066",
-        "name": "6. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
+        "name": "[하위] 5-2. 델타 레이크(Delta Lake)"
       },
       {
         "id": "067",
-        "name": "7. 시계열 데이터베이스(TSDB, Time Series DB)"
+        "name": "6. 인메모리 데이터베이스 (IMDB, In-Memory Database)"
       },
       {
         "id": "068",
-        "name": "[Part 11] 데이터 거버넌스/품질/보안"
+        "name": "7. 시계열 데이터베이스(TSDB, Time Series DB)"
       },
       {
         "id": "069",
-        "name": "1. DB(데이터베이스) 보안"
+        "name": "[Part 11] 데이터 거버넌스/품질/보안"
       },
       {
         "id": "070",
-        "name": "2. 데이터 거버넌스 (Data Governance)"
+        "name": "1. DB(데이터베이스) 보안"
       },
       {
         "id": "071",
-        "name": "2. 데이터 품질관리 (Data Quality Management)"
+        "name": "2. 데이터 거버넌스 (Data Governance)"
       },
       {
         "id": "072",
-        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
+        "name": "2. 데이터 품질관리 (Data Quality Management)"
       },
       {
         "id": "073",
-        "name": "4. DA & DBA 역할"
+        "name": "3. 마스터 데이터 관리 (MDM, Master Data Management)"
       },
       {
         "id": "074",
-        "name": "5. 데이터 표준화 (Data Standardization)"
+        "name": "4. DA & DBA 역할"
       },
       {
         "id": "075",
-        "name": "6. 데이터 프로파일링 (Data Profiling)"
+        "name": "5. 데이터 표준화 (Data Standardization)"
       },
       {
         "id": "076",
-        "name": "7. 데이터 스페이스(Data Space)"
+        "name": "6. 데이터 프로파일링 (Data Profiling)"
       },
       {
         "id": "077",
-        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
+        "name": "7. 데이터 스페이스(Data Space)"
       },
       {
         "id": "078",
-        "name": "[Part 12] 마이그레이션"
+        "name": "8. 국가 데이터 카탈로그 (National Data Catalog)"
       },
       {
         "id": "079",
-        "name": "1. 데이터 마이그레이션 (Data Migration)"
+        "name": "[Part 12] 마이그레이션"
       },
       {
         "id": "080",
+        "name": "1. 데이터 마이그레이션 (Data Migration)"
+      },
+      {
+        "id": "081",
         "name": "[하위] 1-1. 오픈소스 DBMS 전환"
       }
     ]
@@ -2557,262 +2561,266 @@
       },
       {
         "id": "008",
-        "name": "5. 이상치 (Outlier)"
+        "name": "5. 데이터 이상치 (Outlier)"
       },
       {
         "id": "009",
-        "name": "6. 편향(Bias)"
+        "name": "6. 데이터 노이즈(Noise, 데이터 잡음)"
       },
       {
         "id": "010",
-        "name": "7. 결측치 (Missing Value)"
+        "name": "7. 편향(Bias)"
       },
       {
         "id": "011",
-        "name": "8. 타당도 (Validity)"
+        "name": "8. 결측치 (Missing Value)"
       },
       {
         "id": "012",
-        "name": "8. 신뢰도 (Reliability)"
+        "name": "9. 타당도 (Validity)"
       },
       {
         "id": "013",
-        "name": "[Part 2] 확률분포"
+        "name": "10. 신뢰도 (Reliability)"
       },
       {
         "id": "014",
-        "name": "1. 확률분포(Probability distribution)"
+        "name": "[Part 2] 확률분포"
       },
       {
         "id": "015",
-        "name": "2. 정규분포 (Normal Distribution)"
+        "name": "1. 확률분포(Probability distribution)"
       },
       {
         "id": "016",
-        "name": "[하위] 2-1. 중심극한정리 (Central Limit Theorem)"
+        "name": "2. 정규분포 (Normal Distribution)"
       },
       {
         "id": "017",
-        "name": "[하위] 2-2.대수의 법칙(Law of Large Number)"
+        "name": "[하위] 2-1. 중심극한정리 (Central Limit Theorem)"
       },
       {
         "id": "018",
-        "name": "3. 베르누이 분포 (Bernoulli Distribution)"
+        "name": "[하위] 2-2.대수의 법칙(Law of Large Number)"
       },
       {
         "id": "019",
-        "name": "4. 이항 분포 (Binomial Distribution)"
+        "name": "3. 베르누이 분포 (Bernoulli Distribution)"
       },
       {
         "id": "020",
-        "name": "5. 기하 분포 (Geometric Distribution)"
+        "name": "4. 이항 분포 (Binomial Distribution)"
       },
       {
         "id": "021",
-        "name": "6. 포아송 분포 (Poisson Distribution)"
+        "name": "5. 기하 분포 (Geometric Distribution)"
       },
       {
         "id": "022",
-        "name": "7. 대기행렬 시스템/이론 (Queue System)"
+        "name": "6. 포아송 분포 (Poisson Distribution)"
       },
       {
         "id": "023",
-        "name": "[Part 3] 추정"
+        "name": "7. 대기행렬 시스템/이론 (Queue System)"
       },
       {
         "id": "024",
-        "name": "1. 추정이론 (Estimation Theory)"
+        "name": "[Part 3] 추정"
       },
       {
         "id": "025",
-        "name": "2. 점추정 (Point Estimation)"
+        "name": "1. 추정이론 (Estimation Theory)"
       },
       {
         "id": "026",
-        "name": "3. 구간 추정 (Interval Estimation)"
+        "name": "2. 점추정 (Point Estimation)"
       },
       {
         "id": "027",
-        "name": "4. 불편추정량 (Unbiased Estimator)"
+        "name": "3. 구간 추정 (Interval Estimation)"
       },
       {
         "id": "028",
-        "name": "[Part 4] 가설검정"
+        "name": "4. 불편추정량 (Unbiased Estimator)"
       },
       {
         "id": "029",
-        "name": "1. 가설검정 (Statistical Hypothesis Test)"
+        "name": "[Part 4] 가설검정"
       },
       {
         "id": "030",
-        "name": "[하위] 1-1. p-해킹 (p-Hacking)"
+        "name": "1. 가설검정 (Statistical Hypothesis Test)"
       },
       {
         "id": "031",
-        "name": "2. t-검정 (t-test)"
+        "name": "[하위] 1-1. p-해킹 (p-Hacking)"
       },
       {
         "id": "032",
-        "name": "[하위] 2-1. 독립표본 t-검정 (Independent t-test)"
+        "name": "2. t-검정 (t-test)"
       },
       {
         "id": "033",
-        "name": "[하위] 2-2. 대응표본 t-검정 (Paired t-test)"
+        "name": "[하위] 2-1. 독립표본 t-검정 (Independent t-test)"
       },
       {
         "id": "034",
-        "name": "3. 베이즈 정리 (Bayes' Theorem)"
+        "name": "[하위] 2-2. 대응표본 t-검정 (Paired t-test)"
       },
       {
         "id": "035",
-        "name": "4. z-검정 (z-test)"
+        "name": "3. 베이즈 정리 (Bayes' Theorem)"
       },
       {
         "id": "036",
-        "name": "5. ANOVA (Analysis of Variance, 분산분석)"
+        "name": "4. z-검정 (z-test)"
       },
       {
         "id": "037",
-        "name": "[Part 5] 회귀분석"
+        "name": "5. ANOVA (Analysis of Variance, 분산분석)"
       },
       {
         "id": "038",
-        "name": "1. 상관분석 (Correlation Analysis)"
+        "name": "[Part 5] 회귀분석"
       },
       {
         "id": "039",
-        "name": "2. 인과관계 (Causation)"
+        "name": "1. 상관분석 (Correlation Analysis)"
       },
       {
         "id": "040",
-        "name": "3. 선형회귀분석 (Linear Regression Analysis)"
+        "name": "2. 인과관계 (Causation)"
       },
       {
         "id": "041",
-        "name": "4. 다중회귀분석 (Multiple Regression Analysis)"
+        "name": "3. 선형회귀분석 (Linear Regression Analysis)"
       },
       {
         "id": "042",
-        "name": "5. 로지스틱회귀분석 (Logistic Regression Analysis)"
+        "name": "4. 다중회귀분석 (Multiple Regression Analysis)"
       },
       {
         "id": "043",
-        "name": "6. 포아송 회귀분석 (Poisson Regression Analysis)"
+        "name": "5. 로지스틱회귀분석 (Logistic Regression Analysis)"
       },
       {
         "id": "044",
-        "name": "7. 다변량회귀분석 (Multivariate Regression Analysis)"
+        "name": "6. 포아송 회귀분석 (Poisson Regression Analysis)"
       },
       {
         "id": "045",
-        "name": "8. 등분산성 (Homoscedasticity)"
+        "name": "7. 다변량회귀분석 (Multivariate Regression Analysis)"
       },
       {
         "id": "046",
-        "name": "9. 다중공선성 (Multicollinearity)"
+        "name": "8. 등분산성 (Homoscedasticity)"
       },
       {
         "id": "047",
-        "name": "[Part 6] 시계열 분석"
+        "name": "9. 다중공선성 (Multicollinearity)"
       },
       {
         "id": "048",
-        "name": "1. 시계열 분석 (Time Series Analysis)"
+        "name": "[Part 6] 시계열 분석"
       },
       {
         "id": "049",
-        "name": "2. 자기회귀모형 (AR, Autoregressive Model)"
+        "name": "1. 시계열 분석 (Time Series Analysis)"
       },
       {
         "id": "050",
-        "name": "3. 이동평균모형 (MA, Moving Average Model)"
+        "name": "2. 자기회귀모형 (AR, Autoregressive Model)"
       },
       {
         "id": "051",
-        "name": "4. 지수평활법 (Exponential Smoothing)"
+        "name": "3. 이동평균모형 (MA, Moving Average Model)"
       },
       {
         "id": "052",
-        "name": "[Part 7] 데이터 마이닝"
+        "name": "4. 지수평활법 (Exponential Smoothing)"
       },
       {
         "id": "053",
-        "name": "1. 데이터 마이닝 (Data Mining)"
+        "name": "[Part 7] 데이터 마이닝"
       },
       {
         "id": "054",
-        "name": "[하위] 1-1. CRISP-DM"
+        "name": "1. 데이터 마이닝 (Data Mining)"
       },
       {
         "id": "055",
-        "name": "[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)"
+        "name": "[하위] 1-1. CRISP-DM"
       },
       {
         "id": "056",
-        "name": "[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)"
+        "name": "[하위] 1-2. 탐색적 데이터 분석(EDA, Exploratory Data Analysis)"
       },
       {
         "id": "057",
-        "name": "2. 데이터 어노테이션 (Data Annotation)"
+        "name": "[하위] 1-3. 확증적 데이터 분석(CDA, Confirmatory Data Analysis)"
       },
       {
         "id": "058",
-        "name": "[하위] 2-1. 데이터 라벨링"
+        "name": "2. 데이터 어노테이션 (Data Annotation)"
       },
       {
         "id": "059",
-        "name": "3. 연관 규칙 분석 (Association Rule Analysis)"
+        "name": "[하위] 2-1. 데이터 라벨링"
       },
       {
         "id": "060",
-        "name": "4. 텍스트 마이닝 (Text Mining)"
+        "name": "3. 연관 규칙 분석 (Association Rule Analysis)"
       },
       {
         "id": "061",
-        "name": "5. 오피니언 마이닝 (Opinion Mining)"
+        "name": "4. 텍스트 마이닝 (Text Mining)"
       },
       {
         "id": "062",
-        "name": "6. 음성 데이터 마이닝 (Voice Data Mining)"
+        "name": "5. 오피니언 마이닝 (Opinion Mining)"
       },
       {
         "id": "063",
-        "name": "7. 네트워크 중심성 (Network Centrality)"
+        "name": "6. 음성 데이터 마이닝 (Voice Data Mining)"
       },
       {
         "id": "064",
-        "name": "8. 사회연결망 분석 (SNA, Social Network Analysis)"
+        "name": "7. 네트워크 중심성 (Network Centrality)"
       },
       {
         "id": "065",
-        "name": "9. PPDM (Privacy Preserving Data Mining)"
+        "name": "8. 사회연결망 분석 (SNA, Social Network Analysis)"
       },
       {
         "id": "066",
-        "name": "10. 필터링/추천시스템 (Filtering)"
+        "name": "9. PPDM (Privacy Preserving Data Mining)"
       },
       {
         "id": "067",
-        "name": "[Part 8] 시각화/빅데이터"
+        "name": "10. 필터링/추천시스템 (Filtering)"
       },
       {
         "id": "068",
-        "name": "1. 데이터 사이언스 (Data Science)"
+        "name": "[Part 8] 시각화/빅데이터"
       },
       {
         "id": "069",
-        "name": "2. 데이터 시각화 (Data Visualization)"
+        "name": "1. 데이터 사이언스 (Data Science)"
       },
       {
         "id": "070",
-        "name": "3. 빅데이터 분석도구"
+        "name": "2. 데이터 시각화 (Data Visualization)"
       },
       {
         "id": "071",
-        "name": "4. 빅데이터 플랫폼 아키텍처"
+        "name": "3. 빅데이터 분석도구"
       },
       {
         "id": "072",
+        "name": "4. 빅데이터 플랫폼 아키텍처"
+      },
+      {
+        "id": "073",
         "name": "5. 빅데이터 프로세싱 아키텍처"
       }
     ]

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 사회연결망 분석 (SNA, Social Network Analysis)</title>
+  <title>7. 네트워크 중심성 (Network Centrality)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,18 @@
   </style>
 </head>
 <body>
-<h4>8. 사회연결망 분석 (SNA, Social Network Analysis)</h4>
+<h4>7. 네트워크 중심성 (Network Centrality)</h4>
 <ul>
-<li><strong>정의</strong>: 개체 간 관계를 네트워크로 모델링하여 구조를 분석하는 기법</li>
-<li><strong>키워드</strong>: 노드, 링크(엣지), 중심성, 군집계수, 소시오그램</li>
+<li><strong>정의</strong>: 네트워크에서 노드의 중요도를 평가하는 분석 지표</li>
+<li><strong>키워드</strong>: 연결중심성, 매개중심성, 인접중심성</li>
 <li><strong>분류</strong>: 데이터 마이닝</li>
-<li><strong>표현 방법</strong>:<ul>
-<li><strong>소시오그램</strong>: 관계를 시각화한 그래프</li>
-<li><strong>인접행렬</strong>: 노드 간 연결을 행렬로 표현</li>
+<li><strong>3가지 중심성</strong>:<ul>
+<li><strong>연결중심성(Degree)</strong>: 직접 연결된 노드 수 → 영향력 측정</li>
+<li><strong>매개중심성(Betweenness)</strong>: 최단 경로 상 위치 빈도 → 정보 브로커 역할</li>
+<li><strong>인접중심성(Closeness)</strong>: 다른 노드까지 평균 거리의 역수 → 정보 전파 속도</li>
 </ul>
 </li>
-<li><strong>주요 분석</strong>:<ul>
-<li>중심성 분석 (연결·매개·인접)</li>
-<li>군집계수(Clustering Coefficient): 이웃 간 연결 밀도</li>
-<li>구조적 공백(Structural Hole): 브로커 역할 노드 탐색</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: SNA는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>개인이 아닌 관계와 구조에 초점</strong></u></span>. 마케팅 인플루언서 탐색, 보안 이상 행위 네트워크 탐지에 활용된다.</li>
+<li><strong>인사이트</strong>: 3가지 중심성은 연결(양), 매개(위치), 인접(거리)로 다른 관점에서 중요도 측정. SNS 인플루언서 분석, 감염병 핵심 노드 탐색에 활용.</li>
 </ul>
 
 </body>

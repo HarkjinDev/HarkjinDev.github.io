@@ -29,23 +29,17 @@
 </li>
 <li><strong>튜닝 단계별 기법</strong>:  <div class="table-scroll"><table>
 <tr><th>튜닝 영역</th><th>기법</th><th>상세</th></tr>
-<tr><td><strong>DB 설계 튜닝</strong></td><td>테이블 분할 및 통합</td><td>파티션 기능, 테이블 수평/수직 분할</td></tr>
-<tr><td></td><td>식별자 지정/Key 설정</td><td>본질/인조 식별자 정의, 클러스터링</td></tr>
-<tr><td></td><td>적정 인덱스 설정</td><td>인덱스 분포도 고려 10~15% (손익분기점)</td></tr>
-<tr><td></td><td>정규화/반정규화</td><td>테이블, 컨럼, 관계 정규화/반정규화</td></tr>
-<tr><td></td><td>적절한 데이터 타입 선정</td><td>조인시 연결되는 데이터 타입의 일치</td></tr>
-<tr><td></td><td>성능 데이터 모델링</td><td>수퍼/서브타입, PK 조정, 이력테이블, 파티셔닝, 데이터 통합</td></tr>
+<tr><td><strong>DB 설계 튜닝</strong></td><td><strong>파티셔닝</strong></td><td>파티션 기능, 테이블 수평/수직 분할</td></tr>
+<tr><td></td><td><strong>샤딩</strong></td><td>테이블 수평 분산, 스케일 아웃 확장</td></tr>
+<tr><td></td><td><strong>정규화/반정규화</strong></td><td>테이블, 컬럼, 관계 정규화/반정규화</td></tr>
 <tr><td><strong>DBMS 튜닝</strong></td><td>I/O 최소화</td><td>실제 필요한 데이터만 Read, Query off-Loading</td></tr>
 <tr><td></td><td>Buffer Pool 튜닝</td><td>지역성 관점 데이터 관리, 오라클 Keep Buffer Cache</td></tr>
 <tr><td></td><td>Commit/Check Point</td><td>Check Point 수행주기 조절 통해 Commit 주기 조정</td></tr>
 <tr><td></td><td>Thread/Reuse</td><td>Middleware의 기능과 연동</td></tr>
-<tr><td><strong>SQL 튜닝</strong></td><td>Undo Segment 설정</td><td>Undo 영역 크기 조정</td></tr>
-<tr><td></td><td>옵티마이저</td><td>RBO, CBO 이해, 통계정보 최신화</td></tr>
-<tr><td></td><td>힌트(HINT) 사용</td><td>지원되는 힌트 통해 원하는 실행계획 유도</td></tr>
-<tr><td></td><td>부분범위 처리</td><td>전체가 아닌 일부분만 Access, 옵티마이저 정보제공</td></tr>
+<tr><td><strong>SQL 튜닝</strong></td><td><strong>옵티마이저</strong></td><td>RBO, CBO 이해, 통계정보 최신화</td></tr>
+<tr><td></td><td><strong>힌트(HINT) 사용</strong></td><td>지원되는 힌트 통해 원하는 실행계획 유도</td></tr>
 <tr><td></td><td>인덱스 활용</td><td>인덱스 통한 조회 속도 향상, Sort 연산 대체</td></tr>
 <tr><td></td><td>조인방식/조인순서</td><td>실행계획 (PLAN) 확인 후 조정</td></tr>
-<tr><td></td><td>동적 SQL 지양</td><td>파싱(Parsing) 부하 감소위해 Static SQL 사용</td></tr>
 <tr><td></td><td>다중처리</td><td>한번의 DBMS 호출로 여러 건을 동시에 처리</td></tr>
 <tr><td></td><td>병렬처리</td><td>하나의 SQL을 여러 개의 CPU가 병렬로 분할 처리</td></tr>
 <tr><td></td><td>SORT 튜닝 수행</td><td>인덱스 이용 통해서 MIN, MAX 구하기, TOP-N 쿼리</td></tr>

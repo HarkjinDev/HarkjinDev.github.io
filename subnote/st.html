@@ -177,25 +177,28 @@
 </li>
 <li><strong>인사이트</strong>: 추론통계는 표본의 통계량으로 모집단의 모수를 확률적으로 추정한다. 점추정·구간추정·가설검정은 추론통계의 3대 핵심 방법이다.</li>
 </ul>
-<h4>5. 이상치 (Outlier)</h4>
+<h4>5. 데이터 이상치 (Outlier)</h4>
 <ul>
 <li><strong>정의</strong>: 데이터의 일반적 분포에서 크게 벗어난 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비정상적 관측값</strong></u></span></li>
 <li><strong>키워드</strong>: 이상치, 전역/맥락/군집 이상치, IQR, Z-score, Boxplot, KNN, DBSCAN</li>
 <li><strong>분류</strong>: 통계 기초</li>
 <li><strong>주요 발생 원인:</strong> 데이터 오류, 측정 단위 불일치, 샘플링 오류, 비정상적 이벤트, 극단적인 행동</li>
-<li><strong>유형 (3가지)</strong>:<ul>
+<li><strong>유형 (3가지)</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;전맥군&gt;</strong></span><ul>
 <li><strong>전역 이상치(Global)</strong>: 전체 데이터 관점에서 극단적으로 벗어난 값</li>
 <li><strong>맥락 이상치(Contextual)</strong>: 특정 맥락에서만 비정상 (시계열 계절성 등)</li>
 <li><strong>군집 이상치(Collective)</strong>: 개별로는 정상이나 집합 패턴이 비정상</li>
 </ul>
 </li>
-<li><strong>탐지 방법</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>탐지 기법</strong></th><th><strong>설명</strong></th></tr>
-<tr><td><strong>통계 기반</strong></td><td><strong>Z-score</strong></td><td>평균과 표준편차를 기준으로 이상값 여부 판단 (\pm3\sigma 이상)</td></tr>
-<tr><td></td><td><strong>IQR (사분위수 범위)</strong></td><td>Q1, Q3를 기준으로 IQR 범위를 벗어난 값을 이상치로 간주</td></tr>
-<tr><td><strong>시각화 기반</strong></td><td><strong>Boxplot</strong></td><td>사분위수와 수염 범위를 시각화하여 이상값을 직관적으로 탐지</td></tr>
-<tr><td><strong>ML 기반</strong></td><td><strong>KNN</strong></td><td>인접한 K개의 거리 평균이 긴 점을 이상치로 탐색</td></tr>
-<tr><td></td><td><strong>DBSCAN</strong></td><td>군집 내 밀도가 낮거나 소속되지 않은 데이터를 이상값으로 식별</td></tr>
+<li><strong>이상치/노이즈 탐지 방법</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>탐지 기법</th><th>핵심 원리</th><th>예시</th></tr>
+<tr><td><strong>통계 기반</strong></td><td><strong>Z-Score</strong></td><td>평균에서 벗어난 정도(표준편차) 측정</td><td>|Z| &gt; 3</td></tr>
+<tr><td></td><td><strong>IQR(사분위수 범위)</strong></td><td>Q1~Q3 범위를 벗어난 값 탐지</td><td>Q1-1.5IQR 미만</td></tr>
+<tr><td><strong>시각화</strong></td><td><strong>Box Plot</strong></td><td>Q1·Q3와 수염 범위를 이용해 이상치 식별</td><td>IQR 시각화</td></tr>
+<tr><td><strong>거리 기반</strong></td><td><strong>k-NN</strong></td><td>주변 데이터와의 거리가 먼 값 탐지</td><td>고립된 데이터</td></tr>
+<tr><td><strong>밀도 기반</strong></td><td><strong>LOF</strong></td><td>주변 대비 데이터 밀도가 낮은 값 탐지</td><td>주변과 동떨어진 값</td></tr>
+<tr><td><strong>군집 기반</strong></td><td><strong>Clustering</strong></td><td>군집에서 벗어난 데이터 탐지</td><td>군집 외부 데이터</td></tr>
+<tr><td><strong>ML 기반</strong></td><td><strong>Isolation Forest</strong></td><td>이상 데이터를 빠르게 분리</td><td>고차원 데이터</td></tr>
+<tr><td></td><td><strong>Autoencoder</strong></td><td>복원 오차가 큰 데이터 탐지</td><td>비정상 패턴</td></tr>
 </table></div>
 </li>
 <li><strong>이상치 vs 노이즈 비교표:</strong><div class="table-scroll"><table>
@@ -209,7 +212,31 @@
 </li>
 <li><strong>인사이트</strong>: 아웃라이어는 의미 있는 정보를 가질 수 있으나, 노이즈는 무작위 오차. 제거 전 원인 파악이 선행되어야 한다.</li>
 </ul>
-<h4>6. 편향(Bias)</h4>
+<h4>6. 데이터 노이즈(Noise, 데이터 잡음)</h4>
+<ul>
+<li><strong>정의:</strong> 데이터에 포함된 오류로 인해 실제 의미와 무관하게 발생한 불필요하거나 왜곡된 값</li>
+<li><strong>키워드: </strong>측정 오류, 입력 오류, 환경 오류, 왜곡값, 필터링, 평활화, 대체 </li>
+<li><strong>분류</strong>: 통계 기초</li>
+<li><strong>주요 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>예시</th></tr>
+<tr><td><strong>측정 노이즈</strong></td><td>센서·측정 과정의 오차</td><td>온도 <code>25.1 → 125.1</code></td></tr>
+<tr><td><strong>입력 노이즈</strong></td><td>사용자 입력 실수</td><td>나이 <code>35 → 350</code></td></tr>
+<tr><td><strong>전송 노이즈</strong></td><td>전송 과정에서 발생한 오류</td><td>데이터 일부 손상</td></tr>
+<tr><td><strong>환경 노이즈</strong></td><td>외부 환경에 의한 데이터 왜곡</td><td>센서 전자파 간섭</td></tr>
+<tr><td><strong>라벨 노이즈</strong></td><td>잘못된 데이터 라벨</td><td>정상 데이터를 공격으로 분류</td></tr>
+</table></div>
+</li>
+<li><strong>노이즈 처리 방법:</strong><div class="table-scroll"><table>
+<tr><th>방법</th><th>핵심</th></tr>
+<tr><td><strong>필터링</strong></td><td>불필요한 데이터 제거</td></tr>
+<tr><td><strong>평활화(Smoothing)</strong></td><td>이동평균 등으로 변동 완화</td></tr>
+<tr><td><strong>이상치 탐지</strong></td><td>통계·ML 기반 이상값 식별</td></tr>
+<tr><td><strong>대체(Imputation)</strong></td><td>오류·결측값을 적절한 값으로 대체</td></tr>
+<tr><td><strong>정규화/표준화</strong></td><td>데이터 범위 및 분포 정규화</td></tr>
+</table></div>
+</li>
+</ul>
+<h4>7. 편향(Bias)</h4>
 <ul>
 <li><strong>정의:</strong> 데이터 수집·표본추출·학습·분석 과정에서 특정 방향으로 데이터 또는 분석 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>결과가 치우치는 현상</strong></u></span></li>
 <li><strong>키워드:</strong> 선택편향, 생존자편향, 확증편향, 알고리즘 편향, 이상치, SMOTE, 공정성, XAI</li>
@@ -265,7 +292,7 @@
 </li>
 <li><strong>인사이트:</strong> 편향은 데이터 수집부터 모델 배포까지 전 과정에서 발생하며, AI 시대에는 데이터 편향→모델 편향→사회적 차별로 증폭되므로 탐지·처리·공정성 검증을 수명주기 전반에 걸쳐 통합 관리해야 함</li>
 </ul>
-<h4>7. 결측치 (Missing Value)</h4>
+<h4>8. 결측치 (Missing Value)</h4>
 <ul>
 <li><strong>정의</strong>: 수집·처리 과정에서 값이 기록되지 않거나 손실되어 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비어있는 관측값</strong></u></span></li>
 <li><strong>키워드</strong>: 삭제법, 대체법, 예측법, 다중대체법</li>
@@ -287,7 +314,7 @@
 </li>
 <li><strong>인사이트</strong>: 결측치 처리 방안 서술 시, 처리 정교함 순서(삭제 &lt; 대체 &lt; 예측 &lt; 다중대체)와 함께 다중대체법이 편향 최소화 측면에서 가장 우수함을 명시할 것.</li>
 </ul>
-<h4>8. 타당도 (Validity)</h4>
+<h4>9. 타당도 (Validity)</h4>
 <ul>
 <li><strong>정의</strong>: 측정 도구가 측정하고자 하는 개념을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정확히 측정하는 정도</strong></u></span></li>
 <li><strong>키워드</strong>: 내용타당도, 구인타당도, 기준타당도, 측정 정확성</li>
@@ -300,7 +327,7 @@
 </li>
 <li><strong>인사이트</strong>: 타당도는 <strong>"무엇을 측정하는가"</strong>, 신뢰도는 <strong>"얼마나 일관되게 측정하는가"</strong>. 타당도가 높아도 신뢰도가 낮으면 측정 결과는 무의미하다.</li>
 </ul>
-<h4>8. 신뢰도 (Reliability)</h4>
+<h4>10. 신뢰도 (Reliability)</h4>
 <ul>
 <li><strong>정의</strong>: 동일 조건에서 반복 측정 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일관된 결과를 산출</strong></u></span>하는 정도</li>
 <li><strong>키워드</strong>: 일관성,<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 재검사, 내적 일치도, Cronbach α</strong></u></span></li>
@@ -1207,8 +1234,8 @@ X \sim F(d_1, d_2)</td><td>- 두 집단의 분산 동일성 검정 (분산 분�
 </ul>
 <h4>4. 지수평활법 (Exponential Smoothing)</h4>
 <ul>
-<li><strong>정의:</strong> 최근 관측값에 더 높은 가중치를 부여하고 과거로 갈수록 지수적으로 감소하는 가중치를 적용하여 시계열 데이터를 평활화하고 예측하는 기법</li>
-<li><strong>키워드:</strong> 평활계수(α), 단순지수평활, 이중지수평활, 삼중지수평활, Holt-Winters, 추세, 계절성, 가중 평균</li>
+<li><strong>정의:</strong> 최근 관측값에 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>더 높은 가중치를 부여</strong></u></span>하고 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>과거로 갈수록 지수적으로 감소하는 가중치를 적용</strong></u></span>하여 시계열 데이터를 평활화하고 예측하는 기법</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>평활계수(α), 단순지수평활, 이중지수평활, 삼중지수평활</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Holt-Winters(가법/승법)</strong></u></span>, 추세, 계절성, 가중 평균</li>
 <li><strong>분류:</strong> 시계열 분석</li>
 <li><strong>평활계수 (α) 의미:</strong><div class="table-scroll"><table>
 <tr><th>항목</th><th>설명</th><th>핵심</th></tr>
