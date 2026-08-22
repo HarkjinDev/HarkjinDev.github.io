@@ -290,6 +290,12 @@
   {
     "domain": "AI",
     "fname": "ai",
+    "topic": "[하위] 1-1. Self-Attention (셀프 어텐션)",
+    "mnemonic": "<벡유스정가>"
+  },
+  {
+    "domain": "AI",
+    "fname": "ai",
     "topic": "5. 프롬프트 엔지니어링 (Prompt Engineering)",
     "mnemonic": "<역지맥예출>"
   },
