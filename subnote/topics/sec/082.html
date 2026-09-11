@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 12-1. STRIDE 위협 모델링(Microsoft)</title>
+  <title>12. 사이버 킬 체인 (Cyber Kill Chain)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,29 @@
   </style>
 </head>
 <body>
-<h4>[하위] 12-1. STRIDE 위협 모델링(Microsoft)</h4>
+<h4>12. 사이버 킬 체인 (Cyber Kill Chain)</h4>
 <ul>
-<li><strong>STRIDE 위협 모델링:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;위변부/정서권&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>위협</th><th>침해 속성</th><th>대응 방안</th></tr>
-<tr><td><strong>Spoofing (위장)</strong></td><td>인증 (Authentication)</td><td>MFA·디지털 인증서·세션 관리</td></tr>
-<tr><td><strong>Tampering (변조)</strong></td><td>무결성 (Integrity)</td><td>해시 함수·디지털 서명·접근 통제 (MAC/DAC)</td></tr>
-<tr><td><strong>Repudiation (부인)</strong></td><td>부인 방지 (Non-repudiation)</td><td>WORM 로깅·감사 추적·디지털 서명</td></tr>
-<tr><td><strong>Information Disclosure 
-(정보 노출)</strong></td><td>기밀성 (Confidentiality)</td><td>암호화 (At-rest·In-transit)·엄격한 권한 통제</td></tr>
-<tr><td><strong>Denial of Service 
-(서비스 거부)</strong></td><td>가용성 (Availability)</td><td>트래픽 필터링·로드 밸런싱·Quota 설정·안티-DDoS</td></tr>
-<tr><td><strong>Elevation of Privilege 
-(권한 상승)</strong></td><td>인가 (Authorization)</td><td>최소 권한 원칙 (PoLP)·RBAC·입력값 검증</td></tr>
+<li><strong>정의</strong>: 사이버 공격의 7단계 프레임워크 (Lockheed Martin 개발)</li>
+<li><strong>키워드</strong>: 정찰, 무기화, 전달, 악용, 설치, C2, 행동</li>
+<li><strong>분류</strong>: 위협/공격</li>
+<li><strong>7단계</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;정무전악/설씨행&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>절차</th><th>핵심</th><th>대응 방안</th></tr>
+<tr><td><strong>1. 정찰 
+(Reconnaissance)</strong></td><td>대상 정보 수집</td><td>외부 노출 정보 최소화, ASM 기반 디지털 발자국 관리</td></tr>
+<tr><td><strong>2. 무기화 
+(Weaponization)</strong></td><td>악성코드 제작</td><td>위협 인텔리전스 기반 신규 악성코드 패턴 선제 탐지</td></tr>
+<tr><td><strong>3. 전달 
+(Delivery)</strong></td><td>이메일·웹·USB 전달</td><td>이메일 필터링·웹 게이트웨이·USB 차단 정책 적용</td></tr>
+<tr><td><strong>4. 악용 
+(Exploitation)</strong></td><td>취약점 실행</td><td>패치 관리·취약점 스캔·ASLR·DEP 등 익스플로잇 방어</td></tr>
+<tr><td><strong>5. 설치 (Installation)</strong></td><td>백도어·RAT 설치</td><td>EDR 기반 악성 프로세스 탐지·차단·격리</td></tr>
+<tr><td><strong>6. C2 
+(Command &amp; Control)</strong></td><td>원격 제어 채널 구축</td><td>아웃바운드 트래픽 필터링·DNS 싱크홀·C2 도메인 차단</td></tr>
+<tr><td><strong>7. 행동 
+(Actions)</strong></td><td>데이터 유출·파괴</td><td>DLP·네트워크 세그멘테이션·백업·사고 대응 계획 수립</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트</strong>: 킬 체인의 초기 단계에서 차단할수록 방어 비용이 낮아지므로, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정찰·전달 단계 탐지(이메일 보안, 위협 인텔리전스)가 가장 효율적인 방어임</strong></u></span></li>
 </ul>
 
 </body>

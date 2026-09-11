@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>20. 기타 위협</title>
+  <title>19. 마이크로세그멘테이션(Microsegmentation)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,17 +15,30 @@
   </style>
 </head>
 <body>
-<h4>20. 기타 위협</h4>
-<div class="table-scroll"><table>
-<tr><th>공격명</th><th>핵심</th><th>대응 방안</th></tr>
-<tr><td><strong>크리덴셜 스터핑 (Credential Stuffing)</strong></td><td>유출된 계정·패스워드로 다른 서비스 자동 로그인 시도</td><td>MFA 적용, 비밀번호 재사용 금지, 로그인 이상 탐지</td></tr>
-<tr><td><strong>인포스틸러 (Infostealer)</strong></td><td>브라우저 저장 자격증명·쿠키·카드정보 자동 탈취 악성코드</td><td>EDR 적용, 브라우저 자격증명 저장 금지, 정기 점검</td></tr>
-<tr><td><strong>BPFdoor</strong></td><td>Linux BPF 필터 악용, 포트 미오픈 상태로 백도어 통신</td><td>커널 BPF 모니터링, 비정상 프로세스 탐지, EDR</td></tr>
-<tr><td><strong>Mirai 봇넷</strong></td><td>IoT 기기 기본 계정 탈취 후 DDoS 봇넷으로 악용</td><td>IoT 기본 계정 변경, 펌웨어 업데이트, 네트워크 분리</td></tr>
-<tr><td><strong>스턱스넷 (Stuxnet)</strong></td><td>산업제어시스템(ICS) 표적 국가급 사이버 무기, USB 전파</td><td>OT·IT 망분리, USB 차단, ICS 전용 보안 솔루션</td></tr>
-<tr><td><strong>LotL (Living off the Land)</strong></td><td>PowerShell·WMI 등 정상 시스템 도구 악용으로 탐지 회피</td><td>정상 도구 행위 모니터링, PowerShell 로깅, UEBA</td></tr>
+<h4>19. 마이크로세그멘테이션(Microsegmentation)</h4>
+<ul>
+<li><strong>정의:</strong> 네트워크를 세분화하여 동서(East-West) 트래픽을 정밀 통제하는 제로트러스트 핵심 기술</li>
+<li><strong>키워드:</strong> 제로트러스트, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>East-West 트래픽</strong></u></span>, 정책 기반 격리, SDN, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>소프트웨어 정의 경계(SDP), 측면 이동 차단, 워크로드 격리</strong></u></span></li>
+<li><strong>분류:</strong> 위협/공격</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정책 엔진</strong></td><td>워크로드별 세그먼트 정책 정의·배포·관리</td><td>중앙 정책 관리</td></tr>
+<tr><td><strong>소프트웨어 정의 경계 (SDP)</strong></td><td>SW로 동적 경계 생성·접근 허용</td><td>동적 경계</td></tr>
+<tr><td><strong>에이전트/센서</strong></td><td>워크로드별 트래픽 수집·정책 적용</td><td>엔드포인트 적용</td></tr>
+<tr><td><strong>가시성 엔진</strong></td><td>East-West 트래픽 전체 흐름 모니터링</td><td>내부 가시성</td></tr>
+<tr><td><strong>오케스트레이터</strong></td><td>SDN·클라우드 API 연동 정책 자동 배포</td><td>자동화 배포</td></tr>
 </table></div>
-<hr/>
+</li>
+<li><strong>NIST SP 800-207 제로트러스트 연계:</strong><div class="table-scroll"><table>
+<tr><th>원칙</th><th>마이크로세그멘테이션 적용</th><th>핵심</th></tr>
+<tr><td>명시적 검증</td><td>모든 워크로드 간 통신 ID·속성 기반 검증</td><td>묵시적 신뢰 제거</td></tr>
+<tr><td>최소 권한</td><td>업무 필요 통신만 허용·나머지 차단</td><td>Least Privilege</td></tr>
+<tr><td>침해 가정</td><td>내부 침해 전제 워크로드 단위 격리</td><td>Assume Breach</td></tr>
+<tr><td>측면 이동 차단</td><td>침해 후 내부 수평 이동 경로 차단</td><td>피해 범위 최소화</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 마이크로세그멘테이션은 제로트러스트의 핵심 구현 기술로, 워크로드 단위 East-West 트래픽 정밀 통제로 측면 이동을 차단하며, 클라우드·컨테이너·하이브리드 환경에서 소프트웨어 정의 정책 기반으로 동적 확장 가능한 차세대 내부 네트워크 보안 아키텍처의 표준으로 자리잡음</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 베이즈 정리 (Bayes' Theorem)</title>
+  <title>[하위] 2-2. 대응표본 t-검정 (Paired t-test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,47 +15,19 @@
   </style>
 </head>
 <body>
-<h4>3. 베이즈 정리 (Bayes' Theorem)</h4>
+<h4>[하위] 2-2. 대응표본 t-검정 (Paired t-test)</h4>
 <ul>
-<li><strong>정의</strong>: 사전확률과 우도를 결합하여 사후확률을 갱신하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>조건부 확률 정리</strong></u></span></li>
-<li><strong>키워드</strong>: 사후확률, 사전확률, 우도, 조건부 확률, 전확률의 법칙</li>
+<li><strong>정의</strong>: 동일 집단의 사전-사후 측정값 차이를 비교하는 t-검정 기법</li>
+<li><strong>키워드</strong>: 동일 집단, 사전/사후, 쌍별 차이</li>
 <li><strong>분류</strong>: 가설검정</li>
-<li><strong>공식</strong>: P(A|B) = P(B|A) × P(A) / P(B)</li>
-<li><strong>핵심 구성</strong>:<ul>
-<li><strong>사전확률 P(A)</strong>: 관측자가 이미 알고있는 사건의 확률</li>
-<li><strong>우도 P(B|A)</strong>: A 조건에서 B가 관측될 확률</li>
-<li><strong>사후확률 P(A|B)</strong>: 사전확률과 우도를 통해 알게 되는 조건부 확률</li>
-<li><strong>P(B)</strong>: 전확률의 법칙 = Σ P(B|Ai)P(Ai)</li>
+<li><strong>특징</strong>:<ul>
+<li>Di = Xi(사후) - Xi(사전)</li>
+<li>H0: μD = 0 (차이 없음)</li>
+<li>같은 개체의 반복 측정 — 개체 간 변이 제거</li>
 </ul>
 </li>
-<li><strong>예시문제(A집단 독감 확률 계산):</strong><ul>
-<li><strong>문제: </strong><div class="callout" style="background:#ebeced;border-radius:4px;padding:2px 6px"><span class="callout-icon">💡</span><div>A집단이 독감에 걸릴 확률은 2%, 발열이 있는 확률은 10%, 기침을 하는 확률은 5%, 독감에
-걸린 사람이 발열이 날 확률은 30%, 독감에 걸린 사람이 기침을 하는 확률은 40%라고 한다.
-나이브 베이즈정리를 적용하여 A집단에 발열이 나고 기침을 하는 환자가 독감에 걸릴 확률을
-구하시오.</div></div>
-</li>
-<li><strong>가. 문제 조건 정리</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>세부</th><th>수식화</th></tr>
-<tr><td><strong>조건 정리</strong></td><td>독감에 걸릴 확률 2%</td><td>P(독감) = 0.02</td></tr>
-<tr><td></td><td>발열이 있는 확률 10%</td><td>P(발열) = 0.1</td></tr>
-<tr><td></td><td>기침을 하는 확률 5%</td><td>P(기침) = 0.05</td></tr>
-<tr><td></td><td>독감에 걸린 사람이 발열이 날 확률 30%</td><td>P(발열|독감) = 0.3</td></tr>
-<tr><td></td><td>독감에 걸린 사람이 기침을 하는 확률 40%</td><td>P(기침|독감) = 0.4</td></tr>
-<tr><td><strong>구해야 할 항목</strong></td><td>발열이 나고 기침을 하는 환자가 독감에 걸릴 확률</td><td>P(독감|발열∩기침) = ?</td></tr>
-</table></div>
-</li>
-<li><strong>나. 문제 풀이</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>세부</th><th>수식화</th></tr>
-<tr><td><strong>수식 정리</strong></td><td>베이즈 정리 적용</td><td>P(독감|발열∩기침) = P(발열∩기침|독감) × P(독감) / P(발열∩기침)</td></tr>
-<tr><td></td><td>배반 사건 적용 (독립 조건)</td><td>= P(발열|독감) × P(기침|독감) × P(독감) / P(발열) × P(기침)</td></tr>
-<tr><td><strong>계산</strong></td><td>수치 대입</td><td>0.3 × 0.4 × 0.02 / 0.1 × 0.05</td></tr>
-<tr><td></td><td>계산 결과</td><td>= 0.0024 / 0.005 = <strong>0.48</strong></td></tr>
-<tr><td><strong>결론</strong></td><td>A집단 내 발열+기침 환자가 독감에 걸릴 확률</td><td><strong>48%</strong></td></tr>
-</table></div>
-</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: 베이즈 정리는<u> </u>새로운 증거(우도)를 바탕으로 기존 믿음(사전확률)을 지속적으로 갱신하는 메커니즘. 스팸 필터, 의료 진단 등에 적용된다.</li>
+<li><strong>예시</strong>: 운동 프로그램 전후 체중 변화 검정</li>
+<li><strong>인사이트</strong>: 같은 집단의 전후 비교이므로 개체 간 변이를 제거하여 독립표본 t-검정보다 검정력이 높다.</li>
 </ul>
 
 </body>

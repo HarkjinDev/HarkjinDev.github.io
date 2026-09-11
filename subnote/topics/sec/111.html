@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 클라우드 보안 (Cloud Security)</title>
+  <title>8. 퍼듀 모델 (Purdue Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,37 +15,20 @@
   </style>
 </head>
 <body>
-<h4>9. 클라우드 보안 (Cloud Security)</h4>
+<h4>8. 퍼듀 모델 (Purdue Model)</h4>
 <ul>
-<li><strong>정의</strong>: 클라우드 환경에서 데이터와 서비스를 보호하기 위한 보안 활동</li>
-<li><strong>키워드</strong>: 데이터 보호, 접근제어, 가상화 보안, 공유 책임, CSPM, CWPP, CNAPP, CIEM, SASE</li>
+<li><strong>정의</strong>: 산업제어시스템(ICS/OT)의 보안을 계층적으로 정의한 참조 아키텍처 모델</li>
+<li><strong>키워드</strong>: 레벨 0~5, IT/OT 경계, 산업보안 참조 모델, IEC 62443</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>공유 책임 모델 (Shared Responsibility)</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;데애런인&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>영역</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
-<tr><td><strong>데이터</strong></td><td>고객</td><td>고객</td><td>고객</td></tr>
-<tr><td><strong>애플리케이션</strong></td><td>고객</td><td>고객</td><td>CSP</td></tr>
-<tr><td><strong>런타임</strong></td><td>고객</td><td>CSP</td><td>CSP</td></tr>
-<tr><td><strong>인프라</strong></td><td>CSP</td><td>CSP</td><td>CSP</td></tr>
-</table></div>
+<li><strong>레벨 구조</strong>:<ul>
+<li><strong>Level 4~5</strong>: 기업 IT 네트워크 및 인터넷</li>
+<li><strong>DMZ</strong>: IT/OT 경계 (데이터 다이오드, 방화벽)</li>
+<li><strong>Level 3</strong>: 생산 운영 관리 (MES, POP)</li>
+<li><strong>Level 2</strong>: 제어 시스템 (SCADA, DCS, PLC)</li>
+<li><strong>Level 0~1</strong>: 물리적 프로세스 및 센서·액추에이터 (필드 장치)</li>
+</ul>
 </li>
-<li><strong>CNAPP(클라우드 네이티브 보안 플랫폼) 3대 핵심 요소:</strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>보호대상</strong></th><th><strong>주요 기능</strong></th></tr>
-<tr><td><strong>CSPM</strong></td><td>설정·형상</td><td>설정 오류 지속 탐지, 규정 준수 여부 모니터링</td></tr>
-<tr><td><strong>CWPP</strong></td><td>워크로드</td><td>런타임 위협 방어, 워크로드 취약점 스캔</td></tr>
-<tr><td><strong>CIEM</strong></td><td>권한·자격</td><td>과도한 접근 권한 탐지, 최소 권한 원칙 적용</td></tr>
-</table></div>
-</li>
-<li><strong>SASE:</strong> SD-WAN과 클라우드 보안 엣지(SSE)를 단일 서비스로 통합 제공하여, 백홀 없이 정체성 기반으로 접속을 통제하는 보안 아키텍처<div class="table-scroll"><table>
-<tr><th>영역</th><th><strong>구분</strong></th><th><strong>설명 </strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>NW(NaaS)</strong></td><td><strong>SD-WAN</strong></td><td>소프트웨어 정의 기반 네트워크</td><td>지능형 트래픽 관리</td></tr>
-<tr><td><strong>보안 서비스(SSE)</strong></td><td><strong>SWG</strong></td><td>웹 접속 보안 및 악성코드 차단</td><td>안전한 웹 탐색</td></tr>
-<tr><td></td><td><strong>CASB</strong></td><td>클라우드 앱 가시성 및 통제</td><td>클라우드 통제</td></tr>
-<tr><td></td><td><strong>ZTNA</strong></td><td>신원 기반의 엄격한 접근 제어</td><td>제로 트러스트</td></tr>
-<tr><td></td><td><strong>FWaaS</strong></td><td>클라우드 기반 차세대 방화벽</td><td>클라우드 방화벽</td></tr>
-</table></div>
-</li>
-<li><strong>도입 시 보안 요소</strong>: 데이터 암호화, 접근제어(IAM), 가상화 보안, 로그 관리, 규정 준수</li>
-<li><strong>인사이트</strong>: 클라우드 보안 사고의 대부분은 CSP 인프라가 아닌 고객의 잘못된 설정(Misconfiguration)에서 발생하므로, CSPM(Cloud Security Posture Management) 도입이 필수임</li>
+<li><strong>인사이트</strong>: OT와 IT의 연결(Industry 4.0) 증가로 퍼듀 모델의 경계가 희미해지고 있으며, 제로 트러스트 원칙의 OT 환경 적용이 새로운 트렌드임</li>
 </ul>
 
 </body>

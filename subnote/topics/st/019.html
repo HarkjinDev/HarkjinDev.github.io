@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. 베르누이 분포 (Bernoulli Distribution)</title>
+  <title>[하위] 2-2.대수의 법칙(Law of Large Number)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,23 @@
   </style>
 </head>
 <body>
-<h4>3. 베르누이 분포 (Bernoulli Distribution)</h4>
+<h4>[하위] 2-2. <strong>대수의 법칙(Law of Large Number) </strong></h4>
 <ul>
-<li><strong>정의</strong>: 성공 확률 p인 단일 시행의 이진 결과를 모형화하는 이산확률분포</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>성공/실패</strong></u></span>, 확률 p, 이진 결과, 1회 시행</li>
-<li><strong>분류</strong>: 확률분포</li>
-<li><strong>특징</strong>:<ul>
-<li>성공확률: p, 실패확률: (1-p)</li>
-<li>X의 표본공간 S={0,1}이고, X의 확률변수는 P(X=0)=1-p, P(X=1)=p</li>
-<li>n=1, 결과 = {0(실패), 1(성공)}</li>
-<li>베르누이 분포 기대값(평균): E[X] = p</li>
-<li>베르누이 분포 분산: Var[X] = p(1-p)</li>
-<li>이항분포의 특수 케이스(n=1)</li>
+<li><strong>정의:</strong> 표본 크기 증가 시 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>표본평균이 모평균에 수렴</strong></u></span>하는 특성 (경험적 확률과 수학적 확률의 관계)</li>
+<li><strong>키워드:</strong> 반복 시행, 평균 계산, 변동 감소, 평균 수렴</li>
+<li><strong>수식:</strong> <ul>
+<li> \lim_{n \to \infty} P\left(\left|\frac{1}{n} \sum_{i=1}^{n} X_i - \mu\right| \geq \epsilon\right) = 0 </li>
+<li><strong>n</strong>: 시행 횟수, <strong>X_i</strong>: 각 시행 결과, <strong>\mu</strong>: 모 평균, <strong>\epsilon</strong>: 작은 양의 수</li>
 </ul>
 </li>
-<li><strong>인사이트</strong>: 베르누이 분포는 이항분포의 기저. <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>n번 독립 반복 → 이항분포, 희귀 사건 극한(n→∞, p→0, np=λ) → 포아송 분포</strong></u></span>로 확장되는 분포 간 계층 관계를 이해할 것.</li>
+<li><strong>원리: </strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>절차</th><th>설명</th></tr>
+<tr><td><strong>반복 시행</strong></td><td>동일 조건 반복 실험</td><td>동일한 확률 실험을 여러 번 반복 수행</td></tr>
+<tr><td><strong>평균 계산</strong></td><td>표본평균 산출</td><td>시행 결과들의 평균값 계산</td></tr>
+<tr><td><strong>변동 감소</strong></td><td>우연성 감소</td><td>시행 횟수가 증가할수록 극단값 영향 감소</td></tr>
+<tr><td><strong>평균 수렴</strong></td><td>모집단 평균 근사</td><td>표본평균이 이론적 평균(기댓값)에 가까워짐</td></tr>
+</table></div>
+</li>
 </ul>
 
 </body>

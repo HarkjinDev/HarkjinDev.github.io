@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>19. 부채널 공격 (Side-Channel Attack)</title>
+  <title>18. 사이버전 (Cyber Warfare)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,37 +15,27 @@
   </style>
 </head>
 <body>
-<h4>19. 부채널 공격 (Side-Channel Attack)</h4>
+<h4>18. 사이버전 (Cyber Warfare)</h4>
 <ul>
-<li><strong>정의:</strong> 물리적 부가 정보를 분석하여 비밀키·민감 정보를 추출하는 공격 기법</li>
-<li><strong>키워드:</strong> 전력 분석, 타이밍 공격, 전자기 분석, 캐시 공격, Spectre·Meltdown, 물리적 취약점, 암호 구현 취약점</li>
+<li><strong>정의:</strong> 사이버 공간에서 국가·군사 조직이 주도하여 적국의 인프라·정보·군사 시스템을 공격·교란·마비시키는 군사적·정치적 공격 행위</li>
+<li><strong>키워드:</strong> 국가 지원 공격, 인프라 마비, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정보전</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>핵티비즘</strong></u></span>, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>심리전, 허위정보, 사이버 억지력</strong></u></span></li>
 <li><strong>분류:</strong> 위협/공격</li>
-<li><strong>공격 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>전력 기반</strong></td><td><strong>SPA (단순 전력 분석)</strong></td><td>단일 전력 파형으로 연산 과정·키 추출</td><td>파형 직접 분석</td></tr>
-<tr><td></td><td><strong>DPA (차분 전력 분석)</strong></td><td>다수 전력 파형의 통계적 차이로 키 추출</td><td>통계적 분석</td></tr>
-<tr><td><strong>타이밍 기반</strong></td><td><strong>타이밍 공격</strong></td><td>연산 수행 시간 차이로 비밀 정보 추론</td><td>시간 차이 분석</td></tr>
-<tr><td></td><td><strong>캐시 타이밍</strong></td><td>CPU 캐시 히트·미스 시간 차이로 데이터 추론</td><td>캐시 상태 추론</td></tr>
-<tr><td><strong>전자기 기반</strong></td><td><strong>EM 분석</strong></td><td>장치에서 방출되는 전자기파 분석으로 키 추출</td><td>전자기파 분석</td></tr>
-<tr><td><strong>하드웨어 취약점</strong></td><td><strong>Spectre</strong></td><td>CPU 분기 예측 악용, 다른 프로세스 메모리 읽기</td><td>분기 예측 악용</td></tr>
-<tr><td></td><td><strong>Meltdown</strong></td><td>CPU 투기적 실행 악용, 커널 메모리 접근</td><td>투기적 실행 악용</td></tr>
-<tr><td></td><td><strong>Rowhammer</strong></td><td>DRAM 메모리 셀 반복 접근으로 인접 비트 반전</td><td>메모리 비트 반전</td></tr>
-<tr><td><strong>기타</strong></td><td><strong>음향 공격</strong></td><td>장치 동작 중 발생하는 소리로 연산 정보 추출</td><td>음향 신호 분석</td></tr>
-<tr><td></td><td><strong>광학 공격</strong></td><td>LED 깜박임·화면 반사광으로 정보 유출</td><td>광학 신호 분석</td></tr>
+<li><strong>주요 공격 유형:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>인프라 공격</strong></td><td>전력망·통신망·금융 시스템 마비</td><td>국가 기능 마비</td></tr>
+<tr><td><strong>정보전·심리전</strong></td><td>허위정보·딥페이크로 여론 조작·혼란 유발</td><td>인지 영역 공격</td></tr>
+<tr><td><strong>스파이·정보 탈취</strong></td><td>군사·외교·기술 기밀 장기 잠복 탈취</td><td>국가 기밀 유출</td></tr>
+<tr><td><strong>사이버 무기</strong></td><td>특정 시스템 표적 파괴용 맞춤형 악성코드</td><td>물리적 피해 유발</td></tr>
 </table></div>
 </li>
-<li><strong>대응 방안:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>하드웨어 방어</strong></td><td><strong>전력 노이즈 추가</strong></td><td>연산과 무관한 랜덤 전력 소비 추가로 파형 은닉</td></tr>
-<tr><td></td><td><strong>전자기 차폐</strong></td><td>패러데이 케이지·차폐 설계로 전자기파 유출 차단</td></tr>
-<tr><td><strong>소프트웨어 방어</strong></td><td><strong>일정 시간 연산</strong></td><td>입력값에 관계없이 동일 시간 소요되도록 구현</td></tr>
-<tr><td></td><td><strong>마스킹</strong></td><td>중간 연산값에 랜덤값을 XOR하여 전력 상관관계 제거</td></tr>
-<tr><td><strong>CPU 패치</strong></td><td><strong>Spectre·Meltdown 패치</strong></td><td>커널 페이지 테이블 격리(KPTI)·펌웨어 업데이트</td></tr>
-<tr><td></td><td><strong>투기적 실행 제한</strong></td><td>분기 예측·투기적 실행 범위 제한 설정</td></tr>
-<tr><td><strong>설계 보안</strong></td><td><strong>보안 칩 설계</strong></td><td>부채널 내성 암호 하드웨어 모듈(HSM·SE) 사용</td></tr>
+<li><strong>대표 사례:</strong><div class="table-scroll"><table>
+<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>Stuxnet</strong></td><td>이란 핵시설 원심분리기 물리적 파괴</td><td>ICS 사이버 무기</td></tr>
+<tr><td><strong>BlackEnergy</strong></td><td>우크라이나 전력망 공격·정전 유발</td><td>인프라 마비</td></tr>
+<tr><td><strong>NotPetya</strong></td><td>우크라이나 타겟 랜섬웨어, 글로벌 피해 확산</td><td>와이퍼 공격</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 부채널 공격은 암호 알고리즘 자체가 아닌 구현 환경의 물리적 정보를 악용하므로 수학적으로 완벽한 암호도 구현 취약점으로 무력화될 수 있으며, Spectre·Meltdown 이후 CPU 아키텍처 설계 단계부터 부채널 내성을 고려하는 하드웨어 보안 설계가 필수 요건으로 자리잡고 있음</li>
+<li><strong>인사이트:</strong> 사이버전은 물리적 전쟁의 사전 공격 또는 동시 수행 전술로 활용되며, EMP·사이버 공격·심리전을 결합한 하이브리드 전쟁으로 진화하고 있고 국제법상 사이버 공격의 무력 사용 기준이 아직 불명확하여 사이버 억지력 확보가 국가 안보의 핵심 과제로 부상하고 있음</li>
 </ul>
 
 </body>
