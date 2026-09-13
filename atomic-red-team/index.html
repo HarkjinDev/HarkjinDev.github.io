@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atomic Red Team Detection Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="brand">atomic-red-team<span class="dot">/</span>detection-lab</span>
+    <nav>
+      <a href="#techniques">기법</a>
+      <a href="#insights">발견</a>
+      <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1 id="hero-title">MITRE ATT&CK 기법을 실행하고, 탐지 격차를 찾다</h1>
+    <p class="sub" id="hero-sub"></p>
+    <p class="env" id="hero-env"></p>
+  </section>
+
+  <section class="stats" id="stats"></section>
+
+  <section id="techniques">
+    <div class="section-head">
+      <h2>테스트한 기법</h2>
+      <p>기법을 클릭하면 실행 명령, 관찰된 로그, 내장 룰 판정, 작성한 Sigma 룰, 배운 점을 볼 수 있습니다.</p>
+      <div class="legend">
+        <span><i style="background:#57c26a"></i> 정확 탐지</span>
+        <span><i style="background:#e0913b"></i> 오분류 · 부분 탐지</span>
+        <span><i style="background:#e05c5c"></i> 미탐</span>
+        <span><i style="background:#6b7785"></i> 실행 차단(예방)</span>
+      </div>
+    </div>
+    <div id="tactic-groups"></div>
+  </section>
+
+  <section id="insights">
+    <div class="section-head">
+      <h2>핵심 발견</h2>
+    </div>
+    <div class="insight">
+      <h3>내장 룰의 T1087 오분류 편향</h3>
+      <p>오분류(PARTIAL)로 판정된 기법을 모아 보면, <span class="metric">4건 전부가 T1087(Account Discovery)</span>로 잘못 태그됐다. Wazuh 내장 룰 92032가 "cmd의 자식 프로세스"를 기법 종류와 무관하게 T1087로 태그하는 구조적 편향이, 여러 기법에 걸친 배치 실행으로 정량 확인됐다.</p>
+    </div>
+    <div class="insight">
+      <h3>오탐이 실제 위협보다 높은 심각도로 잡힌다</h3>
+      <p>PowerShell이 정상적으로 만드는 임시파일(<span class="metric">__PSScriptPolicyTest</span>)이 level 15(최고)로, 배치 중 <span class="metric">27회</span> 반복 발동했다. 정작 실제 정찰 도구(SharpHound)는 level 6으로 더 낮았다. 오탐 필터링(Sigma filter)이 탐지 엔지니어링의 절반임을 실측으로 확인했다.</p>
+    </div>
+    <div class="insight">
+      <h3>"로그가 없다"의 세 가지 원인</h3>
+      <p>탐지 실패로 보이는 상황은 원인이 다르다 — 검색어 불일치(T1547.001, 실제론 로그 존재), 예방 차단(T1218.011, Defender가 실행 자체 차단), 로그 소스 미수집(T1070.004, Sysmon EID23 꺼짐). 탐지룰보다 로그 소스 커버리지 점검이 선행되어야 한다.</p>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="section-head">
+      <h2>접근 방식</h2>
+      <p>Atomic Red Team의 ATT&CK 기법 실행을 자동화하고, 각 기법이 SIEM에서 어떻게 탐지되는지(혹은 안 되는지) 체계적으로 분석하는 파이프라인을 구성했다.</p>
+    </div>
+    <div class="codebox">① Invoke-AtomicTest 로 기법 실행
+② Sysmon → Wazuh Agent → Docker Wazuh 로 로그 수집
+③ 내장 룰이 잡는가 / 정확한가 / 격차가 있는가 평가
+④ 격차가 있으면 Sigma 룰 작성 (근거·설계판단 주석)
+⑤ 실측 로그로 룰 조건 검증
+⑥ Python 배치로 다중 기법 자동 실행 → 커버리지 집계 → Navigator layer 생성</div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Atomic Red Team Detection Lab · MITRE ATT&CK 자동화 실험</span>
+    <span><a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">github.com/HarkjinDev</a></span>
+  </div>
+</footer>
+
+<script>
+const TACTIC_ORDER = ["Discovery", "Execution", "Persistence", "Defense Evasion", "Command and Control"];
+
+fetch("data/techniques.json")
+  .then(r => r.json())
+  .then(d => {
+    // hero
+    document.getElementById("hero-sub").textContent = d.project.subtitle;
+    document.getElementById("hero-env").textContent = d.project.environment;
+
+    // stats
+    const s = d.project.summary;
+    const stats = [
+      { cls: "total", n: s.total, l: "테스트한 기법" },
+      { cls: "detected", n: s.detected, l: "정확 탐지" },
+      { cls: "partial", n: s.partial, l: "오분류 · 부분" },
+      { cls: "none", n: s.none + (s.blocked||0), l: "미탐 · 차단" },
+    ];
+    document.getElementById("stats").innerHTML = stats.map(x =>
+      `<div class="stat ${x.cls}"><div class="n">${x.n}</div><div class="l">${x.l}</div></div>`
+    ).join("");
+
+    // group by tactic
+    const groups = {};
+    d.techniques.forEach(t => { (groups[t.tactic] = groups[t.tactic] || []).push(t); });
+    const order = [...TACTIC_ORDER.filter(t => groups[t]), ...Object.keys(groups).filter(t => !TACTIC_ORDER.includes(t))];
+
+    document.getElementById("tactic-groups").innerHTML = order.map(tactic => {
+      const cards = groups[tactic].map(t => `
+        <a class="card v-${t.verdict}" href="detail.html?id=${encodeURIComponent(t.id)}">
+          <div class="top"><span class="tid">${t.id}</span><span class="tname">${t.name}</span></div>
+          <div class="headline">${t.headline}</div>
+          <div class="foot">
+            <span class="badge ${t.verdict}">${t.verdict}</span>
+            ${t.max_level ? `<span class="lvl">max level ${t.max_level}</span>` : ``}
+          </div>
+        </a>`).join("");
+      return `<div class="tactic"><h3>${tactic}</h3><div class="cards">${cards}</div></div>`;
+    }).join("");
+  })
+  .catch(e => {
+    document.getElementById("tactic-groups").innerHTML =
+      `<p style="color:var(--red)">데이터를 불러오지 못했습니다. data/techniques.json 을 확인하세요.</p>`;
+  });
+</script>
+</body>
+</html>

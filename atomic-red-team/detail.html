@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기법 상세 · Detection Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="brand"><a href="index.html" style="color:inherit">atomic-red-team<span class="dot">/</span>detection-lab</a></span>
+    <nav>
+      <a href="index.html#techniques">기법</a>
+      <a href="index.html#insights">발견</a>
+      <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="root">
+  <p style="padding:60px 0;color:var(--text-dim)">불러오는 중…</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Atomic Red Team Detection Lab · MITRE ATT&CK 자동화 실험</span>
+    <span><a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">github.com/HarkjinDev</a></span>
+  </div>
+</footer>
+
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+const root = document.getElementById("root");
+
+function esc(s){ return (s==null?"":String(s)).replace(/[&<>]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;" }[c])); }
+
+if (!id) {
+  root.innerHTML = `<p style="padding:60px 0;color:var(--red)">기법 ID가 없습니다. <a href="index.html">목록으로</a></p>`;
+} else {
+  Promise.all([
+    fetch(`data/techniques/${id}.json`).then(r => { if(!r.ok) throw new Error(); return r.json(); }),
+    fetch(`data/techniques.json`).then(r => r.json())
+  ])
+  .then(([t, all]) => render(t, all))
+  .catch(() => {
+    root.innerHTML = `<p style="padding:60px 0;color:var(--red)">기법 데이터를 찾을 수 없습니다: ${esc(id)}. <a href="index.html">목록으로</a></p>`;
+  });
+}
+
+function render(t, all) {
+  const log = t.observed_log || {};
+  const logRows = Object.entries(log).map(([k,v]) =>
+    `<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`
+  ).join("");
+
+  const det = t.builtin_detection || {};
+  const mitreTag = (det.mitre_tagged && det.mitre_tagged.length) ? det.mitre_tagged.join(", ") : "없음";
+
+  // sigma rules: fetch each file's text
+  const sigmaHtml = (t.sigma_rules || []).map((f, i) =>
+    `<div class="sigma-file">
+       <div class="fname">sigma/${esc(f)} <button class="copy-btn" data-target="sig-${i}">복사</button></div>
+       <pre class="codebox sigma" id="sig-${i}">로딩…</pre>
+     </div>`).join("") || `<p style="color:var(--text-dim)">작성한 Sigma 룰 없음</p>`;
+
+  // prev / next
+  const list = all.techniques;
+  const idx = list.findIndex(x => x.id === t.id);
+  const prev = idx > 0 ? list[idx-1] : null;
+  const next = idx < list.length-1 ? list[idx+1] : null;
+
+  root.innerHTML = `
+    <section class="detail-head">
+      <div class="crumb"><a href="index.html">← 전체 기법</a></div>
+      <div class="id-row">
+        <span class="did">${esc(t.id)}</span>
+        <span class="dname">${esc(t.name)}</span>
+      </div>
+      <div class="meta">
+        <span class="tactic-pill">${esc(t.tactic)}</span>
+        <span class="badge ${esc(t.verdict)}">${esc(t.verdict)}</span>
+        ${t.attack_url ? `<a href="${esc(t.attack_url)}" target="_blank" rel="noopener">ATT&CK 문서 ↗</a>` : ``}
+      </div>
+    </section>
+
+    <div class="block">
+      <h3>실행 명령</h3>
+      <div class="codebox">${esc(t.command)}</div>
+      ${t.command_detail ? `<div class="note-line">${esc(t.command_detail)}</div>` : ``}
+    </div>
+
+    <div class="block">
+      <h3>관찰된 로그</h3>
+      <div class="kv">${logRows}</div>
+    </div>
+
+    <div class="block">
+      <h3>내장 룰 판정</h3>
+      <div class="assess ${esc(t.verdict)}">
+        <div class="rule-line">rule ${esc(det.rule_id||"-")} · level ${esc(det.level)} · MITRE 태그: ${esc(mitreTag)}</div>
+        <div>${esc(det.assessment||det.description||"")}</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>작성한 Sigma 룰</h3>
+      ${sigmaHtml}
+    </div>
+
+    <div class="block">
+      <h3>배운 점</h3>
+      <div class="lesson">${esc(t.lesson)}</div>
+      ${t.note ? `<div class="note-line">${esc(t.note)}</div>` : ``}
+    </div>
+
+    <div class="detail-nav">
+      <span>${prev ? `<a href="detail.html?id=${encodeURIComponent(prev.id)}">← ${esc(prev.id)}</a>` : ``}</span>
+      <span>${next ? `<a href="detail.html?id=${encodeURIComponent(next.id)}">${esc(next.id)} →</a>` : ``}</span>
+    </div>
+  `;
+
+  // load sigma file contents
+  (t.sigma_rules || []).forEach((f, i) => {
+    fetch(`sigma/${f}`)
+      .then(r => { if(!r.ok) throw new Error(); return r.text(); })
+      .then(txt => { document.getElementById(`sig-${i}`).textContent = txt; })
+      .catch(() => { document.getElementById(`sig-${i}`).textContent = "(파일을 불러오지 못했습니다)"; });
+  });
+
+  // copy buttons
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const el = document.getElementById(btn.dataset.target);
+      navigator.clipboard.writeText(el.textContent).then(() => {
+        const o = btn.textContent; btn.textContent = "복사됨"; setTimeout(()=>btn.textContent=o, 1200);
+      });
+    });
+  });
+}
+</script>
+</body>
+</html>
