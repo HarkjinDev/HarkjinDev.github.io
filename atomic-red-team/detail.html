@@ -113,6 +113,15 @@ function render(t, all) {
       ${sigmaHtml}
     </div>
 
+    ${t.sigma_validation ? `
+    <div class="block">
+      <h3>Sigma 룰 검증</h3>
+      <div class="assess DETECTED">
+        <div class="rule-line">검증 상태: ${esc(t.sigma_validation.status)} · Wazuh rule ${esc(t.sigma_validation.wazuh_rule_id)} · level ${esc(t.sigma_validation.level)}</div>
+        <div>${esc(t.sigma_validation.detail)}</div>
+      </div>
+    </div>` : ``}
+
     <div class="block">
       <h3>배운 점</h3>
       <div class="lesson">${esc(t.lesson)}</div>
