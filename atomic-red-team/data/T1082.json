@@ -1,0 +1,32 @@
+{
+  "id": "T1082",
+  "name": "System Information Discovery",
+  "tactic": "Discovery",
+  "verdict": "PARTIAL",
+  "attack_url": "https://attack.mitre.org/techniques/T1082/",
+  "command": "Invoke-AtomicTest T1082 -TestNumbers 1",
+  "command_detail": "cmd.exe /c systeminfo & reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\Disk\\Enum",
+  "observed_log": {
+    "event_id": "1 (Process Create)",
+    "image": "C:\\Windows\\System32\\systeminfo.exe",
+    "command_line": "systeminfo",
+    "parent_image": "C:\\Windows\\System32\\cmd.exe",
+    "parent_command_line": "cmd.exe /c systeminfo & reg query ...Disk\\Enum"
+  },
+  "builtin_detection": {
+    "rule_id": "92032",
+    "level": 3,
+    "description": "Suspicious Windows cmd shell execution",
+    "mitre_tagged": ["T1087", "T1059.003"],
+    "assessment": "오분류 — 실행 기법은 T1082인데 내장룰은 T1087(Account Discovery)로 태그. systeminfo를 정찰로 정확히 식별하지 못함."
+  },
+  "sigma_rules": ["PH1-T1082-recon-chain.yml"],
+  "sigma_validation": {
+    "status": "VERIFIED",
+    "wazuh_rule_id": "100100",
+    "level": 12,
+    "detail": "작성한 Sigma를 Wazuh 룰(pcre2 field 매처)로 변환·적용 후 공격 재실행 → rule 100100이 실제 발동(1건 탐지). 작성한 룰이 실제 SIEM에서 작동함을 검증함. (변환 중 기본 예제 룰과 ID 충돌(100001)을 발견해 100100으로 해결)"
+  },
+  "lesson": "내장 룰은 'cmd 실행' 수준으로 폭넓게만 잡아 정찰 기법을 정밀 분류하지 못한다. systeminfo + reg query가 한 cmd에서 연쇄 실행되는 '부모 명령행 패턴'을 봐야 T1082를 정확히 식별할 수 있다. 단일 프로세스명(systeminfo)만으로는 관리자의 정상 사용과 구분이 불가능해 오탐이 발생한다.",
+  "note": "가상환경 탐지(reg query Disk\\Enum)까지 포함된 전형적 정찰 패턴"
+}

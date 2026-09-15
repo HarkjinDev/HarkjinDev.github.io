@@ -8,11 +8,12 @@
       "detected": 4,
       "partial": 4,
       "none": 0,
-      "blocked": 1
+      "blocked": 1,
+      "sigma_verified": 1
     }
   },
   "techniques": [
-    { "id": "T1082", "name": "System Information Discovery", "tactic": "Discovery", "verdict": "PARTIAL", "max_level": 4, "headline": "systeminfo 정찰을 내장룰이 T1087로 오분류" },
+    { "id": "T1082", "name": "System Information Discovery", "tactic": "Discovery", "verdict": "PARTIAL", "max_level": 4, "headline": "systeminfo 정찰을 내장룰이 T1087로 오분류 · Sigma 검증 완료", "sigma_verified": true },
     { "id": "T1059.001", "name": "PowerShell", "tactic": "Execution", "verdict": "DETECTED", "max_level": 12, "headline": "인코딩 명령을 내장룰이 정확 탐지 (축약형까지 커버)" },
     { "id": "T1105", "name": "Ingress Tool Transfer", "tactic": "Command and Control", "verdict": "PARTIAL", "max_level": 15, "headline": "정상 임시파일을 level15로 오탐 — filter 튜닝 필요" },
     { "id": "T1033", "name": "System Owner/User Discovery", "tactic": "Discovery", "verdict": "DETECTED", "max_level": 4, "headline": "정찰 연쇄(whoami+wmic+quser+qwinsta) 관찰" },
