@@ -1,0 +1,37 @@
+{
+  "id": "T1053.005",
+  "name": "Scheduled Task",
+  "tactic": "Persistence",
+  "verdict": "PARTIAL",
+  "attack_url": "https://attack.mitre.org/techniques/T1053/005/",
+  "command": "Invoke-AtomicTest T1053.005 -TestNumbers 2",
+  "command_detail": "SCHTASKS /Create /SC ONCE /TN spawn /TR C:\\windows\\system32\\cmd.exe /ST 20:10",
+  "observed_log": {
+    "event_id": "1 (Process Create)",
+    "image": "schtasks.exe",
+    "command_line": "SCHTASKS /Create /SC ONCE /TN spawn /TR ...cmd.exe /ST 20:10",
+    "parent_image": "cmd.exe (← powershell)"
+  },
+  "builtin_detection": {
+    "rule_id": "92004 / 92032",
+    "level": 4,
+    "description": "Suspicious Windows cmd shell execution",
+    "mitre_tagged": [
+      "T1087",
+      "T1059.003"
+    ],
+    "assessment": "오분류 — 예약작업 생성(T1053.005)을 실행했으나 내장룰은 T1053 태그 없이 schtasks를 T1087(Account Discovery)로 오분류. T1087 남용 패턴 재확인."
+  },
+  "sigma_rules": [
+    "PH1-T1053.005-target.yml",
+    "PH1-T1053.005-parent.yml"
+  ],
+  "lesson": "예약작업 탐지의 핵심은 /TR(무엇을 실행하나)이다. 작업 생성 자체는 정상 관리에도 쓰이므로, 실행 대상이 스크립트/인코딩/임시경로일 때 고심각도로 판정해야 한다. 내장룰 92032가 schtasks/nbtstat/net1 등 'cmd의 자식'을 무조건 T1087로 오분류하는 편향이 여러 기법에서 반복 확인됐다.",
+  "note": "내장룰의 T1087 오분류 편향이 반복 관찰로 확정된 사례",
+  "sigma_validation": {
+    "status": "VERIFIED",
+    "wazuh_rule_id": "100100",
+    "level": 12,
+    "detail": "명령행 매칭 기반 Sigma를 변환·적용 후 T1053.005-7(Base64 예약작업) 실행 → schtasks.exe /Create 이벤트가 rule 100100에 발동(탐지). 내장 룰이 이 기법을 T1027/T1112(난독화)로 오분류하던 것을, 커스텀 룰이 T1053.005로 정확히 탐지함을 검증. (직접 명령 실행은 로그가 안 남아, ART 실행으로 전환해 검증)"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "T1547.001",
+  "name": "Registry Run Keys / Startup Folder",
+  "tactic": "Persistence",
+  "verdict": "DETECTED",
+  "attack_url": "https://attack.mitre.org/techniques/T1547/001/",
+  "command": "Invoke-AtomicTest T1547.001 -TestNumbers 1",
+  "command_detail": "reg.exe로 HKCU Run 키에 자동실행 값 등록",
+  "observed_log": {
+    "event_id": "13 (Registry Value Set)",
+    "target_object": "HKU\\...\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Atomic Red Team",
+    "details": "C:\\Path\\AtomicRedTeam.exe",
+    "image": "reg.exe"
+  },
+  "builtin_detection": {
+    "rule_id": "-",
+    "level": 10,
+    "description": "레지스트리 Run 키 등록 (EID13)",
+    "mitre_tagged": [
+      "T1547.001"
+    ],
+    "assessment": "정확 기록 — Run 키 등록이 EID13으로 TargetObject/Details까지 정확히 기록됨. 정상 등록(MicrosoftEdgeAutoLaunch)과 나란히 관찰되어 비교 가능."
+  },
+  "sigma_rules": [
+    "PH1-T1547.001-runkey.yml"
+  ],
+  "lesson": "지속성은 '행위(Run키 등록)'가 아니라 '등록 내용(무엇을 자동실행하나 = Details)'을 봐야 한다. Run 키 등록은 정상 소프트웨어(Edge)도 하기 때문이다. 처음엔 EID13이 안 보였으나 검색어를 넓히니 정확히 존재했다 — '로그가 없다'는 착각의 상당수는 검색 문제이며, 원본 직접 확인이 필수다. 테스트의 무해값(평범한 exe 경로)은 정밀도 우선 설계상 의도적으로 미탐 처리.",
+  "note": "'로그 없음'은 실은 검색 문제였음 — 원본 확인의 중요성",
+  "sigma_validation": {
+    "status": "VERIFIED",
+    "wazuh_rule_id": "100100",
+    "level": 12,
+    "detail": "레지스트리(EID13) 기반 Sigma를 Wazuh 룰로 변환·적용 후, 의심 Run키(powershell.exe -w hidden) 등록 → rule 100100 발동(탐지). 변환 중 Wazuh가 로그의 백슬래시를 이중 이스케이프하는 특성을 발견해, 정규식 백슬래시를 유연 매칭(\\\\+)으로 개선하여 해결. 프로세스 로그(T1082)에 이어 레지스트리 로그 기반 검증까지 성공."
+  }
+}
