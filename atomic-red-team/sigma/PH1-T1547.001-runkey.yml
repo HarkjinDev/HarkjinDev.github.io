@@ -1,0 +1,42 @@
+title: Registry Run Key Persistence with Suspicious Value
+id: 8a1b2c3d-0004-0001-0001-000000000041
+status: experimental
+description: |
+  Run/RunOnce 키 등록 지속성 탐지(T1547.001).
+  Run키 등록 자체는 정상 소프트웨어(Edge 등)도 하므로, 등록된 값(Details)이
+  스크립트/인코딩/임시경로 등 의심 특징일 때만 고심각도로 판정.
+  [설계기록] T1547.001-1 테스트값 C:\Path\AtomicRedTeam.exe(평범한 exe)는
+  의도적으로 미탐 — 정상 소프트웨어 오탐 방지 위한 정밀도 우선 설계.
+references:
+  - https://attack.mitre.org/techniques/T1547/001/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: registry_set
+detection:
+  selection_runkey:
+    TargetObject|contains:
+      - '\CurrentVersion\Run\'
+      - '\CurrentVersion\RunOnce\'
+  suspicious_value:
+    Details|contains:
+      - 'powershell'
+      - 'cmd.exe'
+      - 'wscript'
+      - 'cscript'
+      - 'mshta'
+      - 'rundll32'
+      - '\AppData\'
+      - '\Temp\'
+      - '-enc'
+      - '.vbs'
+      - '.js'
+      - '.bat'
+  condition: selection_runkey and suspicious_value
+falsepositives:
+  - 정상 앱이 스크립트를 자동실행 등록하는 드문 경우
+level: high
+tags:
+  - attack.persistence
+  - attack.t1547.001

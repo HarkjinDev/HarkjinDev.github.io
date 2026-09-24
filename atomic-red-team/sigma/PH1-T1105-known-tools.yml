@@ -1,0 +1,28 @@
+title: Known Offensive Tool Dropped (SharpHound/BloodHound/Mimikatz)
+id: 8a1b2c3d-0002-0001-0001-000000000011
+status: experimental
+description: |
+  알려진 공격 도구 파일 생성 탐지 (T1105 / AD 정찰·자격증명 도구).
+  경로 기반 룰이 놓치는 실제 위협을 파일명으로 보완. 경로 무관 탐지.
+references:
+  - https://attack.mitre.org/techniques/T1105/
+author: HARKJIN
+date: 2026/09/12
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    TargetFilename|contains:
+      - 'SharpHound'
+      - 'BloodHound'
+      - 'Invoke-Mimikatz'
+      - 'PowerView'
+  condition: selection
+falsepositives:
+  - 보안팀의 승인된 진단 도구 사용
+level: high
+tags:
+  - attack.command_and_control
+  - attack.t1105
+  - attack.discovery

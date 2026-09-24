@@ -1,0 +1,42 @@
+title: Suspicious File Deletion via Command Line
+id: 8a1b2c3d-0005-0001-0001-000000000070
+status: experimental
+description: |
+  cmd/powershell을 통한 파일 삭제 탐지(T1070.004, 흔적 인멸).
+  삭제는 매우 흔하므로 의심경로(Temp/AppData) 대상 또는 강제삭제(/f)에 집중.
+  [사각지대 기록] 이 환경은 Sysmon EID23(FileDelete) 미수집으로 '어떤 파일이
+  삭제됐는지'는 EID1 명령행으로만 추적 가능. API 직접삭제나 Remove-Item 우회
+  시 탐지 불가 → Sysmon FileDelete 설정 보강 필요.
+references:
+  - https://attack.mitre.org/techniques/T1070/004/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_del:
+    Image|endswith:
+      - '\cmd.exe'
+      - '\powershell.exe'
+    CommandLine|contains:
+      - 'del /f'
+      - 'del /q'
+      - 'erase '
+      - 'Remove-Item'
+      - 'rd /s'
+  selection_target:
+    CommandLine|contains:
+      - '\Temp\'
+      - '\AppData\'
+      - '.exe'
+      - '.dll'
+      - '.ps1'
+      - 'prefetch'
+  condition: selection_del and selection_target
+falsepositives:
+  - 정상 정리 스크립트, 설치 제거 프로그램
+level: medium
+tags:
+  - attack.defense_evasion
+  - attack.t1070.004

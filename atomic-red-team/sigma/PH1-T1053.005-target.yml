@@ -1,0 +1,41 @@
+title: Scheduled Task Creation with Suspicious Target
+id: 8a1b2c3d-0004-0001-0001-000000000050
+status: experimental
+description: |
+  schtasks.exe로 예약작업 생성 시 실행대상(/TR)이 스크립트/인코딩/임시경로인
+  경우 탐지(T1053.005). 내장 룰은 schtasks를 T1087로 오분류하므로 정확한
+  T1053.005 탐지 제공.
+  [설계기록] 테스트의 /TR cmd.exe(정상경로)는 의도적 미탐 — 정밀도 우선.
+references:
+  - https://attack.mitre.org/techniques/T1053/005/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_create:
+    Image|endswith: '\schtasks.exe'
+    CommandLine|contains: '/Create'
+  suspicious_target:
+    CommandLine|contains:
+      - 'powershell'
+      - '-enc'
+      - '\AppData\'
+      - '\Temp\'
+      - '\ProgramData\'
+      - 'mshta'
+      - 'rundll32'
+      - 'wscript'
+      - 'cscript'
+      - '.vbs'
+      - '.bat'
+      - '.ps1'
+  condition: selection_create and suspicious_target
+falsepositives:
+  - 관리자/설치프로그램의 정상 예약작업 (변경관리와 대조)
+level: high
+tags:
+  - attack.persistence
+  - attack.t1053.005
+  - attack.execution

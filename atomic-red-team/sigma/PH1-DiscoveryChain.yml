@@ -1,0 +1,42 @@
+title: Discovery Command Chain via cmd (Recon Automation)
+id: 8a1b2c3d-0003-0001-0001-000000000031
+status: experimental
+description: |
+  단일 cmd 실행에 다수의 정찰 명령이 연쇄된 패턴 탐지.
+  T1033(사용자), T1016(네트워크), T1087(계정), T1082(시스템) 정찰을
+  자동화한 공격 초기 단계. 내장 룰은 이를 개별·부정확하게 분류(T1087/T1574 등)
+  하므로, 연쇄 자체를 하나의 고심각도 이벤트로 포착.
+references:
+  - https://attack.mitre.org/tactics/TA0007/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_cmd:
+    Image|endswith: '\cmd.exe'
+  recon_net:
+    CommandLine|contains:
+      - 'ipconfig'
+      - 'netsh'
+      - 'arp'
+      - 'nbtstat'
+      - 'net config'
+      - 'route print'
+  recon_user:
+    CommandLine|contains:
+      - 'whoami'
+      - 'wmic useraccount'
+      - 'quser'
+      - 'qwinsta'
+      - 'net user'
+  condition: selection_cmd and (recon_net or recon_user)
+falsepositives:
+  - 관리자의 진단/인벤토리 배치 스크립트 (변경관리 티켓과 대조)
+level: high
+tags:
+  - attack.discovery
+  - attack.t1016
+  - attack.t1033
+  - attack.t1082

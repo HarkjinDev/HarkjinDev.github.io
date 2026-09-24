@@ -1,0 +1,37 @@
+title: Suspicious File Dropped in Temp/AppData by PowerShell (Tuned)
+id: 8a1b2c3d-0002-0001-0001-000000000012
+status: experimental
+description: |
+  PowerShell이 의심 폴더에 파일 생성하는 행위 탐지(T1105).
+  실측으로 확인된 정상 오탐 패턴 2종을 filter로 제외:
+  (1) __PSScriptPolicyTest (PS 정책검사 임시파일, 92213 level15 오탐, 27회 발동)
+  (2) CLR_v4.0\UsageLogs (.NET 런타임 로그, 92204 level9 오탐)
+references:
+  - https://attack.mitre.org/techniques/T1105/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    Image|endswith: '\powershell.exe'
+    TargetFilename|contains:
+      - '\AppData\Local\Temp\'
+      - '\Windows\Temp\'
+    TargetFilename|endswith:
+      - '.ps1'
+      - '.exe'
+      - '.dll'
+      - '.bat'
+  filter_pspolicy:
+    TargetFilename|contains: '__PSScriptPolicyTest_'
+  filter_clr:
+    TargetFilename|contains: '\CLR_v4.0\UsageLogs\'
+  condition: selection and not (filter_pspolicy or filter_clr)
+falsepositives:
+  - 정상 소프트웨어 설치 과정의 임시 스크립트
+level: medium
+tags:
+  - attack.command_and_control
+  - attack.t1105

@@ -1,0 +1,29 @@
+title: PowerShell Encoded Command Execution (Parameter Variations)
+id: 8a1b2c3d-0002-0001-0001-000000000020
+status: experimental
+description: |
+  PowerShell -EncodedCommand 및 축약형(-enc, -e 등)을 이용한
+  Base64 인코딩 명령 실행 탐지 (T1059.001 / T1027 난독화).
+  [주의] 실측 결과 Wazuh 내장 룰 92057(level12)이 3변형을 모두 커버함.
+  본 룰은 내장 룰이 없는 SIEM 환경 또는 학습용. 이 환경에선 중복.
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+author: HARKJIN
+date: 2026/09/12
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_img:
+    Image|endswith: '\powershell.exe'
+  selection_enc:
+    CommandLine|re: '\s-e[ncodma]*\s+[A-Za-z0-9+/=]{20,}'
+  condition: selection_img and selection_enc
+falsepositives:
+  - 인코딩 명령을 정상 사용하는 일부 관리 스크립트/배포 도구
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.defense_evasion
+  - attack.t1027

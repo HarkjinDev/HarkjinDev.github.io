@@ -1,0 +1,38 @@
+title: Suspicious Rundll32 Execution (LOLBin Abuse)
+id: 8a1b2c3d-0005-0001-0001-000000000060
+status: experimental
+description: |
+  rundll32.exe의 비정상 실행 탐지(T1218.011). 정상 rundll32는
+  '시스템DLL,함수명' 형태(예: sysmain.dll,PfSvWsSwapAssessmentTask)이나,
+  악성은 script 프로토콜/URL/비정상 인자 사용.
+  [환경기록] 이 랩에서 vbscript 방식(T1218.011-2)은 Defender가 프로세스
+  생성 전 원천 차단하여 로그 미생성 — 예방이 작동한 사례. 우회 대비 룰 유지.
+references:
+  - https://attack.mitre.org/techniques/T1218/011/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_img:
+    Image|endswith: '\rundll32.exe'
+  selection_suspicious:
+    CommandLine|contains:
+      - 'vbscript:'
+      - 'javascript:'
+      - 'mshtml'
+      - 'http://'
+      - 'https://'
+      - '\AppData\'
+      - '\Temp\'
+      - '.inf'
+  selection_nodll:
+    CommandLine|endswith: 'rundll32.exe'
+  condition: selection_img and (selection_suspicious or selection_nodll)
+falsepositives:
+  - 일부 서드파티 SW의 rundll32 사용
+level: high
+tags:
+  - attack.defense_evasion
+  - attack.t1218.011

@@ -1,0 +1,35 @@
+title: Scheduled Task Created by Abnormal Parent
+id: 8a1b2c3d-0004-0001-0001-000000000051
+status: experimental
+description: |
+  powershell/office/스크립트엔진 등 비정상 부모가 schtasks /Create를
+  실행하는 경우 탐지(T1053.005). 정상 예약작업은 보통 관리도구/설치프로그램이
+  생성하므로 부모 프로세스가 판단 신호. 이 룰은 T1053.005-2 테스트를 탐지함
+  (부모체인: powershell -> cmd -> schtasks).
+references:
+  - https://attack.mitre.org/techniques/T1053/005/
+author: HARKJIN
+date: 2026/09/13
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: '\schtasks.exe'
+    CommandLine|contains: '/Create'
+  parent_suspicious:
+    ParentImage|endswith:
+      - '\powershell.exe'
+      - '\cmd.exe'
+      - '\winword.exe'
+      - '\excel.exe'
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+  condition: selection and parent_suspicious
+falsepositives:
+  - 관리자가 cmd/powershell에서 수동으로 만드는 정상 작업
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1053.005
