@@ -1,0 +1,273 @@
+{
+  "total": 200,
+  "distribution": {
+    "ANCILLARY": 153,
+    "MISCLASSIFIED": 21,
+    "DETECTED": 15,
+    "NONE": 1,
+    "EXEC_FAILED": 10
+  },
+  "tactics": [
+    {
+      "tactic": "Discovery",
+      "total": 70,
+      "detected": 1,
+      "misclassified": 4,
+      "ancillary": 57,
+      "rate": 1
+    },
+    {
+      "tactic": "Defense Evasion",
+      "total": 47,
+      "detected": 0,
+      "misclassified": 6,
+      "ancillary": 40,
+      "rate": 0
+    },
+    {
+      "tactic": "Execution",
+      "total": 26,
+      "detected": 13,
+      "misclassified": 2,
+      "ancillary": 10,
+      "rate": 50
+    },
+    {
+      "tactic": "Persistence",
+      "total": 16,
+      "detected": 0,
+      "misclassified": 5,
+      "ancillary": 10,
+      "rate": 0
+    },
+    {
+      "tactic": "Lateral Movement",
+      "total": 15,
+      "detected": 1,
+      "misclassified": 3,
+      "ancillary": 11,
+      "rate": 7
+    },
+    {
+      "tactic": "Exfiltration",
+      "total": 12,
+      "detected": 0,
+      "misclassified": 0,
+      "ancillary": 12,
+      "rate": 0
+    },
+    {
+      "tactic": "Collection",
+      "total": 7,
+      "detected": 0,
+      "misclassified": 0,
+      "ancillary": 7,
+      "rate": 0
+    },
+    {
+      "tactic": "Credential Access",
+      "total": 5,
+      "detected": 0,
+      "misclassified": 1,
+      "ancillary": 4,
+      "rate": 0
+    },
+    {
+      "tactic": "C2",
+      "total": 2,
+      "detected": 0,
+      "misclassified": 0,
+      "ancillary": 2,
+      "rate": 0
+    }
+  ],
+  "detected_by_tech": [
+    {
+      "tech": "T1059",
+      "tactic": "Execution",
+      "n": 13
+    },
+    {
+      "tech": "T1021",
+      "tactic": "Lateral Movement",
+      "n": 1
+    },
+    {
+      "tech": "T1033",
+      "tactic": "Discovery",
+      "n": 1
+    }
+  ],
+  "mis_bias": [
+    {
+      "tag": "T1027",
+      "tactic": "Defense Evasion",
+      "n": 7
+    },
+    {
+      "tag": "T1112",
+      "tactic": "Defense Evasion",
+      "n": 7
+    },
+    {
+      "tag": "T1135",
+      "tactic": "Discovery",
+      "n": 5
+    },
+    {
+      "tag": "T1055",
+      "tactic": "Defense Evasion",
+      "n": 4
+    },
+    {
+      "tag": "T1543.003",
+      "tactic": "Persistence",
+      "n": 3
+    },
+    {
+      "tag": "T1059.003",
+      "tactic": "Execution",
+      "n": 2
+    },
+    {
+      "tag": "T1531",
+      "tactic": "Impact",
+      "n": 2
+    },
+    {
+      "tag": "T1047",
+      "tactic": "Execution",
+      "n": 1
+    },
+    {
+      "tag": "T1082",
+      "tactic": "Discovery",
+      "n": 1
+    },
+    {
+      "tag": "T1562.004",
+      "tactic": "Defense Evasion",
+      "n": 1
+    },
+    {
+      "tag": "T1574.001",
+      "tactic": "Persistence",
+      "n": 1
+    },
+    {
+      "tag": "T1574.002",
+      "tactic": "Persistence",
+      "n": 1
+    }
+  ],
+  "sigma_targets": [
+    {
+      "tech": "T1001",
+      "tactic": "C2"
+    },
+    {
+      "tech": "T1005",
+      "tactic": "Collection"
+    },
+    {
+      "tech": "T1006",
+      "tactic": "Defense Evasion"
+    },
+    {
+      "tech": "T1007",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1010",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1012",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1016",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1018",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1020",
+      "tactic": "Exfiltration"
+    },
+    {
+      "tech": "T1021",
+      "tactic": "Lateral Movement"
+    },
+    {
+      "tech": "T1025",
+      "tactic": "Collection"
+    },
+    {
+      "tech": "T1027",
+      "tactic": "Defense Evasion"
+    },
+    {
+      "tech": "T1030",
+      "tactic": "Exfiltration"
+    },
+    {
+      "tech": "T1033",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1036",
+      "tactic": "Defense Evasion"
+    },
+    {
+      "tech": "T1039",
+      "tactic": "Collection"
+    },
+    {
+      "tech": "T1040",
+      "tactic": "Credential Access"
+    },
+    {
+      "tech": "T1041",
+      "tactic": "Exfiltration"
+    },
+    {
+      "tech": "T1046",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1047",
+      "tactic": "Execution"
+    },
+    {
+      "tech": "T1048",
+      "tactic": "Exfiltration"
+    },
+    {
+      "tech": "T1049",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1053",
+      "tactic": "Persistence"
+    },
+    {
+      "tech": "T1055",
+      "tactic": "Defense Evasion"
+    },
+    {
+      "tech": "T1056",
+      "tactic": "Collection"
+    },
+    {
+      "tech": "T1057",
+      "tactic": "Discovery"
+    },
+    {
+      "tech": "T1059",
+      "tactic": "Execution"
+    }
+  ]
+}

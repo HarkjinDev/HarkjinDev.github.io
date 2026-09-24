@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커버리지 분석 · Detection Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="brand"><a href="index.html" style="color:inherit">atomic-red-team<span class="dot">/</span>detection-lab</a></span>
+    <nav>
+      <a href="index.html#techniques">기법</a>
+      <a href="coverage.html">커버리지</a>
+      <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>커버리지 분석 — 200개 기법 자동 실행 결과</h1>
+    <p class="sub">Atomic Red Team 기법을 배치 자동 실행하고, Wazuh 기본 룰이
+      각 기법을 어떻게 처리하는지(정확 탐지 / 오분류 / 부수 로그만 / 미탐) 판정·집계했다.</p>
+    <p class="env" id="meta"></p>
+  </section>
+
+  <!-- 판정 분포 -->
+  <section>
+    <div class="section-head"><h2>판정 분포</h2>
+      <p>공격은 실행됐으나 "대상 기법으로 탐지"됐는지가 핵심 기준.</p>
+    </div>
+    <div class="stats" id="dist"></div>
+    <div class="legend">
+      <span><i style="background:#57c26a"></i> 정확탐지</span>
+      <span><i style="background:#e0913b"></i> 오분류</span>
+      <span><i style="background:#c5a3d6"></i> 부수 로그만(대상 미탐)</span>
+      <span><i style="background:#607d8b"></i> 실행실패</span>
+    </div>
+  </section>
+
+  <!-- 전술별 커버리지 (핵심) -->
+  <section>
+    <div class="section-head"><h2>전술별 탐지율</h2>
+      <p>이 프로젝트의 핵심 발견. 기본 룰셋이 어느 전술을 잡고 어디에 공백이 있는가.</p>
+    </div>
+    <div id="tactics"></div>
+  </section>
+
+  <!-- 핵심 결론 -->
+  <section>
+    <div class="section-head"><h2>핵심 결론</h2></div>
+    <div class="insight">
+      <h3>탐지는 PowerShell에 편중</h3>
+      <p id="c1"></p>
+    </div>
+    <div class="insight">
+      <h3>광범위한 탐지 공백</h3>
+      <p id="c2"></p>
+    </div>
+    <div class="insight">
+      <h3>오분류는 소수 태그로 수렴</h3>
+      <p id="c3"></p>
+    </div>
+  </section>
+
+  <!-- 오분류 편향 -->
+  <section>
+    <div class="section-head"><h2>오분류 편향</h2>
+      <p>대상 기법이 아닌 다른 기법으로 잘못 분류될 때, 어떤 태그로 수렴하는가.</p>
+    </div>
+    <div id="misbias"></div>
+  </section>
+
+  <!-- Sigma 대상 -->
+  <section>
+    <div class="section-head"><h2>Sigma 작성 대상</h2>
+      <p>ANCILLARY(실행되나 대상 미탐)로 판정된 기법 = 커스텀 탐지 룰이 필요한 공백.</p>
+    </div>
+    <div class="cards" id="targets"></div>
+  </section>
+
+  <section class="approach">
+    <div class="section-head"><h2>방법</h2></div>
+    <div class="codebox">① filter_windows_tests.py — 전체 저장소에서 Windows 실행가능 테스트 선별
+   (위험/hang 유발 기법 T1003·LSASS·시스템콜 등은 제외)
+② batch_test.py — 선별 목록을 자동 실행 → 판정 → 재개/재실행 지원
+③ analyze_coverage.py — 전술별 커버리지·편향·Sigma대상 집계
+   판정: 공격 실행 부수 로그(T1059 등)는 ANCILLARY로 분리,
+        권한/차단 실패는 EXEC_FAILED로 분리해 실제 탐지결과만 측정</div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Atomic Red Team Detection Lab · MITRE ATT&CK 자동화 실험</span>
+    <span><a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">github.com/HarkjinDev</a></span>
+  </div>
+</footer>
+
+<script>
+const TC = {
+  "Discovery":"#4fb6c4","Execution":"#57c26a","Persistence":"#e3b341",
+  "Defense Evasion":"#e0913b","Lateral Movement":"#c5a3d6","Collection":"#8b96a3",
+  "Exfiltration":"#e05c5c","Credential Access":"#d66a9e","C2":"#6b7785","Impact":"#b06a6a"
+};
+
+fetch("data/coverage.json").then(r=>r.json()).then(d=>{
+  document.getElementById("meta").textContent =
+    `총 ${d.total}개 테스트 · ${d.tactics.length}개 전술 · Windows VM(Sysmon)+Wazuh 4.14.5`;
+
+  // 판정 분포
+  const dd = d.distribution;
+  const cards = [
+    {cls:"detected", n:dd.DETECTED||0, l:"정확탐지"},
+    {cls:"partial", n:dd.MISCLASSIFIED||0, l:"오분류"},
+    {cls:"none", n:dd.ANCILLARY||0, l:"부수만(미탐)"},
+    {cls:"total", n:(dd.EXEC_FAILED||0)+(dd.NONE||0), l:"실행실패·미탐"},
+  ];
+  document.getElementById("dist").innerHTML = cards.map(x=>{
+    const pct = (x.n/d.total*100).toFixed(1);
+    return `<div class="stat ${x.cls}"><div class="n">${x.n}</div>`+
+           `<div class="l">${x.l} · ${pct}%</div></div>`;
+  }).join("");
+
+  // 전술별 바
+  document.getElementById("tactics").innerHTML = d.tactics.map(t=>{
+    const col = TC[t.tactic]||"#8b96a3";
+    return `<div class="tbar">
+      <div class="tbar-head">
+        <span class="tbar-name">${t.tactic}</span>
+        <span class="tbar-rate">탐지율 ${t.rate}% <span class="tbar-sub">(${t.detected}/${t.total})</span></span>
+      </div>
+      <div class="tbar-track"><div class="tbar-fill" style="width:${Math.max(t.rate,1.5)}%;background:${col}"></div></div>
+    </div>`;
+  }).join("");
+
+  // 결론
+  const det = d.detected_by_tech[0];
+  const detTotal = d.detected_by_tech.reduce((s,x)=>s+x.n,0);
+  const detPct = (dd.DETECTED/d.total*100).toFixed(1);
+  const ancPct = (dd.ANCILLARY/d.total*100).toFixed(0);
+  document.getElementById("c1").innerHTML =
+    `정확 탐지 ${detTotal}건 중 <span class="metric">${det.tech}(${det.tactic})가 ${(det.n/detTotal*100).toFixed(0)}%</span>. `+
+    `전체 정확 탐지율은 <span class="metric">${detPct}%</span>에 불과하며, 그마저 특정 기법에 편중된다.`;
+  document.getElementById("c2").innerHTML =
+    `전체의 <span class="metric">${ancPct}%가 부수 로그만</span> 남기고 대상 기법은 탐지되지 않았다. `+
+    `Defense Evasion·Persistence·Exfiltration·Collection 전술은 탐지율이 사실상 0%다.`;
+  const mb = d.mis_bias.slice(0,4).map(x=>`${x.tag}(${x.n}회)`).join(", ");
+  document.getElementById("c3").innerHTML =
+    `오분류는 소수 태그로 수렴한다: <span class="metric">${mb}</span>. `+
+    `내장 룰이 특정 기법으로 과잉 분류하는 편향을 보인다.`;
+
+  // 오분류 편향 바
+  const maxMis = Math.max(...d.mis_bias.map(x=>x.n));
+  document.getElementById("misbias").innerHTML = d.mis_bias.map(x=>{
+    const col = TC[x.tactic]||"#8b96a3";
+    return `<div class="tbar">
+      <div class="tbar-head">
+        <span class="tbar-name"><span class="tid">${x.tag}</span> <span style="color:var(--text-faint);font-size:12px">${x.tactic}</span></span>
+        <span class="tbar-rate">${x.n}회</span>
+      </div>
+      <div class="tbar-track"><div class="tbar-fill" style="width:${x.n/maxMis*100}%;background:${col}"></div></div>
+    </div>`;
+  }).join("");
+
+  // Sigma 대상
+  document.getElementById("targets").innerHTML = d.sigma_targets.map(t=>{
+    const col = TC[t.tactic]||"#8b96a3";
+    return `<div class="card" style="border-left-color:${col}">
+      <div class="top"><span class="tid">${t.tech}</span></div>
+      <div class="headline">${t.tactic}</div>
+    </div>`;
+  }).join("");
+}).catch(e=>{
+  document.querySelector("main").innerHTML += `<p style="color:var(--red)">coverage.json 로드 실패</p>`;
+});
+</script>
+</body>
+</html>

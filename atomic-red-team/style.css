@@ -159,6 +159,7 @@ a:hover { text-decoration: underline; }
 .badge.PARTIAL  { background: rgba(224,145,59,.14); color: var(--orange); }
 .badge.NONE     { background: rgba(224,92,92,.14); color: var(--red); }
 .badge.BLOCKED  { background: rgba(107,119,133,.16); color: var(--slate); }
+.badge.verified { background: rgba(79,182,196,.14); color: var(--cyan); border: 1px solid rgba(79,182,196,.3); }
 .lvl { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); }
 
 /* ---- detail page ---- */
@@ -244,6 +245,26 @@ footer a { color: var(--text-dim); }
 .insight h3 { font-size: 16px; margin-bottom: 10px; color: var(--amber); }
 .insight p { color: var(--text-dim); font-size: 14.5px; line-height: 1.7; }
 .insight .metric { font-family: var(--mono); color: var(--orange); font-weight: 600; }
+
+/* coverage banner on index */
+.coverage-banner {
+  display: block; margin: 20px 0 8px; padding: 20px 24px;
+  background: linear-gradient(100deg, rgba(79,182,196,.10), rgba(227,179,65,.06));
+  border: 1px solid var(--line); border-radius: 10px;
+  transition: border-color .15s, transform .15s;
+}
+.coverage-banner:hover { text-decoration: none; border-color: var(--cyan); transform: translateY(-2px); }
+.cb-title { font-size: 17px; font-weight: 600; color: var(--cyan); }
+.cb-sub { margin-top: 6px; font-size: 13.5px; color: var(--text-dim); }
+
+/* tactic / bias horizontal bars */
+.tbar { margin-bottom: 14px; }
+.tbar-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.tbar-name { font-size: 14.5px; font-weight: 550; }
+.tbar-rate { font-family: var(--mono); font-size: 13px; color: var(--text); }
+.tbar-sub { color: var(--text-faint); font-size: 11.5px; }
+.tbar-track { height: 10px; background: var(--ink-3); border-radius: 5px; overflow: hidden; }
+.tbar-fill { height: 100%; border-radius: 5px; transition: width .3s; min-width: 3px; }
 
 @media (max-width: 640px) {
   .stats { grid-template-columns: repeat(2, 1fr); }
