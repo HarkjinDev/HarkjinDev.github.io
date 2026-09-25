@@ -1,0 +1,62 @@
+{
+  "title": "Slack AI SOC Agent",
+  "subtitle": "Wazuh 탐지를 Slack ChatOps로 연결하고, SOC 레벨(L1/L2/L3)을 AI 다중 에이전트로 구현",
+  "levels": [
+    {
+      "level": "L1",
+      "role": "Triage — 1차 선별",
+      "duty": "얼럿 판정(오탐/심각도/탐지격차) + AI 요약",
+      "impl": "Wazuh 30초 폴링 → 판정 로직 → Gemini 요약 → #soc-alerts 카드",
+      "color": "#4fb6c4"
+    },
+    {
+      "level": "L2",
+      "role": "Analysis — 심층 분석",
+      "duty": "공격 맥락, 탐지 평가, 대응 권고",
+      "impl": "진탐만 → Gemini 심층분석 → 스레드 답글, 탐지공백이면 L3 후보 표시",
+      "color": "#e3b341"
+    },
+    {
+      "level": "L3",
+      "role": "Engineering — 탐지 엔지니어링",
+      "duty": "Sigma 룰 생성 → 적용 → IR 리포트",
+      "impl": "Gemini Sigma 생성 → Wazuh 적용 → 사람 승인 버튼 → IR 리포트",
+      "color": "#e0913b"
+    }
+  ],
+  "flow": [
+    "Atomic Red Team 공격 실행",
+    "Wazuh 탐지 → 얼럿 발생",
+    "L1: 판정 + AI 요약 → Slack 카드",
+    "L2: 심층 분석 → 스레드 답글 (탐지공백 표시)",
+    "[⚙️ Sigma 생성] 버튼 (사람 승인 1)",
+    "L3: Gemini Sigma 생성 → Wazuh 적용",
+    "[✅ 운영 반영] 버튼 (사람 승인 2)",
+    "IR 리포트 자동 생성"
+  ],
+  "verdicts": [
+    {"name": "오탐후보", "desc": "알려진 오탐 필터 해당 → L2 생략", "color": "#8b96a3"},
+    {"name": "탐지공백", "desc": "실행됐으나 대상 기법 미탐(부수 로그만) → L3 후보", "color": "#c5a3d6"},
+    {"name": "탐지됨", "desc": "대상 기법 정탐 → 격차 없음 확인", "color": "#57c26a"}
+  ],
+  "stack": [
+    "Slack Bolt(Python) + Socket Mode — 메시지 + 승인 버튼",
+    "Gemini 무료 API (gemini-flash-lite-latest)",
+    "Wazuh Indexer API 폴링 + docker exec 룰 적용",
+    "validate_sigma(3종 검증)로 룰 실동작 별도 확인"
+  ],
+  "insights": [
+    {
+      "title": "사람 승인 게이트",
+      "text": "AI 생성 Sigma를 무검증 자동 반영하지 않음. Sigma 생성·운영 반영 2단계를 사람 버튼으로 승인. AI 자동화의 안전성 확보."
+    },
+    {
+      "title": "로컬 SLM vs 클라우드 LLM 트레이드오프",
+      "text": "로컬 CyberSecQwen-4B는 응답 120초 초과로 L1(신속 선별)에 부적합. Gemini 무료 API로 전환. L1은 속도 우선, 로컬 SLM은 데이터 보안이 중요한 심층 분석에 적합."
+    },
+    {
+      "title": "재실행 검증 분리",
+      "text": "L3 재실행 검증은 재공격이 폴링에 잡혀 중복 알림 발생. 검증은 validate_sigma로 분리하고 L3는 생성·적용·승인으로 단순화. 역할 명확화."
+    }
+  ]
+}
