@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI SOC Agent · Detection Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="brand"><a href="index.html" style="color:inherit">atomic-red-team<span class="dot">/</span>detection-lab</a></span>
+    <nav>
+      <a href="index.html#techniques">기법</a>
+      <a href="coverage.html">커버리지</a>
+      <a href="soc.html">AI SOC</a>
+      <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1 id="soc-title"></h1>
+    <p class="sub" id="soc-sub"></p>
+    <p class="env">Atomic Red Team → Wazuh → Slack ChatOps · Gemini + Socket Mode</p>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>SOC 레벨별 AI 에이전트</h2>
+      <p>실무 SOC의 Tier 1/2/3 역할을 AI 다중 에이전트로 구현했다.</p>
+    </div>
+    <div id="levels"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>전체 흐름</h2>
+      <p>공격 실행부터 IR 리포트까지. 파괴적 단계는 사람 버튼 승인.</p>
+    </div>
+    <div id="flow"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>판정 체계</h2>
+      <p>Phase 1~2에서 도출한 판정 개념을 실시간 에이전트에 이식.</p>
+    </div>
+    <div id="verdicts"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>핵심 설계</h2></div>
+    <div id="insights"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>기술 스택</h2></div>
+    <div class="codebox" id="stack"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Atomic Red Team Detection Lab · MITRE ATT&CK 자동화 실험</span>
+    <span><a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">github.com/HarkjinDev</a></span>
+  </div>
+</footer>
+
+<script>
+fetch("data/soc.json").then(r=>r.json()).then(d=>{
+  document.getElementById("soc-title").textContent = d.title;
+  document.getElementById("soc-sub").textContent = d.subtitle;
+
+  // 레벨 카드
+  document.getElementById("levels").innerHTML = d.levels.map(l=>`
+    <div class="card" style="border-left-color:${l.color};margin-bottom:14px">
+      <div class="top">
+        <span class="tid" style="color:${l.color}">${l.level}</span>
+        <span class="tname">${l.role}</span>
+      </div>
+      <div class="headline">${l.duty}</div>
+      <div class="note-line" style="margin-top:10px">${l.impl}</div>
+    </div>`).join("");
+
+  // 흐름 (stepper 느낌)
+  document.getElementById("flow").innerHTML =
+    `<div class="codebox">` +
+    d.flow.map((s,i)=>`${String(i+1).padStart(2,'0')}. ${s}`).join("\n") +
+    `</div>`;
+
+  // 판정
+  document.getElementById("verdicts").innerHTML = d.verdicts.map(v=>`
+    <div class="tbar" style="margin-bottom:10px">
+      <div class="tbar-head">
+        <span class="tbar-name"><span class="badge" style="background:${v.color}22;color:${v.color}">${v.name}</span></span>
+      </div>
+      <div class="headline" style="margin-top:4px">${v.desc}</div>
+    </div>`).join("");
+
+  // 인사이트
+  document.getElementById("insights").innerHTML = d.insights.map(x=>`
+    <div class="insight"><h3>${x.title}</h3><p>${x.text}</p></div>`).join("");
+
+  // 스택
+  document.getElementById("stack").textContent =
+    d.stack.map(s=>"· "+s).join("\n");
+}).catch(e=>{
+  document.querySelector("main").innerHTML += `<p style="color:var(--red)">soc.json 로드 실패</p>`;
+});
+</script>
+</body>
+</html>
