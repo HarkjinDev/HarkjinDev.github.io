@@ -10,11 +10,13 @@ MITRE ATT&CK 기법을 Atomic Red Team으로 실행하고, Sysmon→Wazuh로 수
 atomic-red-team/
 ├── index.html              # 메인: 기법 목록(전술별) + 요약 통계 + 핵심 발견
 ├── coverage.html           # 200개 배치 커버리지 분석 (전술별 탐지율·편향·Sigma대상)
+├── soc.html                # Slack AI SOC (L1/L2/L3 에이전트 아키텍처)
 ├── detail.html             # 상세: ?id=T1070.004 로 기법별 로드
 ├── style.css               # 공통 스타일 (SOC 콘솔 테마)
 ├── data/
 │   ├── techniques.json     # 전체 기법 요약 (목록·통계용)
 │   ├── coverage.json       # 200개 배치 분석 집계 데이터
+│   ├── soc.json            # AI SOC 아키텍처 데이터
 │   └── techniques/         # 기법별 상세 (명령·로그·판정·배운점)
 │       └── T*.json
 └── sigma/                  # Sigma 룰 원본 (상세 페이지에서 로드)
