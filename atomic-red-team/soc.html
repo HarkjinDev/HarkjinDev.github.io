@@ -8,6 +8,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* Slack 실구현 예시 — soc.html 전용 */
+.slack-demo{margin-top:18px;border:1px solid #30363d;border-radius:14px;overflow:hidden;background:#1f2125;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.slack-demo *{box-sizing:border-box}
+.slack-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#181a1e;border-bottom:1px solid #30363d}
+.slack-head-left{display:flex;align-items:center;gap:10px}.slack-hash{font-weight:700;color:#f3f4f6}.slack-live{font-size:12px;color:#8b949e}
+.slack-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#81c995}.slack-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#57c26a;box-shadow:0 0 0 3px rgba(87,194,106,.12)}
+.slack-body{padding:4px 0 10px}.slack-msg{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:14px 16px}.slack-msg:hover{background:#24272c}.slack-avatar{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#4fb6c4,#7b61ff);color:white;font-weight:800;font-size:13px;letter-spacing:-.3px}
+.slack-meta{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}.slack-user{font-weight:700;color:#f4f5f7}.slack-time{font-size:12px;color:#8b949e}.slack-text{color:#d9dde3;line-height:1.65;font-size:14px}.slack-text strong{color:#fff}.slack-text code{font-family:'JetBrains Mono',monospace;background:#2b2f35;border:1px solid #3a4048;border-radius:4px;padding:1px 5px;color:#f0f3f6}.slack-text ul{margin:8px 0 4px 20px;padding:0}.slack-text li{margin:5px 0}.slack-divider{height:1px;background:#30363d;margin:0 16px 0 68px}
+.slack-alertline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}.slack-tech{font-family:'JetBrains Mono',monospace;font-weight:700;color:#e8eaed}.slack-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700;letter-spacing:.1px}.slack-badge.purple{background:rgba(197,163,214,.14);color:#d9b9e8;border:1px solid rgba(197,163,214,.30)}.slack-badge.orange{background:rgba(224,145,59,.14);color:#f0ad67;border:1px solid rgba(224,145,59,.30)}.slack-badge.green{background:rgba(87,194,106,.14);color:#81d58d;border:1px solid rgba(87,194,106,.30)}.slack-badge.yellow{background:rgba(227,179,65,.14);color:#edc96d;border:1px solid rgba(227,179,65,.30)}
+.slack-thread{margin:2px 16px 2px 68px;border-left:2px solid #3d444d;padding-left:12px}.slack-thread .slack-msg{grid-template-columns:36px 1fr;padding:12px 6px}.slack-thread .slack-avatar{width:30px;height:30px;border-radius:8px;font-size:11px}.slack-thread-count{margin:2px 0 2px 68px;color:#58a6ff;font-size:13px;font-weight:600}
+.slack-system{margin:10px 16px 10px 68px;padding:9px 12px;border-radius:8px;background:#24272c;border:1px solid #343941;color:#b9c0c8;font-size:13px}.slack-system .sys-time{color:#7d8590;margin-right:9px}.slack-system strong{color:#fff}.slack-code{margin-top:8px;border:1px solid #3b414a;border-radius:8px;background:#14171a;overflow:hidden}.slack-code-head{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;border-bottom:1px solid #30363d;color:#8b949e;font-size:11px}.slack-code pre{margin:0;padding:12px;white-space:pre-wrap;overflow:auto;font:12px/1.55 'JetBrains Mono',monospace;color:#d7dae0}.slack-report{margin-top:8px;padding:12px;border-radius:8px;background:#1b2026;border:1px solid #35404c}.slack-report-title{font-weight:800;color:#fff;margin-bottom:8px}.slack-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.slack-btn{border:1px solid #4a515b;border-radius:7px;background:#2b3036;color:#e8eaed;padding:6px 10px;font-size:12px;font-weight:650}.slack-btn.primary{background:#2f6feb;border-color:#388bfd;color:white}.slack-btn.approved{background:rgba(87,194,106,.12);border-color:rgba(87,194,106,.35);color:#81d58d}
+.slack-caption{margin-top:10px;color:#8b96a3;font-size:12px}.slack-kicker{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#8b949e;margin-bottom:8px}.slack-kicker:before{content:"LIVE DEMO";font:700 10px 'Inter',sans-serif;color:#81d58d;border:1px solid rgba(87,194,106,.35);background:rgba(87,194,106,.10);padding:2px 6px;border-radius:999px}
+@media(max-width:720px){.slack-msg{grid-template-columns:34px 1fr;padding:12px 10px}.slack-avatar{width:30px;height:30px}.slack-divider,.slack-thread-count,.slack-thread,.slack-system{margin-left:54px}.slack-thread{margin-right:10px}.slack-system{margin-right:10px}.slack-text{font-size:13px}}
+</style>
 </head>
 <body>
 
@@ -43,6 +59,103 @@
       <p>공격 실행부터 IR 리포트까지. 파괴적 단계는 사람 버튼 승인.</p>
     </div>
     <div id="flow"></div>
+  </section>
+
+
+  <section id="slack-demo">
+    <div class="section-head">
+      <h2>실제 구현 화면 · Slack ChatOps</h2>
+      <p>Wazuh 얼럿을 시작으로 L1 → L2 → L3 → 사람 승인 → IR 리포트까지 이어지는 실제 동작 예시.</p>
+    </div>
+    <div class="slack-kicker">T1059.003 · Windows Command Shell</div>
+    <div class="slack-demo">
+      <div class="slack-head">
+        <div class="slack-head-left"><span class="slack-hash"># soc-alerts</span><span class="slack-live">AI SOC Agent</span></div>
+        <span class="slack-status">Socket Mode connected</span>
+      </div>
+      <div class="slack-body">
+        <div class="slack-msg">
+          <div class="slack-avatar">AI</div>
+          <div>
+            <div class="slack-meta"><span class="slack-user">SOC-AI-Agent</span><span class="slack-time">오전 9:54</span></div>
+            <div class="slack-text">
+              <div class="slack-alertline"><span class="slack-tech">T1059.003</span><span class="slack-badge purple">LEVEL 4 · 탐지공백</span></div>
+              <strong>Windows command prompt started by an abnormal process</strong><br>
+              에이전트: <code>win11-lab</code> · 프로세스: <code>cmd.exe</code>
+              <br><br><strong>L1 AI 분석</strong><br>
+              <strong>요약:</strong> 비정상적인 부모 프로세스에 의해 Windows 명령어 해석기(<code>cmd.exe</code>)가 실행되었으며, <code>tasklist</code> 명령으로 현재 구동 중인 프로세스 목록을 수집했습니다. 오탐 필터에 해당하지 않으며 MITRE ATT&amp;CK T1059.003 행위에 부합합니다.
+              <br><br><strong>위협 가능성:</strong> <span class="slack-badge yellow">Medium</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-thread-count">5개의 댓글</div>
+        <div class="slack-thread">
+          <div class="slack-msg">
+            <div class="slack-avatar">L2</div>
+            <div>
+              <div class="slack-meta"><span class="slack-user">SOC-AI-Agent</span><span class="slack-time">오전 9:54</span></div>
+              <div class="slack-text">
+                <strong>L2 심층 분석</strong><br>
+                SOC L2 심층분석가 관점에서 위협 얼럿을 분석했습니다.
+                <ul>
+                  <li><strong>공격 맥락:</strong> <code>cmd.exe</code>를 통해 <code>tasklist</code> 실행 → 시스템 내부 정찰 및 프로세스 식별 행위.</li>
+                  <li><strong>ATT&amp;CK 연계:</strong> T1059.003 (Windows Command Shell) + T1057 (Process Discovery) 연계 가능.</li>
+                  <li><strong>탐지 평가:</strong> 정상 시스템 파일 기반 LOLBin 행위라 프로세스명 단독 탐지는 오탐이 많음.</li>
+                  <li><strong>판정:</strong> 부모 프로세스·명령행·후속 행위를 결합한 탐지 보강 필요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slack-system"><span class="sys-time">오전 9:54</span><strong>탐지 공백</strong> — L3 커스텀 Sigma 룰 생성 대상</div>
+        <div class="slack-system"><span class="sys-time">오전 9:56</span>⚙️ <strong>L3: T1059.003 Sigma 생성 중...</strong></div>
+        <div class="slack-msg">
+          <div class="slack-avatar">L3</div>
+          <div>
+            <div class="slack-meta"><span class="slack-user">SOC-AI-Agent</span><span class="slack-time">오전 9:56</span></div>
+            <div class="slack-text">
+              <strong>L3 생성 Sigma</strong> <span class="slack-badge orange">T1059.003</span>
+              <div class="slack-code">
+                <div class="slack-code-head"><span>sigma.yml</span><span>experimental</span></div>
+                <pre>title: Suspicious Command Shell Execution with Tasklist
+id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+status: experimental
+description: Detects cmd.exe execution with tasklist enumeration.
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '\\cmd.exe'
+    CommandLine|contains: 'tasklist'
+  condition: selection
+level: medium</pre>
+              </div>
+              <div class="slack-actions"><span class="slack-btn primary">✅ 운영 반영</span><span class="slack-btn">룰 검증</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slack-system"><span class="sys-time">오전 9:56</span><span class="slack-badge green">APPROVED</span> <strong>harkjin.dev 승인</strong> — T1059.003 룰 운영 반영 완료</div>
+        <div class="slack-msg">
+          <div class="slack-avatar">IR</div>
+          <div>
+            <div class="slack-meta"><span class="slack-user">SOC-AI-Agent</span><span class="slack-time">오전 9:56</span></div>
+            <div class="slack-text">
+              <div class="slack-report">
+                <div class="slack-report-title">📄 IR 리포트 · SOC 침해대응 보고서</div>
+                <ul>
+                  <li><strong>사고개요:</strong> 사용자 단말에서 T1059.003 기반 의심 명령어(<code>cmd.exe /c</code>, <code>tasklist</code>) 실행 탐지</li>
+                  <li><strong>탐지내용:</strong> 신규 Sigma 룰로 정찰 목적의 프로세스 실행 행위 식별</li>
+                  <li><strong>대응:</strong> 프로세스 종료·격리 및 악성 페이로드/후속 행위 정밀 분석</li>
+                  <li><strong>후속조치:</strong> 유사 명령어 패턴 탐지 룰 모니터링 강화</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="slack-caption">※ 실제 AI SOC Agent 동작 흐름을 재현한 예시 화면. 운영 반영 단계는 사람 승인 게이트를 유지합니다.</p>
   </section>
 
   <section>
