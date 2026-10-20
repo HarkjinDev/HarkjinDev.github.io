@@ -15,10 +15,10 @@
   <div class="wrap">
     <span class="brand">atomic-red-team<span class="dot">/</span>detection-lab</span>
     <nav>
-      <a href="#techniques">기법</a>
+      <a href="#insights">핵심 발견</a>
+      <a href="#approach">접근 방식</a>
       <a href="coverage.html">커버리지</a>
       <a href="soc.html">AI SOC</a>
-      <a href="#insights">발견</a>
       <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </div>
@@ -28,38 +28,8 @@
 
   <section class="hero">
     <h1 id="hero-title">MITRE ATT&CK 기법을 실행하고, 탐지 격차를 찾다</h1>
-    <p class="sub" id="hero-sub"></p>
-    <p class="env" id="hero-env"></p>
-  </section>
-
-  <section class="stats" id="stats"></section>
-
-  <a href="coverage.html" class="coverage-banner">
-    <div>
-      <div class="cb-title">200개 기법 커버리지 분석 →</div>
-      <div class="cb-sub">Atomic Red Team 200개를 배치 자동 실행해 측정한 전술별 탐지율·오분류 편향·탐지 공백</div>
-    </div>
-  </a>
-
-  <a href="soc.html" class="coverage-banner">
-    <div>
-      <div class="cb-title">Slack AI SOC Agent (L1/L2/L3) →</div>
-      <div class="cb-sub">Wazuh 탐지를 Slack으로 연결하고 SOC 레벨을 AI 다중 에이전트로 구현 — Sigma 생성부터 IR 리포트까지</div>
-    </div>
-  </a>
-
-  <section id="techniques">
-    <div class="section-head">
-      <h2>테스트한 기법</h2>
-      <p>기법을 클릭하면 실행 명령, 관찰된 로그, 내장 룰 판정, 작성한 Sigma 룰, 배운 점을 볼 수 있습니다.</p>
-      <div class="legend">
-        <span><i style="background:#57c26a"></i> 정확 탐지</span>
-        <span><i style="background:#e0913b"></i> 오분류 · 부분 탐지</span>
-        <span><i style="background:#e05c5c"></i> 미탐</span>
-        <span><i style="background:#6b7785"></i> 실행 차단(예방)</span>
-      </div>
-    </div>
-    <div id="tactic-groups"></div>
+    <p class="sub">MITRE ATT&CK 기법 실행 → 로그 수집 및 탐지 평가 → Sigma 룰 검증을 통해 탐지 격차와 운영상 개선점을 분석한 실험 프로젝트입니다.</p>
+    <p class="env">Windows 10 VM (Sysmon + Wazuh Agent) → Docker Wazuh 4.14.5</p>
   </section>
 
   <section id="insights">
@@ -102,51 +72,5 @@
   </div>
 </footer>
 
-<script>
-const TACTIC_ORDER = ["Discovery", "Execution", "Persistence", "Defense Evasion", "Command and Control"];
-
-fetch("data/techniques.json")
-  .then(r => r.json())
-  .then(d => {
-    // hero
-    document.getElementById("hero-sub").textContent = d.project.subtitle;
-    document.getElementById("hero-env").textContent = d.project.environment;
-
-    // stats
-    const s = d.project.summary;
-    const stats = [
-      { cls: "total", n: s.total, l: "테스트한 기법" },
-      { cls: "detected", n: s.detected, l: "정확 탐지" },
-      { cls: "partial", n: s.partial, l: "오분류 · 부분" },
-      { cls: "none", n: s.none + (s.blocked||0), l: "미탐 · 차단" },
-    ];
-    document.getElementById("stats").innerHTML = stats.map(x =>
-      `<div class="stat ${x.cls}"><div class="n">${x.n}</div><div class="l">${x.l}</div></div>`
-    ).join("");
-
-    // group by tactic
-    const groups = {};
-    d.techniques.forEach(t => { (groups[t.tactic] = groups[t.tactic] || []).push(t); });
-    const order = [...TACTIC_ORDER.filter(t => groups[t]), ...Object.keys(groups).filter(t => !TACTIC_ORDER.includes(t))];
-
-    document.getElementById("tactic-groups").innerHTML = order.map(tactic => {
-      const cards = groups[tactic].map(t => `
-        <a class="card v-${t.verdict}" href="detail.html?id=${encodeURIComponent(t.id)}">
-          <div class="top"><span class="tid">${t.id}</span><span class="tname">${t.name}</span></div>
-          <div class="headline">${t.headline}</div>
-          <div class="foot">
-            <span class="badge ${t.verdict}">${t.verdict}</span>
-            ${t.max_level ? `<span class="lvl">max level ${t.max_level}</span>` : ``}
-            ${t.sigma_verified ? `<span class="badge verified">SIGMA 검증완료</span>` : ``}
-          </div>
-        </a>`).join("");
-      return `<div class="tactic"><h3>${tactic}</h3><div class="cards">${cards}</div></div>`;
-    }).join("");
-  })
-  .catch(e => {
-    document.getElementById("tactic-groups").innerHTML =
-      `<p style="color:var(--red)">데이터를 불러오지 못했습니다. data/techniques.json 을 확인하세요.</p>`;
-  });
-</script>
 </body>
 </html>
