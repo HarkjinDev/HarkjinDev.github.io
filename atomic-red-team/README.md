@@ -70,18 +70,6 @@ atomic-red-team/
 └── validate_sigma.py         # Sigma/Wazuh 검증용 Python 스크립트
 ```
 
-## 사용 및 확인
-
-프로젝트 소개 페이지는 **정적 HTML/CSS/JavaScript**로 구성되어 별도 백엔드 없이 GitHub Pages에서 열 수 있습니다. 브라우저에서 JSON과 YAML을 `fetch()`하므로 로컬 `file://`로 HTML을 열면 보안 정책상 데이터 조회가 실패할 수 있습니다. 로컬 확인 시 정적 웹 서버를 사용하세요.
-
-```powershell
-git clone https://github.com/HarkjinDev/HarkjinDev.github.io.git
-cd HarkjinDev.github.io/atomic-red-team
-python -m http.server 8000
-```
-
-접속 주소: http://localhost:8000/
-
 ## 데이터 출처 및 범위
 
 - **Phase 1:** 개별 Atomic Test 수행 후 Sysmon 이벤트 및 Wazuh 룰 반응을 분석하고 Sigma 탐지 조건을 설계.
