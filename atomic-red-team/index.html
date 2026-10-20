@@ -8,6 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .sigma-list{display:grid;gap:10px}.sigma-entry{background:var(--ink-2);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .sigma-entry summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;justify-content:space-between;gap:16px;align-items:center}.sigma-entry summary::-webkit-details-marker{display:none}
+  .sigma-entry summary>span:first-child{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.sigma-entry strong{font-size:13px;font-family:var(--mono);font-weight:500;overflow-wrap:anywhere}
+  .sigma-tag{font:600 11px var(--mono);padding:3px 7px;background:rgba(79,182,196,.12);color:var(--cyan);border-radius:4px}.sigma-desc{font-size:12px;color:var(--text-dim)}
+  .sigma-expand{font-size:12px;color:var(--text-dim);white-space:nowrap}.sigma-content{padding:0 16px 16px}.sigma-toolbar{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--text-dim)}
+  .sigma-entry[open]{border-color:var(--cyan)}.sigma-entry .codebox{max-height:420px;overflow:auto;white-space:pre;font-size:12px}
+  @media(max-width:640px){.sigma-entry summary{align-items:start}.sigma-expand{font-size:11px}}
+</style>
 </head>
 <body>
 
@@ -17,6 +26,8 @@
     <nav>
       <a href="#approach">접근 방식</a>
       <a href="#insights">핵심 발견</a>
+      <a href="#cases">상세 분석 3건</a>
+      <a href="#sigma-library">Sigma 룰</a>
       <a href="coverage.html">커버리지</a>
       <a href="soc.html">AI SOC</a>
       <a href="https://harkjindev.github.io/art-siem-ai-soc-demo/" target="_blank" rel="noopener noreferrer">AI SOC(Docker Agent)</a>
@@ -64,6 +75,88 @@
     </div>
   </section>
 
+  <section id="cases">
+    <div class="section-head">
+      <h2>심층 분석 사례 · 3건</h2>
+      <p>실제 작성한 상세 분석 JSON을 기반으로 실행 로그, 내장 룰 평가, Sigma 설계 및 검증 기록을 확인할 수 있습니다. 카드를 누르면 전체 상세 보고서로 이동합니다.</p>
+    </div>
+    <div class="cards">
+      <a class="card" style="border-left-color:var(--orange)" href="detail.html?id=T1082">
+        <div class="top"><span class="tid">T1082</span><span class="tname">System Information Discovery</span></div>
+        <div class="headline">systeminfo + reg query 기반 정찰을 Wazuh 내장 룰이 T1087로 오분류. 부모 명령행 연쇄 패턴을 이용한 개선 룰을 설계.</div>
+        <div class="foot"><span class="badge PARTIAL">Discovery · PARTIAL</span></div>
+        <p class="note-line">커스텀 룰 Wazuh 재실행 검증 기록 존재 · rule 100100</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--cyan)">전체 분석 및 Sigma 보기 →</p>
+      </a>
+      <a class="card" style="border-left-color:var(--orange)" href="detail.html?id=T1053.005">
+        <div class="top"><span class="tid">T1053.005</span><span class="tname">Scheduled Task</span></div>
+        <div class="headline">schtasks /Create 예약작업을 계정 탐색으로 잘못 분류하는 문제를 분석. 실행 대상(/TR) 중심의 Sigma 탐지 기준 제시.</div>
+        <div class="foot"><span class="badge PARTIAL">Persistence · PARTIAL</span></div>
+        <p class="note-line">Base64 예약작업 재실행 검증 기록 존재 · rule 100100</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--cyan)">전체 분석 및 Sigma 보기 →</p>
+      </a>
+      <a class="card" style="border-left-color:var(--green)" href="detail.html?id=T1547.001">
+        <div class="top"><span class="tid">T1547.001</span><span class="tname">Registry Run Keys</span></div>
+        <div class="headline">레지스트리 Run 키 등록 시 Sysmon EID 13을 확인. 정상 자동실행과 의심 명령을 구분하는 룰 및 로그 검색 문제 분석.</div>
+        <div class="foot"><span class="badge DETECTED">Persistence · DETECTED</span></div>
+        <p class="note-line">의심 Run 키 재실행 검증 기록 존재 · rule 100100</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--cyan)">전체 분석 및 Sigma 보기 →</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="sigma-library">
+    <div class="section-head">
+      <h2>Sigma 탐지 룰 라이브러리 · 11개</h2>
+      <p>GitHub <code>sigma/</code> 디렉터리의 실제 YAML 파일 목록입니다. 각 항목을 펼쳐 원본 룰을 확인하거나 GitHub 소스를 열 수 있습니다. 룰 파일 존재와 Wazuh 실동작 검증은 별개이며, 세 상세 분석 사례의 검증 이력은 해당 페이지에서 확인하세요.</p>
+    </div>
+    <div class="sigma-list">
+      <details class="sigma-entry" data-file="PH1-DiscoveryChain.yml">
+        <summary><span><span class="sigma-tag">Discovery</span><strong>PH1-DiscoveryChain.yml</strong><span class="sigma-desc">정찰 명령의 연쇄 실행 탐지</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-DiscoveryChain.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1053.005-parent.yml">
+        <summary><span><span class="sigma-tag">T1053.005</span><strong>PH1-T1053.005-parent.yml</strong><span class="sigma-desc">예약작업의 부모 프로세스 관점</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1053.005-parent.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1053.005-target.yml">
+        <summary><span><span class="sigma-tag">T1053.005</span><strong>PH1-T1053.005-target.yml</strong><span class="sigma-desc">예약작업 실행 대상(/TR) 관점</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1053.005-target.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1059.001-encoded.yml">
+        <summary><span><span class="sigma-tag">T1059.001</span><strong>PH1-T1059.001-encoded.yml</strong><span class="sigma-desc">PowerShell 인코딩 명령</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1059.001-encoded.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1070.004-delete.yml">
+        <summary><span><span class="sigma-tag">T1070.004</span><strong>PH1-T1070.004-delete.yml</strong><span class="sigma-desc">파일 삭제 행위</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1070.004-delete.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1082-recon-chain.yml">
+        <summary><span><span class="sigma-tag">T1082</span><strong>PH1-T1082-recon-chain.yml</strong><span class="sigma-desc">시스템 정보 정찰 연쇄</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1082-recon-chain.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1105-known-tools.yml">
+        <summary><span><span class="sigma-tag">T1105</span><strong>PH1-T1105-known-tools.yml</strong><span class="sigma-desc">알려진 파일 전송 도구</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1105-known-tools.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1105-temp-drop.yml">
+        <summary><span><span class="sigma-tag">T1105</span><strong>PH1-T1105-temp-drop.yml</strong><span class="sigma-desc">임시 경로 파일 저장</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1105-temp-drop.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1105-tuned.yml">
+        <summary><span><span class="sigma-tag">T1105</span><strong>PH1-T1105-tuned.yml</strong><span class="sigma-desc">오탐 보정 탐지 후보</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1105-tuned.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1218.011-rundll32.yml">
+        <summary><span><span class="sigma-tag">T1218.011</span><strong>PH1-T1218.011-rundll32.yml</strong><span class="sigma-desc">Rundll32 실행 패턴</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1218.011-rundll32.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+      <details class="sigma-entry" data-file="PH1-T1547.001-runkey.yml">
+        <summary><span><span class="sigma-tag">T1547.001</span><strong>PH1-T1547.001-runkey.yml</strong><span class="sigma-desc">Run 키 지속성 탐지</span></span><span class="sigma-expand">YAML 보기 ▾</span></summary>
+        <div class="sigma-content"><div class="sigma-toolbar"><span>원본 Sigma YAML</span><a href="https://github.com/HarkjinDev/HarkjinDev.github.io/blob/master/atomic-red-team/sigma/PH1-T1547.001-runkey.yml" target="_blank" rel="noopener noreferrer">GitHub 원본 ↗</a></div><pre class="codebox sigma" style="margin-top:8px">열면 룰 원문을 불러옵니다.</pre></div>
+      </details>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -73,5 +166,22 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.sigma-entry').forEach(function(item){
+  item.addEventListener('toggle', async function(){
+    if (!item.open || item.dataset.loaded === 'true') return;
+    const output = item.querySelector('pre');
+    output.textContent = 'Sigma YAML 불러오는 중...';
+    try {
+      const response = await fetch('sigma/' + encodeURIComponent(item.dataset.file));
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      output.textContent = await response.text();
+      item.dataset.loaded = 'true';
+    } catch(e) {
+      output.textContent = '파일을 불러오지 못했습니다. GitHub 원본 링크를 이용하세요. (' + e.message + ')';
+    }
+  });
+});
+</script>
 </body>
 </html>
