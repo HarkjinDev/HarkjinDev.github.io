@@ -15,7 +15,7 @@
   <div class="wrap">
     <span class="brand"><a href="index.html" style="color:inherit">atomic-red-team<span class="dot">/</span>detection-lab</a></span>
     <nav>
-      <a href="index.html#techniques">기법</a>
+      <a href="index.html#approach">접근 방식</a>
       <a href="index.html#insights">발견</a>
       <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -44,7 +44,7 @@ if (!id) {
   root.innerHTML = `<p style="padding:60px 0;color:var(--red)">기법 ID가 없습니다. <a href="index.html">목록으로</a></p>`;
 } else {
   Promise.all([
-    fetch(`data/techniques/${id}.json`).then(r => { if(!r.ok) throw new Error(); return r.json(); }),
+    fetch(`data/${encodeURIComponent(id)}.json`).then(r => { if(!r.ok) throw new Error(); return r.json(); }),
     fetch(`data/techniques.json`).then(r => r.json())
   ])
   .then(([t, all]) => render(t, all))
