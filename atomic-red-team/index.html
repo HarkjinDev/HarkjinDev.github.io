@@ -15,8 +15,8 @@
   <div class="wrap">
     <span class="brand">atomic-red-team<span class="dot">/</span>detection-lab</span>
     <nav>
-      <a href="#insights">핵심 발견</a>
       <a href="#approach">접근 방식</a>
+      <a href="#insights">핵심 발견</a>
       <a href="coverage.html">커버리지</a>
       <a href="soc.html">AI SOC</a>
       <a href="https://github.com/HarkjinDev" target="_blank" rel="noopener">GitHub</a>
@@ -30,6 +30,19 @@
     <h1 id="hero-title">MITRE ATT&CK 기법을 실행하고, 탐지 격차를 찾다</h1>
     <p class="sub">MITRE ATT&CK 기법 실행 → 로그 수집 및 탐지 평가 → Sigma 룰 검증을 통해 탐지 격차와 운영상 개선점을 분석한 실험 프로젝트입니다.</p>
     <p class="env">Windows 10 VM (Sysmon + Wazuh Agent) → Docker Wazuh 4.14.5</p>
+  </section>
+
+  <section id="approach">
+    <div class="section-head">
+      <h2>접근 방식</h2>
+      <p>Atomic Red Team의 ATT&CK 기법 실행을 자동화하고, 각 기법이 SIEM에서 어떻게 탐지되는지(혹은 안 되는지) 체계적으로 분석하는 파이프라인을 구성했다.</p>
+    </div>
+    <div class="codebox">① Invoke-AtomicTest 로 기법 실행
+② Sysmon → Wazuh Agent → Docker Wazuh 로 로그 수집
+③ 내장 룰이 잡는가 / 정확한가 / 격차가 있는가 평가
+④ 격차가 있으면 Sigma 룰 작성 (근거·설계판단 주석)
+⑤ 실측 로그로 룰 조건 검증
+⑥ Python 배치로 다중 기법 자동 실행 → 커버리지 집계 → Navigator layer 생성</div>
   </section>
 
   <section id="insights">
@@ -48,19 +61,6 @@
       <h3>"로그가 없다"의 세 가지 원인</h3>
       <p>탐지 실패로 보이는 상황은 원인이 다르다 — 검색어 불일치(T1547.001, 실제론 로그 존재), 예방 차단(T1218.011, Defender가 실행 자체 차단), 로그 소스 미수집(T1070.004, Sysmon EID23 꺼짐). 탐지룰보다 로그 소스 커버리지 점검이 선행되어야 한다.</p>
     </div>
-  </section>
-
-  <section id="approach">
-    <div class="section-head">
-      <h2>접근 방식</h2>
-      <p>Atomic Red Team의 ATT&CK 기법 실행을 자동화하고, 각 기법이 SIEM에서 어떻게 탐지되는지(혹은 안 되는지) 체계적으로 분석하는 파이프라인을 구성했다.</p>
-    </div>
-    <div class="codebox">① Invoke-AtomicTest 로 기법 실행
-② Sysmon → Wazuh Agent → Docker Wazuh 로 로그 수집
-③ 내장 룰이 잡는가 / 정확한가 / 격차가 있는가 평가
-④ 격차가 있으면 Sigma 룰 작성 (근거·설계판단 주석)
-⑤ 실측 로그로 룰 조건 검증
-⑥ Python 배치로 다중 기법 자동 실행 → 커버리지 집계 → Navigator layer 생성</div>
   </section>
 
 </main>
