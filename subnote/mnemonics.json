@@ -1016,6 +1016,12 @@
   {
     "domain": "SW",
     "fname": "sw",
+    "topic": "1. 형상관리 (Configuration Management)",
+    "mnemonic": "<계식요/승구검>"
+  },
+  {
+    "domain": "SW",
+    "fname": "sw",
     "topic": "[하위] 1-1. 기준선 (Baseline)",
     "mnemonic": "<기분설/시제운>"
   },
