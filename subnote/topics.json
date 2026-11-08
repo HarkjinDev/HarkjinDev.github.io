@@ -965,7 +965,7 @@
       },
       {
         "id": "041",
-        "name": "8. 비인간 신원(NHI)"
+        "name": "8. 비인간 신원 (Non-Human Identity, NHI)"
       },
       {
         "id": "042",
@@ -1333,126 +1333,138 @@
       },
       {
         "id": "133",
-        "name": "[Part 11] 보안관리체계"
+        "name": "13. 자율형 노출 개선 (Autonomous Exposure Remediation, AER)"
       },
       {
         "id": "134",
-        "name": "1. 정보보호 거버넌스 (Information Security Governance)"
+        "name": "14. AI 에이전트 신원 (AI Agent Identity)"
       },
       {
         "id": "135",
-        "name": "2. ISMS-P (개인정보보호 관리체계 인증)"
+        "name": "[Part 11] 보안관리체계"
       },
       {
         "id": "136",
-        "name": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
+        "name": "1. 정보보호 거버넌스 (Information Security Governance)"
       },
       {
         "id": "137",
-        "name": "3. 정보보호책임자(CISO, Chief Information Security Officer)"
+        "name": "2. ISMS-P (개인정보보호 관리체계 인증)"
       },
       {
         "id": "138",
-        "name": "[하위] 3-1. 개인정보보호책임자(CPO, Chief Privacy Officer)"
+        "name": "[하위] 2-1. ISMS-P 실효성 강화방안(26.4.)"
       },
       {
         "id": "139",
-        "name": "4. 사이버 복원력(Cyber Resilience)"
+        "name": "3. 정보보호책임자(CISO, Chief Information Security Officer)"
       },
       {
         "id": "140",
-        "name": "[Part 12] 개인정보보호"
+        "name": "[하위] 3-1. 개인정보보호책임자(CPO, Chief Privacy Officer)"
       },
       {
         "id": "141",
-        "name": "1. 개인정보보호법 개정"
+        "name": "4. 사이버 복원력(Cyber Resilience)"
       },
       {
         "id": "142",
-        "name": "2. 데이터 3법"
+        "name": "5. 정보보호 컴플라이언스 (Information Security Compliance)"
       },
       {
         "id": "143",
-        "name": "3. 개인정보 비식별조치 (De-identification)"
+        "name": "[Part 12] 개인정보보호"
       },
       {
         "id": "144",
-        "name": "4. 익명처리 (Anonymization)"
+        "name": "1. 개인정보보호법 개정"
       },
       {
         "id": "145",
-        "name": "5. 가명처리 (Pseudonymization)"
+        "name": "2. 데이터 3법"
       },
       {
         "id": "146",
-        "name": "6.프라이버시 보호 모델"
+        "name": "3. 개인정보 비식별조치 (De-identification)"
       },
       {
         "id": "147",
-        "name": "7. PET (Privacy Enhancing Technology)"
+        "name": "4. 익명처리 (Anonymization)"
       },
       {
         "id": "148",
-        "name": "8. PbD (Privacy by Design)"
+        "name": "5. 가명처리 (Pseudonymization)"
       },
       {
         "id": "149",
-        "name": "9. 개인정보 안전성 확보조치"
+        "name": "6.프라이버시 보호 모델"
       },
       {
         "id": "150",
-        "name": "[하위] 9-1. 내부관리계획"
+        "name": "7. PET (Privacy Enhancing Technology)"
       },
       {
         "id": "151",
-        "name": "10. APEC 프라이버시 9원칙"
+        "name": "8. PbD (Privacy by Design)"
       },
       {
         "id": "152",
-        "name": "[하위] 10-1. CBPR (Cross Border Privacy Rules)"
+        "name": "9. 개인정보 안전성 확보조치"
       },
       {
         "id": "153",
-        "name": "[하위] 10-2. OECD 프라이버시 8원칙"
+        "name": "[하위] 9-1. 내부관리계획"
       },
       {
         "id": "154",
-        "name": "11. 개인정보 전송요구권 (Right to Data Portability)"
+        "name": "10. APEC 프라이버시 9원칙"
       },
       {
         "id": "155",
-        "name": "[하위] 11-1. 공공 마이데이터"
+        "name": "[하위] 10-1. CBPR (Cross Border Privacy Rules)"
       },
       {
         "id": "156",
-        "name": "12. 자동화 의사결정 대응권"
+        "name": "[하위] 10-2. OECD 프라이버시 8원칙"
       },
       {
         "id": "157",
-        "name": "13. AI 개인정보보호 자율점검표"
+        "name": "11. 개인정보 전송요구권 (Right to Data Portability)"
       },
       {
         "id": "158",
-        "name": "14. CCTV 개인영상정보 보호"
+        "name": "[하위] 11-1. 공공 마이데이터"
       },
       {
         "id": "159",
-        "name": "15. 개인정보 보호 법률 체계"
+        "name": "12. 자동화 의사결정 대응권"
       },
       {
         "id": "160",
-        "name": "16. 잊힐 권리 (Right to be Forgotten)"
+        "name": "13. AI 개인정보보호 자율점검표"
       },
       {
         "id": "161",
-        "name": "17. 개인정보 이노베이션 존"
+        "name": "14. CCTV 개인영상정보 보호"
       },
       {
         "id": "162",
-        "name": "18. 개인정보 사전적정성 제도"
+        "name": "15. 개인정보 보호 법률 체계"
       },
       {
         "id": "163",
+        "name": "16. 잊힐 권리 (Right to be Forgotten)"
+      },
+      {
+        "id": "164",
+        "name": "17. 개인정보 이노베이션 존"
+      },
+      {
+        "id": "165",
+        "name": "18. 개인정보 사전적정성 제도"
+      },
+      {
+        "id": "166",
         "name": "19. 인공지능기술 개발을 위한 개인정보 처리의 특례(안)(26.5.)"
       }
     ]

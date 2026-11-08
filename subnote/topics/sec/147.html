@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. PET (Privacy Enhancing Technology)</title>
+  <title>4. 익명처리 (Anonymization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,17 @@
   </style>
 </head>
 <body>
-<h4>7. PET (Privacy Enhancing Technology)</h4>
+<h4>4. 익명처리 (Anonymization)</h4>
 <ul>
-<li><strong>정의</strong>: 개인정보 보호를 기술적으로 강화하는 프라이버시 보호 강화 기술의 총칭</li>
-<li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습</li>
+<li><strong>정의</strong>: 재식별이 불가능하도록 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>비가역적</strong></u></span>으로 개인정보를 처리하는 기법</li>
+<li><strong>키워드</strong>: 비가역적, 재식별 불가, 데이터 활용</li>
 <li><strong>분류</strong>: 개인정보보호</li>
-<li><strong>PET 기술 분류</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동영다차/합연신&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th>기술</th><th>설명</th><th>활용</th></tr>
-<tr><td><strong>암호화</strong></td><td><strong>동형암호(HE)</strong></td><td>암호화 상태에서 연산</td><td>클라우드 안전 처리</td></tr>
-<tr><td></td><td><strong>영지식 증명(ZKP)</strong></td><td>정보 공개 없이 사실 증명</td><td>블록체인, 인증</td></tr>
-<tr><td></td><td><strong>다자간 연산(MPC)</strong></td><td>각자 데이터 비공개 연산</td><td>공동 분석</td></tr>
-<tr><td><strong>통계</strong></td><td><strong>차분 프라이버시(DP)</strong></td><td>통계에 노이즈 추가</td><td>집계 데이터 공개</td></tr>
-<tr><td></td><td><strong>합성데이터</strong></td><td>원본 특성 모방 가상 데이터</td><td>AI 학습 데이터</td></tr>
-<tr><td><strong>분산</strong></td><td><strong>연합학습(FL)</strong></td><td>데이터 이동 없이 분산 학습</td><td>의료·금융 AI</td></tr>
-<tr><td><strong>HW</strong></td><td><strong>신뢰실행환경(TEE)</strong></td><td>하드웨어 격리 실행</td><td>안전한 데이터 처리</td></tr>
-</table></div>
+<li><strong>가명처리 vs 익명처리</strong>:<ul>
+<li><strong>가명처리</strong>: 추가 정보로 재식별 가능(개보법 적용), 연구 목적 활용 가능</li>
+<li><strong>익명처리</strong>: 재식별 불가(개보법 미적용), 완전 자유 활용</li>
+</ul>
 </li>
-<li><strong>인사이트</strong>: PET는 데이터 활용과 프라이버시 보호의 딜레마를 기술적으로 해결하는 수단으로, 의료·금융 분야의 데이터 공유 활성화의 핵심 기술임</li>
+<li><strong>인사이트</strong>: 완전한 익명화는 이론적으로 매우 어렵고(AOL 사례, Netflix 사례), 재식별 공격이 가능하므로 익명처리 시에도 재식별 위험성 지속 모니터링이 필요함</li>
 </ul>
 
 </body>

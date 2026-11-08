@@ -742,7 +742,7 @@ TLS 세션키 협상에 사용</td></tr>
 </ul>
 <h4>17. 암호문 공격 (Ciphertext Attack)</h4>
 <ul>
-<li><strong>정의</strong>: 암호문을 분석하여 평문이나 암호키를 추출하려는 암호 해독 공격</li>
+<li><strong>정의</strong>: 평문 또는 암호키를 추정하거나 암호체계의 기밀성을 침해하는 암호분석 공격 기법</li>
 <li><strong>키워드</strong>: COA, KPA, CPA, CCA, 커크호프 원칙</li>
 <li><strong>분류</strong>: 암호학</li>
 <li><strong>커크호프 원칙(Kerckhoffs's Principle)</strong>: 알고리즘이 공개되어도 키만 비밀로 유지하면 안전해야 함</li>
@@ -754,7 +754,24 @@ TLS 세션키 협상에 사용</td></tr>
 <tr><td></td><td><strong>CCA (선택 암호문 공격)</strong></td><td>원하는 암호문 복호화 가능</td><td>복호화 오라클 접근</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 커크호프 원칙에 따라 현대 암호는 알고리즘을 공개하고 키 관리에 집중하는 것이 보안 모범 사례임</li>
+<li><strong>암호문 공격 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>공격 기법</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>빈도 분석 (Frequency Analysis)</strong></td><td>암호문 문자 출현 빈도로 평문 추정</td><td>통계적 특성</td></tr>
+<tr><td><strong>전수 공격 (Brute Force)</strong></td><td>가능한 암호키를 순차 대입하여 탐색</td><td>키 공간 탐색</td></tr>
+<tr><td><strong>차분 암호분석 (Differential)</strong></td><td>입력 차이에 따른 출력 차이 확률 분석</td><td>차분 특성</td></tr>
+<tr><td><strong>선형 암호분석 (Linear)</strong></td><td>평문·암호문·키 사이 선형 근사 분석</td><td>선형 근사</td></tr>
+<tr><td><strong>패딩 오라클 (Padding Oracle)</strong></td><td>복호화 시 패딩 검증 결과로 평문 추론</td><td>오류 응답 악용</td></tr>
+<tr><td><strong>관련키 공격 (Related-Key)</strong></td><td>수학적 관계가 있는 여러 키의 암호화 결과 분석</td><td>키 관계 분석</td></tr>
+</table></div>
+</li>
+<li><strong>암호학적 안전성:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>IND-CPA</strong></td><td>선택 평문 공격 환경에서 암호문 구별의 어려움</td><td>CPA 안전성</td></tr>
+<tr><td><strong>IND-CCA</strong></td><td>선택 암호문 공격 환경에서 암호문 구별의 어려움</td><td>CCA 안전성</td></tr>
+<tr><td><strong>AEAD</strong></td><td>암호화와 인증을 결합하여 기밀성·무결성 제공</td><td>인증 암호화</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 암호문 공격은 공격자가 확보한 정보와 암호화·복호화 기능에 대한 접근 권한에 따라 COA·KPA·CPA·CCA로 구분되는 암호분석 기법임. 현대 암호체계에서는 단순히 암호 알고리즘의 강도뿐 아니라 운용 모드, IV·Nonce 관리, 오류 응답 및 키 관리까지 통합적으로 고려해야 함. 특히 IND-CPA·IND-CCA 안전성 확보와 AEAD 기반 인증 암호화 적용을 통해 암호문의 기밀성뿐 아니라 변조에 대한 무결성까지 보장하는 것이 중요함.</li>
 </ul>
 <h4>18. KCMVP(Korea Cryptographic Module Validation Program)</h4>
 <ul>
@@ -984,8 +1001,68 @@ TLS 세션키 협상에 사용</td></tr>
 </li>
 <li><strong>인사이트:</strong> 영지식 증명은 "사실 증명과 정보 보호의 양립"이라는 암호학적 혁신으로, 블록체인 확장성(L2 롤업)·DID 선택적 공개·프라이버시 보호 인증의 핵심 기술로 부상하며, zk-SNARK의 효율성과 zk-STARK의 투명성·양자 내성을 상황에 맞게 선택하는 것이 설계의 핵심</li>
 </ul>
-<h4>8. 비인간 신원(NHI)</h4>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 추가 필요</span></p>
+<h4>8. 비인간 신원 (Non-Human Identity, NHI)</h4>
+<ul>
+<li><strong>정의:</strong> 사람의 직접적인 개입 없이 자원에 접근하거나 상호 통신할 수 있도록 부여된 디지털 신원</li>
+<li><strong>키워드:</strong> NHI, Machine Identity, Service Account, Workload Identity, AI Agent Identity, IAM, Secrets Management, Zero Trust, Least Privilege, SPIFFE/SPIRE, OAuth 2.0, mTLS</li>
+<li><strong>분류</strong>: 인증/신원관리</li>
+<li><strong>주요 유형:</strong> <div class="table-scroll"><table>
+<tr><th>유형</th><th>주요 대상</th><th>설명</th></tr>
+<tr><td>서비스 계정 (Service Account)</td><td>DB·백엔드·배치</td><td>서비스 간 접근을 위한 전용 계정</td></tr>
+<tr><td>워크로드 신원 (Workload Identity)</td><td>컨테이너·VM·서버리스</td><td>실행 중인 워크로드의 신원</td></tr>
+<tr><td>기기 신원 (Device Identity)</td><td>IoT·서버·네트워크 장비</td><td>장치별 인증서·고유 신원 부여</td></tr>
+<tr><td>애플리케이션 신원 (Application Identity)</td><td>API·SaaS·애플리케이션</td><td>애플리케이션 간 접근권한 관리</td></tr>
+<tr><td>AI 에이전트 신원 (Agent Identity)</td><td>AI Agent·자동화 봇</td><td>자율적 작업·도구 실행 주체 식별</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>신원 식별 (Identification)</td><td>비인간 주체별 고유 ID 부여</td><td>고유 신원</td></tr>
+<tr><td>신원 인증 (Authentication)</td><td>인증서·토큰·키 기반 신원 검증</td><td>신뢰성 검증</td></tr>
+<tr><td>권한 관리 (Authorization)</td><td>역할·속성 기반 접근권한 통제</td><td>최소 권한</td></tr>
+<tr><td>자격증명 관리 (Secrets)</td><td>키·인증서·토큰 발급·보관·교체</td><td>자격 보호</td></tr>
+<tr><td>감사 추적 (Audit)</td><td>신원별 접근·실행·변경 이력 기록</td><td>책임 추적</td></tr>
+<tr><td>생명주기 관리 (Lifecycle)</td><td>등록·변경·회수·폐기 자동화</td><td>신원 거버넌스</td></tr>
+</table></div>
+</li>
+<li><strong>NHI 주요 인증·관리 기술:</strong><div class="table-scroll"><table>
+<tr><th>기술</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>API Key</td><td>API 호출 주체 식별·인증</td><td>API 인증</td></tr>
+<tr><td>OAuth 2.0</td><td>범위 제한 토큰 기반 접근 인가</td><td>토큰 인가</td></tr>
+<tr><td>OIDC</td><td>토큰 기반 인증·신원 확인</td><td>신원 연합</td></tr>
+<tr><td>mTLS</td><td>클라이언트·서버 상호 인증</td><td>상호 인증</td></tr>
+<tr><td>SPIFFE/SPIRE</td><td>워크로드 신원 표준화·자동 발급</td><td>워크로드 인증</td></tr>
+<tr><td>PKI/X.509</td><td>인증서 발급·검증·폐기</td><td>인증서 기반 신뢰</td></tr>
+<tr><td>Secrets Manager</td><td>키·토큰·비밀번호 보관·교체</td><td>자격증명 보호</td></tr>
+<tr><td>PAM</td><td>특권 신원·권한·세션 통제</td><td>특권 접근관리</td></tr>
+</table></div>
+</li>
+<li><strong>OWASP NHI Top 10 (2025) 보안 위협 및 대응:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>보안 위협</th><th>주요 위험</th><th>대응 방안</th></tr>
+<tr><td>NHI1</td><td>부적절한 신원 폐기</td><td>유휴 신원·권한 잔존</td><td>자동 폐기·권한 회수</td></tr>
+<tr><td>NHI2</td><td>비밀정보 유출</td><td>API Key·토큰 노출</td><td>Secret Scan·Vault</td></tr>
+<tr><td>NHI3</td><td>취약한 서드파티 NHI</td><td>외부 연동 경로 침해</td><td>공급망 검증·권한 제한</td></tr>
+<tr><td>NHI4</td><td>취약한 인증</td><td>약한 인증수단 악용</td><td>강력한 인증·mTLS</td></tr>
+<tr><td>NHI5</td><td>과도한 권한</td><td>권한 탈취 시 피해 확대</td><td>최소 권한·JIT</td></tr>
+<tr><td>NHI6</td><td>취약한 클라우드 배포 설정</td><td>배포·구성 오류 악용</td><td>IaC 검증·설정 점검</td></tr>
+<tr><td>NHI7</td><td>장기 유효 자격증명</td><td>탈취된 인증정보 장기 악용</td><td>단기 토큰·자동 교체</td></tr>
+<tr><td>NHI8</td><td>환경 격리 미흡</td><td>개발·운영 환경 간 침해 확산</td><td>환경별 신원 분리</td></tr>
+<tr><td>NHI9</td><td>NHI 재사용</td><td>신원 공유로 침해 범위 확대</td><td>서비스별 고유 신원</td></tr>
+<tr><td>NHI10</td><td>인간의 NHI 사용</td><td>행위 주체 추적·책임성 저하</td><td>개인 계정 사용·접근통제</td></tr>
+</table></div>
+</li>
+<li><strong>NHI 도입 시 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td>신원 가시성</td><td>미관리 서비스 계정·Shadow NHI</td><td>신원 자동 탐색·인벤토리</td><td>가시성 확보</td></tr>
+<tr><td>자격증명</td><td>하드코딩·장기 유효 Secret</td><td>Vault·단기 토큰</td><td>비밀정보 보호</td></tr>
+<tr><td>권한 관리</td><td>서비스 계정 과권한</td><td>RBAC·ABAC·최소 권한</td><td>권한 최소화</td></tr>
+<tr><td>생명주기</td><td>유휴 계정·폐기 누락</td><td>자동 발급·교체·폐기</td><td>자동화</td></tr>
+<tr><td>운영 안정성</td><td>자격증명 교체 시 서비스 장애</td><td>단계적 교체·무중단 적용</td><td>가용성 확보</td></tr>
+<tr><td>감사 추적</td><td>공유 계정으로 행위 추적 곤란</td><td>고유 ID·중앙 감사로그</td><td>책임성 확보</td></tr>
+</table></div>
+</li>
+<li>인사이트: NHI는 클라우드·마이크로서비스·AI 에이전트 확산으로 증가하는 비인간 실행 주체의 신뢰성을 보장하는 IAM 핵심 기술임. 신원 자동 탐색·최소 권한·단기 자격증명·생명주기 자동화를 통합한 Zero Trust 기반 관리체계가 요구됨</li>
+</ul>
 <hr>
 <h3>[Part 4] 네트워크 보안</h3>
 <h4>1. 네트워크 보안 장비</h4>
@@ -1233,7 +1310,7 @@ TLS 세션키 협상에 사용</td></tr>
 <h4>9. SOAR (Security Orchestration, Automation and Response)</h4>
 <ul>
 <li><strong>정의:</strong> 보안 도구 간 오케스트레이션·자동화·사고대응을 통합하여 보안 운영의 효율성을 높이고 위협 대응 시간을 단축하는 보안 플랫폼</li>
-<li><strong>키워드:</strong> SOA, SIRP, TIP, 가시성, 플레이북, 워크플로우, 사고대응, Reporting, 경보 피로</li>
+<li><strong>키워드:</strong> SOA, SIRP, TIP, 가시성, 플레이북, 워크플로우, 사고대응, TTPs, Reporting, 경보 피로</li>
 <li><strong>분류:</strong> 네트워크 보안</li>
 <li><strong>아키텍처 (</strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>SOA + SIRP + TIP</strong></u></span><strong>):</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
@@ -1885,7 +1962,7 @@ TLS 세션키 협상에 사용</td></tr>
 </ul>
 <h4><strong>[하위] 9-1. CTEM (Continuous Threat Exposure Management)</strong></h4>
 <ul>
-<li><strong>정의:</strong> Gartner가 제시한 위협 노출을 지속적으로 평가·완화하는 통합 프로그램</li>
+<li><strong>정의:</strong> Gartner가 제시한 위협 노출을 지속적으로 평가·완화하는 통합 프레임워크</li>
 <li><strong>CTEM 구성요소: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;범발우/검완&gt;</strong></span><div class="table-scroll"><table>
 <tr><th>구분</th><th>프로세스</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Diagnose</strong></td><td><strong>Scoping</strong></td><td>보호 대상 인프라·정보자산 식별 및 가치 높은 자산 선별</td><td>자산 범위 설정</td></tr>
@@ -3045,6 +3122,105 @@ TLS 세션키 협상에 사용</td></tr>
 </li>
 <li><strong>인사이트:</strong> AI 기반 사이버위협은 공격 자동화·초개인화·에이전트 자율성이 결합된 차세대 위협으로, 기존 시그니처·행위 기반 방어를 무력화하므로 Least Agency·HITL·AI-BOM·AI 기반 탐지를 결합한 다층 방어체계(Defense-in-Depth) 구축이 필수</li>
 </ul>
+<h4>13. 자율형 노출 개선 (Autonomous Exposure Remediation, AER)</h4>
+<ul>
+<li><strong>정의:</strong> 보안 취약점과 노출 위험을 자율적으로 분석하여 개선까지 수행하는 폐쇄 루프(Closed-loop) 기반의 선제적 보안 기술</li>
+<li><strong>키워드:</strong> AER, Agentic AI, CTEM, 가상패치, Exposure Management, Autonomous Remediation, Risk-based Prioritization, Auto-Patching, Closed-loop, Rollback, DevSecOps</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>노출 탐지 (Discovery)</td><td>취약점·설정 오류·노출 자산 식별</td><td>공격표면 식별</td></tr>
+<tr><td>위험 분석 (Analysis)</td><td>자산 중요도·공격 경로·악용 가능성 분석</td><td>위험 맥락 분석</td></tr>
+<tr><td>우선순위화 (Prioritization)</td><td>위험도 기반 개선 대상 선정</td><td>위험 기반 조치</td></tr>
+<tr><td>개선안 생성 (Remediation)</td><td>AI 기반 패치·설정 변경·완화책 생성</td><td>자율 개선안</td></tr>
+<tr><td>변경 검증 (Validation)</td><td>테스트·영향도 분석·배포 적합성 평가</td><td>변경 안전성</td></tr>
+<tr><td>조치 실행 (Execution)</td><td>패치 배포·재검증·실패 시 롤백</td><td>폐쇄 루프</td></tr>
+</table></div>
+</li>
+<li><strong>수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 수집</td><td>자산·보안정보 수집</td><td>CMDB, EDR, CSPM, SAST, SCA 연계</td><td>데이터 통합</td></tr>
+<tr><td>2. 탐지</td><td>노출 위험 식별</td><td>CVE·설정 오류·취약 라이브러리 탐지</td><td>취약점 발견</td></tr>
+<tr><td>3. 평가</td><td>위험 분석·우선순위화</td><td>CVSS·EPSS·KEV·자산 중요도 분석</td><td>위험도 평가</td></tr>
+<tr><td>4. 계획</td><td>개선 방안 생성</td><td>AI 기반 패치·설정 변경·완화책 수립</td><td>개선안 생성</td></tr>
+<tr><td>5. 검증</td><td>사전 영향 검증</td><td>테스트·의존성 분석·배포 영향 평가</td><td>안전성 확보</td></tr>
+<tr><td>6. 실행</td><td>개선 조치 적용</td><td>패치·설정 변경·가상 패치 자동 배포</td><td>자동 조치</td></tr>
+<tr><td>7. 재검증</td><td>조치 효과 확인</td><td>취약점 재스캔·정상 동작 확인·필요 시 롤백</td><td>개선 검증</td></tr>
+</table></div>
+</li>
+<li><strong>주요 적용 기술:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>적용 기술</th><th>주요 역할</th><th>핵심</th></tr>
+<tr><td>AI 분석</td><td>LLM, Agentic AI</td><td>위험 분석·개선안 생성</td><td>자율 의사결정</td></tr>
+<tr><td>위험 평가</td><td>CVSS, EPSS, CISA KEV</td><td>심각도·악용 가능성 평가</td><td>위험 우선순위</td></tr>
+<tr><td>노출 관리</td><td>ASM, EASM, CTEM</td><td>공격표면·취약점 통합 관리</td><td>노출 가시성</td></tr>
+<tr><td>보안 검증</td><td>SAST, DAST, SCA</td><td>코드·애플리케이션 취약점 검증</td><td>취약점 검증</td></tr>
+<tr><td>자동 조치</td><td>SOAR, Ansible, IaC</td><td>패치·설정 변경 자동화</td><td>개선 실행</td></tr>
+<tr><td>개발 연계</td><td>CI/CD, DevSecOps</td><td>수정 코드 테스트·배포</td><td>개발 파이프라인</td></tr>
+<tr><td>안전 통제</td><td>HITL, Policy as Code</td><td>승인·권한·정책 기반 실행 제어</td><td>자율성 통제</td></tr>
+</table></div>
+</li>
+<li><strong>AER 도입 시 한계 및 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>한계점</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td>AI 신뢰성</td><td>잘못된 개선안 생성·오탐</td><td>사전 테스트·결정론적 검증</td><td>조치 정확성</td></tr>
+<tr><td>운영 안정성</td><td>패치로 인한 서비스 장애</td><td>Canary 배포·자동 롤백</td><td>가용성 확보</td></tr>
+<tr><td>권한 관리</td><td>AI의 과도한 시스템 변경 권한</td><td>최소 권한·승인체계·HITL</td><td>실행 통제</td></tr>
+<tr><td>환경 의존성</td><td>시스템 간 복잡한 의존관계</td><td>변경 영향 분석·테스트</td><td>변경 안전성</td></tr>
+<tr><td>추적성</td><td>AI 판단·조치 근거 불명확</td><td>의사결정 로그·감사 증적</td><td>책임성 확보</td></tr>
+<tr><td>OT 환경</td><td>패치 제약·실시간 제어 영향</td><td>가상 패치·유지보수 창 활용</td><td>운영 연속성</td></tr>
+</table></div>
+</li>
+<li>인사이트: AI의 잘못된 판단과 운영 장애를 방지하기 위해 Human-in-the-loop, 최소 권한, 사전 영향 검증, 자동 롤백을 결합한 통제 가능한 자율화가 핵심이며, 초기에는 저위험·반복적 개선 작업부터 단계적으로 적용하는 것이 적절함.</li>
+</ul>
+<h4>14. AI 에이전트 신원 (AI Agent Identity)</h4>
+<ul>
+<li><strong>정의: </strong>AI 에이전트에 고유한 디지털 신원을 부여하고, 신뢰성과 책임성을 확보하는 비인간 신원(Non-Human Identity, NHI) 관리 기술</li>
+<li><strong>키워드:</strong> Agent Identity, NHI, IAM, OAuth 2.0, OIDC, RBAC, ABAC, Zero Trust, Least Privilege, Delegated Authorization, Identity Lifecycle, Agent-to-Agent(A2A), MCP</li>
+<li><strong>분류</strong>: AI 보안</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>신원 식별 (Identification)</td><td>에이전트별 고유 ID 발급·등록</td><td>고유 신원</td></tr>
+<tr><td>신원 인증 (Authentication)</td><td>인증서·토큰 기반 신원 검증</td><td>신뢰성 검증</td></tr>
+<tr><td>권한 관리 (Authorization)</td><td>RBAC·ABAC 기반 접근권한 부여</td><td>최소 권한</td></tr>
+<tr><td>위임 관리 (Delegation)</td><td>사용자·에이전트 간 권한 위임 통제</td><td>권한 범위</td></tr>
+<tr><td>감사 추적 (Audit)</td><td>API 호출·도구 실행·행위 이력 기록</td><td>책임 추적</td></tr>
+<tr><td>생명주기 관리 (Lifecycle)</td><td>신원 발급·변경·회수·폐기</td><td>신원 거버넌스</td></tr>
+</table></div>
+</li>
+<li><strong>AI 에이전트 신원 주요 보안 기술:</strong><div class="table-scroll"><table>
+<tr><th>기술</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>OAuth 2.0</td><td>범위 제한 액세스 토큰·위임 인가</td><td>위임·인가</td></tr>
+<tr><td>OIDC</td><td>ID Token 기반 신원 인증</td><td>신원 검증</td></tr>
+<tr><td>mTLS</td><td>상호 인증서 기반 통신 인증</td><td>상호 인증</td></tr>
+<tr><td>RBAC</td><td>역할별 접근권한 제어</td><td>역할 기반 통제</td></tr>
+<tr><td>ABAC</td><td>속성·환경·작업 맥락 기반 권한 제어</td><td>동적 접근통제</td></tr>
+<tr><td>PAM</td><td>고위험·특권 작업 권한 통제</td><td>특권 관리</td></tr>
+<tr><td>Short-lived Token</td><td>단기 토큰 발급·만료·재발급</td><td>자격증명 보호</td></tr>
+<tr><td>Zero Trust</td><td>요청별 신원·권한·상황 검증</td><td>지속적 검증</td></tr>
+</table></div>
+</li>
+<li><strong>AI 에이전트 신원 보안 위협 및 대응:</strong><div class="table-scroll"><table>
+<tr><th>보안 위협</th><th>주요 위험</th><th>대응 방안</th></tr>
+<tr><td>신원 위장 (Spoofing)</td><td>타 에이전트·사용자 사칭</td><td>강력한 인증·상호 인증</td></tr>
+<tr><td>권한 상승 (Privilege Escalation)</td><td>허용 범위 초과 작업 수행</td><td>최소 권한·RBAC·ABAC</td></tr>
+<tr><td>토큰 탈취 (Token Theft)</td><td>인증정보 유출·재사용</td><td>단기 토큰·토큰 바인딩</td></tr>
+<tr><td>프롬프트 인젝션</td><td>악성 명령으로 권한 오남용</td><td>정책 기반 실행 검증</td></tr>
+<tr><td>과도한 자율성</td><td>무단 변경·삭제·외부 전송</td><td>HITL·승인 기반 실행</td></tr>
+<tr><td>에이전트 확산 (Agent Sprawl)</td><td>미관리 에이전트·유휴 권한 증가</td><td>신원 인벤토리·정기 권한 검토</td></tr>
+<tr><td>책임 추적 부재</td><td>에이전트 행위 주체 불명확</td><td>Agent ID·위임자·실행 로그 연계</td></tr>
+</table></div>
+</li>
+<li><strong>AI 에이전트 신원 도입 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>고려사항</th><th>대응 방안</th></tr>
+<tr><td>신원 관리</td><td>에이전트 생성·증가에 따른 관리 복잡성</td><td>중앙 신원 등록·인벤토리 관리</td></tr>
+<tr><td>권한 통제</td><td>사용자 위임·에이전트 자체 권한 혼재</td><td>권한 분리·작업별 최소 권한</td></tr>
+<tr><td>자격증명</td><td>API Key·Secret 유출 위험</td><td>단기 토큰·Secrets Manager</td></tr>
+<tr><td>신뢰 검증</td><td>에이전트 간 호출 신뢰성 부족</td><td>상호 인증·토큰 검증</td></tr>
+<tr><td>운영 통제</td><td>AI의 비결정적 실행·오작동</td><td>HITL·정책 엔진·실행 제한</td></tr>
+<tr><td>감사·책임성</td><td>작업 실행 주체·책임자 불명확</td><td>사용자·Agent ID·작업 ID 연계</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트: </strong>AI 에이전트 신원은 기존 인간·서비스 계정 중심 IAM을 자율적 비인간 신원으로 확장하는 핵심 보안 기술임. Agentic AI 환경에서는 단순 인증을 넘어 에이전트의 고유 신원, 사용자 위임 관계, 작업별 권한 및 실행 이력을 통합 관리해야 하며, 프롬프트 인젝션에 의한 권한 오남용을 방지하기 위해 LLM의 판단과 실제 권한 집행을 분리해야 함. 특히 Zero Trust 기반 최소 권한, 단기 토큰, 정책 기반 인가, HITL 및 감사 추적을 결합하여 에이전트의 자율성을 보장하면서도 통제 가능한 신뢰 체계를 구축하는 것이 중요함.</li>
+</ul>
 <hr>
 <h3>[Part 11] 보안관리체계</h3>
 <h4>1. 정보보호 거버넌스 (Information Security Governance)</h4>
@@ -3259,6 +3435,64 @@ TLS 세션키 협상에 사용</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> 사이버 복원력은 "침해를 막는다"에서 "침해 후에도 살아남는다"로의 패러다임 전환으로, 완벽한 방어가 불가능한 현실에서 MTTD·MTTR 최소화와 핵심 기능 지속 운영 능력이 조직 생존의 핵심 역량으로 부상하고 있음. NIST CSF 2.0의 거버넌스 기능 추가와 EU DORA 의무화가 보여주듯 사이버 복원력은 기술을 넘어 경영진 수준의 전략적 의무로 자리잡고 있음</li>
+</ul>
+<h4>5. 정보보호 컴플라이언스 (Information Security Compliance)</h4>
+<ul>
+<li><strong>정의: </strong>조직의 정보자산과 개인정보를 보호하기 위해 관련 법률·규제·표준·계약 및 내부 보안정책의 요구사항을 준수하고, 이행 여부를 지속적으로 점검·개선하는 관리 활동</li>
+<li><strong>키워드:</strong> Compliance, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GRC</strong></u></span>, ISMS-P, ISO/IEC 27001, GDPR, PCI DSS, Risk Assessment, Gap Analysis, 내부통제, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>준법감시</strong></u></span>, 지속적 컴플라이언스(Continuous Compliance)</li>
+<li><strong>분류</strong>: 보안관리체계</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>법규 준수</td><td>정보보호·개인정보 관련 법률 준수</td><td>법적 의무</td></tr>
+<tr><td>정책·표준 관리</td><td>보안정책·지침 및 국제표준 적용</td><td>준수 기준</td></tr>
+<tr><td>내부통제</td><td>접근통제·암호화·권한관리 등 보호조치</td><td>위험 통제</td></tr>
+<tr><td>감사·평가</td><td>준수 여부 점검·취약점 및 위험 평가</td><td>준수 검증</td></tr>
+<tr><td>증적 관리</td><td>정책·점검 결과·조치 이력 기록</td><td>준수 입증</td></tr>
+</table></div>
+</li>
+<li><strong>정보보호 컴플라이언스 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 기준</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td>법률·규제</td><td>개인정보 보호법</td><td>개인정보 처리·보호 의무</td><td>법적 준수</td></tr>
+<tr><td></td><td>정보통신망법</td><td>정보통신망 보호·ISMS 인증 등</td><td>정보통신 보안</td></tr>
+<tr><td></td><td>전자금융거래법</td><td>전자금융거래 안전성 확보</td><td>금융 보안</td></tr>
+<tr><td></td><td>신용정보법</td><td>개인신용정보 처리·보호</td><td>신용정보 보호</td></tr>
+<tr><td></td><td>GDPR (EU)</td><td>EU 개인정보 처리·정보주체 권리</td><td>글로벌 규제</td></tr>
+<tr><td>인증·표준</td><td>ISMS-P</td><td>정보보호·개인정보 관리체계 인증</td><td>국내 통합 인증</td></tr>
+<tr><td></td><td>ISO/IEC 27001</td><td>정보보호 관리체계 국제표준</td><td>ISMS 국제표준</td></tr>
+<tr><td>내부·계약</td><td>내부 보안정책</td><td>조직별 보안규정·지침</td><td>내부통제</td></tr>
+<tr><td></td><td>SLA·보안계약</td><td>서비스·위탁 보안 요구사항</td><td>계약 준수</td></tr>
+</table></div>
+</li>
+<li><strong>관리 프로세스: </strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 요구사항 식별</td><td>관련 법률·규제·표준·계약 식별</td><td>준수 대상</td></tr>
+<tr><td>2. 현황 분석</td><td>Gap Analysis·위험평가 수행</td><td>준수 격차</td></tr>
+<tr><td>3. 이행계획 수립</td><td>개선과제·책임자·일정 수립</td><td>대응 계획</td></tr>
+<tr><td>4. 통제 이행</td><td>보안정책·관리적·기술적 보호조치 적용</td><td>통제 구현</td></tr>
+<tr><td>5. 준수 점검</td><td>내부감사·증적 검토·적합성 평가</td><td>준수 검증</td></tr>
+<tr><td>6. 지속적 개선</td><td>미준수 시정조치·규제 변경 반영</td><td>지속 개선</td></tr>
+</table></div>
+</li>
+<li><strong>정보보호 컴플라이언스 주요 관리 기술:</strong><div class="table-scroll"><table>
+<tr><th>관리 기술</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>GRC 플랫폼</td><td>규제·위험·통제항목 통합 관리</td><td>통합 거버넌스</td></tr>
+<tr><td>RegTech</td><td>규제 변경 탐지·준수 업무 자동화</td><td>규제 대응</td></tr>
+<tr><td>Continuous Compliance</td><td>상시 보안설정·준수상태 모니터링</td><td>지속적 준수</td></tr>
+<tr><td>CSPM</td><td>클라우드 설정 오류·정책 위반 탐지</td><td>클라우드 준수</td></tr>
+<tr><td>SIEM·SOAR</td><td>로그 기반 통제 모니터링·대응 자동화</td><td>보안 운영</td></tr>
+<tr><td>Policy as Code</td><td>보안·규제 요구사항 코드화 및 자동 검증</td><td>정책 자동화</td></tr>
+</table></div>
+</li>
+<li><strong>정보보호 컴플라이언스 주요 KPI:</strong><div class="table-scroll"><table>
+<tr><th>평가 지표</th><th>측정 기준</th><th>핵심</th></tr>
+<tr><td>규제 준수율</td><td>충족 요구사항 / 적용 요구사항 × 100</td><td>준수 수준</td></tr>
+<tr><td>미준수 개선율</td><td>완료 개선조치 / 개선 대상 × 100</td><td>시정조치</td></tr>
+<tr><td>증적 확보율</td><td>확보 증적 / 요구 증적 × 100</td><td>감사 대응</td></tr>
+<tr><td>조치 기한 준수율</td><td>기한 내 완료 / 전체 완료 대상 × 100</td><td>이행 적시성</td></tr>
+<tr><td>통제 효과성</td><td>통제 시험·검증 결과</td><td>실질적 통제</td></tr>
+</table></div>
+</li>
+<li>인사이트: 정보보호 컴플라이언스는 법률·규제 준수를 넘어 조직의 정보보호 위험을 통제하고 대외 신뢰성을 확보하는 핵심 거버넌스 활동임. 기존의 정기 감사 중심 대응은 규제 변경과 클라우드·AI 환경의 동적 위험에 한계가 있으므로, GRC 기반 통합관리, Continuous Compliance, Policy as Code를 활용하여 상시 준수체계로 전환해야 함. 특히 규제 준수 자체가 보안성을 보장하지는 않으므로 위험 기반 통제의 실효성 평가와 지속적 개선이 병행되어야 함.</li>
 </ul>
 <hr>
 <h3>[Part 12] 개인정보보호</h3>
