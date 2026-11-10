@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</title>
+  <title>[하위] 6-1. Passwordless 인증</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,38 +15,32 @@
   </style>
 </head>
 <body>
-<h4>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</h4>
+<h4>[하위] 6-1. Passwordless 인증</h4>
 <ul>
-<li><strong>정의:</strong> 증명자는 비밀을 알고 있고, 검증자는 비밀을 알지 못한 상태에서 증명자가 비밀을 알고 있다는 사실만 증명하는 암호화적 프로토콜</li>
-<li><strong>키워드:</strong> 증명자(Prover)·검증자(Verifier), 완전성·건전성·영지식성, zk-SNARK·zk-STARK, 프라이버시 보호, DID, 블록체인, 선택적 공개</li>
-<li><strong>분류</strong>: 인증/신원관리</li>
-<li><strong>3대 핵심 속성: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완건영&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>속성</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>완전성 </strong></td><td>증명자가 사실을 알고 있으면 검증자를 항상 납득시킬 수 있음</td><td>참→참 증명 가능</td></tr>
-<tr><td><strong>건전성</strong></td><td>증명자가 사실을 모르면 검증자를 납득시킬 수 없음</td><td>거짓→거짓 탐지</td></tr>
-<tr><td><strong>영지식성</strong></td><td>검증자는 사실의 진위 외 어떠한 추가 정보도 획득 불가</td><td>정보 노출 없음</td></tr>
+<li><strong>정의:</strong> 비밀번호 없이 생체인증·보안키 등으로 사용자를 인증하는 차세대 인증 방식</li>
+<li><strong>핵심 보안 장점:</strong><div class="table-scroll"><table>
+<tr><th>장점</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>피싱 원천차단</strong></td><td>Origin(도메인) 바인딩으로 가짜사이트 인증 불가</td><td>도메인 검증 내장</td></tr>
+<tr><td><strong>서버측 자산 무력화</strong></td><td>서버는 공개키만 보관·탈취해도 악용 불가</td><td>대규모유출 무의미</td></tr>
+<tr><td><strong>재사용공격 무력화</strong></td><td>사이트별 별도 키쌍 생성</td><td>크리덴셜스터핑 차단</td></tr>
+<tr><td><strong>자격증명공유 불가</strong></td><td>개인키가 하드웨어에 봉인</td><td>물리적 유출 방지</td></tr>
 </table></div>
 </li>
-<li><strong>ZKP 유형:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>유형</th><th>설명</th></tr>
-<tr><td>상호작용</td><td><strong>대화형 </strong></td><td>증명자·검증자 간 다수 라운드 메시지 교환</td></tr>
-<tr><td></td><td><strong>비대화형 </strong></td><td>단일 메시지로 증명·CRS(공통 참조 문자열) 활용</td></tr>
-<tr><td>증명 크기</td><td><strong>zk-SNARK</strong></td><td>증명 크기 매우 작음·검증 속도 빠름·신뢰 설정 필요</td></tr>
-<tr><td></td><td><strong>zk-STARK</strong></td><td>신뢰 설정 불필요·양자 내성·증명 크기 큼</td></tr>
-<tr><td></td><td><strong>Bulletproofs</strong></td><td>신뢰 설정 불필요·범위 증명 특화·검증 느림</td></tr>
-<tr><td></td><td><strong>PLONK</strong></td><td>범용 zk-SNARK·단일 신뢰 설정 재사용</td></tr>
+<li><strong>Passwordless 인증 방식: </strong><div class="table-scroll"><table>
+<tr><th>보안수준</th><th>방식</th><th>핵심</th><th>대표사례</th></tr>
+<tr><td><strong>최고 
+(피싱저항)</strong></td><td><strong>하드웨어 보안키</strong></td><td>원격탈취 불가·개인키 물리봉인</td><td>YubiKey</td></tr>
+<tr><td></td><td><strong>패스키 </strong></td><td>도메인바인딩·피싱저항성 최강</td><td>Apple·Google·MS 통합</td></tr>
+<tr><td><strong>높음</strong></td><td><strong>생체인식</strong></td><td>고유신체정보·로컬검증</td><td>Apple FaceID, Windows Hello</td></tr>
+<tr><td></td><td><strong>인증서 기반 인증</strong></td><td>PKI 개인키·스마트카드 기반</td><td>공동인증서, 스마트카드</td></tr>
+<tr><td><strong>중간</strong></td><td><strong>인증 앱·푸시알림</strong></td><td>기기소유 기반 승인버튼</td><td>Google/MS Authenticator</td></tr>
+<tr><td></td><td><strong>QR코드 인증</strong></td><td>기기간 신뢰전이·암호화교환</td><td>은행앱, WeChat</td></tr>
+<tr><td></td><td><strong>NFC 배지 탭</strong></td><td>기존 출입카드 재활용</td><td>프론트라인 근로자용</td></tr>
+<tr><td></td><td><strong>소셜/연합 로그인 (SSO)</strong></td><td>신뢰된 IdP로 위임인증</td><td>"Google로 로그인"</td></tr>
+<tr><td><strong>낮음</strong></td><td><strong>매직 링크 </strong></td><td>이메일 계정 탈취시 취약</td><td>Slack, Notion</td></tr>
+<tr><td></td><td><strong>OTP (원타임 패스코드)</strong></td><td>SIM스와핑·피싱 취약</td><td>SMS/이메일 TOTP, HOTP</td></tr>
 </table></div>
 </li>
-<li><strong>ZKP 동작 원리:</strong><div class="table-scroll"><table>
-<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>① 설정</strong></td><td>증명자는 비밀을 보유</td><td><strong>비밀 보유</strong></td></tr>
-<tr><td><strong>② 도전</strong></td><td>검증자가 무작위 도전값 제시</td><td><strong>무작위성</strong></td></tr>
-<tr><td><strong>③ 응답</strong></td><td>증명자가 비밀을 활용해 응답</td><td><strong>비밀 지식 증명</strong></td></tr>
-<tr><td><strong>④ 반복</strong></td><td>여러 차례 도전·응답 수행</td><td><strong>위조 가능성 감소</strong></td></tr>
-<tr><td><strong>⑤ 검증</strong></td><td>검증자는 비밀 없이 보유 사실 확인</td><td><strong>정보 비공개</strong></td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 영지식 증명은 "사실 증명과 정보 보호의 양립"이라는 암호학적 혁신으로, 블록체인 확장성(L2 롤업)·DID 선택적 공개·프라이버시 보호 인증의 핵심 기술로 부상하며, zk-SNARK의 효율성과 zk-STARK의 투명성·양자 내성을 상황에 맞게 선택하는 것이 설계의 핵심</li>
 </ul>
 
 </body>

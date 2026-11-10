@@ -740,6 +740,19 @@ TLS 세션키 협상에 사용</td></tr>
 </li>
 <li><strong>인사이트:</strong> 합성 데이터는 데이터 부족·프라이버시 규제 문제를 해결하는 실용적 대안으로 부상하고 있으나, Model Collapse가 보여주듯 실제 데이터와의 혼합 없이 순수 합성 데이터만으로 학습을 반복하면 모델 품질이 점진적으로 저하되므로 품질 검증과 실데이터 비율 유지가 합성 데이터 전략의 핵심 설계 요소임</li>
 </ul>
+<h4>[하위] 16-1. <strong>합성데이터 파이프라인 (Synthetic Data Pipeline)</strong></h4>
+<ul>
+<li><strong>구성 절차: (개인정보보호위원회 - 합성데이터 생성/활용 안내서)</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>단계</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>입력 영역</td><td>① 사전준비</td><td>활용 목적·범위 설정, 원본데이터 확보</td><td>생성 계획</td></tr>
+<tr><td>처리 영역</td><td>② 합성데이터 생성</td><td>탐색적 분석·전처리·모델 생성·후처리</td><td>데이터 합성</td></tr>
+<tr><td></td><td>③ 안전성·유용성 검증</td><td>측정지표·임계값 설정, 위험·품질 평가</td><td>안전성·유용성</td></tr>
+<tr><td>출력 영역</td><td>④ 심의위원회 평가</td><td>내·외부 전문가 검토, 익명성 평가</td><td>적정성 검토</td></tr>
+<tr><td></td><td>⑤ 활용·안전한 관리</td><td>목적별 활용, 접근통제·이력관리</td><td>안전한 활용</td></tr>
+<tr><td>피드백 루프</td><td>반복 개선</td><td>기준 미달 시 재생성·후처리·재검증</td><td>품질 지속 개선</td></tr>
+</table></div>
+</li>
+</ul>
 <h4>17. 암호문 공격 (Ciphertext Attack)</h4>
 <ul>
 <li><strong>정의</strong>: 평문 또는 암호키를 추정하거나 암호체계의 기밀성을 침해하는 암호분석 공격 기법</li>
@@ -3125,7 +3138,7 @@ TLS 세션키 협상에 사용</td></tr>
 <h4>13. 자율형 노출 개선 (Autonomous Exposure Remediation, AER)</h4>
 <ul>
 <li><strong>정의:</strong> 보안 취약점과 노출 위험을 자율적으로 분석하여 개선까지 수행하는 폐쇄 루프(Closed-loop) 기반의 선제적 보안 기술</li>
-<li><strong>키워드:</strong> AER, Agentic AI, CTEM, 가상패치, Exposure Management, Autonomous Remediation, Risk-based Prioritization, Auto-Patching, Closed-loop, Rollback, DevSecOps</li>
+<li><strong>키워드:</strong> AER, Agentic AI, CTEM, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>가상패치</strong></u></span>, Auto-Patching, Closed-loop, Rollback, DevSecOps</li>
 <li><strong>분류</strong>: AI 보안</li>
 <li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
 <tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
@@ -3151,7 +3164,7 @@ TLS 세션키 협상에 사용</td></tr>
 <li><strong>주요 적용 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>적용 기술</th><th>주요 역할</th><th>핵심</th></tr>
 <tr><td>AI 분석</td><td>LLM, Agentic AI</td><td>위험 분석·개선안 생성</td><td>자율 의사결정</td></tr>
-<tr><td>위험 평가</td><td>CVSS, EPSS, CISA KEV</td><td>심각도·악용 가능성 평가</td><td>위험 우선순위</td></tr>
+<tr><td>위험 평가</td><td>CVSS, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>EPSS, CISA KEV</strong></u></span></td><td>심각도·악용 가능성 평가</td><td>위험 우선순위</td></tr>
 <tr><td>노출 관리</td><td>ASM, EASM, CTEM</td><td>공격표면·취약점 통합 관리</td><td>노출 가시성</td></tr>
 <tr><td>보안 검증</td><td>SAST, DAST, SCA</td><td>코드·애플리케이션 취약점 검증</td><td>취약점 검증</td></tr>
 <tr><td>자동 조치</td><td>SOAR, Ansible, IaC</td><td>패치·설정 변경 자동화</td><td>개선 실행</td></tr>
@@ -3220,6 +3233,86 @@ TLS 세션키 협상에 사용</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트: </strong>AI 에이전트 신원은 기존 인간·서비스 계정 중심 IAM을 자율적 비인간 신원으로 확장하는 핵심 보안 기술임. Agentic AI 환경에서는 단순 인증을 넘어 에이전트의 고유 신원, 사용자 위임 관계, 작업별 권한 및 실행 이력을 통합 관리해야 하며, 프롬프트 인젝션에 의한 권한 오남용을 방지하기 위해 LLM의 판단과 실제 권한 집행을 분리해야 함. 특히 Zero Trust 기반 최소 권한, 단기 토큰, 정책 기반 인가, HITL 및 감사 추적을 결합하여 에이전트의 자율성을 보장하면서도 통제 가능한 신뢰 체계를 구축하는 것이 중요함.</li>
+</ul>
+<h4>15. 에이전트 재킹 (Agent Jacking / AI Agent Hijacking)</h4>
+<ul>
+<li><strong>정의:</strong> 공격자가 AI 에이전트의 권한을 악용해 비인가 작업을 수행하도록 유도하는 AI 보안 공격</li>
+<li><strong>키워드:</strong> Agent Hijacking, Agent Goal Hijack, Indirect Prompt Injection, Tool Poisoning, MCP, Memory Poisoning, Goal Manipulation, Privilege Abuse, Trust Boundary, Agentic AI, OWASP ASI01</li>
+<li><strong>분류:</strong> AI 보안</li>
+<li><strong>주요 공격 유형: </strong></li>
+<li>Prompt Injection·Tool Poisoning·Memory Poisoning은 Agent Jacking을 유발할 수 있는 공격 기법이며, Agent Jacking은 공격 결과인 목표·행동 탈취에 초점을 둠.<div class="table-scroll"><table>
+<tr><th>공격 유형</th><th>주요 공격 방식</th><th>핵심</th></tr>
+<tr><td>프롬프트 인젝션 (Prompt Injection)</td><td>외부 콘텐츠에 악성 지시 삽입</td><td>지시 변조</td></tr>
+<tr><td>도구 포이즈닝 (Tool Poisoning)</td><td>MCP 도구 설명·응답·메타데이터 조작</td><td>도구 신뢰 악용</td></tr>
+<tr><td>메모리 포이즈닝 (Memory Poisoning)</td><td>에이전트 기억·RAG 컨텍스트 오염</td><td>지속적 행동 조작</td></tr>
+<tr><td>신원 위장 (Agent Spoofing)</td><td>에이전트 간 메시지·발신자 위조</td><td>신뢰 관계 악용</td></tr>
+<tr><td>권한 악용 (Privilege Abuse)</td><td>에이전트의 기존 권한으로 비인가 작업 유도</td><td>권한 오남용</td></tr>
+</table></div>
+</li>
+<li><strong>공격 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th></tr>
+<tr><td>1. 환경 탐색</td><td>Agent Reconnaissance</td><td>도구·권한·입력 경로·신뢰 경계 파악</td></tr>
+<tr><td>2. 악성 지시 주입</td><td>Payload Injection</td><td>문서·웹페이지·도구 응답에 악성 지시 삽입</td></tr>
+<tr><td>3. 목표 주도권 탈취</td><td>Goal Hijacking</td><td>외부 데이터를 정상 지시로 오인하도록 유도</td></tr>
+<tr><td>4. 비인가 실행</td><td>Unauthorized Execution</td><td>API 호출·정보 유출·파일 변경 등 수행</td></tr>
+<tr><td>5. 결과 확인</td><td>Attack Verification</td><td>실행 결과 및 목표 이탈 여부 확인</td></tr>
+</table></div>
+</li>
+<li><strong>주요 보안 위협 및 대응:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>보안 위협</th><th>대응 기술</th><th>핵심</th></tr>
+<tr><td>신뢰 분리</td><td>외부 데이터의 명령 승격</td><td>Trust Boundary·지시/데이터 분리</td><td>신뢰 경계</td></tr>
+<tr><td>권한 통제</td><td>에이전트 권한 오남용</td><td>Least Privilege·RBAC·ABAC</td><td>최소 권한</td></tr>
+<tr><td>실행 검증</td><td>악성 도구·API 호출</td><td>Tool Gateway·Policy Engine</td><td>실행 통제</td></tr>
+<tr><td>승인 관리</td><td>고위험 작업 자동 실행</td><td>Human-in-the-loop·JIT 승인</td><td>인간 승인</td></tr>
+<tr><td>감사 추적</td><td>악성 행위 탐지·추적 한계</td><td>Agent ID·실행 로그·행동 모니터링</td><td>책임 추적</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트: </strong>기존 프롬프트 인젝션이 주로 모델의 응답 조작에 초점을 둔다면, 에이전트 재킹은 정상 인증정보와 실행 권한을 이용한 다단계 비인가 행위로 확대될 수 있음. </li>
+</ul>
+<h4>16. 멤버십 추론 공격 (Membership Inference Attack, MIA)</h4>
+<ul>
+<li><strong>정의: </strong>특정 데이터가 머신 모델의 학습 데이터셋에 포함되었는지 추론하는 AI 프라이버시 침해 공격</li>
+<li><strong>키워드:</strong> Membership Inference, MIA, Shadow Model, Attack Model, Confidence Score, Prediction Loss, Overfitting, Black-box, White-box, Differential Privacy, LiRA</li>
+<li><strong>분류:</strong> AI 보안</li>
+<li><strong>주요 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>공격 유형</th><th>공격 방식</th><th>핵심</th></tr>
+<tr><td>Black-box</td><td>신뢰도 기반 공격</td><td>예측 확률·신뢰도 차이 분석</td><td>출력 신뢰도</td></tr>
+<tr><td></td><td>손실값 기반 공격</td><td>예측 손실값과 임계값 비교</td><td>Loss Threshold</td></tr>
+<tr><td></td><td>레이블 기반 공격</td><td>최종 예측 레이블·결정경계 특성 분석</td><td>Label-only</td></tr>
+<tr><td>White-box</td><td>기울기 기반 공격</td><td>모델 내부 Gradient·Loss 분석</td><td>내부 정보</td></tr>
+<tr><td></td><td>파라미터 기반 공격</td><td>가중치·중간 활성화 정보 활용</td><td>모델 접근</td></tr>
+<tr><td>모델 기반</td><td>Shadow Model Attack</td><td>유사 모델 학습 후 멤버십 분류</td><td>그림자 모델</td></tr>
+<tr><td></td><td>LiRA</td><td>멤버·비멤버 손실 분포의 우도비 분석</td><td>통계적 추론</td></tr>
+</table></div>
+</li>
+<li><strong>공격 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th></tr>
+<tr><td>1. 정보 수집</td><td>Target Model 분석</td><td>모델 입력·출력 형식 및 접근 범위 파악</td></tr>
+<tr><td>2. 그림자 모델 생성</td><td>Shadow Model Training</td><td>대상 모델과 유사한 모델·데이터 구성</td></tr>
+<tr><td>3. 공격 모델 학습</td><td>Attack Model Training</td><td>멤버·비멤버 출력 특성 학습</td></tr>
+<tr><td>4. 대상 모델 질의</td><td>Target Query</td><td>특정 데이터 입력 후 예측 결과 수집</td></tr>
+<tr><td>5. 멤버십 추론</td><td>Membership Decision</td><td>학습 데이터 포함 여부 판정</td></tr>
+</table></div>
+</li>
+<li><strong>멤버십 추론·모델 역전·모델 추출 공격 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>멤버십 추론 (MIA)</th><th>모델 역전 (Inversion)</th><th>모델 추출 (Extraction)</th></tr>
+<tr><td>목적</td><td>학습 데이터 포함 여부 추론</td><td>학습 데이터 특성·정보 복원</td><td>모델 기능·동작 복제</td></tr>
+<tr><td>공격 대상</td><td>학습 데이터 멤버십</td><td>민감한 데이터 특성</td><td>모델 구조·동작</td></tr>
+<tr><td>활용 정보</td><td>예측값·신뢰도·손실값</td><td>출력·기울기·모델 정보</td><td>API 응답·입출력</td></tr>
+<tr><td>공격 결과</td><td>Member/Non-member 판정</td><td>데이터 특성·원본 일부 추정</td><td>대체 모델 구축</td></tr>
+<tr><td>주요 위협</td><td>개인정보 존재 여부 노출</td><td>민감정보 유출</td><td>모델 지식재산 침해</td></tr>
+</table></div>
+</li>
+<li><strong>공격 대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>대응 기술</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td>차등 프라이버시</td><td>DP-SGD</td><td>학습 과정에 노이즈·기울기 제한 적용</td><td>개인정보 보호</td></tr>
+<tr><td>정규화</td><td>Dropout, Weight Decay</td><td>과적합 완화·일반화 성능 개선</td><td>과적합 방지</td></tr>
+<tr><td>규제적 학습</td><td>Early Stopping</td><td>검증 성능 기반 학습 조기 종료</td><td>일반화 확보</td></tr>
+<tr><td>출력 제한</td><td>Confidence Masking</td><td>예측 확률·신뢰도 노출 제한</td><td>정보 노출 축소</td></tr>
+<tr><td>보안 검증</td><td>Privacy Auditing</td><td>MIA 모의 공격·프라이버시 위험 평가</td><td>공격 저항성</td></tr>
+</table></div>
+</li>
+<li>인사이트: 과적합 모델과 과도한 예측정보 노출 환경에서 위험이 증가하며, 모델 출력 제한만으로는 근본적 방어가 어려움. 따라서 차등 프라이버시 기반 학습, 일반화 성능 개선, 출력정보 최소화 및 MIA 기반 프라이버시 감사를 결합한 다층적 보호체계 구축이 중요함. 합성데이터 생성·활용 환경에서도 원본 데이터의 멤버십 노출 여부를 평가하여 합성데이터의 안전성을 검증할 필요가 있음.</li>
 </ul>
 <hr>
 <h3>[Part 11] 보안관리체계</h3>

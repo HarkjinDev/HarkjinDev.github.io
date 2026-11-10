@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>13. 공공데이터 인공지능 친화적 관리 가이드라인(v1, 26.3.)</title>
+  <title>12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,85 +15,73 @@
   </style>
 </head>
 <body>
-<h4>13. 공공데이터 인공지능 친화적 관리 가이드라인(v1, 26.3.)</h4>
+<h4>12. AI 보안 위협 대응 메뉴얼(KISA, 26.7.)</h4>
 <ul>
-<li><strong>정의:</strong> 인공지능 모델의 학습/추론/평가에 쉽게 활용될 수 있도록 기계 이해성 및 품질이 확보된 공공데이터</li>
-<li><strong>공공데이터:</strong> 공공기관이 목적을 위해 생성 또는 취득하여 관리하고 있는 모든 자료</li>
-<li><strong>키워드:</strong> Parquet(컬럼형 저장), ORC, GeoJSON, GLB, PID, dct(DCAT), dc, 데이터 카드, 데이터 사전, </li>
-<li><strong>적용범위: </strong>공공데이터법 제2조 1항</li>
-<li><strong>품질지표: </strong>완전성, 정확성, 유효성, 일관성, 적시성, 유일성</li>
-<li><strong>인공지능 친화적 공공데이터의 핵심 특성: </strong><ul>
-<li>기계가공 및 상호운용 가능 기술 구조, 메타데이터와 문서화, 내용 품질과 대표성, 권리·윤리·보안·책임 거버넌스</li>
-</ul>
-</li>
-<li><strong>데이터 등급별 공유범위:</strong><div class="table-scroll"><table>
-<tr><th><strong>등급</strong></th><th><strong>구분</strong></th><th><strong>정의</strong></th><th><strong>공유범위</strong></th></tr>
-<tr><td><strong>1등급(O)</strong></td><td>공개공유</td><td>개인정보 및 보안상 문제가 없음</td><td>모든 기관 및 공공데이터포털</td></tr>
-<tr><td><strong>2등급(S)</strong></td><td>제한공유</td><td>비식별 처리를 통해 안전성 확보</td><td>승인된 기관 간 한정</td></tr>
-<tr><td><strong>3등급(C)</strong></td><td>내부전용</td><td>비식별 처리 후라도 보안상 외부 공유 부적절</td><td>해당 기관 내부 한정</td></tr>
+<li><strong>AI 안전 (AI Safety)</strong>: AI의 판단으로 시스템이 동작하거나 기능을 수행할 때 사람과 환경에 위험을 줄 가능성이 완화 또는 제거된 상태</li>
+<li><strong>AI 보안 (AI Security)</strong>: AI 시스템에 대한 무단 접근 및 활용을 방지하고 전통적인 정보보호의 요소인 기밀성, 무결성, 가용성을 유지하는 능력</li>
+<li><strong>AI 안전과 AI 보안 비교</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>AI 안전 (AI Safety)</th><th>AI 보안 (AI Security)</th></tr>
+<tr><td>발생요인</td><td>AI 시스템 자체, 인간의 활용 방식에 의해 발생</td><td>악의적 행위자에 의해 발생</td></tr>
+<tr><td>보호대상</td><td>AI 시스템의 외부 (사용자, 사회, 환경)</td><td>AI 시스템 내부 (모델, 데이터, 인프라)</td></tr>
+<tr><td>의도성</td><td>비의도적 (Unintentional)</td><td>대부분 의도적 (Intentional)</td></tr>
+<tr><td>시점</td><td>개발 전·후 발생 (Pre, Post)</td><td>시스템 운영 후 발생 (Post)</td></tr>
 </table></div>
 </li>
-<li><strong>공공데이터 구조:</strong><div class="table-scroll"><table>
-<tr><th><strong>등급</strong></th><th><strong>구분</strong></th><th><strong>정의</strong></th></tr>
-<tr><td><strong>오픈 포맷</strong></td><td>오픈 포맷</td><td>데이터 접근</td></tr>
-<tr><td></td><td>RESTful</td><td>데이터 적시 접근 방식 제공</td></tr>
-<tr><td><strong>기계 이해 가능</strong></td><td>계층형 구조</td><td>여러 속성, 하위 데이터 연결 참조 포함</td></tr>
-<tr><td></td><td>플랫형(Flat) 구조</td><td>스키마, 데이터 해석 효율성 극대화</td></tr>
+<li><strong>내재적 위협(Intrinsic Threat): </strong>외부 공격자가 부재하더라도 LLM 자체의 학습·정렬·추론 과정에서 비롯되는 결함이 안전성·신뢰성을 훼손하는 위협</li>
+<li><strong>내재적 위협 유형:   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;편환정확&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th></tr>
+<tr><td><strong>학습 데이터 편향 </strong></td><td>학습 데이터의 분포 편향이 모델 응답에 그대로 반영되거나, 학습 과정에서 특정 문자열이 모델에 저장되어 추론 시점에 재현되는(기억화) 위협</td></tr>
+<tr><td><strong>환각</strong></td><td>모델이 사실과 무관한 내용을 사실인 것처럼 그럴듯하게 생성하는 위협</td></tr>
+<tr><td><strong>정렬 실패 </strong></td><td>모델 출력이 운영자의 정책·시스템 프롬프트와 어긋나는 위협</td></tr>
+<tr><td><strong>확률적 비결정성 </strong></td><td>동일 입력에 대해 모델 출력이 매번 달라지는 현상</td></tr>
 </table></div>
 </li>
-<li><strong>데이터별 권장 오픈 포맷:</strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>형식</strong></th></tr>
-<tr><td>권장 포맷
-(오픈 포맷)</td><td>텍스트</td><td>ODT, CSV, JSON, XML, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Parquet(컬럼형 저장), ORC</strong></u></span> 등</td></tr>
-<tr><td></td><td>지리정보</td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GeoJSON</strong></u></span>, GeoPackage, GeoTIFF 등</td></tr>
-<tr><td></td><td>이미지</td><td>PNG, JPG, JPEG, TIF, TIFF, SVG 등</td></tr>
-<tr><td></td><td>건설/건축</td><td>IFC, OBJ, GLTF, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>GLB</strong></u></span> 등</td></tr>
-<tr><td>비권장 포맷
-(벤더 종속)</td><td>텍스트</td><td>HWP, HWPX, DOC, DOCX, XLS, XLSX, PPT, PPTX 등</td></tr>
-<tr><td></td><td>이미지</td><td>AI, PSD 등</td></tr>
+<li><strong>외재적 위협(Extrinsic Threat):</strong> LLM 시스템의 경계를 구성하는 외부 행위자에 의해 LLM 시스템이 손상되거나 악용되는 위협</li>
+<li><strong>외재적 위협 유형: </strong> <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;탈모공고&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th></tr>
+<tr><td><strong>탈옥 </strong></td><td>모델이 정책상 거부해야 할 요청을 무력화하는 기법. </td></tr>
+<tr><td><strong>모델 추출</strong></td><td>추론 API에 대한 반복 질의로 원본 모델을 복제하여 유출하는 위협. </td></tr>
+<tr><td><strong>공급망·인프라 대상</strong></td><td>  • 모델·라이브러리·의존성·학습데이터·벡터DB 등 공급망과 외부 데이터 경로 오염
+  • MCP 등 외부 도구 연결을 통한 악성코드 주입
+  • 보안 패치 미흡한 추론엔진·서빙스택 취약점
+  • 과도한 도구 권한
+  • 에이전트 하이재킹·메모리 오염
+  • 시스템 프롬프트 유출 및 권한 분리 실패 등 악용</td></tr>
+<tr><td><strong>고성능 모델 위협</strong></td><td>프론티어 AI·고영향 AI·범용 AI 등을 포괄하는 "고성능 모델(High Performance Model)" 자체가 외부 공격자의 도구로 전용되는 위협</td></tr>
 </table></div>
 </li>
-<li><strong>메타데이터: </strong>데이터를 구조화하여 제공함으로써 기계가 데이터를 자동으로 해석·처리할 수 있도록 하는 정보<ul>
-<li><strong>고유식별자(PID): </strong>데이터·문서의 추적과 접근성 확보 및 이용자 피드백의 정확한 환류를 위해 부여</li>
-<li><strong>dct(DCAT, Data Catalog Vocabulary):</strong> W3C 표준</li>
-<li><strong>dc(Dublin Core):</strong> 자원식별 ISO 표준</li>
-<li><strong>메타데이터 유형:</strong> 데이터 관리 메타데이터, 데이터 계보 메타데이터, 데이터 품질 메타데이터, 데이터 타입별 메타데이터</li>
-</ul>
-</li>
-<li><strong>문서화</strong>: 공공데이터의 신뢰성과 활용성 확보를 위해 데이터 구조, 목적, 수집 방식, 편향성, 한계점 및 버전 이력 등을 투명하게 기술한 문서<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>문서명</strong></th><th><strong>핵심내용</strong></th></tr>
-<tr><td><strong>기본 명세</strong></td><td><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>데이터 카드 (Data Card)</strong></u></span></td><td>표준화된 형태의 데이터 핵심 정보를 제공</td></tr>
-<tr><td><strong>기술 규격</strong></td><td>스키마 정의서 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>(데이터 사전)</strong></u></span></td><td>변수명(물리/논리), 데이터 타입, 단위, 필드 간 관계 등 명세</td></tr>
-<tr><td></td><td>메타데이터 명세서</td><td>관리, 업데이트, 이용, 투명성 등 메타데이터 정보</td></tr>
-<tr><td></td><td>API / Access 문서</td><td>데이터 접근 경로, 호출 규약, 인증 및 보안 설정</td></tr>
-<tr><td><strong>신뢰 보증</strong></td><td>품질 진단 보고서</td><td>정확성, 완전성, 유효성 등 품질 지표 및 검증 결과 보고서</td></tr>
-<tr><td></td><td>개인정보/법적 리스크 분석</td><td>비식별 조치 현황, 저작권 권리관계, 라이선스 활용 조건</td></tr>
-<tr><td><strong>이력 관리</strong></td><td>계보 및 출처</td><td>원천 데이터 소스, 수집 환경 정보</td></tr>
-<tr><td></td><td>버전 관리 및 변경 이력</td><td>유의적 기준 버전 정보, 변경 로그, 마이그레이션 노트</td></tr>
+<li><strong>LLM 구성요소: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;데개모애사&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구성 요소</th><th>설명</th></tr>
+<tr><td><strong>데이터 </strong></td><td>LLM 애플리케이션 생명주기의 시작</td></tr>
+<tr><td><strong>모델 개발 </strong></td><td>정제된 데이터를 바탕으로 LLM 모델을 개발하는 단계</td></tr>
+<tr><td><strong>모델 </strong></td><td>LLM 애플리케이션으로부터 다양한 입력을 받아 자연어 처리를 수행</td></tr>
+<tr><td><strong>LLM 애플리케이션</strong></td><td>사용자와 시스템이 실제로 상호작용하는 핵심 지점</td></tr>
+<tr><td><strong>사용자 </strong></td><td>전체 시스템의 출발점이자 최종 목적지</td></tr>
 </table></div>
 </li>
-<li><strong>품질지표:  </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완일정/적유유&gt;</strong></span><div class="table-scroll"><table>
-<tr><th>품질지표</th><th>주요 속성</th><th>핵심</th></tr>
-<tr><td><strong>완전성</strong></td><td>❶ 충분성</td><td>필수데이터 누락방지</td></tr>
-<tr><td></td><td>❷ 대표성·균형성</td><td>분포균형·편향완화</td></tr>
-<tr><td><strong>일관성</strong></td><td>❶ 의미적 일관성</td><td>충돌방지·기준통일</td></tr>
-<tr><td><strong>정확성</strong></td><td>❶ 내용 정확성</td><td>라벨·값 사실부합</td></tr>
-<tr><td></td><td>❷ 데이터 신뢰성</td><td>출처명확·오류최소</td></tr>
-<tr><td><strong>적시성</strong></td><td>❶ 최신성</td><td>지연최소·갱신준수</td></tr>
-<tr><td></td><td>❷ 개념·분포 변화 관리</td><td>분포변화 탐지관리</td></tr>
-<tr><td><strong>유효성</strong></td><td>❶ 구조·형식 유효성</td><td>스키마준수·기계이해</td></tr>
-<tr><td></td><td>❷ 값·범위 유효성</td><td>입력규칙·범위준수</td></tr>
-<tr><td><strong>유일성</strong></td><td>❶ 유일성</td><td>중복제거·왜곡최소</td></tr>
-</table></div>
-</li>
-<li><strong>인공지능 친화적 공공데이터 관리원칙:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>관리원칙</th><th>요약 </th></tr>
-<tr><td>3.1</td><td>데이터 책임 주체 및 관리체계 수립</td><td>책임주체 명확화·관리절차 수립</td></tr>
-<tr><td>3.2</td><td>이용자 접근 편의성 인프라 구축</td><td>이용자 중심 탐색 인프라 구축</td></tr>
-<tr><td>3.3</td><td>이용자 관점 데이터셋 평가 및 피드백 체계 구축</td><td>평가·피드백으로 데이터 개선</td></tr>
-<tr><td>3.4</td><td>데이터 접근 권한 및 활용 체계</td><td>접근권한 차등·보안 강화</td></tr>
-<tr><td>3.5</td><td>데이터 거버넌스와 책임 구조</td><td>전주기 책임소재 명확화</td></tr>
-<tr><td>3.6</td><td>법적 충돌 해소 및 데이터 보호 체계</td><td>법령 정립·법적 불확실성 해소</td></tr>
+<li><strong>AI 보안위협 대응방안: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>보안위협</th><th>대응방안</th></tr>
+<tr><td>데이터</td><td><strong>불균형 데이터</strong></td><td>오버·언더샘플링(SMOTE 등), 소수집단 가중치 부여, 공정성 제약 학습</td></tr>
+<tr><td></td><td><strong>부정확한 데이터</strong></td><td>신뢰출처 확보·교차검증, 모순데이터 제거, 품질검증 파이프라인(HITL)</td></tr>
+<tr><td></td><td><strong>개인정보 비식별화 미흡</strong></td><td>다층 필터링(패턴·NER·LLM·사람검토), 안전 응답 파인튜닝, 차등정보보호</td></tr>
+<tr><td>모델</td><td><strong>학습 데이터 유출</strong></td><td>개인정보 필터링·마스킹, 차등 프라이버시, 출력 민감패턴 차단</td></tr>
+<tr><td></td><td><strong>벡터DB·임베딩 유출</strong></td><td>이중 접근제어(토큰·tenant필터), RBAC·ABAC 정책엔진, 색인단계 마스킹</td></tr>
+<tr><td></td><td><strong>시스템 프롬프트 유출</strong></td><td>입력·출력 필터, system/user 문맥 분리, 유출요청 거절 재학습</td></tr>
+<tr><td></td><td><strong>모델 유출</strong></td><td>저장소 접근통제(IAM·VPC), API 파라미터 통제(logit_bias 제한), 출력정밀도 축소</td></tr>
+<tr><td></td><td><strong>환각(Hallucination)</strong></td><td>근거문서 기반 응답 제한, 출처 제시, 근거부족시 답변보류, RAG 일치검증</td></tr>
+<tr><td></td><td><strong>탈옥(Jailbreak)</strong></td><td>시스템프롬프트 강화, 가드레일(사전·사후 필터링), HITL, RLHF 재학습</td></tr>
+<tr><td></td><td><strong>부적절한 출력 처리</strong></td><td>출력 검증·파싱·인코딩, 컨텍스트별 이스케이핑(SQL·HTML·쉘 등)</td></tr>
+<tr><td></td><td><strong>모델 DoS</strong></td><td>API 요청 횟수·속도·길이 제한, 이상패턴 모니터링, 특수토큰 필터링</td></tr>
+<tr><td>에이전트</td><td><strong>부적절한 도구 설계</strong></td><td>역할별 도구 제한, 최소권한, 샌드박스 실행, MCP 화이트리스트</td></tr>
+<tr><td></td><td><strong>에이전트 하이재킹</strong></td><td>데이터소스 신뢰성 평가, 악성패턴 필터링, 최소권한, 명령·데이터 분리</td></tr>
+<tr><td></td><td><strong>에이전트 DoS</strong></td><td>반복횟수·시간 제한(max_iterations), 요청 제한, 재시도 탐지·차단</td></tr>
+<tr><td></td><td><strong>에이전트 메모리 오염</strong></td><td>장기메모리 저장 제한, 세션별 메모리 분리, 저장 전 안전성 검증</td></tr>
+<tr><td>공급망</td><td><strong>데이터 포이즈닝</strong></td><td>출처·신뢰성 확인, 변경이력 관리, 이상데이터 탐지·제거, 버전복구</td></tr>
+<tr><td></td><td><strong>모델 포이즈닝</strong></td><td>신뢰 출처 모델 사용, 파일 검토, 모델 암호화·무결성 검증</td></tr>
+<tr><td></td><td><strong>취약한 추론엔진 사용</strong></td><td>최신 보안패치 적용, 입력 유효성 검증, SBOM 구성요소 관리</td></tr>
+<tr><td></td><td><strong>취약한 에이전트 확장요소</strong></td><td>최신 패치 확장요소 사용, 입력 검증, SBOM 관리</td></tr>
+<tr><td>고성능모델</td><td><strong>고도화된 사이버공격 지원</strong></td><td>모델 정렬(거부·안전응답), 입출력 필터링, 이상패턴 모니터링, 단계적 배포</td></tr>
+<tr><td></td><td><strong>자율성 통제 상실</strong></td><td>운영정책 사전정의, 최소권한·허용목록, 로그·이상행위 모니터링</td></tr>
 </table></div>
 </li>
 </ul>

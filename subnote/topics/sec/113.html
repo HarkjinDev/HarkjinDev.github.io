@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. CDR (Content Disarm & Reconstruction)</title>
+  <title>9. 클라우드 보안 (Cloud Security)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,13 +15,37 @@
   </style>
 </head>
 <body>
-<h4>10. CDR (Content Disarm &amp; Reconstruction)</h4>
+<h4>9. 클라우드 보안 (Cloud Security)</h4>
 <ul>
-<li><strong>정의</strong>: 파일 내 잠재적 위협 요소를 제거하고 안전한 형태로 재구성하는 보안 기술</li>
-<li><strong>키워드</strong>: 파일 무해화, 악성코드 제거, 원본 재구성</li>
+<li><strong>정의</strong>: 클라우드 환경에서 데이터와 서비스를 보호하기 위한 보안 활동</li>
+<li><strong>키워드</strong>: 데이터 보호, 접근제어, 가상화 보안, 공유 책임, CSPM, CWPP, CNAPP, CIEM, SASE</li>
 <li><strong>분류</strong>: 특수 보안</li>
-<li><strong>동작 원리</strong>: 파일 수신 → 구조 분해(파싱) → 안전한 요소만 추출 → 재조립(무해화 파일 생성)</li>
-<li><strong>인사이트</strong>: CDR은 알려지지 않은 제로데이 악성코드도 구조적으로 제거할 수 있어 시그니처 기반 백신과 상호 보완적이며, 금융·공공 기관의 외부 파일 수신 보안에 핵심임</li>
+<li><strong>공유 책임 모델 (Shared Responsibility)</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;데애런인&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>영역</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
+<tr><td><strong>데이터</strong></td><td>고객</td><td>고객</td><td>고객</td></tr>
+<tr><td><strong>애플리케이션</strong></td><td>고객</td><td>고객</td><td>CSP</td></tr>
+<tr><td><strong>런타임</strong></td><td>고객</td><td>CSP</td><td>CSP</td></tr>
+<tr><td><strong>인프라</strong></td><td>CSP</td><td>CSP</td><td>CSP</td></tr>
+</table></div>
+</li>
+<li><strong>CNAPP(클라우드 네이티브 보안 플랫폼) 3대 핵심 요소:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>보호대상</strong></th><th><strong>주요 기능</strong></th></tr>
+<tr><td><strong>CSPM</strong></td><td>설정·형상</td><td>설정 오류 지속 탐지, 규정 준수 여부 모니터링</td></tr>
+<tr><td><strong>CWPP</strong></td><td>워크로드</td><td>런타임 위협 방어, 워크로드 취약점 스캔</td></tr>
+<tr><td><strong>CIEM</strong></td><td>권한·자격</td><td>과도한 접근 권한 탐지, 최소 권한 원칙 적용</td></tr>
+</table></div>
+</li>
+<li><strong>SASE:</strong> SD-WAN과 클라우드 보안 엣지(SSE)를 단일 서비스로 통합 제공하여, 백홀 없이 정체성 기반으로 접속을 통제하는 보안 아키텍처<div class="table-scroll"><table>
+<tr><th>영역</th><th><strong>구분</strong></th><th><strong>설명 </strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>NW(NaaS)</strong></td><td><strong>SD-WAN</strong></td><td>소프트웨어 정의 기반 네트워크</td><td>지능형 트래픽 관리</td></tr>
+<tr><td><strong>보안 서비스(SSE)</strong></td><td><strong>SWG</strong></td><td>웹 접속 보안 및 악성코드 차단</td><td>안전한 웹 탐색</td></tr>
+<tr><td></td><td><strong>CASB</strong></td><td>클라우드 앱 가시성 및 통제</td><td>클라우드 통제</td></tr>
+<tr><td></td><td><strong>ZTNA</strong></td><td>신원 기반의 엄격한 접근 제어</td><td>제로 트러스트</td></tr>
+<tr><td></td><td><strong>FWaaS</strong></td><td>클라우드 기반 차세대 방화벽</td><td>클라우드 방화벽</td></tr>
+</table></div>
+</li>
+<li><strong>도입 시 보안 요소</strong>: 데이터 암호화, 접근제어(IAM), 가상화 보안, 로그 관리, 규정 준수</li>
+<li><strong>인사이트</strong>: 클라우드 보안 사고의 대부분은 CSP 인프라가 아닌 고객의 잘못된 설정(Misconfiguration)에서 발생하므로, CSPM(Cloud Security Posture Management) 도입이 필수임</li>
 </ul>
 
 </body>

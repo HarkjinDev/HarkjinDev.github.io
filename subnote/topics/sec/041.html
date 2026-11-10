@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. 비인간 신원 (Non-Human Identity, NHI)</title>
+  <title>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,69 +15,39 @@
   </style>
 </head>
 <body>
-<h4>8. 비인간 신원 (Non-Human Identity, NHI)</h4>
+<h4>7. 영지식 증명 (Zero-Knowledge Proof, ZKP)</h4>
 <ul>
-<li><strong>정의:</strong> 사람의 직접적인 개입 없이 자원에 접근하거나 상호 통신할 수 있도록 부여된 디지털 신원</li>
-<li><strong>키워드:</strong> NHI, Machine Identity, Service Account, Workload Identity, AI Agent Identity, IAM, Secrets Management, Zero Trust, Least Privilege, SPIFFE/SPIRE, OAuth 2.0, mTLS</li>
+<li><strong>정의:</strong> 증명자는 비밀을 알고 있고, 검증자는 비밀을 알지 못한 상태에서 증명자가 비밀을 알고 있다는 사실만 증명하는 암호화적 프로토콜</li>
+<li><strong>키워드:</strong> 증명자(Prover)·검증자(Verifier), 완전성·건전성·영지식성, zk-SNARK·zk-STARK, 프라이버시 보호, DID, 블록체인, 선택적 공개</li>
 <li><strong>분류</strong>: 인증/신원관리</li>
-<li><strong>주요 유형:</strong> <div class="table-scroll"><table>
-<tr><th>유형</th><th>주요 대상</th><th>설명</th></tr>
-<tr><td>서비스 계정 (Service Account)</td><td>DB·백엔드·배치</td><td>서비스 간 접근을 위한 전용 계정</td></tr>
-<tr><td>워크로드 신원 (Workload Identity)</td><td>컨테이너·VM·서버리스</td><td>실행 중인 워크로드의 신원</td></tr>
-<tr><td>기기 신원 (Device Identity)</td><td>IoT·서버·네트워크 장비</td><td>장치별 인증서·고유 신원 부여</td></tr>
-<tr><td>애플리케이션 신원 (Application Identity)</td><td>API·SaaS·애플리케이션</td><td>애플리케이션 간 접근권한 관리</td></tr>
-<tr><td>AI 에이전트 신원 (Agent Identity)</td><td>AI Agent·자동화 봇</td><td>자율적 작업·도구 실행 주체 식별</td></tr>
+<li><strong>3대 핵심 속성: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;완건영&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>속성</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>완전성 </strong></td><td>증명자가 사실을 알고 있으면 검증자를 항상 납득시킬 수 있음</td><td>참→참 증명 가능</td></tr>
+<tr><td><strong>건전성</strong></td><td>증명자가 사실을 모르면 검증자를 납득시킬 수 없음</td><td>거짓→거짓 탐지</td></tr>
+<tr><td><strong>영지식성</strong></td><td>검증자는 사실의 진위 외 어떠한 추가 정보도 획득 불가</td><td>정보 노출 없음</td></tr>
 </table></div>
 </li>
-<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
-<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
-<tr><td>신원 식별 (Identification)</td><td>비인간 주체별 고유 ID 부여</td><td>고유 신원</td></tr>
-<tr><td>신원 인증 (Authentication)</td><td>인증서·토큰·키 기반 신원 검증</td><td>신뢰성 검증</td></tr>
-<tr><td>권한 관리 (Authorization)</td><td>역할·속성 기반 접근권한 통제</td><td>최소 권한</td></tr>
-<tr><td>자격증명 관리 (Secrets)</td><td>키·인증서·토큰 발급·보관·교체</td><td>자격 보호</td></tr>
-<tr><td>감사 추적 (Audit)</td><td>신원별 접근·실행·변경 이력 기록</td><td>책임 추적</td></tr>
-<tr><td>생명주기 관리 (Lifecycle)</td><td>등록·변경·회수·폐기 자동화</td><td>신원 거버넌스</td></tr>
+<li><strong>ZKP 유형:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>유형</th><th>설명</th></tr>
+<tr><td>상호작용</td><td><strong>대화형 </strong></td><td>증명자·검증자 간 다수 라운드 메시지 교환</td></tr>
+<tr><td></td><td><strong>비대화형 </strong></td><td>단일 메시지로 증명·CRS(공통 참조 문자열) 활용</td></tr>
+<tr><td>증명 크기</td><td><strong>zk-SNARK</strong></td><td>증명 크기 매우 작음·검증 속도 빠름·신뢰 설정 필요</td></tr>
+<tr><td></td><td><strong>zk-STARK</strong></td><td>신뢰 설정 불필요·양자 내성·증명 크기 큼</td></tr>
+<tr><td></td><td><strong>Bulletproofs</strong></td><td>신뢰 설정 불필요·범위 증명 특화·검증 느림</td></tr>
+<tr><td></td><td><strong>PLONK</strong></td><td>범용 zk-SNARK·단일 신뢰 설정 재사용</td></tr>
 </table></div>
 </li>
-<li><strong>NHI 주요 인증·관리 기술:</strong><div class="table-scroll"><table>
-<tr><th>기술</th><th>주요 기능</th><th>핵심</th></tr>
-<tr><td>API Key</td><td>API 호출 주체 식별·인증</td><td>API 인증</td></tr>
-<tr><td>OAuth 2.0</td><td>범위 제한 토큰 기반 접근 인가</td><td>토큰 인가</td></tr>
-<tr><td>OIDC</td><td>토큰 기반 인증·신원 확인</td><td>신원 연합</td></tr>
-<tr><td>mTLS</td><td>클라이언트·서버 상호 인증</td><td>상호 인증</td></tr>
-<tr><td>SPIFFE/SPIRE</td><td>워크로드 신원 표준화·자동 발급</td><td>워크로드 인증</td></tr>
-<tr><td>PKI/X.509</td><td>인증서 발급·검증·폐기</td><td>인증서 기반 신뢰</td></tr>
-<tr><td>Secrets Manager</td><td>키·토큰·비밀번호 보관·교체</td><td>자격증명 보호</td></tr>
-<tr><td>PAM</td><td>특권 신원·권한·세션 통제</td><td>특권 접근관리</td></tr>
+<li><strong>ZKP 동작 원리:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>① 설정</strong></td><td>증명자는 비밀을 보유</td><td><strong>비밀 보유</strong></td></tr>
+<tr><td><strong>② 도전</strong></td><td>검증자가 무작위 도전값 제시</td><td><strong>무작위성</strong></td></tr>
+<tr><td><strong>③ 응답</strong></td><td>증명자가 비밀을 활용해 응답</td><td><strong>비밀 지식 증명</strong></td></tr>
+<tr><td><strong>④ 반복</strong></td><td>여러 차례 도전·응답 수행</td><td><strong>위조 가능성 감소</strong></td></tr>
+<tr><td><strong>⑤ 검증</strong></td><td>검증자는 비밀 없이 보유 사실 확인</td><td><strong>정보 비공개</strong></td></tr>
 </table></div>
 </li>
-<li><strong>OWASP NHI Top 10 (2025) 보안 위협 및 대응:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>보안 위협</th><th>주요 위험</th><th>대응 방안</th></tr>
-<tr><td>NHI1</td><td>부적절한 신원 폐기</td><td>유휴 신원·권한 잔존</td><td>자동 폐기·권한 회수</td></tr>
-<tr><td>NHI2</td><td>비밀정보 유출</td><td>API Key·토큰 노출</td><td>Secret Scan·Vault</td></tr>
-<tr><td>NHI3</td><td>취약한 서드파티 NHI</td><td>외부 연동 경로 침해</td><td>공급망 검증·권한 제한</td></tr>
-<tr><td>NHI4</td><td>취약한 인증</td><td>약한 인증수단 악용</td><td>강력한 인증·mTLS</td></tr>
-<tr><td>NHI5</td><td>과도한 권한</td><td>권한 탈취 시 피해 확대</td><td>최소 권한·JIT</td></tr>
-<tr><td>NHI6</td><td>취약한 클라우드 배포 설정</td><td>배포·구성 오류 악용</td><td>IaC 검증·설정 점검</td></tr>
-<tr><td>NHI7</td><td>장기 유효 자격증명</td><td>탈취된 인증정보 장기 악용</td><td>단기 토큰·자동 교체</td></tr>
-<tr><td>NHI8</td><td>환경 격리 미흡</td><td>개발·운영 환경 간 침해 확산</td><td>환경별 신원 분리</td></tr>
-<tr><td>NHI9</td><td>NHI 재사용</td><td>신원 공유로 침해 범위 확대</td><td>서비스별 고유 신원</td></tr>
-<tr><td>NHI10</td><td>인간의 NHI 사용</td><td>행위 주체 추적·책임성 저하</td><td>개인 계정 사용·접근통제</td></tr>
-</table></div>
-</li>
-<li><strong>NHI 도입 시 고려사항:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
-<tr><td>신원 가시성</td><td>미관리 서비스 계정·Shadow NHI</td><td>신원 자동 탐색·인벤토리</td><td>가시성 확보</td></tr>
-<tr><td>자격증명</td><td>하드코딩·장기 유효 Secret</td><td>Vault·단기 토큰</td><td>비밀정보 보호</td></tr>
-<tr><td>권한 관리</td><td>서비스 계정 과권한</td><td>RBAC·ABAC·최소 권한</td><td>권한 최소화</td></tr>
-<tr><td>생명주기</td><td>유휴 계정·폐기 누락</td><td>자동 발급·교체·폐기</td><td>자동화</td></tr>
-<tr><td>운영 안정성</td><td>자격증명 교체 시 서비스 장애</td><td>단계적 교체·무중단 적용</td><td>가용성 확보</td></tr>
-<tr><td>감사 추적</td><td>공유 계정으로 행위 추적 곤란</td><td>고유 ID·중앙 감사로그</td><td>책임성 확보</td></tr>
-</table></div>
-</li>
-<li>인사이트: NHI는 클라우드·마이크로서비스·AI 에이전트 확산으로 증가하는 비인간 실행 주체의 신뢰성을 보장하는 IAM 핵심 기술임. 신원 자동 탐색·최소 권한·단기 자격증명·생명주기 자동화를 통합한 Zero Trust 기반 관리체계가 요구됨</li>
+<li><strong>인사이트:</strong> 영지식 증명은 "사실 증명과 정보 보호의 양립"이라는 암호학적 혁신으로, 블록체인 확장성(L2 롤업)·DID 선택적 공개·프라이버시 보호 인증의 핵심 기술로 부상하며, zk-SNARK의 효율성과 zk-STARK의 투명성·양자 내성을 상황에 맞게 선택하는 것이 설계의 핵심</li>
 </ul>
-<hr/>
 
 </body>
 </html>
