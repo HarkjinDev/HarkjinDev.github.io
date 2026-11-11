@@ -2759,18 +2759,37 @@ TLS 세션키 협상에 사용</td></tr>
 </ul>
 <h4>14. 기밀 컴퓨팅 (Confidential Computing)</h4>
 <ul>
-<li><strong>정의:</strong> 데이터를 처리(연산)하는 중에도 하드웨어 기반 신뢰 실행 환경(TEE)에서 암호화·격리하여 클라우드·외부 위협으로부터 사용 중 데이터를 보호하는 기술</li>
-<li><strong>키워드:</strong> TEE, 신뢰 실행 환경, Intel SGX, AMD SEV, Enclave, 사용 중 데이터 보호, 기밀 가상머신, 원격 증명</li>
+<li><strong>정의:</strong> 데이터를 처리하는 중에도 하드웨어 기반 신뢰 실행 환경(TEE)에서 암호화·격리하여 클라우드·외부 위협으로부터 사용 중 데이터를 보호하는 기술</li>
+<li><strong>키워드:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Data in Use 보호, TEE, 신뢰 실행 환경</strong></u></span>, Intel SGX, AMD SEV, Enclave, 기밀 가상머신, 원격 증명</li>
 <li><strong>분류</strong>: 특수 보안</li>
 <li><strong>핵심 기술:</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>TEE</strong></td><td><strong>Intel SGX</strong></td><td>CPU 내 Enclave 격리 영역에서 코드·데이터 보호</td></tr>
-<tr><td></td><td><strong>AMD SEV</strong></td><td>가상머신 메모리를 암호화하여 하이퍼바이저로부터 격리</td></tr>
-<tr><td></td><td><strong>ARM TrustZone</strong></td><td>모바일·임베디드 환경의 하드웨어 보안 격리 영역</td></tr>
-<tr><td><strong>검증</strong></td><td><strong>원격 증명 </strong></td><td>TEE 환경의 무결성을 원격으로 암호학적 검증</td></tr>
-<tr><td></td><td><strong>봉인 (Sealing)</strong></td><td>데이터를 특정 TEE 인스턴스에만 복호화 가능하도록 암호화</td></tr>
-<tr><td><strong>클라우드</strong></td><td><strong>기밀 VM</strong></td><td>VM 전체를 TEE로 보호, 클라우드 사업자도 접근 불가</td></tr>
-<tr><td></td><td><strong>기밀 컨테이너</strong></td><td>컨테이너 워크로드를 TEE 내에서 격리·실행</td></tr>
+<tr><td>Data</td><td>저장 (At Rest)</td><td>AES, TDE, 디스크 암호화</td></tr>
+<tr><td></td><td>전송 (In Transit)</td><td>TLS, IPsec, mTLS</td></tr>
+<tr><td></td><td>사용 (In Use)</td><td>TEE, Enclave, 기밀 VM</td></tr>
+<tr><td>TEE 구현</td><td>Intel SGX</td><td>Enclave 기반 애플리케이션 격리</td></tr>
+<tr><td></td><td>Intel TDX</td><td>하드웨어 기반 VM 격리·보호</td></tr>
+<tr><td></td><td>AMD SEV-SNP</td><td>VM 메모리 암호화·무결성 보호</td></tr>
+<tr><td></td><td>ARM TrustZone</td><td>보안·일반 실행 환경 분리</td></tr>
+<tr><td>신뢰 실행</td><td>Trusted OS</td><td>신뢰 영역 내 애플리케이션 실행·관리</td></tr>
+<tr><td></td><td>Enclave</td><td>코드·데이터의 격리 실행 영역</td></tr>
+<tr><td>검증·보호</td><td>원격 증명 (Remote Attestation)</td><td>TEE 실행 환경·무결성 검증</td></tr>
+<tr><td></td><td>봉인 (Sealing)</td><td>TEE·정책에 결합된 데이터 암호화</td></tr>
+<tr><td></td><td>신뢰 근원 (Root of Trust)</td><td>하드웨어 기반 신뢰 검증</td></tr>
+<tr><td>보안 지원</td><td>Secure Boot</td><td>부팅 단계 코드 무결성 검증</td></tr>
+<tr><td></td><td>HSM</td><td>암호키 생성·보관·보호</td></tr>
+<tr><td>클라우드 구현</td><td>기밀 VM (Confidential VM)</td><td>하이퍼바이저로부터 VM 보호</td></tr>
+<tr><td></td><td>기밀 컨테이너 (Confidential Container)</td><td>TEE 기반 컨테이너 워크로드 보호</td></tr>
+</table></div>
+</li>
+<li><strong>수행 절차: </strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 환경 생성</td><td>TEE Provisioning</td><td>격리 실행 환경·워크로드 생성</td><td>안전한 실행</td></tr>
+<tr><td>2. 원격 증명</td><td>Remote Attestation</td><td>TEE 측정값·서명·신뢰 상태 검증</td><td>신뢰성 확인</td></tr>
+<tr><td>3. 키 제공</td><td>Secure Key Provisioning</td><td>검증된 TEE에 암호키·비밀정보 전달</td><td>키 접근통제</td></tr>
+<tr><td>4. 데이터 복호화</td><td>Secure Decryption</td><td>TEE 내부에서 보호된 데이터 복호화</td><td>기밀성 유지</td></tr>
+<tr><td>5. 안전한 연산</td><td>Confidential Execution</td><td>격리 환경에서 민감 데이터 연산</td><td>사용 중 보호</td></tr>
+<tr><td>6. 종료·폐기</td><td>Secure Termination</td><td>민감정보·임시 키 제거 및 종료</td><td>잔존정보 보호</td></tr>
 </table></div>
 </li>
 <li><strong>인사이트:</strong> 기밀 컴퓨팅은 "클라우드 사업자도 데이터를 볼 수 없다"는 제로 트러스트 원칙을 하드웨어 수준에서 구현하는 기술로, 의료·금융·AI 등 민감 데이터의 클라우드 이전 장벽을 낮추는 핵심 enabler로 부상하고 있으며 멀티파티 컴퓨팅·AI 모델 보호와 결합하여 프라이버시 보존 컴퓨팅의 핵심 인프라로 자리잡고 있음</li>
@@ -3620,7 +3639,7 @@ TLS 세션키 협상에 사용</td></tr>
 <h4>3. 개인정보 비식별조치 (De-identification)</h4>
 <ul>
 <li><strong>정의</strong>: 개인을 식별할 수 없도록 개인정보를 처리하는 비식별 기법</li>
-<li><strong>키워드</strong>: 가명화, 총계처리, 데이터 삭제, 범주화</li>
+<li><strong>키워드</strong>: 가명화, 총계처리, 데이터 삭제, 범주화, ISO/IEC 20889</li>
 <li><strong>분류</strong>: 개인정보보호</li>
 <li><strong>비식별 기법</strong>:  <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;가총삭범마&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>기법</strong></th><th><strong>설명</strong></th><th><strong>예시</strong></th></tr>
@@ -3784,7 +3803,7 @@ TLS 세션키 협상에 사용</td></tr>
 <h4>7. PET (Privacy Enhancing Technology)</h4>
 <ul>
 <li><strong>정의</strong>: 개인정보 보호를 기술적으로 강화하는 프라이버시 보호 강화 기술의 총칭</li>
-<li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습</li>
+<li><strong>키워드</strong>: 차분 프라이버시, 합성 데이터, 영지식 증명, 동형암호화, 연합학습, PEC(개인정보강화컴퓨팅)</li>
 <li><strong>분류</strong>: 개인정보보호</li>
 <li><strong>PET 기술 분류</strong>: <span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동영다차/합연신&gt;</strong></span><div class="table-scroll"><table>
 <tr><th><strong>구분</strong></th><th>기술</th><th>설명</th><th>활용</th></tr>
