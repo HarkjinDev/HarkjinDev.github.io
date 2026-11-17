@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-6. API Gateway</title>
+  <title>[하위] 1-5. REST API (REpresentational State Transfer API)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,23 +15,21 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-6. API Gateway</h4>
+<h4>[하위] 1-5. REST API (REpresentational State Transfer API)</h4>
 <ul>
-<li><strong>정의</strong>: 클라이언트 요청을 단일진입점에서 받아 라우팅·인증·변환을 처리하는 미들웨어</li>
-<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 진입점, 공통 횡단 관심사</strong></u></span>, 라우팅, Rate Limiting, 인증/인가, 로드밸런싱, MSA, BFF 패턴</li>
+<li><strong>정의</strong>: 자원을 URI로 식별하고 HTTP 메서드로 CRUD 연산을 수행하는 REST 아키텍처 기반 HTTP API</li>
+<li><strong>키워드</strong>: HTTP 메서드(GET/POST/PUT/DELETE/PATCH), 상태코드, URI 설계, JSON</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>API Gateway 주요 기능</strong>:<div class="table-scroll"><table>
-<tr><th>기능</th><th>설명</th></tr>
-<tr><td>라우팅</td><td>요청 URL·메서드 기반 서비스 라우팅</td></tr>
-<tr><td>인증/인가</td><td>JWT·OAuth2 토큰 검증</td></tr>
-<tr><td>Rate Limiting</td><td>호출 횟수 제한으로 서비스 보호</td></tr>
-<tr><td>로드밸런싱</td><td>트래픽 분산</td></tr>
-<tr><td>프로토콜 변환</td><td>REST↔︎SOAP, HTTP↔︎gRPC</td></tr>
-<tr><td>로깅/모니터링</td><td>API 호출 추적·분석</td></tr>
-<tr><td>캐싱</td><td>응답 캐시로 백엔드 부하 감소</td></tr>
+<li><strong>HTTP 메서드와 CRUD 매핑</strong>:<div class="table-scroll"><table>
+<tr><th>HTTP 메서드</th><th>CRUD</th><th>특성</th><th>예시</th></tr>
+<tr><td>GET</td><td>Read</td><td>안전·멱등</td><td>GET /users/1</td></tr>
+<tr><td>POST</td><td>Create</td><td>비멱등</td><td>POST /users</td></tr>
+<tr><td>PUT</td><td>Update (전체)</td><td>멱등</td><td>PUT /users/1</td></tr>
+<tr><td>PATCH</td><td>Update (부분)</td><td>비멱등</td><td>PATCH /users/1</td></tr>
+<tr><td>DELETE</td><td>Delete</td><td>멱등</td><td>DELETE /users/1</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: API Gateway는 MSA에서 <strong>“공통 횡단 관심사(인증·로깅·제한)”를 집중 처리</strong>하여 개별 서비스의 복잡성을 줄이는 필수 인프라이며, Kong·AWS API Gateway·Nginx가 대표적.</li>
+<li><strong>인사이트</strong>: 실무에서는 Level 2가 일반적이며, <strong>멱등성(Idempotency)</strong>이 API 신뢰성의 핵심으로 PUT·DELETE는 반복 호출 시 동일 결과를 보장해야 함.</li>
 </ul>
 
 </body>

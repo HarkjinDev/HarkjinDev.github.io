@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 1-2. 지오패트리에이션 (Geopatriation)</title>
+  <title>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,31 +15,37 @@
   </style>
 </head>
 <body>
-<h4>[하위] 1-2. 지오패트리에이션 (Geopatriation)</h4>
+<h4>[하위] 1-1. 선제적 사이버보안 (Preemptive Cybersecurity)</h4>
 <ul>
-<li><strong>정의:</strong> 글로벌 클라우드에서 자국·역내 소버린 인프라로 데이터/애플리케이션/워크로드를 이전하는 지정학적 전략</li>
-<li><strong>키워드:</strong> Geopolitical+Repatriation, 소버린클라우드, 데이터주권, 클라우드리쇼어링</li>
+<li><strong>정의:</strong> 공격 발생 이전에 위협을 제거하는 예방 중심의 선제적 사이버보안 패러다임</li>
+<li><strong>키워드:</strong> 가트너 2026, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Deny·Deceive</strong></u></span>, AI-powered SecOps, 프로그래매틱 방어, CTEM, ASM, 예측적 보안</li>
 <li><strong>분류:</strong> 신기술/동향</li>
-<li><strong>핵심 개념 — 통제권(Control) 문제:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td>관할권 종속</td><td>데이터·앱이 타국에서 운영되면 해당국 법체계 적용</td><td>외국 법 적용</td></tr>
-<tr><td>접근·감사 영향</td><td>데이터 접근·감사·제한 방식이 소재국 법에 좌우</td><td>통제권 상실</td></tr>
-<tr><td>규제 대응력</td><td>규제 변화 시 신속 대응 어려움</td><td>대응 지연</td></tr>
-<tr><td>이전 목적</td><td>성능·비용이 아닌 지정학적 불확실성 해소가 목적</td><td>지정학 리스크 회피</td></tr>
+<li><strong>필요성:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI 공격 지능화</td><td>AI 기반 공격이 밀리초 단위로 가속화·기존 탐지·대응 방식 한계 도달</td><td>반응형 보안 무력화</td></tr>
+<tr><td>공격면 확장</td><td>클라우드·OT·CPS 디지털 자산 증가로 공격면 급격히 확대</td><td>ASM 기반 노출 관리 필요</td></tr>
+<tr><td>패러다임 전환</td><td>Detect &amp; Respond 중심→AI 기반 사전 차단·기만 전략 전환</td><td>예방 중심 보안</td></tr>
 </table></div>
 </li>
-<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>인프라 전략</strong></td><td>소버린 클라우드</td><td>자국 관할권 내 운영</td></tr>
-<tr><td></td><td>리저널 클라우드</td><td>인접지역 데이터 존치</td></tr>
-<tr><td></td><td>온프레미스</td><td>완전 자체 통제</td></tr>
-<tr><td></td><td>기밀 컴퓨팅(TEE)</td><td>인프라 소유자도 접근 불가하게 격리</td></tr>
-<tr><td><strong>데이터 통제</strong></td><td>데이터 국경</td><td>데이터 흐름 최소화</td></tr>
-<tr><td></td><td>암호화 키관리(BYOK/HYOK)</td><td>키 주권 확보</td></tr>
-<tr><td><strong>하이브리드 운영</strong></td><td>멀티/하이브리드 클라우드</td><td>혁신성과 주권 병행</td></tr>
+<li><strong>가트너 정의 핵심 3요소:</strong><div class="table-scroll"><table>
+<tr><th>요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>AI-powered SecOps</strong></td><td>AI로 보안 운영 자동화·위협 예측·우선순위화 수행</td><td>자율 보안 운영</td></tr>
+<tr><td><strong>Programmatic Denial</strong></td><td>알려진 악성 인프라·위협을 프로그래매틱하게 사전 차단</td><td>자동화 차단</td></tr>
+<tr><td><strong>Deception (기만)</strong></td><td>공격자를 허니팟·허위 자산으로 유인·무력화</td><td>공격자 혼란 유도</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트:</strong> 지오패트리에이션은 비용 절감이 목적이던 기존 클라우드 회귀와 달리, 지정학적 리스크와 데이터 주권 확보를 위한 전략적 선택으로 2026년 이후 급속히 확산될 전망</li>
+<li><strong>핵심 구현 기술:</strong><div class="table-scroll"><table>
+<tr><th>기술</th><th>설명</th><th>핵심</th></tr>
+<tr><td>AI-powered SecOps</td><td>AI로 위협 예측·탐지·우선순위화·대응 자동화</td><td>자율 보안 운영</td></tr>
+<tr><td>ASM (공격면 관리)</td><td>클라우드·OT·CPS 공격면 지속 식별·노출 관리</td><td>공격면 가시성</td></tr>
+<tr><td>CTEM (지속적 위협 노출 관리)</td><td>노출 식별→우선순위화→검증→대응 지속 수행</td><td>노출 관리 자동화</td></tr>
+<tr><td>Deception 기술</td><td>허니팟·허위 자산으로 공격자 유인·탐지·무력화</td><td>공격자 기만</td></tr>
+<tr><td>Programmatic Denial</td><td>악성 인프라 연결 전 네트워크 계층에서 자동 차단</td><td>사전 차단</td></tr>
+<tr><td>예측적 위협 인텔리전스</td><td>글로벌 CTI 실시간 수집·분석·자동 방어 정책 반영</td><td>선제적 IOC 차단</td></tr>
+<tr><td>Red Teaming</td><td>공격자 기반의 실제 침투/모의해킹, 사전 예방</td><td>선제적 보안 조직</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 가트너는 선제적 사이버보안을 "예측이 곧 보호(Prediction is Protection)"로 정의하며, AI-powered SecOps·프로그래매틱 차단·기만 전략의 3요소로 공격자보다 먼저 행동하는 보안 패러다임 전환을 2026년 핵심 전략기술로 제시함</li>
 </ul>
 
 </body>

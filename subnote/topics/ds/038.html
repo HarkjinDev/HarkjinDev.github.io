@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. 버전관리 시스템 (Version Control System)</title>
+  <title>3. 웹 성능 최적화 (Web Performance Optimization)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,30 +15,38 @@
   </style>
 </head>
 <body>
-<h4>4. 버전관리 시스템 (Version Control System)</h4>
+<h4>3. 웹 성능 최적화 (Web Performance Optimization)</h4>
 <ul>
-<li><strong>정의</strong>: 소스코드와 파일의 변경 이력을 추적·관리하고 협업을 지원하는 시스템</li>
-<li><strong>키워드</strong>: Git, SVN, 분산형/중앙집중형, 브랜치, 머지, 커밋, 형상관리</li>
+<li><strong>정의</strong>: 웹 페이지의 로딩 속도와 사용자 체감 성능을 개선하기 위한 기술적 전략과 기법의 총칭</li>
+<li><strong>키워드</strong>: LCP, FID, CLS, CDN, WebP 변환, 레이지 로딩, 코드 분할, CDN, 캐싱, SEO, 압축, 트리 쉐이킹</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>분산형 vs 중앙집중형 비교</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>분산형 (Git)</strong></th><th><strong>중앙집중형 (SVN, CVS)</strong></th></tr>
-<tr><td>저장소</td><td>로컬+원격 (모두 전체 이력)</td><td>중앙 서버만</td></tr>
-<tr><td>오프라인 작업</td><td>가능</td><td>불가</td></tr>
-<tr><td>브랜칭</td><td>가볍고 빠름</td><td>상대적으로 무거움</td></tr>
-<tr><td>네트워크 의존</td><td>낮음</td><td>높음</td></tr>
-<tr><td>복구</td><td>로컬 복사본 활용</td><td>서버 장애 시 위험</td></tr>
+<li><strong>Core Web Vitals (Google 핵심 지표)</strong>:<div class="table-scroll"><table>
+<tr><th><strong>지표</strong></th><th><strong>의미</strong></th><th><strong>기준</strong></th></tr>
+<tr><td><strong>LCP (Largest Contentful Paint)</strong></td><td>주요 콘텐츠 렌더링 시간</td><td>2.5초 이하</td></tr>
+<tr><td><strong>FID (First Input Delay)</strong></td><td>첫 사용자 입력 응답 시간</td><td>100ms 이하</td></tr>
+<tr><td><strong>CLS (Cumulative Layout Shift)</strong></td><td>레이아웃 시각적 안정성</td><td>0.1 이하</td></tr>
 </table></div>
 </li>
-<li><strong>Git 브랜치 전략</strong>:<div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>Git Flow</strong></th><th><strong>GitHub Flow</strong></th><th><strong>Trunk-based</strong></th></tr>
-<tr><td><strong>주요 브랜치</strong></td><td><strong>Main, Develop, Feature, Release, Hotfix</strong></td><td><strong>Main, Topic (Feature)</strong></td><td><strong>Main (Trunk)</strong></td></tr>
-<tr><td><strong>복잡도</strong></td><td>매우 높음</td><td>낮음</td><td>중간</td></tr>
-<tr><td><strong>배포 주기</strong></td><td>정기적 배포 (배포 단위)</td><td>수시로 (지속적 배포)</td><td>실시간 (매우 빠름)</td></tr>
-<tr><td><strong>적합한 팀</strong></td><td>대규모, 엄격한 버전 관리 필요</td><td>소규모 팀, 빠른 웹 서비스</td><td>숙련된 팀, CI/CD 자동화 완성</td></tr>
-<tr><td><strong>안정성</strong></td><td>매우 높음 (다단계 검증)</td><td>중간 (PR 리뷰 중심)</td><td>높음 (강력한 자동 테스트 전제)</td></tr>
+<li><strong>주요 최적화 기법</strong>:<div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>항목</strong></th><th><strong>설명</strong></th><th><strong>핵심</strong></th></tr>
+<tr><td><strong>이미지 최적화</strong></td><td>WebP 변환</td><td>고효율 포맷으로 용량 축소</td><td>용량 절감</td></tr>
+<tr><td></td><td>레이지 로딩</td><td>시각적 영역만 우선 로드</td><td>지연 로딩</td></tr>
+<tr><td><strong>코드 최적화</strong></td><td>코드 분할</td><td>필요 시점에 필요 코드 로드</td><td>모듈 최적화</td></tr>
+<tr><td><strong>전송 최적화</strong></td><td>CDN 활용</td><td>근접 서버에서 콘텐츠 제공</td><td>전송 속도↑</td></tr>
+<tr><td><strong>캐싱 전략</strong></td><td>HTTP 캐싱</td><td>브라우저에 자원 임시 저장</td><td>재사용성</td></tr>
+<tr><td></td><td>서비스 워커</td><td>오프라인 지원 및 캐싱 제어</td><td>PWA 구현</td></tr>
+<tr><td><strong>번들링·압축</strong></td><td>Gzip/Brotli</td><td>파일 압축으로 전송량 감소</td><td>전송량 최소화</td></tr>
+<tr><td></td><td>트리 쉐이킹</td><td>미사용 코드 자동 제거</td><td>코드 경량화</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: Git은 현재 <strong>사실상 표준(De facto Standard)</strong>으로, 브랜치 전략은 팀 규모·배포 주기에 따라 선택하며 CI/CD 파이프라인과 연계하여 자동화 효과를 극대화.</li>
+<li><strong>SEO(Search Engine Optimization, 검색 엔진 최적화): </strong>웹사이트가 <strong>광고가 아닌 일반 검색 결과(Organic Search) 상단</strong>에 노출되도록 관리하는 모든 기술적, 전략적 활동을 의미<div class="table-scroll"><table>
+<tr><th><strong>영역</strong></th><th><strong>핵심 활동</strong></th><th><strong>비유</strong></th></tr>
+<tr><td><strong>기술적 SEO (Technical)</strong></td><td>사이트 속도 최적화, 모바일 대응, 보안(HTTPS)</td><td><strong>식당의 쾌적한 시설/서비스</strong></td></tr>
+<tr><td><strong>콘텐츠 SEO (On-Page)</strong></td><td>고품질 정보 제공, 키워드 배치, 제목 태그 최적화</td><td><strong>메뉴의 맛과 영양가</strong></td></tr>
+<tr><td><strong>오프페이지 SEO (Off-Page)</strong></td><td>외부 사이트로부터의 인용(백링크), 브랜드 언급</td><td><strong>단골 손님의 입소문과 추천</strong></td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 웹 성능은 <strong>사용자 이탈률과 전환율에 직접 영향</strong>을 미치며, Google의 Core Web Vitals가 검색 순위 알고리즘에 반영되어 SEO와 성능 최적화가 연계된 전략 필요.</li>
 </ul>
 
 </body>

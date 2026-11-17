@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. 반응형 웹 디자인 (RWD, Responsive Web Design)</title>
+  <title>[하위] 1-6. API Gateway</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,32 +15,23 @@
   </style>
 </head>
 <body>
-<h4>2. 반응형 웹 디자인 (RWD, Responsive Web Design)</h4>
+<h4>[하위] 1-6. API Gateway</h4>
 <ul>
-<li><strong>정의</strong>: 단일 HTML 코드베이스로 다양한 화면 크기에 최적화된 레이아웃을 자동 제공하는 웹 디자인 방식</li>
-<li><strong>키워드</strong>: 미디어 쿼리(Media Query), 유동형 그리드, 유동 이미지, 뷰포트(Viewport), 웹접근성(WA)</li>
+<li><strong>정의</strong>: 클라이언트 요청을 단일진입점에서 받아 라우팅·인증·변환을 처리하는 미들웨어</li>
+<li><strong>키워드</strong>: <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>단일 진입점, 공통 횡단 관심사</strong></u></span>, 라우팅, Rate Limiting, 인증/인가, 로드밸런싱, MSA, BFF 패턴</li>
 <li><strong>분류</strong>: API/웹 기술</li>
-<li><strong>RWD 핵심 기술</strong>:<div class="table-scroll"><table>
-<tr><th>기술</th><th>설명</th></tr>
-<tr><td><strong>미디어 쿼리</strong></td><td>브레이크포인트별 CSS 적용 (<code>@media screen and (max-width: 768px)</code>)</td></tr>
-<tr><td><strong>유동형 그리드</strong></td><td>고정 픽셀 대신 % 단위 레이아웃</td></tr>
-<tr><td><strong>유동 이미지</strong></td><td><code>max-width: 100%</code>로 이미지 자동 조절</td></tr>
-<tr><td><strong>뷰포트 메타태그</strong></td><td>모바일 브라우저 렌더링 너비 지정</td></tr>
+<li><strong>API Gateway 주요 기능</strong>:<div class="table-scroll"><table>
+<tr><th>기능</th><th>설명</th></tr>
+<tr><td>라우팅</td><td>요청 URL·메서드 기반 서비스 라우팅</td></tr>
+<tr><td>인증/인가</td><td>JWT·OAuth2 토큰 검증</td></tr>
+<tr><td>Rate Limiting</td><td>호출 횟수 제한으로 서비스 보호</td></tr>
+<tr><td>로드밸런싱</td><td>트래픽 분산</td></tr>
+<tr><td>프로토콜 변환</td><td>REST↔︎SOAP, HTTP↔︎gRPC</td></tr>
+<tr><td>로깅/모니터링</td><td>API 호출 추적·분석</td></tr>
+<tr><td>캐싱</td><td>응답 캐시로 백엔드 부하 감소</td></tr>
 </table></div>
 </li>
-<li><strong>RWD vs 적응형 웹(AWD) 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>RWD</th><th>AWD</th></tr>
-<tr><td>방식</td><td>CSS로 유동적 조절</td><td>기기별 별도 레이아웃</td></tr>
-<tr><td>코드베이스</td><td>단일</td><td>다중</td></tr>
-<tr><td>서버 감지</td><td>불필요</td><td>필요 (User-Agent)</td></tr>
-<tr><td>유지보수</td><td>쉬움</td><td>복잡</td></tr>
-</table></div>
-</li>
-<li><strong>웹 접근성(WA, Web Content Accessibility): WCAG 2.0 표준</strong><ul>
-<li>인식(Perceivable) 용이성, 운용(Parable) 용이성, 이해(Understand) 용이성, 견고성(Robust)</li>
-</ul>
-</li>
-<li><strong>인사이트</strong>: RWD는 <strong>“모바일 퍼스트(Mobile First)”</strong> 전략과 결합 시 효과적이며, 구글의 모바일 친화성 검색 순위 반영으로 SEO와도 직결됨.</li>
+<li><strong>인사이트</strong>: API Gateway는 MSA에서 <strong>“공통 횡단 관심사(인증·로깅·제한)”를 집중 처리</strong>하여 개별 서비스의 복잡성을 줄이는 필수 인프라이며, Kong·AWS API Gateway·Nginx가 대표적.</li>
 </ul>
 
 </body>

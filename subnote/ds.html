@@ -159,6 +159,32 @@
 <li><strong>이점</strong>: 환경 일관성(Dev=Staging=Prod), 빠른 배포, 마이크로서비스 분리</li>
 <li><strong>인사이트</strong>: Docker는 <strong>DevOps 파이프라인의 표준 패키징 단위</strong>로, "환경 차이로 인한 버그" 문제를 근본적으로 해결하며 Kubernetes와 결합하면 전체 컨테이너 수명주기 자동화가 가능함.</li>
 </ul>
+<h4><strong>6. 쿠버네티스 (Kubernetes)</strong></h4>
+<ul>
+<li><strong>정의</strong>: 컨테이너화된 워크로드의 자동 배포·스케일링·복구·서비스 디스커버리를 관리하는 오픈소스 컨테이너 오케스트레이션 플랫폼</li>
+<li><strong>키워드</strong>: Pod, Node, Deployment, Service, HPA, CRI, CNI, CNCF, 셀프힐링, 선언적 관리</li>
+<li><strong>분류</strong>: 클라우드 네이티브/컨테이너 오케스트레이션</li>
+<li><strong>주요 컴포넌트</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td>Control Plane</td><td>kube-apiserver</td><td>API 요청 처리 및 클러스터 관리</td><td>REST API 서버</td></tr>
+<tr><td></td><td>kube-scheduler</td><td>자원 상황별 Pod 노드 할당</td><td>노드 스케줄링</td></tr>
+<tr><td></td><td>kube-controller-manager</td><td>클러스터 상태 감시 및 조정</td><td>제어 루프 관리</td></tr>
+<tr><td></td><td>etcd</td><td>클러스터 데이터 저장소</td><td>분산 Key-Value</td></tr>
+<tr><td>Worker Node</td><td>Pod</td><td>가장 기본적인 배포 단위</td><td>컨테이너 그룹</td></tr>
+<tr><td></td><td>kubelet</td><td>노드 에이전트/Pod 실행 관리</td><td>노드 에이전트</td></tr>
+<tr><td></td><td>kube-proxy</td><td>Service 트래픽 전달 규칙 관리</td><td>네트워킹/LB</td></tr>
+<tr><td></td><td>컨테이너 런타임</td><td>CRI 기반 컨테이너 실행</td><td>containerd, CRI-O</td></tr>
+<tr><td>네트워크</td><td>CNI</td><td>Pod 네트워크 연결 및 IP 관리</td><td>네트워크 플러그인</td></tr>
+<tr><td>User</td><td>kubectl</td><td>쿠버네티스 명령 실행 도구</td><td>CLI 도구</td></tr>
+<tr><td>애드온</td><td>CoreDNS</td><td>서비스 DNS 레코드 제공</td><td>네이밍 서비스</td></tr>
+<tr><td></td><td>Headlamp 등</td><td>웹 기반 클러스터 관리 UI</td><td>웹 관리 도구</td></tr>
+<tr><td></td><td>리소스 모니터링</td><td>메트릭 수집·저장 및 시각화</td><td>Metrics Server, Prometheus</td></tr>
+<tr><td></td><td>로깅</td><td>로그 중앙 수집·저장 및 검색</td><td>Fluent Bit, Loki 등</td></tr>
+</table></div>
+</li>
+<li><strong>HPA(Horizontal Pod Autoscaler)</strong>: CPU·메모리 사용률 및 사용자 정의·외부 메트릭을 기반으로 Pod 수 자동 조정</li>
+<li><strong>인사이트</strong>: Kubernetes는 클라우드 네이티브의 사실상 표준으로, 선언적 구성(Desired State)과 셀프힐링을 통해 운영 자동화를 실현하며, CNCF 생태계(Helm, Istio, Prometheus)와 연계하여 확장성을 제공</li>
+</ul>
 <h4>6. 쿠버네티스 (Kubernetes)</h4>
 <ul>
 <li><strong>정의</strong>: 컨테이너화된 워크로드의 자동 배포·스케일링·복구·서비스 디스커버리를 관리하는 오픈소스 컨테이너 오케스트레이션 플랫폼</li>

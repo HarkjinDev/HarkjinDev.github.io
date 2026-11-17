@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. HCI (Hyper Converged Infrastructure)</title>
+  <title>9. 소버린 클라우드 (Sovereign Cloud)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,33 @@
   </style>
 </head>
 <body>
-<h4>10. HCI (Hyper Converged Infrastructure)</h4>
+<h4>9. 소버린 클라우드 (Sovereign Cloud)</h4>
 <ul>
-<li><strong>정의</strong>: 컴퓨팅·스토리지·네트워크·가상화를 단일 소프트웨어 정의 장비에 통합한 초융합 인프라</li>
-<li><strong>키워드</strong>: 소프트웨어 정의, 단순화, 확장성, vSAN, Nutanix, 분산 스토리지</li>
+<li><strong>정의:</strong> 데이터 주권·보안·컴플라이언스를 동시에 확보하는 전략적 클라우드 아키텍처</li>
+<li><strong>키워드:</strong> 데이터 주권, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>데이터 상주(Data Residency</strong></u></span>),<span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong> 데이터 로컬리제이션</strong></u></span>, GDPR, Cloud Act, 기밀 컴퓨팅, 고객 관리형 키, <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>Gaia-X(유럽 자립 클라우드)</strong></u></span></li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>유형별 비교</strong>:<div class="table-scroll"><table>
-<tr><th>구분</th><th>전통 인프라</th><th>CI(융합 인프라)</th><th>HCI(초융합 인프라)</th></tr>
-<tr><td>구성</td><td>서버·스토리지·네트워크 분리</td><td>사전 통합 패키지</td><td>소프트웨어 정의 완전 통합</td></tr>
-<tr><td>확장</td><td>개별 장비 증설</td><td>어려움</td><td>노드 추가로 선형 확장</td></tr>
-<tr><td>관리</td><td>복잡</td><td>중간</td><td>단일 관리 콘솔</td></tr>
+<li><strong>등장 배경: </strong>GDPR, 지정학적 리스크, 공공·국방 데이터 보호, 디지털 주권 강화</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td><strong>데이터 상주 
+(Data Residency)</strong></td><td>데이터를 특정 국가·지역 내에서만 저장·처리</td><td>데이터 국내 고정</td></tr>
+<tr><td></td><td><strong>데이터 로컬리제이션</strong></td><td>법률 기반 데이터의 국경 이동 제한·통제</td><td>국내 데이터 의무화</td></tr>
+<tr><td><strong>보안·암호화</strong></td><td><strong>고객 관리형 키(CMK)</strong></td><td>암호화 키를 고객이 직접 관리·제어</td><td>암호화 주권 확보</td></tr>
+<tr><td></td><td><strong>기밀 컴퓨팅</strong></td><td>하드웨어 기반 기밀 컴퓨팅</td><td>처리 중 데이터 보호</td></tr>
+<tr><td></td><td><strong>하드웨어 보안 모듈</strong></td><td>암호화 키 물리적 하드웨어 보안 저장</td><td>키 물리적 보호</td></tr>
+<tr><td><strong>접근 통제</strong></td><td><strong>현지인력 운용</strong></td><td>자국 거주자가 제어·변조 방지 로그 추적</td><td>운영 감사 가능성</td></tr>
+<tr><td></td><td><strong>인력 접근 통제</strong></td><td>자국민·승인된 인력만 데이터 접근 허용</td><td>인적 접근 제한</td></tr>
+<tr><td></td><td><strong>Zero Trust</strong></td><td>모든 접근 지속 검증·최소 권한 원칙</td><td>신뢰 최소화</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>독립 인프라</strong></td><td>글로벌 리전과 물리적·법적 분리된 독립 인프라</td><td>물리적 분리</td></tr>
+<tr><td></td><td><strong>국내 데이터센터</strong></td><td>자국 영토 내 물리적 서버·스토리지 운용</td><td>국내 물리 인프라</td></tr>
+<tr><td><strong>거버넌스</strong></td><td><strong>규제 컴플라이언스</strong></td><td>GDPR·개인정보보호법 등 자국 법률 준수</td><td><strong>Geo-fencing</strong></td></tr>
+<tr><td></td><td><strong>감사·로깅</strong></td><td>모든 데이터 접근·처리 이력 완전 기록·감사</td><td>완전 감사 추적</td></tr>
+<tr><td><strong>물리적격리</strong></td><td><strong>단일 테넌트</strong></td><td>특정 국가를 위한 전용존 구축</td><td>자국 전용존</td></tr>
+<tr><td></td><td><strong>에어갭</strong></td><td>물리적으로 단절된 클라우드 구축</td><td>물리적 단절</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: HCI는 <strong>VDI·소규모 지점·엣지 컴퓨팅</strong>에 적합하며, 프라이빗 클라우드 구축 시 복잡성 감소와 빠른 배포가 주요 채택 이유임. 대규모 워크로드에서는 성능 병목이 발생할 수 있음.</li>
+<li><strong>Gaia-X(유럽 클라우드 자립): </strong>EU 주도 유럽 데이터 인프라·클라우드 생태계 구축 이니셔티</li>
+<li><strong>인사이트:</strong> 소버린 클라우드는 단순한 로컬 호스팅이 아닌 디지털 주권 확보를 위한 핵심 전략으로, 미·중 기술 패권 경쟁과 GDPR·Cloud Act 등 규제 강화로 공공·금융·의료·국방 분야의 필수 아키텍처로 자리잡고 있음. 글로벌 CSP의 소버린 클라우드 솔루션과 자국 클라우드 생태계 육성의 균형이 각국 디지털 주권 전략의 핵심 과제이며, Gaia-X·한국 CSAP 등 지역별 신뢰 프레임워크 구축이 소버린 클라우드 생태계 성숙의 핵심 방향임</li>
 </ul>
 
 </body>

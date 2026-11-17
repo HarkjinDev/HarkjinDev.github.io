@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. VDI (Virtual Desktop Infrastructure)</title>
+  <title>7. 오토 스케일링 (Auto Scaling)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,39 @@
   </style>
 </head>
 <body>
-<h4>8. VDI (Virtual Desktop Infrastructure)</h4>
+<h4>7. 오토 스케일링 (Auto Scaling)</h4>
 <ul>
-<li><strong>정의</strong>: 데이터센터 서버에 데스크톱을 가상화해 중앙관리하고 원격접속하는 데스크톱 가상화 인프라</li>
-<li><strong>키워드</strong>: 씬 클라이언트, 세션 브로커, 중앙 관리, RDP/ICA/PCoIP, 보안 USB, BYOD, 재택근무</li>
+<li><strong>정의</strong>: 시스템 부하·트래픽 변화에 따라 컴퓨팅 자원을 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>자동으로 확장하거나 축소</strong></u></span>하는 자동화된 자원 관리 기술</li>
+<li><strong>키워드</strong>: 수평 확장(Scale Out), 수직 확장(Scale Up), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>쿨다운, 로드밸런서, 헬스체크, 메트릭, 트리거 메트릭</strong></u></span>, 클라우드 비용 최적화, 클라우드 탄력성</li>
 <li><strong>분류</strong>: 가상화/컨테이너</li>
-<li><strong>계층별 구성요소</strong>:<div class="table-scroll"><table>
-<tr><th>계층</th><th>구성 요소</th></tr>
-<tr><td>클라이언트</td><td>씬 클라이언트, PC, 모바일</td></tr>
-<tr><td>프로토콜</td><td>RDP, ICA(Citrix), PCoIP(VMware)</td></tr>
-<tr><td>가상화</td><td>하이퍼바이저 + 가상 데스크톱 VM</td></tr>
-<tr><td>스토리지</td><td>공유 스토리지 (SAN/NFS)</td></tr>
-<tr><td>관리</td><td>VDI 관리 플랫폼 (Citrix, VMware Horizon)</td></tr>
+<li><strong>수평/수직 확장:</strong><div class="table-scroll"><table>
+<tr><th>유형</th><th>방식</th><th>설명</th></tr>
+<tr><td><strong>수평 확장</strong></td><td><strong>Scale Out/In</strong></td><td>인스턴스 수 증감</td></tr>
+<tr><td><strong>수직 확장</strong></td><td><strong>Scale Up/Down</strong></td><td>인스턴스 스펙 증감</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: VDI는 <strong>재택근무·보안 강화·BYOD 대응</strong>의 실용적 솔루션으로, 초기 구축 비용이 높으나 데이터 중앙화로 보안 사고 시 피해 최소화가 가능함. DaaS와의 비교(온프레미스 vs 클라우드)를 언급하면 차별화 가능.</li>
+<li><strong>오토 스케일링 유형: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;반예스&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>유형</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>반응형 스케일링 (Reactive)</strong></td><td>현재 메트릭 임계값 초과 시 즉각 스케일링</td><td>임계값 기반 대응</td></tr>
+<tr><td><strong>예측형 스케일링 (Predictive)</strong></td><td>과거 패턴·ML 예측으로 사전 스케일링</td><td>사전 선제 대응</td></tr>
+<tr><td><strong>스케줄 기반 스케일링</strong></td><td>특정 시간·요일 기준 사전 정의 스케일링</td><td>시간 기반 예약</td></tr>
+</table></div>
+</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>항목</th><th>설명</th><th>핵심</th></tr>
+<tr><td><strong>정책</strong></td><td><strong>스케일링 정책</strong></td><td>Scale-Out·In 조건·임계값·인스턴스 수 정의</td><td>스케일링 규칙</td></tr>
+<tr><td></td><td><strong>쿨다운 (Cooldown)</strong></td><td>스케일링 후 다음 스케일링까지 대기 시간</td><td>과잉 반응 방지</td></tr>
+<tr><td></td><td><strong>최소·최대 인스턴스</strong></td><td>스케일링 허용 범위의 하한·상한 설정</td><td>비용·가용성 한계</td></tr>
+<tr><td><strong>메트릭</strong></td><td><strong>CPU 사용률</strong></td><td>CPU 기준 가장 일반적인 스케일링 트리거</td><td>부하 지표</td></tr>
+<tr><td></td><td><strong>메모리 사용률</strong></td><td>메모리 기반 스케일링 트리거</td><td>메모리 부하</td></tr>
+<tr><td></td><td><strong>요청 수 (RPS)</strong></td><td>초당 요청 수 기반 트리거</td><td>트래픽 부하</td></tr>
+<tr><td><strong>인프라</strong></td><td><strong>로드 밸런서</strong></td><td>증가된 인스턴스로 트래픽 자동 분산</td><td>트래픽 분산</td></tr>
+<tr><td></td><td><strong>헬스체크</strong></td><td>신규 인스턴스 정상 여부 확인 후 투입</td><td>정상 여부 확인</td></tr>
+<tr><td></td><td><strong>매트릭 트리거</strong></td><td>임계값 초과·미달 시 자동 스케일링</td><td>스케일링 판단 기준</td></tr>
+<tr><td></td><td><strong>AMI·이미지</strong></td><td>스케일링 시 신규 인스턴스 생성 기반 이미지</td><td>표준 인스턴스</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 오토 스케일링은 <strong>클라우드 탄력성(Elasticity)의 핵심 구현체</strong>로, 비용 최적화를 위해 스케일 인 정책(지연 시간, 쿨다운)을 신중하게 설계해야 하며, HPA와의 연계를 설명하면 고득점 가능.</li>
 </ul>
 
 </body>

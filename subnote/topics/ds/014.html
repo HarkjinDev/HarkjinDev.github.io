@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. FaaS (Function as a Service)</title>
+  <title>1. 클라우드 서비스 모델 (Cloud Service Model)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,13 +15,29 @@
   </style>
 </head>
 <body>
-<h4>2. FaaS (Function as a Service)</h4>
+<h4>1. 클라우드 서비스 모델 (Cloud Service Model)</h4>
 <ul>
-<li><strong>정의</strong>: 코드를 함수 단위로 배포하고 이벤트 발생 시에만 실행·과금하는 서버리스 컴퓨팅 모델</li>
-<li><strong>키워드</strong>: 서버리스, Lambda, Azure Functions, 이벤트 드리븐, 콜드 스타트, 무상태</li>
+<li><strong>정의</strong>: 클라우드 서비스를 제공 범위와 사용자 관리 책임에 따라 IaaS·PaaS·SaaS로 구분하는 분류 체계</li>
+<li><strong>키워드</strong>: IaaS, PaaS, SaaS, 공동 책임 모델, 추상화 수준</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>특징</strong>: 서버 관리 불필요, 이벤트 트리거 실행, 밀리초 단위 과금, 자동 스케일링(0→∞)</li>
-<li><strong>인사이트</strong>: FaaS는 <strong>이벤트 기반 경량 작업</strong>(알림, 이미지 처리, API 게이트웨이)에 최적이며, 콜드 스타트 문제는 Provisioned Concurrency나 언어 선택(Go vs Python)으로 완화 가능함.</li>
+<li><strong>서비스 모델 비교</strong>:<div class="table-scroll"><table>
+<tr><th>항목</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
+<tr><td><strong>정의</strong></td><td>가상화된 컴퓨팅·스토리지·네트워크 인프라 제공</td><td>애플리케이션 개발·배포 플랫폼 환경 제공</td><td>완성된 소프트웨어 서비스를 구독형으로 제공</td></tr>
+<tr><td><strong>제공 범위</strong></td><td>인프라(서버·네트워크)</td><td>플랫폼(런타임·미들웨어)</td><td>완성된 소프트웨어</td></tr>
+<tr><td><strong>사용자 관리 범위</strong></td><td>OS~앱 전체</td><td>앱·데이터</td><td>데이터·설정만 관리</td></tr>
+<tr><td><strong>사업자 관리 범위</strong></td><td>인프라</td><td>인프라+플랫폼</td><td>전체 스택 관리</td></tr>
+<tr><td><strong>유연성</strong></td><td>최고 (완전한 인프라 제어)</td><td>중간 (플랫폼 범위 내)</td><td>낮음 (설정 범위 한정)</td></tr>
+<tr><td><strong>관리 복잡도</strong></td><td>높음</td><td>중간</td><td>낮음</td></tr>
+<tr><td><strong>개발 속도</strong></td><td>느림 (인프라 구성 필요)</td><td>빠름 (개발 환경 즉시 제공)</td><td>즉시 사용</td></tr>
+<tr><td><strong>비용 구조</strong></td><td>자원 사용량 기반</td><td>플랫폼 사용량 기반</td><td>구독·사용자 수 기반</td></tr>
+<tr><td><strong>확장성</strong></td><td>인프라 수준 직접 조정</td><td>플랫폼 자동 확장</td><td>사업자 자동 처리</td></tr>
+<tr><td><strong>보안 책임</strong></td><td>사용자 책임 비중 높음</td><td>공동 책임</td><td>사업자 책임 비중 높음</td></tr>
+<tr><td><strong>적합 대상</strong></td><td>인프라 필요·DevOps 팀</td><td>개발자·스타트업·빠른 배포</td><td>비개발 부서·SaaS 사용 기업</td></tr>
+<tr><td><strong>Lock-in 위험</strong></td><td>낮음</td><td>중간</td><td>높음</td></tr>
+<tr><td><strong>운영 부담</strong></td><td>높음</td><td>중간</td><td>낮음</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트</strong>: 서비스 모델 선택은 <strong>조직의 기술 역량과 유연성 요구</strong>에 따라 결정되며, 공동 책임 모델(Shared Responsibility)에서 보안 역할 분담을 명확히 이해하는 것이 중요.</li>
 </ul>
 
 </body>

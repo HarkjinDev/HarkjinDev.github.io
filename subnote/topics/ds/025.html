@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. 코드형 인프라 (IaC, Infrastructure as Code)</title>
+  <title>10. HCI (Hyper Converged Infrastructure)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,19 +15,19 @@
   </style>
 </head>
 <body>
-<h4>11. 코드형 인프라 (IaC, Infrastructure as Code)</h4>
+<h4>10. HCI (Hyper Converged Infrastructure)</h4>
 <ul>
-<li><strong>정의</strong>: 선언형 코드로 인프라를 정의·버전관리해 자동 프로비저닝하는 방법론</li>
-<li><strong>키워드</strong>: Terraform, Ansible, CloudFormation, 선언형, 불변 인프라, GitOps, 드리프트 방지</li>
+<li><strong>정의</strong>: 컴퓨팅·스토리지·네트워크·가상화를 단일 소프트웨어 정의 장비에 통합한 초융합 인프라</li>
+<li><strong>키워드</strong>: 소프트웨어 정의, 단순화, 확장성, vSAN, Nutanix, 분산 스토리지</li>
 <li><strong>분류</strong>: 클라우드 컴퓨팅</li>
-<li><strong>도구 비교</strong>:<div class="table-scroll"><table>
-<tr><th>도구</th><th>방식</th><th>특징</th></tr>
-<tr><td>Terraform</td><td>선언형</td><td>멀티클라우드, 상태 파일 관리</td></tr>
-<tr><td>Ansible</td><td>절차형</td><td>에이전트리스, 구성 관리 강점</td></tr>
-<tr><td>CloudFormation</td><td>선언형</td><td>AWS 전용, 깊은 AWS 통합</td></tr>
+<li><strong>유형별 비교</strong>:<div class="table-scroll"><table>
+<tr><th>구분</th><th>전통 인프라</th><th>CI(융합 인프라)</th><th>HCI(초융합 인프라)</th></tr>
+<tr><td>구성</td><td>서버·스토리지·네트워크 분리</td><td>사전 통합 패키지</td><td>소프트웨어 정의 완전 통합</td></tr>
+<tr><td>확장</td><td>개별 장비 증설</td><td>어려움</td><td>노드 추가로 선형 확장</td></tr>
+<tr><td>관리</td><td>복잡</td><td>중간</td><td>단일 관리 콘솔</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: IaC는 <strong>인프라를 개발 코드처럼 관리</strong>(Git 버전 관리, PR 리뷰, 자동 테스트)하여 환경 드리프트를 방지하고 재현 가능한 인프라를 구현하는 DevOps 핵심 실천임.</li>
+<li><strong>인사이트</strong>: HCI는 <strong>VDI·소규모 지점·엣지 컴퓨팅</strong>에 적합하며, 프라이빗 클라우드 구축 시 복잡성 감소와 빠른 배포가 주요 채택 이유임. 대규모 워크로드에서는 성능 병목이 발생할 수 있음.</li>
 </ul>
 
 </body>
