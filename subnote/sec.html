@@ -3154,6 +3154,43 @@ TLS 세션키 협상에 사용</td></tr>
 </li>
 <li><strong>인사이트:</strong> AI 기반 사이버위협은 공격 자동화·초개인화·에이전트 자율성이 결합된 차세대 위협으로, 기존 시그니처·행위 기반 방어를 무력화하므로 Least Agency·HITL·AI-BOM·AI 기반 탐지를 결합한 다층 방어체계(Defense-in-Depth) 구축이 필수</li>
 </ul>
+<h4>[하위] 12-1. <strong>AI 기반 자율 침투테스트 (Autonomous Penetration Testing)</strong></h4>
+<ul>
+<li><strong>AI 기반 자율 침투테스트:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td><strong>계획</strong></td><td>Planner / Orchestrator</td><td>목표 분해·공격 경로·작업 순서 결정</td><td>자율 계획</td></tr>
+<tr><td><strong>탐색</strong></td><td>Recon Agent</td><td>자산·서비스·공격표면 식별</td><td>정보 수집</td></tr>
+<tr><td></td><td>Vulnerability Agent</td><td>취약점 분석·공격 가능성 평가</td><td>취약점 식별</td></tr>
+<tr><td><strong>실행</strong></td><td>Executor / Tool Agent</td><td>보안 도구 호출·검증 작업 수행</td><td>도구 실행</td></tr>
+<tr><td><strong>기억</strong></td><td>Memory / Knowledge Base</td><td>실행 이력·취약점·공격 맥락 관리</td><td>상태·지식 관리</td></tr>
+<tr><td><strong>검증</strong></td><td>Validator Agent</td><td>공격 증거 검증·오탐 제거</td><td>실증 검증</td></tr>
+<tr><td><strong>통제</strong></td><td>Guardrail / Policy Engine</td><td>허용 범위·명령·권한·횟수 제한</td><td>실행 안전성</td></tr>
+</table></div>
+</li>
+<li><strong>기존 침투테스트와 AI 자율 침투테스트 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>전통적 침투테스트</th><th>자동화 침투테스트</th><th>AI 자율 침투테스트</th></tr>
+<tr><td><strong>수행 주체</strong></td><td>보안 전문가</td><td>자동화 도구</td><td>AI 에이전트</td></tr>
+<tr><td><strong>공격 계획</strong></td><td>전문가 판단</td><td>사전 정의 시나리오</td><td>AI 기반 동적 계획</td></tr>
+<tr><td><strong>취약점 탐색</strong></td><td>수동·도구 병행</td><td>규칙·시그니처 기반</td><td>문맥·위험 기반 탐색</td></tr>
+<tr><td><strong>공격 실행</strong></td><td>전문가 직접 수행</td><td>정의된 절차 자동 실행</td><td>도구 선택·실행 자동화</td></tr>
+<tr><td><strong>공격 경로</strong></td><td>전문가 추론</td><td>사전 정의·제한적 조합</td><td>다단계 경로 동적 구성</td></tr>
+<tr><td><strong>환경 변화</strong></td><td>전문가 재판단</td><td>규칙·시나리오 수정</td><td>관찰 결과 기반 재계획</td></tr>
+<tr><td><strong>검증 방식</strong></td><td>전문가 증거 분석</td><td>규칙 기반 판정</td><td>자동 검증·인간 검토</td></tr>
+<tr><td><strong>주요 한계</strong></td><td>인력·시간 소요</td><td>복잡한 공격 대응 한계</td><td>오판·통제·재현성 문제</td></tr>
+</table></div>
+</li>
+<li><strong>AI 자율 침투테스트 한계 및 대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td><strong>AI 신뢰성</strong></td><td>환각·잘못된 공격 판단</td><td>증거 기반 검증·재현 테스트</td><td>결과 정확성</td></tr>
+<tr><td><strong>실행 안전성</strong></td><td>과도한 공격·서비스 장애</td><td>Sandbox·Rate Limit·Kill Switch</td><td>장애 방지</td></tr>
+<tr><td><strong>권한 관리</strong></td><td>비인가 대상·범위 이탈</td><td>Allowlist·최소 권한·정책 엔진</td><td>범위 통제</td></tr>
+<tr><td><strong>프롬프트 인젝션</strong></td><td>악성 응답으로 Agent 조작</td><td>입력 신뢰 분리·도구 검증</td><td>Agent 보호</td></tr>
+<tr><td><strong>운영 통제</strong></td><td>비가역·고위험 행위 실행</td><td>HITL·위험도 기반 승인</td><td>인간 감독</td></tr>
+<tr><td><strong>감사·재현성</strong></td><td>판단 근거·실행 과정 불투명</td><td>Tool Log·Evidence·실행 이력</td><td>책임 추적</td></tr>
+<tr><td><strong>검증 범위</strong></td><td>복잡한 업무 로직·신규 공격 한계</td><td>전문가 검토·수동 테스트 병행</td><td>검증 보완</td></tr>
+</table></div>
+</li>
+</ul>
 <h4>13. 자율형 노출 개선 (Autonomous Exposure Remediation, AER)</h4>
 <ul>
 <li><strong>정의:</strong> 보안 취약점과 노출 위험을 자율적으로 분석하여 개선까지 수행하는 폐쇄 루프(Closed-loop) 기반의 선제적 보안 기술</li>

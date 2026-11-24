@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반</title>
+  <title>[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,28 +15,29 @@
   </style>
 </head>
 <body>
-<h4>[하위] 2-2. 화이트박스 테스트 (White Box Test) - 구조 기반</h4>
+<h4>[하위] 2-1. 블랙박스 테스트 (Black Box Test) - 명세 기반</h4>
 <ul>
-<li><strong>정의</strong>: 소프트웨어 내부 구조·코드·논리를 분석하여 실행 경로와 제어 흐름을 검증하는 테스트 기법</li>
-<li><strong>키워드</strong>: 구조 기반, 커버리지, 제어 흐름 그래프(CFG), 기본 경로 테스트, 조건 테스트, 루프 테스트</li>
+<li><strong>정의</strong>: 내부 구현을 모른 채 입력과 기대 출력만으로 소프트웨어의 기능을 검증하는 테스트 기법</li>
+<li><strong>키워드</strong>: 명세 기반, 동등 분할, 경계값 분석, 원인-결과 그래프, 상태 전이, 유즈케이스 테스트</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>구조기반 테스트(ISO/IEEE 29119-4):   </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;구분결/분건합변/정계선사/정사경&gt;</strong></span><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>기법</strong></th><th><strong>핵심 요약</strong></th><th><strong>특징</strong></th></tr>
-<tr><td><strong>문장·분기</strong></td><td><strong>구문 테스팅</strong></td><td>코드 라인 실행</td><td>프로그램의 모든 문장이 최소 한 번은 실행되는지 확인</td></tr>
-<tr><td></td><td><strong>분기 테스팅</strong></td><td>제어 흐름 분기</td><td>모든 분기점(if, switch 등)의 각 방향이 실행되는지 검증</td></tr>
-<tr><td></td><td><strong>결정 테스팅</strong></td><td>전체 결정문 결과</td><td>결정문 전체의 결과가 참/거짓이 되는 케이스 확보</td></tr>
-<tr><td><strong>조건</strong></td><td><strong>분기조건 테스팅</strong></td><td>개별 조건식 결과</td><td>결정문 내의 개별 조건식들이 최소 한 번은 T/F가 되도록 수행</td></tr>
-<tr><td></td><td><strong>분기조건조합 테스팅</strong></td><td>모든 조건 조합</td><td>한 결정문 안의 모든 개별 조건의 조합을 테스트하여 엄격하게 검증</td></tr>
-<tr><td></td><td><strong>변경 조건 결정(MC/DC)</strong></td><td>독립적 영향력 검증</td><td>각 조건이 결과에 독립적으로 영향을 주는지 확인</td></tr>
-<tr><td><strong>데이터
-흐름</strong></td><td><strong>모든 정의 테스팅</strong></td><td>변수 정의(Def) 커버</td><td>각 변수의 정의 지점이 최소 한 번은 사용 지점으로 도달하는지 검증</td></tr>
-<tr><td></td><td><strong>모든 계산 사용 테스팅</strong></td><td>C-Use(Calculation)</td><td>변수의 정의가 모든 계산적 사용(C-use) 지점에 도달하는지 테스트</td></tr>
-<tr><td></td><td><strong>모든 선언 사용 테스팅</strong></td><td>P-Use(Predicate)</td><td>변수의 정의가 모든 조건/결정 사용(P-use) 지점에 도달하는지 테스트</td></tr>
-<tr><td></td><td><strong>모든 사용 테스팅</strong></td><td>All-Uses</td><td>모든 변수의 정의가 모든 계산 사용 및 조건 사용 지점에 도달하는지 검증</td></tr>
-<tr><td></td><td><strong>모든 정의-사용 경로 테스팅</strong></td><td>All-du-Paths</td><td>변수의 정의에서 사용까지의 모든 유효한 경로를 테스트 (가장 강력함)</td></tr>
+<li><strong>명세기반 테스트(ISO/IEEE 29119-4): </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;동분경구랜/모페이베/결원상시&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>핵심</th><th>특징</th></tr>
+<tr><td><strong>입력</strong></td><td><strong>동등 분할</strong></td><td>영역별 대표값</td><td>입력 도메인을 등가 영역으로 테스트 케이스 최적화</td></tr>
+<tr><td></td><td><strong>분류 트리 기법</strong></td><td>계층적 트리 구조</td><td>입력 항목을 트리 구조로 시각화하여 테스트 케이스 설계</td></tr>
+<tr><td></td><td><strong>경계값 분석</strong></td><td>경계 지점 값</td><td>결함 발생 가능성이 높은 경계값 집중 검증</td></tr>
+<tr><td></td><td><strong>구문 규칙 테스팅</strong></td><td>입력 문법 규칙</td><td>입력 데이터 형식·프로토콜 문법 규칙 검증</td></tr>
+<tr><td></td><td><strong>랜덤 테스팅</strong></td><td>무작위 데이터 입력</td><td>무작위 입력으로 예기치 못한 결함 탐색</td></tr>
+<tr><td><strong>조합</strong></td><td><strong>모든 조합 기법</strong></td><td>전체 경우의 수</td><td>모든 입력 파라미터의 가능한 전체 조합 테스트</td></tr>
+<tr><td></td><td><strong>페어와이즈 테스팅</strong></td><td>2개 요소 간 조합</td><td>파라미터 간 모든 쌍을 최소 1회 조합하여 효율 극대화</td></tr>
+<tr><td></td><td><strong>이치 초이스 테스팅</strong></td><td>각 값의 1회 노출</td><td>각 파라미터 값이 최소 1회 테스트에 포함되도록 구성</td></tr>
+<tr><td></td><td><strong>베이스 초이스 테스팅</strong></td><td>기준 값 중심 변경</td><td>기준 조합 정하고 파라미터 값만 하나씩 변경 테스트</td></tr>
+<tr><td><strong>명세</strong></td><td><strong>결정 테이블 테스팅</strong></td><td>논리적 조합 표</td><td>복잡한 조건·행위를 표로 명세화하여 검증</td></tr>
+<tr><td></td><td><strong>원인-결과 그래프</strong></td><td>인과 관계 도식화</td><td>입력·출력의 논리적 관계를 그래프로 분석</td></tr>
+<tr><td></td><td><strong>상태 전이 테스팅</strong></td><td>시스템 상태 변화</td><td>이벤트에 따른 상태 전이 경로·유효 동작 확인</td></tr>
+<tr><td></td><td><strong>시나리오 테스팅</strong></td><td>업무 프로세스 흐름</td><td>유스케이스·비즈니스 흐름 기반 실사용자 환경 검증</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 화이트박스는 <strong>코드 커버리지 확보</strong>가 목적이지만, 100% 커버리지가 결함 부재를 보장하지 않으며 명세 누락 결함은 블랙박스로 보완 필요.</li>
+<li><strong>인사이트</strong>: 블랙박스는 <strong>기능 명세서가 기준</strong>이므로 명세 오류 발견에 한계가 있으며, 화이트박스와 조합하여 기능·구조 양면 검증이 완전한 테스트 전략.</li>
 </ul>
 
 </body>

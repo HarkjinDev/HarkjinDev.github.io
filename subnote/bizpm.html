@@ -2841,19 +2841,61 @@ Continual Improvement)</strong></td><td>◦ 모든 수준에서의 지속적 개
 </li>
 <li><strong>인사이트</strong>: DRS 구축 수준은 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>RTO/RPO 요구사항과 비용의 트레이드오프</strong></u></span>로 결정되며, 금융·공공 핵심 시스템은 미러 사이트 + 자동 Failover를 요구함. 단순 구축보다 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>정기적인 DR 훈련(DRT)으로 실효성 검증</strong></u></span>이 필수임.</li>
 </ul>
-<h4>[하위] 3-1. 클라우드 DR</h4>
+<h4>[하위] 3-1. <strong>클라우드 재해복구 (Cloud Disaster Recovery, Cloud DR)</strong></h4>
 <ul>
-<li><strong>DR 유형:</strong><div class="table-scroll"><table>
-<tr><th><strong>DR 유형</strong></th><th><strong>평상시 클라우드 인프라 상태</strong></th><th><strong>예상 RTO (복구 시간)</strong></th></tr>
-<tr><td><strong>Backup &amp; Restore</strong></td><td>데이터 저장소(스토리지)만 존재</td><td>수 시간 ~ 수 일</td></tr>
-<tr><td><strong>Pilot Light</strong></td><td>DB만 최소한으로 켜둠</td><td>수십 분 ~ 수 시간</td></tr>
-<tr><td><strong>Warm Standby</strong></td><td>전체 인프라의 '축소판' 가동</td><td>수 분 ~ 수십 분</td></tr>
-<tr><td><strong>Multi-Site (Active/Active)</strong></td><td>100% 동일한 인프라 동시 가동</td><td>수 초 내외 (거의 0)</td></tr>
+<li><strong>정의:</strong> 클라우드 자원을 활용해 재해 발생 시 시스템과 데이터를 복구하는 기술</li>
+<li><strong>키워드:</strong> 재해복구, 복구목표시간(RTO), 복구목표시점(RPO), 백업·복원, 대기 시스템, 다중 리전, 장애 전환</li>
+<li><strong>분류:</strong> 클라우드 컴퓨팅 / IT 서비스 연속성 / 재해복구</li>
+<li><strong>클라우드 DR 4대 유형:</strong><div class="table-scroll"><table>
+<tr><th>DR 유형</th><th>주요 구성·동작 방식</th><th>RPO</th><th>RTO</th><th>운영 비용</th></tr>
+<tr><td><strong>Backup &amp; Restore</strong></td><td>백업 데이터로 인프라 재구성·복구</td><td>수 시간</td><td>수 시간~24시간</td><td>낮음</td></tr>
+<tr><td><strong>Pilot Light</strong></td><td>핵심 자원만 상시 유지, 장애 시 확장</td><td>수 분</td><td>수십 분~수 시간</td><td>낮음~중간</td></tr>
+<tr><td><strong>Warm Standby</strong></td><td>축소된 운영 환경 상시 가동·동기화</td><td>수 초~수 분</td><td>수 분</td><td>중간~높음</td></tr>
+<tr><td><strong>Multi-Site (Active/Active)</strong></td><td>복수 리전 동시 운영·트래픽 분산</td><td>0에 근접</td><td>0에 근접</td><td>높음</td></tr>
 </table></div>
 </li>
+<li><strong>DR 유형별 구성 및 운영 특성:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>Backup &amp; Restore</th><th>Pilot Light</th><th>Warm Standby</th><th>Active/Active</th></tr>
+<tr><td><strong>DR 인프라</strong></td><td>장애 시 구성</td><td>핵심 자원 유지</td><td>축소 환경 운영</td><td>전체 환경 운영</td></tr>
+<tr><td><strong>데이터 복제</strong></td><td>주기적 백업</td><td>지속적 복제</td><td>지속적 복제</td><td>실시간·준실시간</td></tr>
+<tr><td><strong>평상시 서비스</strong></td><td>주 시스템만</td><td>주 시스템만</td><td>주 시스템만</td><td>양쪽 동시 제공</td></tr>
+<tr><td><strong>장애 복구</strong></td><td>백업 복원</td><td>자원 확장·전환</td><td>확장·트래픽 전환</td><td>정상 리전으로 전환</td></tr>
+<tr><td><strong>복구 복잡도</strong></td><td>복원 절차 중심</td><td>자원 재구성 필요</td><td>용량 확장 필요</td><td>데이터 충돌·분산 관리</td></tr>
+<tr><td><strong>적용 대상</strong></td><td>비핵심 업무</td><td>일반 업무</td><td>중요 업무</td><td>핵심·상시 서비스</td></tr>
+</table></div>
+</li>
+<li><strong>클라우드 DR 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 업무 분석</td><td>BIA</td><td>업무 중요도·중단 영향·RTO/RPO 정의</td><td>복구 목표</td></tr>
+<tr><td>2. 전략 설계</td><td>DR Strategy</td><td>복구 유형·리전·복제 방식 선정</td><td>복구 전략</td></tr>
+<tr><td>3. 환경 구축</td><td>DR Provisioning</td><td>백업·복제·대기 인프라 구성</td><td>복구 환경</td></tr>
+<tr><td>4. 장애 복구</td><td>Failover</td><td>장애 감지·DR 전환·서비스 재개</td><td>서비스 복구</td></tr>
+<tr><td>5. 복구 검증</td><td>DR Testing</td><td>정합성·RTO/RPO·업무 정상화 확인</td><td>복구 실효성</td></tr>
+<tr><td>6. 지속 개선</td><td>DR Optimization</td><td>모의훈련·원인 분석·복구 절차 개선</td><td>복구 최적화</td></tr>
+</table></div>
+</li>
+<li><strong>클라우드 DR 주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 기술</th><th>활용 목적</th><th>핵심</th></tr>
+<tr><td><strong>데이터 보호</strong></td><td>Snapshot, Backup</td><td>데이터 복원</td><td>백업·복구</td></tr>
+<tr><td><strong>데이터 동기화</strong></td><td>DB Replication, CDC</td><td>리전 간 데이터 복제</td><td>정합성 확보</td></tr>
+<tr><td><strong>장애 전환</strong></td><td>DNS Failover, GSLB</td><td>DR 환경으로 트래픽 전환</td><td>자동 전환</td></tr>
+<tr><td><strong>인프라 자동화</strong></td><td>Terraform, IaC</td><td>DR 환경 자동 재구성</td><td>복구 자동화</td></tr>
+<tr><td><strong>컨테이너 복구</strong></td><td>Kubernetes, GitOps</td><td>클러스터·워크로드 재배포</td><td>서비스 복원</td></tr>
+<tr><td><strong>복구 검증</strong></td><td>DR Drill, Chaos Engineering</td><td>장애·복구 시나리오 검증</td><td>복구 신뢰성</td></tr>
+</table></div>
+</li>
+<li><strong>클라우드 DR 적용 시 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td><strong>복구 목표</strong></td><td>과도한 RTO·RPO 요구로 비용 증가</td><td>BIA 기반 업무별 차등 설계</td><td>목표 적정성</td></tr>
+<tr><td><strong>데이터 정합성</strong></td><td>비동기 복제 지연·데이터 손실</td><td>복제 상태 감시·정합성 검증</td><td>데이터 일관성</td></tr>
+<tr><td><strong>시스템 의존성</strong></td><td>DB·네트워크·인증체계 복구 누락</td><td>의존성 분석·통합 복구</td><td>복구 완전성</td></tr>
+<tr><td><strong>비용 최적화</strong></td><td>대기 자원·리전 간 전송 비용</td><td>업무별 DR 유형 차등화</td><td>비용 효율</td></tr>
+<tr><td><strong>복구 검증</strong></td><td>DR 구성만 존재하고 실제 복구 실패</td><td>정기 모의훈련·자동 검증</td><td>복구 실효성</td></tr>
+<tr><td><strong>보안 위험</strong></td><td>랜섬웨어·오염 데이터의 복제 확산</td><td>불변 백업·격리 계정·복구 시점 검증</td><td>복구 안전성</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> BIA 기반 RTO·RPO와 업무 중요도에 따라 DR 유형을 차등 적용하고, IaC·자동 Failover로 복구시간을 최소화해야 함. 특히 다중 리전 장애와 랜섬웨어를 고려한 격리 백업·정기 복구훈련으로 실질적인 업무 연속성을 검증해야 함.</li>
 </ul>
-<h4>[하위] 3-2. Active-Active, Active-Passive, Pilot Light</h4>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 추가필요</span></p>
 <hr>
 <h3>[Part 10]. ESG/윤리/정책</h3>
 <h4>1. ESG 경영 (Environment, Social, Governance)</h4>

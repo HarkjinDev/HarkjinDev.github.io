@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21. 적대적 테스트(Adversarial Testing)</title>
+  <title>20. 임베디드 소프트웨어 테스트 (Embedded SW Test)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,20 @@
   </style>
 </head>
 <body>
-<h4>21. 적대적 테스트(Adversarial Testing)</h4>
+<h4>20. 임베디드 소프트웨어 테스트 (Embedded SW Test)</h4>
 <ul>
-<li><strong>정의</strong>: 시스템에 의도적으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>악의적인 공격</strong></u></span>을 시뮬레이션하여, 예상치 못한 오류나 취약점을 분석하는 테스팅 기법</li>
-<li><strong>키워드</strong>: 보안취약점 발견, 중독공격, 회피공격, 탐색적 공격, 교란, 적대적 예시, 추출공격, 전도공격</li>
+<li><strong>정의</strong>: 특정 하드웨어에 종속적으로 동작하는 임베디드 시스템의 소프트웨어를 검증하는 테스트로, 실시간성·자원 제약·하드웨어 의존성이 특징</li>
+<li><strong>키워드</strong>: HIL(Hardware In the Loop), SIL(Software In the Loop), MIL(Model In the Loop), RTOS, 실시간 제약, 타이밍 분석, 안전인증</li>
 <li><strong>분류</strong>: 테스트</li>
-<li><strong>핵심 기법:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>핵심 기술</th><th>설명</th></tr>
-<tr><td><strong>중독공격 (Poisoning)</strong></td><td><strong>서비스 거부</strong></td><td>잘못된 레이블 데이터 대량 주입</td></tr>
-<tr><td></td><td><strong>백 도어 삽입</strong></td><td>트리거 감지 시 공격자 의도대로 동작</td></tr>
-<tr><td><strong>회피공격 (Evasion)</strong></td><td><strong>교란 (Perturbation)</strong></td><td>육안 불가 미세 노이즈로 예측 변경</td></tr>
-<tr><td></td><td><strong>적대적 예시 (Adversarial Example)</strong></td><td>교란 추가 입력으로 모델 오인식 유발</td></tr>
-<tr><td><strong>탐색적공격 (Exploratory)</strong></td><td><strong>모델 추출공격 (Model Extraction)</strong></td><td>쿼리 결과 분석으로 모델 복제</td></tr>
-<tr><td></td><td><strong>모델 전도 공격 (Model Inversion)</strong></td><td>출력값 분석으로 학습 데이터 역추출</td></tr>
+<li><strong>임베디드 테스트 환경 비교</strong>:<div class="table-scroll"><table>
+<tr><th>환경</th><th>설명</th><th>특징</th></tr>
+<tr><td>MIL (Model-in-the-Loop)</td><td>모델 수준 시뮬레이션</td><td>초기 설계 단계 검증</td></tr>
+<tr><td>SIL (Software-in-the-Loop)</td><td>생성된 코드 PC에서 실행</td><td>코드 로직 검증</td></tr>
+<tr><td>HIL (Hardware-in-the-Loop)</td><td>실제 하드웨어 연결 시뮬레이션</td><td>실시간 하드웨어 인터랙션</td></tr>
+<tr><td>PIL (Processor-in-the-Loop)</td><td>실제 타겟 프로세서 사용</td><td>프로세서 특성 검증</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트</strong>: 임베디드 테스트는 <strong>실제 환경 재현 비용이 높아 MIL→SIL→HIL 단계적 검증</strong>이 표준이며, DO-178C(항공)·ISO 26262(자동차) 등 도메인별 안전 인증 기준 준수가 필수.</li>
 </ul>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. 데이터 레이크하우스 (Data Lakehouse)</title>
+  <title>[하위] 4-1.데이터 늪(Data Swamp)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,35 +15,29 @@
   </style>
 </head>
 <body>
-<h4>5. 데이터 레이크하우스 (Data Lakehouse)</h4>
+<h4>[하위] 4-1. <strong>데이터 늪(Data Swamp)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 레이크의 유연성과 웨어하우스의 관리기능을 결합한 통합 아키텍처</li>
-<li><strong>키워드:</strong> ACID Transaction, Delta Lake, Open Table Format, Schema Enforcement, 통합 거버넌스</li>
-<li><strong>분류</strong>: 특수 DB</li>
-<li><strong>핵심 개념·원리:</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>오픈 테이블 포맷</strong></td><td>스토리지 위에 트랜잭션 계층 추가</td><td>테이블 포맷 계층</td></tr>
-<tr><td><strong>ACID 트랜잭션</strong></td><td>동시성·정합성을 보장하는 처리</td><td>데이터 정합성</td></tr>
-<tr><td><strong>스키마 강제(Enforcement)</strong></td><td>쓰기 시점에 스키마 검증 적용</td><td>데이터 품질확보</td></tr>
-<tr><td><strong>통합 접근계층</strong></td><td>BI·ML 도구가 동일 데이터 접근</td><td>단일소스 접근</td></tr>
+<li><strong>정의: </strong>메타데이터 관리 부재로 데이터 레이크가 활용 불가능한 상태로 전락한 현상</li>
+<li><strong>발생 원인</strong><div class="table-scroll"><table>
+<tr><th>영역</th><th>발생 원인</th><th>설명</th></tr>
+<tr><td><strong>데이터 소스</strong></td><td>데이터 품질 저하</td><td>결측·오류·중복으로 신뢰도 저하</td></tr>
+<tr><td></td><td>데이터 의미 불명확</td><td>정의·기준 없어 해석 오류 발생</td></tr>
+<tr><td><strong>데이터 수집 계층</strong></td><td>무분별한 데이터 적재</td><td>기준 없이 데이터 우선 저장</td></tr>
+<tr><td></td><td>스키마·포맷 불일치</td><td>구조·포맷 달라 통합 불가</td></tr>
+<tr><td><strong>데이터 관리·운영 계층</strong></td><td>메타데이터·계보 부재</td><td>이력·흐름 추적 기능 부재</td></tr>
+<tr><td></td><td>보안·거버넌스 미흡</td><td>정책 부재로 통제 안 되는 저장소</td></tr>
 </table></div>
 </li>
-<li><strong>유형·분류 (오픈 테이블 포맷):</strong><div class="table-scroll"><table>
-<tr><th>항목</th><th>설명</th><th>핵심</th></tr>
-<tr><td><strong>Delta Lake</strong></td><td>Databricks 주도 오픈 포맷</td><td>Spark 최적화</td></tr>
-<tr><td><strong>Apache Iceberg</strong></td><td>Netflix 기원 오픈 테이블포맷</td><td>벤더중립 표준</td></tr>
-<tr><td><strong>Apache Hudi</strong></td><td>Uber 기원, 실시간 upsert지원</td><td>증분처리 특화</td></tr>
+<li><strong>방지 방안: </strong><div class="table-scroll"><table>
+<tr><th>방지 방안</th><th>발생 원인 제거</th><th>설명</th></tr>
+<tr><td><strong>데이터 존 설계</strong></td><td>무분별한 적재·품질 혼재</td><td>Raw·Silver·Gold 계층별 품질 관리</td></tr>
+<tr><td><strong>데이터 등록 표준화</strong></td><td>의미 불명확·소유자 부재</td><td>소유자·목적 등 필수 정보 등록</td></tr>
+<tr><td><strong>메타데이터 카탈로그 구축</strong></td><td>발견 어려움·계보 부재</td><td>스키마·계보 정보 중앙 관리</td></tr>
+<tr><td><strong>데이터 품질 게이트</strong></td><td>결측·오류·중복 문제</td><td>단계별 품질 규칙 자동 검증</td></tr>
+<tr><td><strong>거버넌스·보안 통제</strong></td><td>권한 과다·민감정보 혼재</td><td>접근권한·암호화·감사로그 통제</td></tr>
+<tr><td><strong>수명주기·운영 모니터링</strong></td><td>데이터 방치·비용 증가</td><td>보존·폐기·파이프라인 상태 점검</td></tr>
 </table></div>
 </li>
-<li><strong>구성요소·기술요소:</strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>구성요소</th><th>핵심 기술</th></tr>
-<tr><td><strong>저장계층</strong></td><td>클라우드 오브젝트 스토리지</td><td>S3·ADLS·GCS</td></tr>
-<tr><td><strong>메타데이터계층</strong></td><td>트랜잭션 로그·카탈로그</td><td>Delta Log·Iceberg메타</td></tr>
-<tr><td><strong>처리계층</strong></td><td>분산 처리엔진</td><td>Spark·Trino·Flink</td></tr>
-<tr><td><strong>거버넌스계층</strong></td><td>통합 접근제어·감사</td><td>Unity Catalog 등</td></tr>
-</table></div>
-</li>
-<li><strong>인사이트:</strong> 레이크하우스는 레이크의 저비용·확장성과 웨어하우스의 신뢰성·성능을 통합해 데이터 이원화 구조의 한계를 해소한다.</li>
 </ul>
 
 </body>

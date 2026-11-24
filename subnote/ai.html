@@ -1379,7 +1379,41 @@
 </li>
 <li><strong>인사이트</strong>: 기업용 AI(B2B) 구축 시 보안 유지와 정보의 정확성을 확보하기 위한 실질적인 표준(De-facto standard) 기법</li>
 </ul>
-<h4>[하위] 4-1. LLM 환각(Hallucination)</h4>
+<h4><strong>[하위] 4-1. 리랭커 (Reranker)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 검색된 문서의 질의 관련성을 재평가하여 결과 순위를 최적화하는 기술</li>
+<li><strong>키워드:</strong> 재순위화, 의미적 관련성, 교차 인코더, 이중 인코더, 검색 정확도, RAG</li>
+<li><strong>분류</strong>: 생성형 AI/LLM</li>
+<li><strong>리랭커 핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>질의 (Query)</td><td>사용자 질문·검색 의도 입력</td><td>검색 기준</td></tr>
+<tr><td>검색기 (Retriever)</td><td>후보 문서 1차 검색</td><td>후보 추출</td></tr>
+<tr><td>관련성 평가 (Scoring)</td><td>질의·문서 관련성 점수 산출</td><td>의미 분석</td></tr>
+<tr><td>재순위화 (Reranking)</td><td>관련성 점수 기반 문서 정렬</td><td>순위 최적화</td></tr>
+<tr><td>상위 문서 선정 (Top-K)</td><td>고관련성 문서 선별</td><td>컨텍스트 최적화</td></tr>
+</table></div>
+</li>
+<li><strong>리랭커 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>주요 원리</th><th>핵심</th></tr>
+<tr><td><strong>신경망 기반</strong></td><td>Cross-Encoder</td><td>질의·문서를 함께 입력하여 관련성 평가</td><td>정밀 재순위화</td></tr>
+<tr><td></td><td>LLM 기반 리랭킹</td><td>LLM으로 문서 관련성 평가·순위 결정</td><td>문맥 추론</td></tr>
+<tr><td><strong>검색 융합</strong></td><td>RRF (Reciprocal Rank Fusion)</td><td>복수 검색 결과의 순위를 결합</td><td>순위 융합</td></tr>
+<tr><td><strong>학습 기반</strong></td><td>Learning to Rank</td><td>관련성 학습 데이터 기반 순위 예측</td><td>순위 학습</td></tr>
+<tr><td><strong>규칙 기반</strong></td><td>가중치 재순위화</td><td>관련성·최신성·중요도 가중치 적용</td><td>규칙 기반 정렬</td></tr>
+</table></div>
+</li>
+<li><strong>리랭커 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 질의 입력</td><td>Query Processing</td><td>사용자 질의 분석·정규화</td><td>검색 의도</td></tr>
+<tr><td>2. 후보 검색</td><td>Initial Retrieval</td><td>벡터DB·BM25 기반 후보 문서 검색</td><td>1차 검색</td></tr>
+<tr><td>3. 관련성 평가</td><td>Relevance Scoring</td><td>질의·문서 간 의미적 관련성 산출</td><td>정밀 평가</td></tr>
+<tr><td>4. 재순위화</td><td>Reranking</td><td>관련성 점수 기반 순위 재정렬·Top-K 선정</td><td>검색 최적화</td></tr>
+<tr><td>5. 답변 생성</td><td>Generation</td><td>선정된 문서를 LLM에 전달·응답 생성</td><td>RAG 연계</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> RAG에서는 1차 검색의 Recall을 충분히 확보한 뒤 Cross-Encoder 기반 재순위화로 Precision을 개선하고, 후보 문서 수와 Top-K를 조정하여 응답 품질·지연시간·토큰 비용을 함께 최적화해야 함.</li>
+</ul>
+<h4>[하위] 4-2. LLM 환각(Hallucination)</h4>
 <ul>
 <li><strong>정의:</strong> 모델 학습·추론의 한계로 사실과 다른 정보를 사실처럼 확신해 생성하는 현상</li>
 <li><strong>LLM 환각 발생 원인: </strong><div class="table-scroll"><table>
@@ -2403,6 +2437,54 @@
 </table></div>
 </li>
 <li><strong>인사이트:</strong> MCP는 AI-도구간 연결을 "M×N" 문제에서 "M+N" 문제로 단순화한 개방형 표준으로, USB-C처럼 AI 생태계의 상호운용성을 견인하는 핵심 인프라로 자리잡고 있다.</li>
+</ul>
+<h4><strong>13. 모델 병합 (Model Merging)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 여러 AI 모델의 가중치와 학습 성능을 결합해 단일 모델로 통합하는 기술</li>
+<li><strong>키워드:</strong> 가중치 평균, 모델 수프, 작업 벡터, 구면 선형 보간, TIES, DARE, 파라미터 간섭</li>
+<li><strong>분류:</strong> 생성형 AI/LLM</li>
+<li><strong>모델 병합의 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>병합 기법</th><th>주요 원리</th><th>핵심</th></tr>
+<tr><td><strong>가중치 기반</strong></td><td>선형 평균 (Linear)</td><td>모델 가중치를 비율에 따라 평균</td><td>가중치 결합</td></tr>
+<tr><td></td><td>모델 수프 (Model Soup)</td><td>여러 파인튜닝 모델의 가중치 평균</td><td>성능 통합</td></tr>
+<tr><td><strong>보간 기반</strong></td><td>구면 선형 보간 (SLERP)</td><td>가중치 벡터 간 구면 경로 보간</td><td>특성 보존</td></tr>
+<tr><td><strong>작업 기반</strong></td><td>작업 벡터 (Task Arithmetic)</td><td>기반 모델과의 가중치 차이를 결합</td><td>능력 합성</td></tr>
+<tr><td><strong>간섭 완화</strong></td><td>TIES-Merging</td><td>작은 변화 제거·부호 충돌 조정</td><td>간섭 최소화</td></tr>
+<tr><td><strong>희소화 기반</strong></td><td>DARE</td><td>가중치 변화 일부 제거·재조정</td><td>중복 감소</td></tr>
+<tr><td><strong>계층 기반</strong></td><td>Layer Stacking (Passthrough)</td><td>서로 다른 모델의 계층을 조합</td><td>계층 결합</td></tr>
+</table></div>
+</li>
+<li><strong>모델 병합 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td><strong>1. 모델 선정</strong></td><td>Model Selection</td><td>병합 목적·기반 모델·전문 능력 확인</td><td>대상 선정</td></tr>
+<tr><td><strong>2. 호환성 검증</strong></td><td>Compatibility Check</td><td>아키텍처·가중치·토크나이저 확인</td><td>병합 가능성</td></tr>
+<tr><td><strong>3. 병합 분석</strong></td><td>Merge Strategy</td><td>가중치 분포·충돌 분석·기법 선정</td><td>병합 전략</td></tr>
+<tr><td><strong>4. 모델 병합</strong></td><td>Model Merging</td><td>가중치 결합·보간·작업 벡터 통합</td><td>모델 통합</td></tr>
+<tr><td><strong>5. 성능 검증</strong></td><td>Evaluation</td><td>정확도·능력 손실·안전성 평가</td><td>성능 검증</td></tr>
+<tr><td><strong>6. 배포·운영</strong></td><td>Deployment</td><td>최종 모델 배포·모니터링</td><td>운영 안정성</td></tr>
+</table></div>
+</li>
+<li><strong>모델 병합 적용 시 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>고려사항</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td><strong>호환성</strong></td><td>모델 구조·파라미터 불일치</td><td>동일 기반 모델 우선 선정</td><td>구조 호환성</td></tr>
+<tr><td><strong>정렬</strong></td><td>토크나이저·가중치 의미 불일치</td><td>어휘 매핑·파라미터 정렬 검증</td><td>의미 정합성</td></tr>
+<tr><td><strong>간섭</strong></td><td>모델 간 가중치 충돌·능력 상쇄</td><td>TIES·DARE·병합 비율 조정</td><td>간섭 최소화</td></tr>
+<tr><td><strong>성능</strong></td><td>특정 작업 성능 저하</td><td>작업별 벤치마크·회귀 검증</td><td>능력 보존</td></tr>
+<tr><td><strong>안전성</strong></td><td>안전 정렬 약화·편향 증가</td><td>유해성 평가·레드티밍</td><td>보안·정렬 검증</td></tr>
+<tr><td><strong>자원·권리</strong></td><td>병합 메모리 부담·라이선스 충돌</td><td>정밀도 최적화·이용조건 확인</td><td>운영 적합성</td></tr>
+</table></div>
+</li>
+<li><strong>모델 병합과 유사 기술 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>모델 병합</th><th>모델 앙상블</th><th>지식 증류</th><th>파인튜닝</th></tr>
+<tr><td><strong>핵심 원리</strong></td><td>모델 가중치 결합</td><td>복수 모델 출력 결합</td><td>교사 모델 지식 학습</td><td>기존 모델 추가 학습</td></tr>
+<tr><td><strong>추가 학습</strong></td><td>일반적으로 불필요</td><td>불필요</td><td>필요</td><td>필요</td></tr>
+<tr><td><strong>추론 모델</strong></td><td>단일 모델</td><td>복수 모델</td><td>학생 모델</td><td>미세조정 모델</td></tr>
+<tr><td><strong>추론 비용</strong></td><td>단일 모델 수준</td><td>상대적으로 높음</td><td>학생 모델 수준</td><td>모델 크기에 비례</td></tr>
+<tr><td><strong>주요 목적</strong></td><td>능력·특성 통합</td><td>예측 정확도 향상</td><td>모델 경량화·지식 이전</td><td>도메인 특화</td></tr>
+<tr><td><strong>주요 한계</strong></td><td>가중치 간섭</td><td>연산·메모리 부담</td><td>학습 비용</td><td>데이터·연산 비용</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 동일 기반 모델의 작업 벡터를 TIES·DARE로 병합하여 도메인별 전문 능력의 간섭을 줄이고, 작업별 회귀 평가를 통해 성능 보존 여부를 검증해야 함. 병합 후 안전 정렬 약화와 특정 능력 손실을 확인하는 다차원 벤치마크 체계가 중요함.</li>
 </ul>
 <hr>
 <h3>[Part 10] AI 운영 및 실무 응용</h3>

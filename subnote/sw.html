@@ -1867,6 +1867,7 @@ Description (AD)</td><td>* 아키텍처를 기록하기 위한 산출물들의 �
 <ul>
 <li><strong>정의: </strong><span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>데이터 변경(Command)과 데이터 조회(Query) 책임을 분리</strong></u></span>하여 각각 독립적인 모델과 저장소를 사용하는 디자인 패턴</li>
 <li><strong>키워드: </strong>책임 분리, 성능 최적화, Command Model, Write DB + Read DB, Query Model, CDC</li>
+<li><strong>분류:</strong> 소프트웨어 아키텍처</li>
 <li><strong>CQRS 패턴 기술요소</strong><div class="table-scroll"><table>
 <tr><th>구분</th><th>기술요소</th><th>설명</th><th>핵심</th></tr>
 <tr><td><strong>Command</strong></td><td>Command Model</td><td>데이터를 등록·수정·삭제하는 변경작업</td><td>데이터 변경작업</td></tr>
@@ -1895,7 +1896,46 @@ Description (AD)</td><td>* 아키텍처를 기록하기 위한 산출물들의 �
 <li><strong>인사이트: </strong>MSA, EDA, Event Sourcing 기반 시스템에서 <strong>대규모 트래픽 처리와 데이터 정합성 확보</strong>를 위한
 핵심 설계 기법으로 활용</li>
 </ul>
-<h4>[하위] 3-4. 클린 아키텍처 (Clean Architecture)</h4>
+<h4><strong>[하위] 3-4. CDC(Change Data Capture)와 이벤트 소싱(Event Sourcing)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 데이터 변경사항의 추적과 이벤트 기록을 통한 상태 관리 방식 비교</li>
+<li><strong>키워드:</strong> 변경 데이터 캡처, 이벤트 저장소, 변경 로그, 상태 재구성, 트랜잭션 로그, 이벤트 기반 아키텍처</li>
+<li><strong>분류:</strong> 소프트웨어 아키텍처</li>
+<li><strong>CDC와 이벤트 소싱 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>CDC (Change Data Capture)</th><th>이벤트 소싱 (Event Sourcing)</th></tr>
+<tr><td><strong>개념</strong></td><td>DB의 데이터 변경사항 추출·전파</td><td>상태 변경 이벤트를 원본으로 저장</td></tr>
+<tr><td><strong>목적</strong></td><td>데이터 변경 감지·동기화</td><td>이벤트 기반 상태 관리·이력 보존</td></tr>
+<tr><td><strong>데이터 원천</strong></td><td>기존 데이터베이스</td><td>이벤트 저장소 (Event Store)</td></tr>
+<tr><td><strong>저장 단위</strong></td><td>INSERT·UPDATE·DELETE 변경 내역</td><td>업무 이벤트 (주문생성·결제완료 등)</td></tr>
+<tr><td><strong>처리 시점</strong></td><td>DB 변경 발생 후 캡처</td><td>업무 처리 시 이벤트 기록</td></tr>
+<tr><td><strong>구현 방식</strong></td><td>트랜잭션 로그·트리거·폴링</td><td>이벤트 기록·재생·프로젝션</td></tr>
+<tr><td><strong>데이터 구조</strong></td><td>변경 전후 데이터·메타데이터</td><td>이벤트 유형·내용·발생시각</td></tr>
+<tr><td><strong>상태 관리</strong></td><td>DB의 현재 상태 중심</td><td>이벤트 누적으로 현재 상태 재구성</td></tr>
+<tr><td><strong>이력 관리</strong></td><td>캡처·보존 범위 내 변경 이력</td><td>이벤트의 장기·불변 이력 관리</td></tr>
+<tr><td><strong>주요 기술</strong></td><td>Debezium, Kafka Connect, Oracle GoldenGate</td><td>EventStoreDB, Axon Framework</td></tr>
+<tr><td><strong>적용 분야</strong></td><td>DB 동기화·ETL·실시간 복제</td><td>금융거래·주문관리·감사 추적</td></tr>
+<tr><td><strong>주요 한계</strong></td><td>업무 의미 파악 어려움·로그 의존성</td><td>이벤트 스키마 진화·재생 복잡성</td></tr>
+<tr><td><strong>핵심</strong></td><td>데이터 변경 전파</td><td>이벤트 기반 상태 재구성</td></tr>
+</table></div>
+</li>
+<li><strong>CDC 주요 구현 방식:</strong><div class="table-scroll"><table>
+<tr><th>구현 방식</th><th>주요 원리</th><th>장점</th><th>한계</th></tr>
+<tr><td><strong>로그 기반</strong></td><td>DB 트랜잭션 로그 분석</td><td>낮은 DB 부하·변경 순서 추적</td><td>DB 로그 접근 필요</td></tr>
+<tr><td><strong>트리거 기반</strong></td><td>변경 시 트리거 실행</td><td>변경 즉시 수집</td><td>DB 쓰기 부하 증가</td></tr>
+<tr><td><strong>폴링 기반</strong></td><td>변경 시각·버전 주기적 조회</td><td>구현 간단</td><td>삭제 감지·변경 누락 가능</td></tr>
+</table></div>
+</li>
+<li><strong>이벤트 소싱 핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td><strong>명령 (Command)</strong></td><td>업무 변경 요청·검증</td><td>변경 요청</td></tr>
+<tr><td><strong>이벤트 저장소 (Event Store)</strong></td><td>발생 이벤트 순차·불변 저장</td><td>이력 보존</td></tr>
+<tr><td><strong>재생 (Replay)</strong></td><td>이벤트 재적용으로 상태 복원</td><td>상태 재구성</td></tr>
+<tr><td><strong>투영 (Projection)</strong></td><td>이벤트를 조회용 데이터 모델로 변환</td><td>읽기 모델</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 기존 DB 기반 시스템의 실시간 데이터 연계에는 CDC를, 변경 이력과 상태 재구성이 중요한 업무에는 이벤트 소싱을 적용해야 함. 두 기술을 Outbox 패턴·Kafka와 연계할 경우 이벤트 전달의 정합성과 시스템 확장성을 함께 확보할 수 있음.</li>
+</ul>
+<h4>[하위] 3-5. 클린 아키텍처 (Clean Architecture)</h4>
 <ul>
 <li><strong>정의:</strong> <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>추상화 개념</strong></u></span>을 바탕으로 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>관심사를 분리하고 의존도를 맞추는 목적</strong></u></span>을 둔 아키텍처</li>
 <li><strong>키워드:</strong> 관심사의 분리(SoC), 의존성 규칙(Dependency Rule), 추상화 원리, 엔티티(Entities), 유즈케이스(Use Cases), 제어의 역전(IoC), <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>헥사고날 아키텍처</strong></u></span></li>

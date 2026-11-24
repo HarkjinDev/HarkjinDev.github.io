@@ -18,7 +18,7 @@
 <h4>2. 인과관계 (Causation)</h4>
 <ul>
 <li><strong>정의</strong>: 한 변수의 변화가 다른 변수의 변화를 직접 유발하는 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>원인-결과 관계</strong></u></span></li>
-<li><strong>키워드</strong>: RCT, 도구변수, 혼재변수(confounder), 자연 실험</li>
+<li><strong>키워드</strong>: RCT, 도구변수, 교란변수(confounder), 자연 실험</li>
 <li><strong>분류</strong>: 회귀분석</li>
 <li><strong>특징</strong>:<ul>
 <li>상관→인과 추론 조건: 시간적 선행, 공변관계, 경쟁 가설 배제</li>
@@ -27,10 +27,21 @@
 → 상관: 음주 ↔ 흡연, 인과: 흡연(원인) ↔ 페암(결과)</li>
 </ul>
 </li>
-<li>인과 검증 방법: RCT(무작위 대조 실험), 자연 실험, 도구변수법</li>
-<li>통계적 인과 추론: 다중회귀, 층별해석, 경향 점수 짝짓기(PSM), 이중차분법(DiD)</li>
-<li>혼재변수: 상관관계를 허위로 만드는 제3 변수</li>
 </ul>
+</li>
+<li><strong>상관관계와 인과관계 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>상관관계 (Correlation)</th><th>인과관계 (Causation)</th></tr>
+<tr><td><strong>개념</strong></td><td>두 변수 간 통계적 연관성</td><td>원인이 결과에 미치는 영향</td></tr>
+<tr><td><strong>분석 목적</strong></td><td>변수 간 연관성 파악</td><td>원인·결과의 영향 규명</td></tr>
+<tr><td><strong>분석 관점</strong></td><td>함께 변화하는가?</td><td>개입하면 결과가 변하는가?</td></tr>
+<tr><td><strong>방향성</strong></td><td>방향성 없음</td><td>원인 → 결과</td></tr>
+<tr><td><strong>교란변수</strong></td><td>허위 상관관계 발생 가능</td><td>교란변수 식별·통제 필요</td></tr>
+<tr><td><strong>분석 기법</strong></td><td>피어슨·스피어만 상관분석</td><td>RCT·PSM·DiD·IV</td></tr>
+<tr><td><strong>평가 지표</strong></td><td>상관계수(r), p-value</td><td>평균처치효과(ATE), 신뢰구간</td></tr>
+<tr><td><strong>주요 활용</strong></td><td>탐색적 분석·변수 선정</td><td>정책 효과·개입 효과 평가</td></tr>
+<tr><td><strong>예시</strong></td><td>아이스크림 판매량 ↔ 익사 사고</td><td>흡연 → 폐암 발생 위험</td></tr>
+<tr><td><strong>핵심</strong></td><td>연관성 분석</td><td>인과효과 추정</td></tr>
+</table></div>
 </li>
 <li><strong>인사이트</strong>: 상관관계는 인과관계의 필요 조건이지만 충분 조건은 아님. 인과 추론을 위해서는 실험 설계 또는 구조적 인과 모형이 필요하다.</li>
 </ul>

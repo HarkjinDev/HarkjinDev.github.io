@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Part 2] 법/제도</title>
+  <title>14.데이터 품질인증 (Data Quality Certification, DQ, 26.2.)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,7 +15,56 @@
   </style>
 </head>
 <body>
-<h3>[Part 2] 법/제도</h3>
+<h4>14. <strong>데이터 품질인증 (Data Quality Certification, DQ, 26.2.)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 데이터 내용과 관리체계의 품질 수준을 심사·평가하여 인증하는 제도</li>
+<li><strong>키워드:</strong> 데이터 내용 인증, 데이터 관리체계 인증, 완전성, 유효성, 정확성, 품질등급, 성숙도</li>
+<li><strong>분류:</strong> 가이드</li>
+<li><strong>법적 근거:</strong> 「데이터 산업진흥 및 이용촉진에 관한 기본법」 제20조 및 동법 시행령 제20조의5</li>
+<li><strong>데이터 품질인증의 인증 유형 및 인증 대상:</strong><div class="table-scroll"><table>
+<tr><th>인증 유형</th><th>인증 대상</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td><strong>데이터 내용</strong></td><td>정형데이터</td><td>DB·테이블·CSV 등 데이터값·구조</td><td>데이터 품질</td></tr>
+<tr><td></td><td>비정형데이터</td><td>텍스트·이미지·영상·음성 등</td><td>객체·메타데이터 품질</td></tr>
+<tr><td><strong>데이터 관리체계</strong></td><td>데이터 기반 프로젝트</td><td>데이터 생성·가공·활용 사업</td><td>프로젝트 관리</td></tr>
+<tr><td></td><td>정보시스템</td><td>데이터 처리 시스템·플랫폼</td><td>시스템 관리</td></tr>
+<tr><td></td><td>관리조직</td><td>데이터 운영 조직·부서·전사</td><td>조직 관리</td></tr>
+</table></div>
+</li>
+<li><strong>데이터 품질인증의 품질기준:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>품질기준</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td><strong>데이터 내용</strong></td><td>완전성</td><td>필수 데이터·레코드의 누락 여부</td><td>결측 방지</td></tr>
+<tr><td></td><td>유효성</td><td>값의 형식·범위·업무규칙 준수</td><td>규칙 적합성</td></tr>
+<tr><td></td><td>일관성</td><td>데이터 간 참조·형식·표준 일치</td><td>정합성</td></tr>
+<tr><td></td><td>정확성</td><td>실제 값·메타데이터의 정확성</td><td>오류 최소화</td></tr>
+<tr><td></td><td>접근성</td><td>표준 형식·규약에 따른 접근 가능성</td><td>활용 가능성</td></tr>
+<tr><td></td><td>유일성</td><td>데이터·레코드의 중복 여부</td><td>중복 방지</td></tr>
+<tr><td><strong>데이터 관리체계</strong></td><td>품질기획 (QP)</td><td>품질 목표·정책·계획 수립</td><td>품질 계획</td></tr>
+<tr><td></td><td>품질통제 (QC)</td><td>데이터 처리·품질 모니터링</td><td>품질 통제</td></tr>
+<tr><td></td><td>품질보증 (QA)</td><td>품질 측정·평가·검토</td><td>품질 검증</td></tr>
+<tr><td></td><td>품질개선 (QI)</td><td>오류 원인 분석·프로세스 개선</td><td>지속 개선</td></tr>
+</table></div>
+</li>
+<li><strong>데이터 품질인증의 인증 등급:</strong><div class="table-scroll"><table>
+<tr><th>인증 유형</th><th>인증 등급</th><th>판정 기준</th><th>인증 여부</th></tr>
+<tr><td><strong>데이터 내용</strong></td><td>Class A</td><td>품질 점수 99% 이상</td><td>인증</td></tr>
+<tr><td></td><td>Class B</td><td>품질 점수 97% 이상</td><td>인증</td></tr>
+<tr><td></td><td>Class C</td><td>품질 점수 95% 이상</td><td>인증</td></tr>
+<tr><td></td><td>등급 미달</td><td>품질 점수 95% 미만</td><td>미인증</td></tr>
+<tr><td><strong>데이터 관리체계</strong></td><td>Level 1 (기초적 관리)</td><td>요구사항 관리·활동 증적 미흡</td><td>미인증</td></tr>
+<tr><td></td><td>Level 2 (실무적 관리)</td><td>요구사항·작업·품질 통제 수행</td><td>인증</td></tr>
+<tr><td></td><td>Level 3 (체계적 관리)</td><td>표준 프로세스 정의·적용</td><td>인증</td></tr>
+<tr><td></td><td>Level 4 (정량적 관리)</td><td>품질 성과 측정·정량적 통제</td><td>인증</td></tr>
+<tr><td></td><td>Level 5 (관리 최적화)</td><td>지속적 프로세스 혁신·개선</td><td>인증</td></tr>
+</table></div>
+</li>
+<li><strong>데이터 내용 평가 유형:</strong><div class="table-scroll"><table>
+<tr><th>평가 유형</th><th>구분 기준</th><th>핵심</th></tr>
+<tr><td><strong>Complex</strong></td><td>심사항목 적용 범위가 넓은 평가</td><td>종합 평가</td></tr>
+<tr><td><strong>Normal</strong></td><td>일반적인 심사항목 적용 평가</td><td>일반 평가</td></tr>
+<tr><td><strong>Simple</strong></td><td>심사항목 적용 범위가 제한된 평가</td><td>간소 평가</td></tr>
+</table></div>
+</li>
+</ul>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 3-2. 뉴런 커버리지 테스트 (Neuron Coverage Testing)</title>
+  <title>[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,17 +15,51 @@
   </style>
 </head>
 <body>
-<h4><strong>[하위] 3-2. 뉴런 커버리지 테스트 (Neuron Coverage Testing)</strong></h4>
+<h4><strong>[하위] 3-1. 메타모픽 테스트 (Metamorphic Testing)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 딥러닝 모델 내부 뉴런의 활성화 패턴을 분석하는 구조적 테스팅 기법</li>
-<li><strong>용도:</strong> 학습 데이터가 모델의 내부 로직을 얼마나 충분히 테스트했는지 측정</li>
-<li><strong>구성요소: </strong><div class="table-scroll"><table>
-<tr><th><strong>지표명</strong></th><th><strong>설명</strong></th><th><strong>핵심 (15자 이내)</strong></th></tr>
-<tr><td><strong>NC</strong></td><td>Neuron Coverage</td><td>활성화된 뉴런의 전체 비율</td></tr>
-<tr><td><strong>KMNC</strong></td><td>K-multisection NC</td><td>뉴런 출력값의 구간별 활성</td></tr>
-<tr><td><strong>NBC</strong></td><td>Neuron Boundary Coverage</td><td>출력값의 상하한 경계 테스트</td></tr>
+<li><strong>정의:</strong> 입력의 특정 변형(메타모픽 관계)에 따른 출력의 변화 관련성을 검증하는 기법</li>
+<li><strong>용도:</strong> 테스트 오라클(정답지)이 없는 경우 유용하게 활용</li>
+<li><strong>구성요소:</strong><div class="table-scroll"><table>
+<tr><th><strong>구분</strong></th><th><strong>요소 및 유형</strong></th><th><strong>설명 (15자 이내)</strong></th></tr>
+<tr><td><strong>구성 요소</strong></td><td><strong>관계 정의</strong></td><td>수식 및 입출력 함수 정의</td></tr>
+<tr><td><strong>관계 유형</strong></td><td><strong>가법성 (Additivity)</strong></td><td>입력값 합산 시 출력값 변화</td></tr>
+<tr><td></td><td><strong>승법성 (Multiplicativity)</strong></td><td>입력값 배수 시 출력값 변화</td></tr>
+<tr><td></td><td><strong>순서 보존 (Order)</strong></td><td>입력 순서에 따른 결과 유지</td></tr>
+<tr><td></td><td><strong>균등성 (Invariance)</strong></td><td>변형 후에도 출력 결과 동일</td></tr>
+<tr><td></td><td><strong>부분집합 (Subset)</strong></td><td>부분 입력 시 결과 포함 관계</td></tr>
 </table></div>
 </li>
+<li><strong>테스트 수행절차: </strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>수행 절차</th><th>설명</th></tr>
+<tr><td>① 관계 정의</td><td>테스트 대상 선정</td><td>검증할 AI 기능 및 테스트 목적 선정</td></tr>
+<tr><td></td><td>Metamorphic Relation 정의</td><td>입력 변화에 따른 예상 출력 관계 정의</td></tr>
+<tr><td>② Source Test</td><td>Source Input 생성</td><td>원본 테스트 데이터 생성·선정</td></tr>
+<tr><td></td><td>Source Output 획득</td><td>AI 시스템에 입력하여 기준 출력 획득</td></tr>
+<tr><td>③ Follow-up Test</td><td>Input Transformation</td><td>변환 규칙에 따라 원본 입력 변환</td></tr>
+<tr><td></td><td>Follow-up Input 생성</td><td>변환된 데이터를 AI 시스템에 입력</td></tr>
+<tr><td>④ 관계 검증</td><td>Follow-up Output 획득</td><td>변환된 입력에 대한 출력 획득</td></tr>
+<tr><td></td><td>Metamorphic Relation 비교</td><td>원본·변환 출력 간 정의된 관계 검증</td></tr>
+<tr><td>⑤ 결함 분석</td><td>Pass/Fail 판정</td><td>관계 만족 시 정상, 위반 시 실패 판정</td></tr>
+<tr><td></td><td>원인 분석 및 개선</td><td>관계 위반 원인 분석 및 모델 개선</td></tr>
+</table></div>
+</li>
+<li><strong>전통적 테스트와 메타모픽 테스트 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>비교 항목</th><th>전통적 테스트</th><th>메타모픽 테스트</th></tr>
+<tr><td>테스트 관점</td><td>검증 관점</td><td>기대·실제 결과 비교</td><td>입력 변환 전후 출력 관계 비교</td></tr>
+<tr><td></td><td>Test Oracle</td><td>명확한 정답·기대 결과 필요</td><td>정답 없이 Metamorphic Relation 활용</td></tr>
+<tr><td></td><td>테스트 입력</td><td>개별 Test Input 사용</td><td>Source·Follow-up Input 사용</td></tr>
+<tr><td></td><td>테스트 결과</td><td>실제·기대 결과 일치 여부</td><td>변환 전후 출력 관계 만족 여부</td></tr>
+<tr><td></td><td>결함 판정</td><td>Expected·Actual Output 불일치</td><td>Metamorphic Relation 위반</td></tr>
+<tr><td></td><td>검증 방식</td><td>결과 기반(Result-based)</td><td>관계 기반(Relation-based)</td></tr>
+<tr><td>수행·적용</td><td>테스트 구성</td><td>Input → Expected → Actual</td><td>Source → 변환 → Follow-up → 관계 검증</td></tr>
+<tr><td></td><td>테스트 케이스</td><td>입력별 기대 결과 작성</td><td>Source·Follow-up Test 연계</td></tr>
+<tr><td></td><td>테스트 목적</td><td>기능 정확성·요구사항 충족</td><td>일관성·강건성·잠재 결함 검증</td></tr>
+<tr><td></td><td>적용 대상</td><td>정답이 명확한 결정론적 시스템</td><td>AI·ML 등 정답 산정이 어려운 시스템</td></tr>
+<tr><td></td><td>자동화</td><td>기대 결과 기반 자동 판정</td><td>관계 기반 자동 판정</td></tr>
+<tr><td></td><td>주요 한계</td><td>정답 데이터·Oracle 확보 부담</td><td>적절한 Metamorphic Relation 설계 필요</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 메타모픽 테스트는 명확한 정답 산정이 어려운 AI·ML 시스템의 Test Oracle 문제를 완화하는 관계 기반 검증 기법으로, 전통적 테스트와 상호 보완적으로 활용 가능함. AI 시스템의 신뢰성 확보를 위해 적절한 메타모픽 관계 설계와 지속적·자동화된 검증 체계 구축이 중요함.</li>
 </ul>
 
 </body>

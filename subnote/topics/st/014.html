@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11. 잭나이프(Jacknife) 기법</title>
+  <title>11.잭나이프 기법 (Jackknife Resampling)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,8 +15,42 @@
   </style>
 </head>
 <body>
-<h4>11. 잭나이프(Jacknife) 기법</h4>
-<p><span style="background:#fbf3db;border-radius:3px;padding:1px 3px">// 추가 필요</span></p>
+<h4>11. <strong>잭나이프 기법 (Jackknife Resampling)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 표본을 하나씩 제외해 통계량을 반복 계산하고 편향과 분산을 추정하는 기법</li>
+<li><strong>키워드:</strong> Resampling, 결정적 재표본추출, 하나씩 제외법, 편향, 분산, 표준오차, 의사값</li>
+<li><strong>분류</strong>: 통계 기초</li>
+<li><strong>잭나이프 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td><strong>1. 표본 선정</strong></td><td>Sample Selection</td><td>원본 데이터 n개 확보</td><td>표본 구성</td></tr>
+<tr><td><strong>2. 관측값 제외</strong></td><td>Leave-one-out</td><td>관측값 1개씩 순차 제외</td><td>개별 제외</td></tr>
+<tr><td><strong>3. 재표본 생성</strong></td><td>Resampling</td><td>n-1개 데이터로 n개 재표본 생성</td><td>표본 재구성</td></tr>
+<tr><td><strong>4. 통계량 계산</strong></td><td>Statistic Calculation</td><td>각 재표본의 통계량 산출</td><td>반복 계산</td></tr>
+<tr><td><strong>5. 오차 추정</strong></td><td>Estimation</td><td>통계량 변동으로 편향·분산 추정</td><td>신뢰성 평가</td></tr>
+</table></div>
+</li>
+<li><strong>잭나이프 유형:</strong><div class="table-scroll"><table>
+<tr><th>유형</th><th>주요 방식</th><th>핵심</th></tr>
+<tr><td><strong>Delete-1 Jackknife</strong></td><td>관측값 1개씩 제외</td><td>기본 잭나이프</td></tr>
+<tr><td><strong>Delete-d Jackknife</strong></td><td>관측값 d개씩 제외</td><td>다중 제외</td></tr>
+<tr><td><strong>Block Jackknife</strong></td><td>데이터 블록 단위 제외</td><td>의존 데이터</td></tr>
+<tr><td><strong>Jackknife-after-Bootstrap</strong></td><td>부트스트랩 결과의 영향도 평가</td><td>추정 안정성</td></tr>
+</table></div>
+</li>
+<li><strong>잭나이프와 부트스트랩 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>잭나이프 (Jackknife)</th><th>부트스트랩 (Bootstrap)</th></tr>
+<tr><td><strong>추출 방식</strong></td><td>관측값 순차 제외</td><td>복원 무작위 추출</td></tr>
+<tr><td><strong>표본 크기</strong></td><td>n-1개</td><td>일반적으로 n개</td></tr>
+<tr><td><strong>반복 횟수</strong></td><td>기본 n회</td><td>일반적으로 수백~수천 회</td></tr>
+<tr><td><strong>중복 허용</strong></td><td>없음</td><td>있음</td></tr>
+<tr><td><strong>주요 목적</strong></td><td>편향·분산·표준오차 추정</td><td>분포·신뢰구간·오차 추정</td></tr>
+<tr><td><strong>계산 특성</strong></td><td>결정적·반복 횟수 고정</td><td>확률적·반복 횟수 설정</td></tr>
+<tr><td><strong>적합 통계량</strong></td><td>평균 등 매끄러운 통계량</td><td>보다 다양한 통계량</td></tr>
+<tr><td><strong>주요 한계</strong></td><td>중앙값·분위수 추정 부정확</td><td>높은 계산 비용</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 평균·회귀계수 등 매끄러운 통계량에는 잭나이프를 우선 검토하고, 중앙값·분위수처럼 비매끄러운 통계량은 부트스트랩과 비교 검증해야 함. 시계열·군집 데이터에서는 관측값 간 의존성을 고려한 블록 단위 재표본추출이 중요함.</li>
+</ul>
 <hr/>
 
 </body>

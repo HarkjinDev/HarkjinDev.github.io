@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. 다중공선성 (Multicollinearity)</title>
+  <title>8. 등분산성 (Homoscedasticity)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,21 +15,19 @@
   </style>
 </head>
 <body>
-<h4>9. 다중공선성 (Multicollinearity)</h4>
+<h4>8. 등분산성 (Homoscedasticity)</h4>
 <ul>
-<li><strong>정의</strong>: 독립변수 간 높은 상관관계로 회귀계수 추정이 불안정해지는 문제</li>
-<li><strong>키워드</strong>: VIF, 분산팽창계수, 상관관계 행렬, Ridge 회귀</li>
+<li><strong>정의</strong>: 회귀 모형에서 잔차의 분산이 독립변수 값에 관계없이 일정한 성질</li>
+<li><strong>키워드</strong>: 잔차플롯, Breusch-Pagan 검정, White test, 이분산</li>
 <li><strong>분류</strong>: 회귀분석</li>
 <li><strong>특징</strong>:<ul>
-<li>VIF(Variance Inflation Factor) = 1/(1-R²j)</li>
-<li>VIF ≥ 10: 심각한 다중공선성(높은 상관관계)</li>
-<li>증상: 계수 부호 변환, 표준오차 증가, 불안정한 추정</li>
+<li>등분산성 위반(이분산) → 회귀계수 추정 비효율</li>
+<li>검정: Breusch-Pagan test, White test</li>
+<li>해결: 가중최소제곱(WLS), 로그변환</li>
 </ul>
 </li>
-<li><strong>해결</strong>: 변수 제거, PCA 차원축소, Ridge 회귀(L2 정규화)</li>
-<li><strong>인사이트</strong>: VIF = 1/(1-R²j), VIF≥10이면 심각한 다중공선성으로 판정. Ridge 회귀는 패널티(λ) 부여로 계수를 안정화한다.</li>
+<li><strong>인사이트</strong>: 등분산성 위반은 잔차 플롯의 팬(fan) 패턴으로 시각적 탐지 가능. 선형회귀 4가지 가정(선독정등) 중 하나로, 위반 시 검정 방법을 함께 서술할 것.</li>
 </ul>
-<hr/>
 
 </body>
 </html>

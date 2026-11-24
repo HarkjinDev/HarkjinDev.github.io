@@ -2746,6 +2746,53 @@ Sentinel</strong></td><td><strong>7</strong></td><td><strong>선제적 사이버
 <li><strong>핵심 설계 과제: </strong>데이터 일관성, 체크포인트 오버헤드, 멱등성 보장, 에너지 예측, NVM 수명</li>
 <li><strong>인사이트:</strong> 인터미턴트 컴퓨팅은 배터리 교체가 불가능한 원격·오지·극한 환경에서 지속가능하고 유지보수 불필요한 기기를 실현하는 핵심 패러다임으로, IoT 기기의 폭발적 증가와 에너지 하베스팅 기술 성숙으로 실용화가 가속되고 있음. 체크포인트·태스크 기반 실행·멱등성 설계의 3축이 인터미턴트 컴퓨팅 안정성의 핵심이며, NVM 기술 고도화와 에너지 인식 컴파일러 자동화가 개발 부담을 낮추는 핵심 방향임</li>
 </ul>
+<h4><strong>7. 일회용(폐기형) 애플리케이션 (Disposable Applications)</strong></h4>
+<ul>
+<li><strong>정의:</strong> 특정 목적을 위해 개발하고 임무 완료 후 폐기하는 응용 소프트웨어</li>
+<li><strong>키워드:</strong> 가트너 2027, AI 기반 코딩, 목적 중심 설계, EOL, 어플리케이션 포트폴리오 관리</li>
+<li><strong>분류:</strong> 신기술/동향</li>
+<li><strong>핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>목적 중심 설계 (Purpose-built)</td><td>특정 업무·목표 기반 기능 설계</td><td>단일 목적</td></tr>
+<tr><td>AI 기반 생성 (AI Development)</td><td>생성형 AI 활용 코드·기능 개발</td><td>신속한 개발</td></tr>
+<tr><td>유연한 운영 (Flexible Operation)</td><td>모듈화·API 기반 배포·교체</td><td>유연성 확보</td></tr>
+<tr><td>생명주기 관리 (Lifecycle)</td><td>사용기간·비용·상태·종료 조건 관리</td><td>수명 관리</td></tr>
+<tr><td>계획적 폐기 (Planned Retirement)</td><td>데이터 이관·권한 회수·자원 정리</td><td>안전한 폐기</td></tr>
+</table></div>
+</li>
+<li><strong>Disposable Applications 생명주기:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 목적 정의</td><td>Requirement Definition</td><td>업무 목표·사용기간·폐기 조건 설정</td><td>목적 수립</td></tr>
+<tr><td>2. 애플리케이션 생성</td><td>AI-assisted Development</td><td>AI 기반 코드 생성·기능 구현</td><td>신속 개발</td></tr>
+<tr><td>3. 품질 검증</td><td>Quality &amp; Security Testing</td><td>기능·보안·성능·규제 준수 검증</td><td>품질 확보</td></tr>
+<tr><td>4. 배포</td><td>Deployment</td><td>클라우드·컨테이너 기반 배포</td><td>신속 배포</td></tr>
+<tr><td>5. 운영·평가</td><td>Operation &amp; Evaluation</td><td>업무 성과·비용·수명 모니터링</td><td>가치 평가</td></tr>
+<tr><td>6. 폐기·교체</td><td>Retirement &amp; Replacement</td><td>데이터 보존·이관·자원 및 권한 회수</td><td>안전한 종료</td></tr>
+</table></div>
+</li>
+<li><strong>전통적 애플리케이션과 Disposable Applications 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>전통적 애플리케이션</th><th>Disposable Applications</th></tr>
+<tr><td>개발 목적</td><td>장기적 업무 지원</td><td>특정 목적·기간 중심</td></tr>
+<tr><td>개발 방식</td><td>정형 SDLC·장기 개발</td><td>AI 활용 신속 개발</td></tr>
+<tr><td>운영 기간</td><td>장기 운영 전제</td><td>목적 달성 시 종료</td></tr>
+<tr><td>유지보수</td><td>지속적 수정·기능 확장</td><td>필요 시 교체·재생성</td></tr>
+<tr><td>설계 관점</td><td>확장성·장기 유지보수성</td><td>교체성·폐기 용이성</td></tr>
+<tr><td>폐기 관리</td><td>노후화 후 폐기 검토</td><td>설계 단계부터 폐기 계획</td></tr>
+<tr><td>주요 목표</td><td>안정성·지속성</td><td>민첩성·유연성·비용 최적화</td></tr>
+</table></div>
+</li>
+<li><strong>한계 및 대응 방안:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td>품질 관리</td><td>AI 생성 코드 결함·취약점</td><td>SAST·DAST·자동 테스트</td><td>품질 검증</td></tr>
+<tr><td>보안 관리</td><td>미관리 애플리케이션 증가</td><td>자산 등록·접근통제</td><td>Shadow IT 방지</td></tr>
+<tr><td>데이터 관리</td><td>폐기 시 데이터 유실·잔존</td><td>데이터 분리·이관·삭제 정책</td><td>데이터 보호</td></tr>
+<tr><td>기술 부채</td><td>임시 앱의 장기 운영 전환</td><td>EOL 지정·정기 평가</td><td>부채 최소화</td></tr>
+<tr><td>거버넌스</td><td>소유자·책임·규제 준수 불명확</td><td>책임자 지정·승인 절차</td><td>통제 체계</td></tr>
+<tr><td>운영 연속성</td><td>서비스 교체 시 연계 장애</td><td>API 표준화·의존성 관리</td><td>교체 안정성</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 애플리케이션 증가에 따른 Shadow IT·보안 취약점·데이터 잔존 위험을 방지하기 위해 <strong>설계 단계부터 수명·폐기 정책을 내재화하는 거버넌스</strong>가 중요함.</li>
+</ul>
 
 </body>
 </html>

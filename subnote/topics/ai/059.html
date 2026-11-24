@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[하위] 4-1. LLM 환각(Hallucination)</title>
+  <title>[하위] 4-1. 리랭커 (Reranker)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,41 +15,39 @@
   </style>
 </head>
 <body>
-<h4>[하위] 4-1. LLM 환각(Hallucination)</h4>
+<h4><strong>[하위] 4-1. 리랭커 (Reranker)</strong></h4>
 <ul>
-<li><strong>정의:</strong> 모델 학습·추론의 한계로 사실과 다른 정보를 사실처럼 확신해 생성하는 현상</li>
-<li><strong>LLM 환각 발생 원인: </strong><div class="table-scroll"><table>
-<tr><th>구분</th><th>발생원인</th><th>핵심</th></tr>
-<tr><td><strong>데이터 요인</strong></td><td><strong>학습 부족</strong></td><td>도메인 및 최신정보 부족</td></tr>
-<tr><td></td><td><strong>데이터 노이즈</strong></td><td>거짓·오류정보 학습</td></tr>
-<tr><td></td><td><strong>편향(Bias)</strong></td><td>편향된 데이터 학습</td></tr>
-<tr><td><strong>모델 요인</strong></td><td><strong>확률적 생성 특성</strong></td><td>그럴듯한 오답 생성</td></tr>
-<tr><td></td><td><strong>긴 문맥 정보 손실</strong></td><td>중요 정보 왜곡 및 누락</td></tr>
-<tr><td><strong>사용자 요인</strong></td><td><strong>모호한 질의</strong></td><td>임의의 전제 보완</td></tr>
-<tr><td></td><td><strong>복잡한 논리 요구</strong></td><td>추론 역량 한계 초과</td></tr>
+<li><strong>정의:</strong> 검색된 문서의 질의 관련성을 재평가하여 결과 순위를 최적화하는 기술</li>
+<li><strong>키워드:</strong> 재순위화, 의미적 관련성, 교차 인코더, 이중 인코더, 검색 정확도, RAG</li>
+<li><strong>분류</strong>: 생성형 AI/LLM</li>
+<li><strong>리랭커 핵심 구성요소:</strong><div class="table-scroll"><table>
+<tr><th>구성요소</th><th>주요 기능</th><th>핵심</th></tr>
+<tr><td>질의 (Query)</td><td>사용자 질문·검색 의도 입력</td><td>검색 기준</td></tr>
+<tr><td>검색기 (Retriever)</td><td>후보 문서 1차 검색</td><td>후보 추출</td></tr>
+<tr><td>관련성 평가 (Scoring)</td><td>질의·문서 관련성 점수 산출</td><td>의미 분석</td></tr>
+<tr><td>재순위화 (Reranking)</td><td>관련성 점수 기반 문서 정렬</td><td>순위 최적화</td></tr>
+<tr><td>상위 문서 선정 (Top-K)</td><td>고관련성 문서 선별</td><td>컨텍스트 최적화</td></tr>
 </table></div>
 </li>
-<li><strong>LLM 환각 유형:</strong><div class="table-scroll"><table>
-<tr><th><strong>유형</strong></th><th><strong>항목</strong></th><th><strong>사례</strong></th></tr>
-<tr><td><strong>내재적 환각</strong></td><td><strong>모순 내용 생성</strong></td><td>입력된 근거 문서와 모순되는 내용 생성</td></tr>
-<tr><td></td><td><strong>문맥 왜곡</strong></td><td>제공된 Context의 잘못된 해석 및 왜곡</td></tr>
-<tr><td></td><td><strong>RAG 한계 오류</strong></td><td>RAG 근거가 존재함에도 오류 발생</td></tr>
-<tr><td><strong>외재적 환각</strong></td><td><strong>미학습 내용 생성</strong></td><td>입력 및 학습 지식에도 없는 내용 생성</td></tr>
-<tr><td></td><td><strong>허위 사실 창작</strong></td><td>검증이 불가능한 새로운 사실 창작</td></tr>
-<tr><td></td><td><strong>근거 부족</strong></td><td>근거 문서가 부족할 때 주로 발생</td></tr>
+<li><strong>리랭커 주요 기법:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기법</th><th>주요 원리</th><th>핵심</th></tr>
+<tr><td><strong>신경망 기반</strong></td><td>Cross-Encoder</td><td>질의·문서를 함께 입력하여 관련성 평가</td><td>정밀 재순위화</td></tr>
+<tr><td></td><td>LLM 기반 리랭킹</td><td>LLM으로 문서 관련성 평가·순위 결정</td><td>문맥 추론</td></tr>
+<tr><td><strong>검색 융합</strong></td><td>RRF (Reciprocal Rank Fusion)</td><td>복수 검색 결과의 순위를 결합</td><td>순위 융합</td></tr>
+<tr><td><strong>학습 기반</strong></td><td>Learning to Rank</td><td>관련성 학습 데이터 기반 순위 예측</td><td>순위 학습</td></tr>
+<tr><td><strong>규칙 기반</strong></td><td>가중치 재순위화</td><td>관련성·최신성·중요도 가중치 적용</td><td>규칙 기반 정렬</td></tr>
 </table></div>
 </li>
-<li><strong>LLM 환각 해결 방안:</strong><div class="table-scroll"><table>
-<tr><th><strong>구분</strong></th><th><strong>해결방안</strong></th><th><strong>핵심</strong></th></tr>
-<tr><td><strong>근거 강화</strong></td><td><strong>근거 기반 생성 (RAG)</strong></td><td>문서 범위 내 답변 유도</td></tr>
-<tr><td></td><td><strong>지식 그래프 (Knowledge Graph)</strong></td><td>엔티티 간 논리적 관계 제공</td></tr>
-<tr><td><strong>생성 제어</strong></td><td><strong>프롬프트 설계 기법</strong></td><td>형식 제한 및 단계적 사고</td></tr>
-<tr><td></td><td><strong>디코딩 파라미터 최적화</strong></td><td>답변 생성의 무작위성 통제</td></tr>
-<tr><td><strong>사후 검증</strong></td><td><strong>Self-Consistency</strong></td><td>반복 생성 답변의 일치 확인</td></tr>
-<tr><td></td><td><strong>검증 루프</strong></td><td>초안 스스로 점검 및 수정</td></tr>
-<tr><td></td><td><strong>Human-in-the-loop (HITL)</strong></td><td>최종 판단 전 분석가 확인</td></tr>
+<li><strong>리랭커 수행 절차:</strong><div class="table-scroll"><table>
+<tr><th>단계</th><th>수행 절차</th><th>주요 활동</th><th>핵심</th></tr>
+<tr><td>1. 질의 입력</td><td>Query Processing</td><td>사용자 질의 분석·정규화</td><td>검색 의도</td></tr>
+<tr><td>2. 후보 검색</td><td>Initial Retrieval</td><td>벡터DB·BM25 기반 후보 문서 검색</td><td>1차 검색</td></tr>
+<tr><td>3. 관련성 평가</td><td>Relevance Scoring</td><td>질의·문서 간 의미적 관련성 산출</td><td>정밀 평가</td></tr>
+<tr><td>4. 재순위화</td><td>Reranking</td><td>관련성 점수 기반 순위 재정렬·Top-K 선정</td><td>검색 최적화</td></tr>
+<tr><td>5. 답변 생성</td><td>Generation</td><td>선정된 문서를 LLM에 전달·응답 생성</td><td>RAG 연계</td></tr>
 </table></div>
 </li>
+<li><strong>인사이트:</strong> RAG에서는 1차 검색의 Recall을 충분히 확보한 뒤 Cross-Encoder 기반 재순위화로 Precision을 개선하고, 후보 문서 수와 Top-K를 조정하여 응답 품질·지연시간·토큰 비용을 함께 최적화해야 함.</li>
 </ul>
 
 </body>

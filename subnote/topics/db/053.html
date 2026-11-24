@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. CAP 이론 & PACELC 이론</title>
+  <title>3. 분산 데이터베이스 (Distributed Database, DDB)</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* iframe 내부 여백 및 반응형 보정 */
@@ -15,32 +15,70 @@
   </style>
 </head>
 <body>
-<h4>4. CAP 이론 &amp; PACELC 이론</h4>
+<h4><strong>3. 분산 데이터베이스 (Distributed Database, DDB)</strong></h4>
 <ul>
-<li><strong>정의</strong>:<ul>
-<li><strong>CAP 이론</strong>: 분산 시스템은 일관성(C), 가용성(A), 분할내성(P) 중 최대 2개만 동시에 만족할 수 있다는 이론</li>
-<li><strong>PACELC 이론</strong>: CAP을 확장하여, 분할 발생 시(PA/PC)와 정상 상태(EL/EC)로 나누어 지연시간-일관성 트레이드오프까지 설명하는 이론</li>
-</ul>
-</li>
-<li><strong>키워드</strong>: CAP, 일관성, 가용성, 분할내성, PACELC, 지연시간-일관성 트레이드오프</li>
+<li><strong>정의:</strong> 네트워크로 연결된 여러 노드에 데이터를 분산 저장·관리하는 데이터베이스</li>
+<li><strong>키워드</strong>: 위치/복제/병행/분할/장애 투명성, 분할/복제/할당 전략, 분산 트랜잭션, 일관성, 샤딩</li>
 <li><strong>분류</strong>: 분산DB/파티셔닝</li>
-<li><strong>CAP 분류</strong>:<div class="table-scroll"><table>
-<tr><th>유형</th><th>포기 속성</th><th>대표 사례</th></tr>
-<tr><td><strong>CA (C+A)</strong></td><td>분할내성(Partition Tolerance)</td><td>전통적 RDBMS</td></tr>
-<tr><td><strong>AP (A+P)</strong></td><td>일관성(Consistency)</td><td>DynamoDB, Cassandra</td></tr>
-<tr><td><strong>CP (C+P)</strong></td><td>가용성(Availability)</td><td>HBase, MongoDB(일부 설정)</td></tr>
+<li><strong>데이터 분산 방식: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;분복할&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>분산 방식</th><th>주요 원리</th><th>핵심</th></tr>
+<tr><td><strong>분할</strong></td><td>수평 분할 (Horizontal)</td><td>행(Row) 단위 데이터 분할</td><td>샤딩</td></tr>
+<tr><td></td><td>수직 분할 (Vertical)</td><td>열(Column) 단위 데이터 분할</td><td>속성 분리</td></tr>
+<tr><td></td><td>혼합 분할 (Hybrid)</td><td>수평·수직 분할 조합</td><td>복합 분할</td></tr>
+<tr><td><strong>복제</strong></td><td>전체 복제 (Full)</td><td>모든 대상 노드에 전체 데이터 복제</td><td>가용성 확보</td></tr>
+<tr><td></td><td>부분 복제 (Partial)</td><td>일부 데이터만 선택적 복제</td><td>자원 최적화</td></tr>
+<tr><td></td><td>비복제 (No Replication)</td><td>데이터 복제본 없이 원본만 유지</td><td>저장 효율</td></tr>
+<tr><td><strong>할당</strong></td><td>비중복 할당 (Non-redundant)</td><td>분할 데이터를 단일 노드에 배치</td><td>저장 효율</td></tr>
+<tr><td></td><td>중복 할당 (Redundant)</td><td>동일 분할 데이터를 복수 노드에 배치</td><td>장애 대응</td></tr>
 </table></div>
 </li>
-<li><strong>CAP 이론 한계: </strong>장애상황만 고려, 정적조합(극단적 이분법) 한계</li>
-<li><strong>PACELC 분류</strong>:<div class="table-scroll"><table>
-<tr><th>분류</th><th>장애/단절 (Partition)</th><th>정상 상황(Else)</th><th>대표 시스템</th></tr>
-<tr><td><strong>PA/EL</strong></td><td>가용성 우선</td><td>낮은 지연시간</td><td>DynamoDB, Cassandra</td></tr>
-<tr><td><strong>PA/EC</strong></td><td>가용성 우선</td><td>일관성 우선</td><td>MongoDB</td></tr>
-<tr><td><strong>PC/EL</strong></td><td>일관성 우선</td><td>낮은 지연시간</td><td>PNUTS</td></tr>
-<tr><td><strong>PC/EC</strong></td><td>일관성 우선</td><td>일관성 우선</td><td>HBase, VoltDB</td></tr>
+<li><strong>분산 데이터베이스 투명성: </strong><span style="background:#ddebf1;border-radius:3px;padding:1px 3px"><strong>&lt;위복병분장&gt;</strong></span><div class="table-scroll"><table>
+<tr><th>구분</th><th>투명성</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td><strong>데이터</strong></td><td>위치 투명성</td><td>데이터 저장 위치 은닉</td><td>위치 독립</td></tr>
+<tr><td></td><td>분할 투명성</td><td>데이터 분할 구조 은닉</td><td>분할 독립</td></tr>
+<tr><td></td><td>복제 투명성</td><td>복제본 존재·위치 은닉</td><td>복제 독립</td></tr>
+<tr><td><strong>운영</strong></td><td>장애 투명성</td><td>노드 장애·복구 과정 은닉</td><td>장애 대응</td></tr>
+<tr><td></td><td>병행 투명성</td><td>동시 트랜잭션 간 간섭 제어</td><td>동시성 보장</td></tr>
 </table></div>
 </li>
-<li><strong>인사이트</strong>: 실무에서 완전한 CP나 AP 시스템은 드물며, 대부분 상황에 따라 <span style="background:#fbe4e4;border-radius:3px;padding:1px 3px"><u><strong>일관성 수준을 동적으로 조정하는 최종 일관성(Eventual Consistency) 모델</strong></u></span>을 채택함</li>
+<li><strong>분산 데이터베이스 일관성 모델:</strong><div class="table-scroll"><table>
+<tr><th>일관성 모델</th><th>주요 내용</th><th>핵심</th></tr>
+<tr><td>강한 일관성 (Strong Consistency)</td><td>완료된 쓰기 이후 최신 데이터 조회 보장</td><td>최신 데이터</td></tr>
+<tr><td>최종 일관성 (Eventual Consistency)</td><td>갱신 중단 시 복제본이 최종적으로 수렴</td><td>비동기 동기화</td></tr>
+<tr><td>인과 일관성 (Causal Consistency)</td><td>인과관계가 있는 연산의 순서 보장</td><td>인과 순서</td></tr>
+<tr><td>세션 일관성 (Session Consistency)</td><td>동일 세션에서 정의된 읽기·쓰기 보장 제공</td><td>세션 정합성</td></tr>
+</table></div>
+</li>
+<li><strong>분산 트랜잭션 주요 기술:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>기술</th><th>주요 원리</th><th>핵심</th></tr>
+<tr><td><strong>원자성</strong></td><td>2PC (2-Phase Commit)</td><td>준비·확정 2단계로 분산 커밋</td><td>원자적 커밋</td></tr>
+<tr><td></td><td>3PC (3-Phase Commit)</td><td>중간 사전 확정 단계 추가</td><td>블로킹 완화</td></tr>
+<tr><td><strong>합의</strong></td><td>Raft</td><td>리더 선출·로그 복제로 합의</td><td>분산 합의</td></tr>
+<tr><td></td><td>Paxos</td><td>다수 노드의 합의 기반 값 결정</td><td>상태 일치</td></tr>
+<tr><td><strong>업무 보상</strong></td><td>Saga Pattern</td><td>로컬 트랜잭션·보상 작업 연결</td><td>보상 트랜잭션</td></tr>
+</table></div>
+</li>
+<li><strong>중앙집중형 DB와 분산 DB 비교:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>중앙집중형 DB</th><th>분산 DB</th></tr>
+<tr><td><strong>데이터 저장</strong></td><td>단일 시스템 중심</td><td>다중 노드 분산 저장</td></tr>
+<tr><td><strong>확장 방식</strong></td><td>수직 확장 중심</td><td>수평 확장 중심</td></tr>
+<tr><td><strong>장애 대응</strong></td><td>별도 이중화 필요</td><td>복제·장애 조치 활용</td></tr>
+<tr><td><strong>데이터 정합성</strong></td><td>상대적으로 관리 용이</td><td>노드 간 동기화 필요</td></tr>
+<tr><td><strong>트랜잭션</strong></td><td>단일 DB 트랜잭션</td><td>분산 트랜잭션 조정</td></tr>
+<tr><td><strong>관리 복잡도</strong></td><td>상대적으로 낮음</td><td>네트워크·복제·합의 관리</td></tr>
+<tr><td><strong>주요 목적</strong></td><td>단일 환경 데이터 관리</td><td>확장성·가용성·분산 처리</td></tr>
+</table></div>
+</li>
+<li><strong>분산 데이터베이스 적용 시 고려사항:</strong><div class="table-scroll"><table>
+<tr><th>구분</th><th>주요 한계</th><th>대응 방안</th><th>핵심</th></tr>
+<tr><td><strong>분할 전략</strong></td><td>데이터 편중·핫스팟</td><td>샤드 키 최적화·리밸런싱</td><td>부하 균등화</td></tr>
+<tr><td><strong>복제 관리</strong></td><td>복제 지연·데이터 불일치</td><td>동기화 정책·복제 상태 감시</td><td>정합성 확보</td></tr>
+<tr><td><strong>일관성</strong></td><td>가용성과 일관성 충돌</td><td>업무별 일관성 수준 선택</td><td>CAP 고려</td></tr>
+<tr><td><strong>트랜잭션</strong></td><td>분산 커밋 지연·블로킹</td><td>2PC·Saga 등 선택 적용</td><td>트랜잭션 안정성</td></tr>
+<tr><td><strong>장애 대응</strong></td><td>네트워크 단절·노드 장애</td><td>복제·자동 장애 조치·합의</td><td>내결함성 확보</td></tr>
+</table></div>
+</li>
+<li><strong>인사이트:</strong> 업무별 정합성 요구사항에 따라 CP·AP 성향과 일관성 수준을 선택하고, 샤드 키·복제·분산 트랜잭션 전략을 함께 설계해야 함. 특히 네트워크 분할과 노드 장애를 가정한 복구·재처리 검증을 통해 실질적인 가용성을 확보하는 것이 중요함.</li>
 </ul>
 
 </body>
